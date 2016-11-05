@@ -1,55 +1,52 @@
-<properties 
-   pageTitle="Сообщения системного журнала в Log Analytics | Microsoft Azure"
-   description="Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Сообщения системного журнала в Log Analytics | Microsoft Docs
+description: Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-
+---
 # <a name="syslog-data-sources-in-log-analytics"></a>Источники данных системного журнала в Log Analytics
-
 Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.  Приложения отправляют сообщения, которые могут храниться на локальном компьютере или передаваться в сборщик системного журнала.  При установке агента OMS для Linux он настраивает локальную управляющую программу системного журнала для пересылки сообщений в агент.  Затем агент отправляет сообщение в службу Log Analytics, где в репозитории OMS создается соответствующая запись.  
 
-> [AZURE.NOTE]Log Analytics поддерживает сбор сообщений, отправленных rsyslog или syslog-ng. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить [управляющую программу rsyslog](http://rsyslog.com) , которая заменит sysklog.
+> [!NOTE]
+> Log Analytics поддерживает сбор сообщений, отправленных rsyslog или syslog-ng. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить [управляющую программу rsyslog](http://rsyslog.com) , которая заменит sysklog.
+> 
+> 
 
 ![Сбор сообщений системного журнала](media/log-analytics-data-sources-syslog/overview.png)
-
 
 ## <a name="configuring-syslog"></a>Настройка системного журнала
 Агент OMS для Linux будет собирать события только с тех устройств и только с тем уровнем серьезности, которые заданы в его конфигурации.  Системный журнал можно настроить на портале OMS или с помощью управления файлами конфигурации на агентах Linux.
 
-
 ### <a name="configure-syslog-in-the-oms-portal"></a>Настройка системного журнала на портале OMS
-
 Настройте системный журнал в [меню "Данные" раздела "Параметры" Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Эта конфигурация передается в файл конфигурации на каждом агенте Linux.
 
 Можно добавить новое устройство, введя его имя и нажав кнопку **+**.  Для каждого устройства будут собираться сообщения только с выбранным уровнем серьезности.  Укажите уровни серьезности сообщений, которые хотите получать от соответствующего устройства.  Дополнительные критерии для фильтрации сообщений задавать нельзя.
 
 ![Настройка системного журнала](media/log-analytics-data-sources-syslog/configure.png)
 
-
 По умолчанию все изменения конфигурации автоматически отправляются во все агенты.  Если вы хотите настроить системный журнал вручную на каждом агенте Linux, снимите флажок *Apply below configuration to my Linux machines*(Применить конфигурацию ниже к моим компьютерам Linux).
 
-
 ### <a name="configure-syslog-on-linux-agent"></a>Настройка системного журнала на агенте Linux
-
 При [установке агента OMS на клиент Linux](log-analytics-linux-agents.md)он устанавливает файл конфигурации системного журнала по умолчанию, который определяет устройства и уровень серьезности для собираемых сообщений.  Можно изменить этот файл, чтобы внести изменения в конфигурацию.  Файл конфигурации отличается в зависимости от того, какую управляющая программу системного журнала установил клиент.
 
-> [AZURE.NOTE] При изменении конфигурации системного журнала требуется перезапустить управляющую программу syslog, чтобы изменения вступили в силу.
+> [!NOTE]
+> При изменении конфигурации системного журнала требуется перезапустить управляющую программу syslog, чтобы изменения вступили в силу.
+> 
+> 
 
 #### <a name="rsyslog"></a>rsyslog
-
 Файл конфигурации для rsyslog находится в расположении **/etc/rsyslog.d/95-omsagent.conf**.  Его содержимое по умолчанию приведено ниже.  В данном случае собираются сообщения системного журнала, отправленные из локального агента для всех устройств и имеющие уровень серьезности "предупреждение" или выше.
 
     kern.warning       @127.0.0.1:25224
@@ -76,7 +73,6 @@
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-
 Файл конфигурации для syslog-ng находится в расположении **/etc/syslog-ng/syslog-ng.conf**.  Его содержимое по умолчанию приведено ниже.  В данном случае собираются сообщения системного журнала, отправленные из локального агента для всех устройств и всех уровней серьезности.   
 
     #
@@ -84,7 +80,7 @@
     #
     destination warn { file("/var/log/warn" fsync(yes)); };
     log { source(src); filter(f_warn); destination(warn); };
-    
+
     #OMS_Destination
     destination d_oms { udp("127.0.0.1" port(25224)); };
 
@@ -107,23 +103,23 @@
     #OMS_facility = kern
     filter f_kern_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(kern); };
     log { source(src); filter(f_kern_oms); destination(d_oms); };
-    
+
     #OMS_facility = local0
     filter f_local0_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local0); };
     log { source(src); filter(f_local0_oms); destination(d_oms); };
-    
+
     #OMS_facility = local1
     filter f_local1_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local1); };
     log { source(src); filter(f_local1_oms); destination(d_oms); };
-    
+
     #OMS_facility = mail
     filter f_mail_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(mail); };
     log { source(src); filter(f_mail_oms); destination(d_oms); };
-    
+
     #OMS_facility = syslog
     filter f_syslog_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(syslog); };
     log { source(src); filter(f_syslog_oms); destination(d_oms); };
-    
+
     #OMS_facility = user
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
@@ -136,7 +132,6 @@
 
 
 ### <a name="changing-the-syslog-port"></a>Изменение порта системного журнала
-
 Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224.  Этот порт можно изменить, добавив следующий раздел в файл конфигурации агента OMS, который находится в расположении **/etc/opt/microsoft/omsagent/conf/omsagent.conf**.  В записи **порта** замените 25224 на номер порта, который хотите использовать.  Обратите внимание, что для отправки сообщений в этот порт необходимо также изменить файл конфигурации управляющей программы системного журнала.
 
     <source>
@@ -149,45 +144,36 @@
 
 
 ## <a name="data-collection"></a>Сбор данных
-
 Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224. Файл конфигурации управляющей программы системного журнала пересылает сообщения системного журнала, отправленные из приложения, на этот порт, и там они собираются службой Log Analytics.
 
-
 ## <a name="syslog-record-properties"></a>Свойства записей системного журнала
-
 Записи системного журнала имеют тип **Syslog** и свойства, описанные в приведенной ниже таблице.
 
 | Свойство | Описание |
-|:--|:--|
-| Компьютер | Компьютер, с которого было получено событие. |
-| Facility | Определяет часть системы, которая создала сообщение. |
-| HostIP | IP-адрес системы, отправившей сообщение.  |
-| HostName | Имя системы, отправившей сообщение. |
-| SeverityLevel | Уровень серьезности события. |
-| SyslogMessage | Текст сообщения. |
-| ProcessID | Идентификатор процесса, создавшего сообщение. |
-| EventTime | Дата и время создания события.
-
-
+|:--- |:--- |
+| Компьютер |Компьютер, с которого было получено событие. |
+| Facility |Определяет часть системы, которая создала сообщение. |
+| HostIP |IP-адрес системы, отправившей сообщение. |
+| HostName |Имя системы, отправившей сообщение. |
+| SeverityLevel |Уровень серьезности события. |
+| SyslogMessage |Текст сообщения. |
+| ProcessID |Идентификатор процесса, создавшего сообщение. |
+| EventTime |Дата и время создания события. |
 
 ## <a name="log-queries-with-syslog-records"></a>Запросы к журналу для получения записей системного журнала
-
 В следующей таблице представлены различные примеры запросов к журналу, извлекающих записи из системного журнала.
 
 | Запрос | Описание |
-|:--|:--|
-| Type=Syslog | Все записи системного журнала. |
-| Type=Syslog SeverityLevel=error | Все записи системного журнала с уровнем серьезности "ошибка". |
-| Type=Syslog &#124; measure count() by Computer | Число записей системного журнала по компьютеру. |
-| Type=Syslog &#124; measure count() by Facility | Число записей системного журнала по устройству. |
+|:--- |:--- |
+| Type=Syslog |Все записи системного журнала. |
+| Type=Syslog SeverityLevel=error |Все записи системного журнала с уровнем серьезности "ошибка". |
+| Type=Syslog &#124; measure count() by Computer |Число записей системного журнала по компьютеру. |
+| Type=Syslog &#124; measure count() by Facility |Число записей системного журнала по устройству. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений. 
-- Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
-- [Настройте агенты Linux](log-analytics-linux-agents.md) для сбора других типов данных. 
-
-
+* Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений. 
+* Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
+* [Настройте агенты Linux](log-analytics-linux-agents.md) для сбора других типов данных. 
 
 <!--HONumber=Oct16_HO2-->
 

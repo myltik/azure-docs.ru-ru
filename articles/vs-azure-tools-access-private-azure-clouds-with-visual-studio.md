@@ -1,46 +1,40 @@
-<properties 
-   pageTitle="Доступ к частным облакам Azure с помощью Visual Studio | Microsoft Azure"
-   description="Узнайте, как получить доступ к ресурсам частного облака с помощью Visual Studio."
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="" />
-<tags 
-   ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="08/15/2016"
-   ms.author="tarcher" />
+---
+title: Доступ к частным облакам Azure с помощью Visual Studio | Microsoft Docs
+description: Узнайте, как получить доступ к ресурсам частного облака с помощью Visual Studio.
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
 
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 08/15/2016
+ms.author: tarcher
+
+---
 # Доступ к частным облакам Azure с помощью Visual Studio
-
-##Обзор
-
+## Обзор
 По умолчанию Visual Studio поддерживает конечные точки REST общедоступных облаков Azure. Однако в некоторых случаях требуется использовать Visual Studio для работы с частным облаком Azure. Вы можете настроить Visual Studio для доступа к конечным точкам REST частного облака Azure с помощью сертификатов. Их можно получить из файла параметров публикации Azure.
 
 ## Получение доступа к частному облаку Azure из Visual Studio
-
 1. Скачайте файл параметров публикации на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) для частного облака или запросите этот файл у администратора. В общедоступной версии Azure скачать файл можно по ссылке [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/) (загруженный файл должен иметь расширение PUBLISHSETTINGS).
-
-1. В Visual Studio в **обозревателе серверов** выберите узел **Azure**, а затем в контекстном меню выберите пункт **Управление подписками**.
-
+2. В Visual Studio в **обозревателе серверов** выберите узел **Azure**, а затем в контекстном меню выберите пункт **Управление подписками**.
+   
     ![Команда "Управление подписками"](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
-
-1. В диалоговом окне **Управление подписками Microsoft Azure** откройте вкладку **Сертификаты**, а затем нажмите кнопку **Импорт**.
-
+3. В диалоговом окне **Управление подписками Microsoft Azure** откройте вкладку **Сертификаты**, а затем нажмите кнопку **Импорт**.
+   
     ![Импорт сертификатов Azure](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
-
-1. В диалоговом окне **Импорт подписок Microsoft Azure** найдите папку, в которой сохранен файл параметров публикации, выберите этот файл, а затем нажмите кнопку **Импорт**. Сертификаты из файла параметров публикации будут импортированы в Visual Studio. Теперь вы сможете работать с ресурсами частного облака.
-
+4. В диалоговом окне **Импорт подписок Microsoft Azure** найдите папку, в которой сохранен файл параметров публикации, выберите этот файл, а затем нажмите кнопку **Импорт**. Сертификаты из файла параметров публикации будут импортированы в Visual Studio. Теперь вы сможете работать с ресурсами частного облака.
+   
     ![Импорт параметров публикации](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
 ## Дальнейшие действия
-
 [Публикация в облачной службе Azure из Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[Загрузка и импорт параметров публикации и сведений о подписке](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
+[Загрузка и импорт параметров публикации и сведений о подписке](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

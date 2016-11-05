@@ -1,38 +1,34 @@
 
 Диагностика неполадок в облачной службе Microsoft Azure предусматривает сбор файлов журналов служб на виртуальных машинах по мере возникновения проблем. Вы можете использовать запускаемое по запросу расширение AzureVMLogCollector для однократного выполнения операций по сбору журналов из одной или нескольких виртуальных машин облачной службы (из веб-ролей или рабочих ролей) и передачи собранных файлов в учетную запись хранения Azure. Все эти действия выполняются без удаленного входа на виртуальные машины.
-> [AZURE.NOTE]Описание почти всей информации, которая записывается в журналы, см. в статье http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+
+> [!NOTE]
+> Описание почти всей информации, которая записывается в журналы, см. в статье http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> 
+> 
 
 Существует два режима сбора данных для файлов разных типов.
-- Только журналы гостевого агента Azure (GA). В этом режиме собираются все журналы, связанные с гостевыми агентами и другими компонентами Azure.
-- Все журналы (Full). В этом режиме собираются все файлы, которые собираются в режиме GA, а также:
 
-  - журналы событий системы и приложений;
-
-  - журналы ошибок HTTP;
-
-  - Журналы IIS
-
-  - журналы установки;
-
-  - другие системные журналы.
+* Только журналы гостевого агента Azure (GA). В этом режиме собираются все журналы, связанные с гостевыми агентами и другими компонентами Azure.
+* Все журналы (Full). В этом режиме собираются все файлы, которые собираются в режиме GA, а также:
+  
+  * журналы событий системы и приложений;
+  * журналы ошибок HTTP;
+  * Журналы IIS
+  * журналы установки;
+  * другие системные журналы.
 
 Для двух этих режимов сбора можно указать папки, в которые будут собираться дополнительные данные. Это можно сделать с помощью коллекции со следующей структурой.
 
-- **Name**: имя коллекции, которое будет использоваться как имя вложенной папки в ZIP-файле с собранной информацией.
-
-- **Location**: путь к папке на виртуальной машине, куда будет записан файл.
-
-- **SearchPattern**: шаблон имен файлов, которые будут собраны. Значение по умолчанию — *.
-
-- **Recursive**: параметр определяет, будут ли файлы собраны рекурсивно в рамках заданной папки.
+* **Name**: имя коллекции, которое будет использоваться как имя вложенной папки в ZIP-файле с собранной информацией.
+* **Location**: путь к папке на виртуальной машине, куда будет записан файл.
+* **SearchPattern**: шаблон имен файлов, которые будут собраны. Значение по умолчанию — *.
+* **Recursive**: параметр определяет, будут ли файлы собраны рекурсивно в рамках заданной папки.
 
 ## Предварительные требования
-
-- Учетная запись, в которую расширение будет сохранять созданные ZIP-файлы.
-- Командлеты Azure PowerShell 0.8.0 или более поздней версии. Дополнительные сведения см. на странице [загрузок Azure](https://azure.microsoft.com/downloads/).
+* Учетная запись, в которую расширение будет сохранять созданные ZIP-файлы.
+* Командлеты Azure PowerShell 0.8.0 или более поздней версии. Дополнительные сведения см. на странице [загрузок Azure](https://azure.microsoft.com/downloads/).
 
 ## Добавление расширения
-
 Добавить расширение AzureLogCollector можно с помощью командлетов [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) или интерфейсов [REST API управления службой](https://msdn.microsoft.com/library/ee460799.aspx).
 
 Для облачных служб существует командлет Azure Powershell с именем **Set-AzureServiceExtension**. Его можно использовать для включения расширения в экземплярах роли облачной службы. При каждом включении расширения с помощью этого командлета запускается операция сбора журналов на указанных экземплярах выбранных ролей.
@@ -42,7 +38,6 @@
 На внутреннем уровне расширение использует свойства PublicConfiguration и PrivateConfiguration на основе JSON. Ниже приведена примерная структура JSON для открытой и закрытой конфигурации.
 
 ### PublicConfiguration
-
     {
         "Instances":  "*",
         "Mode":  "Full",
@@ -65,58 +60,58 @@
     }
 
 ### PrivateConfiguration
-
     {
 
     }
 
-> [AZURE.NOTE]Это расширение не требует наличия **privateConfiguration**. В качестве аргумента для **–PrivateConfiguration** вы можете предоставить пустую структуру.
+> [!NOTE]
+> Это расширение не требует наличия **privateConfiguration**. В качестве аргумента для **–PrivateConfiguration** вы можете предоставить пустую структуру.
+> 
+> 
 
 Чтобы добавить AzureLogCollector в один или несколько экземпляров облачной службы или виртуальной машины для выбранных ролей, можно выполнить одну из двух описанных ниже процедур. Будет запущена операция сбора данных на каждой виртуальной машине с отправкой собранных файлов в указанную учетную запись Azure.
 
 ## Добавление в качестве расширения службы
-
 1. Подключите Azure PowerShell к своей подписке в соответствии с инструкциями.
-
 2. Укажите имя службы, слот, роли и экземпляры ролей, для которых вы хотите добавить и включить расширение AzureLogCollector.
-
+   
         #Specify your cloud service name
         $ServiceName = 'extensiontest2'
-
+   
         #Specify the slot. 'Production' or 'Staging'
         $slot = 'Production'
-
+   
         #Specified the roles on which the extension will be installed and enabled
         $roles = @("WorkerRole1","WebRole1")
-
+   
         #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
         $instances = @("*")
-
+   
         #Specify the collection mode, "Full" or "GA"
         $mode = "GA"
-
 3. Укажите папку с дополнительными данными для сбора файлов (этот шаг является необязательным).
-
+   
         #add one location
         $a1 = New-Object PSObject
-
+   
         $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
         $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
         $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
         $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
-
+   
         $AdditionalDataList+= $a1
               #more locations can be added....
-
-    > [AZURE.NOTE] Так как корневой диск роли не задан жестко, его можно указать с помощью токена `%roleroot%`.
-
+   
+   > [!NOTE]
+   > Так как корневой диск роли не задан жестко, его можно указать с помощью токена `%roleroot%`.
+   > 
+   > 
 4. Укажите имя и ключ учетной записи хранения Azure, в которую будут отправлены собранные файлы.
-
+   
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-
 5. Вызовите файл SetAzureServiceLogCollector.ps1 (см. в конце статьи) указанным ниже образом, чтобы включить расширение AzureLogCollector для облачной службы. После выполнения отправленный файл будет размещен по адресу `https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
-
+   
         .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
 
 Ниже описаны параметры, которые принимает этот сценарий. (Эта часть кода дублируется ниже.)
@@ -149,60 +144,48 @@
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-- *ServiceName*: имя облачной службы.
-
-- *Roles*: список ролей, например WebRole1 или WorkerRole1.
-
-- *Instances*: список имен экземпляров ролей, разделенных запятыми. Чтобы включить все экземпляры роли, используйте строку с подстановочным знаком (*).
-
-- *Slot*: имя слота. Возможные значения: Production или Staging.
-
-- *Mode*: режим сбора данных. Возможные значения: Full или GA.
-
-- *StorageAccountName*: имя учетной записи Azure для хранения собранных данных.
-
-- *StorageAccountKey*: имя ключа учетной записи хранения Azure.
-
-- *AdditionalDataLocationList*: список со следующей структурой:
-
+* *ServiceName*: имя облачной службы.
+* *Roles*: список ролей, например WebRole1 или WorkerRole1.
+* *Instances*: список имен экземпляров ролей, разделенных запятыми. Чтобы включить все экземпляры роли, используйте строку с подстановочным знаком (*).
+* *Slot*: имя слота. Возможные значения: Production или Staging.
+* *Mode*: режим сбора данных. Возможные значения: Full или GA.
+* *StorageAccountName*: имя учетной записи Azure для хранения собранных данных.
+* *StorageAccountKey*: имя ключа учетной записи хранения Azure.
+* *AdditionalDataLocationList*: список со следующей структурой:
+  
       { String Name, String Location, String SearchPattern, Bool Recursive }
 
-
 ## Добавление в качестве расширения виртуальной машины
-
 Подключите Azure PowerShell к своей подписке в соответствии с инструкциями.
 
 1. Укажите имя службы, виртуальную машину и режим сбора данных.
-
+   
         #Specify your cloud service name
         $ServiceName = 'YourCloudServiceName'
-
+   
         #Specify the VM name
         $VMName = "'YourVMName'"
-
+   
         #Specify the collection mode, "Full" or "GA"
         $mode = "GA"
-
+   
         Specify the additional data folder for which files will be collected (this step is optional).
-
+   
         #add one location
         $a1 = New-Object PSObject
-
+   
         $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
         $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
         $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
         $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
-
+   
         $AdditionalDataList+= $a1
               #more locations can be added....
-
 2. Укажите имя и ключ учетной записи хранения Azure, в которую будут отправлены собранные файлы.
-
+   
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-
 3. Вызовите файл SetAzureVMLogCollector.ps1 (см. в конце статьи) указанным ниже образом, чтобы включить расширение AzureLogCollector для облачной службы. После выполнения отправленный файл будет размещен по адресу https://YouareStorageAccountName.blob.core.windows.net/vmlogs
-
 
 Ниже описаны параметры, которые принимает этот сценарий. (Эта часть кода дублируется ниже.)
 
@@ -228,17 +211,12 @@
       [PSObject[]] $AdditionDataLocationList = $null
       )
 
-- ServiceName: имя облачной службы.
-
-- VMName: имя виртуальной машины.
-
-- Mode: режим сбора данных. Возможные значения: Full или GA.
-
-- StorageAccountName: имя учетной записи Azure для хранения собранных данных.
-
-- StorageAccountKey: имя ключа учетной записи хранения Azure.
-
-- AdditionalDataLocationList: список со следующей структурой:
+* ServiceName: имя облачной службы.
+* VMName: имя виртуальной машины.
+* Mode: режим сбора данных. Возможные значения: Full или GA.
+* StorageAccountName: имя учетной записи Azure для хранения собранных данных.
+* StorageAccountKey: имя ключа учетной записи хранения Azure.
+* AdditionalDataLocationList: список со следующей структурой:
 
 ```
       {
@@ -250,7 +228,6 @@
 ```
 
 ## Файлы сценариев PowerShell для расширения
-
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -360,7 +337,6 @@ SetAzureServiceLogCollector.ps1
 
 
 SetAzureVMLogCollector.ps1
-
 
     [CmdletBinding(SupportsShouldProcess = $true)]
 
@@ -500,7 +476,6 @@ SetAzureVMLogCollector.ps1
     }
 
 ## Дальнейшие действия
-
 Теперь вы можете анализировать или копировать журналы, собранные в одном расположении.
 
 <!---HONumber=AcomDC_0629_2016-->

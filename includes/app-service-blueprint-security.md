@@ -4,7 +4,7 @@
   * [Принудительное использование HTTPS для всего входящего трафика](http://microsoftazurewebsitescheatsheet.info/#force-https)
   * [Включение строгого режима безопасности транспорта \(HSTS\)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 * [Ограничение доступа к приложению IP-адресом клиента](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
-* [Ограничение доступа к приложению поведением клиента — частотой запросов и параллелизмом](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+* [Ограничение доступа к приложению поведением клиента — частотой запросов и параллелизмом](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
 * [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) \(Сканирование кода веб-приложения на предмет уязвимостей с помощью Tinfoil Security\)
 * [Настройка взаимной проверки подлинности TLS для веб-приложения](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)
 * [Configure a client certificate for use from your app to securely connect to external resources](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/) \(Настройка использования сертификата клиента в приложении для безопасного подключения к внешним ресурсам\)

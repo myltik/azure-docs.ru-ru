@@ -1,27 +1,24 @@
-<properties
-	pageTitle="Примеры запросов для распространенных шаблонов использования Stream Analytics | Microsoft Azure"
-	description="Общие шаблоны запросов Azure Stream Analytics "
-	keywords="примеры запросов"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Примеры запросов для распространенных шаблонов использования Stream Analytics | Microsoft Docs
+description: 'Общие шаблоны запросов Azure Stream Analytics '
+keywords: примеры запросов
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/26/2016"
-	ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
+---
 # Примеры запросов для распространенных шаблонов использования Stream Analytics
-
 ## Введение
-
 Запросы в Azure Stream Analytics выражаются с помощью SQL-подобного языка запросов, который описан в [справке по языку запросов Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). В этой статье описаны решения для нескольких стандартных шаблонов запросов на основе реальных сценариев. Документ не завершен и будет дополняться новыми шаблонами на постоянной основе.
 
 ## Пример запроса: преобразования типов данных
@@ -31,28 +28,27 @@
 
 | Убедитесь, | Время | Вес |
 | --- | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z | "1000" |
-| Honda | 2015-01-01T00:00:02.0000000Z | "2000" |
+| Honda |2015-01-01T00:00:01.0000000Z |"1000" |
+| Honda |2015-01-01T00:00:02.0000000Z |"2000" |
 
 **Выходные данные**:
 
 | Убедитесь, | Вес |
 | --- | --- |
-| Honda | 3000 |
+| Honda |3000 |
 
 **Решение**
 
-	SELECT
-    	Make,
-    	SUM(CAST(Weight AS BIGINT)) AS Weight
-	FROM
-    	Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-    	TumblingWindow(second, 10)
+    SELECT
+        Make,
+        SUM(CAST(Weight AS BIGINT)) AS Weight
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
 
 **Объяснение**: используйте оператор CAST для поля Weight, чтобы указать его тип (см. список поддерживаемых типов данных [здесь](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
-
 
 ## Пример запроса: использование функции Like/Not like для сопоставления шаблонов
 **Описание**: проверьте, соответствует ли значение поля в событии определенному шаблону, например "Вернуть номерные знаки, которые начинаются с A и заканчиваются на 9".
@@ -61,25 +57,25 @@
 
 | Убедитесь, | LicensePlate | Время |
 | --- | --- | --- |
-| Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
-| Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
-| Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Выходные данные**
 
 | Убедитесь, | LicensePlate | Время |
 | --- | --- | --- |
-| Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
-| Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Решение**
 
-	SELECT
-    	*
-	FROM
-    	Input TIMESTAMP BY Time
-	WHERE
-    	LicensePlate LIKE 'A%9'
+    SELECT
+        *
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LicensePlate LIKE 'A%9'
 
 **Объяснение**: используйте оператор LIKE, чтобы убедиться, что значение поля LicensePlate начинается с A, затем включает любую строку из нуля или более символов и заканчивается на 9.
 
@@ -90,30 +86,30 @@
 
 | Убедитесь, | Время |
 | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:03.0000000Z |
 
 **Выходные данные**
 
 | CarsPassed | Время |
 | --- | --- | --- |
-| 1 Honda | 2015-01-01T00:00:10.0000000Z |
-| 2 Toyota | 2015-01-01T00:00:10.0000000Z |
+| 1 Honda |2015-01-01T00:00:10.0000000Z |
+| 2 Toyota |2015-01-01T00:00:10.0000000Z |
 
 **Решение**
 
     SELECT
-    	CASE
-			WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
-			ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
-		END AS CarsPassed,
-		System.TimeStamp AS Time
-	FROM
-		Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-		TumblingWindow(second, 10)
+        CASE
+            WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
+            ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
+        END AS CarsPassed,
+        System.TimeStamp AS Time
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
 
 **Объяснение**: выражение CASE позволяет нам предоставить различные вычисления на основе определенных критериев (в нашем случае это число автомобилей в окне статистики).
 
@@ -124,63 +120,63 @@
 
 | Убедитесь, | Время |
 | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Honda | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:01.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:03.0000000Z |
 
 **Выходные данные 1**:
 
 | Убедитесь, | Время |
 | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Honda | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:01.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:03.0000000Z |
 
 **Выходные данные 2**:
 
 | Убедитесь, | Время | Count |
 | --- | --- | --- |
-| Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
+| Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
 **Решение**:
 
-	SELECT
-		*
-	INTO
-		ArchiveOutput
-	FROM
-		Input TIMESTAMP BY Time
+    SELECT
+        *
+    INTO
+        ArchiveOutput
+    FROM
+        Input TIMESTAMP BY Time
 
-	SELECT
-		Make,
-		System.TimeStamp AS Time,
-		COUNT(*) AS [Count]
-	INTO
-		AlertOutput
-	FROM
-		Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-		TumblingWindow(second, 10)
-	HAVING
-		[Count] >= 3
+    SELECT
+        Make,
+        System.TimeStamp AS Time,
+        COUNT(*) AS [Count]
+    INTO
+        AlertOutput
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
+    HAVING
+        [Count] >= 3
 
 **Объяснение**: выражение INTO сообщает Stream Analytics, в которые выходные данные записывать данные из этого оператора. Первый запрос является передачей полученных данных в выходные данные с именем ArchiveOutput. Второй запрос выполняет некоторую простую статистическую обработку и фильтрацию и отправляет результаты нижестоящей системе оповещений. *Примечание.* Можно также повторно использовать результаты обобщенных табличных выражений (т. е. операторов WITH) в нескольких операторах выходных данных — это дает дополнительное преимущество, так как для источника входных данных открывается меньше модулей чтения. Например,
 
-	WITH AllRedCars AS (
-		SELECT
-			*
-		FROM
-			Input TIMESTAMP BY Time
-		WHERE
-			Color = 'red'
-	)
-	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
-	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+    WITH AllRedCars AS (
+        SELECT
+            *
+        FROM
+            Input TIMESTAMP BY Time
+        WHERE
+            Color = 'red'
+    )
+    SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
+    SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Пример запроса: подсчет уникальных значений
 **Описание**: подсчитайте количество уникальных значений поля, которые отображаются в потоке в течение определенного интервала. Например, сколько уникальных марок автомобилей проходят через пункт взимания дорожного сбора за 2 секунды?
@@ -189,67 +185,67 @@
 
 | Убедитесь, | Время |
 | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Honda | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
-| Toyota | 2015-01-01T00:00:03.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:01.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:03.0000000Z |
 
 **Выходные данные:**
 
 | Count | Время |
 | --- | --- |
-| 2 | 2015-01-01T00:00:02.000Z |
-| 1 | 2015-01-01T00:00:04.000Z |
+| 2 |2015-01-01T00:00:02.000Z |
+| 1 |2015-01-01T00:00:04.000Z |
 
 **Решение.**
 
-	WITH Makes AS (
-	    SELECT
-	        Make,
-	        COUNT(*) AS CountMake
-	    FROM
-	        Input TIMESTAMP BY Time
-	    GROUP BY
-	          Make,
-	          TumblingWindow(second, 2)
-	)
-	SELECT
-	    COUNT(*) AS Count,
-	    System.TimeStamp AS Time
-	FROM
-	    Makes
-	GROUP BY
-	    TumblingWindow(second, 1)
+    WITH Makes AS (
+        SELECT
+            Make,
+            COUNT(*) AS CountMake
+        FROM
+            Input TIMESTAMP BY Time
+        GROUP BY
+              Make,
+              TumblingWindow(second, 2)
+    )
+    SELECT
+        COUNT(*) AS Count,
+        System.TimeStamp AS Time
+    FROM
+        Makes
+    GROUP BY
+        TumblingWindow(second, 1)
 
 
 **Объяснение:** мы выполняем начальный статистический анализ, чтобы получить число уникальных марок за окно. Затем мы выполним статистический анализ числа полученных марок — учитывая, что все уникальные значения в окне получают ту же отметку времени, а второе окно статистической обработки должно быть минимальным, чтобы не обрабатывать 2 окна из первого шага.
 
-## Пример запроса: определение изменения значения#
+## Пример запроса: определение изменения значения
 **Описание**: рассмотрите предыдущее значение, чтобы определить, отличается ли оно от текущего. Например, предыдущий автомобиль на платной дороге той же марки, что и текущий автомобиль?
 
 **Входные данные**
 
 | Убедитесь, | Время |
 | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
+| Honda |2015-01-01T00:00:01.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Выходные данные**:
 
 | Убедитесь, | Время |
 | --- | --- |
-| Toyota | 2015-01-01T00:00:02.0000000Z |
+| Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Решение**:
 
-	SELECT
-		Make,
-		Time
-	FROM
-		Input TIMESTAMP BY Time
-	WHERE
-		LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+    SELECT
+        Make,
+        Time
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
 **Объяснение**: используйте LAG, чтобы заглянуть в поток входных данных на одно событие назад и получить значение Make. Затем сравните его с Make в текущем событии и поместите событие в выходные данные, если они отличаются.
 
@@ -260,52 +256,52 @@
 
 | LicensePlate | Убедитесь, | Время |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| RMV 8282 |Honda |2015-07-27T00:05:01.0000000Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
 **Выходные данные**:
 
 | LicensePlate | Убедитесь, | Время |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 
 **Решение**:
 
-	SELECT 
-		LicensePlate,
-		Make,
-		Time
-	FROM 
-		Input TIMESTAMP BY Time
-	WHERE 
-		IsFirst(minute, 10) = 1
+    SELECT 
+        LicensePlate,
+        Make,
+        Time
+    FROM 
+        Input TIMESTAMP BY Time
+    WHERE 
+        IsFirst(minute, 10) = 1
 
 Теперь изменим проблему и найдем первый автомобиль определенной марки за каждые 10 минут.
 
 | LicensePlate | Убедитесь, | Время |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
 **Решение**:
 
-	SELECT 
-		LicensePlate,
-		Make,
-		Time
-	FROM 
-		Input TIMESTAMP BY Time
-	WHERE 
-		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+    SELECT 
+        LicensePlate,
+        Make,
+        Time
+    FROM 
+        Input TIMESTAMP BY Time
+    WHERE 
+        IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
 ## Пример запроса: поиск последнего события в окне
 **Описание**: найдите последний автомобиль за каждые 10 минут.
@@ -314,41 +310,41 @@
 
 | LicensePlate | Убедитесь, | Время |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| RMV 8282 |Honda |2015-07-27T00:05:01.0000000Z |
+| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
+| QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
 **Выходные данные**:
 
 | LicensePlate | Убедитесь, | Время |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
+| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
+| MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
 **Решение**:
 
-	WITH LastInWindow AS
-	(
-		SELECT 
-			MAX(Time) AS LastEventTime
-		FROM 
-			Input TIMESTAMP BY Time
-		GROUP BY 
-			TumblingWindow(minute, 10)
-	)
-	SELECT 
-		Input.LicensePlate,
-		Input.Make,
-		Input.Time
-	FROM
-		Input TIMESTAMP BY Time 
-		INNER JOIN LastInWindow
-		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
-		AND Input.Time = LastInWindow.LastEventTime
+    WITH LastInWindow AS
+    (
+        SELECT 
+            MAX(Time) AS LastEventTime
+        FROM 
+            Input TIMESTAMP BY Time
+        GROUP BY 
+            TumblingWindow(minute, 10)
+    )
+    SELECT 
+        Input.LicensePlate,
+        Input.Make,
+        Input.Time
+    FROM
+        Input TIMESTAMP BY Time 
+        INNER JOIN LastInWindow
+        ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
+        AND Input.Time = LastInWindow.LastEventTime
 
 **Объяснение**: запрос состоит из двух этапов — первый находит последнюю отметку времени в 10-минутных окнах. Второй объединяет результаты первого запроса с исходным потоком, чтобы найти события, соответствующие последней отметке времени в каждом окне.
 
@@ -359,29 +355,29 @@
 
 | Убедитесь, | LicensePlate | Время |
 | --- | --- | --- |
-| Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
-| Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
-| Toyota | DEF-987 | 2015-01-01T00:00:03.0000000Z |
-| Honda | GHI-345 | 2015-01-01T00:00:04.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Выходные данные**
 
 | Убедитесь, | Время | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
-| Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
 **Решение**:
 
-	SELECT
-	    Make,
-	    Time,
-	    LicensePlate AS CurrentCarLicensePlate,
-	    LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
-	    LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
-	FROM
-	    Input TIMESTAMP BY Time
-	WHERE
-	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+    SELECT
+        Make,
+        Time,
+        LicensePlate AS CurrentCarLicensePlate,
+        LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
+        LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
 **Объяснение**: используйте LAG, чтобы заглянуть в поток входных данных на одно событие назад и получить значение Make. Затем сравните его со значением Make текущего события и поместите событие в выходные данные, если они совпадают, и используйте LAG для получения данных о предыдущем автомобиле.
 
@@ -389,30 +385,29 @@
 **Описание**: найдите длительность заданного события. Например, на основе сведений о посещениях веб-сайта определите время, затраченное на использование функции.
 
 **Входные данные**
-  
+
 | Пользователь | Функция | Событие | Время |
 | --- | --- | --- | --- |
-| user@location.com | RightMenu | Начало | 2015-01-01T00:00:01.0000000Z |
-| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
-  
+| user@location.com |RightMenu |Начало |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+
 **Выходные данные**
-  
+
 | Пользователь | Функция | Длительность |
 | --- | --- | --- |
-| user@location.com | RightMenu | 7 |
-  
+| user@location.com |RightMenu |7 |
 
 **Решение**
 
 ````
     SELECT
-    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
-    	Event = 'end'
+        Event = 'end'
 ````
 
-**Объяснение**: функция LAST позволяет получить последнее значение времени (Time) для события типа Start. Обратите внимание: для обозначения того, что результат будет вычисляться для каждого уникального пользователя, функция LAST включает параметр PARTITION BY [user]. Максимальный промежуток между событиями Start (Пуск) и Stop (Остановка) в запросе составляет 1 час, но при необходимости это значение можно изменить (LIMIT DURATION(hour, 1).
+**Объяснение**: функция LAST позволяет получить последнее значение времени (Time) для события типа Start. Обратите внимание: для обозначения того, что результат будет вычисляться для каждого уникального пользователя, функция LAST включает параметр PARTITION BY [user]. Максимальный промежуток между событиями Start (Пуск) и Stop (Остановка) в запросе составляет 1 час, но при необходимости это значение можно изменить (LIMIT DURATION(hour, 1).
 
 ## Пример запроса: определение продолжительности условия
 **Описание**: определите продолжительность условия. Предположим, произошла ошибка, которая привела к неправильному отображению массы всех автомобилей (больше 9 тонн (20 000 фунтов)). Необходимо вычислить длительность ошибки.
@@ -421,40 +416,40 @@
 
 | Убедитесь, | Время | Вес |
 | --- | --- | --- |
-| Honda | 2015-01-01T00:00:01.0000000Z | 2000 |
-| Toyota | 2015-01-01T00:00:02.0000000Z | 25000 |
-| Honda | 2015-01-01T00:00:03.0000000Z | 26000 |
-| Toyota | 2015-01-01T00:00:04.0000000Z | 25000 |
-| Honda | 2015-01-01T00:00:05.0000000Z | 26000 |
-| Toyota | 2015-01-01T00:00:06.0000000Z | 25000 |
-| Honda | 2015-01-01T00:00:07.0000000Z | 26000 |
-| Toyota | 2015-01-01T00:00:08.0000000Z | 2000 |
+| Honda |2015-01-01T00:00:01.0000000Z |2000 |
+| Toyota |2015-01-01T00:00:02.0000000Z |25000 |
+| Honda |2015-01-01T00:00:03.0000000Z |26000 |
+| Toyota |2015-01-01T00:00:04.0000000Z |25000 |
+| Honda |2015-01-01T00:00:05.0000000Z |26000 |
+| Toyota |2015-01-01T00:00:06.0000000Z |25000 |
+| Honda |2015-01-01T00:00:07.0000000Z |26000 |
+| Toyota |2015-01-01T00:00:08.0000000Z |2000 |
 
 **Выходные данные**:
 
 | StartFault | EndFault |
 | --- | --- |
-| 2015-01-01T00:00:02.000Z | 2015-01-01T00:00:07.000Z |
+| 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
 
 **Решение**
 
 ````
-	WITH SelectPreviousEvent AS
-	(
-	SELECT
-	*,
-		LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
-		LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
-	FROM input TIMESTAMP BY [time]
-	)
+    WITH SelectPreviousEvent AS
+    (
+    SELECT
+    *,
+        LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+        LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+    FROM input TIMESTAMP BY [time]
+    )
 
-	SELECT 
-    	LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
-    	previousTime [EndFault]
-	FROM SelectPreviousEvent
-	WHERE
-    	[weight] < 20000
-	    AND previousWeight > 20000
+    SELECT 
+        LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+        previousTime [EndFault]
+    FROM SelectPreviousEvent
+    WHERE
+        [weight] < 20000
+        AND previousWeight > 20000
 ````
 
 **Объяснение**. Функция LAG позволяет просмотреть входной поток данных за 24-часовой период и найти экземпляры, в которых StartFault и StopFault связаны весом менее 20 000.
@@ -465,53 +460,49 @@
 **Входные данные**
 
 | t | value |
-|--------------------------|-------|
-| "2014-01-01T06:01:00" | 1 |
-| "2014-01-01T06:01:05" | 2 |
-| "2014-01-01T06:01:10" | 3 |
-| "2014-01-01T06:01:15" | 4 |
-| "2014-01-01T06:01:30" | 5 |
-| "2014-01-01T06:01:35" | 6 |
+| --- | --- |
+| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:01:05" |2 |
+| "2014-01-01T06:01:10" |3 |
+| "2014-01-01T06:01:15" |4 |
+| "2014-01-01T06:01:30" |5 |
+| "2014-01-01T06:01:35" |6 |
 
 **Выходные данные (первые 10 строк)**:
 
 | windowend | lastevent.t | lastevent.value |
-|--------------------------|--------------------------|--------|
-| 2014-01-01T14:01:00.000Z | 2014-01-01T14:01:00.000Z | 1 |
-| 2014-01-01T14:01:05.000Z | 2014-01-01T14:01:05.000Z | 2 |
-| 2014-01-01T14:01:10.000Z | 2014-01-01T14:01:10.000Z | 3 |
-| 2014-01-01T14:01:15.000Z | 2014-01-01T14:01:15.000Z | 4 |
-| 2014-01-01T14:01:20.000Z | 2014-01-01T14:01:15.000Z | 4\. |
-| 2014-01-01T14:01:25.000Z | 2014-01-01T14:01:15.000Z | 4\. |
-| 2014-01-01T14:01:30.000Z | 2014-01-01T14:01:30.000Z | 5 |
-| 2014-01-01T14:01:35.000Z | 2014-01-01T14:01:35.000Z | 6 |
-| 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
-| 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| --- | --- | --- |
+| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
+| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
+| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
+| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
+| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4\. |
+| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4\. |
+| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
+| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
-    
 **Решение**
 
     SELECT
-    	System.Timestamp AS windowEnd,
-    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
+        System.Timestamp AS windowEnd,
+        TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
-    	input TIMESTAMP BY t
+        input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Объяснение**. Этот запрос генерирует события каждые 5 секунд и выводит последнее событие, которое было получено ранее. Длительность ["прыгающего" окна](https://msdn.microsoft.com/library/dn835041.aspx ""Прыгающее" окно — Azure Stream Analytics") определяет, насколько далеко в прошлое уходит запрос в поисках последнего события (300 секунд в этом примере).
-
+**Объяснение**. Этот запрос генерирует события каждые 5 секунд и выводит последнее событие, которое было получено ранее. Длительность ["прыгающего" окна](https://msdn.microsoft.com/library/dn835041.aspx ""Прыгающее" окно — Azure Stream Analytics") определяет, насколько далеко в прошлое уходит запрос в поисках последнего события (300 секунд в этом примере).
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
-
-- [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-- [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
-- [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 
+* [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
+* [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
+* [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!---HONumber=AcomDC_0928_2016-->

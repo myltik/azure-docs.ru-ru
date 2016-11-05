@@ -1,80 +1,73 @@
-<properties
- pageTitle="Список пакетов SDK для центра Azure IoT | Microsoft Azure"
- description="Информация и ссылки на различные пакеты SDK для устройств и служб центра IoT Azure."
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Список пакетов SDK для центра Azure IoT | Microsoft Docs
+description: Информация и ссылки на различные пакеты SDK для устройств и служб центра IoT Azure.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/13/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: dobett
 
+---
 # Пакеты SDK для центра IoT
-
-Эта статья содержит сведения о различных [пакетах SDK для Microsoft Azure IoT][], а также ссылки на дополнительные ресурсы.
+Эта статья содержит сведения о различных [пакетах SDK для Microsoft Azure IoT][пакетах SDK для Microsoft Azure IoT], а также ссылки на дополнительные ресурсы.
 
 ## Пакеты SDK для устройств центра IoT
-
 Пакеты SDK для устройств центра Microsoft Azure IoT содержат код, упрощающий построение устройств и приложений, которые подключаются к службам центра IoT и управляются с помощью этих служб.
 
 В GitHub для скачивания доступны следующие пакеты SDK для устройств IoT:
 
-- [Пакет SDK для устройств Azure IoT для C][], написанный в соответствии со стандартом ANSI C (C99) для обеспечения переносимости и совместимости с широким диапазоном платформ.
-- [Пакет SDK для устройств Azure IoT для .NET][]
-- [Пакет SDK для устройств Azure IoT для Java][]
-- [Пакет SDK для устройств Azure IoT для Node.js][]
-- [Пакет SDK для устройств Microsoft Azure IoT для Python 2.7][]
+* [Пакет SDK для устройств Azure IoT для C][Пакет SDK для устройств Azure IoT для C], написанный в соответствии со стандартом ANSI C (C99) для обеспечения переносимости и совместимости с широким диапазоном платформ.
+* [Пакет SDK для устройств Azure IoT для .NET][Пакет SDK для устройств Azure IoT для .NET]
+* [Пакет SDK для устройств Azure IoT для Java][Пакет SDK для устройств Azure IoT для Java]
+* [Пакет SDK для устройств Azure IoT для Node.js][Пакет SDK для устройств Azure IoT для Node.js]
+* [Пакет SDK для устройств Microsoft Azure IoT для Python 2.7][Пакет SDK для устройств Microsoft Azure IoT для Python 2.7]
 
 ### Платформы ОС и аппаратная совместимость
-
 Дополнительные сведения о совместимости с конкретными устройствами см. в следующих статьях.
 
-- [Совместимость платформ ОС и оборудования с пакетами SDK для устройств][OS Platforms and hardware compatibility]
-- [Программа сертификации Microsoft Azure для IoT][].
+* [Совместимость платформ ОС и оборудования с пакетами SDK для устройств][OS Platforms and hardware compatibility]
+* [Программа сертификации Microsoft Azure для IoT][Программа сертификации Microsoft Azure для IoT].
 
 ## Пакеты SDK для службы центра IoT
-
 Пакеты SDK для службы Microsoft Azure IoT содержат код, который облегчает создание приложений, взаимодействующих непосредственно с центром IoT, для управления устройствами и безопасностью.
 
 В GitHub для скачивания доступны следующие пакеты SDK для служб IoT.
 
-- [Пакет SDK для службы Azure IoT для Node.js][]
-- [Пакет SDK для службы Azure IoT для Java][]
+* [Пакет SDK для службы Azure IoT для Node.js][Пакет SDK для службы Azure IoT для Node.js]
+* [Пакет SDK для службы Azure IoT для Java][Пакет SDK для службы Azure IoT для Java]
 
 ## Пакет SDK для шлюза IoT Azure
-
 Этот пакет SDK для шлюза IoT Azure содержит инфраструктуру и модули, предназначенные для создания решений шлюза IoT. Вы можете расширить пакет SDK, чтобы создавать шлюзы, адаптированные к любому комплексному сценарию.
 
-[Пакет SDK для шлюза IoT Azure][] можно скачать из GitHub.
+[Пакет SDK для шлюза IoT Azure][Пакет SDK для шлюза IoT Azure] можно скачать из GitHub.
 
 ## Справочная документация по API в Интернете
-
 Ниже приведен список ссылок на электронную справочную документацию по API для библиотек шлюзов, служб и устройств Azure IoT.
 
-- ["Интернет вещей" (IoT) .NET][]
-- [REST для центра IoT][]
-- [Пакет SDK для устройств Microsoft Azure IoT для C][]
-- [Пакет SDK для устройств Microsoft Azure IoT для Java][]
-- [Пакет SDK для службы Microsoft Azure IoT для Java][]
-- [Пакет SDK для устройств Microsoft Azure IoT для Node.js][]
-- [Пакет SDK для службы Microsoft Azure IoT для Node.js][]
-- [Пакет SDK для шлюза IoT Azure][]
+* ["Интернет вещей" (IoT) .NET]["Интернет вещей" (IoT) .NET]
+* [REST для центра IoT][REST для центра IoT]
+* [Пакет SDK для устройств Microsoft Azure IoT для C][Пакет SDK для устройств Microsoft Azure IoT для C]
+* [Пакет SDK для устройств Microsoft Azure IoT для Java][Пакет SDK для устройств Microsoft Azure IoT для Java]
+* [Пакет SDK для службы Microsoft Azure IoT для Java][Пакет SDK для службы Microsoft Azure IoT для Java]
+* [Пакет SDK для устройств Microsoft Azure IoT для Node.js][Пакет SDK для устройств Microsoft Azure IoT для Node.js]
+* [Пакет SDK для службы Microsoft Azure IoT для Node.js][Пакет SDK для службы Microsoft Azure IoT для Node.js]
+* [Пакет SDK для шлюза IoT Azure][Пакет SDK для шлюза IoT Azure]
 
 ## Дальнейшие действия
-
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- [Разработка решения][lnk-design]
-- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-- [Управление центрами IoT через портал Azure][lnk-portal]
+* [Разработка решения][lnk-design]
+* [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Управление центрами IoT через портал Azure][lnk-portal]
 
 [пакетах SDK для Microsoft Azure IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Пакет SDK для устройств Azure IoT для C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md

@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Настройка сред обработки и анализа данных, используемых в процессе обработки и анализа данных | Azure" 
-	description="Настройка сред обработки и анализа данных для использования в процессе обработки и анализа данных группы" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Настройка сред обработки и анализа данных, используемых в процессе обработки и анализа данных | Microsoft Docs
+description: Настройка сред обработки и анализа данных для использования в процессе обработки и анализа данных группы
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/23/2016" 
-	ms.author="bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/23/2016
+ms.author: bradsev
 
+---
 # Настройка сред обработки и анализа данных для использования в процессе обработки и анализа данных группы
-
 Процесс обработки и анализа данных группы использует различные специализированные среды для хранения, обработки и анализа данных. Сюда относятся хранилище больших двоичных объектов Azure, несколько типов виртуальных машин Azure, кластеры HDInsight (Hadoop) и рабочие области машинного обучения Azure. Выбор используемой среды зависит от типа и количества данных, которые нужно моделировать с помощью машинного обучения, и места хранения этих данных в облаке.
 
 * Сведения о том, какие факторы нужно учесть при выборе, см. в статье [Планирование среды обработки и анализа данных в машинном обучении Azure](machine-learning-data-science-plan-your-environment.md).
@@ -25,7 +24,7 @@
 
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом обработки и анализа данных группы.
 
-[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+[!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 **Виртуальная машина Майкрософт для обработки и анализа данных** также доступна как образ виртуальной машины Azure с предварительно установленными и настроенными средствами, широко используемыми для анализа данных и машинного обучения. Дополнительные сведения об использовании такой виртуальной машины см. в статье [Подготовка виртуальной машины Майкрософт для обработки и анализа данных](machine-learning-data-science-provision-vm.md).
 

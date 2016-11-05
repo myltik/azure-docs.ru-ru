@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Управление Azure CDN с помощью PowerShell | Microsoft Azure"
-	description="Узнайте, как использовать командлеты Azure PowerShell для управления Azure CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+---
+title: Управление Azure CDN с помощью PowerShell | Microsoft Docs
+description: Узнайте, как использовать командлеты Azure PowerShell для управления Azure CDN.
+services: cdn
+documentationcenter: ''
+author: camsoper
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: casoper
 
-
+---
 # Управление Azure CDN с помощью PowerShell
-
 PowerShell — это одно из самых гибких средств управления профилями и конечными точками Azure CDN. PowerShell можно использовать интерактивно или подготовить скрипты для автоматизации задач управления. В этом руководстве описано несколько распространенных задач по управлению профилями и конечными точками Azure CDN, которые можно выполнять с помощью PowerShell.
 
 ## Предварительные требования
-
 Чтобы использовать PowerShell для управления профилями и конечными точками Azure CDN, прежде всего нужно установить модуль Azure PowerShell. Сведения об установке Azure PowerShell и подключении к Azure с помощью командлета `Login-AzureRmAccount` см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
->[AZURE.IMPORTANT] Чтобы выполнять командлеты Azure PowerShell, необходимо сначала войти в систему с помощью `Login-AzureRmAccount`.
+> [!IMPORTANT]
+> Чтобы выполнять командлеты Azure PowerShell, необходимо сначала войти в систему с помощью `Login-AzureRmAccount`.
+> 
+> 
 
 ## Получение списка командлетов Azure CDN
-
 Полный список командлетов Azure CDN можно получить с помощью `Get-Command`.
 
 ```text
@@ -59,7 +58,6 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## Получение справки
-
 Справку по любому из этих командлетов можно получить с помощью `Get-Help`. `Get-Help` описывает назначение и синтаксис командлетов, а для некоторых из них приводит примеры.
 
 ```text
@@ -91,7 +89,6 @@ REMARKS
 ```
 
 ## Получение списка существующих профилей Azure CDN
-
 Командлет `Get-AzureRmCdnProfile`, запущенный без параметров, возвращает все существующие CDN профили.
 
 ```powershell
@@ -114,10 +111,12 @@ Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] Несколько профилей CDN могут иметь одинаковые имена, если они находятся в разных группах ресурсов. Исключив параметр `ResourceGroupName`, вы получите все профили с указанным именем.
+> [!TIP]
+> Несколько профилей CDN могут иметь одинаковые имена, если они находятся в разных группах ресурсов. Исключив параметр `ResourceGroupName`, вы получите все профили с указанным именем.
+> 
+> 
 
 ## Получение списка существующих конечных точек CDN
-
 `Get-AzureRmCdnEndpoint` позволяет получить отдельную конечную точку или все конечные точки в профиле.
 
 ```powershell
@@ -135,7 +134,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## Создание конечных точек и профилей CDN
-
 Для создания конечных точек и профилей CDN используются командлеты `New-AzureRmCdnProfile` и `New-AzureRmCdnEndpoint`.
 
 ```powershell
@@ -151,7 +149,6 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 ```
 
 ## Проверка доступности имени конечной точки
-
 `Get-AzureRmCdnEndpointNameAvailability` возвращает объект с информацией о том, свободно ли указанное имя конечной точки.
 
 ```powershell
@@ -164,10 +161,12 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## Добавление пользовательского домена
-
 `New-AzureRmCdnCustomDomain` добавляет пользовательское имя домена для существующей конечной точки.
 
->[AZURE.IMPORTANT] Необходимо настроить запись CNAME у вашего поставщика DNS, как описано в статье [Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)](./cdn-map-content-to-custom-domain.md). Это сопоставление можно проверить с помощью `Test-AzureRmCdnCustomDomain` до изменения конечной точки.
+> [!IMPORTANT]
+> Необходимо настроить запись CNAME у вашего поставщика DNS, как описано в статье [Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)](cdn-map-content-to-custom-domain.md). Это сопоставление можно проверить с помощью `Test-AzureRmCdnCustomDomain` до изменения конечной точки.
+> 
+> 
 
 ```powershell
 # Get an existing endpoint
@@ -181,7 +180,6 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## Изменение конечной точки
-
 `Set-AzureRmCdnEndpoint` изменяет существующую конечную точку.
 
 ```powershell
@@ -197,7 +195,6 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## Очистка и предварительная загрузка ресурсов CDN
-
 `Unpublish-AzureRmCdnEndpointContent` очищает все кэшированные ресурсы, а `Publish-AzureRmCdnEndpointContent` предварительно загружает ресурсы на всех поддерживаемых конечных точках.
 
 ```powershell
@@ -226,7 +223,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## Удаление ресурсов CDN
-
 `Remove-AzureRmCdnProfile` и `Remove-AzureRmCdnEndpoint` позволяют удалять профили и конечные точки.
 
 ```powershell
@@ -241,9 +237,8 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## Дальнейшие действия
+Узнайте об автоматизации Azure CDN с помощью [.NET](cdn-app-dev-net.md) или [Node.js](cdn-app-dev-node.md).
 
-Узнайте об автоматизации Azure CDN с помощью [.NET](./cdn-app-dev-net.md) или [Node.js](./cdn-app-dev-node.md).
-
-Сведения о функциях CDN см. в [обзоре CDN](./cdn-overview.md).
+Сведения о функциях CDN см. в [обзоре CDN](cdn-overview.md).
 
 <!---HONumber=AcomDC_0817_2016-->

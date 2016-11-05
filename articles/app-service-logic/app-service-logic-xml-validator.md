@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Использование средства проверки XML BizTalk в приложениях логики в службе приложений Azure | Microsoft Azure"
-   description="Проверка схем с помощью средства проверки XML BizTalk в приложении логики"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajram"
-   manager="erikre"
-   editor=""/>
+---
+title: Использование средства проверки XML BizTalk в приложениях логики в службе приложений Azure | Microsoft Docs
+description: Проверка схем с помощью средства проверки XML BizTalk в приложении логики
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
+---
 # Средство проверки XML BizTalk
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Используйте соединитель средства проверки XML BizTalk в приложении для проверки данных XML на соответствие предопределенным схемам XML. Пользователи могут применить существующие схемы или создавать схемы на основе экземпляра неструктурированного файла, экземпляра JSON или существующих соединителей.
 
@@ -38,24 +37,21 @@
 
 ![Схемы средства проверки XML BizTalk][3]
 
-
 ### Использование кодировщика неструктурированных файлов BizTalk в рабочей области конструирования
 После настройки пользователи могут щелкнуть значок *->* и выбрать действие в списке.
 
 ![Список действий средства проверки XML BizTalk][4]
 
 #### Проверка XML
-
 Действие проверки XML проверяет входные XML-данные на соответствие предопределенным схемам.
 
 ![Действие "Проверить XML" средства проверки XML BizTalk][5]
 
-Параметр|Тип|Описание параметра
----|---|---
-Входной XML-файл|string|Входные XML-данные для проверки
+| Параметр | Тип | Описание параметра |
+| --- | --- | --- |
+| Входной XML-файл |string |Входные XML-данные для проверки |
 
 Действие возвращает выходные данные в виде объекта. Выходные данные содержат модель, представляющую ответ средства проверки XML. Она состоит из результата, имени схемы, корневого узла и описания ошибки.
-
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG

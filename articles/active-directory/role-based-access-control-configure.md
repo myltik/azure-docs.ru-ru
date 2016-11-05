@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Контроль доступа на основе ролей на портале Azure | Microsoft Azure"
-    description="Узнайте, как управлять доступом с помощью RBAC на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+---
+title: Контроль доступа на основе ролей на портале Azure | Microsoft Docs
+description: Узнайте, как управлять доступом с помощью RBAC на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="10/10/2016"
-    ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 10/10/2016
+ms.author: kgremban
 
-
+---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Использование назначений ролей для управления доступом к ресурсам в подписке Azure
-
-> [AZURE.SELECTOR]
-- [Управление доступом по пользователям или группам](role-based-access-control-manage-assignments.md)
-- [Управление доступом по ресурсам](role-based-access-control-configure.md)
+> [!div class="op_single_selector"]
+> * [Управление доступом по пользователям или группам](role-based-access-control-manage-assignments.md)
+> * [Управление доступом по ресурсам](role-based-access-control-configure.md)
+> 
+> 
 
 Контроль доступа на основе ролей (RBAC) Azure обеспечивает точное управление доступом для Azure. С помощью RBAC можно предоставлять пользователям доступ, необходимый только для выполнения поставленных перед ними задач. Эта статья поможет вам приступить к работе с RBAC на портале Azure. Дополнительные сведения о том, как RBAC помогает управлять доступом, см. в статье [Начало работы с управлением доступом на портале Azure](role-based-access-control-what-is.md).
 
@@ -33,13 +33,15 @@
 2. В колонке **Группы ресурсов** выберите имя группы ресурсов.
 3. В меню слева выберите **Управление доступом (IAM)**.  
 4. В колонке "Контроль доступа" содержится список всех пользователей, групп и приложений, которым предоставлен доступ к группе ресурсов.  
-
+   
     ![Колонка "Пользователи" — унаследованные и назначенные права доступа — снимок экрана](./media/role-based-access-control-configure/view-access.png)
 
 Обратите внимание, что некоторым пользователям доступ был **назначен**, тогда как другие **унаследовали** его. Доступ специально назначается группе ресурсов или наследуется в результате назначения родительской подписке.
 
-> [AZURE.NOTE] Классические администраторы и соадминистраторы подписки считаются владельцами подписки в новой модели RBAC.
-
+> [!NOTE]
+> Классические администраторы и соадминистраторы подписки считаются владельцами подписки в новой модели RBAC.
+> 
+> 
 
 ## <a name="add-access"></a>Добавление доступа
 Вы можете предоставить доступ в рамках ресурса, группы ресурсов или подписки, которые входят в область назначения роли.
@@ -47,16 +49,14 @@
 1. В колонке "Контроль доступа" выберите **Добавить**.  
 2. Выберите роль, которую следует назначить, в колонке **Выбор роли** .
 3. В каталоге выберите пользователя, группу или приложение, которым нужно предоставить доступ. Поиск в каталоге можно выполнить по отображаемым именам, адресам электронной почты и идентификаторам объектов.  
-
+   
     ![Колонка "Добавить пользователей" — "Поиск" — снимок экрана](./media/role-based-access-control-configure/grant-access2.png)
-
 4. Щелкните **ОК** , чтобы создать назначение. Во всплывающем окне **Добавление пользователя** будет отображаться ход операции.  
     ![Индикатор выполнения при добавлении пользователя — снимок экрана](./media/role-based-access-control-configure/addinguser_popup.png)
 
 Назначенная роль отобразится в колонке **Пользователи** .
 
 ## <a name="remove-access"></a>Запрет доступа
-
 1. В колонке "Контроль доступа" выберите назначение роли.
 2. Выберите **Удалить** в колонке сведений о назначении.  
 3. Выберите **Да** , чтобы подтвердить удаление.  
@@ -69,16 +69,14 @@
 ## <a name="other-tools-to-manage-access"></a>Другие средства управления доступом
 Вы можете назначать роли и управлять доступом с помощью модели RBAC Azure не только на портале Azure, но и с помощью других средств.  Ниже представлены ссылки на ресурсы с дополнительными сведениями о предварительных требованиях и начале работы с командами RBAC Azure.
 
-- [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-- [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+* [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
+* [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
+* [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md)
-- Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
-- Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
-
-
+* [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md)
+* Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
+* Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
 
 <!--HONumber=Oct16_HO2-->
 

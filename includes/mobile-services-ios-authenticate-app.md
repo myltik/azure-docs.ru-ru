@@ -1,4 +1,4 @@
-* Откройте файл **QSTodoListViewController.m** и добавьте следующий метод. Измените _facebook_ на _microsoftaccount_, _twitter_, _google_ или _windowsazureactivedirectory_, если вы не используете Facebook как поставщик удостоверений.
+* Откройте файл **QSTodoListViewController.m** и добавьте следующий метод. Измените *facebook* на *microsoftaccount*, *twitter*, *google* или *windowsazureactivedirectory*, если вы не используете Facebook как поставщик удостоверений.
 
 ```
         - (void) loginAndGetData

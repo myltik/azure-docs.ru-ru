@@ -1,54 +1,49 @@
-<properties
-    pageTitle="Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Microsoft Azure"
-    description="Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена."
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: 'Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Microsoft Docs'
+description: Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена.
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
-
+---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Как определить, подходят ли вам доменные службы Azure AD
 Доменные службы Azure AD позволяют развертывать рабочие нагрузки в службах инфраструктуры Azure, не заботясь об обслуживании инфраструктуры идентификации. Эта управляемая служба отличается от типичного развертывания Windows Server Active Directory, требующего самостоятельного развертывания и администрирования. Эта служба обеспечивает простое развертывание, автоматизированный мониторинг работоспособности и исправление и простую инфраструктуру идентификации для облака. Мы постоянно с данную службу, чтобы добавить поддержку наиболее распространенных сценариев развертывания.
 
 Чтобы решить, следует ли использовать доменные службы Azure Active Directory или развернуть собственную инфраструктуру Active Directory и управлять ею ("сделай сам") в Azure, выполните следующее:
 
-- Просмотрите список [функций, предлагаемых доменными службами Azure AD](active-directory-ds-features.md).
-
-- Ознакомьтесь с распространенными [сценариями развертывания для доменных служб Azure AD](active-directory-ds-scenarios.md).
-
-- Наконец, [сравните возможности доменных служб Azure AD и самостоятельно развернутой инфраструктуры AD](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
-
+* Просмотрите список [функций, предлагаемых доменными службами Azure AD](active-directory-ds-features.md).
+* Ознакомьтесь с распространенными [сценариями развертывания для доменных служб Azure AD](active-directory-ds-scenarios.md).
+* Наконец, [сравните возможности доменных служб Azure AD и самостоятельно развернутой инфраструктуры AD](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Сравнение доменных служб Azure AD и самостоятельно развернутого домена AD в Azure
 Следующая таблица поможет выбрать между использованием доменных служб Azure AD и управлением инфраструктурой AD в Azure.
 
-|**Компонент**|**Доменные службы Azure AD**|**Самостоятельное развертывание AD на виртуальных машинах Azure**|
-|---|:---:|:---:|
-|[**Управляемая служба**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
-|[**Защищенные развернутые службы**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|Администратор должен обеспечить безопасное развертывание.|
-|[**Сервер DNS**](active-directory-ds-comparison.md#dns-server)|**& #x 2713;** (управляемая служба)|**&#x2713;**|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
-|[**Присоединение к домену**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
-|[**Аутентификация в домене с помощью NTLM и Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
-|[**Структура пользовательских подразделений**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
-|[**Расширения схемы**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
-|[**Отношения доверия между доменом AD и лесом**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
-|[**Защищенный протокол LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
-|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Простая|Полное|
-|[**Географически распределенные развертывания**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
-
+| **Компонент** | **Доменные службы Azure AD** | **Самостоятельное развертывание AD на виртуальных машинах Azure** |
+| --- |:---:|:---:|
+| [**Управляемая служба**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**Защищенные развернутые службы**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Администратор должен обеспечить безопасное развертывание. |
+| [**Сервер DNS**](active-directory-ds-comparison.md#dns-server) |**& #x 2713;** (управляемая служба) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Присоединение к домену**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Аутентификация в домене с помощью NTLM и Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Структура пользовательских подразделений**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Расширения схемы**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**Отношения доверия между доменом AD и лесом**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**Защищенный протокол LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |Простая |Полное |
+| [**Географически распределенные развертывания**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Управляемая служба
 Доменами доменных служб Azure AD управляет корпорация Майкрософт. Вам не нужно беспокоиться об установке исправлений и обновлений, мониторинге, архивации и обеспечении доступности домена. Эти задачи управления предлагаются как услуга Microsoft Azure для ваших управляемых доменов.
@@ -92,29 +87,24 @@
 #### <a name="geo-dispersed-deployments"></a>Географически распределенные развернутые службы
 Управляемые домены доменных служб Azure AD доступны в отдельной виртуальной сети в Azure. Для сценариев, требующих наличия контроллеров домена в нескольких регионах Azure по всему миру, лучшим вариантом может быть настройка контроллеров домена на виртуальных машинах IaaS Azure.
 
-
 ## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Варианты самостоятельного развертывания инфраструктуры AD
 В некоторых случаях могут быть нужны определенные возможности, для предоставления которых требуется установить Windows Server AD. В таких случаях рассмотрите один из следующих вариантов самостоятельного развертывания.
 
-- **Изолированный облачный домен**. Можно настроить изолированный "облачный домен" с помощью виртуальных машин Azure, настроенных как контроллеры домена. Такая инфраструктура не поддерживает интеграцию с локальной средой AD. Данный вариант потребует использовать отдельный набор "облачных учетных данных" для входа на виртуальные машины в облаке и управления ими.
+* **Изолированный облачный домен**. Можно настроить изолированный "облачный домен" с помощью виртуальных машин Azure, настроенных как контроллеры домена. Такая инфраструктура не поддерживает интеграцию с локальной средой AD. Данный вариант потребует использовать отдельный набор "облачных учетных данных" для входа на виртуальные машины в облаке и управления ими.
+* **Развертывание леса ресурсов**. Можно настроить домен в топологии леса ресурсов, используя виртуальные машины Azure, настроенные как контроллеры домена. Далее можно настроить отношение доверия между инфраструктурой AD и своей локальной средой AD. Вы можете присоединять компьютеры (виртуальные машины Azure) к домену в этом лесу ресурсов в облаке. Аутентификация пользователей происходит с помощью VPN-подключения или подключения ExpressRoute к локальному каталогу.
+* **Расширение своего локального домена в Azure**. Можно подключить виртуальную сеть Azure к своей локальной сети с помощью VPN-подключения или канала ExpressRoute, чтобы виртуальные машины Azure можно было присоединить к локальной среде AD. Можно также повысить уровень реплик контроллеров локального домена до виртуальной машины в Azure. Затем ее можно настроить для репликации в локальный каталог через VPN-подключение или подключение ExpressRoute. Этот режим развертывания эффективно расширяет локальный домен в Azure.
 
-- **Развертывание леса ресурсов**. Можно настроить домен в топологии леса ресурсов, используя виртуальные машины Azure, настроенные как контроллеры домена. Далее можно настроить отношение доверия между инфраструктурой AD и своей локальной средой AD. Вы можете присоединять компьютеры (виртуальные машины Azure) к домену в этом лесу ресурсов в облаке. Аутентификация пользователей происходит с помощью VPN-подключения или подключения ExpressRoute к локальному каталогу.
-
-- **Расширение своего локального домена в Azure**. Можно подключить виртуальную сеть Azure к своей локальной сети с помощью VPN-подключения или канала ExpressRoute, чтобы виртуальные машины Azure можно было присоединить к локальной среде AD. Можно также повысить уровень реплик контроллеров локального домена до виртуальной машины в Azure. Затем ее можно настроить для репликации в локальный каталог через VPN-подключение или подключение ExpressRoute. Этот режим развертывания эффективно расширяет локальный домен в Azure.
-
-> [AZURE.NOTE] Возможно, вы решите, что вам лучше подходит вариант самостоятельного развертывания. Рассмотрите возможность [отправить отзыв](active-directory-ds-contact-us.md) , который поможет нам понять, какие возможности убедили бы вас выбрать доменные службы Azure AD в будущем. Ваши отзывы помогают нам развивать службу, чтобы она лучше соответствовала потребностям развертываний и вариантам использования.
+> [!NOTE]
+> Возможно, вы решите, что вам лучше подходит вариант самостоятельного развертывания. Рассмотрите возможность [отправить отзыв](active-directory-ds-contact-us.md) , который поможет нам понять, какие возможности убедили бы вас выбрать доменные службы Azure AD в будущем. Ваши отзывы помогают нам развивать службу, чтобы она лучше соответствовала потребностям развертываний и вариантам использования.
+> 
+> 
 
 Корпорация Майкрософт опубликовала [рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) , чтобы облегчить самостоятельные установки.
 
-
 ## <a name="related-content"></a>Похожий контент
-- [Возможности доменных служб Azure AD](active-directory-ds-features.md)
-
-- [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
-
-- [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
+* [Возможности доменных служб Azure AD](active-directory-ds-features.md)
+* [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
+* [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 <!--HONumber=Oct16_HO2-->
 

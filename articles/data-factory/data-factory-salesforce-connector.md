@@ -1,31 +1,30 @@
-<properties
-    pageTitle="Перемещение данных из Salesforce с помощью фабрики данных | Microsoft Azure"
-    description="Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure."
-    services="data-factory"
-    documentationCenter=""
-    authors="linda33wj"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Перемещение данных из Salesforce с помощью фабрики данных | Microsoft Docs
+description: Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="jingwang"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: jingwang
 
-
+---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Перемещение данных из Salesforce с помощью фабрики данных Azure
 В этой статье описано, как переместить данные из Salesforce в любое хранилище данных, указанное в таблице [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md#supported-data-stores) (столбец "Приемник"), с использованием действия копирования в фабрике данных Azure. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 Сейчас фабрика данных Azure поддерживает только перемещение данных из Salesforce в другие [поддерживаемые хранилища-приемники]((data-factory-data-movement-activities.md#supported-data-stores), но не наоборот.
 
 ## <a name="prerequisites"></a>Предварительные требования
-- Необходимо использовать один из следующих выпусков Salesforce: Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition.
-- Требуется включить разрешения API. Дополнительные сведения о включении доступа к API в Salesforce с помощью набора разрешений см. [здесь](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/).
-- Чтобы скопировать данные из Salesforce в локальное хранилище данных, в локальной среде необходимо установить шлюз управления данными версии не ниже 2.0.
+* Необходимо использовать один из следующих выпусков Salesforce: Developer Edition, Professional Edition, Enterprise Edition или Unlimited Edition.
+* Требуется включить разрешения API. Дополнительные сведения о включении доступа к API в Salesforce с помощью набора разрешений см. [здесь](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/).
+* Чтобы скопировать данные из Salesforce в локальное хранилище данных, в локальной среде необходимо установить шлюз управления данными версии не ниже 2.0.
 
 ## <a name="copy-data-wizard"></a>Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные из Salesforce в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
@@ -37,11 +36,11 @@
 
 Ниже приведены артефакты фабрики данных, которые необходимо создать для реализации сценария. В разделах после списка приведены подробные сведения об этих действиях.
 
-- Связанная служба типа [Salesforce](#salesforce-linked-service-properties)
-- Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
-- Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](#salesforce-dataset-properties).
-- Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-- [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](#relationalsource-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+* Связанная служба типа [Salesforce](#salesforce-linked-service-properties)
+* Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+* Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](#salesforce-dataset-properties).
+* Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+* [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](#relationalsource-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 **Связанная служба SalesForce**
 
@@ -100,7 +99,10 @@
 
 Если для параметра **external** задать значение **true**, то фабрика данных воспримет этот набор данных как внешний, который создан не в результате какого-либо действия в фабрике данных.
 
-> [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> [!IMPORTANT]
+> Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> 
+> 
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -178,32 +180,36 @@
         }
     }
 
-> [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> [!IMPORTANT]
+> Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> 
+> 
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## <a name="salesforce-linked-service-properties"></a>Свойства связанной службы Salesforce
-
 В таблице ниже приведены описания элементов JSON, которые относятся к связанной службе Salesforce.
 
 | Свойство | Описание | Обязательно |
-| -------- | ----------- | -------- |
-| type | Для свойства type нужно задать значение **Salesforce**. | Да |
-| username |Укажите имя пользователя для учетной записи пользователя. | Да |
-| password | Укажите пароль для учетной записи пользователя.  | Да |
-| securityToken | Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API).  | Да |
+| --- | --- | --- |
+| type |Для свойства type нужно задать значение **Salesforce**. |Да |
+| username |Укажите имя пользователя для учетной записи пользователя. |Да |
+| password |Укажите пароль для учетной записи пользователя. |Да |
+| securityToken |Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). |Да |
 
 ## <a name="salesforce-dataset-properties"></a>Свойства типа "Набор данных Salesforce"
-
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md). Разделы structure, availability и policy JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties для набора данных типа **RelationalTable** содержит следующие свойства.
 
 | Свойство | Описание | Обязательно |
-| -------- | ----------- | -------- |
-| tableName | Имя таблицы в Salesforce | Нет (если для свойства **RelationalSource** задано значение **query**). |
+| --- | --- | --- |
+| tableName |Имя таблицы в Salesforce |Нет (если для свойства **RelationalSource** задано значение **query**). |
 
-> [AZURE.IMPORTANT]  Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> [!IMPORTANT]
+> Имя API для любых настраиваемых объектов должно содержать приставку __c.
+> 
+> 
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -215,11 +221,14 @@
 В случае действия копирования, если источник относится к типу **RelationalSource** (который содержит Salesforce), в разделе typeProperties доступны следующие свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
-| -------- | ----------- | -------------- | -------- |
-| query | Используйте пользовательский запрос для чтения данных. | Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Пример: `select * from MyTable__c`. | Нет (если для свойства **tableName** задано значение **dataset**). |
+| --- | --- | --- | --- |
+| query |Используйте пользовательский запрос для чтения данных. |Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Пример: `select * from MyTable__c`. |Нет (если для свойства **tableName** задано значение **dataset**). |
 
-> [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку "__c".<br>
-Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+> [!IMPORTANT]
+> Имя API для любых настраиваемых объектов должно содержать приставку "__c".<br>
+> Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+> 
+> 
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -231,39 +240,37 @@
 
 Если количество одновременных запросов превышает ограничение, выполняется регулирование и возникают случайные ошибки. В случае превышения ограничения на общее число запросов учетная запись Salesforce блокируется на 24 часа. Кроме того, в обоих случаях вы можете получить ошибку REQUEST_LIMIT_EXCEEDED.  
 
-
-[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### <a name="type-mapping-for-salesforce"></a>Сопоставление типов для Salesforce
-Тип данных Salesforce | Тип на основе .NET
---------------- | ---------------
-Автонумерация | Строка
-Флажок | Логический
-Валюта | Double
-Дата | DateTime
-Дата и время | DateTime
-Email | Строка
-Идентификатор | Строка
-Связь для подстановки | Строка
-Список множественного выбора | Строка
-Number | Double
-Процент | Double
-Номер телефона | Строка
-Список выбора | Строка
-текст | Строка
-Текстовое поле | Строка
-Текстовое поле (длинное) | Строка
-Текстовое поле (расширенное) | Строка
-Текст (зашифрованный) | Строка
-URL-адрес | Строка
+| Тип данных Salesforce | Тип на основе .NET |
+| --- | --- |
+| Автонумерация |Строка |
+| Флажок |Логический |
+| Валюта |Double |
+| Дата |DateTime |
+| Дата и время |DateTime |
+| Email |Строка |
+| Идентификатор |Строка |
+| Связь для подстановки |Строка |
+| Список множественного выбора |Строка |
+| Number |Double |
+| Процент |Double |
+| Номер телефона |Строка |
+| Список выбора |Строка |
+| текст |Строка |
+| Текстовое поле |Строка |
+| Текстовое поле (длинное) |Строка |
+| Текстовое поле (расширенное) |Строка |
+| Текст (зашифрованный) |Строка |
+| URL-адрес |Строка |
 
-[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## <a name="performance-and-tuning"></a>Производительность и настройка  
+[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+
+## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь с [руководством по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

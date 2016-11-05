@@ -1,28 +1,28 @@
-<properties
-	pageTitle="Автоматическое включение параметров диагностики с помощью шаблона Resource Manager | Microsoft Azure"
-	description="Узнайте, как использовать шаблон Resource Manager для создания параметров диагностики, которые позволят передавать журналы диагностики в концентраторы событий или сохранять их в учетной записи хранения."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Автоматическое включение параметров диагностики с помощью шаблона Resource Manager | Microsoft Docs
+description: Узнайте, как использовать шаблон Resource Manager для создания параметров диагностики, которые позволят передавать журналы диагностики в концентраторы событий или сохранять их в учетной записи хранения.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Автоматическое включение параметров диагностики при создании ресурса из шаблона Resource Manager
 В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
 
 Для разных типов ресурсов журналы диагностики включаются с помощью шаблона Resource Manager по-разному.
 
-- **Невычислительные** ресурсы (например, группы безопасности сети, Logic Apps или служба автоматизации) используют [параметры диагностики, описанные в этой статье](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **Вычислительные** ресурсы (на основе WAD/LAD) используют [файл конфигурации WAD/LAD, описанный в этой статье](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Невычислительные** ресурсы (например, группы безопасности сети, Logic Apps или служба автоматизации) используют [параметры диагностики, описанные в этой статье](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Вычислительные** ресурсы (на основе WAD/LAD) используют [файл конфигурации WAD/LAD, описанный в этой статье](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 В этой статьей объясняется, как настроить диагностику с помощью каждого из этих методов.
 
@@ -37,7 +37,7 @@
 Для невычислительных ресурсов выполните два действия.
 
 1. Добавьте в большой двоичный объект параметров параметры имени учетной записи хранения, идентификатора правила служебной шины и (или) идентификатор рабочей области OMS Log Analytics. Это позволит архивировать журналы диагностики в учетную запись хранения, передавать поток журналов в концентраторы событий и (или) отправлять журналы в Log Analytics.
-
+   
     ```json
     "storageAccountName": {
       "type": "string",
@@ -59,7 +59,7 @@
     }
     ```
 2. Добавьте ресурс с типом `[resource namespace]/providers/diagnosticSettings` в массив ресурсов того ресурса, для которого нужно включить журналы диагностики.
-
+   
     ```json
     "resources": [
       {
@@ -180,13 +180,15 @@
 2. Укажите в качестве параметра учетную запись хранения и (или) концентратор событий.
 3. Добавьте содержимое XML-файла WADCfg в свойство XMLCfg, правильно экранируя все XML-символы.
 
-> [AZURE.WARNING] Этот этап может оказаться непростой задачей. [В этой статье](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) приводится пример разбиения схемы конфигурации диагностики на переменные, которые правильно экранируются и форматируются.
+> [!WARNING]
+> Этот этап может оказаться непростой задачей. [В этой статье](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) приводится пример разбиения схемы конфигурации диагностики на переменные, которые правильно экранируются и форматируются.
+> 
+> 
 
 Весь процесса описан [в этом документе](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) с примерами.
 
-
 ## Дальнейшие действия
-- [Дополнительные сведения о журналах диагностики Azure](./monitoring-overview-of-diagnostic-logs.md)
-- [Потоковая передача журналов диагностики Azure в концентраторы событий](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Дополнительные сведения о журналах диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Потоковая передача журналов диагностики Azure в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!---HONumber=AcomDC_0928_2016-->

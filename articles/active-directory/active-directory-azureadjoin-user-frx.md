@@ -1,61 +1,57 @@
-<properties
-    pageTitle="Настройка нового устройства под управлением Windows 10 для работы с Azure AD | Microsoft Azure"
-    description="В этом разделе объясняется, как пользователи могут настроить присоединение к Azure AD в процессе запуска при первом включении компьютера."
-    services="active-directory"
-    documentationCenter=""
-    authors="femila"
-    manager="swadhwa"
-    editor=""
-    tags="azure-classic-portal"/>
+---
+title: Настройка нового устройства под управлением Windows 10 для работы с Azure AD | Microsoft Docs
+description: В этом разделе объясняется, как пользователи могут настроить присоединение к Azure AD в процессе запуска при первом включении компьютера.
+services: active-directory
+documentationcenter: ''
+author: femila
+manager: swadhwa
+editor: ''
+tags: azure-classic-portal
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="femila"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: femila
 
-
-# <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Настройка нового устройства под управлением Windows 10 для работы с Azure AD
-
+---
+# <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Настройка нового устройства под управлением Windows 10 для работы с Azure AD
 Пользователи Windows 10 могут присоединить свои устройства к Azure Active Directory при первом запуске (FRX). Это позволяет организациям предоставлять сотрудникам или студентам стандартные новые устройства или давать им возможность выбирать собственные (CYOD).
 Если на устройстве установлена операционная система Windows 10 Профессиональная или Windows 10 Корпоративная, автоматически запускается процесс установки устройств, принадлежащих компании.
 
 ## <a name="to-join-a-device-to-azure-ad"></a>Присоединение устройства к Azure AD
-
-
 1. При включении нового устройства и запуске установки появляется сообщение **Подготовка**. Настройте устройство согласно инструкциям на экране.
 2. Для начала выберите свой регион и язык. Примите условия лицензионного соглашения об использовании программного обеспечения Майкрософт.
-![Настройка для вашего региона](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+   ![Настройка для вашего региона](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Выберите сеть для подключения к Интернету.
 4. Укажите, является ли ваше устройство личным или корпоративным. Если устройство корпоративное, щелкните **Это устройство принадлежит моей организации**. После этого начнется процесс присоединения к Azure AD. В ОС Windows 10 Профессиональная экран будет выглядеть так:
-<center>
-![Владелец экрана ПК](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
-
-5.  Введите учетные данные, предоставленные вашей организацией.
-<center>
-![Экран входа](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
-6.  После ввода имени пользователя в Azure AD выполняется поиск соответствующего клиента. Если вы находитесь в федеративном домене, то будете перенаправлены на локальный сервер службы токенов безопасности, например в службы федерации Active Directory (AD FS).
+   <center>
+   ![Владелец экрана ПК](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
+5. Введите учетные данные, предоставленные вашей организацией.
+   <center>
+   ![Экран входа](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
+6. После ввода имени пользователя в Azure AD выполняется поиск соответствующего клиента. Если вы находитесь в федеративном домене, то будете перенаправлены на локальный сервер службы токенов безопасности, например в службы федерации Active Directory (AD FS).
 7. В доменах, отличных от федеративных, необходимо ввести учетные данные непосредственно на размещенной в Azure AD странице. Если была настроена фирменная символика, вы также увидите логотип компании и сопроводительный текст.
-8.  Появится окно многофакторной проверки подлинности. Его настраивает ИТ-администратор.
-9.  Azure AD проверит, требуется ли регистрация пользователя или устройства в рамках политики управления мобильными устройствами.
+8. Появится окно многофакторной проверки подлинности. Его настраивает ИТ-администратор.
+9. Azure AD проверит, требуется ли регистрация пользователя или устройства в рамках политики управления мобильными устройствами.
 10. Windows регистрирует устройство в каталоге организации в Azure AD и в службе управления мобильными устройствами, если это уместно.
 11. Если вы являетесь управляемым пользователем, Windows осуществляет переход на рабочий стол с помощью автоматического входа.
 12. Если вы являетесь федеративным пользователем, то появится экран входа в Windows, где нужно будет ввести учетные данные.
 
-> [AZURE.NOTE] Присоединение к локальному домену Active Directory Windows Server при первом запуске Windows не поддерживается. Если вы планируете присоединить компьютер к домену, перейдите по ссылке **Настроить Windows с локальной учетной записью** . Затем вы сможете присоединиться к домену из меню параметров компьютера, как это делали раньше.
+> [!NOTE]
+> Присоединение к локальному домену Active Directory Windows Server при первом запуске Windows не поддерживается. Если вы планируете присоединить компьютер к домену, перейдите по ссылке **Настроить Windows с локальной учетной записью** . Затем вы сможете присоединиться к домену из меню параметров компьютера, как это делали раньше.
+> 
+> 
 
 ## <a name="additional-information"></a>Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

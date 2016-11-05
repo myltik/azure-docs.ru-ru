@@ -1,25 +1,23 @@
-<properties
-    pageTitle="Команды Azure CLI в режиме Resource Manager | Microsoft Azure"
-    description="Команды интерфейса командной строки (CLI) Azure для управления ресурсами в модели развертывания Resource Manager."
-    services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Команды Azure CLI в режиме Resource Manager | Microsoft Docs
+description: Команды интерфейса командной строки (CLI) Azure для управления ресурсами в модели развертывания Resource Manager.
+services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="command-line-interface"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: command-line-interface
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Команды Azure CLI в режиме Resource Manager
-
 В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md).  
 
 Для начала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи либо учетной записи Майкрософт.
@@ -31,13 +29,14 @@
 Помимо описанных здесь необязательных параметров для конкретных команд существуют три необязательных параметра, которые можно использовать для отображения подробных выходных данных, например параметров запроса и кодов состояния. Параметр `-v` задает вывод подробных данных, а параметр `-vv` — вывод более подробных данных. Параметр `--json` задает вывод результатов в необработанном формате JSON.
 
 ## <a name="setting-the-resource-manager-mode"></a>Настройка режима Resource Manager
-
 Используйте следующую команду для включения команд Azure CLI для режима Resource Manager.
 
     azure config mode arm
 
->[AZURE.NOTE] Режим Azure Resource Manager и режим управления службами Azure интерфейса командной строки являются взаимоисключающими. То есть ресурсами, созданными в одном из режимов, нельзя управлять из другого режима.
-
+> [!NOTE]
+> Режим Azure Resource Manager и режим управления службами Azure интерфейса командной строки являются взаимоисключающими. То есть ресурсами, созданными в одном из режимов, нельзя управлять из другого режима.
+> 
+> 
 
 ## <a name="azure-account:-manage-your-account-information"></a>Учетная запись Azure. Управление сведениями об учетной записи
 Информация о подписке Azure используется инструментом для подключения к учетной записи.
@@ -67,7 +66,6 @@
     account env delete [options] [environment]
 
 ## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>Azure Active Directory. Команды для отображения объектов Active Directory
-
 **Команды для отображения приложений Active Directory**
 
     ad app create [options]
@@ -95,7 +93,6 @@
     ad user show [options]
 
 ## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>Azure Availset. Команды для управления группами доступности
-
 **Создает группу доступности в группе ресурсов**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -113,7 +110,6 @@
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config:-commands-to-manage-your-local-settings"></a>Azure Config. Команды для управления локальными параметрами
-
 **Выводит параметры конфигурации Azure CLI**
 
     config list [options]
@@ -132,7 +128,6 @@
 
 
 ## <a name="azure-feature:-commands-to-manage-account-features"></a>Azure Feature. Команды для управления компонентами учетной записи
-
 **Список всех функций, доступных для вашей подписки**
 
     feature list [options]
@@ -146,7 +141,6 @@
     feature register [options] <providerName> <featureName>
 
 ## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>Azure Group. Команды для управления группами ресурсов
-
 **Создает группу ресурсов**.
 
     group create [options] <name> <location>
@@ -186,7 +180,6 @@
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>Azure HDInsight: команды для управления кластерами HDInsight
-
 **Команды для создания файла конфигурации кластера или добавления данных в него**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -305,24 +298,20 @@
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>Azure Insights. Команды, связанные с мониторингом событий, правил оповещения, параметров автоматического масштабирования, показателей
-
 **Получение журналов операций для подписки, идентификатор correlationId, группы ресурсов, ресурса или поставщика ресурсов**
 
     insights logs list [options]
 
 ## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure Location. Команды для получения доступных расположений для всех типов ресурсов
-
 **Выводит доступные расположения**
 
     location list [options]
 
 ## <a name="azure-network:-commands-to-manage-network-resources"></a>Azure Network. Команды для управления сетевыми ресурсами
-
 **Команды для управления виртуальными сетями**
 
     network vnet create [options] <resource-group> <name> <location>
 Создает виртуальную сеть. В следующем примере мы создаем виртуальную сеть newvnet для группы ресурсов myresourcegroup в регионе West US.
-
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -415,7 +404,6 @@
 
 Команда выводит все виртуальные сети в группе ресурсов.
 
-
     C:\>azure network vnet list myresourcegroup
 
     info:    Executing command network vnet list
@@ -429,7 +417,6 @@
     info:    network vnet list command OK
 
 Параметры:
-
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -520,7 +507,6 @@
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
 Задает определенную подсеть виртуальной сети в группе ресурсов.
-
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -1206,7 +1192,6 @@
 
 В следующем примере мы создали правило NAT на основе интерфейсного IP-адреса (который ранее был определен с помощью команды azure network frontend-ip) с входящим портом прослушивания и исходящим портом, используемым балансировщиком нагрузки для отправки сетевого трафика.
 
-
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule create
@@ -1590,7 +1575,6 @@
     network gateway list [options] <resource-group>
 
 ## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>Поставщик Azure. Команды для управления регистрациями поставщика ресурсов
-
 **Список зарегистрированных поставщиков в Resource Manager**
 
     provider list [options]
@@ -1608,7 +1592,6 @@
     provider unregister [options] <namespace>
 
 ## <a name="azure-resource:-commands-to-manage-your-resources"></a>Ресурс Azure. Команды для управления ресурсами
-
 **Создает ресурс в группе ресурсов**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1630,7 +1613,6 @@
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
 ## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>Роль Azure. Команды для управления ролями Azure
-
 **Получение всех доступных определений ролей**
 
     role list [options]
@@ -1646,7 +1628,6 @@
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
 ## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>Хранилище Azure. Команды для управления объектами хранилища
-
 **Команды для управления учетными записями хранилища**
 
     storage account list [options]
@@ -1770,7 +1751,6 @@
     storage table policy delete [options] [table] [name]
 
 ## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>Тег Azure. Команды для управления тегом диспетчера ресурсов
-
 **Добавление тега**
 
     tag create [options] <name> <value>
@@ -1788,7 +1768,6 @@
     tag show [options] [name]
 
 ## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>ВМ Azure. Команды для управления виртуальными машинами Azure
-
 **Создание виртуальной машины**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1796,8 +1775,11 @@
 **Создание виртуальной машины с ресурсами по умолчанию**
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
-    
->[AZURE.TIP]Начиная с версии CLI 0.10 для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create` . Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище класса "Премиум", если оно доступно для выбранного региона.
+
+> [!TIP]
+> Начиная с версии CLI 0.10 для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create` . Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище класса "Премиум", если оно доступно для выбранного региона.
+> 
+> 
 
 **Список виртуальных машин в учетной записи**
 

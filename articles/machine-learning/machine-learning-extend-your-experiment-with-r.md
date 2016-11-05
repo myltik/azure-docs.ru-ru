@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Расширение возможностей эксперимента с помощью R | Microsoft Azure"
-	description="Рассматривается, как расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль «Выполнение сценария R»."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Расширение возможностей эксперимента с помощью R | Microsoft Docs
+description: Рассматривается, как расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль «Выполнение сценария R».
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="garye" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/19/2016
+ms.author: garye
 
-
+---
 # Расширение возможностей эксперимента с помощью R
-
 Вы можете расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль [Выполнение сценария R][execute-r-script].
 
 Этот модуль принимает несколько входных наборов данных и выдает один выходной набор данных. Вы можете ввести сценарий R в качестве значения параметра **Сценарий R** в модуле [Выполнение сценария R][execute-r-script].
@@ -27,14 +25,13 @@
 
     dataset1 <- maml.mapInputPort(1)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Вывод списка всех установленных пакетов
-
 Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Выполнение сценария R][execute-r-script]\:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
-	maml.mapOutputPort("out")
+    maml.mapOutputPort("out")
 
 При этом список пакетов будет отправлен в выходной порт модуля [Выполнение сценария R][execute-r-script]. Чтобы просмотреть список пакетов, подключите модуль преобразования, например [Преобразование в CSV-файл][convert-to-csv], к выходным данным модуля [Выполнение сценария R][execute-r-script] слева, выполните эксперимент, а затем щелкните выходные данные модуля преобразования и выберите **Скачать**.
 
@@ -45,7 +42,6 @@ For convenience, here is the [current full list with version numbers in Excel fo
 -->
 
 ## Импорт пакетов
-
 Вы также можете импортировать пакеты, которые еще не установлены из промежуточного репозитория Студии машинного обучения Microsoft Azure, с помощью следующих команд в модуле [Выполнение сценария R][execute-r-script] и ZIP-архива пакета:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)

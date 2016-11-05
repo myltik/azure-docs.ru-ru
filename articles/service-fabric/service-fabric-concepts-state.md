@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Определение состояния и управление им | Microsoft Azure"
-   description="Определение состояния службы и управление им в инфраструктуре службы"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Определение состояния и управление им | Microsoft Docs
+description: Определение состояния службы и управление им в инфраструктуре службы
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Состояние службы
 **Состояние службы** — это данные, необходимые службе для функционирования. Это структуры данных и переменные, которые считываются и записываются работающей службой.
 
@@ -31,13 +31,10 @@
 Состояние может также размещаться вместе с кодом, который манипулирует этим кодом. Службы с отслеживанием состояния в структуре служб создаются на основе этой модели. Service Fabric предоставляет инфраструктуру, обеспечивающую высокую доступность и отказоустойчивость этого состояния в случае ошибок.
 
 ## Дальнейшие действия
-
 Дополнительные сведения о концепциях Service Fabric см. в следующих статьях:
 
-- [Доступность служб структуры служб](service-fabric-availability-services.md)
-
-- [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
-
-- [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
+* [Доступность служб структуры служб](service-fabric-availability-services.md)
+* [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
+* [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,57 +1,58 @@
-<properties 
-	pageTitle="Мониторинг конвейеров фабрики данных Azure и управление ими" 
-	description="Узнайте, как с помощью портала Azure и Azure PowerShell отслеживать состояние созданных конвейеров и фабрик данных Azure и управлять ими." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Мониторинг конвейеров фабрики данных Azure и управление ими
+description: Узнайте, как с помощью портала Azure и Azure PowerShell отслеживать состояние созданных конвейеров и фабрик данных Azure и управлять ими.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: spelluru
 
-
+---
 # Мониторинг конвейеров фабрики данных Azure и управление ими
-> [AZURE.SELECTOR]
-- [Использование портала Azure или Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Использование приложения по мониторингу и управлению](data-factory-monitor-manage-app.md)
+> [!div class="op_single_selector"]
+> * [Использование портала Azure или Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+> * [Использование приложения по мониторингу и управлению](data-factory-monitor-manage-app.md)
+> 
+> 
 
 Служба фабрики данных предоставляет полное и достоверное представление о службах хранения, обработки и перемещения данных. Она содержит панель мониторинга, с помощью которой можно:
 
-- быстро оценить работоспособность конвейера данных от начала до конца;
-- выявить проблемы и при необходимости предпринять действия по исправлению;
-- отслеживать журнал преобразований данных;
-- отслеживать связи между данными во всех источниках;
-- просматривать полную историю выполнения заданий, работоспособности системы и зависимостей.
+* быстро оценить работоспособность конвейера данных от начала до конца;
+* выявить проблемы и при необходимости предпринять действия по исправлению;
+* отслеживать журнал преобразований данных;
+* отслеживать связи между данными во всех источниках;
+* просматривать полную историю выполнения заданий, работоспособности системы и зависимостей.
 
 В этой статье описываются мониторинг и отладка конвейеров, а также управление ими. В ней также приводятся инструкции по настройке оповещений в случае сбоев.
 
 ## Состояния конвейеров и действий
 Используя портал Azure, можно выполнить следующие действия:
 
-- представлять фабрику данных в виде схемы;
-- просматривать действия в конвейере;
-- просматривать входные и выходные наборы данных;
-- другое.
+* представлять фабрику данных в виде схемы;
+* просматривать действия в конвейере;
+* просматривать входные и выходные наборы данных;
+* другое.
 
 В этом разделе также содержится информация о переходе среза из одного состояния в другое.
 
 ### Переход к фабрике данных
-1.	Выполните вход на [портал Azure](https://portal.azure.com).
-2.	Щелкните **Просмотреть все** и выберите **Фабрики данных**.
-	
-	![Просмотреть все -> Фабрики данных](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-	В колонке **Фабрики данных** должны отобразиться все фабрики данных.
-4. В колонке "Фабрики данных" выберите фабрику данных, которая вас интересует. Откроется ее домашняя страница (колонка **Фабрика данных**).
-
-	![Колонка "Фабрика данных"](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+1. Выполните вход на [портал Azure](https://portal.azure.com).
+2. Щелкните **Просмотреть все** и выберите **Фабрики данных**.
+   
+   ![Просмотреть все -> Фабрики данных](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   
+   В колонке **Фабрики данных** должны отобразиться все фабрики данных.
+3. В колонке "Фабрики данных" выберите фабрику данных, которая вас интересует. Откроется ее домашняя страница (колонка **Фабрика данных**).
+   
+    ![Колонка "Фабрика данных"](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Представление фабрики данных в виде схемы
 Представление схемы позволяет отслеживать состояние фабрики данных и всех ее ресурсов, а также управлять ими.
@@ -61,18 +62,17 @@
 ![Представление схемы](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 Вы можете увеличивать и уменьшать масштаб, выбирать 100%-ный масштаб или масштаб по размеру, блокировать структуру схемы и автоматически размещать конвейеры и таблицы. Кроме того, можно отображать сведения из журнала преобразований данных (выделение восходящих и нисходящих элементов).
- 
 
-### Действия в конвейере 
+### Действия в конвейере
 1. Щелкните конвейер правой кнопкой мыши и выберите команду **Открыть конвейер**. Отобразятся все действия вместе с их входными и выходными наборами данных. Эта функция удобна, когда конвейер состоит из нескольких действий, а вы хотите понять структуру взаимосвязей во всем конвейере.
-
-	![Откройте меню конвейера](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
+   
+    ![Откройте меню конвейера](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
 2. В следующем примере вы увидите два действия в конвейере с их входными и выходными данными: действие **JoinData** типа "Действие Hive HDInsight" и действие **EgressDataAzure** типа "Действие копирования".
-	
-	![Действия в конвейере](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+   
+    ![Действия в конвейере](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Чтобы вернуться на домашнюю страницу фабрики данных, щелкните ссылку "Фабрика данных" в строке навигации в левом верхнем углу.
-
-	![Возврат к фабрике данных](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+   
+    ![Возврат к фабрике данных](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### Просмотр состояния действий в конвейере
 Вы можете просмотреть текущее состояние отдельного действия, отобразив состояние любого созданного им набора данных.
@@ -87,10 +87,10 @@
 
 <table>
 <tr>
-	<th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">Описание</th>
+    <th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">Описание</th>
 </tr>
 <tr>
-	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Время для выполнения среза еще не пришло.</td>
+    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Время для выполнения среза еще не пришло.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Восходящие зависимости не готовы.</td>
@@ -147,7 +147,7 @@
 Чтобы просмотреть сведения о срезе, щелкните запись среза в колонке **Недавно обновленные срезы**.
 
 ![Сведения о срезе](./media/data-factory-monitor-manage-pipelines/slice-details.png)
- 
+
 Если срез выполнялся несколько раз, вы увидите несколько строк в списке **Выполнения действий**.
 
 ![Циклы выполнения действия со срезом](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
@@ -171,7 +171,6 @@
 
 Вы можете сбросить состояние среза **Готово** или **Ошибка** обратно в состояние **Ожидание**. Вы также можете установить для среза флажок **Пропустить** — действие со срезом не выполняется, и срез не обрабатывается.
 
-
 ## Управление конвейерами
 Управлять конвейерами можно с помощью Azure Powershell. Например, вы можете приостановить и возобновить работу конвейеров, используя командлеты Azure PowerShell.
 
@@ -184,19 +183,19 @@
 
 Чтобы приостановить конвейер, выполните следующую команду PowerShell.
 
-	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+    Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Например:
 
-	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+    Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 Устранив проблему в конвейере **PartitionProductsUsagePipeline**, возобновите его работу. Для этого выполните следующую команду PowerShell.
 
-	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+    Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Например:
 
-	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+    Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Отладка конвейеров
@@ -206,80 +205,73 @@
 Если при выполнении действия в конвейере происходит сбой, созданный конвейером набор данных будет находиться в состоянии Error (Ошибка). Вы можете устранить неполадки или выполнить отладку в фабрике данных Azure, используя следующие механизмы.
 
 #### Отладка ошибок с помощью портала Azure
-
-1.	Щелкните ссылку **С ошибками** на плитке **Наборы данных** на домашней странице фабрики данных.
-	
-	![Плитка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	В колонке **Наборы данных с ошибками** щелкните интересующую вас таблицу.
-
-	![Колонка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	В колонке **Таблица** щелкните проблемный срез с **состоянием** **Ошибка**.
-
-	![Колонка "Таблица" с проблемным срезом](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.	В колонке **СРЕЗ ДАННЫХ** щелкните цикл выполнения действия, который завершился ошибкой.
-	
-	![Срез данных с ошибкой](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-5.	В колонке **СВЕДЕНИЯ О ВЫПОЛНЕННОМ ДЕЙСТВИИ** вы можете скачать файлы, связанные с обработкой HDInsight. Чтобы скачать файл журнала ошибок, содержащий подробные сведения об ошибке, щелкните Скачать для Status/stderr (Состояние/stderr).
-
-	![Колонка "Сведения о циклах выполнения действия" с ошибкой](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)
+1. Щелкните ссылку **С ошибками** на плитке **Наборы данных** на домашней странице фабрики данных.
+   
+   ![Плитка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
+2. В колонке **Наборы данных с ошибками** щелкните интересующую вас таблицу.
+   
+   ![Колонка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
+3. В колонке **Таблица** щелкните проблемный срез с **состоянием** **Ошибка**.
+   
+   ![Колонка "Таблица" с проблемным срезом](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+4. В колонке **СРЕЗ ДАННЫХ** щелкните цикл выполнения действия, который завершился ошибкой.
+   
+   ![Срез данных с ошибкой](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+5. В колонке **СВЕДЕНИЯ О ВЫПОЛНЕННОМ ДЕЙСТВИИ** вы можете скачать файлы, связанные с обработкой HDInsight. Чтобы скачать файл журнала ошибок, содержащий подробные сведения об ошибке, щелкните Скачать для Status/stderr (Состояние/stderr).
+   
+   ![Колонка "Сведения о циклах выполнения действия" с ошибкой](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)
 
 #### Отладка ошибок с помощью PowerShell
-1.	Запустите **Azure PowerShell**.
-3.	Выполните команду **Get-AzureRmDataFactorySlice**, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием **Ошибка**.
+1. Запустите **Azure PowerShell**.
+2. Выполните команду **Get-AzureRmDataFactorySlice**, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием **Ошибка**.
+   
+     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+   
+   Например:
 
-		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-	
-	Например:
+        Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
+    Замените **StartDateTime** на значение StartDateTime, которое вы указали для Set-AzureRmDataFactoryPipelineActivePeriod.
+1. Теперь запустите командлет **Get-AzureRmDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
+   
+        Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
+        DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
+        <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
+   
+    Например:
 
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
-	Замените **StartDateTime** на значение StartDateTime, которое вы указали для Set-AzureRmDataFactoryPipelineActivePeriod.
-4. Теперь запустите командлет **Get-AzureRmDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
-
-		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
-		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
-		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
-	
-	Например:
-
-
-		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
-
-	В качестве значения StartDateTime укажите время начала для проблемного (содержащего ошибку) среза, которое вы отметили на предыдущем шаге. Значение даты-времени необходимо заключить в двойные кавычки.
-5. 	Вы должны увидеть выходные данные с подробными сведениями об ошибке (аналогично следующему):
-
-		Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-		ResourceGroupName   	: ADF
-		DataFactoryName     	: LogProcessingFactory3
-		TableName           	: EnrichedGameEventsTable
-		ProcessingStartTime 	: 10/10/2014 3:04:52 AM
-		ProcessingEndTime   	: 10/10/2014 3:06:49 AM
-		PercentComplete     	: 0
-		DataSliceStart      	: 5/5/2014 12:00:00 AM
-		DataSliceEnd        	: 5/6/2014 12:00:00 AM
-		Status              	: FailedExecution
-		Timestamp           	: 10/10/2014 3:04:52 AM
-		RetryAttempt        	: 0
-		Properties          	: {}
-		ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
-		                        		Jobs/841b77c9-d56c-48d1-99a3-
-					8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
-					more details.
-		ActivityName        	: PigEnrichLogs
-		PipelineName        	: EnrichGameLogsPipeline
-		Type                	:
-	
-	
-6. 	Вы можете выполнить командлет **Save-AzureRmDataFactoryLog** с идентификатором, который отображается в результате команд, и скачать файлы журналов, используя параметр **-DownloadLogsoption** командлета.
-
-	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
-
+    В качестве значения StartDateTime укажите время начала для проблемного (содержащего ошибку) среза, которое вы отметили на предыдущем шаге. Значение даты-времени необходимо заключить в двойные кавычки.
+1. Вы должны увидеть выходные данные с подробными сведениями об ошибке (аналогично следующему):
+   
+    Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+    ResourceGroupName       : ADF
+    DataFactoryName         : LogProcessingFactory3
+    TableName               : EnrichedGameEventsTable
+    ProcessingStartTime     : 10/10/2014 3:04:52 AM
+    ProcessingEndTime       : 10/10/2014 3:06:49 AM
+    PercentComplete         : 0
+    DataSliceStart          : 5/5/2014 12:00:00 AM
+    DataSliceEnd            : 5/6/2014 12:00:00 AM
+    Status                  : FailedExecution
+    Timestamp               : 10/10/2014 3:04:52 AM
+    RetryAttempt            : 0
+    Properties              : {}
+    ErrorMessage            : Pig script failed with exit code '5'. See wasb://        adfjobs@spestore.blob.core.windows.net/PigQuery
+   
+                                    Jobs/841b77c9-d56c-48d1-99a3-
+                8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
+                more details.
+    ActivityName            : PigEnrichLogs
+    PipelineName            : EnrichGameLogsPipeline
+    Type                    :
+2. Вы можете выполнить командлет **Save-AzureRmDataFactoryLog** с идентификатором, который отображается в результате команд, и скачать файлы журналов, используя параметр **-DownloadLogsoption** командлета.
+   
+   Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 ## Повторная обработка проблемных срезов в конвейере
-
 ### Использование портала Azure
-
 После устранения неполадок и отладки ошибок в конвейере можно повторно обработать срез с ошибками. Для этого выберите срез и на панели команд нажмите кнопку **Запустить**.
 
 ![Повторная обработка среза](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
@@ -287,14 +279,13 @@
 Если срез не прошел проверку из-за ошибки политики (например, данные недоступны), вы можете исправить ошибку и повторно выполнить проверку, нажав на панели команд кнопку **Проверить**. ![Исправление ошибок и проверка](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Использование Azure PowerShell
-
 Вы можете повторно обработать проблемные срезы, используя командлет Set-AzureRmDataFactorySliceStatus. Синтаксис и другие сведения об этом командлете см. в разделе [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
 **Пример.** В следующем примере состояние всех срезов в таблице DAWikiAggregatedData в фабрике данных WikiADF меняется на Waiting.
 
 Для UpdateType задано значение UpstreamInPipeline. Это означает, что состояние каждого среза в таблице и всех зависимых (восходящих) таблиц переходит в состояние Waiting. Этот параметр может иметь еще одно значение — Individual.
 
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+    Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Создание оповещений
@@ -303,190 +294,191 @@ Azure регистрирует пользовательские события, 
 ### Оповещения о событиях
 События Azure позволяют получить представление о том, что происходит в ресурсах Azure. Azure регистрирует пользовательские события, когда ресурс Azure (например, фабрика данных) создается, обновляется или удаляется. При использовании фабрики данных Azure события создаются, когда:
 
-- создается, обновляется или удаляется фабрика данных Azure;
-- запускается или завершается обработка данных (которая называется циклом выполнения);
-- создается и удаляется кластер HDInsight по требованию.
+* создается, обновляется или удаляется фабрика данных Azure;
+* запускается или завершается обработка данных (которая называется циклом выполнения);
+* создается и удаляется кластер HDInsight по требованию.
 
 Вы можете создавать оповещения в этих пользовательских событиях и настраивать их для отправки уведомлений по электронной почте администраторам и соадминистраторам подписки. Кроме того, вы можете указать дополнительные адреса электронной почты пользователей, которые должны получать уведомления по электронной почте при выполнении определенных условий. Эта функция удобна, когда нужно получать уведомления о сбоях, но не требуется постоянно отслеживать состояние фабрики данных.
 
-> [AZURE.NOTE] В настоящее время портал не отображает оповещения о событиях. Используйте [приложение по мониторингу и управлению](data-factory-monitor-manage-app.md) для просмотра всех оповещений.
+> [!NOTE]
+> В настоящее время портал не отображает оповещения о событиях. Используйте [приложение по мониторингу и управлению](data-factory-monitor-manage-app.md) для просмотра всех оповещений.
+> 
+> 
 
 #### Настройка определения оповещения
 Чтобы задать определение оповещения, создайте файл JSON, описывающий операции, о которых вы хотите получать оповещения. В следующем примере отправляется электронное уведомление об операции RunFinished. Другими словами, оно отправляется в случае завершения цикла выполнения действия в фабрике данных со сбоем (состояние = FailedExecution).
 
-	{
-	    "contentVersion": "1.0.0.0",
-	     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-	    "parameters": {},
-	    "resources": 
-	    [
-	        {
-	            "name": "ADFAlertsSlice",
-	            "type": "microsoft.insights/alertrules",
-	            "apiVersion": "2014-04-01",
-	            "location": "East US",
-	            "properties": 
-	            {
-	                "name": "ADFAlertsSlice",
-	                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
-	                "isEnabled": true,
-	                "condition": 
-	                {
-	                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
-	                    "dataSource": 
-	                    {
-	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
-	                        "operationName": "RunFinished",
-	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
-	                    }
-	                },
-	                "action": 
-	                {
-	                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-	                    "customEmails": [ "<your alias>@contoso.com" ]
-	                }
-	            }
-	        }
-	    ]
-	}
+    {
+        "contentVersion": "1.0.0.0",
+         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+        "parameters": {},
+        "resources": 
+        [
+            {
+                "name": "ADFAlertsSlice",
+                "type": "microsoft.insights/alertrules",
+                "apiVersion": "2014-04-01",
+                "location": "East US",
+                "properties": 
+                {
+                    "name": "ADFAlertsSlice",
+                    "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
+                    "isEnabled": true,
+                    "condition": 
+                    {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
+                        "dataSource": 
+                        {
+                            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
+                            "operationName": "RunFinished",
+                            "status": "Failed",
+                            "subStatus": "FailedExecution"   
+                        }
+                    },
+                    "action": 
+                    {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                        "customEmails": [ "<your alias>@contoso.com" ]
+                    }
+                }
+            }
+        ]
+    }
 
 В определении JSON **subStatus** можно удалить, если вы не хотите получать оповещение при конкретном сбое.
 
 Этот пример устанавливает оповещение для всех фабрик данных в вашей подписке. Если вам необходимо установить оповещение для определенной фабрики данных, можно указать ее значение **resourceUri** в **dataSource**:
 
-	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+    "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
 Список возможных операций и состояний (а также дополнительных состояний) см. в следующей таблице.
 
-Имя операции | Состояние | Дополнительное состояние
--------------- | ------ | ----------
-RunStarted | Started | Starting
-RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
-OnDemandClusterCreateStarted | Started
-OnDemandClusterCreateSuccessful | Успешно
-OnDemandClusterDeleted | Успешно
+| Имя операции | Состояние | Дополнительное состояние |
+| --- | --- | --- |
+| RunStarted |Started |Starting |
+| RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
+| OnDemandClusterCreateStarted |Started | |
+| OnDemandClusterCreateSuccessful |Успешно | |
+| OnDemandClusterDeleted |Успешно | |
 
 Дополнительные сведения об элементах JSON, используемых в примере, см. в статье [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 
-#### Развертывание оповещения 
+#### Развертывание оповещения
 Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 После успешного завершения развертывания группы ресурсов вы увидите следующие сообщения:
 
-	VERBOSE: 7:00:48 PM - Template is valid.
-	WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-	Please update scripts to remove this parameter.
-	VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
-	VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
-	
-	DeploymentName    : ADFAlertFailedSlice
-	ResourceGroupName : adf
-	ProvisioningState : Succeeded
-	Timestamp         : 10/11/2014 2:01:00 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	Outputs           :
+    VERBOSE: 7:00:48 PM - Template is valid.
+    WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
+    Please update scripts to remove this parameter.
+    VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
+    VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
 
-> [AZURE.NOTE] Можно использовать REST API [Создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx) для создания правила оповещения. Полезные данные JSON аналогичны JSON в примере.
+    DeploymentName    : ADFAlertFailedSlice
+    ResourceGroupName : adf
+    ProvisioningState : Succeeded
+    Timestamp         : 10/11/2014 2:01:00 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+    Outputs           :
+
+> [!NOTE]
+> Можно использовать REST API [Создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx) для создания правила оповещения. Полезные данные JSON аналогичны JSON в примере.
+> 
+> 
 
 #### Получение списка развертываний групп ресурсов Azure
 Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
-	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
-	
-	DeploymentName    : ADFAlertFailedSlice
-	ResourceGroupName : adf
-	ProvisioningState : Succeeded
-	Timestamp         : 10/11/2014 2:01:00 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	Outputs           :
+    Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
+
+    DeploymentName    : ADFAlertFailedSlice
+    ResourceGroupName : adf
+    ProvisioningState : Succeeded
+    Timestamp         : 10/11/2014 2:01:00 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+    Outputs           :
 
 
 #### Устранение неполадок пользовательских событий
+* Вы можете просмотреть все созданные события, щелкнув плитку **Операции**, и настроить оповещения для любых операций, отображаемых в колонке **События**.
+  
+    ![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+* Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
+
+        PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+
+                Properties :
+                Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+                Condition   :
+                DataSource :
+                EventName             :
+                Category              :
+                Level                 :
+                OperationName         : RunFinished
+                ResourceGroupName     :
+                ResourceProviderName  :
+                ResourceId            :
+                Status                : Failed
+                SubStatus             : FailedExecution
+                Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+                Condition      :
+                Description : One or more of the data slices for the Azure Data Factory has failed processing.
+                Status      : Enabled
+                Name:       : ADFAlertsSlice
+                Tags       :
+                $type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+                Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+                Location   : West US
+                Name       : ADFAlertsSlice
+
+        PS C:\> Get-AlertRule -res $resourceGroup
+
+                Properties : Microsoft.Azure.Management.Insights.Models.Rule
+                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+                Location   : West US
+                Name       : FailedExecutionRunsWest0
+
+                Properties : Microsoft.Azure.Management.Insights.Models.Rule
+                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+                Location   : West US
+                Name       : FailedExecutionRunsWest3
+
+        PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+
+                Properties : Microsoft.Azure.Management.Insights.Models.Rule
+                Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+                Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+                Location   : West US
+                Name       : FailedExecutionRunsWest0
+
+    Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
+
+        get-help Get-AlertRule -detailed 
+        get-help Get-AlertRule -examples
 
 
-- Вы можете просмотреть все созданные события, щелкнув плитку **Операции**, и настроить оповещения для любых операций, отображаемых в колонке **События**.
-
-	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-
-- Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
-
-
-		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
-			
-				Properties :
-		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-		        Condition   :
-				DataSource :
-				EventName             :
-				Category              :
-				Level                 :
-				OperationName         : RunFinished
-				ResourceGroupName     :
-				ResourceProviderName  :
-				ResourceId            :
-				Status                : Failed
-				SubStatus             : FailedExecution
-				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-		        Condition  	:
-				Description : One or more of the data slices for the Azure Data Factory has failed processing.
-				Status      : Enabled
-				Name:       : ADFAlertsSlice
-				Tags       :
-				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-				Location   : West US
-				Name       : ADFAlertsSlice
-		
-		PS C:\> Get-AlertRule -res $resourceGroup
-	
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
-		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-				Location   : West US
-				Name       : FailedExecutionRunsWest3
-	
-		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
-
-	Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
-
-		get-help Get-AlertRule -detailed 
-		get-help Get-AlertRule -examples
-
-
-- Если события-триггеры отображаются в колонке на портале, но вы не получаете электронных уведомлений, убедитесь, что ваш адрес электронной почты может получать сообщения от внешних отправителей. Получение оповещений может быть заблокировано в параметрах электронной почты.
+* Если события-триггеры отображаются в колонке на портале, но вы не получаете электронных уведомлений, убедитесь, что ваш адрес электронной почты может получать сообщения от внешних отправителей. Получение оповещений может быть заблокировано в параметрах электронной почты.
 
 ### Оповещения по метрикам
 Фабрика данных позволяет собирать различные метрики и создавать по ним оповещения. Вы можете отслеживать и создавать оповещения по следующим метрикам срезов в фабрике данных:
- 
-- циклы выполнения со сбоем;
-- успешные циклы выполнения.
+
+* циклы выполнения со сбоем;
+* успешные циклы выполнения.
 
 Эти метрики позволяют получать общее представление обо всех успешных и проблемных циклах в фабрике данных. Метрики создаются при каждом цикле выполнения действия со срезом. Все созданные за час метрики собираются и передаются в вашу учетную запись хранения. Поэтому, чтобы включить метрики, необходимо настроить учетную запись хранения.
 
 #### Включение метрик
 Чтобы включить метрики, в колонке "Фабрика данных" выберите следующее:
 
-**Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**.
+**Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**.
 
 В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку «Сохранить».
 
@@ -494,13 +486,10 @@ OnDemandClusterDeleted | Успешно
 
 Так как метрики агрегируются ежечасно, между сохранением и отображением метрик в колонке мониторинга может пройти час.
 
-
 ### Настройка оповещений по метрикам
-
 Чтобы настроить оповещения по метрикам, в колонке "Фабрика данных" выберите **Мониторинг** -> **Метрика** -> **Добавить оповещение** -> **Добавление правила оповещения**.
 
 Введите необходимые сведения для правила, укажите электронные адреса, на которые будут отправляться оповещения, и нажмите кнопку **ОК**.
-
 
 ![Настройка оповещений по метрикам](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
 
@@ -520,71 +509,72 @@ OnDemandClusterDeleted | Успешно
 
 **Определение оповещения:**
 
-	{
-	    "contentVersion" : "1.0.0.0",
-	    "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-	    "parameters" : {},
-	    "resources" : [
-		{
-	            "name" : "FailedRunsGreaterThan5",
-	            "type" : "microsoft.insights/alertrules",
-	            "apiVersion" : "2014-04-01",
-	            "location" : "East US",
-	            "properties" : {
-	                "name" : "FailedRunsGreaterThan5",
-	                "description" : "Failed Runs greater than 5",
-	                "isEnabled" : true,
-	                "condition" : {
-	                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-	                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-	                    "dataSource" : {
-	                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-	                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-	                        "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
-	>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
-	                        "metricName" : "FailedRuns"
-	                    },
-	                    "threshold" : 5.0,
-	                    "windowSize" : "PT3H",
-	                    "timeAggregation" : "Total"
-	                },
-	                "action" : {
-	                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-	                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-	                    "customEmails" : ["abhinav.gpt@live.com"]
-	                }
-	            }
-	        }
-	    ]
-	}
- 
+    {
+        "contentVersion" : "1.0.0.0",
+        "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+        "parameters" : {},
+        "resources" : [
+        {
+                "name" : "FailedRunsGreaterThan5",
+                "type" : "microsoft.insights/alertrules",
+                "apiVersion" : "2014-04-01",
+                "location" : "East US",
+                "properties" : {
+                    "name" : "FailedRunsGreaterThan5",
+                    "description" : "Failed Runs greater than 5",
+                    "isEnabled" : true,
+                    "condition" : {
+                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                        "dataSource" : {
+                            "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+                            "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                            "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
+    >/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
+                            "metricName" : "FailedRuns"
+                        },
+                        "threshold" : 5.0,
+                        "windowSize" : "PT3H",
+                        "timeAggregation" : "Total"
+                    },
+                    "action" : {
+                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                        "customEmails" : ["abhinav.gpt@live.com"]
+                    }
+                }
+            }
+        ]
+    }
+
 Замените subscriptionId, resourceGroupName и dataFactoryName в примере на соответствующие значения.
 
 *metricName* на данный момент поддерживает два значения:
-- FailedRuns и
-- SuccessfulRuns.
+
+* FailedRuns и
+* SuccessfulRuns.
 
 **Развертывание оповещения**
 
 Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 В случае успешного развертывания вы увидите следующее сообщение:
 
-	VERBOSE: 12:52:47 PM - Template is valid.
-	VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
-	VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
-	
-	
-	DeploymentName    : FailedRunsGreaterThan5
-	ResourceGroupName : adf
-	ProvisioningState : Succeeded
-	Timestamp         : 7/27/2015 7:52:56 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	Outputs           
+    VERBOSE: 12:52:47 PM - Template is valid.
+    VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
+    VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
+
+
+    DeploymentName    : FailedRunsGreaterThan5
+    ResourceGroupName : adf
+    ProvisioningState : Succeeded
+    Timestamp         : 7/27/2015 7:52:56 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+    Outputs           
 
 
 Вы также можете использовать командлет **Add-AlertRule**, чтобы развернуть правило оповещения. Дополнительные сведения и примеры см. в разделе [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).

@@ -1,27 +1,24 @@
-<properties 
-	pageTitle="Диагностика проблем с зависимостями в Application Insights" 
-	description="Найдите сбои и операции с низкой производительностью, вызванные зависимостями." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Диагностика проблем с зависимостями в Application Insights
+description: Найдите сбои и операции с низкой производительностью, вызванные зависимостями.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/12/2016
+ms.author: awills
+
+---
 # Диагностика проблем с зависимостями в Application Insights
-
-
 *Зависимость* – это внешний компонент, который вызывается приложением. Как правило, это служба, вызываемая с использованием HTTP, база данных или файловая система. В сценарии для веб-страницы это может быть вызов AJAX на сервер. В Visual Studio Application Insights можно легко увидеть то, сколько времени приложение ожидает зависимости и как часто происходит сбой вызова зависимости.
 
 ## Возможное применение
-
 Мониторинг зависимостей по умолчанию сейчас доступен для
 
 * веб-приложений и служб ASP.NET, работающих на сервере IIS или на платформе Azure;
@@ -33,33 +30,31 @@
 Сейчас монитор зависимостей по умолчанию предоставляет отчеты о вызовах зависимостей таких типов:
 
 * ASP.NET:
- * базы данных SQL;
- * веб-службы и службы WCF ASP.NET, использующие привязки на основе HTTP;
- * локальные или удаленные HTTP-вызовы;
- * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
+  * базы данных SQL;
+  * веб-службы и службы WCF ASP.NET, использующие привязки на основе HTTP;
+  * локальные или удаленные HTTP-вызовы;
+  * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
 * Java:
- * вызовы к базе данных с помощью драйвера [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) (например, MySQL, SQL Server, PostgreSQL или SQLite).
+  * вызовы к базе данных с помощью драйвера [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) (например, MySQL, SQL Server, PostgreSQL или SQLite).
 * Веб-страницы
- * [Вызовы AJAX](app-insights-javascript.md)
+  * [Вызовы AJAX](app-insights-javascript.md)
 
 Напомним, что можно самостоятельно написать вызовы SDK для мониторинга других зависимостей.
 
 ## Настройка мониторинга зависимостей
-
 Установите соответствующий агент для сервера узла.
 
-Платформа | Установить
----|---
-Сервер IIS | [Установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md) или [обновите свое приложение до .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259) и установите в нем пакет [SDK Application Insights](app-insights-asp-net.md).
-Веб-приложение Azure | [Расширение для Application Insights](app-insights-azure-web-apps.md)
-Веб-сервер Java | [Веб-приложения Java](app-insights-java-agent.md)
-Веб-страницы | [Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц).
-Облачная служба Azure | [Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+| Платформа | Установить |
+| --- | --- |
+| Сервер IIS |[Установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md) или [обновите свое приложение до .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259) и установите в нем пакет [SDK Application Insights](app-insights-asp-net.md). |
+| Веб-приложение Azure |[Расширение для Application Insights](app-insights-azure-web-apps.md) |
+| Веб-сервер Java |[Веб-приложения Java](app-insights-java-agent.md) |
+| Веб-страницы |[Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц). |
+| Облачная служба Azure |[Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 В случае с монитором состояния для серверов IIS вам не нужно заново компилировать проект с исходным кодом, используя пакет SDK для Application Insights.
 
 ## Схема сопоставления приложений
-
 Схема сопоставления приложений — это визуальное средство, которое позволяет обнаруживать зависимости между компонентами приложения.
 
 ![Щелкните "Параметры" > "Схема сопоставления приложений".](./media/app-insights-dependencies/08.png)
@@ -73,7 +68,6 @@
 [Подробнее](app-insights-app-map.md).
 
 ## <a name="diagnosis"></a> Диагностика проблем производительности зависимостей на веб-сервере
-
 Чтобы оценить производительность запросов сервера:
 
 ![На странице «Обзор» приложения в Application Insights щелкните плитку «Производительность».](./media/app-insights-dependencies/01-performance.png)
@@ -86,12 +80,14 @@
 
 Щелкните эту строку, чтобы просмотреть события для отдельного запроса.
 
-
 ![Список вхождений запросов](./media/app-insights-dependencies/03-instances.png)
 
 Щелкните любой длительный экземпляр, чтобы проверить его более детально.
 
-> [AZURE.NOTE] Немного прокрутите вниз, чтобы выбрать экземпляр. Задержка в конвейере может означать неполноту данных верхних экземпляров.
+> [!NOTE]
+> Немного прокрутите вниз, чтобы выбрать экземпляр. Задержка в конвейере может означать неполноту данных верхних экземпляров.
+> 
+> 
 
 Прокрутите вниз до вызовов удаленных зависимостей, связанных с этим запросом:
 
@@ -101,27 +97,20 @@
 
 Выберите эту строку, чтобы получить дополнительную информацию.
 
-
 ![Щелкните эту удаленную зависимость, чтобы определить причину.](./media/app-insights-dependencies/05-detail.png)
 
 Подробности включают в себя достаточно данных для диагностики проблемы.
 
-
-
 ## Сбои
-
 При наличии неудачных запросов щелкните диаграмму.
 
 ![Щелкните диаграмму неудачных запросов.](./media/app-insights-dependencies/06-fail.png)
 
 Щелкните тип и экземпляр запроса, чтобы найти удаленную зависимость, вызов которой не удалось выполнить.
 
-
 ![Щелкните тип запроса, а затем его экземпляр, чтобы открыть этот же экземпляр в другом представлении. Щелкните его еще раз, чтобы просмотреть подробную информацию об исключении.](./media/app-insights-dependencies/07-faildetail.png)
 
-
 ## Пользовательское отслеживание зависимостей
-
 Стандартный модуль отслеживания зависимостей выявляет внешние зависимости, например базы данных и API REST, автоматически. Однако при необходимости аналогичную обработку можно настроить и для других компонентов.
 
 Код, который отправляет сведения о зависимостях, можно написать с использованием того же интерфейса [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency), что используется в стандартных модулях.
@@ -146,12 +135,7 @@
 
 Чтобы отключить стандартный модуль отслеживания зависимостей, удалите ссылку на DependencyTrackingTelemetryModule в файле [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-
 ## Ajax
-
 См. статью о [веб-страницах](app-insights-javascript.md).
-
-
- 
 
 <!---HONumber=AcomDC_0914_2016-->

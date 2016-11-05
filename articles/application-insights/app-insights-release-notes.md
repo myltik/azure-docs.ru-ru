@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Заметки о выпуске Application Insights" 
-	description="Последние обновления." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Заметки о выпуске Application Insights
+description: Последние обновления.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/28/2016
+ms.author: awills
+
+---
 # Заметки о выпуске пакета SDK для Application Insights
-
-
 Ниже приведены подробные заметки о выпуске и инструкции по обновлению для наших пакетов SDK.
 
 * [Пакет SDK для веб-сервера ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)

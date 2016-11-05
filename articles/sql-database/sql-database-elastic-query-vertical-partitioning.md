@@ -1,33 +1,30 @@
-<properties
-    pageTitle="Запрос к нескольким облачным базам данных с разными схемами | Microsoft Azure"
-    description="настройка межбазовых запросов для вертикального секционирования"    
-    services="sql-database"
-    documentationCenter=""  
-    manager="jhubbard"
-    authors="torsteng"/>
+---
+title: Запрос к нескольким облачным базам данных с разными схемами | Microsoft Docs
+description: настройка межбазовых запросов для вертикального секционирования
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: torsteng
 
-<tags
-    ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/27/2016"
-    ms.author="torsteng" />
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: torsteng
 
+---
 # Запрос к нескольким облачным базам данных с разными схемами (предварительная версия)
-
 ![Запросы между таблицами в разных базах данных][1]
 
-Базы данных с вертикальным секционированием используют разные наборы таблиц в разных базах данных. Это означает, что схемы разных баз данных различаются. Например, все таблицы, связанные с данными инвентаризации, хранятся в одной базе данных, а таблицы, связанные с учетом, — в другой.
+Базы данных с вертикальным секционированием используют разные наборы таблиц в разных базах данных. Это означает, что схемы разных баз данных различаются. Например, все таблицы, связанные с данными инвентаризации, хранятся в одной базе данных, а таблицы, связанные с учетом, — в другой.
 
 ## Предварительные требования
-
 * Пользователь должен иметь разрешение ALTER ANY EXTERNAL DATA SOURCE. Это разрешение включено в разрешение ALTER DATABASE.
 * Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
 ## Обзор
-
 **Примечание.** В отличие от горизонтального секционирования эти инструкции DDL не требуют определения уровня данных с помощью карты сегментов через клиентскую библиотеку эластичной базы данных.
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -35,20 +32,17 @@
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-
-## Создание главного ключа и учетных данных для конкретной базы данных 
-
+## Создание главного ключа и учетных данных для конкретной базы данных
 Учетные данные используются эластичным запросом для подключения к удаленным базам данных.
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
- 
+
 **Примечание.** Убедитесь, что значение *<username>* не содержит суффикс *@servername*.
 
 ## Создание внешних источников данных
-
 Синтаксис:
 
     <External_Data_Source> ::=
@@ -61,63 +55,58 @@
 
 **Важно**. Параметру TYPE должно быть присвоено значение **RDBMS**.
 
-### Пример 
-
+### Пример
 В следующем примере демонстрируется использование инструкции CREATE для внешних источников данных.
 
-	CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
-	WITH 
-	( 
-		TYPE=RDBMS, 
-		LOCATION='myserver.database.windows.net', 
-		DATABASE_NAME='ReferenceData', 
-		CREDENTIAL= SqlUser 
-	); 
- 
+    CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
+    WITH 
+    ( 
+        TYPE=RDBMS, 
+        LOCATION='myserver.database.windows.net', 
+        DATABASE_NAME='ReferenceData', 
+        CREDENTIAL= SqlUser 
+    ); 
+
 Получение списка актуальных внешних источников данных
 
     select * from sys.external_data_sources; 
 
-### Внешние таблицы 
-
+### Внешние таблицы
 Синтаксис:
 
-	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
+    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
-	{ WITH ( <rdbms_external_table_options> ) } 
-	)[;] 
-	
-	<rdbms_external_table_options> ::= 
+    { WITH ( <rdbms_external_table_options> ) } 
+    )[;] 
+
+    <rdbms_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>, 
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
-### Пример  
-
-	CREATE EXTERNAL TABLE [dbo].[customer]( 
-		[c_id] int NOT NULL, 
-		[c_firstname] nvarchar(256) NULL, 
-		[c_lastname] nvarchar(256) NOT NULL, 
-		[street] nvarchar(256) NOT NULL, 
-		[city] nvarchar(256) NOT NULL, 
-		[state] nvarchar(20) NULL, 
-		[country] nvarchar(50) NOT NULL, 
-	) 
-	WITH 
-	( 
-	       DATA_SOURCE = RemoteReferenceData 
-	); 
+### Пример
+    CREATE EXTERNAL TABLE [dbo].[customer]( 
+        [c_id] int NOT NULL, 
+        [c_firstname] nvarchar(256) NULL, 
+        [c_lastname] nvarchar(256) NOT NULL, 
+        [street] nvarchar(256) NOT NULL, 
+        [city] nvarchar(256) NOT NULL, 
+        [state] nvarchar(20) NULL, 
+        [country] nvarchar(50) NOT NULL, 
+    ) 
+    WITH 
+    ( 
+           DATA_SOURCE = RemoteReferenceData 
+    ); 
 
 В следующем примере показано получение списка внешних таблиц из текущей базы данных:
 
-	select * from sys.external_tables; 
+    select * from sys.external_tables; 
 
 ### Примечания
-
 Эластичные запросы расширяют существующий синтаксис доступа к внешним таблицам, позволяя определять внешние таблицы, использующие внешние источники данных типа реляционной СУБД. Определение внешней таблицы для вертикального секционирования содержит следующие элементы:
 
 * **Схема**: язык DDL внешней таблицы определяет схему, которую можно использовать в запросах. Схема из определения вашей внешней таблицы должна соответствовать схеме таблиц в удаленной базе данных, в которой хранятся данные. 
-
 * **Ссылка на удаленную базу данных**: язык DDL внешней таблицы ссылается на внешний источник данных. Внешний источник данных указывает логическое имя сервера и имя удаленной базы данных, в которой фактически хранятся данные из таблицы.
 
 Используя внешний источник данных (в соответствии с инструкциями, приведенными в предыдущем разделе), вы можете создавать внешние таблицы при помощи следующего синтаксиса:
@@ -128,35 +117,32 @@
 
 Следующая инструкция DDL удаляет существующее определение внешней таблицы из локального каталога. Эта операция не влияет на удаленную базу данных.
 
-	DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
+    DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
 **Разрешения для инструкции CREATE/DROP EXTERNAL TABLE**: для схемы данных внешней таблицы требуются разрешения ALTER ANY EXTERNAL DATA SOURCE, необходимые также для ссылки на базовый источник данных.
 
 ## Вопросы безопасности
 Пользователи, имеющие доступ к внешней таблице, автоматически получают доступ к базовой удаленной таблице с учетными данными, указанными в определении внешнего источника данных. Вам следует тщательно следить за доступом к внешним таблицам во избежание нежелательного повышения привилегий при использовании учетных данных внешнего источника данных. Для предоставления и отмены доступа к внешней таблице используются разрешения SQL, применимые к обычным таблицам.
 
-
-## Пример: запрос баз данных с вертикальным секционированием 
-
+## Пример: запрос баз данных с вертикальным секционированием
 Следующий запрос выполняет трехстороннее соединение между двумя локальными таблицами заказов и строк заказов с удаленной таблицей клиентов. Ниже приведен пример варианта использования ссылочных данных в эластичном запросе:
 
-	SELECT  	
-	 c_id as customer,
-	 c_lastname as customer_name,
-	 count(*) as cnt_orderline, 
-	 max(ol_quantity) as max_quantity,
-	 avg(ol_amount) as avg_amount,
-	 min(ol_delivery_d) as min_deliv_date
-	FROM customer 
-	JOIN orders 
-	ON c_id = o_c_id
-	JOIN  order_line 
-	ON o_id = ol_o_id and o_c_id = ol_c_id
-	WHERE c_id = 100
+    SELECT      
+     c_id as customer,
+     c_lastname as customer_name,
+     count(*) as cnt_orderline, 
+     max(ol_quantity) as max_quantity,
+     avg(ol_amount) as avg_amount,
+     min(ol_delivery_d) as min_deliv_date
+    FROM customer 
+    JOIN orders 
+    ON c_id = o_c_id
+    JOIN  order_line 
+    ON o_id = ol_o_id and o_c_id = ol_c_id
+    WHERE c_id = 100
 
 
 ## Хранимая процедура для удаленного выполнения T-SQL: sp\_execute\_remote
-
 С функцией эластичных запросов вам становится доступна хранимая процедура, которая обеспечивает прямой доступ к сегментам. Хранимая процедура называется [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714), она может использоваться для выполнения удаленных хранимых процедур или кода T-SQL в удаленных базах данных. Она принимает следующие параметры.
 
 * Имя источника данных (nvarchar): имя внешнего источника данных типа "реляционная СУБД". 
@@ -168,29 +154,23 @@
 
 Пример:
 
-	EXEC sp_execute_remote
-		N'MyExtSrc',
-		N'select count(w_id) as foo from warehouse' 
+    EXEC sp_execute_remote
+        N'MyExtSrc',
+        N'select count(w_id) as foo from warehouse' 
 
 
-  
+
 ## Подключение для инструментов
-
 Используйте обычные строки подключения SQL Server для подключения ваших инструментов бизнес-аналитики и средств интеграции данных к серверу баз данных SQL, где включены эластичные запросы и определены внешние таблицы. Убедитесь, что в качестве источника данных для вашего инструмента поддерживается SQL Server. Затем добавьте ссылку на эластичную базу данных запросов и ее внешние таблицы так же, как и ссылку на любую другую базу данных SQL Server, к которой вы подключались бы с помощью своего средства.
 
-## Рекомендации 
- 
+## Рекомендации
 * Убедитесь, что эластичный запрос к конечной базе данных имеет доступ к удаленной базе данных. Для этого откройте доступ для служб Azure в конфигурации брандмауэра базы данных SQL. Кроме того, убедитесь, что учетные данные, указанные в определении внешнего источника данных, позволяют войти в удаленную базу данных и имеют разрешения на доступ к удаленной таблице.  
-
 * Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в удаленной базе данных. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в удаленных базах данных, или соединениями, которые могут быть полностью выполнены в удаленной базе данных. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из удаленной базы данных, и эти шаблоны могут сработать неэффективно.
 
-
 ## Дальнейшие действия
-
 Сведения о запросах к базам данных с горизонтальным секционированием (или сегментированным базам данных) см. в разделе, посвященном [запросам к нескольким сегментированным базам данных (горизонтальное секционирование)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png

@@ -1,28 +1,26 @@
-<properties 
-    pageTitle="Автоматическая пересылка сущностей обмена сообщениями служебной шины | Microsoft Azure"
-    description="Как привязать очередь или подписку к другой очереди или разделу."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/29/2016"
-    ms.author="sethm" />
+---
+title: Автоматическая пересылка сущностей обмена сообщениями служебной шины | Microsoft Docs
+description: Как привязать очередь или подписку к другой очереди или разделу.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/29/2016
+ms.author: sethm
 
+---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Объединение в цепочки сущностей служебной шины с помощью автоматической переадресации
-
 Функция *автоматической переадресации* позволяет привязать очередь или подписку к другой очереди или разделу, которые являются частью одного и того же пространства имен. Если включена автоматическая переадресация, служебная шина автоматически удаляет сообщения, помещенные в первую очередь или подписку (источник), и помещает их во вторую очередь или раздел (место назначения). Обратите внимание, что при этом сохраняется возможность отправить сообщение в конечную сущность напрямую. Кроме того, подочередь (например, очередь недоставленных сообщений) нельзя привязать к другой очереди или разделу.
 
 ## <a name="using-auto-forwarding"></a>Использование автоматической переадресации
-
-Автоматическую переадресацию можно включить, задав свойства [QueueDescription.ForwardTo][] или [SubscriptionDescription.ForwardTo][] объектов источника [QueueDescription][] или [SubscriptionDescription][], как показано в следующем примере.
+Автоматическую переадресацию можно включить, задав свойства [QueueDescription.ForwardTo][QueueDescription.ForwardTo] или [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] объектов источника [QueueDescription][QueueDescription] или [SubscriptionDescription][SubscriptionDescription], как показано в следующем примере.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -32,7 +30,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 Конечная сущность должна существовать на момент создания исходной сущности. Если конечной сущности не существует, служебная шина возвращает исключение при попытке создать исходную сущность.
 
-С помощью автоматической переадресации можно выполнить масштабирование отдельного раздела. Служебная шина ограничивает [количество подписок на определенный раздел](service-bus-quotas.md) до 2000. Создав разделы второго уровня, можно разместить дополнительные подписки. Обратите внимание: даже если вы не связаны ограничением служебной шины на количество подписок, добавление разделов второго уровня может повысить общую пропускную способность раздела.
+С помощью автоматической переадресации можно выполнить масштабирование отдельного раздела. Служебная шина ограничивает [количество подписок на определенный раздел](../service-bus/service-bus-quotas.md) до 2000. Создав разделы второго уровня, можно разместить дополнительные подписки. Обратите внимание: даже если вы не связаны ограничением служебной шины на количество подписок, добавление разделов второго уровня может повысить общую пропускную способность раздела.
 
 ![Сценарий автоматической пересылки][0]
 
@@ -43,7 +41,6 @@ namespaceManager.CreateSubscription(srcSubscription));
 Если Алиса уйдет в отпуск, то заполнится ее личная очередь, а не очередь раздела ERP. В этом сценарии ни один из разделов ERP не достигнет выделенной квоты, так как торговый представитель не получил ни одного сообщения.
 
 ## <a name="auto-forwarding-considerations"></a>Рекомендации при использовании автоматической пересылки
-
 Если целевая сущность накапливает много сообщений и превышает квоту или целевая сущность отключена, то исходная сущность добавляет сообщения в [очередь недоставленных сообщений](service-bus-dead-letter-queues.md) до тех пор, пока в целевой сущности не появится место (или пока целевая сущность не будет снова включена). Эти сообщения будут находиться в очереди недоставленных сообщений, поэтому необходимо явным образом получать и обрабатывать их из этой очереди.
 
 При объединении в цепочку отдельных разделов для получения составного раздела с несколькими подписками рекомендуется сократить количество подписок на раздел первого уровня до умеренного и увеличить количество подписок на разделы второго уровня. Например, раздел первого уровня с 20 подписками, каждая из которых объединена в цепочку с разделом второго уровня с 200 подписками, позволяет получить более высокую пропускную способность по сравнению с разделом первого уровня с 200 подписками, каждая из которых объединена в цепочку с разделом второго уровня с 20 подписками.
@@ -53,22 +50,21 @@ namespaceManager.CreateSubscription(srcSubscription));
 Для создания подписки, привязанной к другой очереди или разделу, создатель подписки должен иметь разрешение на **управление** как исходной, так и целевой сущностями. Для отправки сообщений в исходный раздел требуется только разрешение на **отправку** для исходного раздела.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Подробные сведения об автоматической пересылке см. в следующих разделах:
 
-- [SubscriptionDescription.ForwardTo][]
-- [QueueDescription][]
-- [SubscriptionDescription][]
+* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [QueueDescription][QueueDescription]
+* [SubscriptionDescription][SubscriptionDescription]
 
-Дополнительные сведения об улучшении производительности служебной шины см. в статье [Секционированные сущности обмена сообщениями][].
+Дополнительные сведения об улучшении производительности служебной шины см. в статье [Секционированные сущности обмена сообщениями][Секционированные сущности обмена сообщениями].
 
-  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
-  [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
-  [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
-  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Секционированные сущности обмена сообщениями]: service-bus-partitioning.md
+[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+[SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
+[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+[0]: ./media/service-bus-auto-forwarding/IC628631.gif
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif
+[Секционированные сущности обмена сообщениями]: service-bus-partitioning.md
 
 
 <!--HONumber=Oct16_HO2-->

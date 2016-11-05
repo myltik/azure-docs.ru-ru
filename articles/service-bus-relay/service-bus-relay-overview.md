@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Обзор ретранслятора служебной шины | Microsoft Azure"
-    description="Обзор ретранслятора служебной шины."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Обзор ретранслятора служебной шины | Microsoft Docs
+description: Обзор ретранслятора служебной шины.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: sethm
 
-
-
+---
 # <a name="overview-of-service-bus-relay"></a>Обзор ретранслятора служебной шины
-
 Основным компонентом служебной шины является централизованная (но с равномерно распределенной нагрузкой) служба *ретрансляции*, которая позволяет создавать гибридные приложения, запускаемые как в центре обработки данных Azure, так и в локальной корпоративной среде.  Ретранслятор служебной шины поддерживает множество различных транспортных протоколов и стандартов веб-служб. К ним относятся SOAP, WS-* и даже REST. Служба ретрансляции упрощает работу с гибридными приложениями, позволяя безопасно предоставлять в общедоступном облаке службы Windows Communication Foundation (WCF), используемые в корпоративной сети предприятия, без необходимости открывать подключения брандмауэра или вносить значительные изменения в инфраструктуру корпоративной сети. 
 
 ![Основные понятия ретрансляции](./media/service-bus-relay-overview/sb-relay-01.png)
@@ -31,14 +28,10 @@
 Подключение между локальной службой и службой ретрансляции создается с помощью привязок WCF для ретрансляции. Привязки для ретрансляции сопоставляются в фоновом режиме с новыми элементами привязки транспорта, предназначенными для создания компонентов канала WCF, которые интегрируются со служебной шиной в облаке. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Дополнительные сведения о ретрансляторе служебной шины.
 
-- [Обзор архитектуры служебной шины Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
-
- 
-
+* [Обзор архитектуры служебной шины Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
 <!--HONumber=Oct16_HO2-->
 

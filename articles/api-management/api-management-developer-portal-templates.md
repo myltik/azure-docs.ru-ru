@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Настройка портала разработчика в службе управления API Azure с помощью шаблонов | Microsoft Azure" 
-	description="Получите дополнительные сведения о настройке портала разработчика в службе управления API Azure с помощью шаблонов" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Настройка портала разработчика в службе управления API Azure с помощью шаблонов | Microsoft Docs
+description: Получите дополнительные сведения о настройке портала разработчика в службе управления API Azure с помощью шаблонов
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
+---
 # Настройка портала разработчика в службе управления API Azure с помощью шаблонов
-
 Служба управления API Azure предоставляет несколько функций настройки, которые позволяют администраторам [настраивать внешний вид портала разработчика](api-management-customize-portal.md), а также содержимое страниц портала разработчика с помощью набора шаблонов, которые регулируют содержимое самих страниц. С помощью синтаксиса [DotLiquid](http://dotliquidmarkup.org/) и указанного набора локализованных строковых ресурсов, значков и элементов управления на странице можно гибко настраивать содержимое страниц по своему усмотрению с использованием этих шаблонов.
 
 ## Обзор шаблонов портала разработчика
-
 Управление шаблонами портала разработчика осуществляют администраторы службы управления API на портале разработчика. Для управления шаблонами разработчика перейдите к экземпляру службы управления API на классическом портале Azure и нажмите кнопку **Обзор**.
 
 ![Портал разработчика][api-management-browse]
@@ -59,68 +56,67 @@
 
 В предыдущем примере на портале разработчика отображаются два продукта, которые получены из данных, отображаемых в области **Данные шаблона**, как показано в следующем примере.
 
-	{
-		"Paging": {
-			"Page": 1,
-			"PageSize": 10,
-			"TotalItemCount": 2,
-			"ShowAll": false,
-			"PageCount": 1
-		},
-		"Filtering": {
-			"Pattern": null,
-			"Placeholder": "Search products"
-		},
-		"Products": [
-			{
-				"Id": "56ec64c380ed850042060001",
-				"Title": "Starter",
-				"Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-				"Terms": "",
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			},
-			{
-				"Id": "56ec64c380ed850042060002",
-				"Title": "Unlimited",
-				"Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-				"Terms": null,
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			}
-		]
-	}
+    {
+        "Paging": {
+            "Page": 1,
+            "PageSize": 10,
+            "TotalItemCount": 2,
+            "ShowAll": false,
+            "PageCount": 1
+        },
+        "Filtering": {
+            "Pattern": null,
+            "Placeholder": "Search products"
+        },
+        "Products": [
+            {
+                "Id": "56ec64c380ed850042060001",
+                "Title": "Starter",
+                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "Terms": "",
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            },
+            {
+                "Id": "56ec64c380ed850042060002",
+                "Title": "Unlimited",
+                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "Terms": null,
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            }
+        ]
+    }
 
 Для получения необходимых выходных данных разметка в шаблоне **Список продуктов** обрабатывает данные путем прохода по коллекции продуктов для отображения сведений о каждом отдельном продукте и ссылки на этот продукт. Обратите внимание на элементы `<search-control>` и `<page-control>` в разметке. Они управляют отображением элементов поиска и разбиения по страницам. `ProductsStrings|PageTitleProducts` представляет собой ссылку на локализованную строку, которая содержит текст заголовка `h2` для страницы. Список строковых ресурсов, элементов управления страницы и значков, которые доступны для использования в шаблонах портала разработчиков, см. в разделе [Справочник по шаблонам портала разработчика в службе управления API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-	<search-control></search-control>
-	<div class="row">
-	    <div class="col-md-9">
-	        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col-md-12">
-		{% if products.size > 0 %}
-		<ul class="list-unstyled">
-		{% for product in products %}
-			<li>
-				<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-				{{product.description}}
-			</li>	
-		{% endfor %}
-		</ul>
-		<paging-control></paging-control>
-		{% else %}
-		{% localized "CommonResources|NoItemsToDisplay" %}
-		{% endif %}
-		</div>
-	</div>
+    <search-control></search-control>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% if products.size > 0 %}
+        <ul class="list-unstyled">
+        {% for product in products %}
+            <li>
+                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+                {{product.description}}
+            </li>    
+        {% endfor %}
+        </ul>
+        <paging-control></paging-control>
+        {% else %}
+        {% localized "CommonResources|NoItemsToDisplay" %}
+        {% endif %}
+        </div>
+    </div>
 
 ## Сохранение шаблона
-
 Чтобы сохранить шаблон, нажмите кнопку "Сохранить" в редакторе шаблона.
 
 ![Сохранение шаблона][api-management-save-template]
@@ -128,7 +124,6 @@
 Сохраненные изменения не отобразятся на портале разработчика, пока шаблон не будет опубликован.
 
 ## Публикация шаблона
-
 Сохраненные шаблоны могут быть опубликованы по отдельности или все вместе. Чтобы опубликовать отдельный шаблон, нажмите кнопку "Опубликовать" в редакторе шаблона.
 
 ![Публикация шаблона][api-management-publish-template]
@@ -148,7 +143,6 @@
 Недавно опубликованные шаблоны немедленно вступают в силу на портале разработчика.
 
 ## Возврат к предыдущей версии шаблона
-
 Чтобы вернуться к предыдущей опубликованной версии шаблона, нажмите кнопку "Отменить изменения" в редакторе шаблонов.
 
 ![Отмена изменений шаблона][api-management-revert-template]
@@ -160,7 +154,6 @@
 Ранее опубликованная версия шаблона станет активной на портале разработчика после завершения операции восстановления.
 
 ## Восстановление шаблона до версии по умолчанию
-
 Восстановление шаблонов до версии по умолчанию выполняется в два этапа. Сначала необходимо восстановить шаблоны, а затем опубликовать восстановленные версии.
 
 Чтобы восстановить одиночный шаблон до версии по умолчанию, нажмите кнопку "Восстановить" в редакторе шаблона.
@@ -178,15 +171,14 @@
 Затем необходимо опубликовать восстановленные шаблоны вместе или по отдельности, выполнив действия, описанные в разделе [Публикация шаблона](#to-publish-a-template).
 
 ## Справочник по шаблонам портала разработчика
-
 Справочную информацию о шаблонах портала разработчика, строковых ресурсах, значках и элементах управления страницы см. в разделе [Справочник по шаблонам портала разработчика в службе управления API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
 ## Просмотр видеообзора
-
 Посмотрите следующий видеоролик, чтобы узнать, как добавить доски обсуждений и оценки на страницы API и страницы операций на портале разработчика с помощью шаблонов.
 
-> [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
+> 
+> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png

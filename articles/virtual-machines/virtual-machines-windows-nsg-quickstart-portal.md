@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Открытие портов для виртуальной машины Linux с помощью портала Azure | Microsoft Azure"
-   description="Узнайте, как открыть порт или создать конечную точку для виртуальной машины Windows, используя модель развертывания с помощью Resource Manager и портал Azure."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Открытие портов для виртуальной машины Linux с помощью портала Azure | Microsoft Docs
+description: Узнайте, как открыть порт или создать конечную точку для виртуальной машины Windows, используя модель развертывания с помощью Resource Manager и портал Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Открытие портов для виртуальной машины в Azure с помощью портала Azure
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Быстрые команды
 Эти действия также можно [выполнить с помощью Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
@@ -48,7 +48,6 @@
 
 Вы создали группу безопасности сети, создали правило для входящих подключений, которое пропускает трафик через порт 80, и связали эту группу с подсетью. Любые виртуальные машины, подключаемые к этой подсети, будут доступны через порт 80.
 
-
 ## Дополнительная информация о группах безопасности сети
 Приведенные здесь быстрые команды позволят настроить трафик, поступающий в виртуальную машину. Группы безопасности сети предоставляют множество полезных функций и всевозможные настройки для управления доступом к ресурсам. [Здесь](../virtual-network/virtual-networks-create-nsg-arm-ps.md) вы можете больше прочитать о создании группы безопасности сети и правил ACL.
 
@@ -59,8 +58,8 @@
 ## Дальнейшие действия
 В этом примере создано простое правило, разрешающее трафик HTTP. Информацию о создании более детализированных сред можно найти в следующих статьях.
 
-- [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
-- [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
-- [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
+* [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
+* [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
+* [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

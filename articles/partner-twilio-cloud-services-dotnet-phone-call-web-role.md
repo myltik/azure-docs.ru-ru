@@ -1,32 +1,27 @@
-<properties 
-	pageTitle="Телефонные звонки из Twilio (.NET) | Microsoft Azure" 
-	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры программного кода написаны в .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Телефонные звонки из Twilio (.NET) | Microsoft Docs
+description: Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры программного кода написаны в .NET.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/04/2016" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 05/04/2016
+ms.author: microsofthelp@twilio.com
 
-
-
-
+---
 # Осуществление телефонных звонков с использованием Twilio в веб-роли Azure
-
 В этом руководстве описывается, как выполнять телефонные звонки с веб-страницы, размещенной в Azure, с помощью службы Twilio. В полученном приложении пользователю предлагается ввести нужные данные для телефонного звонка, как показано на следующем снимке экрана.
 
 ![Форма звонка Azure с использованием службы Twilio и ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Предварительные требования
-
 Чтобы использовать код, представленный в этом разделе, выполните следующие действия:
 
 1. Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы начать работу в службе Twilio, зарегистрируйтесь на странице [https://www.twilio.com/try-twilio][try_twilio]. Ценовая политика описывается на странице [http://www.twilio.com/pricing][twilio_pricing]. Дополнительные сведения о предоставляемых службой Twilio интерфейсах API см. на странице [http://www.twilio.com/voice/api][twilio_api].
@@ -35,15 +30,14 @@
 Для этого вам потребуются знания процесса, позволяющего создать базовую веб-роль в Azure.
 
 ## <a name="howtocreateform"></a>Практическое руководство. Создание веб-формы для осуществления вызова
-
 <a id="use_nuget"></a>Добавление библиотек Twilio в проект веб-роли
 
-1.  Откройте решение в Visual Studio.
-2.  Щелкните правой кнопкой мыши **References** (Ссылки).
-3.  Выберите **Управление пакетами NuGet...**.
-4.  Щелкните **Online** (В сети).
-5.  В поле поиска online введите *twilio*.
-6.  Щелкните **Install** (Установить) на пакете Twilio.
+1. Откройте решение в Visual Studio.
+2. Щелкните правой кнопкой мыши **References** (Ссылки).
+3. Выберите **Управление пакетами NuGet...**.
+4. Щелкните **Online** (В сети).
+5. В поле поиска online введите *twilio*.
+6. Щелкните **Install** (Установить) на пакете Twilio.
 
 В следующем коде показано, как создать веб-форму, позволяющую извлечь данные пользователя для выполнения звонка. В этом примере создается веб-роль ASP.NET с именем **TwilioCloud**.
 
@@ -163,7 +157,7 @@
 * Руководства по безопасности работы с Twilio приведены по адресу [https://www.twilio.com/docs/security][twilio_docs_security].
 * Дополнительные сведения о службе Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
 
-##<a name="seealso"></a>Дополнительные материалы
+## <a name="seealso"></a>Дополнительные материалы
 * [Использование Twilio для поддержки голосовых вызовов и SMS в Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing

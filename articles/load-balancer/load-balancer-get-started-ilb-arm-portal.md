@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Приступая к созданию внутреннего балансировщика нагрузки в Resource Manager с помощью портала Azure | Microsoft Azure"
-   description="Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью портала Azure."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="sewhee" />
+---
+title: Приступая к созданию внутреннего балансировщика нагрузки в Resource Manager с помощью портала Azure | Microsoft Docs
+description: Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью портала Azure.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+ms.author: sewhee
+
+---
 # Приступая к созданию внутреннего балансировщика нагрузки на портале Azure
+[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
+[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Приступая к созданию внутреннего балансировщика нагрузки с помощью портала Azure
-
 Чтобы создать внутренний балансировщик нагрузки на портале Azure, выполните следующее.
 
 1. В браузере откройте [портал Azure](http://portal.azure.com) и при необходимости войдите с использованием учетной записи Azure.
@@ -37,30 +36,31 @@
 3. В колонке **Create load balancer** (Создание балансировщика нагрузки) введите **имя** для балансировщика нагрузки.
 4. В разделе **Схема** щелкните **Внутренний**.
 5. Щелкните **Виртуальная сеть**, а затем выберите виртуальную сеть, в которой вы хотите создать балансировщик нагрузки.
-
-    >[AZURE.NOTE] Если нужная виртуальная сеть не отображается, проверьте значение в поле **Расположение**, используемое для балансировщика нагрузки, и соответствующим образом измените его.
-
+   
+   > [!NOTE]
+   > Если нужная виртуальная сеть не отображается, проверьте значение в поле **Расположение**, используемое для балансировщика нагрузки, и соответствующим образом измените его.
+   > 
+   > 
 6. Щелкните **Подсеть**, а затем выберите подсеть, в которой вы хотите создать балансировщик нагрузки.
 7. В разделе **Назначение IP-адресов** щелкните **Динамический** или **Статический** в зависимости от желаемого типа IP-адреса балансировщика нагрузки — фиксированного (статического) или нет.
-
-    >[AZURE.NOTE] Если выбран статический IP-адрес, необходимо указать адрес для балансировщика нагрузки.
-
+   
+   > [!NOTE]
+   > Если выбран статический IP-адрес, необходимо указать адрес для балансировщика нагрузки.
+   > 
+   > 
 8. В разделе **Группа ресурсов** укажите имя новой группы ресурсов для балансировщика нагрузки или щелкните **Выбрать существующую** и выберите существующую группу ресурсов.
 9. Щелкните **Создать**.
 
 ## Настройка правил балансировки нагрузки
-
 После создания балансировщика нагрузки перейдите к ресурсу балансировщика нагрузки, чтобы его настроить. Перед настройкой правила балансировки нагрузки необходимо настроить серверный пул адресов и пробу.
 
 ### Шаг 1. Настройка внутреннего пула
-
 1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Серверные пулы**.
 3. В колонке **Серверные пулы адресов** щелкните **Добавить**.
 4. В колонке **Добавить внутренний пул** введите **имя** серверного пула, а затем нажмите кнопку **ОК**.
 
 ### Шаг 2. Настройка пробы
-
 1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Пробы**.
 3. В колонке **Пробы** щелкните **Добавить**.
@@ -73,7 +73,6 @@
 10. Нажмите кнопку **ОК**, чтобы создать пробу.
 
 ### Шаг 3. Настройка правил балансировки нагрузки
-
 1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Правила балансировки нагрузки**.
 3. В колонке **Правила балансировки нагрузки** щелкните **Добавить**.
@@ -88,7 +87,6 @@
 12. Нажмите кнопку **ОК**.
 
 ## Дальнейшие действия
-
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)

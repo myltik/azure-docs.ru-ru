@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD и приложения: назначение групп для приложения | Microsoft Azure"
-	description="Как реализовать назначение групп для приложений Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD и приложения: назначение групп для приложения | Microsoft Docs'
+description: Как реализовать назначение групп для приложений Azure.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/03/2015
+ms.author: inhenk
 
+---
 # Azure AD и приложения: назначение групп для приложения
 Прежде чем назначить пользователей и группы для приложения, необходимо настроить требование назначения пользователей. Чтобы узнать, как настроить требование назначения пользователей, см. статью [Требование назначения пользователей](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
@@ -34,6 +34,6 @@
 10. Щелкните **Да** при появлении запроса.
 
 ## Дальнейшие действия
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0928_2016-->

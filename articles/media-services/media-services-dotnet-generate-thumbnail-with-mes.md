@@ -1,45 +1,41 @@
-<properties 
-    pageTitle="Создание эскизов с помощью Media Encoder Standard c использованием .NET" 
-    description="В данной статье рассказывается, как использовать .NET для кодирования ресурсов и одновременно с этим создавать эскизы с помощью Media Encoder Standard." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Создание эскизов с помощью Media Encoder Standard c использованием .NET
+description: В данной статье рассказывается, как использовать .NET для кодирования ресурсов и одновременно с этим создавать эскизы с помощью Media Encoder Standard.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/10/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: juliako
 
-
-
-#<a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
-
+---
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
 В данной статье рассказывается, как использовать пакет Media Services .NET SDK для кодирования ресурсов и создавать эскизы с помощью Media Encoder Standard. В статье определены предустановки XML и JSON, которые можно использовать для создания задачи, выполняющей кодирование и одновременно с этим создающей эскизы. [этом](https://msdn.microsoft.com/library/mt269962.aspx) документе содержатся описания элементов, использующихся в данных предустановках.
 
 Обязательно изучите раздел [Рекомендации](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
 
-##<a name="example"></a>Пример
-
+## <a name="example"></a>Пример
 В следующем примере кода пакет SDK служб мультимедиа используется для выполнения следующих задач.
 
-- Создание задания кодирования.
-- Получение ссылки на стандартный кодировщик мультимедиа.
-- Загрузка предопределенного кода [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) или [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json), содержащего предопределенную кодировку, а также сведения, необходимые для создания эскизов. Вы можете сохранить этот [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml)- или [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)-код в файл и использовать указанный ниже код для загрузки файла.
-
+* Создание задания кодирования.
+* Получение ссылки на стандартный кодировщик мультимедиа.
+* Загрузка предопределенного кода [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) или [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json), содержащего предопределенную кодировку, а также сведения, необходимые для создания эскизов. Вы можете сохранить этот [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml)- или [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)-код в файл и использовать указанный ниже код для загрузки файла.
+  
             // Load the XML (or JSON) from the local file.
             string configuration = File.ReadAllText(fileName);  
-- Добавление одной задачи кодирования в задание. 
-- Указание входного ресурса-контейнера для кодирования.
-- Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
-- Добавление обработчика событий для проверки хода выполнения задания.
-- Отправка задания.
-    
+* Добавление одной задачи кодирования в задание. 
+* Указание входного ресурса-контейнера для кодирования.
+* Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
+* Добавление обработчика событий для проверки хода выполнения задания.
+* Отправка задания.
+  
         using System;
         using System.Collections.Generic;
         using System.Configuration;
@@ -56,7 +52,7 @@
         using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
         using System.Web;
         using System.Globalization;
-        
+  
         namespace EncodeAndGenerateThumbnails
         {
             class Program
@@ -66,17 +62,17 @@
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        
+  
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-        
+  
                 private static readonly string _mediaFiles =
                     Path.GetFullPath(@"../..\Media");
-        
+  
                 private static readonly string _singleMP4File =
                     Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-        
+  
                 static void Main(string[] args)
                 {
                     // Create and cache the Media Services credentials in a static class variable.
@@ -85,16 +81,16 @@
                                     _mediaServicesAccountKey);
                     // Used the chached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-        
+  
                     // Get an uploaded asset.
                     var asset = _context.Assets.FirstOrDefault();
-        
+  
                     // Encode and generate the thumbnails.
                     EncodeToAdaptiveBitrateMP4Set(asset);
-        
+  
                     Console.ReadLine();
                 }
-        
+  
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
                 {
                     // Declare a new job.
@@ -102,17 +98,16 @@
                     // Get a media processor reference, and pass to it the name of the 
                     // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-                
-        
+
                     // Load the XML (or JSON) from the local file.
                     string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
-                
+
                     // Create a task
                     ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
                         processor,
                         configuration,
                         TaskOptions.None);
-                
+
                     // Specify the input asset to be encoded.
                     task.InputAssets.Add(asset);
                     // Add an output asset to contain the results of the job. 
@@ -120,14 +115,14 @@
                     // means the output asset is not encrypted. 
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
-                
+
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
                     job.GetExecutionProgressTask(CancellationToken.None).Wait();
-                
+
                     return job.OutputMediaAssets[0];
                 }
-        
+
                 private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
                 {
                     Console.WriteLine("Job state changed event:");
@@ -147,34 +142,33 @@
                             break;
                         case JobState.Canceled:
                         case JobState.Error:
-        
+
                             // Cast sender as a job.
                             IJob job = (IJob)sender;
-        
+
                             // Display or log error details as needed.
                             break;
                         default:
                             break;
                     }
                 }
-        
-        
+
+
                 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
                     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
                     ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-        
+
                     if (processor == null)
                         throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-        
+
                     return processor;
                 }
-        
+
             }
         }
 
-##<a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Предопределенный эскиз JSON
-
+## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Предопределенный эскиз JSON
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
 
     {
@@ -197,7 +191,7 @@
               "AdaptiveBFrame": true,
               "Type": "H264Layer",
               "FrameRate": "0/1"
-       
+
             }
           ],
           "Type": "H264Video"
@@ -276,10 +270,9 @@
     }
 
 
-##<a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Предопределенный эскиз XML
-
+## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Предопределенный эскиз XML
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
-    
+
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -352,38 +345,30 @@
       </Outputs>
     </Preset>
 
-##<a name="considerations"></a>Рекомендации
-
+## <a name="considerations"></a>Рекомендации
 Действительны следующие условия.
 
-- Использование явных меток времени для элементов Start, Step или Range предполагает, что входные данные составляют не менее одной минуты.
-- Элементы Jpg, Png и BmpImage обладают атрибутами Start, Step и Range, которые можно интерпретировать следующим образом.
-
-    - Номер кадра, если эти атрибуты выражены неотрицательными целыми числами, например, "Start": "120",
-    - Отношение к длительности источника, если атрибуты выражены как %-суффикс, например, "Start": "15%", ИЛИ
-    - Отметка времени, если атрибуты имеют формат ЧЧ:ММ:СС... Например, "Start" : "00:01:00"
-
+* Использование явных меток времени для элементов Start, Step или Range предполагает, что входные данные составляют не менее одной минуты.
+* Элементы Jpg, Png и BmpImage обладают атрибутами Start, Step и Range, которые можно интерпретировать следующим образом.
+  
+  * Номер кадра, если эти атрибуты выражены неотрицательными целыми числами, например, "Start": "120",
+  * Отношение к длительности источника, если атрибуты выражены как %-суффикс, например, "Start": "15%", ИЛИ
+  * Отметка времени, если атрибуты имеют формат ЧЧ:ММ:СС... Например, "Start" : "00:01:00"
+    
     При желании условные обозначения можно комбинировать.
     
     Кроме того, атрибут Start поддерживает также специальный макрос {Best}, который пытается определить первый "интересный" кадр содержимого. ПРИМЕЧАНИЕ. Если атрибут Start имеет значение {Best}, атрибуты Step и Range игнорируются.
-    
-    - По умолчанию Start:{Best}
-- Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
+  * По умолчанию Start:{Best}
+* Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
 
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+## <a name="provide-feedback"></a>Отзывы
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Отзывы
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="see-also"></a>См. также 
-
+## <a name="see-also"></a>См. также
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

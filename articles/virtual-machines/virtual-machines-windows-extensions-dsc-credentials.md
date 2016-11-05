@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Передача учетных данных в Azure с помощью DSC | Microsoft Azure"
-   description="Общие сведения о безопасной передаче учетных данных для виртуальных машин Azure с помощью настройки требуемого состояния PowerShell"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="zjalexander"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+---
+title: Передача учетных данных в Azure с помощью DSC | Microsoft Docs
+description: Общие сведения о безопасной передаче учетных данных для виртуальных машин Azure с помощью настройки требуемого состояния PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="09/15/2016"
-   ms.author="zachal"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 09/15/2016
+ms.author: zachal
 
-# Передача учетных данных в обработчик расширения DSC Azure #
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+---
+# Передача учетных данных в обработчик расширения DSC Azure
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 В этой статье описывается расширение настройки требуемого состояния для Azure. Обзор обработчика расширения DSC можно найти в статье [Введение в обработчик расширения настройки требуемого состояния Azure](virtual-machines-windows-extensions-dsc-overview.md).
-
 
 ## Передача учетных данных
 В рамках процесса настройки может потребоваться настройка учетных записей пользователей, доступ к службам или установка программы в пользовательском контексте. Чтобы выполнить эти действия, необходимо указать учетные данные.
@@ -71,10 +69,10 @@ $configurationName = "Main"
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = "user_configuration.ps1.zip"
 $vm = Get-AzureVM "example-1"
- 
+
 $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchive 
 -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
- 
+
 $vm | Update-AzureVM
 ```
 ## Защита учетных данных
@@ -82,9 +80,7 @@ $vm | Update-AzureVM
 
 Это поведение отличается от [использования безопасных конфигураций без обработчика расширений](https://msdn.microsoft.com/powershell/dsc/securemof). Среда Azure предоставляет способ безопасной передачи данных конфигурации с помощью сертификатов. При использовании обработчика расширений DSC нет необходимости указывать запись $CertificatePath либо $CertificateID или $Thumbprint в ConfigurationData.
 
-
-## Дальнейшие действия ##
-
+## Дальнейшие действия
 Дополнительные сведения об обработчике расширений DSC см. в статье [Общие сведения об обработчике расширения Desired State Configuration в Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
 Изучите [шаблон Azure Resource Manager для расширения DSC](virtual-machines-windows-extensions-dsc-template.md).

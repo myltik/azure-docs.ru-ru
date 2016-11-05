@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Развертывание LAMP на виртуальной машине Linux | Microsoft Azure"
-	description="Узнайте, как установить стек LAMP на виртуальную машину Linux."
-	services="virtual-machines-linux"
-	documentationCenter="virtual-machines"
-	authors="jluk"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Развертывание LAMP на виртуальной машине Linux | Microsoft Docs
+description: Узнайте, как установить стек LAMP на виртуальную машину Linux.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: jluk
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="jluk"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: NA
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: jluk
 
+---
 # Развертывание стека LAMP в Azure
 Эта статья содержит указания по развертыванию веб-сервера Apache, MySQL и PHP (стека LAMP) в Azure. Вам потребуется учетная запись Azure (можно [получить бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)) и [интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md), который [подключен к вашей учетной записи Azure](../xplat-cli-connect.md).
 
 В этой статье описано два способа установки LAMP.
 
 ## Краткая сводка по командам
-
 1) Развертывание LAMP на новой виртуальной машине.
 
 ```
@@ -40,7 +39,6 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Пошаговое руководство по развертыванию LAMP на новой виртуальной машине
-
 Можно начать с создания новой [группы ресурсов](../resource-group-overview.md), содержащей виртуальную машину.
 
     $ azure group create uniqueResourceGroup westus
@@ -97,21 +95,19 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 Вы создали виртуальную машину Linux с установленным стеком LAMP. При желании можно проверить установку, перейдя к разделу [Проверка успешности установки LAMP].
 
 ## Пошаговое руководство по развертыванию LAMP на существующей виртуальной машине
-
-Если вам нужна помощь с созданием виртуальной машины Linux, то вы можете перейти [сюда](./virtual-machines-linux-quick-create-cli.md), чтобы узнать, как создать виртуальную машину Linux. Далее потребуется подключение SSH к виртуальной машине Linux. Если вам нужна помощь с созданием ключа SSH, то вы можете перейти [сюда](./virtual-machines-linux-mac-create-ssh-keys.md), чтобы узнать, как создать ключ SSH в Linux или Mac. Если у вас же имеется ключ SSH, продолжайте настройку подключения SSH к виртуальной машине Linux с использованием `ssh username@uniqueDNS`.
+Если вам нужна помощь с созданием виртуальной машины Linux, то вы можете перейти [сюда](virtual-machines-linux-quick-create-cli.md), чтобы узнать, как создать виртуальную машину Linux. Далее потребуется подключение SSH к виртуальной машине Linux. Если вам нужна помощь с созданием ключа SSH, то вы можете перейти [сюда](virtual-machines-linux-mac-create-ssh-keys.md), чтобы узнать, как создать ключ SSH в Linux или Mac. Если у вас же имеется ключ SSH, продолжайте настройку подключения SSH к виртуальной машине Linux с использованием `ssh username@uniqueDNS`.
 
 Теперь, когда вы работаете в своей виртуальной машине Linux, мы рассмотрим установку стека LAMP на примере дистрибутивов Debian. Конкретные команды могут отличаться для других дистрибутивов Linux.
 
 #### Установка на Debian или Ubuntu
-
 Необходимо установить следующие пакеты: `apache2`, `mysql-server`, `php5` и `php5-mysql`. Их можно установить вручную или с помощью Tasksel. Ниже приведены указания для обоих способов. Перед установкой потребуется скачать и обновить списки пакетов.
 
     user@ubuntu$ sudo apt-get update
-    
+
 ##### Установка отдельных пакетов
 Можно использовать apt-get.
 
-	user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ##### Установка с помощью Tasksel
 В качестве альтернативы можно скачать Tasksel. Это инструмент Debian и Ubuntu, который устанавливает в систему несколько связанных пакетов в рамках одной скоординированной задачи.
@@ -125,11 +121,10 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 Выполните следующую команду, чтобы увидеть другие расширения PHP, доступные как пакеты:
 
-	user@ubuntu$ apt-cache search php5
+    user@ubuntu$ apt-cache search php5
 
 
 #### Создание документа info.php
-
 Теперь можно проверить версию установленных компонентов Apache, MySQL и PHP из командной строки, введя `apache2 -v`, `mysql -v` или `php -v`.
 
 Если вы хотите расширить тестирование, то можете создать страницу кратких сведений о PHP для просмотра в браузере. Создайте новый файл в текстовом редакторе Nano с помощью следующей команды.
@@ -149,7 +144,6 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
     user@ubuntu$ sudo service apache2 restart
 
 ## Проверка успешности установки LAMP
-
 Теперь можно просмотреть только что созданную страницу сведений о PHP, перейдя по адресу http://youruniqueDNS/info.php в браузере. Она должна иметь следующий вид.
 
 ![][2]
@@ -161,10 +155,9 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 Поздравляем! Вы установили стек LAMP на виртуальную машину Azure.
 
 ## Дальнейшие действия
-
 Ознакомьтесь с документацией Ubuntu по стеку LAMP.
 
-- [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+* [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
 [1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png

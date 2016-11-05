@@ -1,33 +1,30 @@
 
-<properties 
-    pageTitle="Требования Azure AD + Active Directory для Azure RemoteApp | Microsoft Azure" 
-    description="Узнайте, как настроить Active Directory для работы с Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Требования Azure AD + Active Directory для Azure RemoteApp | Microsoft Docs
+description: Узнайте, как настроить Active Directory для работы с Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Требования Azure AD + Active Directory для Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
-
+> [!IMPORTANT]
+> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Для гибридной коллекции Azure RemoteApp или для облачной коллекции, которую необходимо включить в федерацию, используя AD Connect, вам потребуется выполнить следующие действия.
 
 ### Подключите Azure AD и Active Directory
-
 Для подключения к клиенту Azure AD и вашей локальной среде Active Directory используйте AD Connect. Подключение двух каталогов можно выполнить всего за [4 щелчка](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/).
 
 Примечание. Для гибридных коллекций требуется синхронизация службы каталогов.
@@ -42,8 +39,8 @@
 ### Создайте объекты для Azure RemoteApp
 Кроме того, необходимо создать следующие локальные объекты Active Directory:
 
-- Учетная запись службы для предоставления доступа к доменным ресурсам программ RemoteApp путем соединения конечных точек RDSH с локальным доменом.
-- Подразделение для хранения объектов машин RemoteApp. Использовать подразделение рекомендуется (но не требуется) для изолирования учетных записей и политик, которые будут использоваться с RemoteApp.
+* Учетная запись службы для предоставления доступа к доменным ресурсам программ RemoteApp путем соединения конечных точек RDSH с локальным доменом.
+* Подразделение для хранения объектов машин RemoteApp. Использовать подразделение рекомендуется (но не требуется) для изолирования учетных записей и политик, которые будут использоваться с RemoteApp.
 
 При создании коллекции RemoteApp требуются оба этих объекта, поэтому сначала выполните указанные действия.
 

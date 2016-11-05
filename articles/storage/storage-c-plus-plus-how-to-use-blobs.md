@@ -1,38 +1,39 @@
-<properties
-    pageTitle="Использование хранилища BLOB-объектов (хранилища объектов) из C++ | Microsoft Azure"
-    description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Использование хранилища BLOB-объектов (хранилища объектов) из C++ | Microsoft Docs
+description: Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure.
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-blob-storage-from-c++"></a>Использование хранилища BLOB-объектов из C++
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-# <a name="how-to-use-blob-storage-from-c++"></a>Использование хранилища BLOB-объектов из C++  
-
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Обзор
-
 Хранилище BLOB-объектов Azure — это служба, которая хранит неструктурированные данные в облаке в качестве объектов или больших двоичных объектов. В хранилище BLOB-объектов могут храниться текстовые или двоичные данные любого типа, например документы, файлы мультимедиа или установщики приложений. Хранилище BLOB-объектов иногда также называют хранилищем объектов.
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **отправка**, **перечисление**, **скачивание** и **удаление** BLOB-объектов.  
 
->[AZURE.NOTE] Данное руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 1.0.0 и выше. Рекомендуемая версия клиентской библиотеки хранилища — 2.2.0. Она доступна на сайте [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
+> [!NOTE]
+> Данное руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 1.0.0 и выше. Рекомендуемая версия клиентской библиотеки хранилища — 2.2.0. Она доступна на сайте [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
+> 
+> 
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c++-application"></a>Создание приложения на C++
 В этом руководстве будут использоваться компоненты хранилища, которые могут выполняться в приложениях C++.  
@@ -41,12 +42,12 @@
 
 Чтобы установить клиентскую библиотеку хранилища для C++, можно использовать следующие методы.
 
--   **Linux:** следуйте инструкциям, указанным в файле README [клиентской библиотеки хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
--   **Windows:** в Visual Studio нажмите **Инструменты > Диспетчер пакетов NuGet > Консоль диспетчера пакетов**. Введите следующую команду в [консоли диспетчера пакетов NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) и нажмите клавишу **ВВОД**.  
+* **Linux:** следуйте инструкциям, указанным в файле README [клиентской библиотеки хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
+* **Windows:** в Visual Studio нажмите **Инструменты > Диспетчер пакетов NuGet > Консоль диспетчера пакетов**. Введите следующую команду в [консоли диспетчера пакетов NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) и нажмите клавишу **ВВОД**.  
+  
+      Install-Package wastorage
 
-        Install-Package wastorage
-
-## <a name="configure-your-application-to-access-blob-storage"></a>Настройка приложения для доступа к хранилищу BLOB-объектов  
+## <a name="configure-your-application-to-access-blob-storage"></a>Настройка приложения для доступа к хранилищу BLOB-объектов
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к BLOB-объектам.  
 
     #include "was/storage_account.h"
@@ -79,8 +80,7 @@
     azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## <a name="how-to:-create-a-container"></a>Практическое руководство. Создание контейнера
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 В этом примере показано, как создать контейнер:  
 
@@ -238,14 +238,12 @@
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы ознакомились с основными сведениями о хранилище BLOB-объектов, используйте следующие ссылки для получения дополнительных сведений о хранилище Azure.  
 
--   [Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
--   [Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
--   [Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
--   [Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
--   [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
-
-
+* [Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
+* [Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
+* [Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
+* [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
 <!--HONumber=Oct16_HO2-->
 

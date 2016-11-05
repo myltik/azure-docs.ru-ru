@@ -1,42 +1,39 @@
-<properties
-   pageTitle="Устранение неполадок, возникающих при развертывании виртуальных машин Windows с помощью классической модели | Microsoft Azure"
-   description="Устранение неполадок, возникающих при создании виртуальной машины Windows в Azure с помощью классической модели развертывания"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
+---
+title: Устранение неполадок, возникающих при развертывании виртуальных машин Windows с помощью классической модели | Microsoft Docs
+description: Устранение неполадок, возникающих при создании виртуальной машины Windows в Azure с помощью классической модели развертывания
+services: virtual-machines-windows
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/06/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Сбор журналов аудита
-
 Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой.
 
 На портале Azure последовательно выберите **Обзор** > **Виртуальные машины** > *имя вашей виртуальной машины Windows* > **Настройки** > **Журналы аудита**.
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **Да.** Если универсальная ОС Windows передается и (или) записывается как универсальный диск, ошибки не возникают. Аналогичным образом, если специализированная ОС Windows передается и (или) записывается как специализированный диск, ошибки не возникают.
 
@@ -69,24 +66,25 @@
 
 **Способ устранения 1.**
 
-- Создайте новую облачную службу и свяжите ее с регионом или виртуальной сетью на основе региона.
-- Создайте новую виртуальную машину в этой облачной службе.
+* Создайте новую облачную службу и свяжите ее с регионом или виртуальной сетью на основе региона.
+* Создайте новую виртуальную машину в этой облачной службе.
   Если при попытке создания облачной службы появляется сообщение об ошибке, повторите попытку позже или измените регион для облачной службы.
 
-> [AZURE.IMPORTANT] Если вы безуспешно пытались создать новую виртуальную машину в существующей облачной службе, а затем вынужденно создали новую облачную службу для новой виртуальной машины, позднее вы можете объединить все виртуальные машины в одной облачной службе. Для этого удалите виртуальные машины в существующей облачной службе и заново создайте их из дисков в новой облачной службе. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
+> [!IMPORTANT]
+> Если вы безуспешно пытались создать новую виртуальную машину в существующей облачной службе, а затем вынужденно создали новую облачную службу для новой виртуальной машины, позднее вы можете объединить все виртуальные машины в одной облачной службе. Для этого удалите виртуальные машины в существующей облачной службе и заново создайте их из дисков в новой облачной службе. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
+> 
+> 
 
 **Причина 2.** Облачная служба прикреплена к виртуальной сети, которая связана с территориальной группой, то есть облачная служба опосредованно прикреплена к конкретному кластеру. Тогда все запросы новых вычислительных ресурсов в этой территориальной группе выполняются в том же кластере, в котором размещены существующие ресурсы. Но если этот кластер не поддерживает запрошенный размер виртуальной машины или не имеет достаточно свободного места, возникает ошибка выделения. Это не зависит от того, создаются ли новые ресурсы на основе новой облачной службы или существующей облачной службы.
 
 **Способ устранения 2.**
 
-- Создайте региональную виртуальную сеть.
-- Создайте виртуальную машину в этой виртуальной сети.
-- [Подключите существующую виртуальную сеть](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) к новой виртуальной сети. См. дополнительные сведения о [региональных виртуальных сетях](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Кроме того, вы можете [перенести виртуальную сеть на основе территориальной группы в региональную виртуальную сеть](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), а затем создать в ней виртуальную машину.
+* Создайте региональную виртуальную сеть.
+* Создайте виртуальную машину в этой виртуальной сети.
+* [Подключите существующую виртуальную сеть](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) к новой виртуальной сети. См. дополнительные сведения о [региональных виртуальных сетях](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Кроме того, вы можете [перенести виртуальную сеть на основе территориальной группы в региональную виртуальную сеть](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), а затем создать в ней виртуальную машину.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

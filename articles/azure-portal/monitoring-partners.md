@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Интеграция Azure Monitor с продуктами партнеров | Microsoft Azure"
-	description="Узнайте о партнерах Azure Monitor и о том, как получить документацию по интеграции с их решениями."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Интеграция Azure Monitor с продуктами партнеров | Microsoft Docs
+description: Узнайте о партнерах Azure Monitor и о том, как получить документацию по интеграции с их решениями.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Интеграция Azure Monitor с продуктами партнеров
-
-|Партнеры|||
-|-----------|-----------|-----------|
-| [![Логотип партнера][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Логотип партнера][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Логотип партнера][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Логотип партнера][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Логотип партнера][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Логотип партнера][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Логотип партнера][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Логотип партнера][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Логотип партнера][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Логотип партнера][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Логотип партнера][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Логотип партнера][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| Партнеры |  |  |
+| --- | --- | --- |
+| [![Логотип партнера][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Логотип партнера][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Логотип партнера][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Логотип партнера][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Логотип партнера][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Логотип партнера][datadog-logo]<br/>**DataDog**][datadog-anchor] |
+| [![Логотип партнера][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Логотип партнера][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Логотип партнера][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
+| [![Логотип партнера][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Логотип партнера][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Логотип партнера][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## AlertLogic Log Manager
 AlertLogic Log Manager собирает журналы виртуальных машин, приложений и платформы Azure для анализа безопасности и хранения. Сюда входит сбор журналов аудита Azure через API Azure Insights. Эта информация используется для обнаружения несанкционированных операций и соответствия нормативным требованиям.
@@ -59,7 +58,6 @@ Dynatrace OneAgent интегрируется с виртуальными маш
 [Перейдите к документации.][dynatrace-doc]
 
 ## NewRelic
-
 [Подробнее.][newrelic-doc]
 
 ## OpsGenie
@@ -80,12 +78,11 @@ PagerDuty, ведущее решение по управлению инциде�
 [Перейдите к документации.][splunk-doc]
 
 ## Sumo Logic
-
 [Подробнее.][sumologic-doc]
 
 ## Дальнейшие действия
-- [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](../resource-group-audit.md)
-- [Потоковая передача журнала действий Azure в концентраторы событий](./monitoring-stream-activity-logs-event-hubs.md)
+* [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](../resource-group-audit.md)
+* [Потоковая передача журнала действий Azure в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

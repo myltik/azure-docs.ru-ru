@@ -1,48 +1,45 @@
-<properties
-   pageTitle="Защита сети в центре безопасности Azure | Microsoft Azure"
-   description="В этом документе рассматриваются рекомендации из центра безопасности Azure, которые помогают защитить вашу сеть Azure и обеспечить соответствие политикам безопасности."
-   services="security-center"
-   documentationCenter="na"
-   authors="TerryLanfear"
-   manager="MBaldwin"
-   editor=""/>
+---
+title: Защита сети в центре безопасности Azure | Microsoft Docs
+description: В этом документе рассматриваются рекомендации из центра безопасности Azure, которые помогают защитить вашу сеть Azure и обеспечить соответствие политикам безопасности.
+services: security-center
+documentationcenter: na
+author: TerryLanfear
+manager: MBaldwin
+editor: ''
 
-<tags
-   ms.service="security-center"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="terrylan"/>
+ms.service: security-center
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: terrylan
 
+---
 # Защита сети в центре безопасности Azure.
-
 Центр безопасности Azure анализирует состояние безопасности ресурсов Azure. Когда центр безопасности выявляет потенциальные уязвимости в системе безопасности, он создает рекомендации по настройке необходимых элементов управления. Рекомендации относятся к следующим типам ресурсов Azure: виртуальные машины (ВМ), сети, SQL и приложения.
 
 В этой статье рассматриваются рекомендации, которые касаются сети. Основное внимание в рекомендациях для сети уделено брандмауэрам следующего поколения, группам безопасности сети, настройке правил входящего трафика и другим аспектам. В таблице ниже приведена справочная информация о доступных рекомендациях, включая действия, выполняемые при выполнении этих рекомендаций.
 
 ## Доступные рекомендации для сети
-
-|Рекомендации|Описание|
-|-----|-----|
-|[Добавить брандмауэр следующего поколения](security-center-add-next-generation-firewall.md)|Рекомендует добавить брандмауэр следующего поколения (NGFW) от партнера корпорации Майкрософт для повышения безопасности.|
-|[Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Рекомендует настроить правила группы безопасности сети, которые принудительно передают входящий трафик к виртуальной машине через ваш NGFW.|
-|[Enable Network Security Groups on subnets or virtual machines (Включить группы безопасности сети для подсетей или виртуальных машин)](security-center-enable-network-security-groups.md)|Рекомендует включить группы безопасности сети для подсетей или виртуальных машин.|
-|[Restrict access through Internet facing endpoint (Ограничить доступ через подключенную к Интернету конечную точку)](security-center-restrict-access-through-internet-facing-endpoints.md)|Рекомендует настроить правила входящего трафика для групп безопасности сети.|
+| Рекомендации | Описание |
+| --- | --- |
+| [Добавить брандмауэр следующего поколения](security-center-add-next-generation-firewall.md) |Рекомендует добавить брандмауэр следующего поколения (NGFW) от партнера корпорации Майкрософт для повышения безопасности. |
+| [Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Рекомендует настроить правила группы безопасности сети, которые принудительно передают входящий трафик к виртуальной машине через ваш NGFW. |
+| [Enable Network Security Groups on subnets or virtual machines (Включить группы безопасности сети для подсетей или виртуальных машин)](security-center-enable-network-security-groups.md) |Рекомендует включить группы безопасности сети для подсетей или виртуальных машин. |
+| [Restrict access through Internet facing endpoint (Ограничить доступ через подключенную к Интернету конечную точку)](security-center-restrict-access-through-internet-facing-endpoints.md) |Рекомендует настроить правила входящего трафика для групп безопасности сети. |
 
 ## Дополнительные материалы
-
 Дополнительные сведения о рекомендациях, которые относятся к другим типам ресурсов Azure, см. в следующих статьях:
 
-- [Защита виртуальных машин в центре безопасности Azure.](security-center-virtual-machine-recommendations.md)
-- [Защита приложений в центре безопасности Azure](security-center-application-recommendations.md).
-- [Защита службы SQL Azure в центре безопасности Azure.](security-center-sql-service-recommendations.md)
+* [Защита виртуальных машин в центре безопасности Azure.](security-center-virtual-machine-recommendations.md)
+* [Защита приложений в центре безопасности Azure](security-center-application-recommendations.md).
+* [Защита службы SQL Azure в центре безопасности Azure.](security-center-sql-service-recommendations.md)
 
 Дополнительные сведения о центре безопасности см. в следующих статьях:
 
-- [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md). Узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
-- [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Ответы на часто задаваемые вопросы об использовании этой службы.
+* [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md). Узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
+* [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+* [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Ответы на часто задаваемые вопросы об использовании этой службы.
 
 <!---HONumber=AcomDC_0810_2016-->

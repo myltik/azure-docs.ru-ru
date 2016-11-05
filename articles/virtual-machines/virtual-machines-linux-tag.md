@@ -1,30 +1,28 @@
-<properties
-   pageTitle="Пометка виртуальной машины Linux | Microsoft Azure"
-   description="Узнайте, как добавлять теги к виртуальной машине Linux, созданной в Azure с помощью модели развертывания на основе диспетчера ресурсов."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="mmccrory"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-resource-manager"/>
+---
+title: Пометка виртуальной машины Linux | Microsoft Docs
+description: Узнайте, как добавлять теги к виртуальной машине Linux, созданной в Azure с помощью модели развертывания на основе диспетчера ресурсов.
+services: virtual-machines-linux
+documentationcenter: ''
+author: mmccrory
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="07/05/2016"
-   ms.author="memccror"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 07/05/2016
+ms.author: memccror
 
+---
 # Пометка виртуальной машины Linux в Azure
+В этой статье описываются разные способы назначения тегов виртуальной машине Linux в Azure с использованием модели развертывания Resource Manager. Теги — это определяемые пользователем пары "ключ-значение", которые можно помещать непосредственно в ресурс или группу ресурсов. В настоящий момент Azure поддерживает до 15 тегов на ресурс или группу ресурсов. Теги можно добавлять к ресурсу во время его создания или к уже существующему ресурсу. Обратите внимание, что теги поддерживаются только для тех ресурсов, которые созданы с помощью модели развертывания Resource Manager.
 
-В этой статье описываются разные способы назначения тегов виртуальной машине Linux в Azure с использованием модели развертывания Resource Manager. Теги — это определяемые пользователем пары "ключ-значение", которые можно помещать непосредственно в ресурс или группу ресурсов. В настоящий момент Azure поддерживает до 15 тегов на ресурс или группу ресурсов. Теги можно добавлять к ресурсу во время его создания или к уже существующему ресурсу. Обратите внимание, что теги поддерживаются только для тех ресурсов, которые созданы с помощью модели развертывания Resource Manager.
-
-[AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
+[!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Отметка тегами с помощью интерфейса командной строки Azure
-
 Сначала [установите и настройте интерфейс командной строки Azure](../xplat-cli-azure-resource-manager.md). При этом обязательно включите режим Resource Manager (`azure config mode arm`).
 
 Вы можете просмотреть все свойства определенной виртуальной машины, включая теги, с помощью следующей команды:
@@ -42,16 +40,11 @@
 
 Теперь, когда мы применили теги к ресурсам с помощью Azure CLI и портала, рассмотрим сведения об использовании, чтобы увидеть теги на портале выставления счетов.
 
-[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
+[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Дальнейшие действия
-
-* Дополнительные сведения о добавлении тегов для ресурсов Azure см. в статьях [Общие сведения об Azure Resource Manager][] и [Использование тегов для организации ресурсов в Azure][].
-* Сведения о том, как теги могут помочь в управлении использованием ресурсов Azure, см. в статьях [Расшифровка счета за использование Microsoft Azure][] и [Получение ценных сведений о потреблении ресурсов Microsoft Azure][].
-
-
-
-
+* Дополнительные сведения о добавлении тегов для ресурсов Azure см. в статьях [Общие сведения об Azure Resource Manager][Общие сведения об Azure Resource Manager] и [Использование тегов для организации ресурсов в Azure][Использование тегов для организации ресурсов в Azure].
+* Сведения о том, как теги могут помочь в управлении использованием ресурсов Azure, см. в статьях [Расшифровка счета за использование Microsoft Azure][Расшифровка счета за использование Microsoft Azure] и [Получение ценных сведений о потреблении ресурсов Microsoft Azure][Получение ценных сведений о потреблении ресурсов Microsoft Azure].
 
 [Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Общие сведения об Azure Resource Manager]: ../resource-group-overview.md

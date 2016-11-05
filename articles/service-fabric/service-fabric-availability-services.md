@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Доступность служб Service Fabric | Microsoft Azure"
-   description="Описание процессов обнаружения сбоев, отработки отказа, восстановления для служб"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Доступность служб Service Fabric | Microsoft Docs
+description: Описание процессов обнаружения сбоев, отработки отказа, восстановления для служб
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Доступность служб структуры служб
 Службы Azure Service Fabric могут предусматривать или не предусматривать отслеживание состояния. Настоящая статья предоставляет обзор способа, который используется в структуре служб для поддержания доступности службы в случае сбоев.
 
@@ -38,16 +38,16 @@
 ### Роли реплик
 Роль реплики используется для управления жизненным циклом состояния, управляемого этой репликой. Реплика, роль которой определена как первичная, обслуживает запросы на чтение. Кроме того, она обслуживает запросы на запись путем обновления своего состояния и репликации изменений на активные вторичные реплики в своем наборе реплик. Активная вторичная реплика отвечает за получение изменений состояния, реплицируемых первичной репликой, а также за обновление представления о собственном состоянии.
 
->[AZURE.NOTE] Модели программирования более высокого уровня, такие как [среда Reliable Actors](service-fabric-reliable-actors-introduction.md), абстрагируют представление о роли реплики от разработчика.
+> [!NOTE]
+> Модели программирования более высокого уровня, такие как [среда Reliable Actors](service-fabric-reliable-actors-introduction.md), абстрагируют представление о роли реплики от разработчика.
+> 
+> 
 
 ## Дальнейшие действия
-
 Дополнительные сведения о концепциях Service Fabric см. в следующих статьях:
 
-- [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
-
-- [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
-
-- [Определение состояния и управление им](service-fabric-concepts-state.md)
+* [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
+* [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
+* [Определение состояния и управление им](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

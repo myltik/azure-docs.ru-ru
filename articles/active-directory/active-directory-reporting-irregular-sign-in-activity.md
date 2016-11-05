@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Нестандартные действия при входе"
-	description="В этом отчете содержится информация об операциях входа, которые алгоритмы машинного обучения идентифицировали как аномальные."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Нестандартные действия при входе
+description: В этом отчете содержится информация об операциях входа, которые алгоритмы машинного обучения идентифицировали как аномальные.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Нестандартные действия при входе
-
 Нестандартные входы — это входы, которые определяет алгоритм машинного обучения, исходя из невозможности путешествия, а также аномального расположения входа и устройства, используемого для входа. Это может означать, что в эту учетную запись успешно вошел хакер. В случае возникновения 10 или более аномальных событий входа в течение периода до 30 дней мы отправим уведомление по почте глобальным администраторам. Обязательно включите адрес aad-alerts-noreply@mail.windowsazure.com в список надежных отправителей.
 
 <!---HONumber=AcomDC_0309_2016-->

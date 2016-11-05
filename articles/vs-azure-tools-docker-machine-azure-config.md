@@ -1,39 +1,41 @@
-<properties
-   pageTitle="Создание узлов Docker в Azure с помощью машины Docker | Microsoft Azure"
-   description="Описывается использование машины Docker для создания узлов Docker в Azure."
-   services="azure-container-service"
-   documentationCenter="na"
-   authors="mlearned"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="06/08/2016"
-   ms.author="mlearned" />
+---
+title: Создание узлов Docker в Azure с помощью машины Docker | Microsoft Docs
+description: Описывается использование машины Docker для создания узлов Docker в Azure.
+services: azure-container-service
+documentationcenter: na
+author: mlearned
+manager: douge
+editor: ''
 
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 06/08/2016
+ms.author: mlearned
+
+---
 # Создание узлов Docker в Azure с помощью машины Docker
-
 Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker. В этой статье описывается использование команды [docker-machine](https://docs.docker.com/machine/), которая используется для создания новых виртуальных машин Linux, настроенных с помощью управляющей программы Docker, запущенной в Azure.
 
 **Примечание.**
-- *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.7.0 или более поздней версии*.
-- *Поддержка контейнеров Windows на машинах Docker будет реализована в ближайшем будущем*.
+
+* *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.7.0 или более поздней версии*.
+* *Поддержка контейнеров Windows на машинах Docker будет реализована в ближайшем будущем*.
 
 ## Создание виртуальных машин с помощью машины Docker
-
 Создавайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер `azure`.
 
 Для драйвера Azure потребуется ваш идентификатор подписки. Для получения идентификатора подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https://portal.azure.com).
 
 **Использование портала Azure**
-- В области навигации слева выберите "Подписки" и скопируйте идентификатор подписки.
+
+* В области навигации слева выберите "Подписки" и скопируйте идентификатор подписки.
 
 **Использование Azure CLI**
-- Введите ```azure account list``` и скопируйте идентификатор подписки.
+
+* Введите ```azure account list``` и скопируйте идентификатор подписки.
 
 Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure`. Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/).
 
@@ -45,14 +47,13 @@ docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_
 
 ## Выбор узла Docker с помощью машины Docker
 Когда в машине Docker есть запись для узла, можно установить узел по умолчанию при выполнении команд Docker.
-##с использованием PowerShell.
 
+## с использованием PowerShell.
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
-##Использование Bash
-
+## Использование Bash
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
@@ -65,7 +66,6 @@ docker info
 ```
 
 ## Запуск контейнера
-
 Теперь, когда узел настроен, можно запустить простой веб-сервер, чтобы проверить правильность настроек узла. В этом примере мы используем стандартный образ nginx, указываем, что он должен прослушивать порт 80, и что при перезапуске виртуальной машины узла контейнер также должен перезапускаться (`--restart=always`).
 
 ```bash
@@ -87,7 +87,6 @@ Status: Downloaded newer image for nginx:latest
 ```
 
 ## Проверка контейнера
-
 Проверьте запущенные контейнеры с помощью `docker ps`:
 
 ```bash
@@ -104,7 +103,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ![Запущенный контейнер nginx](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
-##Сводка
+## Сводка
 С помощью машины Docker можно легко подготовить узлы Docker в Azure к выполнению проверок отдельных узлов Docker. Сведения о рабочем размещении контейнеров см. в разделе [Служба контейнеров Azure](http://aka.ms/AzureContainerService).
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).

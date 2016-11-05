@@ -1,39 +1,35 @@
-<properties
-   pageTitle="Мониторинг кластера службы контейнеров Azure с помощью Sysdig | Microsoft Azure"
-   description="Мониторинг кластера службы контейнеров Azure с помощью Sysdig."
-   services="container-service"
-   documentationCenter=""
-   authors="rbitia"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Контейнеры, DC/OS, Azure"/>
+---
+title: Мониторинг кластера службы контейнеров Azure с помощью Sysdig | Microsoft Docs
+description: Мониторинг кластера службы контейнеров Azure с помощью Sysdig.
+services: container-service
+documentationcenter: ''
+author: rbitia
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Контейнеры, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/08/2016"
-   ms.author="t-ribhat"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/08/2016
+ms.author: t-ribhat
 
+---
 # Мониторинг кластера службы контейнеров Azure с помощью Sysdig
-
 В этой статье описывается развертывание агентов Sysdig на все узлы агента в кластере службы контейнеров Azure. Для работы с этой конфигурацией вам понадобится учетная запись с Sysdig.
 
-## Предварительные требования 
-
+## Предварительные требования
 [Разверните](container-service-deployment.md) и [подключите](container-service-connect.md) кластер, настроенный службой контейнеров Azure. Ознакомьтесь с [пользовательским интерфейсом Marathon](container-service-mesos-marathon-ui.md). Настройте учетную запись Sysdig на странице [http://app.sysdigcloud.com](http://app.sysdigcloud.com).
 
 ## Sysdig
-
 Sysdig — это служба мониторинга, которая позволяет отслеживать контейнеры в пределах кластера. Sysdig используется для устранения неполадок, а также для отслеживания базовых метрик ЦП, сети, памяти и ввода-вывода. Sysdig позволяет легко определить, какие контейнеры потребляют больше всего ресурсов, включая память и ЦП. Это представление сейчас доступно в разделе "Обзор" в режиме бета-версии.
 
 ![Sysdig: пользовательский интерфейс](./media/container-service-monitoring-sysdig/sysdig6.png)
 
 ## Настройка развертывания Sysdig с помощью Marathon
-
 Ниже описано, как настраивать и развертывать в кластере приложения Sysdig с помощью Marathon.
 
 Откройте пользовательский интерфейс DC/OS по адресу [http://localhost:80/](http://localhost:80/). Затем щелкните "Universe" (Вселенная) в левом нижнем углу и выполните поиск по запросу "Sysdig".

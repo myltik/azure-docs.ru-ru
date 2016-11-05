@@ -1,33 +1,34 @@
-<properties
-	pageTitle="Набор средств Azure для Eclipse | Microsoft Azure"
-	description="Узнайте о том, как использовать набор средств Azure для Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+---
+title: Набор средств Azure для Eclipse | Microsoft Docs
+description: Узнайте о том, как использовать набор средств Azure для Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: robmcm;asirveda
 
+---
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Набор средств Azure для Eclipse
-
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии MIT на сайте проекта:
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
+> [!NOTE]
+> Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
+> 
+> 
 
 ## Приступая к работе с набором средств Azure для Eclipse
-
 Следующие статьи помогут вам приступить к работе с набором средств Azure для Eclipse:
 
 * [Новые возможности набора средств Azure для Eclipse]
@@ -36,7 +37,6 @@
 * [Создание веб-приложения Hello World для Azure в Eclipse]
 
 ## Настройка параметров проекта Azure
-
 В следующих статьях описывается, как использовать набор средств Azure для Eclipse для настройки параметров проектов Azure:
 
 * [Свойства проекта Azure]
@@ -47,7 +47,6 @@
 * [Включение удаленного доступа для развертываний Azure в Eclipse]
 
 ## Использование набора средств Azure для Eclipse
-
 В следующих статьях демонстрируется использование набора средств Azure для Eclipse для добавления функций Azure в проекты Java:
 
 * [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]
@@ -57,17 +56,16 @@
 * [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for Eclipse]
 
 ## См. также
-
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-- *Набор средств Azure для Eclipse (в этой статье)*
-  - [Установка набора средств Azure для Eclipse]
-  - [Создание веб-приложения Hello World для Azure в Eclipse]
-  - [Новые возможности набора средств Azure для Eclipse]
-- [Набор средств Azure для IntelliJ]
-  - [Установка набора средств Azure для IntelliJ]
-  - [Создание веб-приложения Hello World для Azure в IntelliJ]
-  - [Новые возможности набора средств Azure для IntelliJ]
+* *Набор средств Azure для Eclipse (в этой статье)*
+  * [Установка набора средств Azure для Eclipse]
+  * [Создание веб-приложения Hello World для Azure в Eclipse]
+  * [Новые возможности набора средств Azure для Eclipse]
+* [Набор средств Azure для IntelliJ]
+  * [Установка набора средств Azure для IntelliJ]
+  * [Создание веб-приложения Hello World для Azure в IntelliJ]
+  * [Новые возможности набора средств Azure для IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 

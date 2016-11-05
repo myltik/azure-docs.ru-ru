@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="Среда службы приложений | Microsoft Azure" 
-	description="Сведения о том, что из себя представляет среда службы приложений. Вводная информация о среде службы приложений." 
-	keywords="среда службы приложений Azure, виртуальная сеть, безопасная работа в сети"
-	services="app-service" 
-	documentationCenter="" 
-	authors="yochay" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Среда службы приложений | Microsoft Docs
+description: Сведения о том, что из себя представляет среда службы приложений. Вводная информация о среде службы приложений.
+keywords: среда службы приложений Azure, виртуальная сеть, безопасная работа в сети
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: stefsch
 
+---
 # Документация по среде службы приложений
-
 Среда службы приложений — это план класса [Premium][PremiumTier] в службе приложений Azure. Она обеспечивает полностью изолированную и выделенную среду для безопасного выполнения приложений службы приложений Azure в большом масштабе, включая [веб-приложения][WebApps], [мобильные приложения][MobileApps] и [приложения API][APIApps].
 
 Среда службы приложений идеально подходит для рабочих нагрузок приложений, требующих выполнения указанных ниже условий.
 
-- Очень большой масштаб
-- Изоляция и безопасный доступ к сети
+* Очень большой масштаб
+* Изоляция и безопасный доступ к сети
 
 Клиенты могут создавать несколько сред службы приложений как в одном, так и в нескольких регионах Azure. Благодаря этому среды службы приложений идеально подходят для горизонтально масштабируемых уровней приложений без учета состояний, поддерживающих большие рабочие нагрузки RPS.
 
@@ -41,14 +40,14 @@
 * [Общие сведения об архитектуре сетевых сред службы приложений](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## Инструкции
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Видеоролики
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

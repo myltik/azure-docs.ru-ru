@@ -1,30 +1,27 @@
-<properties
-   pageTitle="Шаблон диспетчера ресурсов для назначения ролей | Microsoft Azure"
-   description="Демонстрирует схему диспетчера ресурсов для развертывания назначения ролей с помощью шаблона."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor=""/>
+---
+title: Шаблон диспетчера ресурсов для назначения ролей | Microsoft Docs
+description: Демонстрирует схему диспетчера ресурсов для развертывания назначения ролей с помощью шаблона.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/03/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/03/2016
+ms.author: tomfitz
 
-
+---
 # <a name="role-assignments-template-schema"></a>Назначения ролей — схема шаблона
-
 Назначает пользователю, группе или субъекту-службе роль в указанной области.
 
 ## <a name="resource-format"></a>Формат ресурсов
-
 Чтобы создать назначение роли, добавьте следующую схему в раздел ресурсов шаблона.
-    
+
     {
         "type": string,
         "apiVersion": "2015-07-01",
@@ -39,34 +36,29 @@
     }
 
 ## <a name="values"></a>Значения
-
 В следующих таблицах описаны значения, которые следует указать в этой схеме.
 
 | Имя | Обязательно | Description (Описание) |
-| ---- | -------- | ----------- |
-| type | Да    | Тип создаваемого ресурса.<br /><br /> Для группы ресурсов:<br />**Microsoft.Authorization/roleAssignments**<br /><br />Для ресурса:<br />**{provider-namespace}/{resource-type}/providers/roleAssignments** |
-| версия_API |Да | Версия API, которая будет использована для создания ресурса.<br /><br /> Используйте **2015-07-01**. | 
-| name | Да | Глобальный уникальный идентификатор для нового назначения роли. |
-| Свойство dependsOn | Нет | Разделенный запятыми массив имен ресурсов или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит это назначение роли. При назначении роли в области действия ресурса, который разворачивается в том же шаблоне, включите имя ресурса в этот элемент, чтобы гарантировать, что ресурс разворачивается первым. |
-| properties | Да | Объект свойств, задающий определение роли, субъекта и область. |
+| --- | --- | --- |
+| type |Да |Тип создаваемого ресурса.<br /><br /> Для группы ресурсов:<br />**Microsoft.Authorization/roleAssignments**<br /><br />Для ресурса:<br />**{provider-namespace}/{resource-type}/providers/roleAssignments** |
+| версия_API |Да |Версия API, которая будет использована для создания ресурса.<br /><br /> Используйте **2015-07-01**. |
+| name |Да |Глобальный уникальный идентификатор для нового назначения роли. |
+| Свойство dependsOn |Нет |Разделенный запятыми массив имен ресурсов или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит это назначение роли. При назначении роли в области действия ресурса, который разворачивается в том же шаблоне, включите имя ресурса в этот элемент, чтобы гарантировать, что ресурс разворачивается первым. |
+| properties |Да |Объект свойств, задающий определение роли, субъекта и область. |
 
 ### <a name="properties-object"></a>объект properties
-
 | Имя | Обязательно | Описание |
-| ---- | -------- | ----------- |
-| roleDefinitionId | Да |  Идентификатор существующего определения роли для использования в назначении ролей.<br /><br /> Используйте следующий формат:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
-| principalId | Да | Глобальный уникальный идентификатор для существующего субъекта. Это значение связывается с идентификатором в каталоге и может указывать на пользователя, субъекта-службу или группу безопасности. |
-| scope | Нет | Область, в которой применяется это назначение роли.<br /><br />Для групп ресурсов используйте:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**  <br /><br />Для ресурсов используйте:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** |  |
-
+| --- | --- | --- |
+| roleDefinitionId |Да |Идентификатор существующего определения роли для использования в назначении ролей.<br /><br /> Используйте следующий формат:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
+| principalId |Да |Глобальный уникальный идентификатор для существующего субъекта. Это значение связывается с идентификатором в каталоге и может указывать на пользователя, субъекта-службу или группу безопасности. |
+| scope |Нет |Область, в которой применяется это назначение роли.<br /><br />Для групп ресурсов используйте:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**  <br /><br />Для ресурсов используйте:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** |
 
 ## <a name="how-to-use-the-role-assignment-resource"></a>Использование ресурсов назначения роли
-
 Вы добавляете назначение ролей к шаблону, если нужно добавить к роли пользователя, группу или субъекта-службу во время развертывания. Назначения ролей наследуются от более высоких уровней области, поэтому если субъект уже добавлен к роли на уровне подписки, не нужно повторно назначать его для группы ресурсов или ресурса.
 
 Существует множество значений идентификаторов, которые необходимо предоставлять при работе с назначениями ролей. Значения можно извлечь посредством PowerShell или интерфейса командной строки Azure.
 
 ### <a name="powershell"></a>PowerShell
-
 Для имени назначения роли требуется глобальный уникальный идентификатор. Новый идентификатор для **name** можно создать с помощью следующей команды:
 
     $name = [System.Guid]::NewGuid().toString()
@@ -90,7 +82,6 @@
     $principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
 
 ### <a name="azure-cli"></a>Инфраструктура CLI Azure
-
 Идентификатор для определения роли можно получить с помощью следующей команды:
 
     azure role show Reader --json | jq .[].Id -r
@@ -110,7 +101,6 @@
     azure ad sp show --search exampleapp --json | jq .[].objectId -r
 
 ## <a name="examples"></a>Примеры
-
 Следующий шаблон получает идентификатор для роли и идентификатор для пользователя, группы или субъекта-службы. Он назначает роль на уровне группы ресурсов.
 
     {
@@ -201,19 +191,15 @@
     }
 
 ## <a name="quickstart-templates"></a>Шаблоны быстрого запуска
-
 Следующие шаблоны демонстрируют использование ресурса назначения роли:
 
-- [Назначение встроенной роли группе ресурсов](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
-- [Назначение встроенной роли существующей виртуальной машине](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
-- [Назначение встроенной роли нескольким существующим виртуальным машинам](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
+* [Назначение встроенной роли группе ресурсов](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+* [Назначение встроенной роли существующей виртуальной машине](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+* [Назначение встроенной роли нескольким существующим виртуальным машинам](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- Сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
-- Дополнительные сведения об управлении доступом на основе ролей см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](./active-directory/role-based-access-control-configure.md).
-
-
+* Сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
+* Дополнительные сведения об управлении доступом на основе ролей см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](active-directory/role-based-access-control-configure.md).
 
 <!--HONumber=Oct16_HO2-->
 

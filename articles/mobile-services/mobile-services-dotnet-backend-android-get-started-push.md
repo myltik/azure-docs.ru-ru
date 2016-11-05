@@ -1,28 +1,31 @@
-<properties
-	pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств | Microsoft Azure"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение .NET для Android."
-	services="mobile-services, notification-hubs"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""/>
+---
+title: Приступая к работе с push-уведомлениями (Android) | Microsoft Docs
+description: Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение .NET для Android.
+services: mobile-services, notification-hubs
+documentationcenter: android
+author: RickSaling
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="ricksal"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: ricksal
 
+---
 # Добавление push-уведомлений к приложению мобильных служб
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
- 
+> 
+> 
+
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого запуска с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
@@ -32,62 +35,48 @@
 Просмотреть полный исходный код можно [здесь](https://github.com/RickSaling/mobile-services-samples/tree/push/GettingStartedWithPush).
 
 ## Включение Google Cloud Messaging
-
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ## Настройка мобильной службы для отправки push-запросов
-
-[AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
+[!INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
 ## Обновление мобильной службы для отправки push-уведомлений
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
+[!INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
 
 ## Добавление push-уведомлений в приложение
-
-###Проверка версии Android SDK
-
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version.md)]
-
+### Проверка версии Android SDK
+[!INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
 
 Если вы будете тестировать приложение на более старом устройстве, обратитесь к руководству [Настройка пакета SDK служб Google Play], чтобы определить, насколько малым можно задать это значение.
 
-###Добавление служб Google Play в проект
+### Добавление служб Google Play в проект
+[!INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services.md)]
 
-[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services.md)]
-
-###Добавление кода
-
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
+### Добавление кода
+[!INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## Тестирование приложения с помощью опубликованной мобильной службы
-
 Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля или используя виртуальное устройство в эмуляторе.
 
 ### Включение push-уведомлений для локального тестирования
+[!INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
-
-[AZURE.INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
+[!INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
 
 Вы успешно завершили ознакомление с данным учебником.
 
 ## Дальнейшие действия
-
 В этом учебнике содержатся базовые сведения о том, как включить в приложении Android возможности использования мобильных служб и концентраторов уведомлений для отправки push-уведомлений. Далее мы рекомендуем изучить учебник [Отправка push-уведомлений прошедшим проверку пользователям], в котором показано, как использовать теги для отправки push-уведомлений из мобильной службы только пользователям, прошедшим проверку.
 
-+ [Рассылка широковещательных уведомлений подписчикам] <br/>Узнайте, как пользователи могут регистрироваться и получать push-уведомления с учетом категорий, которые им интересны.
-
-+ [Отправка подписчикам уведомлений на основе шаблонов] <br/>Узнайте о том, как использовать шаблоны для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
+* [Рассылка широковещательных уведомлений подписчикам] <br/>Узнайте, как пользователи могут регистрироваться и получать push-уведомления с учетом категорий, которые им интересны.
+* [Отправка подписчикам уведомлений на основе шаблонов] <br/>Узнайте о том, как использовать шаблоны для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
 
 Дополнительные сведения о мобильных службах и центрах уведомлений см. в следующих разделах.
 
 * [Что такое Центры уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
-
 * [Отладка приложений Центров уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе Центров уведомлений.
-
 * [Использование библиотеки клиента Android для мобильных служб] <br/>Дополнительные сведения об использовании мобильных служб с Android.
 
 <!-- Anchors. -->

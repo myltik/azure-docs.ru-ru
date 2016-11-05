@@ -1,60 +1,56 @@
-<properties
-	pageTitle="Управление доступом на основе ролей с помощью интерфейса REST API"
-	description="Управление доступом на основе ролей с помощью интерфейса REST API"
-	services="active-directory"
-	documentationCenter="na"
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Управление доступом на основе ролей с помощью интерфейса REST API
+description: Управление доступом на основе ролей с помощью интерфейса REST API
+services: active-directory
+documentationcenter: na
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="rest-api"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: multiple
+ms.tgt_pltfrm: rest-api
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Управление доступом на основе ролей с помощью интерфейса REST API
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-- [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
+> * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager помогает очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
 ## Вывод списка всех назначений ролей
-
 Здесь описывается вывод списка всех назначений ролей в указанной области и внутренних областях.
 
 Чтобы вывести список назначений ролей, требуется доступ к операции `Microsoft.Authorization/roleAssignments/read` в этой области. Доступ к этой операции предоставляется всем встроенным ролям. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{api-version}* значением 2015-07-01.
-
 3. Замените *{filter}* условием, по которому требуется отфильтровать список назначений ролей.
-
-  - Вывод списка назначений ролей только для определенной области без учета внутренних областей: `atScope()`
-  - Вывод списка назначений ролей для определенного пользователя, группы или приложения: `principalId%20eq%20'{objectId of user, group, or service principal}'`
-  - Вывод списка назначений ролей для определенного пользователя, включая роли, унаследованные от групп | `assignedTo('{objectId of user}')`
+   
+   * Вывод списка назначений ролей только для определенной области без учета внутренних областей: `atScope()`
+   * Вывод списка назначений ролей для определенного пользователя, группы или приложения: `principalId%20eq%20'{objectId of user, group, or service principal}'`
+   * Вывод списка назначений ролей для определенного пользователя, включая роли, унаследованные от групп | `assignedTo('{objectId of user}')`
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -81,31 +77,26 @@
 ```
 
 ## Получение сведений о назначении роли
-
 Здесь описывается получение сведений о назначении роли, указанной с помощью идентификатора.
 
 Чтобы получить сведения о назначении роли, требуется доступ к операции `Microsoft.Authorization/roleAssignments/read`. Доступ к этой операции предоставляется всем встроенным ролям. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-assignment-id}* идентификатором GUID для назначения роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -127,27 +118,23 @@
 ```
 
 ## Создание назначения роли
-
 Здесь описывается создание назначения роли в указанной области для определенного субъекта, назначающего роль.
 
 Чтобы создать назначение роли, требуется доступ к операции `Microsoft.Authorization/roleAssignments/write`. Из встроенных ролей эту операцию могут выполнять только *владелец* и *администратор доступа пользователей*. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется создать назначения ролей. При создании назначения роли в родительской области все дочерние области также его наследуют. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-assignment-id}* новым идентификатором GUID, который станет GUID нового назначения роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 В тексте запроса введите значения в следующем формате:
@@ -163,12 +150,11 @@
 ```
 
 | Имя элемента | Обязательно | Тип | Описание |
-|------------------|----------|--------|-------------|
-| roleDefinitionId | Да | Строка | Идентификатор роли. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}`. |
-| principalId | Да | Строковый | ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
+| --- | --- | --- | --- |
+| roleDefinitionId |Да |Строка |Идентификатор роли. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}`. |
+| principalId |Да |Строковый |ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
 
 ### Ответ
-
 Код состояния: 201.
 
 ```
@@ -190,31 +176,26 @@
 ```
 
 ## Удаление назначения ролей
-
 Здесь описывается удаление назначения роли в указанной области.
 
 Чтобы удалить назначение роли, требуется доступ к операции `Microsoft.Authorization/roleAssignments/delete`. Из встроенных ролей эту операцию могут выполнять только *владелец* и *администратор доступа пользователей*. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **DELETE** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется создать назначения ролей. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-assignment-id}* идентификатором GUID для назначения роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -236,34 +217,29 @@
 ```
 
 ## Вывод списка всех ролей
-
 Здесь описывается вывод списка всех ролей, которые доступны для назначения в указанной области.
 
 Для вывода списка ролей требуется доступ к операции `Microsoft.Authorization/roleDefinitions/read` в этой области. Доступ к этой операции предоставляется всем встроенным ролям. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список ролей. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{api-version}* значением 2015-07-01.
-
 3. Замените *{filter}* условием, по которому требуется отфильтровать список ролей.
-
-  - Вывод списка ролей, доступных для назначения в указанной области и любой из ее дочерних областей: `atScopeAndBelow()`
-  - Поиск с помощью точного отображаемого имени роли: `roleName%20eq%20'{role-display-name}'` Используйте точное отображаемое имя роли в формате URL-адреса. Пример: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   
+   * Вывод списка ролей, доступных для назначения в указанной области и любой из ее дочерних областей: `atScopeAndBelow()`
+   * Поиск с помощью точного отображаемого имени роли: `roleName%20eq%20'{role-display-name}'` Используйте точное отображаемое имя роли в формате URL-адреса. Пример: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -324,31 +300,26 @@
 ```
 
 ## Получение сведений о роли
-
 Здесь описывается получение сведений о роли, указанной с помощью идентификатора определения роли. Чтобы получить сведения о роли с помощью ее отображаемого имени, ознакомьтесь с разделом [Вывод списка всех ролей](role-based-access-control-manage-access-rest.md#list-all-roles).
 
 Чтобы получить сведения о роли, требуется доступ к операции `Microsoft.Authorization/roleDefinitions/read`. Доступ к этой операции предоставляется всем встроенным ролям. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, для которой требуется вывести список назначений ролей. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-definition-id}* идентификатором GUID для определения роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -414,21 +385,18 @@
 Чтобы создать настраиваемую роль, требуется доступ к операции `Microsoft.Authorization/roleDefinitions/write` во всех областях `AssignableScopes`. Из встроенных ролей эту операцию могут выполнять только *владелец* и *администратор доступа пользователей*. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* первой областью *AssignableScope* для настраиваемой роли. В следующих примерах показано, как указать область для различных уровней.
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-definition-id}* новым идентификатором GUID, который станет GUID новой настраиваемой роли.
-
 3. Замените текст *{api-version}* значением 2015-07-01.
 
 В тексте запроса введите значения в следующем формате:
@@ -465,17 +433,16 @@
 ```
 
 | Имя элемента | Обязательно | Тип | Описание |
-|--------------|----------|------|-------------|
-| name | Да | Строковый | Идентификатор GUID настраиваемой роли. |
-| properties.roleName | Да | Строковый | Отображаемое имя настраиваемой роли. Не может быть более 128 символов в длину. |
-| properties.description | Нет | Строка | Описание настраиваемой роли. Не может быть более 1024 символов в длину. |
-| properties.type | Да | Строка | Укажите значение CustomRole. |
-| properties.permissions.actions | Да | Строка | Массив строк действий, определяющих операции, к которым предоставляет доступ настраиваемая роль. |
-| properties.permissions.notActions | Нет | Строковый | Массив строк действий, определяющих операции, исключаемые из списка операций, к которым предоставляет доступ настраиваемая роль. |
-| properties.assignableScopes | Да | Строковый | Массив областей, в которых можно использовать настраиваемую роль. |
+| --- | --- | --- | --- |
+| name |Да |Строковый |Идентификатор GUID настраиваемой роли. |
+| properties.roleName |Да |Строковый |Отображаемое имя настраиваемой роли. Не может быть более 128 символов в длину. |
+| properties.description |Нет |Строка |Описание настраиваемой роли. Не может быть более 1024 символов в длину. |
+| properties.type |Да |Строка |Укажите значение CustomRole. |
+| properties.permissions.actions |Да |Строка |Массив строк действий, определяющих операции, к которым предоставляет доступ настраиваемая роль. |
+| properties.permissions.notActions |Нет |Строковый |Массив строк действий, определяющих операции, исключаемые из списка операций, к которым предоставляет доступ настраиваемая роль. |
+| properties.assignableScopes |Да |Строковый |Массив областей, в которых можно использовать настраиваемую роль. |
 
 ### Ответ
-
 Код состояния: 201.
 
 ```
@@ -516,27 +483,23 @@
 ```
 
 ## Обновление настраиваемой роли
-
 Здесь описывается изменение настраиваемой роли.
 
 Чтобы изменить настраиваемую роль, требуется доступ к операции `Microsoft.Authorization/roleDefinitions/write` во всех областях `AssignableScopes`. Из встроенных ролей эту операцию могут выполнять только *владелец* и *администратор доступа пользователей*. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* первой областью *AssignableScope* для настраиваемой роли. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-definition-id}* идентификатором GUID настраиваемой роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 В тексте запроса введите значения в следующем формате:
@@ -573,17 +536,16 @@
 ```
 
 | Имя элемента | Обязательно | Тип | Описание |
-|--------------|----------|------|-------------|
-| name | Да | Строка | Идентификатор GUID настраиваемой роли. |
-| properties.roleName | Да | Строковый | Отображаемое имя обновленной настраиваемой роли. |
-| properties.description | Нет | Строка | Описание обновленной настраиваемой роли. |
-| properties.type | Да | Строка | Укажите значение CustomRole. |
-| properties.permissions.actions | Да | Строка | Массив строк действий, определяющих операции, к которым предоставляет доступ обновленная настраиваемая роль. |
-| properties.permissions.notActions | Нет | Строка | Массив строк действий, определяющих операции, исключаемых из списка операций, к которым предоставляет доступ обновленная настраиваемая роль. |
-| properties.assignableScopes | Да | Строковый | Массив областей, в которых можно использовать обновленную настраиваемую роль. |
+| --- | --- | --- | --- |
+| name |Да |Строка |Идентификатор GUID настраиваемой роли. |
+| properties.roleName |Да |Строковый |Отображаемое имя обновленной настраиваемой роли. |
+| properties.description |Нет |Строка |Описание обновленной настраиваемой роли. |
+| properties.type |Да |Строка |Укажите значение CustomRole. |
+| properties.permissions.actions |Да |Строка |Массив строк действий, определяющих операции, к которым предоставляет доступ обновленная настраиваемая роль. |
+| properties.permissions.notActions |Нет |Строка |Массив строк действий, определяющих операции, исключаемых из списка операций, к которым предоставляет доступ обновленная настраиваемая роль. |
+| properties.assignableScopes |Да |Строковый |Массив областей, в которых можно использовать обновленную настраиваемую роль. |
 
 ### Ответ
-
 Код состояния: 201.
 
 ```
@@ -624,31 +586,26 @@
 ```
 
 ## Удаление настраиваемой роли
-
 Здесь описывается удаление настраиваемой роли.
 
 Чтобы удалить настраиваемую роль, требуется доступ к операции `Microsoft.Authorization/roleDefinitions/delete` во всех областях `AssignableScopes`. Из встроенных ролей эту операцию могут выполнять только *владелец* и *администратор доступа пользователей*. Дополнительные сведения о назначениях ролей и управлении доступом к ресурсам Azure см. в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 ### Запрос
-
 Используйте метод **DELETE** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
 1. Замените *{scope}* областью, в которой требуется удалить определение роли. В следующих примерах показано, как указать область для различных уровней:
-
-  - Subscription: /subscriptions/{ИД\_подписки}
-  - Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
-  - Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
-
+   
+   * Subscription: /subscriptions/{ИД\_подписки}
+   * Группа ресурсов: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1
+   * Ресурс: /subscriptions/{ИД\_подписки}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 2. Замените *{role-definition-id}* идентификатором GUID для определения настраиваемой роли.
-
 3. Замените *{api-version}* значением 2015-07-01.
 
 ### Ответ
-
 Код состояния: 200.
 
 ```
@@ -689,6 +646,6 @@
 ```
 
 
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

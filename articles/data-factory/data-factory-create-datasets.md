@@ -1,125 +1,128 @@
-<properties 
-	pageTitle="Создание наборов данных в фабрике данных Azure | Microsoft Azure" 
-	description="Узнайте, как создавать наборы данных в фабрике данных Azure, на основе примеров с использованием свойств offset, anchorDateTime и т. д."
-    keywords="создание набора данных, пример набора данных, пример offset"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Создание наборов данных в фабрике данных Azure | Microsoft Docs
+description: Узнайте, как создавать наборы данных в фабрике данных Azure, на основе примеров с использованием свойств offset, anchorDateTime и т. д.
+keywords: создание набора данных, пример набора данных, пример offset
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/13/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+ms.author: spelluru
 
+---
 # Наборы данных в фабрике данных Azure
 В этой статье описываются наборы данных в фабрике данных Azure, а также приведены примеры для баз данных с использованием параметров offset, anchorDateTime и offset/style.
 
-Создавая набор данных, вы получаете указатель на данные для последующей обработки. Эти данные (входные и выходные наборы) обрабатываются в действиях, которые включены в конвейеры. Входной набор данных представляет входные данные для действия в конвейере, а выходной набор данных — выходные данные для действия.
+Создавая набор данных, вы получаете указатель на данные для последующей обработки. Эти данные (входные и выходные наборы) обрабатываются в действиях, которые включены в конвейеры. Входной набор данных представляет входные данные для действия в конвейере, а выходной набор данных — выходные данные для действия.
 
 Наборы данных представляют данные в разных хранилищах, например в таблицах, файлах, папках и документах. Созданные наборы данных можно использовать для действий в конвейере. Например, можно указать входной или выходной набор данных для действия HDInsightHive или действия копирования. На портале Azure доступно представление, на котором отображаются все конвейеры, а также входные и выходные данные. Оно позволяет быстро оценить все взаимоотношения и зависимости конвейеров во всех источниках. Вы всегда знаете, откуда поступают данные и куда они передаются.
 
 В фабрике данных Azure можно получить данные из набора данных с помощью действия копирования в конвейере.
 
-> [AZURE.NOTE] Если вы не знакомы с фабрикой данных Azure, обзор службы фабрики данных Azure см. в статье [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](data-factory-introduction.md). Узнайте о том, как создать свою первую фабрику данных, в руководстве по [созданию первого конвейера для обработки данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md). В этих двух статьях содержатся общие сведения, необходимые для работы с этой статьей.
+> [!NOTE]
+> Если вы не знакомы с фабрикой данных Azure, обзор службы фабрики данных Azure см. в статье [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](data-factory-introduction.md). Узнайте о том, как создать свою первую фабрику данных, в руководстве по [созданию первого конвейера для обработки данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md). В этих двух статьях содержатся общие сведения, необходимые для работы с этой статьей.
+> 
+> 
 
 ## Определение наборов данных
 Набор данных в фабрике Azure имеет определение следующего вида.
 
-
-	{
-	    "name": "<name of dataset>",
-	    "properties": {
-	        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-			"external": <boolean flag to indicate external data. only for input datasets>,
-	        "linkedServiceName": "<Name of the linked service that refers to a data store.>",
-	        "structure": [
-	            {
-	                "name": "<Name of the column>",
-	                "type": "<Name of the type>"
-	            }
-	        ],
-	        "typeProperties": {
-	            "<type specific property>": "<value>",
-				"<type specific property 2>": "<value 2>",
-	        },
-	        "availability": {
-	            "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
-	            "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
-	        },
-	       "policy": 
-	        {      
-	        }
-	    }
-	}
+    {
+        "name": "<name of dataset>",
+        "properties": {
+            "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+            "external": <boolean flag to indicate external data. only for input datasets>,
+            "linkedServiceName": "<Name of the linked service that refers to a data store.>",
+            "structure": [
+                {
+                    "name": "<Name of the column>",
+                    "type": "<Name of the type>"
+                }
+            ],
+            "typeProperties": {
+                "<type specific property>": "<value>",
+                "<type specific property 2>": "<value 2>",
+            },
+            "availability": {
+                "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
+                "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
+            },
+           "policy": 
+            {      
+            }
+        }
+    }
 
 В следующей таблице описаны свойства приведенного выше объекта JSON.
 
 | Свойство | Описание | Обязательно | значение по умолчанию |
-| -------- | ----------- | -------- | ------- |
-| name | Имя набора данных. Правила именования для фабрики данных Azure описаны [здесь](data-factory-naming-rules.md). | Да | Нет данных |
-| type | Тип набора данных. Укажите один из типов, которые поддерживаются фабрикой данных Azure (например: AzureBlob, AzureSqlTable). <br/><br/>Дополнительные сведения см. в разделе [Тип набора данных](#Type). | Да | Нет данных |
-| structure | Схема набора данных.<br/><br/>Дополнительные сведения см. в разделе [Структура набора данных](#Structure). | Нет. | Нет данных |
-| typeProperties | Свойства, соответствующие выбранному типу. Сведения о поддерживаемых типах и их свойствах см. в разделе [Тип набора данных](#Type). | Да | Нет данных |
-| external | Этот логический флаг указывает, создается ли набор данных конвейером фабрики данных явным образом. | Нет | нет | 
-| availability | Определяет окно обработки или модель среза для создания набора данных. <br/><br/>Дополнительные сведения см. в разделе [Доступность набора данных](#Availability). <br/><br/>Дополнительные сведения о модели срезов набора данных см. в разделе [Планирование и выполнение](data-factory-scheduling-and-execution.md). | Да | Нет данных
-| policy | Определяет условия, которым должен соответствовать срез данных. <br/><br/>Дополнительные сведения см. в разделе [Политика набора данных](#Policy). | Нет | Нет данных |
+| --- | --- | --- | --- |
+| name |Имя набора данных. Правила именования для фабрики данных Azure описаны [здесь](data-factory-naming-rules.md). |Да |Нет данных |
+| type |Тип набора данных. Укажите один из типов, которые поддерживаются фабрикой данных Azure (например: AzureBlob, AzureSqlTable). <br/><br/>Дополнительные сведения см. в разделе [Тип набора данных](#Type). |Да |Нет данных |
+| structure |Схема набора данных.<br/><br/>Дополнительные сведения см. в разделе [Структура набора данных](#Structure). |Нет. |Нет данных |
+| typeProperties |Свойства, соответствующие выбранному типу. Сведения о поддерживаемых типах и их свойствах см. в разделе [Тип набора данных](#Type). |Да |Нет данных |
+| external |Этот логический флаг указывает, создается ли набор данных конвейером фабрики данных явным образом. |Нет |нет |
+| availability |Определяет окно обработки или модель среза для создания набора данных. <br/><br/>Дополнительные сведения см. в разделе [Доступность набора данных](#Availability). <br/><br/>Дополнительные сведения о модели срезов набора данных см. в разделе [Планирование и выполнение](data-factory-scheduling-and-execution.md). |Да |Нет данных |
+| policy |Определяет условия, которым должен соответствовать срез данных. <br/><br/>Дополнительные сведения см. в разделе [Политика набора данных](#Policy). |Нет |Нет данных |
 
 ## Пример набора данных
 В следующем примере набор данных представляет таблицу с именем **MyTable** в **базе данных SQL Azure**.
 
-	{
-	    "name": "DatasetSample",
-	    "properties": {
-	        "type": "AzureSqlTable",
-	        "linkedServiceName": "AzureSqlLinkedService",
-	        "typeProperties": 
-	        {
-	            "tableName": "MyTable"
-	        },
-	        "availability": 
-	        {
-	            "frequency": "Day",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "DatasetSample",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": 
+            {
+                "tableName": "MyTable"
+            },
+            "availability": 
+            {
+                "frequency": "Day",
+                "interval": 1
+            }
+        }
+    }
 
 Обратите внимание на следующие моменты.
 
-- для параметра type задано значение AzureSqlTable;
-- свойство типа tableName (используется только для типа AzureSqlTable) имеет значение MyTable;
-- свойство типа linkedServiceName ссылается на связанную службу типа AzureSqlDatabase (см. определение следующей связанной службы);
-- в разделе availability параметр frequency имеет значение Day, а параметр interval равен 1. Это означает, что срез создается ежедневно.
+* для параметра type задано значение AzureSqlTable;
+* свойство типа tableName (используется только для типа AzureSqlTable) имеет значение MyTable;
+* свойство типа linkedServiceName ссылается на связанную службу типа AzureSqlDatabase (см. определение следующей связанной службы);
+* в разделе availability параметр frequency имеет значение Day, а параметр interval равен 1. Это означает, что срез создается ежедневно.
 
 AzureSqlLinkedService определяется следующим образом.
 
-	{
-	    "name": "AzureSqlLinkedService",
-	    "properties": {
-	        "type": "AzureSqlDatabase",
-	        "description": "",
-	        "typeProperties": {
-	            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-	        }
-	    }
-	}
+    {
+        "name": "AzureSqlLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "description": "",
+            "typeProperties": {
+                "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
+            }
+        }
+    }
 
 В приведенном выше коде JSON:
 
-- параметр type имеет значение AzureSqlDatabase;
-- свойство типа connectionString задает информацию для подключения к базе данных Azure SQL.
-
+* параметр type имеет значение AzureSqlDatabase;
+* свойство типа connectionString задает информацию для подключения к базе данных Azure SQL.
 
 Как видите, связанная служба определяет способ подключения к базе данных SQL Azure. Набор данных определяет, какие таблицы используются в качестве входных и выходных данных для действия в конвейере. В разделе activity объекта JSON для [конвейера](data-factory-create-pipelines.md) укажите, используется ли набор данных как входной или выходной.
 
-
-> [AZURE.IMPORTANT] Если набор данных не создается фабрикой данных Azure, он должен быть помечен как **external**. Этот параметр обычно относится к входным данным для первого действия в конвейере.
+> [!IMPORTANT]
+> Если набор данных не создается фабрикой данных Azure, он должен быть помечен как **external**. Этот параметр обычно относится к входным данным для первого действия в конвейере.
+> 
+> 
 
 ## <a name="Type"></a> Тип набора данных
 Поддерживаемые источники данных согласуются с типами наборов данных. Дополнительные сведения о типах и настройке наборов данных см. в материалах по ссылкам, указанным в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md#supported-data-stores). Например, если вы используете данные из базы данных SQL Azure, щелкните в списке поддерживаемых хранилищ данных строку "База данных SQL Azure", чтобы просмотреть подробные сведения об этом.
@@ -127,219 +130,215 @@ AzureSqlLinkedService определяется следующим образом
 ## <a name="Structure"></a>Структура набора данных
 В разделе **structure** определяется схема набора данных. Схема содержит коллекцию имен и типов данных для столбцов. В приведенном ниже примере набор данных содержит три столбца: slicetimestamp, projectname и pageviews с типом String, String и Decimal соответственно.
 
-	structure:  
-	[ 
-	    { "name": "slicetimestamp", "type": "String"},
-	    { "name": "projectname", "type": "String"},
-	    { "name": "pageviews", "type": "Decimal"}
-	]
+    structure:  
+    [ 
+        { "name": "slicetimestamp", "type": "String"},
+        { "name": "projectname", "type": "String"},
+        { "name": "pageviews", "type": "Decimal"}
+    ]
 
 ## <a name="Availability"></a> Доступность набора данных
 В разделе **availability** определяется интервал обработки (ежечасно, ежедневно, еженедельно и т. п.) или модель среза для набора данных. Дополнительные сведения о создании срезов данных и модели зависимостей см. в разделе [Планирование и выполнение](data-factory-scheduling-and-execution.md).
 
 В следующем примере раздел availability определяет то, что набор выходных данных создается ежечасно (или) доступен каждый час.
 
-	"availability":	
-	{	
-		"frequency": "Hour",		
-		"interval": 1	
-	}
+    "availability":    
+    {    
+        "frequency": "Hour",        
+        "interval": 1    
+    }
 
 Ниже перечислены свойства, которые можно использовать в разделе availability.
 
 | Свойство | Описание | Обязательно | По умолчанию |
-| -------- | ----------- | -------- | ------- |
-| frequency | Указывает единицу времени, которая определяет частоту создания среза данных.<br/><br/>**Поддерживаемые значения**: Minute, Hour, Day, Week, Month. | Да | Нет данных |
-| interval | Задает множитель для параметра frequency.<br/><br/>Частота создания среза определяется произведением значений Frequency и Interval.<br/><br/>Если вам нужен один срез каждый час, задайте для **Frequency** значение **Hour**, а для **Interval** значение **1**.<br/><br/>**Примечание**. Если параметр Frequency равен Minute, для параметра Interval желательно установить значение не менее 15. | Да | Нет данных |
-| style | Указывает, когда выполняется срез: в начале или в конце интервала.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Если для Frequency задано значение Month, а для Style — EndOfInterval, срез данных будет создаваться в последний день месяца. Если для Style задано значение StartOfInterval, срез создается в первый день месяца.<br/><br/>Если для Frequency задано значение Day, а для Style — EndOfInterval, срез создается в последний час дня.<br/><br/>Если для Frequency задано значение Hour, а для Style — EndOfInterval, срез создается в конце часа. Например, для периода с 13:00 до 14:00 срез создается в 14:00. | Нет | EndOfInterval |
-| anchorDateTime | Определяет момент времени, на основе которого планировщик вычисляет границы среза набора данных. <br/><br/>**Примечание**. Если параметр AnchorDateTime содержит элементы с большей степенью детализации, чем значение параметра frequency, эти элементы игнорируются. <br/><br/>Например, если для **интервала** задано значение **ежечасно** (frequency = Hour, interval = 1), а **AnchorDateTime** содержит **минуты и секунды**, то **минуты и секунды** из параметра AnchorDateTime не учитываются. | Нет | 01/01/0001 |
-| offset | Интервал времени, на который сдвигаются начало и конец всех срезов данных. <br/><br/>**Примечание**. Если указаны значения для обоих параметров (anchorDateTime и offset), сдвиг вычисляется с учетом обоих значений. | Нет | Нет данных |
+| --- | --- | --- | --- |
+| frequency |Указывает единицу времени, которая определяет частоту создания среза данных.<br/><br/>**Поддерживаемые значения**: Minute, Hour, Day, Week, Month. |Да |Нет данных |
+| interval |Задает множитель для параметра frequency.<br/><br/>Частота создания среза определяется произведением значений Frequency и Interval.<br/><br/>Если вам нужен один срез каждый час, задайте для **Frequency** значение **Hour**, а для **Interval** значение **1**.<br/><br/>**Примечание**. Если параметр Frequency равен Minute, для параметра Interval желательно установить значение не менее 15. |Да |Нет данных |
+| style |Указывает, когда выполняется срез: в начале или в конце интервала.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Если для Frequency задано значение Month, а для Style — EndOfInterval, срез данных будет создаваться в последний день месяца. Если для Style задано значение StartOfInterval, срез создается в первый день месяца.<br/><br/>Если для Frequency задано значение Day, а для Style — EndOfInterval, срез создается в последний час дня.<br/><br/>Если для Frequency задано значение Hour, а для Style — EndOfInterval, срез создается в конце часа. Например, для периода с 13:00 до 14:00 срез создается в 14:00. |Нет |EndOfInterval |
+| anchorDateTime |Определяет момент времени, на основе которого планировщик вычисляет границы среза набора данных. <br/><br/>**Примечание**. Если параметр AnchorDateTime содержит элементы с большей степенью детализации, чем значение параметра frequency, эти элементы игнорируются. <br/><br/>Например, если для **интервала** задано значение **ежечасно** (frequency = Hour, interval = 1), а **AnchorDateTime** содержит **минуты и секунды**, то **минуты и секунды** из параметра AnchorDateTime не учитываются. |Нет |01/01/0001 |
+| offset |Интервал времени, на который сдвигаются начало и конец всех срезов данных. <br/><br/>**Примечание**. Если указаны значения для обоих параметров (anchorDateTime и offset), сдвиг вычисляется с учетом обоих значений. |Нет |Нет данных |
 
 ### Пример смещения
-
 Ежедневные срезы, которые начинаются в 6:00, а не в полночь (значение по умолчанию).
 
-	"availability":
-	{
-		"frequency": "Day",
-		"interval": 1,
-		"offset": "06:00:00"
-	}
+    "availability":
+    {
+        "frequency": "Day",
+        "interval": 1,
+        "offset": "06:00:00"
+    }
 
 Свойство **frequency** имеет значение **Day**, а свойство **interval** — значение **1** (один раз в день), если срез должен создаваться в 06:00, а не в указанное по умолчанию время (00:00). Помните, что время указывается в формате UTC.
 
 ## Пример для anchorDateTime
-
 **Пример:** срезы данных с интервалом 23 часа, начало которых запланировано на 2007-04-19T08:00:00.
 
-	"availability":	
-	{	
-		"frequency": "Hour",		
-		"interval": 23,	
-		"anchorDateTime":"2007-04-19T08:00:00"	
-	}
+    "availability":    
+    {    
+        "frequency": "Hour",        
+        "interval": 23,    
+        "anchorDateTime":"2007-04-19T08:00:00"    
+    }
 
 ## Пример для Offset и Style
-
 Если вы хотите получать набор данных ежемесячно по состоянию на определенные дату и время (предположим, на 3-й день каждого месяца в 8:00), можно установить дату и время запуска с помощью тега **offset**.
 
-	{
-	  "name": "MyDataset",
-	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "availability": {
-	      "frequency": "Month",
-	      "interval": 1,
-	      "offset": "3.08:10:00",
-	      "style": "StartOfInterval"
-	    }
-	  }
-	}
+    {
+      "name": "MyDataset",
+      "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "MyTable"
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1,
+          "offset": "3.08:10:00",
+          "style": "StartOfInterval"
+        }
+      }
+    }
 
 
 ## <a name="Policy"></a>Политика наборов данных
-
 Раздел **policy** в определении набора данных содержит условия, которым должен соответствовать срез данных.
 
 ### Политики проверки
-
 | Имя политики | Описание | Применяется к | Обязательно | значение по умолчанию |
-| ----------- | ----------- | ---------- | -------- | ------- |
-| minimumSizeMB | Проверяет, удовлетворяют ли данные в **большом двоичном объекте Azure** требованиям к минимальному размеру (в мегабайтах). | Большой двоичный объект Azure | Нет | Нет данных |
-|minimumRows | Проверяет, содержат ли данные в **базе данных SQL Azure** или **таблице Azure** минимально необходимое количество строк. | <ul><li>База данных SQL Azure</li><li>Таблица Azure</li></ul> | Нет | Нет данных
+| --- | --- | --- | --- | --- |
+| minimumSizeMB |Проверяет, удовлетворяют ли данные в **большом двоичном объекте Azure** требованиям к минимальному размеру (в мегабайтах). |Большой двоичный объект Azure |Нет |Нет данных |
+| minimumRows |Проверяет, содержат ли данные в **базе данных SQL Azure** или **таблице Azure** минимально необходимое количество строк. |<ul><li>База данных SQL Azure</li><li>Таблица Azure</li></ul> |Нет |Нет данных |
 
 #### Примеры
-
 **minimumSizeMB:**
 
-	"policy":
-	
-	{
-	    "validation":
-	    {
-	        "minimumSizeMB": 10.0
-	    }
-	}
+    "policy":
+
+    {
+        "validation":
+        {
+            "minimumSizeMB": 10.0
+        }
+    }
 
 **minimumRows:**
 
-	"policy":
-	{
-		"validation":
-		{
-			"minimumRows": 100
-		}
-	}
+    "policy":
+    {
+        "validation":
+        {
+            "minimumRows": 100
+        }
+    }
 
 ### Внешние наборы данных
-
 Внешними считаются такие наборы данных, которые не создаются запущенным конвейером в фабрике данных. Если набор данных помечен как **external**, вы можете изменить доступность соответствующих срезов данных с помощью политики **ExternalData**.
 
 Если набор данных не создается фабрикой данных Azure, он должен быть помечен как **external**. Обычно этот параметр относится к входным данным для первого действия в конвейере, если не используется цепочка действий или конвейеров.
 
 | Имя | Описание | Обязательно | По умолчанию |
-| ---- | ----------- | -------- | -------------- |
-| dataDelay | Время задержки проверки на наличие внешних данных для определенного среза. Например, если данные должны быть доступны ежечасно, проверку доступности внешних данных (и того, находится ли соответствующий срез в состоянии Ready) можно отложить, используя политику dataDelay.<br/><br/>Применяется только к настоящему времени. Например, если сейчас 13:00 и для dataDelay задано значение "10 минут", то проверка начинается в 13:10.<br/><br/>Этот параметр не влияет на срезы в прошлом (срезы, у которых сумма SliceEndTime и dataDelay меньше текущего времени), поэтому они обрабатываются без задержки.<br/><br/>Время после 23:59 необходимо указать в формате день.часы:минуты:секунды. Например, чтобы задать 24 часа, не используйте формат 24:00:00; вместо этого укажите 1.00:00:00. Значение 24:00:00 обозначает 24 дня (24.00:00:00). Чтобы задать 1 день и 4 часа, укажите 1:04:00:00. | Нет | 0 |
-| retryInterval | Время ожидания после сбоя до повторной попытки. Применяется к настоящему времени. Если предыдущая попытка завершилась сбоем, то новая попытка начнется по истечении заданного здесь значения. <br/><br/>Предположим, что первая попытка началась в 13:00. Если она длится одну минуту и завершается сбоем, то повторная попытка начнется в 13:02 (13:00 + время выполнения первой проверки (1 минута) + интервал повтора (1 минута)). <br/><br/>Срезы в прошлом обрабатываются без задержки. Повторная попытка происходит незамедлительно. | Нет | 00:01:00 (1 минута) | 
-| retryTimeout | Время ожидания для каждой следующей повторной попытки.<br/><br/>Если это значение составляет 10 минут, проверка должна занимать не более 10 минут. Если проверка длится больше 10 минут, возникает ошибка времени ожидания.<br/><br/>Если такая ошибка возникает во время всех попыток, срез помечается как TimedOut. | Нет | 00:10:00 (10 минут) |
-| maximumRetry | Максимальное количество попыток проверки доступности внешних данных. Максимальное допустимое значение — 10. | Нет | 3 | 
+| --- | --- | --- | --- |
+| dataDelay |Время задержки проверки на наличие внешних данных для определенного среза. Например, если данные должны быть доступны ежечасно, проверку доступности внешних данных (и того, находится ли соответствующий срез в состоянии Ready) можно отложить, используя политику dataDelay.<br/><br/>Применяется только к настоящему времени. Например, если сейчас 13:00 и для dataDelay задано значение "10 минут", то проверка начинается в 13:10.<br/><br/>Этот параметр не влияет на срезы в прошлом (срезы, у которых сумма SliceEndTime и dataDelay меньше текущего времени), поэтому они обрабатываются без задержки.<br/><br/>Время после 23:59 необходимо указать в формате день.часы:минуты:секунды. Например, чтобы задать 24 часа, не используйте формат 24:00:00; вместо этого укажите 1.00:00:00. Значение 24:00:00 обозначает 24 дня (24.00:00:00). Чтобы задать 1 день и 4 часа, укажите 1:04:00:00. |Нет |0 |
+| retryInterval |Время ожидания после сбоя до повторной попытки. Применяется к настоящему времени. Если предыдущая попытка завершилась сбоем, то новая попытка начнется по истечении заданного здесь значения. <br/><br/>Предположим, что первая попытка началась в 13:00. Если она длится одну минуту и завершается сбоем, то повторная попытка начнется в 13:02 (13:00 + время выполнения первой проверки (1 минута) + интервал повтора (1 минута)). <br/><br/>Срезы в прошлом обрабатываются без задержки. Повторная попытка происходит незамедлительно. |Нет |00:01:00 (1 минута) |
+| retryTimeout |Время ожидания для каждой следующей повторной попытки.<br/><br/>Если это значение составляет 10 минут, проверка должна занимать не более 10 минут. Если проверка длится больше 10 минут, возникает ошибка времени ожидания.<br/><br/>Если такая ошибка возникает во время всех попыток, срез помечается как TimedOut. |Нет |00:10:00 (10 минут) |
+| maximumRetry |Максимальное количество попыток проверки доступности внешних данных. Максимальное допустимое значение — 10. |Нет |3 |
 
 ## Контекст наборов данных
 С помощью свойства **datasets** вы можете создавать наборы данных, прикрепленные к контексту конкретного конвейера. Такие наборы данных могут использоваться только действиями в пределах указанного конвейера, но не действиями в других конвейерах. В следующем примере определяется конвейер с двумя наборами данных (InputDataset-rdc и OutputDataset-rdc), которые будут использоваться только в рамках этого конвейера.
 
-> [AZURE.IMPORTANT] Наборы данных с заданной областью поддерживаются только с однократными конвейерами (для которых параметр **pipelineMode** имеет значение **OneTime**). Дополнительные сведения см. в разделе [Однократный конвейер](data-factory-scheduling-and-execution.md#onetime-pipeline).
+> [!IMPORTANT]
+> Наборы данных с заданной областью поддерживаются только с однократными конвейерами (для которых параметр **pipelineMode** имеет значение **OneTime**). Дополнительные сведения см. в разделе [Однократный конвейер](data-factory-scheduling-and-execution.md#onetime-pipeline).
+> 
+> 
 
-	{
-	    "name": "CopyPipeline-rdc",
-	    "properties": {
-	        "activities": [
-	            {
-	                "type": "Copy",
-	                "typeProperties": {
-	                    "source": {
-	                        "type": "BlobSource",
-	                        "recursive": false
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink",
-	                        "writeBatchSize": 0,
-	                        "writeBatchTimeout": "00:00:00"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "InputDataset-rdc"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "OutputDataset-rdc"
-	                    }
-	                ],
-	                "scheduler": {
-	                    "frequency": "Day",
-	                    "interval": 1,
-	                    "style": "StartOfInterval"
-	                },
-	                "name": "CopyActivity-0"
-	            }
-	        ],
-	        "start": "2016-02-28T00:00:00Z",
-	        "end": "2016-02-28T00:00:00Z",
-	        "isPaused": false,
-	        "pipelineMode": "OneTime",
-	        "expirationTime": "15.00:00:00",
-	        "datasets": [
-	            {
-	                "name": "InputDataset-rdc",
-	                "properties": {
-	                    "type": "AzureBlob",
-	                    "linkedServiceName": "InputLinkedService-rdc",
-	                    "typeProperties": {
-	                        "fileName": "emp.txt",
-	                        "folderPath": "adftutorial/input",
-	                        "format": {
-	                            "type": "TextFormat",
-	                            "rowDelimiter": "\n",
-	                            "columnDelimiter": ","
-	                        }
-	                    },
-	                    "availability": {
-	                        "frequency": "Day",
-	                        "interval": 1
-	                    },
-	                    "external": true,
-	                    "policy": {}
-	                }
-	            },
-	            {
-	                "name": "OutputDataset-rdc",
-	                "properties": {
-	                    "type": "AzureBlob",
-	                    "linkedServiceName": "OutputLinkedService-rdc",
-	                    "typeProperties": {
-	                        "fileName": "emp.txt",
-	                        "folderPath": "adftutorial/output",
-	                        "format": {
-	                            "type": "TextFormat",
-	                            "rowDelimiter": "\n",
-	                            "columnDelimiter": ","
-	                        }
-	                    },
-	                    "availability": {
-	                        "frequency": "Day",
-	                        "interval": 1
-	                    },
-	                    "external": false,
-	                    "policy": {}
-	                }
-	            }
-	        ]
-	    }
-	}
+    {
+        "name": "CopyPipeline-rdc",
+        "properties": {
+            "activities": [
+                {
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "BlobSource",
+                            "recursive": false
+                        },
+                        "sink": {
+                            "type": "BlobSink",
+                            "writeBatchSize": 0,
+                            "writeBatchTimeout": "00:00:00"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "InputDataset-rdc"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "OutputDataset-rdc"
+                        }
+                    ],
+                    "scheduler": {
+                        "frequency": "Day",
+                        "interval": 1,
+                        "style": "StartOfInterval"
+                    },
+                    "name": "CopyActivity-0"
+                }
+            ],
+            "start": "2016-02-28T00:00:00Z",
+            "end": "2016-02-28T00:00:00Z",
+            "isPaused": false,
+            "pipelineMode": "OneTime",
+            "expirationTime": "15.00:00:00",
+            "datasets": [
+                {
+                    "name": "InputDataset-rdc",
+                    "properties": {
+                        "type": "AzureBlob",
+                        "linkedServiceName": "InputLinkedService-rdc",
+                        "typeProperties": {
+                            "fileName": "emp.txt",
+                            "folderPath": "adftutorial/input",
+                            "format": {
+                                "type": "TextFormat",
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ","
+                            }
+                        },
+                        "availability": {
+                            "frequency": "Day",
+                            "interval": 1
+                        },
+                        "external": true,
+                        "policy": {}
+                    }
+                },
+                {
+                    "name": "OutputDataset-rdc",
+                    "properties": {
+                        "type": "AzureBlob",
+                        "linkedServiceName": "OutputLinkedService-rdc",
+                        "typeProperties": {
+                            "fileName": "emp.txt",
+                            "folderPath": "adftutorial/output",
+                            "format": {
+                                "type": "TextFormat",
+                                "rowDelimiter": "\n",
+                                "columnDelimiter": ","
+                            }
+                        },
+                        "availability": {
+                            "frequency": "Day",
+                            "interval": 1
+                        },
+                        "external": false,
+                        "policy": {}
+                    }
+                }
+            ]
+        }
+    }
 
 <!---HONumber=AcomDC_0921_2016-->

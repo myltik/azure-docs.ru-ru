@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Приступая к работе с Azure AD версии 2.0 на AngularJS | Microsoft Azure"
-	description="Как создать одностраничное приложение AngularJS, которое поддерживает вход пользователей в систему с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетной записи."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Приступая к работе с Azure AD версии 2.0 на AngularJS | Microsoft Docs
+description: Как создать одностраничное приложение AngularJS, которое поддерживает вход пользователей в систему с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетной записи.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
-
-# Добавление функции входа в одностраничное приложение AngularJS — версия для .NET
-
+---
+# Добавление функции входа в одностраничное приложение AngularJS — версия для .NET
 В этой статье мы добавим в приложение AngularJS функцию входа с учетными записями на платформе Майкрософт с помощью конечной точки Azure Active Directory версии 2.0. Конечная точка версии 2.0 обеспечивает единую интеграцию в приложении и аутентификацию пользователей как с личными, так и с рабочими или учебными учетными записями.
 
-Наш пример — это простое одностраничное приложение со списком дел, которое сохраняет задачи в серверной части REST API. Оно написано на платформе MVC .NET 4.5 и защищено с помощью токенов носителя OAuth из Azure AD. Приложение AngularJS будет использовать нашу библиотеку проверки подлинности JavaScript с открытым исходным кодом [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) для обработки всего процесса входа в систему и получения токенов для вызова интерфейса API REST. Эта модель может применяться для аутентификации в других интерфейсах REST API, например [Microsoft Graph](https://graph.microsoft.com).
+Наш пример — это простое одностраничное приложение со списком дел, которое сохраняет задачи в серверной части REST API. Оно написано на платформе MVC .NET 4.5 и защищено с помощью токенов носителя OAuth из Azure AD. Приложение AngularJS будет использовать нашу библиотеку проверки подлинности JavaScript с открытым исходным кодом [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) для обработки всего процесса входа в систему и получения токенов для вызова интерфейса API REST. Эта модель может применяться для аутентификации в других интерфейсах REST API, например [Microsoft Graph](https://graph.microsoft.com).
 
-> [AZURE.NOTE]
-	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 ## Загрузить
-
 Чтобы начать работу, необходимо загрузить и установить Visual Studio. Затем можно клонировать или [загрузить](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) скелет приложения:
 
 ```
@@ -41,17 +40,17 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 ```
 
 ## регистрация приложения;
-
 Во-первых, создайте приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните следующие [подробные шаги](active-directory-v2-app-registration.md). Не забудьте:
 
-- Добавьте **веб-платформу** для своего приложения.
-- Введите правильный **универсальный код ресурса (URI) перенаправления**. Значение по умолчанию для этого примера: `https://localhost:44326/`.
-- Оставьте включенным флажок **Разрешить неявный поток**.
+* Добавьте **веб-платформу** для своего приложения.
+* Введите правильный **универсальный код ресурса (URI) перенаправления**. Значение по умолчанию для этого примера: `https://localhost:44326/`.
+* Оставьте включенным флажок **Разрешить неявный поток**.
 
 Запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 
 ## Установка adal.js
 Для запуска перейдите в загруженный проект и установите библиотеку adal.js. Если у вас установлен [bower](http://bower.io/), можно просто выполнить эту команду. В случае несоответствия версий каких-либо зависимостей просто выберите наиболее актуальную версию.
+
 ```
 bower install adal-angular#experimental
 ```
@@ -72,7 +71,6 @@ bower install adal-angular#experimental
 ```
 
 ## Настройка REST API
-
 Пока мы все настраиваем, давайте обеспечим работу серверной части REST API. В корневой папке проекта откройте `web.config` и замените значение `audience`. Интерфейс REST API будет использовать это значение для проверки токенов, получаемых от приложения Angular по запросам AJAX.
 
 ```xml
@@ -83,7 +81,7 @@ bower install adal-angular#experimental
     <appSettings>
         <add key="ida:Audience" value="[Your-application-id]" />
     </appSettings>
-    
+
 ...
 ```
 
@@ -110,19 +108,19 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ...
 
 adalProvider.init({
-        
+
         // Use this value for the public instance of Azure AD
         instance: 'https://login.microsoftonline.com/', 
-        
+
         // The 'common' endpoint is used for multi-tenant applications like this one
         tenant: 'common',
-        
+
         // Your application id from the registration portal
         clientId: '<Your-application-id>',
-        
+
         // If you're using IE, uncommment this line - the default HTML5 sessionStorage does not work for localhost.
         //cacheLocation: 'localStorage',
-         
+
     }, $httpProvider);
 ```
 
@@ -151,16 +149,16 @@ angular.module('todoApp')
 // Load adal.js the same way for use in controllers and views   
 .controller('homeCtrl', ['$scope', 'adalAuthenticationService','$location', function ($scope, adalService, $location) {
     $scope.login = function () {
-        
+
         // Redirect the user to sign in
         adalService.login();
-        
+
     };
     $scope.logout = function () {
-        
+
         // Redirect the user to log out    
         adalService.logOut();
-    
+
     };
 ...
 ```
@@ -211,7 +209,7 @@ angular.module('todoApp')
 
 Как именно это работает? Это все благодаря магии [перехватчиков AngularJS](https://docs.angularjs.org/api/ng/service/$http), которые позволяют adal.js преобразовывать входящие и исходящие http-сообщения. Кроме того, adal.js предполагает, что все запросы отправляются в один домен, так как окно должно использовать токены, предназначенные для того же идентификатора приложения, что и у приложения AngularJS. Именно поэтому мы использовали один и тот же идентификатор приложения в приложении Angular и в REST API NodeJS. Конечно, можно переопределить это поведение и сделать так, чтобы библиотека adal.js при необходимости получала токены для других интерфейсов REST API. Но в нашем упрощенном примере подойдут значения по умолчанию.
 
-Ниже приведен фрагмент, который показывает, насколько просто отправлять запросы с токенами носителя из Azure AD.
+Ниже приведен фрагмент, который показывает, насколько просто отправлять запросы с токенами носителя из Azure AD.
 
 ```js
 // app/scripts/todoListSvc.js
@@ -221,16 +219,15 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Поздравляем! Ваше одностраничное приложение, интегрированное с Azure AD, готово. Протестируйте его. Приложение может проверять подлинность пользователей, безопасно обращаться к REST API серверной части с помощью OpenID Connect и получать основные сведения о пользователе. По умолчанию оно поддерживает всех пользователей с учетной записью Майкрософт или рабочей либо учебной учетной записью в Azure AD. Запустите приложение и в адресной строке браузера введите `https://localhost:44326/`. Войдите с личной учетной записью Майкрософт либо рабочей или учебной учетной записью. Добавьте задачи в список дел и выйдите. Попробуйте войти с учетной записью другого типа. Если вам нужен клиент Azure AD для создания рабочих или школьных учетных записей, [узнайте здесь, как его получить](active-directory-howto-tenant.md) (предоставляется бесплатно).
+Поздравляем! Ваше одностраничное приложение, интегрированное с Azure AD, готово. Протестируйте его. Приложение может проверять подлинность пользователей, безопасно обращаться к REST API серверной части с помощью OpenID Connect и получать основные сведения о пользователе. По умолчанию оно поддерживает всех пользователей с учетной записью Майкрософт или рабочей либо учебной учетной записью в Azure AD. Запустите приложение и в адресной строке браузера введите `https://localhost:44326/`. Войдите с личной учетной записью Майкрософт либо рабочей или учебной учетной записью. Добавьте задачи в список дел и выйдите. Попробуйте войти с учетной записью другого типа. Если вам нужен клиент Azure AD для создания рабочих или школьных учетных записей, [узнайте здесь, как его получить](active-directory-howto-tenant.md) (предоставляется бесплатно).
 
 Чтобы продолжить изучение конечной точки версии 2.0, вернитесь к нашему [руководству разработчика для версии 2.0](active-directory-appmodel-v2-overview.md). Дополнительные ресурсы:
 
-- [Образцы Azure на GitHub >>](https://github.com/Azure-Samples)
-- [Azure AD при переполнении стека >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Документация по Azure AD [на сайте Azure.com](https://azure.microsoft.com/documentation/services/active-directory/)
+* [Образцы Azure на GitHub >>](https://github.com/Azure-Samples)
+* [Azure AD при переполнении стека >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* Документация по Azure AD [на сайте Azure.com](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ## Получение обновлений системы безопасности для наших продуктов
-
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
 <!---HONumber=AcomDC_0921_2016-->

@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Развертывание вычислительных ресурсов с помощью шаблонов диспетчера ресурсов Azure | Microsoft Azure"
-   description="Руководство по .NET Core для виртуальных машин Azure"
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-service-management"/>
+---
+title: Развертывание вычислительных ресурсов с помощью шаблонов диспетчера ресурсов Azure | Microsoft Docs
+description: Руководство по .NET Core для виртуальных машин Azure
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/21/2016"
-   ms.author="nepeters"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/21/2016
+ms.author: nepeters
 
-
+---
 # <a name="application-architecture-with-azure-resource-manager-templates"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager
-
 При разработке развертывания Azure Resource Manager необходимую вычислительную мощность нужно сопоставлять с ресурсами и службами Azure. Если приложение содержит несколько конечных точек http, базы данных и службы кэша, следует рационально распределить ресурсы Azure между всеми этими компонентами. Например, приложение "Магазин музыки" содержит веб-приложение, размещенное на виртуальной машине, и базу данных SQL на основе базы данных Azure SQL. 
 
 В этом документе описана конфигурация вычислительных ресурсов для такого приложения, представленная в шаблоне Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="virtual-machine"></a>Виртуальная машина
-
 Приложение "Магазин музыки" — это веб-приложение, где пользователи могут искать и приобретать доступные композиции. Для размещения веб-приложений можно использовать несколько служб Azure. В нашем примере используется виртуальная машина. Используя предложенный шаблон магазина музыки, мы развернем виртуальную машину, установим веб-сервер, а затем установим и настроим веб-сайт самого магазина. В этой статье подробно описывается только развертывание виртуальной машины. Настройка веб-сервера и приложения подробно описана в следующей статье.
 
 Чтобы добавить в шаблон виртуальную машину, можно использовать мастер добавления нового ресурса в Visual Studio или вставить в шаблон развертывания допустимый объект JSON. Для развертывания виртуальной машины также потребуются несколько связанных ресурсов. Если для создания шаблона вы используете Visual Studio, эти ресурсы создаются автоматически. При создании шаблона вручную вам нужно самостоятельно добавить и настроить эти ресурсы.
@@ -63,11 +60,9 @@
 ![Виртуальная машина](./media/virtual-machines-linux-dotnet-core/vm.png)
 
 ## <a name="storage-account"></a>Учетная запись хранения
-
 Учетные записи хранения имеют множество возможностей и параметров хранения. В контексте виртуальных машин Azure учетная запись хранения содержит виртуальные жесткие диски виртуальной машины и любые дополнительные диски данных. В нашем примере для магазина музыки используется по одной учетной записи для хранения виртуального жесткого диска каждой виртуальной машины в развертывании. 
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager для настройки [учетной записи хранения](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
-
 
 ```none
 {
@@ -110,7 +105,6 @@
 Дополнительные сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
 
 ## <a name="virtual-network"></a>Виртуальная сеть
-
 Если для виртуальной машины требуется обмен данными по внутренней сети (например, с другими виртуальными машинами и ресурсами Azure), нужно использовать виртуальную сеть Azure.  Виртуальная сеть не предоставляет доступ к виртуальной машине из Интернета. Для открытого доступа нужен общедоступный IP-адрес, который описывается в следующих статьях этой серии.
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [виртуальной сети и подсети](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
@@ -153,11 +147,10 @@
 ![Виртуальная сеть](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
 ## <a name="network-interface"></a>Сетевой интерфейс
-
  Сетевой интерфейс соединяет виртуальную машину с виртуальной сетью, а именно с той подсетью, которая определена в виртуальной сети. 
- 
+
  Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [сетевого интерфейса](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
- 
+
 ```none
 {
   "apiVersion": "2015-06-15",
@@ -207,7 +200,6 @@
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [профиля виртуальной машины](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
-
 ```none
 "networkProfile": {
   "networkInterfaces": [
@@ -225,13 +217,11 @@
 Дополнительные сведения см. в [документации по виртуальным сетям Azure](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## <a name="azure-sql-database"></a>База данных SQL Azure
-
 Помимо виртуальной машины для размещения веб-сайта "Магазин музыки" вам также нужно развернуть базу данных SQL Azure для размещения базы данных этого магазина. Использование базы данных SQL Azure позволяет нам обойтись без дополнительного набора виртуальных машин, а также обеспечивает встроенную поддержку масштабируемости и доступности.
 
 Чтобы добавить в шаблон базу данных SQL Azure, можно использовать мастер добавления нового ресурса в Visual Studio или вставить в шаблон развертывания допустимый объект JSON. Ресурс SQL Server включает имя пользователя и пароль, которые предоставляют права администратора на экземпляре SQL Server. Также добавляется ресурс брандмауэра SQL. По умолчанию к экземпляру SQL Server могут подключаться только приложения, размещенные в Azure. Чтобы разрешить подключение к экземпляру SQL Server для внешних приложений, например SQL Server Management Studio, следует настроить брандмауэр. В нашем примере с магазином можно использовать конфигурацию по умолчанию. 
 
 Перейдите по этой ссылке, чтобы просмотреть пример JSON в шаблоне Resource Manager — [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
-
 
 ```none
 {
@@ -273,12 +263,9 @@
 Дополнительные сведения о развертывании базы данных SQL см. в [документации по базе данных SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/).
 
 ## <a name="next-step"></a>Дальнейшие действия
-
 <hr>
 
-[Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](./virtual-machines-linux-dotnet-core-3-access-security.md)
-
-
+[Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md)
 
 <!--HONumber=Oct16_HO2-->
 

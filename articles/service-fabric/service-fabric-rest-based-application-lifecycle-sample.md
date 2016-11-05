@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Пример жизненного цикла приложения на основе REST | Microsoft Azure"
-   description="Пример Microsoft Azure Service Fabric, в котором демонстрируется жизненный цикл приложения с использованием интерфейса REST Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Пример жизненного цикла приложения на основе REST | Microsoft Docs
+description: Пример Microsoft Azure Service Fabric, в котором демонстрируется жизненный цикл приложения с использованием интерфейса REST Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Пример жизненного цикла приложения на основе REST
-
 Это пример жизненного цикла приложения Service Fabric через вызовы API REST. Дополнительные сведения о жизненном цикле приложения Service Fabric см. в статье [Жизненный цикл приложений Service Fabric](service-fabric-application-lifecycle.md).
 
 В этом примере выполняются следующие действия:
@@ -37,15 +36,13 @@
 * отменяется подготовка версии примера приложения WordCount 1.0.0;
 * отображается список типов приложений без WordCount.
 
-
 ## Предварительные требования
-
 В этом примере используется [пример WordCount](http://aka.ms/servicefabricsamples) (см. примеры в разделе **Начало работы**). Сначала необходимо выполнить сборку примера приложения WordCount, а затем скопировать два пакета приложений в хранилище образов.
 
-|Папка|Описание|
-|------|-----------|
-|WordCount|Пример приложения WordCount. Файл **ApplicationManifest.xml** содержит запись **ApplicationTypeVersion="1.0.0"**.|
-|WordCountUpgrade|Пример приложения WordCount. В файле ApplicationManifest.xml необходимо ApplicationTypeVersion="1.0.0" изменить на **ApplicationTypeVersion="1.1.0"**, чтобы обновить приложение.|
+| Папка | Описание |
+| --- | --- |
+| WordCount |Пример приложения WordCount. Файл **ApplicationManifest.xml** содержит запись **ApplicationTypeVersion="1.0.0"**. |
+| WordCountUpgrade |Пример приложения WordCount. В файле ApplicationManifest.xml необходимо ApplicationTypeVersion="1.0.0" изменить на **ApplicationTypeVersion="1.1.0"**, чтобы обновить приложение. |
 
 Чтобы создать пакеты приложений и скопировать их в хранилище образов, выполните следующие действия.
 
@@ -74,7 +71,6 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpg
 По завершении работы сценария PowerShell это приложение будет готово к запуску.
 
 ## Пример
-
 Далее приводится пример жизненного цикла приложения Service Fabric.
 
 ```csharp
@@ -706,7 +702,6 @@ namespace ServiceFabricRestCaller
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
-
 [Жизненный цикл приложений Service Fabric](service-fabric-application-lifecycle.md)
 
 <!---HONumber=AcomDC_0831_2016-->

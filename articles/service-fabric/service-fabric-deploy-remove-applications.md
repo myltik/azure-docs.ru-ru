@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Развертывание приложения Service Fabric | Microsoft Azure"
-   description="Развертывание и удаление приложений в Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Развертывание приложения Service Fabric | Microsoft Docs
+description: Развертывание и удаление приложений в Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Развертывание и удаление приложений с помощью PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-deploy-remove-applications.md)
-- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> 
+> 
 
 <br/>
 
@@ -30,10 +31,12 @@
 2. регистрация типа приложения;
 3. создание экземпляра приложения.
 
->[AZURE.NOTE] Если вы используете Visual Studio для развертывания и отладки приложений в локальном кластере разработки, то все описанные ниже действия выполняются автоматически с помощью определенного сценария PowerShell из папки Scripts в проекте приложения. В этой статье приводятся основные сведения о действиях, выполняемых этими сценариями. Они помогут вам выполнять те же операции вне Visual Studio.
+> [!NOTE]
+> Если вы используете Visual Studio для развертывания и отладки приложений в локальном кластере разработки, то все описанные ниже действия выполняются автоматически с помощью определенного сценария PowerShell из папки Scripts в проекте приложения. В этой статье приводятся основные сведения о действиях, выполняемых этими сценариями. Они помогут вам выполнять те же операции вне Visual Studio.
+> 
+> 
 
 ## Загрузка пакета приложения
-
 Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Для выполнения отправки можно использовать PowerShell. Перед выполнением команд PowerShell, описанных в этой статье, нужно подключиться к кластеру Service Fabric с помощью команды [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
 Предположим, у вас имеется папка *MyApplicationType*, содержащая необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода. Команда [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) служит для передачи пакета в хранилище образов кластера. Командлет **Get-ImageStoreConnectionStringFromClusterManifest**, являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов. Чтобы импортировать модуль пакета SDK, выполните следующую команду.
@@ -92,7 +95,6 @@ PS D:\temp>
 ~~~
 
 ## Регистрация пакета приложения
-
 При регистрации пакета приложения его тип и версия, объявленные в манифесте приложения, становятся доступными для использования. Система считывает содержимое пакета, переданного на предыдущем этапе, проверяет пакет (эквивалентно локальному выполнению команды [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx)), обрабатывает содержимое пакета и копирует обработанный пакет во внутреннее системное расположение.
 
 ~~~
@@ -108,12 +110,11 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-Команда [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec**. (значение по умолчанию — 60 секунд).
+Команда [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec**. (значение по умолчанию — 60 секунд).
 
 Чтобы вывести список успешно зарегистрированных версий типов приложения, используйте команду [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx).
 
 ## Создание приложения
-
 Для создания экземпляра приложения можно использовать любую версию типа приложения, успешно зарегистрированную с помощью команды [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). Имя приложения должно начинаться со схемы *fabric:* и быть уникальным для каждого экземпляра приложения. Если в манифесте приложения для конкретного его типа были определены используемые по умолчанию службы, они также будут созданы.
 
 ~~~
@@ -153,7 +154,6 @@ PS D:\temp>
 Для каждой версии зарегистрированного типа приложения можно создать несколько экземпляров приложения. Каждый экземпляр выполняется изолированно, используя собственный рабочий каталог и процесс.
 
 ## Удаление приложения
-
 Экземпляр приложения, который больше не требуется, можно удалить без возможности восстановления с помощью команды [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). При этом все службы, относящиеся к этому приложению, и все их состояния также будут удалены. Эта операция необратима, и вы не сможете восстановить состояние приложения.
 
 ~~~
@@ -202,9 +202,7 @@ PS D:\temp>
 ~~~
 
 ## Устранение неполадок
-
 ### Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
-
 В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Его можно найти в манифесте кластера, используя команду [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx):
 
 ~~~
@@ -232,7 +230,6 @@ PS D:\temp>
 ~~~
 
 ## Дальнейшие действия
-
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
 [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)

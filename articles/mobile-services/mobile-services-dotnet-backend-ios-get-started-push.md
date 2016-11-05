@@ -1,43 +1,41 @@
-<properties
-	pageTitle="Добавление push-уведомлений в приложение (iOS) | Серверная часть .NET"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: Добавление push-уведомлений в приложение (iOS) | Microsoft Docs
+description: Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
-
+---
 # Добавление push-уведомлений в приложение iOS и серверную часть .NET
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> 
+> 
 
 В этой статье показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-dotnet-backend-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
 
-[AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>Настройка Azure для отправки push-уведомлений
+[!INCLUDE [Настройка push-уведомлений в мобильных службах Azure](../../includes/mobile-services-apns-configure-push.md)]
 
-[AZURE.INCLUDE [Настройка push-уведомлений в мобильных службах Azure](../../includes/mobile-services-apns-configure-push.md)]
-
-##<a id="update-server"></a>Обновление кода серверной части для отправки push-уведомлений
-
+## <a id="update-server"></a>Обновление кода серверной части для отправки push-уведомлений
 * В Visual Studio разверните папку **Контроллеры** проекта, а затем откройте файл **TodoItemController.cs** и найдите метод `PostTodoItem`. Замените этот метод следующим кодом: При вставке элемента списка дел этот код отправляет push-уведомление с текстом вставленного элемента. В случае ошибки код добавляет в журнал ошибок соответствующую запись, которую можно просмотреть в разделе «Журналы» на портале.
-
 
 ```
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -59,13 +57,12 @@
         }
 ```
 
-##<a name="publish-the-service"></a>Публикация мобильной службы в Azure
+## <a name="publish-the-service"></a>Публикация мобильной службы в Azure
+[!INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
+[!INCLUDE [Добавление push-уведомлений в приложение](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [Добавление push-уведомлений в приложение](../../includes/add-push-notifications-to-app.md)]
-
-[AZURE.INCLUDE [Тестирование push-уведомлений в приложении](../../includes/test-push-notifications-in-app.md)]
+[!INCLUDE [Тестирование push-уведомлений в приложении](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates

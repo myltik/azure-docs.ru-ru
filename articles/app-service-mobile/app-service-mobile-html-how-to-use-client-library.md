@@ -1,36 +1,32 @@
-<properties
-    pageTitle="Как использовать пакет SDK JavaScript для мобильных приложений Azure"
-    description="Как использовать v для мобильных приложений Azure"
-    services="app-service\mobile"
-    documentationCenter="javascript"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+---
+title: Как использовать пакет SDK JavaScript для мобильных приложений Azure
+description: Как использовать v для мобильных приложений Azure
+services: app-service\mobile
+documentationcenter: javascript
+author: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="html"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
 
-
+---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Как использовать клиентскую библиотеку JavaScript для мобильных приложений Azure
-
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure] , чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
 
 ## <a name="supported-platforms"></a>Поддерживаемые платформы
-
 Для текущей и последней версий поддерживаются основные браузеры: Google Chrome, Microsoft Edge, Microsoft Internet Explorer и Mozilla Firefox.  Ожидается, что пакет SDK будет работать с любым относительно современным браузером.
 
 Этот пакет распространяется в виде универсального модуля JavaScript, поэтому он поддерживает глобальные переменные, AMD и форматы CommonJS.
 
-##<a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
-
+## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
 В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках.
 
 Установить пакет SDK JavaScript для мобильных приложений Azure можно с помощью команды `npm` .
@@ -54,18 +50,16 @@ var WindowsAzure = require('azure-mobile-apps-client');
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
-[AZURE.INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
+[!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-##<a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
-
+## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
 Служба приложений Azure поддерживает аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетная запись Майкрософт и Twitter. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в учебнике [Приступая к работе с проверкой подлинности].
 
 Поддерживается два потока аутентификации: серверный и клиентский.  Серверный поток обеспечивает самый простой способ проверки подлинности, так как он использует веб-интерфейс проверки подлинности. Клиентский поток обеспечивает более тесную интеграцию с возможностями устройства, такими как единый вход, так как использует пакеты SDK конкретного поставщика.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
+[!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
-
+### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
 Для обработки потоков пользовательского интерфейса OAuth некоторые типы приложений JavaScript используют функцию замыкания на себя.  К этим возможностям относятся следующие:
 
 * выполнение службы в локальной среде;
@@ -81,14 +75,13 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 5. Разверните узел **config** > **authsettings** для своего приложения.
 6. Нажмите кнопку **Изменить** , чтобы включить режим редактирования ресурса.
 7. Найдите элемент **allowedExternalRedirectUrls** , который должен иметь значение NULL. Добавьте URL-адреса в массив.
-
+   
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-
+   
     Замените URL-адреса в массиве URL-адресами службы. В данном примере — это `http://localhost:3000` для локального примера службы Node.js. Можно также использовать адрес `http://localhost:4400` для службы Ripple или для других URL-адресов, в зависимости от настроек приложения.
-
 8. В верхней части страницы щелкните **Чтение и запись**, затем щелкните **PUT**, чтобы сохранить изменения.
 
 Вам также необходимо добавить URL-адреса замыкания на себя в настройках списка разрешений CORS.
@@ -98,7 +91,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 3. В меню **API** щелкните **CORS**.
 4. Введите каждый URL-адрес в пустое текстовое поле **Разрешенные источники** .  Будет создано новое текстовое поле.
 5. Щелкните **Сохранить**
-    
+
 После обновления серверной части мобильного приложения вы сможете использовать новые URL-адреса замыкания на себя в приложении.
 
 <!-- URLs. -->

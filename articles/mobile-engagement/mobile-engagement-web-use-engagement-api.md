@@ -1,209 +1,186 @@
-<properties
-	pageTitle="Интерфейсы API веб-пакета SDK для Azure Mobile Engagement | Microsoft Azure"
-	description="Последние обновления и процедуры для веб-пакета SDK для Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="erikre"
-	editor="" />
+---
+title: Интерфейсы API веб-пакета SDK для Azure Mobile Engagement | Microsoft Docs
+description: Последние обновления и процедуры для веб-пакета SDK для Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="web"
-	ms.devlang="js"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: web
+ms.devlang: js
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: piyushjo
 
+---
 # Использование API Azure Mobile Engagement в веб-приложении
-
 Этот документ представляет собой дополнение к документу, в котором описывается, [как интегрировать Mobile Engagement в веб-приложение](mobile-engagement-web-integrate-engagement.md). В нем подробно рассказывается о том, как с помощью API Azure Mobile Engagement предоставлять статистику по приложению.
 
 API Mobile Engagement предоставляется в объекте `engagement.agent`. Псевдоним веб-пакета SDK для Azure Mobile Engagement — `engagement`. Этот псевдоним можно переопределить в конфигурации пакета SDK.
 
 ## Основные понятия Mobile Engagement
-
 В следующих подразделах дано более подробное объяснение [основных понятий Mobile Engagement](mobile-engagement-concepts.md) для веб-платформы.
 
 ### `Session` и `Activity`
-
 Если пользователь неактивен между двумя действиями больше чем несколько секунд, то последовательность его действий разбивается на два отдельных сеанса. Эти несколько секунд называются временем ожидания сеанса.
 
 Если веб-приложение не объявит завершение действия пользователя (путем вызова функции `engagement.agent.endActivity`), то сервер Mobile Engagement автоматически завершит сеанс пользователя через три минуты после закрытия страницы приложения. Это называется временем ожидания сеанса сервера.
 
 ### `Crash`
-
 Автоматические отчеты неперехваченных исключений JavaScript не создаются по умолчанию. Тем не менее можно сообщать о сбоях вручную с помощью функции `sendCrash` (см. раздел об отчетах о сбоях).
 
 ## Создание отчетов о действиях
-
 Создание отчетов о действиях пользователей начинается при запуске нового действия и заканчивается, когда пользователь завершает текущее действие.
 
 ### Пользователь запускает новое действие
-
-	engagement.agent.startActivity("MyUserActivity");
+    engagement.agent.startActivity("MyUserActivity");
 
 При каждом изменении пользовательского действия необходимо вызывать метод `startActivity()`. При первом вызове этой функции начинается новый сеанс пользователя.
 
 ### Пользователь завершает текущее действие
-
-	engagement.agent.endActivity();
+    engagement.agent.endActivity();
 
 Когда пользователь заканчивает свое последнее действие, необходимо как минимум один раз вызвать метод `endActivity()`. В результате веб-пакет SDK для Mobile Engagement получает сведения о том, что пользователь находится в режиме ожидания и по истечении этого времени сеанс необходимо закрыть. Если до окончания времени ожидания завершения сеанса вызвать метод `startActivity()`, сеанс будет возобновлен.
 
 Часто бывает сложно или невозможно определить завершение действий пользователя внутри веб-среды, так как четкого сигнала о закрытии окна навигатора не поступает. Поэтому сервер Mobile Engagement автоматически завершает сеанс пользователя через три минуты после закрытия страницы приложения.
 
 ## Создание отчетов о событиях
-
 Отчеты создаются о событиях сеанса и изолированных событиях.
 
 ### События сеанса
-
 События сеанса обычно используются для создания отчетов о действиях, выполняемых пользователем во время сеанса.
 
 **Пример без дополнительных данных:**
 
-	loginButton.onclick = function() {
-	  engagement.agent.sendSessionEvent('login');
-	  // [...]
-	}
+    loginButton.onclick = function() {
+      engagement.agent.sendSessionEvent('login');
+      // [...]
+    }
 
 **Пример с дополнительными данными:**
 
-	loginButton.onclick = function() {
-	  engagement.agent.sendSessionEvent('login', {user: 'alice'});
-	  // [...]
-	}
+    loginButton.onclick = function() {
+      engagement.agent.sendSessionEvent('login', {user: 'alice'});
+      // [...]
+    }
 
 ### Изолированные события
-
 В отличие от событий сеанса изолированные события могут происходить вне контекста сеанса.
 
 Для этого вместо метода ``engagement.agent.sendSessionEvent`` используется ``engagement.agent.sendEvent``.
 
 ## Создание отчетов об ошибках
-
 Отчеты создаются об ошибках сеанса и изолированных ошибках.
 
 ### Ошибки сеанса
-
 Ошибки сеанса обычно используются для создания отчетов об ошибках, которые оказывают влияние на пользователя во время сеанса.
 
 **Пример без дополнительных данных:**
 
-	var validateForm = function() {
-	  // [...]
-	  if (password.length < 6) {
-	    engagement.agent.sendSessionError('password_too_short');
-	  }
-	  // [...]
-	}
+    var validateForm = function() {
+      // [...]
+      if (password.length < 6) {
+        engagement.agent.sendSessionError('password_too_short');
+      }
+      // [...]
+    }
 
 **Пример с дополнительными данными:**
 
-	var validateForm = function() {
-	  // [...]
-	  if (password.length < 6) {
-	    engagement.agent.sendSessionError('password_too_short', {length: 4});
-	  }
-	  // [...]
-	}
+    var validateForm = function() {
+      // [...]
+      if (password.length < 6) {
+        engagement.agent.sendSessionError('password_too_short', {length: 4});
+      }
+      // [...]
+    }
 
 ### Изолированные ошибки
-
 В отличие от ошибок сеанса изолированные ошибки могут возникать вне контекста сеанса.
 
 Для этого вместо метода `engagement.agent.sendSessionError` используется `engagement.agent.sendError`.
 
 ## Создание отчетов о заданиях
-
 Для заданий создаются отчеты об ошибках отчетов и о событиях, происходящих во время выполнения задания, а также сбои отчетов.
 
 **Пример**
 
 Если необходимо отслеживать запрос AJAX, используйте следующий код.
 
-	// [...]
-	xhr.onreadystatechange = function() {
-	  if (xhr.readyState == 4) {
-	  // [...]
-	    engagement.agent.endJob('publish');
-	  }
-	}
-	engagement.agent.startJob('publish');
-	xhr.send();
-	// [...]
+    // [...]
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+      // [...]
+        engagement.agent.endJob('publish');
+      }
+    }
+    engagement.agent.startJob('publish');
+    xhr.send();
+    // [...]
 
 ### Создание отчетов об ошибках при выполнении задания
-
 Ошибки могут быть связаны с выполняемым заданием, а не с текущим сеансом пользователя.
 
 **Пример**
 
 Если нужно сообщить об ошибке в случае сбоя запроса AJAX, используйте следующий код.
 
-	// [...]
-	xhr.onreadystatechange = function() {
-	  if (xhr.readyState == 4) {
-	    // [...]
-	    if (xhr.status == 0 || xhr.status >= 400) {
-	      engagement.agent.sendJobError('publish_xhr', 'publish', {status: xhr.status, statusText: xhr.statusText});
-	    }
-	    engagement.agent.endJob('publish');
-	  }
-	}
-	engagement.agent.startJob('publish');
-	xhr.send();
-	// [...]
+    // [...]
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        // [...]
+        if (xhr.status == 0 || xhr.status >= 400) {
+          engagement.agent.sendJobError('publish_xhr', 'publish', {status: xhr.status, statusText: xhr.statusText});
+        }
+        engagement.agent.endJob('publish');
+      }
+    }
+    engagement.agent.startJob('publish');
+    xhr.send();
+    // [...]
 
 ### Создание отчетов о событиях во время выполнения задания
-
 События могут быть связаны с выполняемым заданием, а не с текущим сеансом пользователя, благодаря функции `engagement.agent.sendJobEvent`.
 
 Эта функция работает в точности как функция `engagement.agent.sendJobError`.
 
 ### Создание отчетов о сбоях
-
 Используйте функцию `sendCrash` для создания отчетов о сбоях вручную.
 
 Аргумент `crashid` — это строка, определяющая тип сбоя. Аргумент `crash` — это, как правило, трассировка стека сбоя в виде строки.
 
-	engagement.agent.sendCrash(crashid, crash);
+    engagement.agent.sendCrash(crashid, crash);
 
 ## Дополнительные параметры
-
 Вы можете присоединить произвольные данные к событию, ошибке, действию или заданию.
 
 Данные могут быть любым объектом JSON (не массивом или простыми типами).
 
 **Пример**
 
-	var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
-	engagement.agent.sendEvent("video_clicked", extras);
+    var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
+    engagement.agent.sendEvent("video_clicked", extras);
 
 ### Ограничения
-
 К дополнительным параметрам применяются ограничения в области регулярных выражений для ключей, типов значений и размера.
 
 #### ключей
-
 Каждый ключ в объекте должен соответствовать следующему регулярному выражению:
 
-	^[a-zA-Z][a-zA-Z_0-9]*
+    ^[a-zA-Z][a-zA-Z_0-9]*
 
 Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (\_).
 
 #### Значения
-
 Допустимые типы значений: строка, число и логическое значение.
 
 #### Размер
-
 Вспомогательные элементы ограничены до 1024 знаков на вызов (после того, как веб-пакет SDK для Mobile Engagement закодирует его в JSON).
 
 ## Создание отчетов о данных приложения
-
 С помощью функции `sendAppInfo()` вы можете вручную сообщать о данных отслеживания (или любых других данных о приложении).
 
 Обратите внимание, что эти данные можно отправлять поэтапно. Для конкретного устройства будет сохраняться только последнее значение определенного ключа.
@@ -214,27 +191,24 @@ API Mobile Engagement предоставляется в объекте `engageme
 
 Ниже приведен пример кода для отправки данных о половой принадлежности пользователя и его дате рождения.
 
-	var appInfos = {"birthdate":"1983-12-07","gender":"female"};
-	engagement.agent.sendAppInfo(appInfos);
+    var appInfos = {"birthdate":"1983-12-07","gender":"female"};
+    engagement.agent.sendAppInfo(appInfos);
 
 ### Ограничения
-
 К данным о приложении применяются ограничения в области регулярных выражений для ключей и размера.
 
 #### ключей
-
 Каждый ключ в объекте должен соответствовать следующему регулярному выражению:
 
-	^[a-zA-Z][a-zA-Z_0-9]*
+    ^[a-zA-Z][a-zA-Z_0-9]*
 
 Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (\_).
 
 #### Размер
-
 Данные о приложении ограничены до 1024 знаков на вызов (после того, как веб-пакет SDK для Mobile Engagement закодирует его в JSON).
 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака.
 
-	{"birthdate":"1983-12-07","gender":"female"}
+    {"birthdate":"1983-12-07","gender":"female"}
 
 <!---HONumber=AcomDC_0713_2016-->

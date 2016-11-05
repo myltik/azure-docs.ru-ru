@@ -1,24 +1,23 @@
-<properties 
-    pageTitle="Уведомления об изменениях DocumentDB с использованием приложений логики | Microsoft Azure" 
-    description="." 
-    keywords="уведомление об изменении"
-    services="documentdb" 
-    authors="hedidin" 
-    manager="jhubbard" 
-    editor="mimig" 
-    documentationCenter=""/>
+---
+title: Уведомления об изменениях DocumentDB с использованием приложений логики | Microsoft Docs
+description: .
+keywords: уведомление об изменении
+services: documentdb
+author: hedidin
+manager: jhubbard
+editor: mimig
+documentationcenter: ''
 
-<tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.date="09/23/2016" 
-    ms.author="b-hoedid"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: rest-api
+ms.topic: article
+ms.date: 09/23/2016
+ms.author: b-hoedid
 
+---
 # Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики
-
 Эта статья была написана после того, как я увидел один вопрос, размещенный на форумах сообщества Azure DocumentDB. Вопрос звучал так: **поддерживает ли DocumentDB уведомления об измененных ресурсах**?
 
 В течение многих лет я работал с BizTalk Server, а это очень распространенный вариант использования [адаптера LOB WCF](https://msdn.microsoft.com/library/bb798128.aspx). Поэтому я решил узнать, можно ли повторить эту функциональность в DocumentDB для новых или измененных документов.
@@ -26,7 +25,6 @@
 В этой статье содержится обзор компонентов решения по уведомлениям об изменениях, в состав которого входит [триггер](documentdb-programming.md#trigger) и [приложение логики](../app-service-logic/app-service-logic-what-are-logic-apps.md). В документ встроены важные фрагменты кода, а все решение можно найти на сайте [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## Вариант использования
-
 Следующая ситуация является вариантом использования в рамках этой статьи.
 
 DocumentDB является репозиторием для документов HL7 FHIR. Предположим, что база данных DocumentDB вместе с API и приложением логики образует сервер HL7 FHIR. Медицинское учреждение хранит данные о пациентах в безе данных DocumentDB "Пациенты". В этой базе данных имеется несколько коллекций — "Клинические исследования", "Идентификация" и т. д. Сведения о пациентах входят в коллекцию "Идентификация". Существует коллекция с именем "Пациент".
@@ -36,11 +34,9 @@ DocumentDB является репозиторием для документов
 ИТ-специалисты сказали, что могут создать такое решение. Кроме того, они предложили отправлять документы [в хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/), чтобы специалисты кардиологического отделения могли легко получать к ним доступ.
 
 ## Как ИТ-отдел решил проблему
-
 Чтобы создать такое приложение, ИТ-отдел сначала принял решение его смоделировать. Преимуществом использования нотации и модели бизнес-процессов (BPMN) является то, что эта система понятна как техническим, так и нетехническим специалистам. Весь этот процесс уведомления считается бизнес-процессом.
 
 ## Общий обзор процесса уведомления
-
 1. Работа начинается с приложения логики, которое содержит триггер таймера. По умолчанию триггер запускается каждый час.
 2. Далее необходимо отправить HTTP-запрос POST к приложению логики.
 3. Приложение логики выполняет всю работу.
@@ -55,27 +51,28 @@ DocumentDB является репозиторием для документов
 Для этого необходимо выполнить следующие шаги:
 
 1. Вам необходимо получить текущее значение даты и времени в формате UTC из приложения API. Значение по умолчанию — один час назад.
-
 2. Значение даты и времени UTC преобразуется в формат метки времени Unix. Это формат по умолчанию для меток времени в DocumentDB.
-
 3. Вы размещаете значение в приложении API, которое выполняет запрос DocumentDB. Значение используется в запросе.
-
+   
     ```SQL
-     	SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
+         SELECT * FROM Patients p WHERE (p._ts >= @unixTimeStamp)
     ```
-
-    > [AZURE.NOTE] \_ts представляет метаданные метки времени для всех ресурсов DocumentDB.
-
+   
+   > [!NOTE]
+   > \_ts представляет метаданные метки времени для всех ресурсов DocumentDB.
+   > 
+   > 
 4. Если будут найдены какие-либо документы, текст ответа отправляется в хранилище BLOB-объектов Azure.
-
-    > [AZURE.NOTE] Для хранилища BLOB-объектов требуется учетная запись хранения Azure. Необходимо подготовить учетную запись хранения BLOB-объектов Azure и добавить новый BLOB-объект с именем "Пациенты". Дополнительные сведения см. в статьях [Учетные записи хранения Azure](../storage/storage-create-storage-account.md) и [Начало работы с хранилищем BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md).
-
+   
+   > [!NOTE]
+   > Для хранилища BLOB-объектов требуется учетная запись хранения Azure. Необходимо подготовить учетную запись хранения BLOB-объектов Azure и добавить новый BLOB-объект с именем "Пациенты". Дополнительные сведения см. в статьях [Учетные записи хранения Azure](../storage/storage-create-storage-account.md) и [Начало работы с хранилищем BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+   > 
+   > 
 5. И, наконец, отправляется сообщение электронной почты, которое уведомляет получателя о количестве найденных документов. Если не было найдено ни одного документа, в сообщении будет указано "Найдено документов: 0".
 
 Теперь, когда вы получили общее представление о действиях рабочего процесса, давайте посмотрим, как их реализовать.
 
 ### Начнем с основного приложения логики
-
 Приложения логики доступны в [Azure Marketplace](https://portal.azure.com/), а дополнительные сведения о них можно получить в статье [Что такое приложения логики?](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 При создании приложения логики будет выведен вопрос: **какой вариант начала работы вы выберете?**
@@ -101,13 +98,16 @@ DocumentDB является репозиторием для документов
 
 ![Добавление условия](./media/documentdb-change-notification/condition1.png)
 
-> [AZURE.NOTE] Кроме того, можно вводить данные в представлении кода.
+> [!NOTE]
+> Кроме того, можно вводить данные в представлении кода.
+> 
+> 
 
 Посмотрим на завершенное приложение логики в представлении кода.
 
 ```JSON
-   
-   	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+
+       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
     "actions": {
         "Conversion": {
             "conditions": [
@@ -239,7 +239,7 @@ DocumentDB является репозиторием для документов
             },
             "type": "Manual"
         }
-	
+
 ```
 
 Если вы не знаете, что представляют разные разделы в коде, обратитесь к документации по [языку определения рабочего процесса приложения логики](http://aka.ms/logicappsdocs).
@@ -254,31 +254,34 @@ DocumentDB является репозиторием для документов
 
 `triggerBody()` представляет параметры, которые включаются в тело запроса POST REST к REST API приложения логики. `()['Subject']` представляет поле. Все эти параметры составляют текст в формате JSON.
 
-> [AZURE.NOTE] С помощью веб-перехватчика можно получить полный доступ к заголовку и тексту запроса триггера. В данном приложении вам требуется текст.
+> [!NOTE]
+> С помощью веб-перехватчика можно получить полный доступ к заголовку и тексту запроса триггера. В данном приложении вам требуется текст.
+> 
+> 
 
 Как упоминалось ранее, назначить параметры можно с помощью конструктора или сделать это в представлении кода. Если вы решили использовать представление кода, определите, каким свойствам требуются значения, как показано в следующем примере кода.
 
 ```JSON
 
-	"triggers": {
-		"manual": {
-		    "inputs": {
-			"schema": {
-			    "properties": {
-			"Subject": {
-			    "type" : "String"	
+    "triggers": {
+        "manual": {
+            "inputs": {
+            "schema": {
+                "properties": {
+            "Subject": {
+                "type" : "String"    
 
-			}
-			},
-			    "required": [
-			"Subject"
-			     ],
-			    "type": "object"
-			}
-		    },
-		    "type": "Manual"
-		}
-	    }
+            }
+            },
+                "required": [
+            "Subject"
+                 ],
+                "type": "object"
+            }
+            },
+            "type": "Manual"
+        }
+        }
 ```
 
 Сейчас вы занимаетесь созданием схемы JSON, которая будет передана из текста HTTP-запроса POST. Для срабатывания триггера потребуется URL-адрес обратного вызова. О том, как его создать, вы узнаете позднее.
@@ -287,7 +290,6 @@ DocumentDB является репозиторием для документов
 Теперь посмотрим, для чего используется каждое действие в приложении логики.
 
 ### GetUTCDate
-
 **Представление конструктора**
 
 ![](./media/documentdb-change-notification/getutcdate.png)
@@ -296,20 +298,20 @@ DocumentDB является репозиторием для документов
 
 ```JSON
 
-	"GetUtcDate": {
-		    "conditions": [],
-		    "inputs": {
-			"method": "get",
-			"queries": {
-			    "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
-			},
-			"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
-		    },
-		    "metadata": {
-			"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-		    },
-		    "type": "Http"
-		},
+    "GetUtcDate": {
+            "conditions": [],
+            "inputs": {
+            "method": "get",
+            "queries": {
+                "hoursBack": "@{int(triggerBody()['GetUtcDate_HoursBack'])}"
+            },
+            "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization"
+            },
+            "metadata": {
+            "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+            },
+            "type": "Http"
+        },
 
 ```
 
@@ -318,18 +320,17 @@ DocumentDB является репозиторием для документов
 Это действие выполняет вызов приложения API, чтобы вернуть строковое значение даты в формате UTC.
 
 #### Операции
-
 **Запрос**
 
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization",
-	    "method": "get",
-	    "queries": {
-		  "hoursBack": "24"
-	    }
-	}
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Authorization",
+        "method": "get",
+        "queries": {
+          "hoursBack": "24"
+        }
+    }
 
 ```
 
@@ -337,51 +338,48 @@ DocumentDB является репозиторием для документов
 
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		  "pragma": "no-cache",
-		  "cache-Control": "no-cache",
-		  "date": "Fri, 26 Feb 2016 15:47:33 GMT",
-		  "server": "Microsoft-IIS/8.0",
-		  "x-AspNet-Version": "4.0.30319",
-		  "x-Powered-By": "ASP.NET"
-	    },
-	    "body": "Fri, 15 Jan 2016 23:47:33 GMT"
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+          "pragma": "no-cache",
+          "cache-Control": "no-cache",
+          "date": "Fri, 26 Feb 2016 15:47:33 GMT",
+          "server": "Microsoft-IIS/8.0",
+          "x-AspNet-Version": "4.0.30319",
+          "x-Powered-By": "ASP.NET"
+        },
+        "body": "Fri, 15 Jan 2016 23:47:33 GMT"
+    }
 
 ```
 
 Следующим шагом является преобразование значения DateTime UTC в TimeStamp Unix, которое имеет тип .NET double.
 
 ### Преобразование
-
 ##### Представление конструктора
-
 ![Преобразование](./media/documentdb-change-notification/conversion.png)
 
 ##### Представление кода
-
 ```JSON
 
-	"Conversion": {
-	    "conditions": [
-		{
-		    "dependsOn": "GetUtcDate"
-		}
-	    ],
-	    "inputs": {
-		"method": "post",
-		"queries": {
-		    "currentDateTime": "@{body('GetUtcDate')}"
-		},
-		"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
-	    },
-	    "metadata": {
-		"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-	    },
-	    "type": "Http"
-	},
+    "Conversion": {
+        "conditions": [
+        {
+            "dependsOn": "GetUtcDate"
+        }
+        ],
+        "inputs": {
+        "method": "post",
+        "queries": {
+            "currentDateTime": "@{body('GetUtcDate')}"
+        },
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion"
+        },
+        "metadata": {
+        "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+        },
+        "type": "Http"
+    },
 
 ```
 
@@ -390,77 +388,70 @@ DocumentDB является репозиторием для документов
 Это действие вызывает приложение API для обработки преобразования.
 
 #### Операции
-
 ##### Запрос
-
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion",
-	    "method": "post",
-	    "queries": {
-		"currentDateTime": "Fri, 15 Jan 2016 23:47:33 GMT"
-	    }
-	}   
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Conversion",
+        "method": "post",
+        "queries": {
+        "currentDateTime": "Fri, 15 Jan 2016 23:47:33 GMT"
+        }
+    }   
 ```
 
 ##### Ответ
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		  "pragma": "no-cache",
-		  "cache-Control": "no-cache",
-		  "date": "Fri, 26 Feb 2016 15:47:33 GMT",
-		  "server": "Microsoft-IIS/8.0",
-		  "x-AspNet-Version": "4.0.30319",
-		  "x-Powered-By": "ASP.NET"
-	    },
-	    "body": 1452901653
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+          "pragma": "no-cache",
+          "cache-Control": "no-cache",
+          "date": "Fri, 26 Feb 2016 15:47:33 GMT",
+          "server": "Microsoft-IIS/8.0",
+          "x-AspNet-Version": "4.0.30319",
+          "x-Powered-By": "ASP.NET"
+        },
+        "body": 1452901653
+    }
 ```
 
 Далее необходимо выполнить операцию POST в приложении API.
 
-### GetDocuments 
-
+### GetDocuments
 ##### Представление конструктора
-
 ![Получить документ](./media/documentdb-change-notification/getdocuments.png)
 
 ##### Представление кода
-
 ```JSON
 
-	"GetDocuments": {
-	    "conditions": [
-		{
-		    "dependsOn": "Conversion"
-		}
-	    ],
-	    "inputs": {
-		"method": "post",
-		"queries": {
-		    "unixTimeStamp": "@{body('Conversion')}"
-		},
-		"uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
-	    },
-	    "metadata": {
-		"apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
-	    },
-	    "type": "Http"
-	},
+    "GetDocuments": {
+        "conditions": [
+        {
+            "dependsOn": "Conversion"
+        }
+        ],
+        "inputs": {
+        "method": "post",
+        "queries": {
+            "unixTimeStamp": "@{body('Conversion')}"
+        },
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient"
+        },
+        "metadata": {
+        "apiDefinitionUrl": "https://docdbnotificationapi-debug.azurewebsites.net/swagger/docs/v1"
+        },
+        "type": "Http"
+    },
 
 ```
 
 В действии GetDocuments вы передадите текст ответа из действия Conversion. Это параметр в URI:
 
- 
 ```C#
 
-	unixTimeStamp=@{body('Conversion')}
+    unixTimeStamp=@{body('Conversion')}
 
 ```
 
@@ -469,64 +460,61 @@ DocumentDB является репозиторием для документов
 Вызванным методом является **QueryForNewPatientDocuments**.
 
 #### Операции
-
 ##### Запрос
-
 ```JSON
 
-	{
-	    "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient",
-	    "method": "post",
-	    "queries": {
-		"unixTimeStamp": "1452901653"
-	    }
-	}
+    {
+        "uri": "https://docdbnotificationapi-debug.azurewebsites.net/api/Patient",
+        "method": "post",
+        "queries": {
+        "unixTimeStamp": "1452901653"
+        }
+    }
 ```
 
 ##### Ответ
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"pragma": "no-cache",
-		"cache-Control": "no-cache",
-		"date": "Fri, 26 Feb 2016 15:47:35 GMT",
-		"server": "Microsoft-IIS/8.0",
-		"x-AspNet-Version": "4.0.30319",
-		"x-Powered-By": "ASP.NET"
-	    },
-	    "body": [
-		{
-		    "id": "xcda",
-		    "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
-		    "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
-		    "_ts": 1454874620,
-		    "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
-		    "resourceType": "Patient",
-		    "text": {
-			"status": "generated",
-			"div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
-		    },
-		    "identifier": [
-			{
-			    "use": "usual",
-			    "type": {
-				"coding": [
-				    {
-					"system": "http://hl7.org/fhir/v2/0203",
-					"code": "MR"
-				    }
-				]
-			    },
-			    "system": "urn:oid:2.16.840.1.113883.19.5",
-			    "value": "12345"
-			}
-		    ],
-		    "active": true,
-		    "name": [
-			{
+    {
+        "statusCode": 200,
+        "headers": {
+        "pragma": "no-cache",
+        "cache-Control": "no-cache",
+        "date": "Fri, 26 Feb 2016 15:47:35 GMT",
+        "server": "Microsoft-IIS/8.0",
+        "x-AspNet-Version": "4.0.30319",
+        "x-Powered-By": "ASP.NET"
+        },
+        "body": [
+        {
+            "id": "xcda",
+            "_rid": "vCYLAP2k6gAXAAAAAAAAAA==",
+            "_self": "dbs/vCYLAA==/colls/vCYLAP2k6gA=/docs/vCYLAP2k6gAXAAAAAAAAAA==/",
+            "_ts": 1454874620,
+            "_etag": ""00007d01-0000-0000-0000-56b79ffc0000"",
+            "resourceType": "Patient",
+            "text": {
+            "status": "generated",
+            "div": "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>"
+            },
+            "identifier": [
+            {
+                "use": "usual",
+                "type": {
+                "coding": [
+                    {
+                    "system": "http://hl7.org/fhir/v2/0203",
+                    "code": "MR"
+                    }
+                ]
+                },
+                "system": "urn:oid:2.16.840.1.113883.19.5",
+                "value": "12345"
+            }
+            ],
+            "active": true,
+            "name": [
+            {
                     "family": [
                         "Levin"
                     ],
@@ -547,19 +535,19 @@ DocumentDB является репозиторием для документов
 
 Следующим действием является сохранение документов в [хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/).
 
-> [AZURE.NOTE] Для хранилища BLOB-объектов требуется учетная запись хранения Azure. Необходимо подготовить учетную запись хранения BLOB-объектов Azure и добавить новый BLOB-объект с именем "Пациенты". Дополнительные сведения см. в статье [Начало работы с хранилищем BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+> [!NOTE]
+> Для хранилища BLOB-объектов требуется учетная запись хранения Azure. Необходимо подготовить учетную запись хранения BLOB-объектов Azure и добавить новый BLOB-объект с именем "Пациенты". Дополнительные сведения см. в статье [Начало работы с хранилищем BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+> 
+> 
 
 ### Создание файла
-
 ##### Представление конструктора
-
 ![Создание файла](./media/documentdb-change-notification/createfile.png)
 
 ##### Представление кода
-
 ```JSON
 
-	{
+    {
     "host": {
         "api": {
             "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
@@ -627,12 +615,10 @@ DocumentDB является репозиторием для документов
 Если вы не знаете, как использовать API больших двоичных объектов Azure, см. статью [Начало работы с API хранилища BLOB-объектов Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Операции
-
 ##### Запрос
-
 ```JSON
 
-	"host": {
+    "host": {
         "api": {
             "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
         },
@@ -696,99 +682,95 @@ DocumentDB является репозиторием для документов
 ```
 
 ##### Ответ
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"pragma": "no-cache",
-		"x-ms-request-id": "2b2f7c57-2623-4d71-8e53-45c26b30ea9d",
-		"cache-Control": "no-cache",
-		"date": "Fri, 26 Feb 2016 15:47:36 GMT",
-		"set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd555511f669d13ab7424faf;Path=/;Domain=127.0.0.1",
-		"server": "Microsoft-HTTPAPI/2.0",
-		"x-AspNet-Version": "4.0.30319",
-		"x-Powered-By": "ASP.NET"
-	    },
-	    "body": {
-		"Id": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE",
-		"Name": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"DisplayName": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"Path": "/Patient/Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
-		"LastModified": "2016-02-26T15:47:36.215Z",
-		"Size": 65647,
-		"MediaType": "application/octet-stream",
-		"IsFolder": false,
-		"ETag": ""c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ"",
-		"FileLocator": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE"
-	    }
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+        "pragma": "no-cache",
+        "x-ms-request-id": "2b2f7c57-2623-4d71-8e53-45c26b30ea9d",
+        "cache-Control": "no-cache",
+        "date": "Fri, 26 Feb 2016 15:47:36 GMT",
+        "set-Cookie": "ARRAffinity=29e552cea7db23196f7ffa644003eaaf39bc8eb6dd555511f669d13ab7424faf;Path=/;Domain=127.0.0.1",
+        "server": "Microsoft-HTTPAPI/2.0",
+        "x-AspNet-Version": "4.0.30319",
+        "x-Powered-By": "ASP.NET"
+        },
+        "body": {
+        "Id": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE",
+        "Name": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "DisplayName": "Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "Path": "/Patient/Patient_47a2a0dc-640d-4f01-be38-c74690d085cb.json",
+        "LastModified": "2016-02-26T15:47:36.215Z",
+        "Size": 65647,
+        "MediaType": "application/octet-stream",
+        "IsFolder": false,
+        "ETag": ""c-g_a-1OtaH-kNQ4WBoXLp3Zv9s/MTQ1NjUwMTY1NjIxNQ"",
+        "FileLocator": "0B0nBzHyMV-_NRGRDcDNMSFAxWFE"
+        }
+    }
 ```
 
 Последним действием является отправка уведомления по электронной почте.
 
 ### sendEmail
-
 ##### Представление конструктора
-
 ![Отправка электронного сообщения](./media/documentdb-change-notification/sendemail.png)
 
 ##### Представление кода
-
 ```JSON
 
 
-	"sendMail": {
-	    "conditions": [
-		{
-		    "dependsOn": "GetDocuments"
-		}
-	    ],
-	    "inputs": {
-		"body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
-		"headers": {
-		    "Content-type": "application/x-www-form-urlencoded"
-		},
-		"method": "POST",
-		"uri": "https://api.sendgrid.com/api/mail.send.json"
-	    },
-	    "type": "Http"
-	}
+    "sendMail": {
+        "conditions": [
+        {
+            "dependsOn": "GetDocuments"
+        }
+        ],
+        "inputs": {
+        "body": "api_user=@{triggerBody()['sendgridUsername']}&api_key=@{triggerBody()['sendgridPassword']}&from=@{parameters('fromAddress')}&to=@{triggerBody()['EmailTo']}&subject=@{triggerBody()['Subject']}&text=@{int(length(body('GetDocuments')))} Documents Found",
+        "headers": {
+            "Content-type": "application/x-www-form-urlencoded"
+        },
+        "method": "POST",
+        "uri": "https://api.sendgrid.com/api/mail.send.json"
+        },
+        "type": "Http"
+    }
 ```
 
 В этом действии вы отправляете уведомление по электронной почте. Вы используете [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).
 
 Код для этого действия был создан с помощью шаблона для приложения логики и SendGrid в [101-logic-app-sendgrid Github repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
- 
+
 Операцией HTTP является операция POST.
 
 Параметры авторизации указаны в свойствах триггера.
 
 ```JSON
 
-	},
-		"sendgridPassword": {
-			 "type": "SecureString"
-		 },
-		 "sendgridUsername": {
-			"type": "String"
-		 }
+    },
+        "sendgridPassword": {
+             "type": "SecureString"
+         },
+         "sendgridUsername": {
+            "type": "String"
+         }
 
-		In addition, other parameters are static values set in the Parameters section of the Logic App. These are:
-		},
-		"toAddress": {
-		    "defaultValue": "XXXX@XXXX.com",
-		    "type": "String"
-		},
-		"fromAddress": {
-		    "defaultValue": "XXX@msn.com",
-		    "type": "String"
-		},
-		"emailBody": {
-		    "defaultValue": "@{string(concat(int(length(actions('QueryDocuments').outputs.body)) Records Found),'/n', actions('QueryDocuments').outputs.body)}",
-		    "type": "String"
-		},
+        In addition, other parameters are static values set in the Parameters section of the Logic App. These are:
+        },
+        "toAddress": {
+            "defaultValue": "XXXX@XXXX.com",
+            "type": "String"
+        },
+        "fromAddress": {
+            "defaultValue": "XXX@msn.com",
+            "type": "String"
+        },
+        "emailBody": {
+            "defaultValue": "@{string(concat(int(length(actions('QueryDocuments').outputs.body)) Records Found),'/n', actions('QueryDocuments').outputs.body)}",
+            "type": "String"
+        },
 
 ```
 
@@ -797,50 +779,47 @@ emailBody является объединением количества док�
 Это действие зависит от действия **GetDocuments**.
 
 #### Операции
-
 ##### Запрос
 ```JSON
 
-	{
-	    "uri": "https://api.sendgrid.com/api/mail.send.json",
-	    "method": "POST",
-	    "headers": {
-		"Content-type": "application/x-www-form-urlencoded"
-	    },
-	    "body": "api_user=azureuser@azure.com&api_key=Biz@Talk&from=user@msn.com&to=XXXX@XXXX.com&subject=New Patients&text=37 Documents Found"
-	}
+    {
+        "uri": "https://api.sendgrid.com/api/mail.send.json",
+        "method": "POST",
+        "headers": {
+        "Content-type": "application/x-www-form-urlencoded"
+        },
+        "body": "api_user=azureuser@azure.com&api_key=Biz@Talk&from=user@msn.com&to=XXXX@XXXX.com&subject=New Patients&text=37 Documents Found"
+    }
 
 ```
 
 ##### Ответ
-
 ```JSON
 
-	{
-	    "statusCode": 200,
-	    "headers": {
-		"connection": "keep-alive",
-		"x-Frame-Options": "DENY,DENY",
-		"access-Control-Allow-Origin": "https://sendgrid.com",
-		"date": "Fri, 26 Feb 2016 15:47:35 GMT",
-		"server": "nginx"
-	    },
-	    "body": {
-		"message": "success"
-	    }
-	}
+    {
+        "statusCode": 200,
+        "headers": {
+        "connection": "keep-alive",
+        "x-Frame-Options": "DENY,DENY",
+        "access-Control-Allow-Origin": "https://sendgrid.com",
+        "date": "Fri, 26 Feb 2016 15:47:35 GMT",
+        "server": "nginx"
+        },
+        "body": {
+        "message": "success"
+        }
+    }
 ```
 
 Наконец, вы хотите, чтобы результаты из приложения логики отображались на портале Azure. Для этого следует добавить параметр в раздел выходных данных.
 
-
 ```JSON
 
-	"outputs": {
-		"Results": {
-		    "type": "String",
-		    "value": "@{int(length(actions('QueryDocuments').outputs.body))} Records Found"
-		}
+    "outputs": {
+        "Results": {
+            "type": "String",
+            "value": "@{int(length(actions('QueryDocuments').outputs.body))} Records Found"
+        }
 
 ```
 
@@ -854,7 +833,6 @@ emailBody является объединением количества док�
 ![](./media/documentdb-change-notification/metrics.png)
 
 ## Триггер DocDb
-
 Это приложение логики является триггером, который запускает рабочий процесс в основном приложении логики.
 
 На следующем рисунке показано представление конструктора.
@@ -863,89 +841,85 @@ emailBody является объединением количества док�
 
 ```JSON
 
-	{
-	    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	    "actions": {
-		"Http": {
-		    "conditions": [],
-		    "inputs": {
-			"body": {
-			    "EmailTo": "XXXXXX@XXXXX.net",
-			    "GetUtcDate_HoursBack": "24",
-			    "Subject": "New Patients",
-			    "sendgridPassword": "********",
-			    "sendgridUsername": "azureuser@azure.com"
-			},
-			"method": "POST",
-			"uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
-		    },
-		    "type": "Http"
-		}
-	    },
-	    "contentVersion": "1.0.0.0",
-	    "outputs": {
-		"Results": {
-		    "type": "String",
-		    "value": "@{body('Http')['status']}"
-		}
-	    },
-	    "parameters": {},
-	    "triggers": {
-		"recurrence": {
-		    "recurrence": {
-			"frequency": "Hour",
-			"interval": 24
-		    },
-		    "type": "Recurrence"
-		}
-	    }
-	}
+    {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+        "actions": {
+        "Http": {
+            "conditions": [],
+            "inputs": {
+            "body": {
+                "EmailTo": "XXXXXX@XXXXX.net",
+                "GetUtcDate_HoursBack": "24",
+                "Subject": "New Patients",
+                "sendgridPassword": "********",
+                "sendgridUsername": "azureuser@azure.com"
+            },
+            "method": "POST",
+            "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c"
+            },
+            "type": "Http"
+        }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {
+        "Results": {
+            "type": "String",
+            "value": "@{body('Http')['status']}"
+        }
+        },
+        "parameters": {},
+        "triggers": {
+        "recurrence": {
+            "recurrence": {
+            "frequency": "Hour",
+            "interval": 24
+            },
+            "type": "Recurrence"
+        }
+        }
+    }
 
 ```
 
 Для триггера задан интервал повторения 24 часа. Действием является HTTP POST, которое использует URL-адрес обратного вызова для основного приложения логики. Текст содержит параметры, заданные в схеме JSON.
 
 #### Операции
-
 ##### Запрос
-
 ```JSON
 
-	{
-	    "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
-	    "method": "POST",
-	    "body": {
-		"EmailTo": "XXXXXX@XXXXX.net",
-		"GetUtcDate_HoursBack": "24",
-		"Subject": "New Patients",
-		"sendgridPassword": "********",
-		"sendgridUsername": "azureuser@azure.com"
-	    }
-	}
+    {
+        "uri": "https://prod-01.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ObTlihr529ATIuvuG-dhxOgBL4JZjItrvPQ8PV6973c",
+        "method": "POST",
+        "body": {
+        "EmailTo": "XXXXXX@XXXXX.net",
+        "GetUtcDate_HoursBack": "24",
+        "Subject": "New Patients",
+        "sendgridPassword": "********",
+        "sendgridUsername": "azureuser@azure.com"
+        }
+    }
 
 ```
 
 ##### Ответ
-
 ```JSON
 
-	{
-	    "statusCode": 202,
-	    "headers": {
-		"pragma": "no-cache",
-		"x-ms-ratelimit-remaining-workflow-writes": "7486",
-		"x-ms-ratelimit-burst-remaining-workflow-writes": "1248",
-		"x-ms-request-id": "westus:2d440a39-8ba5-4a9c-92a6-f959b8d2357f",
-		"cache-Control": "no-cache",
-		"date": "Thu, 25 Feb 2016 21:01:06 GMT"
-	    }
-	}
+    {
+        "statusCode": 202,
+        "headers": {
+        "pragma": "no-cache",
+        "x-ms-ratelimit-remaining-workflow-writes": "7486",
+        "x-ms-ratelimit-burst-remaining-workflow-writes": "1248",
+        "x-ms-request-id": "westus:2d440a39-8ba5-4a9c-92a6-f959b8d2357f",
+        "cache-Control": "no-cache",
+        "date": "Thu, 25 Feb 2016 21:01:06 GMT"
+        }
+    }
 ```
 
 Теперь давайте взглянем на приложение API.
 
 ## DocDBNotificationApi
-
 Несмотря на то, что в приложении существует несколько операций, вы будете использовать только три.
 
 * GetUtcDate
@@ -955,50 +929,48 @@ emailBody является объединением количества док�
 ### Операции DocDBNotificationApi
 Обратимся к документации по Swagger
 
-> [AZURE.NOTE] Чтобы вы могли вызывать операции извне, в параметры приложения API необходимо добавить исходное значение "*" (без кавычек), разрешенное CORS, как показано на следующем рисунке.
+> [!NOTE]
+> Чтобы вы могли вызывать операции извне, в параметры приложения API необходимо добавить исходное значение "*" (без кавычек), разрешенное CORS, как показано на следующем рисунке.
+> 
+> 
 
 ![Конфигурация Cors](./media/documentdb-change-notification/cors.png)
 
 #### GetUtcDate
-
 ![G.](./media/documentdb-change-notification/getutcdateswagger.png)
 
 #### ConvertToTimeStamp
-
 ![Получить дату в формате UTC](./media/documentdb-change-notification/converion-swagger.png)
 
 #### QueryForNewPatientDocuments
-
 ![Запрос](./media/documentdb-change-notification/patientswagger.png)
 
 Рассмотрим код этой операции.
 
 #### GetUtcDate
-
 ```C#
 
     /// <summary>
-	/// Gets the current UTC Date value
-	/// </summary>
-	/// <returns></returns>
-	[H ttpGet]
-	[Metadata("GetUtcDate", "Gets the current UTC Date value minus the Hours Back")]
-	[SwaggerOperation("GetUtcDate")]
-	[SwaggerResponse(HttpStatusCode.OK, type: typeof (string))]
-	[SwaggerResponse(HttpStatusCode.InternalServerError, "Internal Server Operation Error")]
-	public string GetUtcDate(
-	   [Metadata("Hours Back", "How many hours back from the current Date Time")] int hoursBack)
-	{
+    /// Gets the current UTC Date value
+    /// </summary>
+    /// <returns></returns>
+    [H ttpGet]
+    [Metadata("GetUtcDate", "Gets the current UTC Date value minus the Hours Back")]
+    [SwaggerOperation("GetUtcDate")]
+    [SwaggerResponse(HttpStatusCode.OK, type: typeof (string))]
+    [SwaggerResponse(HttpStatusCode.InternalServerError, "Internal Server Operation Error")]
+    public string GetUtcDate(
+       [Metadata("Hours Back", "How many hours back from the current Date Time")] int hoursBack)
+    {
 
 
-	    return DateTime.UtcNow.AddHours(-hoursBack).ToString("r");
-	}
+        return DateTime.UtcNow.AddHours(-hoursBack).ToString("r");
+    }
 ```
 
 Эта операция просто возвращает текущее значение даты и времени в формате UTC минус значение HoursBack.
 
 #### ConvertToTimeStamp
-
 ``` C#
 
         /// <summary>
@@ -1040,10 +1012,9 @@ emailBody является объединением количества док�
 Эта операция преобразует ответ из операции GetUtcDate в значение с типом double.
 
 #### QueryForNewPatientDocuments
-
 ```C#
 
-	    /// <summary>
+        /// <summary>
         ///     Query for new Patient Documents
         /// </summary>
         /// <param name="unixTimeStamp"></param>
@@ -1073,7 +1044,7 @@ emailBody является объединением количества док�
                 context.Client.CreateDocumentQuery<Document>(collectionLink, filterQuery, options).AsEnumerable();
 
             return response.ToList();
-	}
+    }
 
 ```
 
@@ -1088,11 +1059,10 @@ emailBody является объединением количества док�
 Ранее мы говорили о CallbackURL. Чтобы запустить рабочий процесс в основном приложении логики, его необходимо вызвать с помощью CallbackURL.
 
 ## CallbackURL
-
 Для начала вам потребуется маркер Azure AD. Его получение может оказаться трудной задачей. Мне требовался простой способ, и Джефф Холлан (Jeff Hollan), руководитель программы по приложениям логики, порекомендовал использовать [armclient](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) в PowerShell. Чтобы его установить, следуйте приведенным инструкциям.
 
 Вы будете использовать операции входа и вызова API ARM.
- 
+
 Вход — использование тех же учетных данных, что и для входа на портал Azure.
 
 Операция вызова API ARM используется для создания CallBackURL.
@@ -1101,7 +1071,7 @@ emailBody является объединением количества док�
 
 ```powershell
 
-	ArmClient.exe post https://management.azure.com/subscriptions/[YOUR SUBSCRIPTION ID/resourcegroups/[YOUR RESOURCE GROUP]/providers/Microsoft.Logic/workflows/[YOUR LOGIC APP NAME/triggers/manual/listcallbackurl?api-version=2015-08-01-preview
+    ArmClient.exe post https://management.azure.com/subscriptions/[YOUR SUBSCRIPTION ID/resourcegroups/[YOUR RESOURCE GROUP]/providers/Microsoft.Logic/workflows/[YOUR LOGIC APP NAME/triggers/manual/listcallbackurl?api-version=2015-08-01-preview
 
 ```
 
@@ -1109,7 +1079,7 @@ emailBody является объединением количества док�
 
 ```powershell
 
-	https://prod-02.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
+    https://prod-02.westus.logic.azure.com:443/workflows/12a1de57e48845bc9ce7a247dfabc887/triggers/manual/run?api-version=2015-08-01-prevaiew&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XXXXXXXXXXXXXXXXXXX
 
 ```
 
@@ -1119,16 +1089,15 @@ emailBody является объединением количества док�
 
 В приведенной далее таблице перечислены параметры триггера, формирующие текст приложения логики триггера DocDB.
 
-Параметр | Описание 
---- | --- 
-GetUtcDate\_HoursBack | Используется для задания количества часов для даты начала поиска.
-sendgridUsername | Используется для задания количества часов для даты начала поиска.
-sendgridPassword | Имя пользователя для отправки сообщения "Отправить сетку".
-EmailTo | Адрес электронной почты, на который будет отправляться уведомление.
-Субъект | Тема сообщения электронной почты.
+| Параметр | Описание |
+| --- | --- |
+| GetUtcDate\_HoursBack |Используется для задания количества часов для даты начала поиска. |
+| sendgridUsername |Используется для задания количества часов для даты начала поиска. |
+| sendgridPassword |Имя пользователя для отправки сообщения "Отправить сетку". |
+| EmailTo |Адрес электронной почты, на который будет отправляться уведомление. |
+| Субъект |Тема сообщения электронной почты. |
 
 ## Просмотр данных пациентов в службе BLOB-объектов
-
 Перейдите к учетной записи хранения Azure и в разделе служб выберите BLOB-объекты, как показано на следующем рисунке.
 
 ![Учетная запись хранения](./media/documentdb-change-notification/docdbstorageaccount.png)
@@ -1137,9 +1106,7 @@ EmailTo | Адрес электронной почты, на который бу
 
 ![Служба больших двоичных объектов](./media/documentdb-change-notification/blobservice.png)
 
-
 ## Сводка
-
 Из этого пошагового руководстве вы узнали следующее:
 
 * в DocumentDB можно реализовать уведомления;

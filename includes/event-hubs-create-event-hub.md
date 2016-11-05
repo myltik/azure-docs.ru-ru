@@ -1,46 +1,34 @@
 ## Создание концентратора событий
-
-1. Войдите на [портал Azure][] и щелкните **Создать** в левой верхней части экрана.
-
+1. Войдите на [портал Azure][портал Azure] и щелкните **Создать** в левой верхней части экрана.
 2. Щелкните **Данные + аналитика**, затем щелкните **Концентраторы событий**.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
-
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. В колонке **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
-
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 4. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый" или "Стандартный". Также выберите подписку Azure, группу ресурсов и расположение для создания ресурса.
-
-2. Щелкните **Создать**, чтобы создать пространство имен.
-
+5. Щелкните **Создать**, чтобы создать пространство имен.
 6. В списке пространств имен концентраторов событий щелкните созданное пространство имен.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
-
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 7. В колонке пространства имен щелкните **Концентраторы событий**.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
-
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 8. Щелкните **Добавить концентратор событий** в верхней части колонки.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
-
-3. Введите имя концентратора событий, а затем щелкните **Создать**.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
-
-4. В списке концентраторов событий щелкните имя только что созданного концентратора событий.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
-
-5. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем нажмите щелкните **RootManageSharedAccessKey**.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
-
-5. Нажмите кнопку копирования, чтобы скопировать строку подключения **RootManageSharedAccessKey** в буфер обмена. Сохраните эту строку. Она вам понадобится позже.
-
-	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+9. Введите имя концентратора событий, а затем щелкните **Создать**.
+   
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+10. В списке концентраторов событий щелкните имя только что созданного концентратора событий.
+    
+     ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+11. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем нажмите щелкните **RootManageSharedAccessKey**.
+    
+     ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+12. Нажмите кнопку копирования, чтобы скопировать строку подключения **RootManageSharedAccessKey** в буфер обмена. Сохраните эту строку. Она вам понадобится позже.
+    
+     ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий. 
 

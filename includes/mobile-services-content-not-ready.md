@@ -1,3 +1,6 @@
->[AZURE.NOTE] Скорее всего, этот раздел еще не готов, но хотелось бы, чтобы вы знали о его существовании. Если вы заинтересовались этой темой, сообщите нам в [@AzureMobile](https://twitter.com/AzureMobile) или оставьте сообщение на [форумах](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile), в [отзывах](https://feedback.azure.com/forums/216254-mobile-services/) или в обсуждении Disqus.
+> [!NOTE]
+> Скорее всего, этот раздел еще не готов, но хотелось бы, чтобы вы знали о его существовании. Если вы заинтересовались этой темой, сообщите нам в [@AzureMobile](https://twitter.com/AzureMobile) или оставьте сообщение на [форумах](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile), в [отзывах](https://feedback.azure.com/forums/216254-mobile-services/) или в обсуждении Disqus.
+> 
+> 
 
 <!---HONumber=AcomDC_0128_2016-->

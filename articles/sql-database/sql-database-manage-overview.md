@@ -1,39 +1,38 @@
-<properties
-	pageTitle="Обзор: средства управления для Базы данных SQL"
-	description="Сравнение средств и параметров для управления Базой данных SQL Azure"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+---
+title: 'Обзор: средства управления для Базы данных SQL'
+description: Сравнение средств и параметров для управления Базой данных SQL Azure
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="sstein"/>
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/19/2016
+ms.author: sstein
 
+---
 # Обзор: средства управления для Базы данных SQL
-
 В этом разделе рассматриваются и сравниваются средства и параметры для управления базами данных SQL Azure, чтобы вы могли выбрать для себя подходящий инструмент для работы и бизнеса. Выбор правильного средства зависит от количества баз данных, которыми вы управляете, выполняемых задач, а также то того, как часто вы их выполняете.
 
 ## Портал Azure
-
 [Портал Azure](https://portal.azure.com) — это веб-приложение, в котором можно создавать, обновлять и удалять базы данных и логические серверы, а также отслеживать работу базы данных. Он превосходно подойдет для тех, кто только знакомится с Azure или управляет небольшим количеством баз данных, а также в случае, если требуется оперативно выполнить какую-либо задачу по управлению.
 
 Более подробные сведения об использовании портала см. в статье [Управление Базами данных SQL с помощью классического портала Azure](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio и SQL Server Data Tools в Visual Studio
-
 SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
 
-> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и базы данных SQL, необходимо всегда использовать последнюю версию SQL Server Management Studio и SQL Server Data Tools для Visual Studio. Более старые версии этих средств не будут успешно работать с базой данных SQL.
+> [!IMPORTANT]
+> Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и базы данных SQL, необходимо всегда использовать последнюю версию SQL Server Management Studio и SQL Server Data Tools для Visual Studio. Более старые версии этих средств не будут успешно работать с базой данных SQL.
+> 
+> 
 
 ## Программы командной строки
-
 Для управления базами данных и пулами эластичных баз данных, а также для автоматизации развертывания ресурсов Azure можно использовать средства командной строки, такие как PowerShell. Мы рекомендуем использовать это средство для управления большим количеством баз данных и автоматизации развертывания и изменения ресурсов в рабочей среде.
 
 Дополнительные сведения об управлении базами данных SQL Azure с помощью средств командной строки см. в статье [Управление базой данных SQL с помощью PowerShell](sql-database-command-line-tools.md).
@@ -44,6 +43,5 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual St
 * Выполнение сценария T-SQL для набора баз данных с помощью [задания обработки эластичных БД](sql-database-elastic-jobs-overview.md).
 * Перемещение баз данных из мультитенантной модели в модель с одним клиентом с помощью [инструмента разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
 * Управление базами данных в модели с одним клиентом или мультитенантной модели с помощью [клиентской библиотеки эластичного масштабирования](sql-database-elastic-database-client-library.md).
- 
 
 <!---HONumber=AcomDC_0720_2016-->

@@ -1,56 +1,45 @@
-<properties 
-	pageTitle="Настройка Python в веб-приложениях службы приложений Azure" 
-	description="В этом учебнике описываются возможности создания и настройки в веб-приложениях службы приложений Azure базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI)." 
-	services="app-service" 
-	documentationCenter="python" 
-	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Настройка Python в веб-приложениях службы приложений Azure
+description: В этом учебнике описываются возможности создания и настройки в веб-приложениях службы приложений Azure базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI).
+services: app-service
+documentationcenter: python
+tags: python
+author: huguesv
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/26/2016" 
-	ms.author="huvalo"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 02/26/2016
+ms.author: huvalo
 
-
-
-
+---
 # Настройка Python в веб-приложениях службы приложений Azure
-
 В этом учебнике описываются возможности создания и настройки в [веб-приложениях службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI).
 
 Здесь также описываются дополнительные функции развертывания Git, например установка виртуальной среды или пакета с использованием файла requirements.txt.
 
-
 ## Bottle, Django или Flask?
-
 В Azure Marketplace содержатся шаблоны для платформ Bottle, Django и Flask. Если вы разрабатываете свое первое веб-приложение в службе приложений Azure или не знакомы с Git, советуем следовать одному из указанных ниже учебников, которые содержат пошаговые указания по созданию рабочего приложения из коллекции с помощью развертывания Git в Windows или Mac:
 
-- [Создание веб-приложений на основе Bottle](web-sites-python-create-deploy-bottle-app.md)
-- [Создание веб-приложений на основе Django](web-sites-python-create-deploy-django-app.md)
-- [Создание веб-приложений на основе Flask](web-sites-python-create-deploy-flask-app.md)
-
+* [Создание веб-приложений на основе Bottle](web-sites-python-create-deploy-bottle-app.md)
+* [Создание веб-приложений на основе Django](web-sites-python-create-deploy-django-app.md)
+* [Создание веб-приложений на основе Flask](web-sites-python-create-deploy-flask-app.md)
 
 ## Создание веб-приложения на портале Azure
-
 Этот учебник предполагает наличие существующей подписки Azure и доступа к порталу Azure.
 
 Если у вас нет веб-приложения, его можно создать на [портале Azure](https://portal.azure.com). В верхнем левом углу нажмите кнопку СОЗДАТЬ, а затем щелкните **Интернет + мобильные устройства** > **Веб-приложение**.
 
 ## Публикация с использованием Git
-
 Настройте публикацию Git для вновь созданного веб-приложения, следуя инструкциям из статьи [Развертывание локального репозитория Git в службе приложений Azure](app-service-deploy-local-git.md). В этом учебнике для создания, контроля и публикации веб-приложения Python в службе приложений Azure используется Git.
 
 После настройки публикации с помощью Git будет создан репозиторий Git, который затем будет связан с вашим веб-приложением. Появится URL-адрес репозитория, который с этого момента может использоваться для передачи данных в облако из локальной среды разработки. Для публикации приложений с помощью Git убедитесь, что клиент Git также установлен. Затем следуйте предоставленным указаниям для передачи содержимого веб-приложения в службу приложений Azure.
 
-
 ## Обзор приложения
-
 В дальнейших разделах будут созданы следующие файлы. Их нужно сохранить в корневую папку репозитория Git.
 
     app.py
@@ -61,7 +50,6 @@
 
 
 ## Обработчик WSGI
-
 WSGI — это стандарт Python, описываемый в [PEP 3333](http://www.python.org/dev/peps/pep-3333/) и определяющий интерфейс между веб-сервером и Python. Он предоставляет стандартный интерфейс для написания различных веб-приложений и платформ с использованием Python. Сегодня популярные веб-платформы Python используют WSGI. Веб-приложения службы приложений Azure предоставляют поддержку любых таких платформ. Кроме того, опытные пользователи даже могут создавать собственные платформы, если пользовательский обработчик следует правилам спецификации WSGI.
 
 Ниже приведен пример кода `app.py`, который определяет настраиваемый обработчик:
@@ -81,9 +69,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 Это приложение можно запустить локально с помощью `python app.py`, а затем перейти в браузере по адресу `http://localhost:5555`.
 
-
 ## Виртуальная среда
-
 Хотя приведенное выше приложение не требует каких-либо внешних пакетов, они, вероятно, потребуются.
 
 Для облегчения управления зависимостями внешних пакетов, развертывание Azure Git поддерживает создание виртуальных сред.
@@ -92,9 +78,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 Возможно, потребуется создать виртуальную среду для локальной разработки, но не нужно включать ее в репозиторий Git.
 
-
 ## Управление пакетами
-
 Пакеты, перечисленные в файле requirements.txt, устанавливаются автоматически в виртуальной среде с помощью pip. Это происходит при каждом развертывании, но если пакет уже установлен, pip пропустит установку.
 
 Пример `requirements.txt`:
@@ -103,8 +87,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 
 ## Версия Python
-
-[AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
+[!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Пример `runtime.txt`:
 
@@ -112,7 +95,6 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 
 ## Web.config
-
 Чтобы указать, как сервер должен обрабатывать запросы, нужно будет создать файл web.config.
 
 Обратите внимание, что если в репозитории есть файл web.x.y.config, в котором x.y совпадает с выбранной средой выполнения Python, а затем Azure автоматически скопирует соответствующий файл с именем web.config.
@@ -225,9 +207,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 Путь `PYTHONPATH` можно настраивать, но если вы устанавливаете все зависимости в виртуальной среде, указывая их в файле requirements.txt, путь менять не нужно.
 
-
 ## Прокси-сервер с поддержкой виртуальной среды
-
 Следующий сценарий используется для извлечения обработчика WSGI, активации виртуальной среды и ведения журнала ошибок. Он разработан как универсальный и применяется без изменений.
 
 Содержимое `ptvs_virtualenv_proxy.py`:
@@ -291,10 +271,10 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
     def get_wsgi_handler(handler_name):
         if not handler_name:
             raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
-    
+
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-    
+
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
@@ -318,10 +298,10 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
                 last_tb = ': ' + traceback.format_exc()
-    
+
         if handler is None:
             raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
-    
+
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -342,9 +322,9 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-    
+
         site.main()
-    
+
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -357,32 +337,23 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 
 ## Настройка развертывания Git
-
-[AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
-
+[!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 ## Устранение неполадок – установка пакета
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
-
+[!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 ## Устранение неполадок — виртуальная среда
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+[!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## Дальнейшие действия
-
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
->[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> [!NOTE]
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> 
+> 
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-
-
-
-
-
- 
 
 <!---HONumber=AcomDC_0803_2016-->

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Синхронизация Azure AD Connect: предотвращение случайного удаления | Microsoft Azure"
-   description="В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Синхронизация Azure AD Connect: предотвращение случайного удаления | Microsoft Docs'
+description: В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/01/2016"
-   ms.author="andkjell"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/01/2016
+ms.author: andkjell
 
+---
 # Синхронизация Azure AD Connect: предотвращение случайного удаления
 В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect.
 
@@ -23,9 +23,9 @@
 
 Распространенные сценарии включают следующие:
 
-- изменения [фильтрации](active-directory-aadconnectsync-configure-filtering.md), когда целое [подразделение](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) или [домен](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) остаются невыбранными;
-- удаление всех объектов в подразделении;
-- подразделение переименовывается так, что все объекты в нем становятся исключенными из области синхронизации.
+* изменения [фильтрации](active-directory-aadconnectsync-configure-filtering.md), когда целое [подразделение](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) или [домен](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) остаются невыбранными;
+* удаление всех объектов в подразделении;
+* подразделение переименовывается так, что все объекты в нем становятся исключенными из области синхронизации.
 
 Значение по умолчанию 500 можно изменить с помощью PowerShell командой `Enable-ADSyncExportDeletionThreshold`. Это значение необходимо задать в соответствии с размером вашей организации. Так как планировщик синхронизации запускается каждые 30 минут, это значение равно числу операций удаления, выполненных за 30 минут.
 
@@ -34,6 +34,8 @@
 ![Сообщение электронной почты "Предотвращение случайного удаления"](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *(Контактное лицо по техническим вопросам), здравствуйте! В (время) служба синхронизации удостоверений обнаружила, что число удалений превысило указанное в настройках пороговое значение удалений для компании (название организации). В рамках этого запуска синхронизации удостоверений для удаления было отправлено всего (число) об. Это число соответствует пороговому значению удаления объектов, равному (число), или превышает его. Нам необходимо получить от вас подтверждение, что эти удаления следует обработать, прежде чем мы продолжим. Дополнительные сведения об указанной в этом сообщении ошибке см. в разделе "Предотвращение случайных удалений".*
+> 
+> 
 
 При поиске профиля экспорта в пользовательском интерфейсе **Synchronization Service Manager** также может отобразиться состояние `stopped-deletion-threshold-exceeded`. ![Предотвращение случайного удаления в пользовательском интерфейсе Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
@@ -54,10 +56,9 @@
 3. Чтобы повторно включить защиту, запустите командлет PowerShell: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Дальнейшие действия
-
 **Обзорные статьи**
 
-- [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+* [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

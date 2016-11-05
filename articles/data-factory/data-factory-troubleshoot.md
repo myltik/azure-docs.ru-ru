@@ -1,26 +1,25 @@
-<properties 
-	pageTitle="Устранение неполадок фабрики данных Azure" 
-	description="Узнайте, как устранять неполадки при использовании фабрики данных Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Устранение неполадок фабрики данных Azure
+description: Узнайте, как устранять неполадки при использовании фабрики данных Azure.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/31/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: spelluru
 
+---
 # Устранение неполадок фабрики данных
 В этой статье приводятся советы по устранению неполадок, возникающих при использовании фабрики данных Azure. В этой статье перечислены не все возможные проблемы использования службы, однако рассматриваются некоторые вопросы и приводятся общие рекомендации по устранению неполадок.
 
 ## Советы по устранению неполадок
-
 ### Ошибка "Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory"
 Если эта ошибка возникает, поставщик ресурсов фабрики данных Azure не был зарегистрирован на компьютере. Выполните следующее:
 
@@ -38,49 +37,46 @@
 ### Проблема: не удается запустить экспресс-установку шлюза управления данными с портала Azure
 Для экспресс-установки шлюза управления данными требуется Internet Explorer или другой веб-браузер, совместимый с Microsoft ClickOnce. Если не удается запустить экспресс-установку, выполните одно из следующих действий:
 
-- Используйте Internet Explorer или другой веб-браузер, совместимый с Microsoft ClickOnce.
+* Используйте Internet Explorer или другой веб-браузер, совместимый с Microsoft ClickOnce.
+  
+    Если вы используете браузер Chrome, перейдите в [интернет-магазин Chrome](https://chrome.google.com/webstore/), введите ClickOnce в строке поиска, а затем выберите и установите одно из расширений ClickOnce.
+  
+    То же самое (установку надстройки) сделайте и в случае с браузером Firefox. Нажмите кнопку "Открыть меню" на панели инструментов (три горизонтальные линии в правом верхнем углу), нажмите кнопку "Надстройки", введите "ClickOnce" в строку поиска, выберите одно из расширений ClickOnce и установите его.
+* Щелкните ссылку **Установка вручную** в той же колонке на портале. Этот подход используется для скачивания файла установки и его запуска вручную. После успешного завершения установки откроется диалоговое окно настройки шлюза управления данными. Скопируйте **ключ** на экране портала и используйте его в диспетчере конфигурации, чтобы вручную зарегистрировать шлюз в службе.
 
-	Если вы используете браузер Chrome, перейдите в [интернет-магазин Chrome](https://chrome.google.com/webstore/), введите ClickOnce в строке поиска, а затем выберите и установите одно из расширений ClickOnce.
-	
-	То же самое (установку надстройки) сделайте и в случае с браузером Firefox. Нажмите кнопку "Открыть меню" на панели инструментов (три горизонтальные линии в правом верхнем углу), нажмите кнопку "Надстройки", введите "ClickOnce" в строку поиска, выберите одно из расширений ClickOnce и установите его.
-
-- Щелкните ссылку **Установка вручную** в той же колонке на портале. Этот подход используется для скачивания файла установки и его запуска вручную. После успешного завершения установки откроется диалоговое окно настройки шлюза управления данными. Скопируйте **ключ** на экране портала и используйте его в диспетчере конфигурации, чтобы вручную зарегистрировать шлюз в службе.
-
-### Проблема: не удается подключиться к локальному серверу SQL Server 
+### Проблема: не удается подключиться к локальному серверу SQL Server
 Запустите **диспетчер конфигурации шлюза управления данными** на компьютере шлюза и используйте вкладку **Устранение неполадок**, чтобы проверить подключение к SQL Server с компьютера шлюза. Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
- 
 
 ### Проблема: срезы входных данных постоянно находятся в состоянии "Waiting"
-
 Срезы могут находиться в состоянии **ожидания** по разным причинам. Одна из распространенных причин — для свойства **external** не задано значение **true**. Все наборы данных, созданные вне фабрики данных Azure, должны быть помечены свойством **external**. Это свойство указывает на то, что данные являются внешними и не поддерживаются какими-либо конвейерами в фабрике данных. После того как данные станут доступны в соответствующем хранилище, срезы данных помечаются флагом **Ready** (готово).
 
 См. следующий пример использования свойства **external**. При необходимости можно указать свойство **externalData***, если для свойства external задано значение true.
 
 Дополнительные сведения об этом свойстве см. в статье [Наборы данных](data-factory-create-datasets.md).
-	
-	{
-	  "name": "CustomerTable",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "MyLinkedService",
-	    "typeProperties": {
-	      "folderPath": "MyContainer/MySubFolder/",
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";"
-	      }
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      }
-	    }
-	  }
-	}
+
+    {
+      "name": "CustomerTable",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "MyLinkedService",
+        "typeProperties": {
+          "folderPath": "MyContainer/MySubFolder/",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "rowDelimiter": ";"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          }
+        }
+      }
+    }
 
 Чтобы устранить эту ошибку, добавьте свойство **external** и дополнительный раздел **externalData** в определение JSON входной таблицы и повторно создайте эту таблицу.
 
@@ -90,7 +86,7 @@
 ### Проблема: сбой подготовки HDInsight по запросу
 При использовании связанной службы типа HDInsightOnDemandLinkedService нужно задать имя linkedServiceName, указывающее на хранилище BLOB-объектов Azure. Фабрика данных использует это хранилище для хранения журналов и вспомогательных файлов для кластера HDInsight по запросу. Иногда подготовка кластера HDInsight по запросу завершается следующей ошибкой:
 
-		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+        Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
 Обычно эта ошибка указывает на то, что расположение учетной записи хранения, указанной в linkedServiceName, не совпадает с расположением центра обработки данных, в котором происходит подготовка HDInsight. Например, если ваша фабрика данных Azure находится на Западе США (West US), а хранилище Azure расположено на Востоке США (East US), то подготовка по запросу на Западе США выполнена не будет.
 
@@ -99,8 +95,7 @@
 ### Проблема: сбой настраиваемого действия .NET
 Подробные действия см. в статье [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) (Отладка конвейера с помощью настраиваемого действия).
 
-## Устранение неполадок с помощью портала Azure 
-
+## Устранение неполадок с помощью портала Azure
 ### Использование колонок на портале
 Действия см. в статье [Мониторинг конвейера](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
@@ -108,10 +103,8 @@
 Сведения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения по мониторингу и управлению](data-factory-monitor-manage-app.md).
 
 ## Использование Azure PowerShell для устранения неполадок
-
-### Использование Azure PowerShell для устранения ошибок  
+### Использование Azure PowerShell для устранения ошибок
 Сведения см. в статье [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) (Мониторинг конвейеров фабрики данных с помощью Azure PowerShell).
-
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -141,6 +134,6 @@
 [image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]: ./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

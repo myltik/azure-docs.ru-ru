@@ -1,30 +1,34 @@
-<properties 
-   pageTitle="Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Microsoft Azure"
-   description="На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="ganesr"
-   manager="carolz"
-   editor="tysonn"/>
-<tags 
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="10/10/2016"
-   ms.author="ganesr"/>
+---
+title: Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Microsoft Docs
+description: На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute.
+documentationcenter: na
+services: expressroute
+author: ganesr
+manager: carolz
+editor: tysonn
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: ganesr
 
-#<a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP в модели развертывания с помощью Resource Manager
-
-> [AZURE.SELECTOR]
-[PowerShell — Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell — классический портал](expressroute-troubleshooting-arp-classic.md)
+---
+# <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP в модели развертывания с помощью Resource Manager
+> [!div class="op_single_selector"]
+> [PowerShell — Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> [PowerShell — классический портал](expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 В этой статье описана процедура изучения таблиц ARP для канала ExpressRoute. 
 
->[AZURE.IMPORTANT] Данный документ предназначен для диагностики и устранения простых проблем. Он не заменит услуг службы поддержки Майкрософт. Если вам не удается устранить проблему, используя рекомендации, описанные ниже, то необходимо отправить запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
+> [!IMPORTANT]
+> Данный документ предназначен для диагностики и устранения простых проблем. Он не заменит услуг службы поддержки Майкрософт. Если вам не удается устранить проблему, используя рекомендации, описанные ниже, то необходимо отправить запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
+> 
+> 
 
 ## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Протокол ARP и таблицы ARP
 Протокол ARP — это протокол уровня 2, определенный в стандарте [RFC 826](https://tools.ietf.org/html/rfc826). Протокол ARP используется для сопоставления адреса Ethernet (MAC-адреса) с IP-адресом.
@@ -48,13 +52,12 @@
 В следующем разделе приведены сведения о том, как можно просмотреть таблицы ARP, видимые на граничных маршрутизаторах ExpressRoute. 
 
 ## <a name="prerequisites-for-learning-arp-tables"></a>Необходимые условия для изучения таблиц ARP
-
 Прежде чем продолжить, убедитесь, что выполнены следующие условия.
 
- - Настроен действительный канал ExpressRoute по крайней мере с одним пирингом. Канал должен быть полностью настроен поставщиком услуг подключения. Вы (или ваш поставщик услуг подключения) должны настроить хотя бы один из пирингов (частный или общедоступный пиринг Azure либо пиринг Майкрософт) для этого канала.
- - Настроены диапазоны IP-адресов, используемые для настройки пирингов (частных или общедоступных пирингов Azure либо пирингов Майкрософт). Просмотрите примеры назначения IP-адресов на [странице требований к маршрутизации ExpressRoute](expressroute-routing.md) , чтобы понять, как IP-адреса сопоставляются с интерфейсами на вашей стороне и на стороне ExpressRoute. Сведения о конфигурации пиринга можно получить, просмотрев [страницу настройки пиринга ExpressRoute](expressroute-howto-routing-arm.md).
- - Получена информация от вашей группы сетевых администраторов или поставщика услуг подключения о MAC-адресах интерфейсов, используемых для этих IP-адресов.
- - Требуется последняя версия модуля PowerShell для Azure (1.50 или более поздняя версия).
+* Настроен действительный канал ExpressRoute по крайней мере с одним пирингом. Канал должен быть полностью настроен поставщиком услуг подключения. Вы (или ваш поставщик услуг подключения) должны настроить хотя бы один из пирингов (частный или общедоступный пиринг Azure либо пиринг Майкрософт) для этого канала.
+* Настроены диапазоны IP-адресов, используемые для настройки пирингов (частных или общедоступных пирингов Azure либо пирингов Майкрософт). Просмотрите примеры назначения IP-адресов на [странице требований к маршрутизации ExpressRoute](expressroute-routing.md) , чтобы понять, как IP-адреса сопоставляются с интерфейсами на вашей стороне и на стороне ExpressRoute. Сведения о конфигурации пиринга можно получить, просмотрев [страницу настройки пиринга ExpressRoute](expressroute-howto-routing-arm.md).
+* Получена информация от вашей группы сетевых администраторов или поставщика услуг подключения о MAC-адресах интерфейсов, используемых для этих IP-адресов.
+* Требуется последняя версия модуля PowerShell для Azure (1.50 или более поздняя версия).
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Получение таблиц ARP для канала ExpressRoute
 В этом разделе описано, как просмотреть таблицы ARP для пиринга с помощью PowerShell. Прежде чем продолжить, вам или вашему поставщику услуг подключения нужно настроить пиринг. Каждый канал имеет два пути (первичный и вторичный). Вы можете просмотреть эти пути в таблице ARP независимо друг от друга.
@@ -65,10 +68,10 @@
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
         $Name = "<Your ExpressRoute Circuit Name Here>"
-        
+
         # ARP table for Azure private peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
-        
+
         # ARP table for Azure private peering - Secodary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
@@ -86,10 +89,10 @@
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
         $Name = "<Your ExpressRoute Circuit Name Here>"
-        
+
         # ARP table for Azure public peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
-        
+
         # ARP table for Azure public peering - Secodary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
@@ -108,10 +111,10 @@
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
         $Name = "<Your ExpressRoute Circuit Name Here>"
-        
+
         # ARP table for Microsoft peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
-        
+
         # ARP table for Microsoft peering - Secodary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
@@ -128,12 +131,10 @@
 С помощью таблицы ARP для пиринга можно проверить конфигурацию и подключение уровня 2. В этом разделе описывается, как будут выглядеть таблицы ARP в различных сценариях.
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>Таблица ARP, когда канал находится в рабочем состоянии (ожидаемое состояние)
-
- - В таблице ARP будет отображаться запись для локальной стороны с действительным IP-адресом и MAC-адресом, а также аналогичная запись со стороны сети Майкрософт. 
- - Последний октет локального IP-адреса всегда будет нечетным числом.
- - Последний октет IP-адреса сети Майкрософт всегда будет четным числом.
- - Одинаковый MAC-адрес будет отображаться со стороны сети Майкрософт для всех 3 пирингов (первичных или вторичных). 
-
+* В таблице ARP будет отображаться запись для локальной стороны с действительным IP-адресом и MAC-адресом, а также аналогичная запись со стороны сети Майкрософт. 
+* Последний октет локального IP-адреса всегда будет нечетным числом.
+* Последний октет IP-адреса сети Майкрософт всегда будет четным числом.
+* Одинаковый MAC-адрес будет отображаться со стороны сети Майкрософт для всех 3 пирингов (первичных или вторичных). 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -141,30 +142,27 @@
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
+* В таблице ARP будет отображаться только одна запись. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
+  
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------    
+         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
- - В таблице ARP будет отображаться только одна запись. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
-
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
-
->[AZURE.NOTE] Отправьте запрос в службу поддержки своего поставщика услуг подключения, чтобы устранить подобные проблемы. 
-
+> [!NOTE]
+> Отправьте запрос в службу поддержки своего поставщика услуг подключения, чтобы устранить подобные проблемы. 
+> 
+> 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Таблица ARP в случае проблем на стороне сети Майкрософт
-
- - Вы не увидите таблицу ARP для пиринга при наличии проблем на стороне сети Майкрософт. 
- -  Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Укажите, что у вас проблема с подключением уровня 2. 
+* Вы не увидите таблицу ARP для пиринга при наличии проблем на стороне сети Майкрософт. 
+* Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Укажите, что у вас проблема с подключением уровня 2. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
- - Проверка конфигураций уровня 3 для канала ExpressRoute.
-     - Получение сводки маршрутов для определения состояния сеансов BGP. 
-     - Получение таблицы маршрутов для определения того, какие префиксы объявляются в ExpressRoute.
- - Проверка передачи данных путем просмотра входящих и выходящих байтов.
- - Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
-
-
+* Проверка конфигураций уровня 3 для канала ExpressRoute.
+  * Получение сводки маршрутов для определения состояния сеансов BGP. 
+  * Получение таблицы маршрутов для определения того, какие префиксы объявляются в ExpressRoute.
+* Проверка передачи данных путем просмотра входящих и выходящих байтов.
+* Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
 
 <!--HONumber=Oct16_HO2-->
 

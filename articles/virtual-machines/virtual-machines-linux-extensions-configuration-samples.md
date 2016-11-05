@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Пример конфигурации для расширений виртуальной машины Linux | Microsoft Azure"
-   description="Пример конфигурации для разработки шаблонов с расширениями для виртуальных машин Linux."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Пример конфигурации для расширений виртуальной машины Linux | Microsoft Docs
+description: Пример конфигурации для разработки шаблонов с расширениями для виртуальных машин Linux.
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Примеры конфигурации расширений виртуальной машины Linux
-
-> [AZURE.SELECTOR]
-- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -56,7 +56,6 @@
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -217,8 +216,6 @@
 Здесь представлен полный шаблон виртуальной машины для создания виртуальной машины Linux с расширением:
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,65 +1,54 @@
-<properties
-   pageTitle="Создание сборки для Azure с помощью командной строки | Microsoft Azure"
-   description="Создание сборки для Azure с помощью командной строки"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/15/2016"
-   ms.author="tarcher" />
+---
+title: Создание сборки для Azure с помощью командной строки | Microsoft Docs
+description: Создание сборки для Azure с помощью командной строки
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
 
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/15/2016
+ms.author: tarcher
+
+---
 # Создание сборки для Azure с помощью командной строки
-
 ## Обзор
-
 Вы можете создать пакет для развертывания в Azure, запустив MSBuild в командной строке. В дополнение к автоматизации части процесса компиляции вы можете настроить и определить сборки для отладки, промежуточного размещения и производства.
 
-
 ## Microsoft Build Engine (MSBuild)
-
 С помощью Microsoft Build Engine (MSBuild) можно компилировать продукты в лабораторных средах, где приложение Visual Studio не установлено. MSBuild использует для файлов проекта расширяемый формат XML, который полностью поддерживается Майкрософт. В этом формате файлов вы можете описать, какие именно элементы должны быть скомпилированы для одной или нескольких платформ и конфигураций.
 
 MSBuild можно также запускать из командной строки. В этой статье описывается именно такой метод. Задавая свойства в командной строке, вы можете собирать те или иные конфигурации проекта. Точно так же вы можете определять объекты, которые создаст конкретная команда MSBuild. Дополнительные сведения о параметрах командной строки и MSBuild см. в [справочнике по командной строке MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 ## Установка
-
 Чтобы создать пакет для Azure с помощью MSBuild, сперва необходимо установить нужные инструменты и программное обеспечение на сервер сборки.
 
-1. Установите .NET Framework 4 или более позднюю версию этой платформы. В ее состав входит MSBuild.
-
-1. Установите [инструменты Azure для разработчиков](http://go.microsoft.com/fwlink/?LinkId=394615) (ищите MicrosoftAzureAuthoringTools-x64.msi или MicrosoftAzureAuthoringTools-x86.msi).
-
-1. Установите [библиотеки Azure для .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (ищите MicrosoftAzureLibsForNet-x64.msi или MicrosoftAzureLibs-x86.msi).
-
-1. Скопируйте файл Microsoft.WebApplication.targets из папки с программой Visual Studio на другом компьютере.
-
-    Файл находится в каталоге C:\\Program Files (x86)\\MSBuild\\Microsoft\\Visual Studio\\v12.0\\WebApplications (v11.0 для Visual Studio 2012). Файл нужно вставить в тот же каталог на сервере сборки.
-
-1. Установите [инструменты Azure для Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
-
-    Для создания проектов Visual Studio 2013 вам нужен пакет WindowsAzureTools.vs120.exe.
+1. Установите .NET Framework 4 или более позднюю версию этой платформы. В ее состав входит MSBuild.
+2. Установите [инструменты Azure для разработчиков](http://go.microsoft.com/fwlink/?LinkId=394615) (ищите MicrosoftAzureAuthoringTools-x64.msi или MicrosoftAzureAuthoringTools-x86.msi).
+3. Установите [библиотеки Azure для .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (ищите MicrosoftAzureLibsForNet-x64.msi или MicrosoftAzureLibs-x86.msi).
+4. Скопируйте файл Microsoft.WebApplication.targets из папки с программой Visual Studio на другом компьютере.
+   
+    Файл находится в каталоге C:\\Program Files (x86)\\MSBuild\\Microsoft\\Visual Studio\\v12.0\\WebApplications (v11.0 для Visual Studio 2012). Файл нужно вставить в тот же каталог на сервере сборки.
+5. Установите [инструменты Azure для Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
+   
+    Для создания проектов Visual Studio 2013 вам нужен пакет WindowsAzureTools.vs120.exe.
 
 ## Параметры MSBuild
+Самый простой способ создать пакет — запустить MSBuild с параметром `/t:Publish`. По умолчанию команда создает каталог относительно корневой папки проекта, например ProjectDir\\bin\\Configuration\\app.publish. При сборке проекта Azure создается два файла — собственно файл пакета и сопутствующий файл конфигурации:
 
-Самый простой способ создать пакет — запустить MSBuild с параметром `/t:Publish`. По умолчанию команда создает каталог относительно корневой папки проекта, например ProjectDir\\bin\\Configuration\\app.publish. При сборке проекта Azure создается два файла — собственно файл пакета и сопутствующий файл конфигурации:
+* Project.cspkg
+* ServiceConfiguration.TargetProfile.cscfg
 
-- Project.cspkg
-
-- ServiceConfiguration.TargetProfile.cscfg
-
-По умолчанию каждый проект Azure включает в себя один файл конфигурации службы для локальных сборок (отладка) и один — для облачных (промежуточное хранение или производство). Файлы конфигурации службы можно добавлять или удалять по необходимости. При сборке пакета в Visual Studio вам будет предложено выбрать, какой файл конфигурации службы нужно включить в пакет. При сборке пакета с помощью MSBuild файл конфигурации локальной службы добавляется по умолчанию. Чтобы добавить другой файл конфигурации, задайте свойство `TargetProfile` команды MSBuild (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
+По умолчанию каждый проект Azure включает в себя один файл конфигурации службы для локальных сборок (отладка) и один — для облачных (промежуточное хранение или производство). Файлы конфигурации службы можно добавлять или удалять по необходимости. При сборке пакета в Visual Studio вам будет предложено выбрать, какой файл конфигурации службы нужно включить в пакет. При сборке пакета с помощью MSBuild файл конфигурации локальной службы добавляется по умолчанию. Чтобы добавить другой файл конфигурации, задайте свойство `TargetProfile` команды MSBuild (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
 
 Если вы хотите использовать другой каталог для хранения пакета и файлов конфигурации, задайте путь с помощью параметра `/p:PublishDir=Directory` (включая разделитель в виде обратной косой черты в конце).
 
 ## Развертывание
-
-Когда пакет скомпилирован, его можно развернуть в Azure. Инструкции по развертыванию приведены на веб-сайте Azure. Сведения об автоматизации этого процесса см. в статье [Непрерывная доставка для облачных служб в Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
+Когда пакет скомпилирован, его можно развернуть в Azure. Инструкции по развертыванию приведены на веб-сайте Azure. Сведения об автоматизации этого процесса см. в статье [Непрерывная доставка для облачных служб в Azure](cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
 <!---HONumber=AcomDC_0817_2016-->

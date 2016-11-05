@@ -1,46 +1,44 @@
-<properties
-    pageTitle="Включение дампов кучи для служб Hadoop в HDInsight | Microsoft Azure"
-    description="Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа."
-    services="hdinsight"
-    documentationCenter=""
-    authors="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+---
+title: Включение дампов кучи для служб Hadoop в HDInsight | Microsoft Docs
+description: Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
 
-<tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="larryfr"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: larryfr
 
-
-
-#<a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)
-
-[AZURE.INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
+---
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)
+[!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они очень полезны для диагностики проблем, возникающих во время выполнения.
 
-> [AZURE.NOTE] Сведения в этой статье применимы только к HDInsight, работающей под управлением Linux. Сведения об HDInsight, работающей под управлением Windows, см. в статье [Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md).
+> [!NOTE]
+> Сведения в этой статье применимы только к HDInsight, работающей под управлением Linux. Сведения об HDInsight, работающей под управлением Windows, см. в статье [Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md).
+> 
+> 
 
 ## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Службы
-
 Вы можете включить дампы кучи для следующих служб:
 
-*  **Hcatalog** — tempelton;
-*  **Hive** — hiveserver2, metastore, derbyserver;
-*  **Mapreduce** — jobhistoryserver;
-*  **Yarn** — resourcemanager, nodemanager, timelineserver;
-*  **HDFS** — datanode, secondarynamenode, namenode.
+* **Hcatalog** — tempelton;
+* **Hive** — hiveserver2, metastore, derbyserver;
+* **Mapreduce** — jobhistoryserver;
+* **Yarn** — resourcemanager, nodemanager, timelineserver;
+* **HDFS** — datanode, secondarynamenode, namenode.
 
 Вы можете также включить дампы кучи для процессов сопоставления и уменьшения, запущенных HDInsight.
 
 ## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Основные сведения о настройке дампа кучи
-
 Дампы кучи включаются путем передачи параметров в виртуальную машину Java при запуске службы. Для большинства служб Hadoop это можно сделать, изменив сценарий оболочки, используемый для запуска службы.
 
 В каждом сценарии есть экспорт для **\*\_OPTS**, который содержит параметры, передаваемые в виртуальную машину Java. Например, в сценарии **hadoop-env.sh** строка, начинающаяся с `export HADOOP_NAMENODE_OPTS=`, содержит параметры для службы NameNode.
@@ -50,79 +48,84 @@
 * **MapReduce.Admin.map.child.Java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE] Рекомендуется использовать платформу Ambari для изменения сценариев и параметров mapred-site.xml, поскольку Ambari будет обрабатывать репликации изменений по всем узлам в кластере. Подробные сведения см. в разделе [Использование Ambari](#using-ambari).
+> [!NOTE]
+> Рекомендуется использовать платформу Ambari для изменения сценариев и параметров mapred-site.xml, поскольку Ambari будет обрабатывать репликации изменений по всем узлам в кластере. Подробные сведения см. в разделе [Использование Ambari](#using-ambari).
+> 
+> 
 
-###<a name="enable-heap-dumps"></a>Включение дампов кучи
-
+### <a name="enable-heap-dumps"></a>Включение дампов кучи
 Следующий параметр включает дампы кучи при возникновении ошибки OutOfMemoryError:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
 Знак **+** означает, что этот параметр включен. По умолчанию — отключен.
 
-> [AZURE.WARNING] Дампы кучи для службы Hadoop в HDInsight не включены по умолчанию, поскольку файлы дампов могут быть очень большими. Включив их для устранения неполадок, не забудьте потом отключить, когда проблема будет воспроизведена и собраны файлы дампа.
+> [!WARNING]
+> Дампы кучи для службы Hadoop в HDInsight не включены по умолчанию, поскольку файлы дампов могут быть очень большими. Включив их для устранения неполадок, не забудьте потом отключить, когда проблема будет воспроизведена и собраны файлы дампа.
+> 
+> 
 
-###<a name="dump-location"></a>Расположение дампа
-
+### <a name="dump-location"></a>Расположение дампа
 По умолчанию файл дампа располагается в текущем рабочем каталоге. Место сохранения файла можно выбрать, используя следующий параметр:
 
     -XX:HeapDumpPath=/path
 
 Например, используя `-XX:HeapDumpPath=/tmp` , можно задать место для сохранения дампов в каталоге /tmp.
 
-###<a name="scripts"></a>Сценарии
-
+### <a name="scripts"></a>Сценарии
 Вы можете также запустить сценарий при возникновении ошибки **OutOfMemoryError** . Например, можно запустить уведомление, благодаря которому можно будет узнать, что произошла ошибка. Это определяется с помощью следующего параметра:
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE] Поскольку Hadoop является распределенной системой, каждый используемый сценарий необходимо помещать во все узлы кластера, на которых запущена служба.
->
+> [!NOTE]
+> Поскольку Hadoop является распределенной системой, каждый используемый сценарий необходимо помещать во все узлы кластера, на которых запущена служба.
+> 
 > Сценарий также должен быть в расположении, доступном из учетной записи, с использованием которой запущена служба, и необходимо предоставить разрешение на выполнение. Например, вы можете сохранить сценарии в `/usr/local/bin` и использовать `chmod go+rx /usr/local/bin/filename.sh` для предоставления прав на чтение и выполнение.
+> 
+> 
 
-##<a name="using-ambari"></a>Использование Ambari
-
+## <a name="using-ambari"></a>Использование Ambari
 Чтобы изменить конфигурацию службы, выполните следующие действия.
 
 1. Откройте веб-интерфейс Ambari для вашего кластера. URL-адрес будет таким: https://YOURCLUSTERNAME.azurehdinsight.net.
-
+   
     В ответ на запрос войдите на сайт с помощью учетной записи HTTP (по умолчанию — admin) и пароля для вашего кластера.
-
-    > [AZURE.NOTE] Может потребоваться еще раз ввести имя пользователя и пароль по запросу Ambari. В этом случае просто повторно введите имя учетной записи и пароль.
-
+   
+   > [!NOTE]
+   > Может потребоваться еще раз ввести имя пользователя и пароль по запросу Ambari. В этом случае просто повторно введите имя учетной записи и пароль.
+   > 
+   > 
 2. Используя список слева, выберите область службы, которую требуется изменить. Например, **HDFS**. В центральной области выберите вкладку **Конфигурации** .
-
+   
     ![Сеть Ambari с выбранной вкладкой конфигурации HDFS](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
-
 3. Используя запись **Фильтр...**, введите **параметры**. Список элементов конфигурации будет отфильтрован так, что будет содержать только те элементы, в которых есть этот текст. Это позволит быстро найти сценарий оболочки или **шаблон**, который можно использовать для задания параметров.
-
+   
     ![Фильтрованный список](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
-
 4. Найдите запись **\*\_OPTS** службы, для которой нужно включить дампы кучи, и добавьте параметры, которые требуется включить. На изображении ниже вы можете увидеть, что я добавил `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` в запись **HADOOP\_NAMENODE\_OPTS**:
-
+   
     ![HADOOP_NAMENODE_OPTS с -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
-
-    > [AZURE.NOTE] При включении дампов кучи для дочерних процессов сопоставления и уменьшения вы вместо этого будете искать поля **mapreduce.admin.map.child.java.opts** и **mapreduce.admin.reduce.child.java.opts**.
-
+   
+   > [!NOTE]
+   > При включении дампов кучи для дочерних процессов сопоставления и уменьшения вы вместо этого будете искать поля **mapreduce.admin.map.child.java.opts** и **mapreduce.admin.reduce.child.java.opts**.
+   > 
+   > 
+   
     Используйте кнопку **Сохранить** , чтобы сохранить изменения. Вы сможете ввести краткое примечание, описывающее изменения.
-
 5. После применения изменений появится значок **Требуется перезапуск** рядом с одной или несколькими службами.
-
+   
     ![Значок «Требуется перезапуск» и кнопка «Перезапуск»](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
-
 6. Выберите все службы, которые требуют перезагрузки, и используйте кнопку **Действия службы** для **включения режима обслуживания**. Это не позволит создавать предупреждения от этой службы при ее перезапуске.
-
+   
     ![Включение меню режима обслуживания](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
-
 7. После включения режима обслуживания используйте кнопку **Перезапуск** для службы, чтобы **перезапустить все затронутые записи**.
-
+   
     ![Перезапустить все затронутые записи](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
-
-    > [AZURE.NOTE] записи для кнопки **Перезапуск** могут быть другими для других служб.
-
+   
+   > [!NOTE]
+   > записи для кнопки **Перезапуск** могут быть другими для других служб.
+   > 
+   > 
 8. После перезапуска служб используйте кнопку **Действия службы** для **отключения режима обслуживания**. Эта Ambari для возобновления наблюдения за оповещениями для службы.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

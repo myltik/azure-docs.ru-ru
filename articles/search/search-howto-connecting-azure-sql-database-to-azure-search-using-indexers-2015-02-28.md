@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Подключение Базы данных SQL Azure к Поиску Azure с помощью индексаторов | Microsoft Azure | Индексаторы" 
-	description="Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов." 
-	services="search" 
-	documentationCenter="" 
-	authors="chaosrealm" 
-	manager="pablocas" 
-	editor=""/>
+---
+title: Подключение Базы данных SQL Azure к Поиску Azure с помощью индексаторов | Microsoft Docs
+description: Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов.
+services: search
+documentationcenter: ''
+author: chaosrealm
+manager: pablocas
+editor: ''
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="05/26/2016" 
-	ms.author="eugenesh"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 05/26/2016
+ms.author: eugenesh
 
-#Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
-
+---
+# Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов
 Служба Поиск Azure является размещенной облачной службой поиска, которая позволяет легче предоставляться расширенные возможности поиска. Перед началом поиска необходимо заполнить индекс Поиск Azure данными. Если данные находятся в базе данных SQL Azure, новая функция **индексатора службы "Поиск Azure" для Базы данных SQL Azure** (сокращенно **индексатор SQL Azure**) в службе "Поиск Azure" поможет автоматизировать индексирование. Это позволит сократить размер кода и объем инфраструктуры.
 
 На текущий момент индексаторы работают только с Базой данных SQL Azure, SQL Server на виртуальных машинах Azure и [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). В этой статье мы рассмотрим индексаторы, работающие с Базой данных SQL Azure. Если вам требуется поддержка для дополнительных источников данных, оставьте отзыв на [специальном форуме Поиска Azure](https://feedback.azure.com/forums/263029-azure-search/).
@@ -25,45 +24,42 @@
 В этой статье мы рассмотрим механизм использования индексаторов, а также подробно разберем функции и особенности, доступные только в базах данных SQL (например, интегрированное отслеживание изменений).
 
 ## Индексаторы и источники данных
-
 Чтобы установить и настроить индексатор Azure SQL, можно вызвать [API REST Поиска Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) для создания **индексаторов** и **источников данных** и управления ими.
 
 Кроме того, для создания и планирования индексатора вы можете использовать [класс Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) в [пакете .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) или мастера импорта данных на [портале Azure](https://portal.azure.com).
 
 **Источник данных** определяет, какие данные нужно индексировать, какие учетные данные требуются для доступа к данным и какие политики нужны, чтобы служба поиска Azure могла эффективно выявлять изменения в данных (новые, измененные или удаленные строки). Он определяется как независимый ресурс, который могут использовать несколько индексаторов.
 
-**Индексатор** — это ресурс, соединяющий источники данных с целевыми индексами поиска. Индексатор используется в следующих случаях.
- 
-- Для выполнения однократного копирования данных с целью заполнения индекса.
-- добавление в индекс изменений в источнике данных по расписанию;
-- запуск по требованию для обновления индекса при необходимости.
+**Индексатор** — это ресурс, соединяющий источники данных с целевыми индексами поиска. Индексатор используется в следующих случаях.
+
+* Для выполнения однократного копирования данных с целью заполнения индекса.
+* добавление в индекс изменений в источнике данных по расписанию;
+* запуск по требованию для обновления индекса при необходимости.
 
 ## Когда следует использовать индексатор Azure SQL
-
 Уместность использования индексатора Azure SQL зависит от нескольких факторов, связанных с данными. Если данные соответствуют следующим требованиям, вы можете использовать индексатор Azure SQL.
 
-- Все данные поступают из одной таблицы или представления
-	- Если данные разбиты на несколько таблиц, вы можете создать представление и использовать его с индексатором. Однако следует помнить, что при использовании представления вы не сможете использовать интегрированное отслеживание изменений SQL Server. Дополнительные сведения см. в этом разделе.
-- Индексатор поддерживает типы данных, используемые в источнике данных. Поддерживается большинство типов SQL. Дополнительные сведения см. в разделе [Сопоставление типов данных в Поиске Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
-- При изменении строки вам не нужны обновления индекса в псевдореальном времени.
-	- Индексатор может выполнять повторное индексирование таблицы не чаще, чем раз в 5 минут. Если изменения в данных происходят часто и их нужно отражать в индексе в пределах нескольких секунд или минут, мы рекомендуем использовать [API индекса Поиска Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx) напрямую.
-- Если вы располагаете большим набором данных и собираетесь запускать индексатор по расписанию, ваша схема позволяет нам эффективно выявлять измененные (и удаленные, если это необходимо) строки. Дополнительные сведения см. в разделе "Запись измененных и удаленных строк" ниже.
-- Размер индексированных полей в строке не превышает максимальный размер запроса на индексирование Поиска Azure, который составляет 16 МБ.
+* Все данные поступают из одной таблицы или представления
+  * Если данные разбиты на несколько таблиц, вы можете создать представление и использовать его с индексатором. Однако следует помнить, что при использовании представления вы не сможете использовать интегрированное отслеживание изменений SQL Server. Дополнительные сведения см. в этом разделе.
+* Индексатор поддерживает типы данных, используемые в источнике данных. Поддерживается большинство типов SQL. Дополнительные сведения см. в разделе [Сопоставление типов данных в Поиске Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
+* При изменении строки вам не нужны обновления индекса в псевдореальном времени.
+  * Индексатор может выполнять повторное индексирование таблицы не чаще, чем раз в 5 минут. Если изменения в данных происходят часто и их нужно отражать в индексе в пределах нескольких секунд или минут, мы рекомендуем использовать [API индекса Поиска Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx) напрямую.
+* Если вы располагаете большим набором данных и собираетесь запускать индексатор по расписанию, ваша схема позволяет нам эффективно выявлять измененные (и удаленные, если это необходимо) строки. Дополнительные сведения см. в разделе "Запись измененных и удаленных строк" ниже.
+* Размер индексированных полей в строке не превышает максимальный размер запроса на индексирование Поиска Azure, который составляет 16 МБ.
 
 ## Создание и использование индексатора Azure SQL
-
 Во-первых, создайте источник данных:
 
-	POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key
-	
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-	    "container" : { "name" : "name of the table or view that you want to index" }
-	}
+    POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key
+
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+        "container" : { "name" : "name of the table or view that you want to index" }
+    }
 
 
 Вы можете получить строку подключения на [классическом портале Azure](https://portal.azure.com). Используйте вариант `ADO.NET connection string`.
@@ -72,78 +68,77 @@
 
 Наконец, создайте индексатор, задав ему имя и связав источник данных с целевым индексом:
 
-	POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key
-	
-	{ 
-	    "name" : "myindexer",
-	    "dataSourceName" : "myazuresqldatasource",
-	    "targetIndexName" : "target index name"
-	}
+    POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key
+
+    { 
+        "name" : "myindexer",
+        "dataSourceName" : "myazuresqldatasource",
+        "targetIndexName" : "target index name"
+    }
 
 У индексатора, созданного таким образом, нет расписания. Он автоматически выполняется один раз сразу после создания. Вы можете снова выполнить его в любой момент с помощью запроса на **запуск индексатора**:
 
-	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
-	api-key: admin-key
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
+    api-key: admin-key
 
 Вы можете настроить несколько аспектов поведения индексатора, например размер пакета и сколько документов можно пропустить, прежде чем выполнение индексатора завершится с ошибкой. Дополнительные сведения см. в разделе о [создании API индексатора](https://msdn.microsoft.com/library/azure/dn946899.aspx).
- 
+
 Вам может потребоваться разрешить службам Azure подключаться к вашей базе данных. Инструкции по этой процедуре см. в разделе [Подключение из Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure).
 
-Для мониторинга состояния индексатора и журнала выполнения (количество проиндексированных элементов, ошибки и т. д.) используйте запрос на получение **состояния индексатора**:
+Для мониторинга состояния индексатора и журнала выполнения (количество проиндексированных элементов, ошибки и т. д.) используйте запрос на получение **состояния индексатора**:
 
-	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
-	api-key: admin-key
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
+    api-key: admin-key
 
 Ответ должен выглядеть так:
 
-	{
-		"@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
-		"status":"running",
-		"lastResult": {
-			"status":"success",
-			"errorMessage":null,
-			"startTime":"2015-02-21T00:23:24.957Z",
-			"endTime":"2015-02-21T00:36:47.752Z",
-			"errors":[],
-			"itemsProcessed":1599501,
-			"itemsFailed":0,
-			"initialTrackingState":null,
-			"finalTrackingState":null 
+    {
+        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2015-02-21T00:23:24.957Z",
+            "endTime":"2015-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null 
         },
-		"executionHistory":
-		[
-			{
-				"status":"success",
-				"errorMessage":null,
-				"startTime":"2015-02-21T00:23:24.957Z",
-				"endTime":"2015-02-21T00:36:47.752Z",
-				"errors":[],
-				"itemsProcessed":1599501,
-				"itemsFailed":0,
-				"initialTrackingState":null,
-				"finalTrackingState":null 
-			},
-			... earlier history items 
-		]
-	}
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2015-02-21T00:23:24.957Z",
+                "endTime":"2015-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null 
+            },
+            ... earlier history items 
+        ]
+    }
 
 Журнал выполнения включает до 50 записей о недавно завершенных запусках, которые сортируются в обратном хронологическом порядке (то есть в ответе первым отображается последний запуск). Дополнительные сведения об ответе см. в разделе [Получение состояния индексатора](http://go.microsoft.com/fwlink/p/?LinkId=528198).
 
 ## Запуск индексаторов по расписанию
-
 Вы также можете организовать запуск индикатора по расписанию. Для этого добавьте свойство **schedule** при создании или обновлении индексатора. В примере ниже показан PUT- запрос для обновления индексатора:
 
-	PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key 
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key 
 
-	{ 
-	    "dataSourceName" : "myazuresqldatasource",
-	    "targetIndexName" : "target index name",
-	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
-	}
+    { 
+        "dataSourceName" : "myazuresqldatasource",
+        "targetIndexName" : "target index name",
+        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+    }
 
 Параметр **interval** обязателен. Он указывает время между двумя последовательными запусками индексатора. Наименьшее допустимое значение — 5 минут, наибольшее — один день. Значение должно быть отформатировано как значение dayTimeDuration XSD (ограниченное подмножество значения [продолжительности ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Используется следующий шаблон: `P(nD)(T(nH)(nM))`. Примеры: `PT15M` для каждых 15 минут, `PT2H` для каждых 2 часов.
 
@@ -153,108 +148,102 @@
 
 Для большей ясности рассмотрим пример. Предположим, мы настроили следующее почасовое расписание:
 
-	"schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
+    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
 
 Происходит следующее:
 
 1. Первый запуск индексатора выполняется 1 марта 2015 года ровно или приблизительно в 00:00. Время в формате UTC.
-1. Предположим, выполнение займет 20 минут (или иное количество времени в пределах часа).
-1. Второй запуск выполняется 1 марта 2015 года ровно или приблизительно в 01:00.
-1. Теперь предположим, что выполнение занимает больше часа (хотя подобная ситуация возможна лишь при огромном количестве документов, она полезна в качестве примера), например 70 минут. Тогда оно завершится примерно в 02:10.
-1. На часах 02:00 — время для выполнения третьего запуска. Но так как второе выполнение, начавшееся в 01:00, все еще не завершилось, третий запуск пропускается. Третье выполнение начинается в 03:00.
+2. Предположим, выполнение займет 20 минут (или иное количество времени в пределах часа).
+3. Второй запуск выполняется 1 марта 2015 года ровно или приблизительно в 01:00.
+4. Теперь предположим, что выполнение занимает больше часа (хотя подобная ситуация возможна лишь при огромном количестве документов, она полезна в качестве примера), например 70 минут. Тогда оно завершится примерно в 02:10.
+5. На часах 02:00 — время для выполнения третьего запуска. Но так как второе выполнение, начавшееся в 01:00, все еще не завершилось, третий запуск пропускается. Третье выполнение начинается в 03:00.
 
 Вы можете добавить, изменить или удалить расписание для существующего индексатора с помощью **PUT-запроса для индексатора**.
 
 ## Запись новых, измененных и удаленных строк
-
 Если вы используете расписание, а таблица содержит значительное число строк, вам следует использовать политику обнаружения изменений данных, чтобы индексатор мог эффективно извлекать только новые или измененные строки без необходимости повторно индексировать всю таблицу.
 
 ### Интегрированная политика отслеживания изменений SQL
-
 Если база данных SQL поддерживает [отслеживание изменений](https://msdn.microsoft.com/library/bb933875.aspx), мы рекомендуем использовать **интегрированную политику отслеживания изменений SQL**. Эта политика обеспечивает наиболее эффективное отслеживание изменений, а также позволяет Поиску Azure выявлять удаленные строки без необходимости добавлять в таблицу отдельный столбец с данными об обратимом удалении.
 
 Интегрированное отслеживание изменений поддерживается, начиная со следующих версий баз данных SQL Server:
- 
-- SQL Server 2008 R2 и более поздних версий, если вы используете SQL Server на виртуальных машинах Azure.
-- База данных SQL Azure 12, если вы используете базу данных SQL Azure.
+
+* SQL Server 2008 R2 и более поздних версий, если вы используете SQL Server на виртуальных машинах Azure.
+* База данных SQL Azure 12, если вы используете базу данных SQL Azure.
 
 При использовании интегрированной политики отслеживания изменений SQL не указывайте отдельную политику обнаружения удаления данных, так как она уже поддерживает выявление удаленных строк.
 
 Эту политику можно использовать только с таблицами. С представлениями ее использовать невозможно. Перед использованием этой политики вам потребуется включить отслеживание изменений для используемой таблицы. Инструкции см. в разделе [Включение и отключение отслеживания изменений](https://msdn.microsoft.com/library/bb964713.aspx).
 
 Чтобы использовать эту политику, создайте или обновите источник данных следующим образом:
- 
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "connection string" },
-	    "container" : { "name" : "table or view name" }, 
-	    "dataChangeDetectionPolicy" : {
-	       "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
-	  }
-	}
+
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "connection string" },
+        "container" : { "name" : "table or view name" }, 
+        "dataChangeDetectionPolicy" : {
+           "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
+      }
+    }
 
 ### Политика обнаружения изменений максимального уровня
-
 Хотя рекомендуется использовать интегрированную политику отслеживания изменений SQL, вы не сможете использовать ее, если данные находятся в представлении, а также если вы используете более старую версию базы данных SQL Azure. В таком случае вы можете использовать политику максимального уровня. Эту политику можно использовать, если ваша таблица содержит столбец, соответствующий следующим параметрам:
 
-- при каждой вставке указывается значение для столбца;
-- при всех обновлениях элементов также изменяется значение столбца;
-- значение этого столбца растет с каждым изменением;
-- запросы, использующие предложение `WHERE`, аналогичное `WHERE [High Water Mark Column] > [Current High Water Mark Value]`, могут выполняться эффективно.
+* при каждой вставке указывается значение для столбца;
+* при всех обновлениях элементов также изменяется значение столбца;
+* значение этого столбца растет с каждым изменением;
+* запросы, использующие предложение `WHERE`, аналогичное `WHERE [High Water Mark Column] > [Current High Water Mark Value]`, могут выполняться эффективно.
 
 Например, индексированный столбец **rowversion** идеально подходит на роль столбца максимального уровня. Чтобы использовать эту политику, создайте или обновите источник данных следующим образом:
 
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "connection string" },
-	    "container" : { "name" : "table or view name" }, 
-	    "dataChangeDetectionPolicy" : {
-	       "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-	       "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
-	  }
-	}
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "connection string" },
+        "container" : { "name" : "table or view name" }, 
+        "dataChangeDetectionPolicy" : {
+           "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+           "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
+      }
+    }
 
 ### Политика обнаружения обратимого удаления столбца
-
 Строки, удаляемые из исходной таблицы, вероятно, также следует удалить из индекса поиска. Если вы используете интегрированную политику отслеживания изменений SQL, это происходит автоматически. Однако политика отслеживания изменений максимального уровня не затрагивает удаленные строки. Что делать?
 
 Если строки физически удаляются из таблицы, то ничего не поделаешь: определить присутствие уже несуществующих записей невозможно. Однако вы можете использовать технику "обратимого удаления", чтобы помечать строки как логически удаленные, не удаляя их из таблицы. Для этого необходимо добавить столбец и пометить строки как удаленные с помощью значения метки в этом столбце.
 
 При использовании метода обратимого удаления можно указать соответствующую политику во время создания или обновления источника данных:
 
-	{ 
-	    …, 
-	    "dataDeletionDetectionPolicy" : { 
-	       "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-	       "softDeleteColumnName" : "[a column name]", 
-	       "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
-	    }
-	}
+    { 
+        …, 
+        "dataDeletionDetectionPolicy" : { 
+           "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+           "softDeleteColumnName" : "[a column name]", 
+           "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
+        }
+    }
 
 Обратите внимание, что параметр **softDeleteMarkerValue** должен быть строкой. Используйте строковое представление действительного значения. Например, если вы работаете с целочисленным столбцом, в котором удаленные строки помечены значением 1, используйте `"1"`; если вы работаете со столбцом BIT, в котором удаленные строки помечены логическим значением true, используйте `"True"`.
 
 <a name="TypeMapping"></a>
+
 ## Сопоставление типов данных SQL и поиска Azure
-
-|Тип данных SQL | Совместимые типы полей целевого индекса |Примечания 
-|------|-----|----|
-|bit|Edm.Boolean, Edm.String| |
-|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
-| bigint | Edm.Int64, Edm.String | |
+| Тип данных SQL | Совместимые типы полей целевого индекса | Примечания |
+| --- | --- | --- |
+| bit |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric | Edm.String| Поиск Azure не поддерживает преобразование десятичных типов в Edm.Double, так как это отрицательно скажется на точности. |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Для преобразования строкового столбца в Collection(Edm.String) требуется API предварительной версии 2015-02-28-Preview. Подробные сведения можно найти в [этом разделе](search-api-indexers-2015-02-28-Preview.md#create-indexer).| 
-|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
-|uniqueidentifer | Edm.String | |
-|geography | Edm.GeographyPoint | Поддерживаются только географические объекты типа POINT с SRID 4326 (значение по умолчанию). | | 
-|rowversion| Недоступно |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. | |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types | Недоступно |Не поддерживается |
-
+| smallmoney, money decimal numeric |Edm.String |Поиск Azure не поддерживает преобразование десятичных типов в Edm.Double, так как это отрицательно скажется на точности. |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Для преобразования строкового столбца в Collection(Edm.String) требуется API предварительной версии 2015-02-28-Preview. Подробные сведения можно найти в [этом разделе](search-api-indexers-2015-02-28-Preview.md#create-indexer). |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
+| uniqueidentifer |Edm.String | |
+| geography |Edm.GeographyPoint |Поддерживаются только географические объекты типа POINT с SRID 4326 (значение по умолчанию). |
+| rowversion |Недоступно |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Недоступно |Не поддерживается |
 
 ## Часто задаваемые вопросы
-
 **Вопрос.** Можно ли использовать индексатор Azure SQL с базами данных SQL на виртуальных машинах IaaS в Azure?
 
 Ответ. Да. Тем не менее необходимо разрешить службе поиска подключаться к базе данных, выполнив следующие два действия. Дополнительные сведения см. в статье [Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).

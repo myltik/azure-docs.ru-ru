@@ -1,31 +1,34 @@
-<properties
-	pageTitle="Доменные службы Azure Active Directory: руководство по администрированию | Microsoft Azure"
-	description="Присоедините виртуальную машину Windows к управляемому домену, используя Azure PowerShell и классическую модель развертывания."
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+---
+title: 'Доменные службы Azure Active Directory: руководство по администрированию | Microsoft Docs'
+description: Присоедините виртуальную машину Windows к управляемому домену, используя Azure PowerShell и классическую модель развертывания.
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: maheshu
 
-
+---
 # Присоединение виртуальной машины Windows Server к управляемому домену с помощью PowerShell
-
-> [AZURE.SELECTOR]
-- [Классический портал Azure — Windows](active-directory-ds-admin-guide-join-windows-vm.md)
-- [PowerShell — Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+> [!div class="op_single_selector"]
+> * [Классический портал Azure — Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+> * [PowerShell — Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+> 
+> 
 
 <br>
 
-> [AZURE.IMPORTANT] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Сейчас доменные службы Azure AD не поддерживают модель Resource Manager.
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Сейчас доменные службы Azure AD не поддерживают модель Resource Manager.
+> 
+> 
 
 Ниже показано, как настроить набор команд Azure PowerShell для создания и предварительной настройки виртуальной машины Azure под управлением Windows, используя подход на базе стандартных блоков. Приведенные ниже шаги помогут создать виртуальную машину Azure под управлением Windows и присоединить ее к управляемому домену доменных служб Azure AD.
 
@@ -34,23 +37,20 @@
 Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](../powershell-install-configure.md), чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
 
 ## Шаг 1. Добавление учетной записи
-
 1. В командной строке PowerShell введите **Add-AzureAccount** и нажмите клавишу **ВВОД**.
 2. Введите адрес электронной почты, связанный с подпиской Azure, и нажмите кнопку **Продолжить**.
 3. Введите пароль к учетной записи.
 4. Щелкните **Войти**.
 
 ## Шаг 2. Выбор подписки и учетной записи хранения
-
 Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Windows PowerShell. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
 
-	$subscr="<subscription name>"
-	$staccount="<storage account name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    $subscr="<subscription name>"
+    $staccount="<storage account name>"
+    Select-AzureSubscription -SubscriptionName $subscr –Current
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription**. Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** после выполнения команды **Select-AzureSubscription**.
-
 
 ## Шаг 3. Пошаговое руководство — подготовка виртуальной машины и ее присоединение к управляемому домену
 Вот соответствующий набор команд Azure PowerShell для создания такой виртуальной машины, в котором для удобства чтения между блоками вставлены пустые строки.
@@ -113,11 +113,11 @@
 ## Сценарий для подготовки виртуальной машины Windows и ее автоматического присоединения к управляемому домену доменных служб AAD
 Этот набор команд PowerShell создает виртуальную машину для бизнес-сервера со следующими свойствами:
 
-- использует образ Windows Server 2012 R2 Datacenter;
-- имеет размер "очень малая";
-- имеет имя "contoso-test";
-- является автоматически присоединяемой к управляемому домену contoso100;
-- добавляется в ту же виртуальную сеть, что и управляемый домен.
+* использует образ Windows Server 2012 R2 Datacenter;
+* имеет размер "очень малая";
+* имеет имя "contoso-test";
+* является автоматически присоединяемой к управляемому домену contoso100;
+* добавляется в ту же виртуальную сеть, что и управляемый домен.
 
 Ниже приведен полный пример сценария для создания виртуальной машины Windows и ее автоматического присоединения к управляемому домену доменных служб Azure AD.
 
@@ -150,8 +150,7 @@
 <br>
 
 ## Похожий контент
-- [Доменные службы Azure AD (предварительная версия) — приступая к работе](./active-directory-ds-getting-started.md)
-
-- [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](./active-directory-ds-admin-guide-administer-domain.md)
+* [Доменные службы Azure AD (предварительная версия) — приступая к работе](active-directory-ds-getting-started.md)
+* [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
 <!---HONumber=AcomDC_0921_2016-->

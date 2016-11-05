@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Получение уведомлений об оповещениях для служб Azure | Microsoft Azure"
-	description="Получайте уведомления, когда выполняются условия правил оповещений."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Получение уведомлений об оповещениях для служб Azure | Microsoft Docs
+description: Получайте уведомления, когда выполняются условия правил оповещений.
+author: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="robb"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2015
+ms.author: robb
 
+---
 # Получение уведомлений об оповещениях
-
 Вы можете получать оповещения на основе отслеживания метрик или событий в службах Azure.
 
 Когда в правиле оповещений о значении метрики указанное значение достигает установленного порога, правило оповещения срабатывает и может отправить уведомление. В правиле оповещений о событиях правило может отправлять уведомления о *каждом* событии или только тогда, когда происходит определенное число событий.
@@ -27,41 +26,31 @@
 Чтобы настроить правила оповещений и получать сведения о них программным образом, используйте [REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) или [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## Создание правила оповещения
-
 1. На [портале](https://portal.azure.com/) щелкните **Обзор**, а затем выберите ресурс для отслеживания.
-
 2. В области **Операции** щелкните плитку **Правила оповещения**.
-
 3. Выберите команду **Добавить оповещение**.
-
-	![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
-
+   
+    ![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 4. Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
-
 5. Если вы выбрали раздел **Метрики** нужно задать условия и пороговое значение для метрики. Это период времени, который Azure использует для отслеживания и построения графика активности оповещения.
-
-	![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
-
+   
+    ![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 6. Вы также можете выбрать **События** и получать уведомление, когда происходит определенное событие.
-
-	![События](./media/insights-receive-alert-notifications/Insights_Events.png)
-
+   
+    ![События](./media/insights-receive-alert-notifications/Insights_Events.png)
 7. Наконец, можно отправить уведомление по электронной почте ответственным администраторам.
 
 Через несколько минут после нажатия кнопки **Save** (Сохранить) вы начнете получать оповещения в случае превышения порогового значения.
 
 ## Управление правилами оповещений
-
 После создания правила оповещения на графике будет показан порог оповещения в сравнении со значением метрики за предыдущий день.
 
 ![События](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
-
 Конечно, это правило оповещения можно изменить и **Отключить**, а затем **Включить** его снова, если нужно временно прекратить получение соответствующих уведомлений.
 
 ## Дальнейшие действия
-
-* [Настройте веб-перехватчики для оповещений](insights-webhooks-alerts.md) для маршрутизации уведомлений в различные каналы.
+* [Настройте веб-перехватчики для оповещений](../monitoring-and-diagnostics/insights-webhooks-alerts.md) для маршрутизации уведомлений в различные каналы.
 * [Отслеживайте метрики службы](insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md), чтобы собирать подробные метрики о службе с высокой частотой.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.

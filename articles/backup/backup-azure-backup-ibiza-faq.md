@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Хранилище служб восстановления — вопросы и ответы | Microsoft Azure"
-   description="Этот раздел часто задаваемых вопросов посвящен общедоступному предварительному выпуску службы архивации Azure. Ответы на часто задаваемые вопросы об агенте службы архивации Azure, резервном копировании и периоде удержания, восстановлении, безопасности и на другие распространенные вопросы о службе архивации Azure."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="решение для архивации; служба архивации"/>
+---
+title: Хранилище служб восстановления — вопросы и ответы | Microsoft Docs
+description: Этот раздел часто задаваемых вопросов посвящен общедоступному предварительному выпуску службы архивации Azure. Ответы на часто задаваемые вопросы об агенте службы архивации Azure, резервном копировании и периоде удержания, восстановлении, безопасности и на другие распространенные вопросы о службе архивации Azure.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: решение для архивации; служба архивации
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # Хранилище служб восстановления — вопросы и ответы
-
-> [AZURE.SELECTOR]
-- [Вопросы и ответы: резервное копирование в классической модели](backup-azure-backup-faq.md)
-- [Вопросы и ответы: резервное копирование в модели Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Вопросы и ответы: резервное копирование в классической модели](backup-azure-backup-faq.md)
+> * [Вопросы и ответы: резервное копирование в модели Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 В этой статье описывается хранилище служб восстановления. Она дополняет статью [Служба архивации Azure: часто задаваемые вопросы](backup-azure-backup-faq.md), содержащую полный набор вопросов и ответов о службе архивации Azure.
 

@@ -1,10 +1,9 @@
-##Набор средств Azure для Eclipse
-
+## Набор средств Azure для Eclipse
 Предварительные требования:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008 или Windows Server 2012.
 2. Операционные системы Macintosh или Linux, перечисленные в статье [Новые возможности набора средств Azure для Eclipse].
-2. Eclipse Indigo или более поздняя версия.
+3. Eclipse Indigo или более поздняя версия.
 
 Действия по установке:
 

@@ -1,122 +1,118 @@
-<properties
-   pageTitle="Обновление устройства StorSimple | Microsoft Azure"
-   description="Описаны способы использования функции обновления StorSimple для установки обычных обновлений и исправлений и в режиме обслуживания."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carmonm"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/28/2016"
-   ms.author="v-sharos" />
+---
+title: Обновление устройства StorSimple | Microsoft Docs
+description: Описаны способы использования функции обновления StorSimple для установки обычных обновлений и исправлений и в режиме обслуживания.
+services: storsimple
+documentationcenter: NA
+author: SharS
+manager: carmonm
+editor: ''
 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 06/28/2016
+ms.author: v-sharos
+
+---
 # Обновление устройства StorSimple серии 8000
-
 ## Обзор
-
 Функции обновления StorSimple позволяют легко поддерживать устройство StorSimple в актуальном состоянии. В зависимости от типа обновлений можно применить обновления к устройству с помощью классического портала Azure или интерфейса Windows PowerShell. В этом учебнике описываются типы обновлений и способы установки каждого из них.
 
 Можно применить два вида обновлений устройств:
 
-- Обычные обновления.
-- Обновления режима обслуживания.
+* Обычные обновления.
+* Обновления режима обслуживания.
 
 Обычные обновления можно установить с помощью классического портала Azure или Windows PowerShell. Однако для установки обновлений режима обслуживания необходимо использовать именно Windows PowerShell.
 
 Каждый тип обновления будет описан отдельно ниже.
 
 ### Обычные обновления
-
 Обычные обновления не нарушают рабочие процессы и их можно установить, когда устройство находится в обычном режиме. Эти обновления применяются через веб-сайт Центра обновления Майкрософт для каждого контроллера устройства.
 
-> [AZURE.IMPORTANT] Во время обновления может произойти отработка отказа контроллера. Однако это не повлияет на доступность системы или операции.
+> [!IMPORTANT]
+> Во время обновления может произойти отработка отказа контроллера. Однако это не повлияет на доступность системы или операции.
+> 
+> 
 
-- Дополнительные сведения об установке обычных обновлений с помощью классического портала Azure см. в разделе [Установка обычных обновлений через классический портал Azure(#install-regular-updates-via-the-azure-classic-portal).
-
-- Обычные обновления можно также установить через Windows PowerShell для StorSimple. Дополнительные сведения см. в статье [Установка обычных обновлений через Windows PowerShell для StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
+* Дополнительные сведения об установке обычных обновлений с помощью классического портала Azure см. в разделе [Установка обычных обновлений через классический портал Azure(#install-regular-updates-via-the-azure-classic-portal).
+* Обычные обновления можно также установить через Windows PowerShell для StorSimple. Дополнительные сведения см. в статье [Установка обычных обновлений через Windows PowerShell для StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### Обновления режима обслуживания.
-
 Обновления режима обслуживания прерывают работу. К ним относятся, например, обновления встроенного ПО дисков. Для этих обновлений необходимо перевести устройство в режим обслуживания. Дополнительную информацию см. в разделе [Шаг 2. Вход в режим обслуживания](#step2). Нельзя использовать классический портал Azure для установки обновлений режима обслуживания. Вместо этого необходимо использовать Windows PowerShell для StorSimple.
 
 Дополнительные сведения о том, как установить обновления режима обслуживания, см. в статье [Установка обновлений режима обслуживания через Windows PowerShell для StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-> [AZURE.IMPORTANT] Обновления режима обслуживания необходимо применять отдельно для каждого контроллера.
+> [!IMPORTANT]
+> Обновления режима обслуживания необходимо применять отдельно для каждого контроллера.
+> 
+> 
 
 ## Установка обычных обновлений через классический портал Azure
-
 Обновления для устройства StorSimple можно применять с помощью классического портала Azure.
 
-[AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
+[!INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## Установка обычных обновлений через Windows PowerShell для StorSimple
-
 Кроме того, можно использовать Windows PowerShell для StorSimple для применения обычных обновлений.
 
-> [AZURE.IMPORTANT] Вы можете устанавливать обычные обновления с помощью Windows PowerShell для StorSimple, но мы настоятельно рекомендуем устанавливать их через классический портал Azure. Начиная с обновления 1 перед установкой обновлений с портала будут выполняться предварительные проверки. Эти предварительные проверки устраняют сбои и обеспечивают более стабильную работу.
+> [!IMPORTANT]
+> Вы можете устанавливать обычные обновления с помощью Windows PowerShell для StorSimple, но мы настоятельно рекомендуем устанавливать их через классический портал Azure. Начиная с обновления 1 перед установкой обновлений с портала будут выполняться предварительные проверки. Эти предварительные проверки устраняют сбои и обеспечивают более стабильную работу.
+> 
+> 
 
-[AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
+[!INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## Установка обновлений режима обслуживания через Windows PowerShell для StorSimple
-
 Windows PowerShell для StorSimple используется, чтобы применять обновления режима обслуживания к устройству StorSimple. В этом режиме приостанавливаются все запросы ввода-вывода. Также останавливаются некоторые другие службы, например энергонезависимое ОЗУ (NVRAM) или служба кластеров. Оба контроллера перезагружаются при входе и выходе из этого режима. При выходе из этого режима все службы будут возобновлена и должны быть исправны. Это может занять несколько минут.
 
 Если необходимо применить обновления режима обслуживания, на классическом портале Azure вы получите оповещение о наличии обновлений, которые должны быть установлены. Это оповещение будет содержать инструкции по использованию Windows PowerShell для StorSimple для установки обновлений. После обновления устройства выполните ту же процедуру для переключения устройства в обычный режим. Пошаговые инструкции см. в разделе [Шаг 4. Выход из режима обслуживания](#step4).
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT]
+> * Перед переключением в режим обслуживания убедитесь, что оба контроллера устройства работоспособны, проверив **состояние оборудования** на странице **Обслуживание** классического портала Azure. Если контроллер неработоспособен, обратитесь в службу поддержки Майкрософт для получения дальнейших указаний. Для получения дополнительных сведений обратитесь в службу поддержки Майкрософт.
+> * В режиме обслуживания необходимо сначала установить обновление на одном контроллере, а затем на другом.
 > 
-> - Перед переключением в режим обслуживания убедитесь, что оба контроллера устройства работоспособны, проверив **состояние оборудования** на странице **Обслуживание** классического портала Azure. Если контроллер неработоспособен, обратитесь в службу поддержки Майкрософт для получения дальнейших указаний. Для получения дополнительных сведений обратитесь в службу поддержки Майкрософт.
-> - В режиме обслуживания необходимо сначала установить обновление на одном контроллере, а затем на другом.
+> 
 
 ### Шаг 1. Подключение к последовательной консоли <a name="step1">
-
 Сначала используйте приложение, например PuTTY, для доступа к последовательной консоли. В следующей процедуре объясняется, как использовать PuTTY для подключения к последовательной консоли.
 
-[AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
+[!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
 ### Шаг 2. Вход в режим обслуживания <a name="step2">
-
 После подключения к консоли проверьте наличие обновлений для установки и перейдите в режим обслуживания, чтобы установить их.
 
-[AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
+[!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
 ### Шаг 3. Установка обновлений <a name="step3">
-
 Затем установите обновления.
 
-[AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
- 
-### Шаг 4. Выход из режима обслуживания <a name="step4">
+[!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
+### Шаг 4. Выход из режима обслуживания <a name="step4">
 В конце выйдите из режима обслуживания.
 
-[AZURE.INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]
+[!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]
 
 ## Установка исправлений через Windows PowerShell или StorSimple
-
 В отличие от обновлений для Microsoft Azure StorSimple, исправления устанавливаются из общей папки. Как и в случае обновлений, существует два вида исправлений:
 
-- Обычные исправления.
-- Исправления режима обслуживания.
+* Обычные исправления.
+* Исправления режима обслуживания.
 
 В следующих процедурах описывается способ использования Windows PowerShell для StorSimple для установки обычных исправлений и исправлений режима обслуживания.
 
-[AZURE.INCLUDE [storsimple-install-regular-hotfixes](../../includes/storsimple-install-regular-hotfixes.md)]
+[!INCLUDE [storsimple-install-regular-hotfixes](../../includes/storsimple-install-regular-hotfixes.md)]
 
-[AZURE.INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
+[!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## Что происходит с обновлениями при выполнении сброса параметров к значениям по умолчанию?
-
 Если для устройства выполнить сброс параметров к значениям по умолчанию, все обновления будут потеряны. После того как устройство, для которого выполнен сброс параметров, будет зарегистрировано и настроено, необходимо будет вручную установить обновления с помощью классического портала Azure или Windows PowerShell для StorSimple. Дополнительные сведения о сбросе параметров см. в статье [Сброс параметров устройства к значениям по умолчанию](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## Дальнейшие действия
-
-- Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
-- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+* Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
+* Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
 <!---HONumber=AcomDC_0629_2016-->

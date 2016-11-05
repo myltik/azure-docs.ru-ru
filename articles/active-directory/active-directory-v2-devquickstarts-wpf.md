@@ -1,35 +1,36 @@
-<properties
-pageTitle="Собственное приложение .NET версии 2.0 для Azure Active Directory | Microsoft Azure"
-description="Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей."
-services="active-directory"
-documentationCenter=""
-authors="dstrockis"
-manager="mbaldwin"
-editor=""/>
+---
+title: Собственное приложение .NET версии 2.0 для Azure Active Directory | Microsoft Docs
+description: Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.workload="identity"
-ms.tgt_pltfrm="na"
-ms.devlang="dotnet"
-ms.topic="article"
-ms.date="07/30/2016"
-ms.author="dastrock; vittorib"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/30/2016
+ms.author: dastrock; vittorib
 
+---
 # Добавление функции входа в классическое приложение для Windows
-
 Точка доступа версии 2.0 позволяет быстро реализовать в классических приложениях аутентификацию с поддержкой личных учетных записей Майкрософт, а также рабочих или учебных учетных записей. Она также позволяет приложению безопасно обмениваться данными с серверным веб-API, а также [Microsoft Graph](https://graph.microsoft.io) и несколькими [унифицированными API Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE] Не все сценарии и компоненты Azure Active Directory (AD) поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> Не все сценарии и компоненты Azure Active Directory (AD) поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 Для [собственных приложений .NET, запущенных на устройстве](active-directory-v2-flows.md#mobile-and-native-apps), в Azure AD предлагается использовать библиотеку проверки подлинности Майкрософт (MSAL). MSAL помогает приложению быстро получать маркеры доступа и вызывать веб-службы. Чтобы показать, насколько это просто, создадим приложение To Do List (ведение списка дел) для .NET WPF, которое:
 
-- выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
-- безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
-- обеспечивает выход пользователя из приложения.
+* выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
+* безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
+* обеспечивает выход пользователя из приложения.
 
 ## Скачивание примера кода
-
 Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) или клонировать ее:
 
     git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
@@ -39,41 +40,42 @@ ms.author="dastrock; vittorib"/>
 ## регистрация приложения;
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
-- запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
+* запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
+* Добавьте для приложения **мобильную** платформу.
 
 ## Установка и настройка MSAL
 Ваше приложение зарегистрировано в Майкрософт. Теперь вы можете установить MSAL и написать собственный код для работы с удостоверением. Чтобы библиотека MSAL могла обмениваться информацией с конечной точкой версии 2.0, вам нужно предоставить определенную информацию о регистрации приложения.
 
--	Сначала добавьте MSAL в проект TodoListClient с помощью консоли диспетчера пакетов.
+* Сначала добавьте MSAL в проект TodoListClient с помощью консоли диспетчера пакетов.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -IncludePrerelease
 ```
 
--	В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке MSAL.
-    -	`ida:ClientId` — это **идентификатор приложения**, скопированный с портала.
-
-- В проекте TodoList-Service откройте `web.config` в корневой папке проекта.
-    - Замените значение `ida:Audience` на **идентификатор приложения** с портала.
+* В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке MSAL.
+  
+  * `ida:ClientId` — это **идентификатор приложения**, скопированный с портала.
+* В проекте TodoList-Service откройте `web.config` в корневой папке проекта.
+  
+  * Замените значение `ida:Audience` на **идентификатор приложения** с портала.
 
 ## Использование MSAL для получения маркеров
 MSAL используется следующим образом. Каждый раз, когда приложению требуется маркер доступа, оно будет просто вызывать `app.AcquireToken(...)`, а MSAL сделает все остальное.
 
--	В проекте `TodoListClient` откройте `MainWindow.xaml.cs` и найдите метод `OnInitialized(...)`. Первый шаг — инициализация в приложении `PublicClientApplication`, основного класса MSAL, представляющего собственные приложения. На этом этапе вы отправляете в MSAL координаты, необходимые для взаимодействия с Azure AD, а также сообщаете о способе кэширования маркеров.
+* В проекте `TodoListClient` откройте `MainWindow.xaml.cs` и найдите метод `OnInitialized(...)`. Первый шаг — инициализация в приложении `PublicClientApplication`, основного класса MSAL, представляющего собственные приложения. На этом этапе вы отправляете в MSAL координаты, необходимые для взаимодействия с Azure AD, а также сообщаете о способе кэширования маркеров.
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
 {
-		base.OnInitialized(e);
+        base.OnInitialized(e);
 
-		app = new PublicClientApplication(new FileCache());
-		AuthenticationResult result = null;
-		...
+        app = new PublicClientApplication(new FileCache());
+        AuthenticationResult result = null;
+        ...
 }
 ```
 
-- После запуска приложения необходимо проверить, выполнил ли пользователь вход в приложение. Однако пока нет необходимости вызывать пользовательский интерфейс входа: пользователь должен нажать кнопку "Вход". Также в методе `OnInitialized(...)`:
+* После запуска приложения необходимо проверить, выполнил ли пользователь вход в приложение. Однако пока нет необходимости вызывать пользовательский интерфейс входа: пользователь должен нажать кнопку "Вход". Также в методе `OnInitialized(...)`:
 
 ```C#
 // As the app starts, we want to check to see if the user is already signed in.
@@ -85,7 +87,7 @@ try
     result = await app.AcquireTokenSilentAsync(new string[] { clientId });
     // If we got here, a valid token is in the cache - or MSAL was able to get a new oen via refresh token.
     // Proceed to fetch the user's tasks from the TodoListService via the GetTodoList() method.
-    
+
     SignInButton.Content = "Clear Cache";
     GetTodoList();
 }
@@ -110,12 +112,12 @@ catch (MsalException ex)
 
 ```
 
-- Если пользователь не выполнил вход и нажал кнопку "Вход", необходимо вызвать пользовательский интерфейс входа и запросить ввод учетных данных. Реализуйте обработчик кнопки "Вход".
+* Если пользователь не выполнил вход и нажал кнопку "Вход", необходимо вызвать пользовательский интерфейс входа и запросить ввод учетных данных. Реализуйте обработчик кнопки "Вход".
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-		// TODO: Sign the user out if they clicked the "Clear Cache" button
+        // TODO: Sign the user out if they clicked the "Clear Cache" button
 
 // If the user clicked the 'Sign-In' button, force
 // MSAL to prompt the user for credentials by using
@@ -158,7 +160,7 @@ catch (MsalException ex)
 }
 ```
 
-- Если пользователь успешно выполняет вход, MSAL получает и кэширует маркер, а вы можете вызвать метод `GetTodoList()`. Осталось получить задачи пользователя — реализовать метод `GetTodoList()`.
+* Если пользователь успешно выполняет вход, MSAL получает и кэширует маркер, а вы можете вызвать метод `GetTodoList()`. Осталось получить задачи пользователя — реализовать метод `GetTodoList()`.
 
 ```C#
 private async void GetTodoList()
@@ -206,7 +208,7 @@ catch (MsalException ex)
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
 
-		...
+        ...
 ...
 
 
@@ -215,26 +217,25 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-		// If the user clicked the 'clear cache' button,
-		// clear the MSAL token cache and show the user as signed out.
-		// It's also necessary to clear the cookies from the browser
-		// control so the next user has a chance to sign in.
+        // If the user clicked the 'clear cache' button,
+        // clear the MSAL token cache and show the user as signed out.
+        // It's also necessary to clear the cookies from the browser
+        // control so the next user has a chance to sign in.
 
-		if (SignInButton.Content.ToString() == "Clear Cache")
-		{
-				TodoList.ItemsSource = string.Empty;
-				app.UserTokenCache.Clear(app.ClientId);
-				ClearCookies();
-				SignInButton.Content = "Sign In";
-				return;
-		}
+        if (SignInButton.Content.ToString() == "Clear Cache")
+        {
+                TodoList.ItemsSource = string.Empty;
+                app.UserTokenCache.Clear(app.ClientId);
+                ClearCookies();
+                SignInButton.Content = "Sign In";
+                return;
+        }
 
-		...
+        ...
 ```
 
 ## Выполнить
-
-Поздравляем! Теперь у вас есть работающее приложение .NET WPF, которое может проверять подлинность пользователей и выполнять безопасные вызовы веб-API при помощи OAuth 2.0. Запустите оба проекта и выполните вход с личной учетной записью Майкрософт, рабочей или учебной учетной записью. Добавьте задачи в список дел этого пользователя.   Выйдите из системы и выполните вход от имени других пользователей, чтобы просмотреть их списки дел. Закройте приложение и снова его запустите. Обратите внимание, что сеанс пользователя при этом не прерывается, так как приложение кэширует маркеры в локальный файл.
+Поздравляем! Теперь у вас есть работающее приложение .NET WPF, которое может проверять подлинность пользователей и выполнять безопасные вызовы веб-API при помощи OAuth 2.0. Запустите оба проекта и выполните вход с личной учетной записью Майкрософт, рабочей или учебной учетной записью. Добавьте задачи в список дел этого пользователя.   Выйдите из системы и выполните вход от имени других пользователей, чтобы просмотреть их списки дел. Закройте приложение и снова его запустите. Обратите внимание, что сеанс пользователя при этом не прерывается, так как приложение кэширует маркеры в локальный файл.
 
 MSAL позволяет легко включать в приложение общие функции идентификации, позволяя использовать личные и рабочие учетные записи. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `app.AcquireTokenAsync(...)`.
 
@@ -243,18 +244,16 @@ MSAL позволяет легко включать в приложение об
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
 ## Дальнейшие действия
-
 Теперь можно перейти к более сложным темам. Можно попробовать:
 
-- [Защита веб-API TodoListService с помощью конечной точки версии 2.0](active-directory-v2-devquickstarts-dotnet-api.md)
+* [Защита веб-API TodoListService с помощью конечной точки версии 2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Дополнительные ресурсы:
 
-- [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Тег msal на сайте StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
+* [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Тег msal на сайте StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
 ## Получение обновлений системы безопасности для наших продуктов
-
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
 <!---HONumber=AcomDC_0803_2016-->

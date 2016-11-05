@@ -1,59 +1,54 @@
 
 
-<properties
-    pageTitle="Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Microsoft Azure"
-    description="Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Использование шаблонов Azure Resource Manager для создания и настройки рабочей области Log Analytics | Microsoft Docs
+description: Шаблоны Azure Resource Manager вы можете применить для создания и настройки рабочих областей Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="json"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: json
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Управление Log Analytics с помощью шаблонов Azure Resource Manager
-
 Шаблоны диспетчера ресурсов Azure (../azure-resource-manager/resource-group-authoring-templates.md) можно применить для создания и настройки рабочих областей Log Analytics. Примеры задач, которые можно выполнять с помощью шаблонов.
 
-+ Создание рабочей области
-+ Добавление решения
-+ Создание сохраненных поисковых запросов
-+ Создание группы компьютеров
-+ Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
-+ Сбор счетчиков производительности с компьютеров под управлением Linux и Windows
-+ Сбор событий из системного журнала с компьютеров Linux 
-+ Сбор событий из журналов событий Windows
-+ Сбор пользовательских журналов событий
-+ Добавление агента Log Analytics в виртуальную машину Azure
-+ Настройка Log Analytics для индексирования данных, собранных системой диагностики Azure
-
+* Создание рабочей области
+* Добавление решения
+* Создание сохраненных поисковых запросов
+* Создание группы компьютеров
+* Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+* Сбор счетчиков производительности с компьютеров под управлением Linux и Windows
+* Сбор событий из системного журнала с компьютеров Linux 
+* Сбор событий из журналов событий Windows
+* Сбор пользовательских журналов событий
+* Добавление агента Log Analytics в виртуальную машину Azure
+* Настройка Log Analytics для индексирования данных, собранных системой диагностики Azure
 
 Эта статья содержит примеры кода, иллюстрирующие некоторые конфигурации, которые можно выполнить с помощью шаблонов.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Создание и настройка рабочей области Log Analytics
-
 Этот пример шаблона иллюстрирует следующие задачи.
 
-1.  Создание рабочей области
-2.  Добавление решений в рабочую область
-3.  Создание сохраненных поисковых запросов
-4.  Создание группы компьютеров
-5.  Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
-6.  Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
-7.  Сбор событий из системного журнала с компьютеров Linux
-8.  Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
-9.  Сбор данных счетчика производительности "Доступный объем памяти" (в МБ) с компьютеров Windows
+1. Создание рабочей области
+2. Добавление решений в рабочую область
+3. Создание сохраненных поисковых запросов
+4. Создание группы компьютеров
+5. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+6. Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
+7. Сбор событий из системного журнала с компьютеров Linux
+8. Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
+9. Сбор данных счетчика производительности "Доступный объем памяти" (в МБ) с компьютеров Windows
 10. Сбор пользовательского журнала 
-11. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
-
+11. Сбор журналов IIS и журналов событий Windows, которые система диагностики Azure записывает в учетную запись хранилища
 
 ```
 {
@@ -420,7 +415,6 @@
 
 ```
 ### <a name="deploying-the-sample-template"></a>Развертывание примера шаблона
-
 Чтобы развернуть этот шаблон, запустите следующую команду:
 
 1. Сохраните прилагаемый пример в файл, например с именем `azuredeploy.json` 
@@ -428,11 +422,9 @@
 3. Разверните итоговый шаблон с помощью PowerShell или командной строки
 
 #### <a name="powershell"></a>PowerShell
-
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### <a name="command-line"></a>Команда
-
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
@@ -440,26 +432,18 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Примеры шаблонов Resource Manager
-
 Коллекция шаблонов Azure позволяет быстро начать работу, применяя предложенные шаблоны для Log Analytics, в том числе перечисленные ниже.
 
-+ [Развертывание виртуальной машины под управлением Windows с расширением Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Развертывание виртуальной машины под управлением Linux с расширением Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-+ [Мониторинг Azure Site Recovery с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-+ [Мониторинг веб-приложений Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-+ [Мониторинг SQL Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Развертывание кластера Service Fabric и его мониторинг с помощью существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-+ [Развертывание кластера Service Fabric и создание рабочей области Log Analytics для его мониторинга](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
-
+* [Развертывание виртуальной машины под управлением Windows с расширением Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Развертывание виртуальной машины под управлением Linux с расширением Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Мониторинг Azure Site Recovery с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Мониторинг веб-приложений Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Мониторинг SQL Azure с использованием существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [Развертывание кластера Service Fabric и его мониторинг с помощью существующей рабочей области Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [Развертывание кластера Service Fabric и создание рабочей области Log Analytics для его мониторинга](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-+ [Развертывание агентов на виртуальных машинах Azure с помощью шаблонов Resource Manager](log-analytics-azure-vm-extension.md)
-
-
-
-
-
+* [Развертывание агентов на виртуальных машинах Azure с помощью шаблонов Resource Manager](log-analytics-azure-vm-extension.md)
 
 <!--HONumber=Oct16_HO2-->
 

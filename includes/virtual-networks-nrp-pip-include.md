@@ -1,43 +1,42 @@
 ## Общедоступный IP-адрес
 Ресурс общедоступного IP-адреса предоставляет зарезервированный или динамический общедоступный IP-адрес для Интернета. Хотя вы можете создать общедоступный IP-адрес как отдельный объект, его необходимо связать с другим объектом, чтобы использовать адрес. Вы можете связать общедоступный IP-адрес с подсистемой балансировки нагрузки, шлюзом приложений или сетевым адаптером, чтобы предоставить доступ к Интернету указанным ресурсам.
 
-|Свойство|Описание|Примеры значений|
-|---|---|---|
-|**publicIPAllocationMethod**|Определяет, является ли IP-адрес *статическим* или *динамическим*.|static, dynamic|
-|**idleTimeoutInMinutes**|Задает время ожидания простоя (значение по умолчанию — 4 минуты). Если в течение этого времени не получено ни одного пакета для определенного сеанса, этот сеанс прерывается.|любое значение от 4 до 30|
-|**ipAddress**|IP-адрес, назначенный объекту. Это свойство доступно только для чтения.|104\.42.233.77|
+| Свойство | Описание | Примеры значений |
+| --- | --- | --- |
+| **publicIPAllocationMethod** |Определяет, является ли IP-адрес *статическим* или *динамическим*. |static, dynamic |
+| **idleTimeoutInMinutes** |Задает время ожидания простоя (значение по умолчанию — 4 минуты). Если в течение этого времени не получено ни одного пакета для определенного сеанса, этот сеанс прерывается. |любое значение от 4 до 30 |
+| **ipAddress** |IP-адрес, назначенный объекту. Это свойство доступно только для чтения. |104\.42.233.77 |
 
 ### Параметры DNS
 У общедоступного IP-адреса может быть дочерний объект под названием **dnsSettings**, содержащий следующие свойства:
 
-|Свойство|Описание|Примеры значений|
-|---|---|---|
-|**domainNameLabel**|Узел для разрешения имен.|www, ftp, vm1|
-|**fqdn**|Полное имя общедоступного IP-адреса.|www.westus.cloudapp.azure.com|
-|**reverseFqdn**|Полное доменное имя, которое разрешается к IP-адресу и регистрируется в DNS как запись PTR.|www.contoso.com.|
+| Свойство | Описание | Примеры значений |
+| --- | --- | --- |
+| **domainNameLabel** |Узел для разрешения имен. |www, ftp, vm1 |
+| **fqdn** |Полное имя общедоступного IP-адреса. |www.westus.cloudapp.azure.com |
+| **reverseFqdn** |Полное доменное имя, которое разрешается к IP-адресу и регистрируется в DNS как запись PTR. |www.contoso.com. |
 
 Пример общедоступного IP-адреса в формате JSON:
 
-	{
-	   "name": "PIP01",
-	   "location": "North US",
-	   "tags": { "key": "value" },
-	   "properties": {
-	      "publicIPAllocationMethod": "Static",
-	      "idleTimeoutInMinutes": 4,
-		  "ipAddress": "104.42.233.77",
-	      "dnsSettings": {
-	         "domainNameLabel": "mylabel",
-			 "fqdn": "mylabel.westus.cloudapp.azure.com",
-	         "reverseFqdn": "contoso.com."
-	      }
-	   }
-	} 
+    {
+       "name": "PIP01",
+       "location": "North US",
+       "tags": { "key": "value" },
+       "properties": {
+          "publicIPAllocationMethod": "Static",
+          "idleTimeoutInMinutes": 4,
+          "ipAddress": "104.42.233.77",
+          "dnsSettings": {
+             "domainNameLabel": "mylabel",
+             "fqdn": "mylabel.westus.cloudapp.azure.com",
+             "reverseFqdn": "contoso.com."
+          }
+       }
+    } 
 
 ### Дополнительные ресурсы
-
-- См. дополнительные сведения об [общедоступных IP-адресах](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
-- Узнайте об [общедоступных IP-адресах уровня экземпляра](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163638.aspx) для общедоступных IP-адресов.
+* См. дополнительные сведения об [общедоступных IP-адресах](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+* Узнайте об [общедоступных IP-адресах уровня экземпляра](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
+* Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163638.aspx) для общедоступных IP-адресов.
 
 <!---HONumber=AcomDC_0323_2016-->

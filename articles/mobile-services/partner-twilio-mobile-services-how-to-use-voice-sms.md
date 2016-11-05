@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Использование Twilio для поддержки голосовых возможностей и SMS | Microsoft Azure"
-	description="Узнайте, как выполнять типовые задачи с использованием API Twilio и мобильных служб Azure."
-	services="mobile-services"
-	documentationCenter=""
-	authors="devinrader"
-	manager="dwrede"
-	editor=""/>
+---
+title: Использование Twilio для поддержки голосовых возможностей и SMS | Microsoft Docs
+description: Узнайте, как выполнять типовые задачи с использованием API Twilio и мобильных служб Azure.
+services: mobile-services
+documentationcenter: ''
+author: devinrader
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # Использование Twilio для поддержки голосовых вызовов и SMS в мобильных службах
-
 В этом разделе показано, как выполнять типовые задачи с использованием API Twilio для мобильных служб Azure. В этом учебнике рассказывается, как создавать пользовательские скрипты, использующие API Twilio для выполнения телефонного звонка и отправки текстового сообщения.
 
 ## <a id="WhatIs"></a>Что такое Twilio?
@@ -27,7 +25,7 @@ Twilio создает новые возможности для бизнес-ко
 **Twilio Voice** позволяет приложениям осуществлять и принимать телефонные вызовы. **Twilio SMS** позволяет приложениям отправлять и принимать SMS-сообщения. **Twilio Client** позволяет выполнять VoIP звонки с любого телефона, планшета или из браузера, а также поддерживает WebRTC.
 
 ## <a id="Pricing"></a>Цены и специальные предложения Twilio
-Клиентам Azure доступно [специальное предложение][special_offer]\: кредит Twilio в размере 10 долл. США при обновлении учетной записи Twilio. Этот кредит Twilio применяется к любым сценариям использования Twilio (кредит в размере 10 $ позволяет отправить 1000 SMS-сообщений или получать входящие голосовые вызовы продолжительностью до 1000 минут в зависимости от расположения телефонного номера, а также от направления отправки сообщения или совершения звонка). Получите этот кредит Twilio и приступите к работе на [ahoy.twilio.com/azure][special_offer].
+Клиентам Azure доступно [специальное предложение][special_offer]\: кредит Twilio в размере 10 долл. США при обновлении учетной записи Twilio. Этот кредит Twilio применяется к любым сценариям использования Twilio (кредит в размере 10 $ позволяет отправить 1000 SMS-сообщений или получать входящие голосовые вызовы продолжительностью до 1000 минут в зависимости от расположения телефонного номера, а также от направления отправки сообщения или совершения звонка). Получите этот кредит Twilio и приступите к работе на [ahoy.twilio.com/azure][special_offer].
 
 Twilio представляет собой службу с повременной оплатой. Стартовые платежи отсутствуют, а учетную запись можно закрыть в любое время. Дополнительные сведения см. в разделе [Цены на Twilio][twilio_pricing].
 
@@ -80,36 +78,36 @@ Twilio предоставляет библиотеку Node.js, содержащ
 Чтобы использовать библиотеку Twilio node.js в своей мобильной службе, вам необходимо реализовать поддержку модуля npm для мобильной службы, для чего можно сохранить скрипты в системе управления версиями.
 
 1. Пройдите учебник [Хранение скриптов в системе управления версиями](mobile-services-store-scripts-source-control.md). В нем приводятся указания по настройке системы управления версиями для мобильных служб и хранению серверных сценариев в репозитории Git.
-
 2. После настройки системы управления версиями для мобильной службы откройте репозиторий на локальном компьютере, перейдите во вложенную папку `\services`, откройте в текстовом редакторе файл package.json и добавьте к объекту **dependencies** следующее поле:
-
-		"twilio": "~1.7.0"
-
+   
+        "twilio": "~1.7.0"
 3. После добавления к объекту **dependencies** ссылки на пакет Twilio файл package.json должен выглядеть так:
-
-		{
-		  "name": "todolist",
-		  "version": "1.0.0",
-		  "description": "todolist - hosted on Azure Mobile Services",
-		  "main": "server.js",
-		  "engines": {
-		    "node": ">= 0.8.19"
-		  },
-		  "dependencies": {
-			"twilio": "~1.7.0"
-		  },
-		  "devDependencies": {},
-		  "scripts": {},
-		  "author": "unknown",
-		  "licenses": [],
-		  "keywords":[]
-		}
-
-	>[AZURE.NOTE]Зависимость для Twilio необходимо добавить в следующем виде: `"twilio": "~1.7.0"` с символом тильды (~). Ссылка со вставкой (^) не поддерживается.
-
+   
+        {
+          "name": "todolist",
+          "version": "1.0.0",
+          "description": "todolist - hosted on Azure Mobile Services",
+          "main": "server.js",
+          "engines": {
+            "node": ">= 0.8.19"
+          },
+          "dependencies": {
+            "twilio": "~1.7.0"
+          },
+          "devDependencies": {},
+          "scripts": {},
+          "author": "unknown",
+          "licenses": [],
+          "keywords":[]
+        }
+   
+   > [!NOTE]
+   > Зависимость для Twilio необходимо добавить в следующем виде: `"twilio": "~1.7.0"` с символом тильды (~). Ссылка со вставкой (^) не поддерживается.
+   > 
+   > 
 4. Зафиксируйте обновление этого файла и принудительно отправьте обновление обратно в мобильную службу.
-
-	Это обновление к файлу package.json перезапустит мобильную службу.
+   
+    Это обновление к файлу package.json перезапустит мобильную службу.
 
 Мобильная служба теперь устанавливает и загружает пакет Twilio, чтобы можно было ссылаться на библиотеку Twilio в собственных API и скриптах таблицы.
 
@@ -167,10 +165,12 @@ Twilio предоставляет библиотеку Node.js, содержащ
 
 
 ## <a id="howto_provide_twiml_responses"></a>Практическое руководство. Предоставление ответа TwiML с собственного веб-сайта
-
 Когда приложение инициирует вызов API Twilio (например, с использованием метода client.InitiateOutboundCall), Twilio отправляет ваш запрос на URL-адрес, который должен возвратить ответ TwiML. В примере, показанном в разделе "Практическое руководство. Осуществление исходящего вызова", для возврата ответа используется URL-адрес http://twimlets.com/message, предоставляемый Twilio.
 
-> [AZURE.NOTE] Хотя TwiML предназначается для использования веб-службами, TwiML можно также просмотреть в браузере. Например, щелкните [twimlet\_message\_url](http://twimlets.com/message), чтобы просмотреть пустой элемент &lt;Response&gt;. Также вы можете нажать [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World), чтобы просмотреть элемент &lt;Response&gt;, содержащий команду &lt;Say&gt;.
+> [!NOTE]
+> Хотя TwiML предназначается для использования веб-службами, TwiML можно также просмотреть в браузере. Например, щелкните [twimlet\_message\_url](http://twimlets.com/message), чтобы просмотреть пустой элемент &lt;Response&gt;. Также вы можете нажать [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World), чтобы просмотреть элемент &lt;Response&gt;, содержащий команду &lt;Say&gt;.
+> 
+> 
 
 Вместо того чтобы использовать URL-адрес, предоставленный Twilio, можно создать собственный URL-адрес для возврата HTTP-ответов. Веб-сайт можно создавать на любом языке, который возвращает HTTP-ответы. В этом разделе предполагается, что URL-адрес будет размещаться из универсального обработчика ASP.NET.
 
@@ -207,8 +207,7 @@ Twilio предоставляет библиотеку Node.js, содержащ
         });
     };
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 

@@ -1,33 +1,32 @@
-<properties
-   pageTitle="Шаблон Resource Manager для Desired State Configuration | Microsoft Azure"
-   description="Определение шаблона Resource Manager для Desired State Configuration, а также примеры и сведения об устранении проблем."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="zjalexander"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+---
+title: Шаблон Resource Manager для Desired State Configuration | Microsoft Docs
+description: Определение шаблона Resource Manager для Desired State Configuration, а также примеры и сведения об устранении проблем.
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="09/15/2016"
-   ms.author="zachal"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 09/15/2016
+ms.author: zachal
 
+---
 # Настройка масштабируемых наборов виртуальных машин Windows и Desired State Configuration с помощью шаблонов Azure Resource Manager
 В этой статье описывается шаблон Resource Manager для обработчика расширения [Desired State Configuration](virtual-machines-windows-extensions-dsc-overview.md).
 
 ## Пример шаблона для виртуальной машины Windows
-
 В приведенном ниже фрагменте кода показан раздел Resource шаблона.
 
 ```json
-			"name": "Microsoft.Powershell.DSC",
-			"type": "extensions",
+            "name": "Microsoft.Powershell.DSC",
+            "type": "extensions",
              "location": "[resourceGroup().location]",
              "apiVersion": "2015-06-15",
              "dependsOn": [
@@ -56,7 +55,6 @@
 ```
 
 ## Пример шаблона для масштабируемых наборов виртуальных машин Windows
-
 Узел масштабируемых наборов виртуальных машин содержит раздел properties с атрибутами VirtualMachineProfile и extensionProfile. Атрибут DSC находится в разделе extensions.
 
 ```json
@@ -89,7 +87,6 @@
 ```
 
 ## Подробные сведения о разделе settings
-
 В приведенной ниже схеме показана часть settings расширения Azure DSC в шаблоне Azure Resource Manager.
 
 ```json
@@ -137,17 +134,17 @@
 ## Сведения
 | Имя свойства | Тип | Описание |
 | --- | --- | --- |
-| settings.wmfVersion | string | Указывает версию Windows Management Framework, которую необходимо установить на виртуальной машине. Если задать для этого свойства значение latest, будет установлена последняя версия Windows Management Framework. Для этого свойства доступны только такие значения: **4.0, 5.0, 5.0PP и latest**. Возможные значения зависят от обновлений. По умолчанию используется значение latest.|
-| settings.configuration.url | string | Указывает URL-адрес расположения, из которого можно скачать ZIP-файл конфигурации DSC. Если для доступа к предоставленному URL-адресу требуется маркер SAS, необходимо задать для свойства protectedSettings.configurationUrlSasToken значение маркера SAS. Это свойство обязательное, если заданы свойства settings.configuration.script и (или) settings.configuration.function. |
-| settings.configuration.script | string | Указывает имя файла скрипта, содержащего определение вашей конфигурации DSC. Этот скрипт должен находиться в корневом каталоге ZIP-файла, скачанного по URL-адресу, указанному в свойстве configuration.url. Это свойство обязательное, если заданы свойства settings.configuration.url и (или) settings.configuration.script. |
-| settings.configuration.function | string | Указывает имя вашей конфигурации DSC. Указанную конфигурацию необходимо добавить в скрипт, заданный в свойстве configuration.script. Это свойство обязательное, если заданы свойства settings.configuration.url и (или) settings.configuration.function. |
-| settings.configurationArguments | Коллекция | Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство не зашифровано. |
-| settings.configurationData.url | string | Указывает URL-адрес расположения, из которого можно скачать файл данных конфигурации (в формате PDS1), используемый в качестве входных данных для вашей конфигурации DSC. Если для доступа к предоставленному URL-адресу требуется маркер SAS, необходимо задать для свойства protectedSettings.configurationDataUrlSasToken значение маркера SAS.|
-| settings.privacy.dataEnabled | string | Включает или отключает сбор данных телеметрии. Для этого свойства доступны только такие значения: **Enable, Disable или $null**. Если для этого свойства не задано значение или задано значение null, сбор данных телеметрии будет выполняться. Значение по умолчанию — ''. [Дополнительные сведения см. здесь.](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| settings.advancedOptions.downloadMappings | Коллекция | Определяет альтернативные расположения для скачивания Windows Management Framework. [Дополнительные сведения см. здесь.](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
-| protectedSettings.configurationArguments | Коллекция | Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство зашифровано. |
-| protectedSettings.configurationUrlSasToken | string | Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configuration.url. Это свойство зашифровано. |
-| protectedSettings.configurationDataUrlSasToken | string | Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configurationData.url. Это свойство зашифровано. |
+| settings.wmfVersion |string |Указывает версию Windows Management Framework, которую необходимо установить на виртуальной машине. Если задать для этого свойства значение latest, будет установлена последняя версия Windows Management Framework. Для этого свойства доступны только такие значения: **4.0, 5.0, 5.0PP и latest**. Возможные значения зависят от обновлений. По умолчанию используется значение latest. |
+| settings.configuration.url |string |Указывает URL-адрес расположения, из которого можно скачать ZIP-файл конфигурации DSC. Если для доступа к предоставленному URL-адресу требуется маркер SAS, необходимо задать для свойства protectedSettings.configurationUrlSasToken значение маркера SAS. Это свойство обязательное, если заданы свойства settings.configuration.script и (или) settings.configuration.function. |
+| settings.configuration.script |string |Указывает имя файла скрипта, содержащего определение вашей конфигурации DSC. Этот скрипт должен находиться в корневом каталоге ZIP-файла, скачанного по URL-адресу, указанному в свойстве configuration.url. Это свойство обязательное, если заданы свойства settings.configuration.url и (или) settings.configuration.script. |
+| settings.configuration.function |string |Указывает имя вашей конфигурации DSC. Указанную конфигурацию необходимо добавить в скрипт, заданный в свойстве configuration.script. Это свойство обязательное, если заданы свойства settings.configuration.url и (или) settings.configuration.function. |
+| settings.configurationArguments |Коллекция |Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство не зашифровано. |
+| settings.configurationData.url |string |Указывает URL-адрес расположения, из которого можно скачать файл данных конфигурации (в формате PDS1), используемый в качестве входных данных для вашей конфигурации DSC. Если для доступа к предоставленному URL-адресу требуется маркер SAS, необходимо задать для свойства protectedSettings.configurationDataUrlSasToken значение маркера SAS. |
+| settings.privacy.dataEnabled |string |Включает или отключает сбор данных телеметрии. Для этого свойства доступны только такие значения: **Enable, Disable или $null**. Если для этого свойства не задано значение или задано значение null, сбор данных телеметрии будет выполняться. Значение по умолчанию — ''. [Дополнительные сведения см. здесь.](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
+| settings.advancedOptions.downloadMappings |Коллекция |Определяет альтернативные расположения для скачивания Windows Management Framework. [Дополнительные сведения см. здесь.](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
+| protectedSettings.configurationArguments |Коллекция |Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство зашифровано. |
+| protectedSettings.configurationUrlSasToken |string |Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configuration.url. Это свойство зашифровано. |
+| protectedSettings.configurationDataUrlSasToken |string |Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configurationData.url. Это свойство зашифровано. |
 
 ## Сравнение разделов settings и protectedSettings
 Все параметры сохраняются в текстовом файле параметров на виртуальной машине. Свойства в разделе settings общедоступные, так как они не зашифрованы в текстовом файле параметров. Свойства в разделе protectedSettings зашифрованы с помощью сертификата, а это значит, что они не отображаются как обычный текст в файле на виртуальной машине.
@@ -158,15 +155,14 @@
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-       	    "userName": "UsernameValue1",
-       	    "password": "PasswordValue1"
+               "userName": "UsernameValue1",
+               "password": "PasswordValue1"
         }
     }
 }
 ```
 
 ## Пример
-
 Следующий пример основан на примере конфигурации из раздела "Приступая к работе" статьи [Общие сведения об обработчике расширения Desired State Configuration в Azure](virtual-machines-windows-extensions-dsc-overview.md). В этом примере для развертывания расширения используются шаблоны Resource Manager, а не командлеты. Сохраните конфигурацию IisInstall.ps1, добавьте ее в ZIP-файл и передайте файл на доступный URL-адрес. В этом примере используется хранилище BLOB-объектов Azure, но ZIP-файл можно скачать из любого произвольного расположения.
 
 В шаблоне Azure Resource Manager следующий код указывает виртуальной машине скачать правильный файл и выполнить соответствующую функцию PowerShell.
@@ -222,18 +218,17 @@
 
 | Имя свойства | Предыдущий эквивалент |
 | --- | --- |
-| settings.wmfVersion | settings.WMFVersion |
-| settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | Первая часть свойства settings.ConfigurationFunction (перед \\\). |
-| settings.configuration.function | Вторая часть свойства settings.ConfigurationFunction (после \\\). |
-| settings.configurationArguments | settings.Properties |
-| settings.configurationData.url | protectedSettings.DataBlobUri (без маркера SAS) |
-| settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings | settings.AdvancedOptions.DownloadMappings |
-| protectedSettings.configurationArguments | protectedSettings.Properties |
-| protectedSettings.configurationUrlSasToken | settings.SasToken |
-| protectedSettings.configurationDataUrlSasToken | Маркер SAS из свойства protectedSettings.DataBlobUri |
-
+| settings.wmfVersion |settings.WMFVersion |
+| settings.configuration.url |settings.ModulesUrl |
+| settings.configuration.script |Первая часть свойства settings.ConfigurationFunction (перед \\\). |
+| settings.configuration.function |Вторая часть свойства settings.ConfigurationFunction (после \\\). |
+| settings.configurationArguments |settings.Properties |
+| settings.configurationData.url |protectedSettings.DataBlobUri (без маркера SAS) |
+| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
+| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| protectedSettings.configurationArguments |protectedSettings.Properties |
+| protectedSettings.configurationUrlSasToken |settings.SasToken |
+| protectedSettings.configurationDataUrlSasToken |Маркер SAS из свойства protectedSettings.DataBlobUri |
 
 ## Устранение неполадок — код ошибки 1100
 Код ошибки 1100 указывает на проблему с входными данными пользователя в расширении DSC. Текст этих ошибок может меняться. Ниже приведены некоторые общие ошибки и способы их устранения.
@@ -282,9 +277,9 @@
 Проблема. Для заданного свойства требуется другое свойство, которое отсутствует.
 
 Решения:
-- Укажите отсутствующее свойство.
-- Удалите свойство, требующее отсутствующего свойства.
 
+* Укажите отсутствующее свойство.
+* Удалите свойство, требующее отсутствующего свойства.
 
 ## Дальнейшие действия
 Дополнительные сведения о DSC и наборах масштабирования виртуальных машин см. в статье, посвященной [использованию наборов масштабирования с помощью расширений Azure DSC](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).

@@ -1,34 +1,33 @@
-<properties
-   pageTitle="Подключение к кластеру службы контейнеров Azure | Microsoft Azure"
-   description="Сведения о подключении к кластеру службы контейнеров Azure с использованием туннеля SSH."
-   services="container-service"
-   documentationCenter=""
-   authors="rgardler"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, контейнеры, микрослужбы, DC/OS, Azure"/>
+---
+title: Подключение к кластеру службы контейнеров Azure | Microsoft Docs
+description: Сведения о подключении к кластеру службы контейнеров Azure с использованием туннеля SSH.
+services: container-service
+documentationcenter: ''
+author: rgardler
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, контейнеры, микрослужбы, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="rogardle"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: rogardle
 
-
+---
 # Подключение к кластеру службы контейнеров Azure
-
 Кластеры DC/OS и Docker Swarm, развернутые с помощью службы контейнеров Azure, предоставляют конечные точки REST. Но эти конечные точки не открыты для внешнего использования. Чтобы управлять этими конечными точками, необходимо создать туннель Secure Shell (SSH). После создания туннеля SSH можно выполнить команды к конечным точкам кластера и просмотреть пользовательский интерфейс кластера через браузер на вашем компьютере. В этом документе приводятся инструкции по созданию туннеля SSH в ОС Linux, OS X и Windows.
 
->[AZURE.NOTE] Вы можете создать сеанс SSH, используя систему управления кластером, но это не рекомендуется. Работа напрямую в системе управления сопряжена с риском случайного изменения конфигурации.
+> [!NOTE]
+> Вы можете создать сеанс SSH, используя систему управления кластером, но это не рекомендуется. Работа напрямую в системе управления сопряжена с риском случайного изменения конфигурации.
+> 
+> 
 
 ## Создание туннеля SSH в Linux или OS X
-
 Во-первых, чтобы создать туннель SSH в любой из этих операционных систем, вам нужно узнать общедоступное DNS-имя главного сервера с балансировкой нагрузки. Для этого разверните группу ресурсов, чтобы отображались все ресурсы. Найдите и выберите общедоступный IP-адрес образца. Откроется колонка со сведениями об общедоступном IP-адресе, в которой также будет DNS-имя. Сохраните это имя для последующего использования. <br />
-
 
 ![Общедоступное DNS-имя](media/pubdns.png)
 
@@ -40,9 +39,10 @@
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > Для SSH-подключения используется порт 2200, а не стандартный порт 22.
+> 
+> 
 
 ## Туннель DC/OS
-
 Чтобы создать туннель к связанным с DC/OS конечным точкам, выполните следующую команду:
 
 ```bash
@@ -51,14 +51,13 @@ sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.az
 
 Связанные с DC/OS конечные точки теперь доступны по такому адресу:
 
-- DC/OS: `http://localhost/`
-- Marathon: `http://localhost/marathon`
-- Mesos: `http://localhost/mesos`
+* DC/OS: `http://localhost/`
+* Marathon: `http://localhost/marathon`
+* Mesos: `http://localhost/mesos`
 
 Аналогичным образом через этот туннель можно подключаться к интерфейсам REST API каждого приложения.
 
 ## Туннель Swarm
-
 Чтобы открыть туннель для конечной точки Swarm, выполните следующую команду:
 
 ```bash
@@ -72,7 +71,6 @@ export DOCKER_HOST=:2375
 ```
 
 ## Создание туннеля SSH в Windows
-
 Создавать туннели SSH в Windows можно несколькими способами. В этом документе описывается вариант с использованием PuTTY.
 
 Скачайте PuTTY в операционную систему Windows и запустите приложение.
@@ -86,12 +84,16 @@ export DOCKER_HOST=:2375
 ![Конфигурация PuTTY 2](media/putty2.png)
 
 Выберите **Туннели** и настройте следующие порты для перенаправления:
-- **исходный порт** — используйте порт 80 для DC/OS или 2375 для Swarm;
-- **конечный порт** — используйте localhost:80 для DC/OS или localhost:2375 для Swarm.
+
+* **исходный порт** — используйте порт 80 для DC/OS или 2375 для Swarm;
+* **конечный порт** — используйте localhost:80 для DC/OS или localhost:2375 для Swarm.
 
 В следующем примере выполняется настройка для DC/OS. Для Docker Swarm эта процедура аналогична.
 
->[AZURE.NOTE] При создании этого туннеля нужно, чтобы порт 80 больше нигде не использовался.
+> [!NOTE]
+> При создании этого туннеля нужно, чтобы порт 80 больше нигде не использовался.
+> 
+> 
 
 ![Конфигурация PuTTY 3](media/putty3.png)
 
@@ -101,17 +103,16 @@ export DOCKER_HOST=:2375
 
 После настройки туннеля для DC/OS связанная конечная точка будет доступна по такому адресу:
 
-- DC/OS: `http://localhost/`
-- Marathon: `http://localhost/marathon`
-- Mesos: `http://localhost/mesos`
+* DC/OS: `http://localhost/`
+* Marathon: `http://localhost/marathon`
+* Mesos: `http://localhost/mesos`
 
 После настройки туннеля для Docker Swarm доступ к кластеру Swarm можно получать через интерфейс командной строки Docker. Сначала вам нужно будет настроить переменную среды Windows с именем `DOCKER_HOST` (задайте для нее значение ` :2375`).
 
 ## Дальнейшие действия
-
 Развертывание контейнеров и управление ими с помощью DC/OS или Swarm:
 
-- [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
-- [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
+* [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
+* [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 
 <!---HONumber=AcomDC_0914_2016-->

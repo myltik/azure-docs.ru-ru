@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Что такое наборы масштабирования виртуальных машин? | Microsoft Azure"
-	description="Узнайте о наборах масштабирования виртуальных машин."
-	keywords="Виртуальная машина Linux, наборы масштабирования виртуальных машин" 
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+---
+title: Что такое наборы масштабирования виртуальных машин? | Microsoft Docs
+description: Узнайте о наборах масштабирования виртуальных машин.
+keywords: Виртуальная машина Linux, наборы масштабирования виртуальных машин
+services: virtual-machines-linux
+documentationcenter: ''
+author: gatneil
+manager: madhana
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machine-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/24/2016"
-	ms.author="gatneil"/>
+ms.service: virtual-machine-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 03/24/2016
+ms.author: gatneil
 
+---
 # Что такое наборы масштабирования виртуальных машин?
-
 Масштабируемые наборы виртуальных машин позволяют управлять несколькими виртуальными машинами как единым набором. Если не вдаваться в подробности, масштабируемые наборы имеют следующие преимущества и недостатки:
 
 Преимущества:
 
-1. обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с 5 доменами сбоя \(FD\) и 5 доменами обновления \(UD\) для обеспечения доступности \(дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](./virtual-machines-linux-manage-availability.md)\). 
+1. обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с 5 доменами сбоя \(FD\) и 5 доменами обновления \(UD\) для обеспечения доступности \(дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](virtual-machines-linux-manage-availability.md)\). 
 2. Простая интеграция с балансировщиком нагрузки Azure и шлюзом приложений.
 3. Простая интеграция с функцией автоматического масштабирования Azure.
 4. Упрощение развертывания, удаления виртуальных машин и управления ими.
@@ -35,11 +34,9 @@
 1. Невозможность подключения дисков данных к экземплярам виртуальных машин в масштабируемом наборе. Вместо этого следует использовать хранилище BLOB-объектов, службу файлов Azure, таблицы Azure или другое решение для хранения.
 
 ## Быстрое создание с помощью Azure CLI
-
-[AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
+[!INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
 ## Дальнейшие действия
-
 Общие сведения см. на [основной целевой странице для наборов масштабирования](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
 Документацию см. на [основной странице документации по наборам масштабирования](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

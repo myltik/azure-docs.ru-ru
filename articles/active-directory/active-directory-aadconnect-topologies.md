@@ -1,38 +1,36 @@
-<properties
-    pageTitle="Azure AD Connect: поддерживаемые топологии | Microsoft Azure"
-    description="В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="AndKjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.date="06/27/2016"
-    ms.author="billmath"/>
+---
+title: 'Azure AD Connect: поддерживаемые топологии | Microsoft Docs'
+description: В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
+---
 # <a name="topologies-for-azure-ad-connect"></a>Топологии Azure AD Connect.
-
 В этой статье рассматриваются различные локальные топологии и топологии Azure AD, образующие единое решение интеграции в сочетании со службами синхронизации Azure AD Connect. Здесь описываются и поддерживаемые, и неподдерживаемые конфигурации.
 
 Условные обозначения в статье:
 
-Описание | Значок
------|-----
-Локальный лес Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
-Active Directory с фильтрацией импорта| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
-Сервер синхронизации Azure AD Connect| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)
-Промежуточный режим сервера синхронизации Azure AD Connect| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)
-GALSync с FIM2010 или MIM2016| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)
-Сервер синхронизации Azure AD Connect, подробно| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)
-Каталог Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
-Неподдерживаемый сценарий | ![Не поддерживается](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
-
+| Описание | Значок |
+| --- | --- |
+| Локальный лес Active Directory |![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
+| Active Directory с фильтрацией импорта |![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
+| Сервер синхронизации Azure AD Connect |![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
+| Промежуточный режим сервера синхронизации Azure AD Connect |![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
+| GALSync с FIM2010 или MIM2016 |![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
+| Сервер синхронизации Azure AD Connect, подробно |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
+| Каталог Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
+| Неподдерживаемый сценарий |![Не поддерживается](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
 ## <a name="single-forest,-single-azure-ad-directory"></a>Один лес, один каталог Azure AD
 ![Один лес, один каталог](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
@@ -64,8 +62,8 @@ GALSync с FIM2010 или MIM2016| ![Sync](./media/active-directory-aadconnect-t
 
 Если среда не соответствует этим предположениям, произойдет следующее.
 
-- Если у вас несколько активных учетных записей или несколько почтовых ящиков, модуль синхронизации выберет одну учетную запись или один почтовый ящик и проигнорирует остальные.
-- Связанный почтовый ящик, для которого нет другой активной учетной записи, не будет экспортирован в Azure AD. Учетная запись пользователя не будет представлена как член какой-либо группы. В DirSync связанный почтовый ящик всегда будет представлен как обычный почтовый ящик. Такое отличие в поведении является намеренным и служит для поддержки различных сценариев леса.
+* Если у вас несколько активных учетных записей или несколько почтовых ящиков, модуль синхронизации выберет одну учетную запись или один почтовый ящик и проигнорирует остальные.
+* Связанный почтовый ящик, для которого нет другой активной учетной записи, не будет экспортирован в Azure AD. Учетная запись пользователя не будет представлена как член какой-либо группы. В DirSync связанный почтовый ящик всегда будет представлен как обычный почтовый ящик. Такое отличие в поведении является намеренным и служит для поддержки различных сценариев леса.
 
 Дополнительные сведения можно найти в [рекомендациях по изменению конфигурации по умолчанию для Azure AD Connect](active-directory-aadconnectsync-understanding-default-configuration.md).
 
@@ -101,7 +99,7 @@ GALSync с FIM2010 или MIM2016| ![Sync](./media/active-directory-aadconnect-t
 
 Топология полной сетки позволяет размещать пользователей и ресурсы в любом лесу. Как правило, между такими лесами образуются двусторонние отношения доверия.
 
-Если Exchange присутствует в нескольких лесах, может быть доступным дополнительное локальное решение GALSync. Каждый пользователь будет представлен во всех остальных лесах как контакт. Решение GALSync зачастую реализуется с помощью Forefront Identity Manager 2010 или Microsoft Identity Manager 2016. Azure AD Connect нельзя использовать в локальном решении GALSync.
+Если Exchange присутствует в нескольких лесах, может быть доступным дополнительное локальное решение GALSync. Каждый пользователь будет представлен во всех остальных лесах как контакт. Решение GALSync зачастую реализуется с помощью Forefront Identity Manager 2010 или Microsoft Identity Manager 2016. Azure AD Connect нельзя использовать в локальном решении GALSync.
 
 В этом сценарии объекты удостоверений соединяются с помощью атрибута mail. Пользователь с почтовым ящиком в одном лесу объединяется с контактами в других лесах.
 
@@ -116,13 +114,13 @@ GALSync с FIM2010 или MIM2016| ![Sync](./media/active-directory-aadconnect-t
 
 В этом сценарии один (или несколько) **лес ресурсов** доверяет всем **лесам учетных записей**. Обычно в лесу ресурсов используется расширенная схема AD с Exchange и Lync. Все службы Exchange и Lync, а также другие общие службы, находятся в этом лесу. У пользователей есть отключенные учетные записи в этом лесу. С лесом учетных записей связан почтовый ящик.
 
-## <a name="office-365-and-topology-considerations"></a>Аспекты топологии в Office 365.
-Некоторые рабочие нагрузки Office 365 налагают ряд ограничений на поддерживаемые топологии. Если вы планируете использовать одну из них, изучите сведения о рабочей нагрузке в разделе с описанием поддерживаемых топологий.
+## <a name="office-365-and-topology-considerations"></a>Аспекты топологии в Office 365.
+Некоторые рабочие нагрузки Office 365 налагают ряд ограничений на поддерживаемые топологии. Если вы планируете использовать одну из них, изучите сведения о рабочей нагрузке в разделе с описанием поддерживаемых топологий.
 
-Рабочая нагрузка |  
---------- | ---------
-Exchange Online | Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Больше можно узнать в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
-Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Больше о поддерживаемых топологиях можно узнать в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
+| Рабочая нагрузка |
+| --- | --- |
+| Exchange Online |
+| Skype для бизнеса |
 
 ## <a name="staging-server"></a>промежуточного сервера
 ![промежуточного сервера](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -139,9 +137,9 @@ Azure AD Connect поддерживает установку второго се
 Корпорация Майкрософт рекомендует использовать один каталог в Azure AD для всей организации.
 Если вы намерены создать несколько каталогов Azure AD, сначала прочитайте следующие статьи. В них рассматриваются типичные сценарии, которые позволят использовать один каталог.
 
-Раздел |  
---------- | ---------
-Делегирование при помощи административных единиц | [Управление административными единицами в Azure AD ](active-directory-administrative-units-management.md)
+| Раздел |
+| --- | --- |
+| Делегирование при помощи административных единиц |
 
 ![Несколько лесов, несколько каталогов](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -156,28 +154,28 @@ Azure AD Connect поддерживает установку второго се
 
 Эта топология имеет следующие ограничения для сценариев, которые поддерживаются в других случаях:
 
-- Гибридное развертывание Exchange с локальным каталогом Active Directory можно включить только для одного каталога Azure AD.
-- Устройство под управлением Windows 10 можно связать только с одним каталогом Azure AD.
+* Гибридное развертывание Exchange с локальным каталогом Active Directory можно включить только для одного каталога Azure AD.
+* Устройство под управлением Windows 10 можно связать только с одним каталогом Azure AD.
 
 Требование относительно взаимоисключающих наборов объектов также применяется и к обратной записи. Эта топология не будет поддерживать некоторые функции обратной записи, так как они предполагают наличие одной локальной конфигурации.
 
--   групповая обратная запись в конфигурации по умолчанию
--   Обратная запись устройств
+* групповая обратная запись в конфигурации по умолчанию
+* Обратная запись устройств
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-directory"></a>Каждый объект, повторяющийся несколько раз в каталоге Azure AD
 ![Один лес, несколько каталогов, не поддерживается](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Один лес, несколько соединителей, не поддерживается](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
-- Синхронизация одного пользователя с несколькими каталогами Azure AD не поддерживается.
-- Нельзя изменить конфигурацию таким образом, чтобы пользователи одного каталога Azure AD отображались в другом каталоге Azure AD как контакты.
-- Нельзя изменить настройки службы синхронизации Azure AD Connect для подключения к нескольким каталогам Azure AD.
+* Синхронизация одного пользователя с несколькими каталогами Azure AD не поддерживается.
+* Нельзя изменить конфигурацию таким образом, чтобы пользователи одного каталога Azure AD отображались в другом каталоге Azure AD как контакты.
+* Нельзя изменить настройки службы синхронизации Azure AD Connect для подключения к нескольким каталогам Azure AD.
 
 ### <a name="galsync-by-using-writeback"></a>Синхронизация GALsync с помощью обратной записи
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Каталоги Azure AD являются изолированными по своей природе.
 
-- Нельзя настроить службу синхронизации Azure AD Connect для чтения данных из другого каталога Azure AD.
-- Служба синхронизации Azure AD не может экспортировать пользователей как контакты в другой локальный каталог AD.
+* Нельзя настроить службу синхронизации Azure AD Connect для чтения данных из другого каталога Azure AD.
+* Служба синхронизации Azure AD не может экспортировать пользователей как контакты в другой локальный каталог AD.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>Синхронизация GALsync с локальным сервером синхронизации
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
@@ -185,13 +183,11 @@ Azure AD Connect поддерживает установку второго се
 Для синхронизации пользователей между двумя организациями Exchange с помощью GALsync можно локально использовать FIM2010 или MIM2016. Пользователи из одной организации будут отображаться в другой организации как внешние пользователи или контакты. Затем эти локальные каталоги AD можно синхронизировать с их собственными каталогами Azure AD.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Больше об установке Azure AD Connect для этих сценариев можно узнать в статье [Выборочная установка Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+Больше об установке Azure AD Connect для этих сценариев можно узнать в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

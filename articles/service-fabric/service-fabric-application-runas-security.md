@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Общее сведения о политиках безопасности приложений и служб в Service Fabric | Microsoft Azure"
-   description="Общие сведения о запуске приложения Service Fabric с использованием системных и локальных учетных записей безопасности, включая точку SetupEntry, если приложению перед запуском необходимо выполнить привилегированную операцию."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Общее сведения о политиках безопасности приложений и служб в Service Fabric | Microsoft Docs
+description: Общие сведения о запуске приложения Service Fabric с использованием системных и локальных учетных записей безопасности, включая точку SetupEntry, если приложению перед запуском необходимо выполнить привилегированную операцию.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
-
+---
 # <a name="configure-security-policies-for-your-application"></a>Настройка политик безопасности для приложения
 Платформа Azure Service Fabric помогает защищать приложения, работающие в кластере под разными учетными записями. Кроме того, платформа защищает ресурсы, используемые приложениями при развертывании с помощью учетной записи пользователя, — файлы, каталоги и сертификаты. Это позволяет изолировать друг от друга все приложения, выполняемые в общей среде выполнения. 
 
@@ -27,7 +26,6 @@
 Вы можете определять и создавать группы пользователей, в которые можно добавлять одного или нескольких пользователей для совместного управления. Это полезно, если для разных точек входа службы есть несколько пользователей и у них должны быть определенные общие права, доступные на уровне группы.
 
 ## <a name="configure-the-policy-for-service-setupentrypoint"></a>Настройка политики для точки входа SetupEntryPoint
-
 Как описано в [модели приложения](service-fabric-application-model.md), **SetupEntryPoint** — это привилегированная точка входа, которая выполняется с теми же учетными данными, что и Service Fabric (обычно это учетная запись *NetworkService*), до запуска других точек входа. Обычно для точки входа **EntryPoint** в качестве исполняемого файла указывается длительно выполняемый узел службы. Наличие отдельной точки входа позволяет избежать запуска исполняемого файла узла службы с высокими привилегиями на длительное время. Исполняемый файл, указанный в точке входа **EntryPoint**, запускается после успешного выхода из точки **SetupEntryPoint**. Возникающий вследствие этого процесс отслеживается и перезапускается (снова начиная с точки входа **SetupEntryPoint**), даже если произошло непредвиденное завершение его работы или сбой.
 
 Ниже приведен простой пример манифеста службы с отображением привилегированной точки входа SetupEntryPoint и главной точки входа EntryPoint для службы.
@@ -57,7 +55,6 @@
 ~~~
 
 ### <a name="configure-the-policy-using-a-local-account"></a>Настройка политики с использованием локальной учетной записи
-
 Настроив службу для использования точки SetupEntryPoint, можно изменить разрешения безопасности, с которыми она выполняется в манифесте приложения. В приведенном ниже примере показано, как настроить службу для выполнения с правами учетной записи администратора пользователей.
 
 ~~~
@@ -111,13 +108,13 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Запишите имя узла с развернутой и запущенной службой в обозревателе Service Fabric (например Node 2). Затем перейдите в рабочую папку экземпляра приложения и найдите файл out.txt, в котором хранится значение **TestVariable**. Например, если служба была развернута на узле Node 2, для приложения **MyApplicationType**используйте такой путь:
+Запишите имя узла с развернутой и запущенной службой в обозревателе Service Fabric (например Node 2). Затем перейдите в рабочую папку экземпляра приложения и найдите файл out.txt, в котором хранится значение **TestVariable**. Например, если служба была развернута на узле Node 2, для приложения **MyApplicationType**используйте такой путь:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  <a name="configure-the-policy-using-local-system-accounts"></a>Настройка политики с использованием учетных записей локальной системы
+### <a name="configure-the-policy-using-local-system-accounts"></a>Настройка политики с использованием учетных записей локальной системы
 Для выполнения скриптов запуска обычно лучше использовать учетную запись локальной системы, а не учетную запись администратора, которую мы применяли выше. Выполнение политики запуска от имени с учетными записями администраторов обычно не рекомендуется, так как по умолчанию включено управление доступом на уровне пользователей. В таких случаях **рекомендуется выполнять SetupEntryPoint с учетной записью LocalSystem, а не добавлять локального пользователя в группу администраторов**. В следующем примере показана настройка SetupEntryPoint для запуска с учетной записью LocalSystem.
 
 ~~~
@@ -138,9 +135,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 </ApplicationManifest>
 ~~~
 
-##  <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Запуск команд PowerShell из точки входа SetupEntryPoint
+## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Запуск команд PowerShell из точки входа SetupEntryPoint
 Чтобы запустить PowerShell из точки входа **SetupEntryPoint**, запустите **PowerShell.exe** в пакетном файле, который указывает на файл PowerShell. Сначала добавьте файл PowerShell в проект службы, например **MySetup.ps1**. Не забудьте указать свойство *Копировать, если новее* , чтобы включить этот файл в состав пакета службы. В следующем примере показан пакетный файл для запуска файла PowerShell с именем MySetup.ps1, который задает системную переменную среды с именем **TestVariable**.
-
 
 Файл MySetup.bat для запуска файла PowerShell.
 
@@ -191,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Завершив отладку сценария, немедленно удалите эту политику перенаправления консоли.**
 
-## <a name="configure-policy-for-service-code-packages"></a>Настройка политики для пакетов кода службы 
+## <a name="configure-policy-for-service-code-packages"></a>Настройка политики для пакетов кода службы
 Выше мы описали, как применять политику запуска от имени к точке входа SetupEntryPoint. Теперь давайте подробнее рассмотрим процесс создания разных субъектов, которые могут применяться в качестве политик служб.
 
 ### <a name="create-local-user-groups"></a>Создание локальных групп пользователей
@@ -365,7 +361,6 @@ Echo "Test console redirection which writes to the application log folder on the
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Дальнейшие действия
-
 * [Сведения о модели приложения](service-fabric-application-model.md)
 * [Указание ресурсов в манифесте службы](service-fabric-service-manifest-resources.md)
 * [Развертывание приложения](service-fabric-deploy-remove-applications.md)

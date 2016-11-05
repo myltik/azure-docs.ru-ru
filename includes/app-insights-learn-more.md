@@ -1,6 +1,4 @@
-﻿## Дополнительные сведения об Application Insights
-
-
+## Дополнительные сведения об Application Insights
 <table width="100%"><tr valign="top"><td>
 
 Обзор

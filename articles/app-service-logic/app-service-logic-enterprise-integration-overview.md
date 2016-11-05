@@ -1,25 +1,24 @@
-<properties 
-	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
-	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Обзор интеграции Enterprise | Microsoft Docs
+description: Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: deonhe
 
+---
 # Обзор пакета интеграции Enterprise
-
 ## Что такое пакет интеграции Enterprise?
-Пакет интеграции Enterprise — это облачное решение корпорации Майкрософт, с помощью которого можно легко обеспечить обмен данными "бизнес-бизнес". Пакет использует стандартные протоколы, в том числе [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) и [EDIFACT](./app-service-logic-enterprise-integration-edifact.md), для обмена сообщениями между деловыми партнерами. Сообщения можно дополнительно защитить с помощью шифрования и цифровых подписей.
+Пакет интеграции Enterprise — это облачное решение корпорации Майкрософт, с помощью которого можно легко обеспечить обмен данными "бизнес-бизнес". Пакет использует стандартные протоколы, в том числе [AS2](app-service-logic-enterprise-integration-as2.md), [X12](app-service-logic-enterprise-integration-x12.md) и [EDIFACT](app-service-logic-enterprise-integration-edifact.md), для обмена сообщениями между деловыми партнерами. Сообщения можно дополнительно защитить с помощью шифрования и цифровых подписей.
 
 Данный пакет позволяет организациям, которые используют разные протоколы и форматы, обмениваться электронными сообщениями, преобразовывая разные форматы в формат, который системы обеих организаций могут интерпретировать, чтобы дать возможность предпринять соответствующие действия.
 
@@ -28,9 +27,9 @@
 С точки зрения архитектуры в основе пакета интеграции Enterprise лежат **учетные записи интеграции**, в которых хранятся все артефакты, доступные для разработки, развертывания и обслуживания ваших приложений "бизнес-бизнес". По сути, учетная запись интеграции — это облачный контейнер для хранения таких артефактов, как схемы, партнеры, сертификаты, карты и соглашения. Эти артефакты можно использовать в приложениях логики для создания рабочих процессов "бизнес-бизнес". Прежде чем использовать артефакты в приложении логики, необходимо связать с ними свою учетную запись интеграции. После связывания приложение логики будет иметь доступ к артефактам в учетной записи интеграции.
 
 ## Для чего следует использовать интеграцию Enterprise?
-- Благодаря интеграции Enterprise можно хранить все артефакты в одном месте — в своей учетной записи интеграции.
-- Вы можете использовать ядро приложений логики и все его соединители, чтобы создать рабочие процессы "бизнес-бизнес" и реализовать интеграцию с приложениями SaaS сторонних поставщиков, локальными приложениями или пользовательскими приложениями.
-- Можно также использовать функции Azure.
+* Благодаря интеграции Enterprise можно хранить все артефакты в одном месте — в своей учетной записи интеграции.
+* Вы можете использовать ядро приложений логики и все его соединители, чтобы создать рабочие процессы "бизнес-бизнес" и реализовать интеграцию с приложениями SaaS сторонних поставщиков, локальными приложениями или пользовательскими приложениями.
+* Можно также использовать функции Azure.
 
 ## Как приступить к работе с интеграцией Enterprise?
 Создавать приложения "бизнес-бизнес" и управлять ими с помощью пакета интеграции Enterprise можно в конструкторе приложений логики на **портале Azure**.
@@ -40,31 +39,30 @@
 Ниже описаны действия, которые необходимо выполнить перед созданием приложений на портале Azure. ![Изображение для обзора](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## Каковы наиболее распространенные сценарии применения?
-
 Интеграция Enterprise поддерживает следующие отраслевые стандарты:
 
-- EDI — электронный обмен данными;
-- EAI — интеграция приложений.
+* EDI — электронный обмен данными;
+* EAI — интеграция приложений.
 
 ## Вот что необходимо для немедленного начала работы.
-- Подписка Azure с учетной записью интеграции.
-- Visual Studio 2015 для создания карт и схем.
-- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0.](https://aka.ms/vsmapsandschemas)
+* Подписка Azure с учетной записью интеграции.
+* Visual Studio 2015 для создания карт и схем.
+* [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0.](https://aka.ms/vsmapsandschemas)
 
 ## Попробовать
 [Попробуйте](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) развернуть полностью работоспособный пример приложения логики для обмена данными AS2 с помощью функций "бизнес-бизнес" приложений логики.
 
 ## См. также:
-- [Соглашения](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
-- [Сценарии "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями "бизнес-бизнес".")
-- [Сертификаты](./app-service-logic-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise.")
-- [Кодирование и декодирование неструктурированных файлов](./app-service-logic-enterprise-integration-flatfile.md "Узнайте, как для кодировать и декодировать содержимое неструктурированных файлов.")
-- [Учетные записи интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте об учетных записях интеграции.")
-- [Карты](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.")
-- [Партнеры](./app-service-logic-enterprise-integration-partners.md "Узнайте о партнерах интеграции Enterprise.")
-- [Схемы](./app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
-- [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
-- [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
-- [Корпоративные соединители интеграции](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
+* [Соглашения](app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+* [Сценарии "бизнес-бизнес"](app-service-logic-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями "бизнес-бизнес".")
+* [Сертификаты](app-service-logic-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise.")
+* [Кодирование и декодирование неструктурированных файлов](app-service-logic-enterprise-integration-flatfile.md "Узнайте, как для кодировать и декодировать содержимое неструктурированных файлов.")
+* [Учетные записи интеграции](app-service-logic-enterprise-integration-accounts.md "Узнайте об учетных записях интеграции.")
+* [Карты](app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.")
+* [Партнеры](app-service-logic-enterprise-integration-partners.md "Узнайте о партнерах интеграции Enterprise.")
+* [Схемы](app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
+* [Проверка сообщений XML](app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
+* [Преобразование XML-файла](app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
+* [Корпоративные соединители интеграции](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
 
 <!---HONumber=AcomDC_0921_2016-->

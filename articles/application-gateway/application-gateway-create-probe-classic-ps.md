@@ -1,40 +1,41 @@
-<properties
-   pageTitle="Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Microsoft Azure"
-   description="Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания."
-   services="application-gateway"
-   documentationCenter="na"
-   authors="georgewallace"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags  
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
-   ms.author="gwallace" />
+---
+title: Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Microsoft Docs
+description: Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания.
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/09/2016
+ms.author: gwallace
+
+---
 # Создание пользовательской проверки для шлюза приложений (классического) Azure с помощью PowerShell
-
-> [AZURE.SELECTOR]
-- [Портал Azure](application-gateway-create-probe-portal.md)
-- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
-- [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
+> [!div class="op_single_selector"]
+> * [Портал Azure](application-gateway-create-probe-portal.md)
+> * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
+> * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
+> 
+> 
 
 .<BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
 
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Создание шлюза приложений
-
 Создание шлюза приложений:
 
 1. Создайте ресурс шлюза приложений.
@@ -42,41 +43,40 @@
 3. Применить конфигурацию к созданному ресурсу шлюза приложений.
 
 ### Создание ресурса шлюза приложений
-
 Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
 В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
-	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
 
-	Get-AzureApplicationGateway AppGwTest
+    Get-AzureApplicationGateway AppGwTest
 
->[AZURE.NOTE]  Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
+> [!NOTE]
+> Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
+> 
+> 
 
  Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
 ## Настройка шлюза приложений
-
 Можно настроить шлюз приложений с помощью XML-файла или объекта конфигурации.
 
 ## Настройка шлюза приложений с помощью XML-файла
-
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.
 
-### Шаг 1
-
+### Шаг 1
 Скопируйте следующий текст в Блокнот.
 
-	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name>
             <Type>Private</Type>
         </FrontendIPConfiguration>
     </FrontendIPConfigurations>    
-	<FrontendPorts>
+    <FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>
             <Port>80</Port>
@@ -98,7 +98,7 @@
             <Name>pool1</Name>
             <IPAddresses>
                 <IPAddress>1.1.1.1</IPAddress>
-				<IPAddress>2.2.2.2</IPAddress>
+                <IPAddress>2.2.2.2</IPAddress>
             </IPAddresses>
         </BackendAddressPool>
     </BackendAddressPools>
@@ -116,7 +116,7 @@
         <HttpListener>
             <Name>listener1</Name>
             <FrontendIP>fip1</FrontendIP>
-	    <FrontendPort>port1</FrontendPort>
+        <FrontendPort>port1</FrontendPort>
             <Protocol>Http</Protocol>
         </HttpListener>
     </HttpListeners>
@@ -129,44 +129,44 @@
             <BackendAddressPool>pool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-	</ApplicationGatewayConfiguration>
+    </ApplicationGatewayConfiguration>
 
 
 Измените значения в скобках для элементов конфигурации. Сохраните файл с расширением XML.
 
 В приведенном ниже примере показано, как использовать файл конфигурации, чтобы настроить шлюз приложений для балансировки нагрузки HTTP-трафика на общем порте 80 и направления сетевого трафика на внутренний порт 80 между двумя IP-адресами с помощью пользовательской пробы.
 
->[AZURE.IMPORTANT] В элементе протокола HTTP или HTTPS учитывается регистр.
+> [!IMPORTANT]
+> В элементе протокола HTTP или HTTPS учитывается регистр.
+> 
+> 
 
 Новый элемент конфигурации <Probe> добавляется для настройки пользовательских проверок работоспособности.
 
 Используются следующие параметры конфигурации:
 
-- **Name** — имя пользовательской пробы.
-- **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
-- **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
-- **Interval** — задает интервал между пробами в секундах.
-- **Timeout** — определяет время ожидания для проверки ответа HTTP.
-- **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
+* **Name** — имя пользовательской пробы.
+* **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
+* **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
+* **Interval** — задает интервал между пробами в секундах.
+* **Timeout** — определяет время ожидания для проверки ответа HTTP.
+* **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
 
 Имя пробы указывается в конфигурации <BackendHttpSettings> для назначения внутреннего пула, который будет использовать параметры пользовательской пробы.
 
 ## Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
-
 Изменение текущей конфигурации шлюза приложений состоит из трех шагов: получение XML-файла конфигурации, внесение изменений для пользовательской проверки и настройка шлюза приложений с использованием новых параметров XML.
 
-### Шаг 1
-
+### Шаг 1
 Получите XML-файл с помощью командлета Get-AzureApplicationGatewayConfig. Он экспортирует XML-файл конфигурации, который можно изменить, чтобы добавить параметры пробы.
 
-	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
-### Шаг 2
-
+### Шаг 2
 Откройте XML-файл в текстовом редакторе. Добавьте раздел `<probe>` после `<frontendport>`.
 
-	<Probes>
+    <Probes>
         <Probe>
             <Name>Probe01</Name>
             <Protocol>Http</Protocol>
@@ -191,15 +191,13 @@
 
 Сохраните XML-файл.
 
-### Шаг 3.
-
+### Шаг 3.
 Обновите конфигурацию шлюза приложений с использованием нового XML-файла, выполнив командлет **Set-AzureApplicationGatewayConfig**. Он команда обновит шлюз приложений с учетом новой конфигурации.
 
-	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Дальнейшие действия
-
 Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
 Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).

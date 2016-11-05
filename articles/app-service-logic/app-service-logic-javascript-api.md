@@ -1,24 +1,26 @@
-<properties
-   pageTitle="Использование приложения API JavaScript в приложении логики | Microsoft Azure"
-   description="Приложение API JavaScript или соединитель"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: Использование приложения API JavaScript в приложении логики | Microsoft Docs
+description: Приложение API JavaScript или соединитель
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # Приложение API JavaScript
-
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+> [!NOTE]
+> Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+> 
+> 
 
 Приложение API JavaScript позволяет легко выполнять простые выражения JavaScript *во время работы приложения логики*.
 
@@ -39,45 +41,47 @@
 Вы можете создать триггер, который будет опрашивать службу приложения логики (с выбранным вами интервалом). Если триггер не возвращает никаких результатов, приложение логики будет выполняться, в противном случае оно будет ожидать следующего интервала опроса для повторной проверки.
 
 Входные данные для триггера:
-- **выражение JavaScript** — выражение, которое будет оцениваться. Оно будет вызываться внутри функции и должно возвращать значение `false`, если вы не хотите, чтобы приложение логики запускалось. Выражение также может возвращать другие значения, если нужно, чтобы приложение логики запускалось. Вы сможете использовать содержимое ответа в действиях приложения логики.
-- **Объект контекста** — необязательный объект, который может быть передан в триггер. Можно определить любое количество свойств, однако сущность верхнего уровня должна быть объектом, например `{ "bar" : 0}`.
 
-Например, можно создать простой триггер, который будет выполнять приложение логики только между 15 и 30 минутой часа.
+* **выражение JavaScript** — выражение, которое будет оцениваться. Оно будет вызываться внутри функции и должно возвращать значение `false`, если вы не хотите, чтобы приложение логики запускалось. Выражение также может возвращать другие значения, если нужно, чтобы приложение логики запускалось. Вы сможете использовать содержимое ответа в действиях приложения логики.
+* **Объект контекста** — необязательный объект, который может быть передан в триггер. Можно определить любое количество свойств, однако сущность верхнего уровня должна быть объектом, например `{ "bar" : 0}`.
+
+Например, можно создать простой триггер, который будет выполнять приложение логики только между 15 и 30 минутой часа.
 
 ```
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### Действие
-
 Точно так же можно указать действие для выполнения.
 
 Входные данные для действия:
-- **выражение JavaScript** — выражение, которое будет оцениваться. Необходимо добавить в него инструкцию `return`, чтобы получить содержимое.
-- **Объект контекста** — необязательный объект, который может быть передан в триггер. Можно определить любое количество свойств, однако сущность верхнего уровня должна быть объектом, например `{ "bar" : 0}`.
 
-Предположим, вы используете триггер Office 365 **Новое сообщение электронной почты**. Этот триггер возвращает следующий объект:
+* **выражение JavaScript** — выражение, которое будет оцениваться. Необходимо добавить в него инструкцию `return`, чтобы получить содержимое.
+* **Объект контекста** — необязательный объект, который может быть передан в триггер. Можно определить любое количество свойств, однако сущность верхнего уровня должна быть объектом, например `{ "bar" : 0}`.
+
+Предположим, вы используете триггер Office 365 **Новое сообщение электронной почты**. Этот триггер возвращает следующий объект:
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в бизнес-процесс с помощью приложения логики. См. статью [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)
-
- 
 
 <!--References -->
 

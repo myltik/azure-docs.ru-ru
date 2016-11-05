@@ -1,38 +1,35 @@
-<properties
-	pageTitle="Служба приложений Azure и ее влияние на существующие службы Azure"
-	description="В этом разделе объясняется, как новая служба приложений Azure и ее функциональные возможности влияют на существующие службы в Azure."
-	services="app-service"
-    documentationCenter=""
-	authors="yochay"
-	manager="nirma"
-	editor=""/>
+---
+title: Служба приложений Azure и ее влияние на существующие службы Azure
+description: В этом разделе объясняется, как новая служба приложений Azure и ее функциональные возможности влияют на существующие службы в Azure.
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: nirma
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="yochayk"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/12/2016
+ms.author: yochayk
 
-
+---
 # Служба приложений Azure и существующие службы Azure
-
 В этой статье описаны изменения в существующих службах Azure, возникающие в процессе объединения нескольких служб Azure в [службу приложений Azure](https://azure.microsoft.com/services/app-service/), представляющую собой новое интегрированное решение.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Обзор
-
 [Служба приложений Azure](https://azure.microsoft.com/services/app-service/) — это новая и уникальная облачная служба, которая позволяет разработчикам создавать веб-приложения и мобильные приложения для любой платформы и любого устройства. Служба приложений — это интегрированное решение, призванное упростить повторное использование функций в коде, реализовать интеграцию с системами SaaS и корпоративными системами, обеспечить автоматизацию бизнес-процессов, одновременно удовлетворяя ваши потребности в безопасности, надежности и масштабируемости.
 
 Служба приложений объединяет следующие существующие службы Azure — [веб-сайты](https://azure.microsoft.com/services/websites/), [мобильные службы](https://azure.microsoft.com/services/mobile-services/) и [службы Biztalk](https://azure.microsoft.com/services/biztalk-services/) — в единую службу, а также добавляет новые эффективные функции. Служба приложений позволяет разместить следующие типы приложений.
 
--   Веб-приложения
--   Мобильные приложения
--   Приложения API
--   Приложения логики
+* Веб-приложения
+* Мобильные приложения
+* Приложения API
+* Приложения логики
 
 В следующей таблице показано, как существующие службы Azure сопоставляются со службой приложений, а также описаны все доступные в ней типы приложений.
 

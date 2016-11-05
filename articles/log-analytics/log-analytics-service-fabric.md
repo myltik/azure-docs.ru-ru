@@ -1,37 +1,33 @@
-<properties
-    pageTitle="Оптимизация среды с помощью решения Service Fabric в Log Analytics | Microsoft Azure"
-    description="Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
-    services="log-analytics"
-    documentationCenter=""
-    authors="niniikhena"
-    manager="jochan"
-    editor=""/>
+---
+title: Оптимизация среды с помощью решения Service Fabric в Log Analytics | Microsoft Docs
+description: Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric.
+services: log-analytics
+documentationcenter: ''
+author: niniikhena
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/21/2016"
-    ms.author="nini"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: nini
 
-
-
-
-
+---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Решение Service Fabric в Log Analytics)
-
-> [AZURE.SELECTOR]
-- [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
-- [PowerShell](log-analytics-service-fabric.md)
+> [!div class="op_single_selector"]
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [PowerShell](log-analytics-service-fabric.md)
+> 
+> 
 
 В этой статье описано, как использовать решение Service Fabric в Log Analytics для выявления и устранения неполадок в кластере Service Fabric путем получения сведений о работе узлов Service Fabric, приложений и микрослужб.
 
 Решение Service Fabric использует данные системы диагностики Azure, полученные от виртуальных машин Service Fabric, собирая эти данные из таблиц Azure WAD. Log Analytics затем считывает события платформы Service Fabric, включая **события надежной службы**, **события субъектов**, **операционные события** и **пользовательские события трассировки событий Windows**. На панели мониторинга решения Service Fabric отображаются важные проблемы и соответствующие события в среде Service Fabric.
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
-
 Для установки и настройки решения выполните три простых шага, описанных ниже.
 
 1. Убедитесь, что используемая рабочая область OMS связана с той же подпиской Azure, которая использовалась для создания всех ресурсов кластера, включая учетные записи хранения. Сведения о создании рабочей области OMS см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
@@ -41,17 +37,19 @@
 ## <a name="configure-oms-to-collect-and-view-service-fabric-logs"></a>Настройка OMS для сбора и просмотра журналов Service Fabric
 В этом разделе описана настройка OMS для получения журналов Service Fabric. Журналы дают возможность просматривать, анализировать и устранять неполадки в кластере, а также в приложениях и службах, работающих в этом кластере, с помощью портала OMS.
 
->[AZURE.NOTE] Расширение системы диагностики Azure нужно настроить для отправки журналов в таблицы хранилища, соответствующие тем, которые будет искать OMS. Дополнительные сведения о сборе журналов см. в статье [Сбор журналов с помощью системы диагностики Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). На примерах настроек конфигурации в этой статье вы увидите, какими должны быть имена таблиц хранилища. После настройки диагностики в кластере и отправки журналов в учетную запись хранения можно перейти к настройке OMS для сбора этих журналов.
+> [!NOTE]
+> Расширение системы диагностики Azure нужно настроить для отправки журналов в таблицы хранилища, соответствующие тем, которые будет искать OMS. Дополнительные сведения о сборе журналов см. в статье [Сбор журналов с помощью системы диагностики Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). На примерах настроек конфигурации в этой статье вы увидите, какими должны быть имена таблиц хранилища. После настройки диагностики в кластере и отправки журналов в учетную запись хранения можно перейти к настройке OMS для сбора этих журналов.
+> 
+> 
 
 Обновите раздел **EtwEventSourceProviderConfiguration** в файле **template.json**, добавив записи для нового канала EventSources, до обновления конфигурации, запустив файл **deploy.ps1**. Таблица для отправки совпадает с таблицей (ETWEventTable). На данный момент OMS может читать только события трассировки событий Windows приложения из этой таблицы. Однако поддержка пользовательских таблиц трассировки событий Windows находится на стадии разработки.
 
 Для выполнения некоторых операций в этом разделе используются следующие инструменты:
 
--   Azure PowerShell
--   [Operations Management Suite](http://www.microsoft.com/oms).
+* Azure PowerShell
+* [Operations Management Suite](http://www.microsoft.com/oms).
 
 ### <a name="configure-an-oms-workspace-to-show-the-cluster-logs"></a>Настройка рабочей области OMS для отображения журналов кластера
-
 Создав рабочую область OMS, как описано выше, можно приступать к настройке рабочей области для извлечения журналов из таблиц в службе хранилища Azure, в которые расширение системы диагностики отправляет журналы из кластера. Для этого выполните следующий сценарий PowerShell:
 
 ```
@@ -340,39 +338,37 @@ $workspace = Select-Workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -IntelligencePackName "ServiceFabric" -Enabled $true
 ```
 
-После включения решения на странице обзора OMS появится плитка Service Fabric, на которой будут отображены важные проблем, например сбои и отмены RunAsync за последние 24 часа.
+После включения решения на странице обзора OMS появится плитка Service Fabric, на которой будут отображены важные проблем, например сбои и отмены RunAsync за последние 24 часа.
 
 ![Плитка Service Fabric](./media/log-analytics-service-fabric/sf2.png)
 
 ### <a name="view-service-fabric-events"></a>Просмотр событий Service Fabric
-
 Щелкните плитку **Service Fabric**, чтобы открыть панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. Каждый столбец содержит десять ведущих событий с числом, соответствующим критериям события для указанного диапазона времени. Можно выполнить поиск по журналам, выводящий весь список, щелкнув элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
 
 | **Событие Service Fabric** | **description** |
 | --- | --- |
-| Важные проблемы | Отображение таких проблем, как сбои и отмены RunAsync, а также отключение узлов. |
-| Операционные события | Важные операционные события, такие как обновление и развертывание приложения. |
-| События надежных служб | Важные события надежных служб, например вызовы RunAsync. |
-| События субъектов | Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
-| События приложений | Все пользовательские события трассировки событий Windows, создаваемые приложениями. |
+| Важные проблемы |Отображение таких проблем, как сбои и отмены RunAsync, а также отключение узлов. |
+| Операционные события |Важные операционные события, такие как обновление и развертывание приложения. |
+| События надежных служб |Важные события надежных служб, например вызовы RunAsync. |
+| События субъектов |Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
+| События приложений |Все пользовательские события трассировки событий Windows, создаваемые приложениями. |
 
 ![Панель мониторинга Service Fabric](./media/log-analytics-service-fabric/sf3.png)
 
 ![Панель мониторинга Service Fabric](./media/log-analytics-service-fabric/sf4.png)
 
-
 В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для Service Fabric.
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
-|---|---|---|---|---|---|---|
-|Windows|![Нет](./media/log-analytics-malware/oms-bullet-red.png)|![Нет](./media/log-analytics-malware/oms-bullet-red.png)| ![Да](./media/log-analytics-malware/oms-bullet-green.png)|            ![Нет](./media/log-analytics-malware/oms-bullet-red.png)|![Нет](./media/log-analytics-malware/oms-bullet-red.png)|10 минут |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Да](./media/log-analytics-malware/oms-bullet-green.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |10 минут |
 
-
->[AZURE.NOTE] Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
-
+> [!NOTE]
+> Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
+> 
+> 
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Устранение неполадок конфигурации Service Fabric и OMS
-
 Если необходимо проверить конфигурацию OMS, потому что не удается просмотреть данные событий в OMS, используйте приведенный ниже сценарий. Он считывает конфигурацию системы диагностики Service Fabric, проверяет записываемые в таблицы данные, а также проверяет, настроена ли консоль OMS для считывания данных из таблиц.
 
 ```
@@ -635,10 +631,7 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
-
-
+* Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
 
 <!--HONumber=Oct16_HO2-->
 

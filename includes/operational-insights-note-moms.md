@@ -1,3 +1,6 @@
-> [AZURE.NOTE]Мы работаем над интеграцией службы оперативной аналитики в новый пакет [Microsoft Operations Management Suite](http://microsoft.com/oms). Хотя служба оперативной аналитики останется службой Azure и функции, описанные в данной статье, не изменятся, вы заметите, что вскоре ссылки из службы оперативной аналитики изменятся на Microsoft Operations Management Suite.
+> [!NOTE]
+> Мы работаем над интеграцией службы оперативной аналитики в новый пакет [Microsoft Operations Management Suite](http://microsoft.com/oms). Хотя служба оперативной аналитики останется службой Azure и функции, описанные в данной статье, не изменятся, вы заметите, что вскоре ссылки из службы оперативной аналитики изменятся на Microsoft Operations Management Suite.
+> 
+> 
 
 <!---HONumber=August15_HO6-->

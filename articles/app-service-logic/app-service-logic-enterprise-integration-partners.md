@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Сведения о партнерах и пакете интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
-	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Сведения о партнерах и пакете интеграции Enterprise | Microsoft Docs
+description: Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Сведения о партнерах и пакете интеграции Enterprise
-
 ## Обзор
 Перед созданием партнера вы и организация, с которой вы планируете работать, должны обменяться сведениями, которые помогут идентифицировать и проверять сообщения, отправляемые вами и этой организацией друг другу. Обсудив это и подготовившись к тому, чтобы начать деловые отношения, вы можете создать *партнер* в своей учетной записи интеграции.
 
@@ -35,19 +34,20 @@
 
 ## Как создать партнер?
 На портале Azure выполните следующие действия.
+
 1. Щелкните **Обзор**.![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Выберите **учетную запись интеграции**, в которую необходимо добавить партнеры. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Выберите элемент **Партнеры**.![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
+4. Выберите элемент **Партнеры**.![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
 5. В открывшейся колонке "Партнеры" нажмите кнопку **Добавить**. ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
 6. В соответствующих полях введите **имя** партнера, выберите **квалификатор** и, наконец, введите **значение**. Это значение используется для определения документов, которые поступают в ваши приложения. ![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)
 7. Щелкните значок уведомления (*колокольчик*), чтобы просмотреть ход создания партнера. ![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)
 8. Выберите элемент **Партнеры**. Элемент обновится, и вы увидите, что количество партнеров возросло, отражая успешное добавление нового партнера. ![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)
-10. Выбрав элемент "Партнеры", в колонке "Партнеры" вы также увидите только что добавленный партнер. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
+9. Выбрав элемент "Партнеры", в колонке "Партнеры" вы также увидите только что добавленный партнер. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
 
 ## Как изменить партнер
-
 Выполните следующие действия, чтобы изменить партнер, который уже существует в вашей учетной записи интеграции.
+
 1. Выберите элемент **Партнеры**.
 2. В открывшейся колонке "Партнеры" выберите партнер, который вы хотите изменить.
 3. Внесите необходимые изменения в элементе **Update Partner** (Обновление партнера).
@@ -59,6 +59,6 @@
 3. Щелкните ссылку **Удалить**. ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
 ## Дальнейшие действия
-- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
+* [Узнайте больше о соглашениях](app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
 
 <!---HONumber=AcomDC_0803_2016-->

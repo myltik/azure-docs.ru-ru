@@ -1,41 +1,37 @@
-<properties
-   pageTitle="Что такое Log Analytics? | Microsoft Azure"
-   description="Log Analytics — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать операционные данные, формируемые ресурсами в облачных и локальных средах. В этой статье приводится краткий обзор различных компонентов службы Log Analytics и ссылки на подробные материалы."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
-   ms.author="bwren" />
+---
+title: Что такое Log Analytics? | Microsoft Docs
+description: Log Analytics — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать операционные данные, формируемые ресурсами в облачных и локальных средах. В этой статье приводится краткий обзор различных компонентов службы Log Analytics и ссылки на подробные материалы.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/13/2016
+ms.author: bwren
+
+---
 # Что такое Log Analytics?
 Log Analytics — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать данные, формируемые ресурсами в облачных и локальных средах. Она предоставляет аналитические данные в режиме реального времени, используя встроенный поиск и настраиваемые панели мониторинга для быстрого анализа миллионов записей по всем рабочим нагрузкам и серверам независимо от их физического местонахождения.
-
 
 ## Компоненты службы Log Analytics
 Центральное место в службе Log Analytics занимает репозиторий OMS, который размещается в облаке Azure. Данные собираются в репозиторий из подключенных источников в результате настройки источников данных и добавления решений в подписку. Источники данных и решения каждого создают различные типы записей, которые имеют собственные наборы свойств, но в запросах к репозиторию могут анализироваться вместе. Это позволяет использовать одни и те же средства и методы для работы с разными видами данных, собранными из различных источников.
 
-
 ![Репозиторий OMS](media/log-analytics-overview/overview.png)
-
 
 Подключенные источники — это компьютеры и другие ресурсы, создающие данные, которые собираются службой Log Analytics. Сюда могут входить агенты, установленные на компьютеры [Windows](log-analytics-windows-agents.md) и [Linux](log-analytics-linux-agents.md), подключенные напрямую, или агенты в [подключенной группе управления System Center Operations Manager](log-analytics-om-agents.md). Log Analytics может также собирать данные из [хранилища Azure](log-analytics-azure-storage.md).
 
 [Источники данных](log-analytics-data-sources.md) — это различные виды данных, собираемые из каждого подключенного источника. Сюда входят события и [данные о производительности](log-analytics-data-sources-performance-counters.md) из агентов [Windows](log-analytics-data-sources-windows-events.md) и Linux, а также такие источники, как [журналы IIS](log-analytics-data-sources-iis-logs.md) и [журналы пользовательских текстов](log-analytics-data-sources-custom-logs.md). Вы настраиваете каждый источник, с которого нужно получать данные, и конфигурация передается на каждый подключенный источник автоматически.
 
-
 ## Анализ данных в службе Log Analytics
 Большинство взаимодействий со службой Log Analytics осуществляется через портал OMS, который работает в любом браузере и обеспечивает доступ к параметрам конфигурации и многочисленным средствам для анализа собранных данных и принятия необходимых мер. На портале можно использовать [поиск по журналам](log-analytics-log-searches.md), при котором формируются запросы для анализа собранных данных, [панели мониторинга](log-analytics-dashboards.md), которые можно настраивать, используя графические представления большинства значимых поисковых запросов, и [решения](log-analytics-add-solutions.md), предоставляющие дополнительные функции и средства анализа.
 
 ![Портал OMS](media/log-analytics-overview/portal.png)
-
 
 Служба Log Analytics предоставляет синтаксис запросов для быстрого получения и консолидации данных в репозитории. Вы можете создать и сохранить запрос для [поиска по журналам](log-analytics-log-searches.md) для прямого анализа данных на портале OMS или настроить автоматическое выполнение запросов для поиска по журналам таким образом, чтобы в случае, если запрос указывает на важное условие, создавалось оповещение.
 
@@ -52,7 +48,6 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 ![Решение для отслеживания изменений](media/log-analytics-overview/change-tracking.png)
 
-
 Существуют решения для самых разных функций. Вы можете легко найти все доступные решения и [добавить их в рабочую область OMS](log-analytics-add-solutions.md) из коллекции решений. Многие из них развертываются автоматически и начинают работать сразу, а другие требуют определенной настройки.
 
 ![Коллекция решений](media/log-analytics-overview/solution-gallery.png)
@@ -66,11 +61,9 @@ Log Analytics предъявляет минимальные требования
 
 ![Архитектура службы Log Analytics](media/log-analytics-overview/architecture.png)
 
-
 ## Дальнейшие действия
-
-- [Создайте бесплатную учетную запись Log Analytics](log-analytics-get-started.md) для тестирования в собственной среде.
-- Просмотрите различные [источники данных](log-analytics-data-sources.md), доступные для сбора данных в репозиторий OMS.
-- Чтобы добавить функции в службу Log Analytics, [найдите доступные решения в коллекции решений](log-analytics-add-solutions.md).
+* [Создайте бесплатную учетную запись Log Analytics](log-analytics-get-started.md) для тестирования в собственной среде.
+* Просмотрите различные [источники данных](log-analytics-data-sources.md), доступные для сбора данных в репозиторий OMS.
+* Чтобы добавить функции в службу Log Analytics, [найдите доступные решения в коллекции решений](log-analytics-add-solutions.md).
 
 <!---HONumber=AcomDC_0525_2016-->

@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication"
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности RADIUS для сервера Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication
+description: Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности RADIUS для сервера Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: kgremban
 
-
-
+---
 # Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication
-
 Раздел проверки подлинности RADIUS позволяет включить и настроить проверку подлинности RADIUS для сервера Azure Multi-Factor Authentication Server. RADIUS — это стандартный протокол принятия и обработки запросов проверки подлинности. Сервер Azure Multi-Factor Authentication работает как сервер RADIUS и устанавливается между клиентом RADIUS (например, устройством VPN) и целевым объектом проверки подлинности, которым может быть Active Directory (AD), каталог LDAP или другой сервер RADIUS, для добавления службы Azure Multi-Factor Authentication. Для нормального функционирования службы Azure Multi-Factor Authentication необходимо настроить сервер Azure Multi-Factor Authentication так, чтобы он мог взаимодействовать как с клиентскими серверами, таки и с целевым объектом проверки подлинности. Сервер Azure Multi-Factor Authentication принимает запросы от клиента RADIUS, проверяет учетные данные с целевым объектом проверки подлинности, добавляет службу Azure Multi-Factor Authentication и отправляет ответ обратно клиенту RADIUS. Полная проверка подлинности будет успешной только в случае успешной проверки основного процесса подлинности и службы Azure Multi-Factor Authentication.
 
->[AZURE.NOTE]
-Выполняя роль RADIUS, сервер MFA поддерживает только такие протоколы RADIUS: PAP (протокол проверки пароля) и MSCHAPv2 (протокол проверки пароля Майкрософт). Другие протоколы, такие как EAP (расширяемый протокол проверки подлинности), можно использовать, если сервер MFA выполняет роль прокси-сервера RADIUS для другого сервера RADIUS, который поддерживает этот протокол, например для сервера политики сети Майкрософт. </br> При использовании других протоколов в этой конфигурации односторонние маркеры SMS и OATH не будут работать, поскольку сервер MFA не может инициировать успешный ответ на запрос RADIUS с использованием этого протокола.
-
+> [!NOTE]
+> Выполняя роль RADIUS, сервер MFA поддерживает только такие протоколы RADIUS: PAP (протокол проверки пароля) и MSCHAPv2 (протокол проверки пароля Майкрософт). Другие протоколы, такие как EAP (расширяемый протокол проверки подлинности), можно использовать, если сервер MFA выполняет роль прокси-сервера RADIUS для другого сервера RADIUS, который поддерживает этот протокол, например для сервера политики сети Майкрософт. </br> При использовании других протоколов в этой конфигурации односторонние маркеры SMS и OATH не будут работать, поскольку сервер MFA не может инициировать успешный ответ на запрос RADIUS с использованием этого протокола.
+> 
+> 
 
 ![Проверка подлинности RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## Настройка проверки подлинности RADIUS
-
 Для настройки проверки подлинности RADIUS установите сервер Azure Multi-Factor Authentication на сервере Windows. Если имеется среда Active Directory, сервер должен быть присоединен к домену в сети. Для настройки сервера Azure Multi-Factor Authentication используйте следующую процедуру.
 
 1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности RADIUS в левом меню.
@@ -51,13 +48,11 @@
 17. Добавьте сервер Azure Multi-Factor Authentication в качестве клиента RADIUS на другом сервере RADIUS, чтобы он обрабатывал запросы на доступ, отправляемые на него с сервера Azure Multi-Factor Authentication. Необходимо использовать тот же общий секретный ключ, который настроен на сервере Azure Multi-Factor Authentication.
 18. Этот шаг можно повторить, чтобы добавить дополнительные серверы RADIUS и настроить порядок, в котором сервер должен их вызывать, с помощью кнопок перемещения вверх и вниз. На этом процесс настройки сервера Azure Multi-Factor Authentication завершается. Теперь сервер прослушивает в настроенных портах запросы на доступ RADIUS, поступающие из настроенных клиентов.
 
-
 ## Настройка клиента RADIUS
-
 Для настройки клиента RADIUS используйте следующие рекомендации.
 
-- Настройте устройство или сервер для проверки подлинности посредством RADIUS по IP-адресу сервера Azure Multi-Factor Authentication, который будет действовать как сервер RADIUS.
-- Используйте тот же общий секретный ключ, который был настроен выше.
-- Для времени ожидания RADIUS установите значение в диапазоне 30–60 секунд, чтобы оставалось время на проверку учетных данных пользователя, выполнение двухфакторной проверки подлинности, получение ответа и отправку ответа на запрос на доступ RADIUS.
+* Настройте устройство или сервер для проверки подлинности посредством RADIUS по IP-адресу сервера Azure Multi-Factor Authentication, который будет действовать как сервер RADIUS.
+* Используйте тот же общий секретный ключ, который был настроен выше.
+* Для времени ожидания RADIUS установите значение в диапазоне 30–60 секунд, чтобы оставалось время на проверку учетных данных пользователя, выполнение двухфакторной проверки подлинности, получение ответа и отправку ответа на запрос на доступ RADIUS.
 
 <!---HONumber=AcomDC_0921_2016-->

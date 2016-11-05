@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Использование меток для инструментирования запросов в хранилище данных SQL | Microsoft Azure"
-   description="Рекомендации по использованию меток для инструментирования запросов в хранилище данных SQL Azure для разработки решений."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Использование меток для инструментирования запросов в хранилище данных SQL | Microsoft Docs
+description: Рекомендации по использованию меток для инструментирования запросов в хранилище данных SQL Azure для разработки решений.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Использование меток для инструментирования запросов в хранилище данных SQL
 Хранилище данных SQL поддерживает концепцию так называемых меток. Прежде чем углубляться в это понятие, рассмотрим следующий пример.
 
@@ -39,11 +39,13 @@ WHERE   r.[label] = 'My Query Label'
 ;
 ```
 
-> [AZURE.NOTE] Слово Label в запросе необходимо заключать в квадратные скобки или двойные кавычки. Это слово является зарезервированным и в отсутствие разделителей вызывает ошибку.
-
+> [!NOTE]
+> Слово Label в запросе необходимо заключать в квадратные скобки или двойные кавычки. Это слово является зарезервированным и в отсутствие разделителей вызывает ошибку.
+> 
+> 
 
 ## Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
+Дополнительные советы по разработке см. в статье [Общие сведения о разработке][Общие сведения о разработке].
 
 <!--Image references-->
 

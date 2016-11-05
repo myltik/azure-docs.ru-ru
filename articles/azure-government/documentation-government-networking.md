@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Документация по Azure для государственных организаций | Microsoft Azure"
-	description="Эта статья содержит сравнение функций и инструкции для установки частного подключения к службе Azure для государственных организаций."
-	services="Azure-Government"
-	cloud="gov" 
-	documentationCenter=""
-	authors="ryansoc"
-	manager="zakramer"
-	editor=""/>
+---
+title: Документация по Azure для государственных организаций | Microsoft Docs
+description: Эта статья содержит сравнение функций и инструкции для установки частного подключения к службе Azure для государственных организаций.
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: ryansoc
+manager: zakramer
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="08/25/2016"
-	ms.author="ryansoc"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 08/25/2016
+ms.author: ryansoc
 
-#  Сетевые подключения для Azure для государственных организаций
-
-##  ExpressRoute (возможность частных подключений)
-
+---
+# Сетевые подключения для Azure для государственных организаций
+## ExpressRoute (возможность частных подключений)
 Возможности частного подключения в службе Azure для государственных организаций обеспечивают две базовые службы: VPN (подключения типа "сеть — сеть" для стандартных организаций) и ExpressRoute.
 
 Azure ExpressRoute позволяет создавать частные подключения между центрами обработки данных Azure для государственных организаций и локальной инфраструктурой или средой для совместного размещения данных. Подключения ExpressRoute осуществляются не через общедоступный Интернет и обеспечивают повышенную надежность и быстродействие, а также более низкую задержку по сравнению с обычными интернет-подключениями. В некоторых случаях использование подключений ExpressRoute для передачи данных между локальными системами и Azure позволяет существенно сэкономить средства.

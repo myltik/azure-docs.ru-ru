@@ -7,9 +7,6 @@
 3. Выберите узел **Таблица** и в контекстном меню выберите **Создать таблицу**.
 4. Введите имя для таблицы и щелкните **ОК**.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

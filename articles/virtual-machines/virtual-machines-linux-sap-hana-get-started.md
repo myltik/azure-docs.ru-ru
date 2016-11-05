@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure | Microsoft Azure"
-   description="Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="hermanndms"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"
-   keywords=""/>
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/15/2016"
-   ms.author="hermannd"/>
+---
+title: Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure | Microsoft Docs
+description: Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
+---
 # <a name="quickstart-guide-for-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Краткое руководство по установке экземпляра SAP Hana вручную на виртуальных машинах Azure
-
 ## <a name="introduction"></a>Введение
-
 Это краткое руководство по настройке одноэкземплярной демонстрационной системы или системы-прототипа SAP Hana на виртуальных машинах Azure с помощью ручной установки SAP NetWeaver 7.5 и SAP Hana SP12.
 Здесь предполагается, что читатель ознакомлен с основными принципами работы с Azure IaaS, в частности с развертыванием виртуальных машин или виртуальных сетей с помощью портала Azure, Powershell или интерфейса командной строки, включая метод с использованием шаблонов JSON. Кроме того, предполагается, что читатель ознакомлен с SAP Hana, SAP NetWeaver и знает, как установить их локально.
 
@@ -38,10 +36,8 @@
 * Обе виртуальные машины относятся к одной виртуальной сети Azure (azure-hana-test-vnet).
 * В обоих случаях использовалась операционная система SLES 12 с пакетом обновлений 1 (SP1).
 
-
 Обратите внимание, что начиная с июля 2016 года SAP Hana полностью поддерживается только в рабочих системах OLAP (BW) на виртуальных машинах Azure типа GS5. В целях тестирования, когда не требуется официальная поддержка SAP, можно использовать виртуальные машины меньшего размера, например GS4.
 Для установки SAP Hana на виртуальной машине Azure требуется хранилище Azure класса Premium, используемое для хранения данных и файлов журналов Hana (см. раздел "Настройка диска" ниже). Дополнительные сведения о поддерживаемых в Azure продуктах SAP см. в разделе "Общие сведения о сертификатах SAP для Azure, запуске SAP Hana в Azure и скачивании ПО SAP" в конце этой статьи.
-
 
 В этом руководстве описывается два разных способа установки SAP Hana на виртуальных машинах Azure вручную:
 
@@ -52,9 +48,7 @@
 
 Чтобы избежать некоторых основных ошибок, возникающих при использовании конфигурации виртуальной машины Azure по умолчанию, перед началом установки ознакомьтесь с разделом о настройке тестовых виртуальных машин Azure, расположенным после раздела с контрольным списком.
 
-
 ## <a name="checklist-sap-hana-installation-via-sap-swpm"></a>Контрольный список для установки SAP Hana через SAP SWPM
-
 В этом простом контрольном списке перечислены основные действия для создания одноэкземплярной демонстрационной системы или системы-прототипа SAP Hana путем установки вручную с использованием SAP SWPM во время распределенной установки SAP NetWeaver 7.5. Некоторые отдельные компоненты подробно объясняются далее в статье, и к ним предоставлены снимки экрана.
 
 * Создайте виртуальную сеть Azure с двумя тестовыми виртуальными машинами. 
@@ -76,10 +70,7 @@
 * Установите основной сервер приложений на виртуальной машине сервера приложений.
 * Запустите и подключите консоль управления SAP с помощью графического пользовательского интерфейса SAP или Hana Studio. 
 
-
-
 ## <a name="checklist-sap-hana-installation-via-hdblcm"></a>Контрольный список для установки SAP Hana через HDBLCM
-
 В этом простом контрольном списке перечислены основные действия для создания одноэкземплярной демонстрационной системы или системы-прототипа SAP Hana путем установки вручную с использованием SAP SWPM во время распределенной установки SAP NetWeaver 7.5. Некоторые отдельные компоненты подробно объясняются далее в статье, и к ним предоставлены снимки экрана.
 
 * Создайте виртуальную сеть Azure с двумя тестовыми виртуальными машинами. 
@@ -103,11 +94,7 @@
 * Установите основной сервер приложений на виртуальной машине сервера приложений.
 * Запустите и подключите консоль управления SAP с помощью графического пользовательского интерфейса SAP или Hana Studio. 
 
-
-
-
 ## <a name="prepare-azure-vms-for-manual-installation-of-sap-hana"></a>Подготовка виртуальных машин Azure к установке SAP Hana вручную
-
 В этой главе описывается подготовка виртуальных машин Azure к установке SAP Hana вручную. Она состоит из пяти разделов, в которых рассматриваются следующие темы:
 
 * настройка диска;
@@ -116,9 +103,7 @@
 * файл /etc/hosts;
 * файл /etc/fstab.
 
-
 ### <a name="disk-setup"></a>настройка диска;
-
 Размер корневой файловой системы на виртуальных машинах Linux в Azure ограничен. Поэтому для работы SAP на виртуальной машине необходимо добавить дополнительное дисковое пространство. Если виртуальная машина сервера приложений SAP запущена в демонстрационной среде или среде-прототипе, то можно использовать диски стандартного хранилища Azure. Однако для хранения файлов журналов и данных базы данных SAP Hana необходимо использовать диски хранилища класса Premium даже в нерабочем ландшафте.
 
 Дополнительные сведения о подключении дисков к виртуальной машине Linux см. [здесь](virtual-machines-linux-add-disk.md).
@@ -132,20 +117,16 @@
 
 Сведения о поиске образа SUSE с помощью Powershell или интерфейса командной строки, а также о важности подключения диска через UUID см. в [этой статье](virtual-machines-linux-sap-on-suse-quickstart.md).
 
-
 В зависимости от размера системы и требований в отношении пропускной способности может понадобиться подключить несколько дисков, а позже на уровне операционной системы создать для них чередующийся набор. Этот набор нужно создать по таким причинам:
 
 * для повышения пропускной способности;
 * требуется отдельная файловая система емкостью больше 1 ТБ, так как по состоянию на июль 2016 года текущее ограничение по размеру на диске Azure составляет 1 ТБ.
-
 
 Дополнительные сведения о двух основных средствах для настройки чередования см. в следующих статьях:
 
 [Настройка программного RAID-массива в Linux](virtual-machines-linux-configure-raid.md)
 
 [Настройка диспетчера логических томов на виртуальной машине Linux в Azure](virtual-machines-linux-configure-lvm.md)
-
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
@@ -155,12 +136,8 @@
 
 В отличие от виртуальной машины сервера приложений к виртуальной машине сервера SAP Hana присоединяется четыре диска. Как и в предыдущем примере, один диск предназначен для хранения программного обеспечения SAP (общий доступ к этому диску можно предоставить с помощью NFS), а второй используется в качестве дополнительного хранилища (например, для хранения резервных копий). Остальные два диска — это диски хранилища Azure класса Premium, используемые для хранения файлов журналов и данных SAP Hana, а также каталога /usr/sap.
 
-
 ### <a name="kernel-parameters"></a>параметры ядра;
-
-
 Перед установкой SAP Hana необходимо указать определенные параметры ядра Linux, которые не относятся к стандартным образам из коллекции Azure и требуют настройки вручную. Эти параметры описаны в определенном примечании SAP. 
-
 
 В [ примечании SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
@@ -174,34 +151,27 @@
 
 Дополнительные сведения о настройке систем для рабочих нагрузок SAP с помощью tuned-adm см. [в главе 6.2 документации по SLES](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf).
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg)
 
 На этом снимке экрана показаны значения transparent_hugepage и numa_balancing, измененные с помощью tuned-adm в соответствии с требуемыми параметрами SAP Hana.
 
-
 Чтобы сделать параметры ядра SAP Hana постоянными, используйте в SLES 12 загрузчик GRUB2. Дополнительные сведения о GRUB2 см. [здесь](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html).
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg)
 
 На этом снимке экрана показаны измененные в файле конфигурации, а затем скомпилированные через grub2-mkconfig параметры ядра.
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image007.jpg)
 
 Параметры ядра также можно изменить с помощью Yast или загрузчика ядра.
 
-
-### <a name="filesystems"></a>файловые системы; 
-
+### <a name="filesystems"></a>файловые системы;
 ![](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
 
 На этом снимке экрана показаны две файловые системы, созданные на виртуальной машине сервера приложений SAP поверх двух подключенных дисков стандартного хранилища Azure. Эти файловые системы типа XFS подключены к /sapdata и /sapsoftware.
 
 Такой вариант конфигурации необязателен. Дисковое пространство можно организовать двумя разными способами.
 Но при этом важно учитывать, что для корневой файловой системы должен быть выделен достаточный объем памяти. 
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
 
@@ -210,29 +180,23 @@
 
 Дополнительные сведения о стандартной структуре файловой системы SAP Hana см. [здесь](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). 
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
 
 При установке SAP NetWeaver в стандартной среде SLES 12 из образа коллекции Azure отобразится сообщение об отсутствии области буфера. Чтобы решить эту проблему, можно, к примеру, вручную добавить файл подкачки с помощью dd, mkswap и mkswap, как описано в этой статье. Дополнительные сведения см. в разделе Adding a Swap File Manually (Добавление файла подкачки вручную) [этого документа](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html).
 
 Область буфера можно также настроить с помощью агента виртуальной машины Linux. Дополнительные сведения см. [здесь](virtual-machines-linux-agent-user-guide.md).
 
-
 ### <a name="/etc/hosts"></a>файл /etc/hosts;
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
 Перед началом установки SAP важно также добавить в файл /etc/hosts имена узлов и IP-адреса виртуальных машин SAP. Все виртуальные машины SAP необходимо развернуть в одной виртуальной сети Azure, а затем использовать внутренние IP-адреса.
 
 ### <a name="/etc/fstab"></a>файл /etc/fstab.
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
 На стадии тестирования мы советуем добавить в файл /etc/fstab параметр nofail. При проблемах с дисками это позволит виртуальной машине загрузиться, а не зависнуть в процессе загрузки. Но в этом случае следует учитывать, что дополнительное дисковое пространство может быть недоступно и процессы могут заполнить корневую файловую систему. Если диск /hana недоступен, SAP Hana может не запуститься.
 
-
 ## <a name="install-graphical-gnome-desktop-on-sles-12"></a>Установка графического рабочего стола Gnome в SLES 12
-
 Эта глава состоит из двух разделов, в которых рассматриваются следующие темы:
 
 * установка графического рабочего стола Gnome и xrdp в SLES 12;
@@ -241,7 +205,6 @@
 Пользователи могут использовать и другие службы, например Xterminal или VNC, но в этой статье от сентября 2016 года описывается только xrdp.
 
 ### <a name="installation-of-gnome-desktop-and-xrdp-on-sles-12"></a>установка графического рабочего стола Gnome и xrdp в SLES 12;
-
 Пользователи с операционной системой Microsoft Windows могут без труда использовать графический рабочий стол непосредственно на виртуальной машине SAP Linux, чтобы запустить Firefox, SAPinst, графический пользовательский интерфейс SAP, консоль управления SAP или Hana Studio, а также подключиться к виртуальной машине с компьютера Microsoft Windows через удаленный рабочий стол. Хотя это нецелесообразно выполнять для рабочего сервера базы данных, это нормально для демонстрационной среды или среды-прототипа. Чтобы установить рабочий стол Gnome на виртуальной машине Azure SLES 12, выполните следующие действия.
 
 Установите рабочий стол Gnome, выполнив следующую команду (например, в окне PuTTY):
@@ -269,17 +232,12 @@
   Проверьте /var/run и найдите xrdp.pid   
   Удалите его и повторите попытку перезапуска
 
-
-
 ### <a name="sap-mc"></a>Консоль управления SAP
-
-
 При запуске графической консоли управления SAP из браузера Firefox, запущенного на виртуальной машине SLES 12 Azure, после установки рабочего стола Gnome, как описано в предыдущем разделе, отобразится ошибка. Это связано с отсутствием в браузере подключаемого модуля Java.
 
 Чтобы запустить консоль управления SAP, используйте следующий URL-адрес: <server>:5<номер_экземпляра>13
 
 Дополнительные сведения см. [здесь](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm).
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image013.jpg)
 
@@ -293,102 +251,76 @@
 
 При повторном переходе по URL-адресу консоли управления SAP откроется диалоговое окно с запросом на активацию подключаемого модуля.
 
-
 Проблема также может возникнуть из-за отсутствия файла javafx.properties. Как правило, это связано с установкой Java 1.8, необходимого для графического пользовательского интерфейса SAP 7.4.
 
 В версии подключаемого модуля Java от IBM, установленного через Yast, этот файл отсутствует. Чтобы решить проблему, необходимо скачать Java из Oracle.
 Дополнительные сведения об этой проблеме см. [здесь](https://scn.sap.com/thread/3908306).
 
-
-
 ## <a name="manual-sap-hana-installation-via-swpm-as-part-of-a-netweaver-7.5-installation"></a>Установка SAP Hana вручную через SWPM в рамках установки NetWeaver 7.5
-
-
 На следующих снимках экрана показаны основные шаги установки SAP NetWeaver 7.5 и SAP Hana SP12 через SWPM (SAPinst). Во время установки NetWeaver 7.5 можно также установить отдельный экземпляр базы данных Hana.
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
 
 Для образца тестовой среды был установлен только один сервер приложений ABAP. При установке экземпляра ASCS и основного сервера приложений на одной виртуальной машине Azure и системы баз данных SAP Hana на другой использовался параметр Distributed System (Распределенная система).
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
 
 После установки экземпляра ASCS на ВМ сервера приложений и задания ему значения green в консоли управления SAP для ВМ сервера базы данных SAP Hana необходимо предоставить доступ к каталогу sapmnt, в котором содержится каталог профилей SAP.
 Доступ к этому каталогу требуется во время установки базы данных. Мы советуем использовать клиент NFS, который можно настроить с помощью Yast.
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
 
 Общий доступ к каталогу sapmnt на виртуальной машине сервера приложений необходимо предоставить через клиент NFS с помощью параметра rw и no_root_squash. По умолчанию используются параметры ro и root_squash, но при установке экземпляра базы данных из-за них могут возникать проблемы.
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
 
 На виртуальной машине сервера базы данных SAP Hana каталог sapmnt, доступ к которому предоставляется с виртуальной машины сервера приложений, необходимо настроить через клиент NFS (например, с помощью Yast).
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image019.jpg)
 
 Затем необходимо войти на виртуальную машину сервера базы данных SAP Hana и запустить SWPM, чтобы выполнить следующий шаг распределенной установки NetWeaver 7.5 — "Экземпляр базы данных".
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
 
 При выборе обычной установки SAP Hana не нужно вводить много данных. Кроме пути к установочному носителю, необходимо также ввести ИД безопасности базы данных, имя узла, номер экземпляра и пароль системного администратора базы данных.
 
- 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
 
 После этого нужно ввести пароль схемы DBACockpit.
-
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
 
 Затем требуется ввести пароль схемы SAPABAP1.
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image023.jpg)
 
 На шаге завершения процесса установки базы данных рядом с каждым этапом будет установлен зеленый флажок и отобразится окно с сообщением о том, что выполнение определенного экземпляра базы данных завершено.
 
- 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image024.jpg)
 
 После установки в консоли управления SAP возле экземпляра базы данных также будет установлен зеленый флажок и отобразится список всех процессов SAP Hana (например, hdbindexserver, hdbcompileserver).
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image025.jpg)
 
 На этом снимке экрана показаны части структуры файла в каталоге /hana/shared, созданном SWPM во время установки Hana. Другой путь указать нельзя. Поэтому перед установкой SAP Hana с помощью SWPM очень важно подключить дополнительное дисковое пространство в /hana. Это позволит выделить корневой файловой системе достаточный объем памяти.
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image026.jpg)
 
 На этом снимке экрана показано то же, что ранее описано для каталога /usr/sap.
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image027b.jpg)
 
 Последний шаг распределенной установки ABAP — это "Основной экземпляр сервера приложений".
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg)
 
 После установки PAS и графического пользовательского интерфейса SAP необходимо убедиться, что установка SAP Hana произведена успешно. Для этого используется транзакция DBACockpit.
 
- 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
 Наконец, на виртуальной машине сервера приложений SAP можно установить SAP Hana Studio и подключить ее к экземпляру SAP Hana, запущенном на виртуальной машине сервера базы данных.
 
-
-
-
 ## <a name="manual-sap-hana-installation-via-hana-life-cycle-manager-tool-hdblcm"></a>Установка SAP Hana вручную с помощью средства HDBLCM диспетчера жизненного цикла Hana
-
-
 Кроме установки SAP Hana в рамках распределенной установки через SWPM, можно также сначала отдельно установить Hana с помощью HDBLCM, а затем установить, например, SAP NetWeaver 7.5. Этот процесс показан на снимках экрана ниже.
 
 Дополнительные сведения о средстве HDBLCM Hana см. в следующих источниках:
@@ -399,104 +331,64 @@
 
 [SAP HANA Server Installation and Update Guide (Руководство по установке и обновлению сервера SAP Hana)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
-
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
 
 Чтобы избежать проблем с настройкой идентификатора группы по умолчанию для пользователя \<HANA SID\>adm (созданного с помощью средства HDBLCM), перед установкой SAP Hana с помощью HDBLCM необходимо определить новую группу sapsys с идентификатором 1001.
 
-
-
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image031.jpg)
 
 При первом запуске HDBLCM откроется простое главное меню, где нужно выбрать параметр Install New System (Установить новую систему).
-
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image032.jpg)
 
 На этом снимке экрана показаны все введенные ранее основные параметры. Обратите внимание, что каталоги, используемые для томов данных и журналов Hana, а также путь установки (в этом примере — /hana/shared) и /usr/sap не должны быть частью корневой файловой системы, но должны находиться на дисках данных Azure, присоединенных к виртуальной машине, как описано в разделе об установке виртуальной машины Azure. Это позволит избежать риска нехватки пространства в корневой системе.
 На следующем снимке экрана можно увидеть, что пользователь-администратор имеет идентификатор 1005 и относится к группе sapsys (с идентификатором 1001), определенной перед установкой.
 
-
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image033.jpg)
 
 В /etc/passwd можно просмотреть сведения о пользователе Hana \<HANA SID\>adm (в этом примере — azdadm).
 
-
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image034.jpg)
 
 После установки SAP Hana с помощью HDBLCM это отобразится в SAP Hana Studio. Схема SAPABAP1 со всеми таблицами SAP NetWeaver еще недоступна.
-
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
 
 После установки SAP Hana на его основе можно установить SAP NetWeaver. В этом примере это выполняется при распределенной установке с помощью SWPM, как описано в одном из разделов выше.
 При установке экземпляра базы данных через SWPM необходимо ввести те же данные, что и при установке с помощью HDBLCM (например, имя узла, ИД безопасности Hana, номер экземпляра). В этом случае SWPM добавит дополнительные схемы в имеющуюся установку Hana.
 
-
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
 
 На этом снимке экрана показан шаг установки SWPM, на котором необходимо ввести данные о схеме DBACockpit.
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
 
 Затем нужно ввести данные о схеме SAPABAP1.
 
-
 ![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
 После установки экземпляра базы данных SWPM схема SAPABAP1 отобразится в SAP Hana Studio.
-
-
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg)
 
 И наконец, после установки сервера приложений SAP и графического пользовательского интерфейса SAP можно проверить экземпляр базы данных Hana с помощью транзакции DBACockpit.
 
-
-
-
 ## <a name="general-information-related-to-sap-azure-certifications,-running-sap-hana-on-azure-and-sap-software-download"></a>Общие сведения о сертификатах SAP для Azure, запуске SAP Hana в Azure и скачивании ПО SAP
-
-*  [Использование SAP на виртуальных машинах Windows в Azure](virtual-machines-windows-classic-sap-get-started.md)
-
-*  [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
-
-*  [Использование SAP на виртуальных машинах Linux](virtual-machines-linux-sap-get-started.md)
-
-*  [Certified SAP Hana® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
-
-*  [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md)
-
-*  [Примечание SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
-
-*  [Примечание SAP 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
-
+* [Использование SAP на виртуальных машинах Windows в Azure](virtual-machines-windows-classic-sap-get-started.md)
+* [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
+* [Использование SAP на виртуальных машинах Linux](virtual-machines-linux-sap-get-started.md)
+* [Certified SAP Hana® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
+* [Размеры виртуальных машин в Azure](virtual-machines-linux-sizes.md)
+* [Примечание SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
+* [Примечание SAP 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
 * Предложения SAP Hana в больших экземплярах Azure.  [Примечание SAP 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)
-
-*  [Примечание SAP 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
-
-*  [Примечание SAP 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
-
-*  [Общие сведения о Azure Resource Manager](../resource-group-overview.md)
-
-*  [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md)
-
-*  [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../resource-manager-deployment-model.md)
-
+* [Примечание SAP 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
+* [Примечание SAP 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
+* [Общие сведения о Azure Resource Manager](../resource-group-overview.md)
+* [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md)
+* [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](../resource-manager-deployment-model.md)
 * Скачивание NetWeaver 7.5 для Linux или Hana из SAP Service Marketplace. ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
-
 * Скачивание выпуска Hana SP12 Platform из SAP Service Marketplace. ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,31 +1,32 @@
-<properties 
-   pageTitle="Настройка статического частного IP-адреса в классическом режиме с помощью портала Azure | Microsoft Azure"
-   description="Основные сведения о статических частных IP-адресах и управлении ими в классическом режиме с помощью портала Azure"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor="tysonn"
-   tags="azure-service-management"
-/>
-<tags 
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
-   ms.author="jdial" />
+---
+title: Настройка статического частного IP-адреса в классическом режиме с помощью портала Azure | Microsoft Docs
+description: Основные сведения о статических частных IP-адресах и управлении ими в классическом режиме с помощью портала Azure
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
+tags: azure-service-management
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/04/2016
+ms.author: jdial
+
+---
 # Настройка статического частного (классического) IP-адреса в портале Azure
+[!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
+[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Кроме того, вы можете [управлять статическим частным IP-адресом в модели развертывания для диспетчера ресурсов](virtual-networks-static-private-ip-arm-pportal.md).
+В этой статье рассматривается классическая модель развертывания. Кроме того, вы можете [управлять статическим частным IP-адресом в модели развертывания для диспетчера ресурсов](virtual-networks-static-private-ip-arm-pportal.md).
 
-[AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+[!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 Для выполнения приведенных ниже примеров действий требуется созданная простая среда. Чтобы выполнять действия в соответствии с указаниями, представленными в этом документе, сначала постройте тестовую среду, как описано в статье [Создание виртуальной сети](virtual-networks-create-vnet-classic-pportal.md).
 
@@ -34,40 +35,35 @@
 
 1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
 2. Щелкните **СОЗДАТЬ** > **Среда выполнения приложений** > **Windows Server 2012 R2 Datacenter**, обратите внимание на то, что в списке **Выберите модель развертывания** уже указан параметр **Классический**, и нажмите кнопку **Создать**.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
-
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. В колонке **Создать VM** введите имя создаваемой виртуальной машины (в нашем случае это *DNS01*), учетную запись локального администратора и пароль.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
 4. Щелкните **Необязательная конфигурация** > **Сеть** > **Виртуальная сеть**, а затем щелкните **TestVNet**. Если сеть **TestVNet** недоступна, убедитесь, что вы используете расположение *Центральная часть США* и создали тестовую среду, описанную в начале этой статьи.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
-
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. В колонке **Сеть** убедитесь, что выбрана подсеть *FrontEnd*, и щелкните **IP-адреса**. В разделе **Назначение IP-адресов** щелкните **Статический** и введите *192.168.1.101* в поле **IP-адрес**, как показано ниже.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure04.png)
-
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure04.png)
 6. Нажмите кнопку **ОК** в колонке **IP-адреса**, затем нажмите кнопку **ОК** в колонке **Сеть**. После этого нажмите кнопку **ОК** в колонке **Необязательная конфигурация**.
 7. В колонке **Создать VM** щелкните **Создать**. Ниже обратите внимание на элемент, отображенный в панели мониторинга.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
 ## Как получить информацию о статическом частном IP-адресе виртуальной машины
-
 Чтобы просмотреть информацию о статическом частном IP-адресе виртуальной машины, созданной с помощью описанные выше действий, выполните следующее.
 
 1. На портале Azure щелкните **ПРОСМОТРЕТЬ ВСЕ** > **Виртуальные машины (классические)** > **DNS01** > **Все настройки** > **IP-адреса** и обратите внимание на назначение IP-адресов и сам IP-адрес, как показано ниже.
-
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 
 ## Как удалить статический частный IP-адрес виртуальной машины
 Чтобы удалить статический частный IP-адрес виртуальной машины, созданной ранее, выполните следующее.
-	
-1. В колонке **IP-адреса**, показанной ранее, щелкните **Динамический** справа от элемента **Назначение IP-адресов**, нажмите кнопку **Сохранить**, после чего нажмите кнопку **Да**.
 
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+1. В колонке **IP-адреса**, показанной ранее, щелкните **Динамический** справа от элемента **Назначение IP-адресов**, нажмите кнопку **Сохранить**, после чего нажмите кнопку **Да**.
+   
+    ![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
 ## Как добавить статический частный IP-адрес для существующей виртуальной машины
 Чтобы добавить статический частный IP-адрес для виртуальной машины, созданной с помощью действий, описанных выше, выполните следующее:
@@ -76,9 +72,8 @@
 2. Введите *192.168.1.101* в поле **IP-адрес**, нажмите кнопку **Сохранить**, после чего нажмите кнопку **Да**.
 
 ## Дальнейшие действия
-
-- Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
-- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
-- Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
+* Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
+* Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
 <!---HONumber=AcomDC_0810_2016-->

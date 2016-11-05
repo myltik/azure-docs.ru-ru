@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Log Analytics — часто задаваемые вопросы | Microsoft Azure"
-    description="Ответы на часто задаваемые вопросы о службе Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Log Analytics — часто задаваемые вопросы | Microsoft Docs
+description: Ответы на часто задаваемые вопросы о службе Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-analytics-faq"></a>Часто задаваемые вопросы по Log Analytics
-
 В этом списке вопросов и ответов от Майкрософт приведены часто задаваемые вопросы о Log Analytics в Microsoft Operations Management Suite (OMS). Если у вас возникли дополнительные вопросы о Log Analytics, задайте их на [форуме](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) . Специалисты нашего сообщества будут рады помочь вам. Если вопрос задается часто, мы добавим его в эту статью, чтобы его можно было найти быстро и легко.
 
 ## <a name="general"></a>Общие сведения
-
 **В. Какие проверки выполняют AD и решение по оценке SQL?**
 
 О. В следующем запросе показано описание всех проверок, которые выполняются в настоящее время:
@@ -58,7 +55,7 @@
 
 **В. Я применяю ExpressRoute для подключения к Azure. Будет ли трафик Log Analytics использовать подключение ExpressRoute?**  
 
-О. Различные типы трафика ExpressRoute описаны в [документации по ExpressRoute](./expressroute/expressroute-faqs.md#supported-services).
+О. Различные типы трафика ExpressRoute описаны в [документации по ExpressRoute](../expressroute/expressroute-faqs.md#supported-services).
 
 Трафик к Log Analytics использует общедоступный пиринговый канал ExpressRoute.
 
@@ -90,7 +87,6 @@
 В разделе **Azure Log Analytics (OMS)** удалите все рабочие области.
 
 ## <a name="agent-data"></a>Данные агента
-
 **В. Каков объем данных, которые можно отправить с помощью агента в Log Analytics? Существует ли максимальный объем данных для одного клиента?**  
 О. Для плана "Бесплатный" ежедневное ограничение составляет 500 МБ. Для планов "Стандартный" и "Премиум" ограничений по объему отправляемых данных нет. Как облачная служба, Log Analytics в OMS может автоматически масштабироваться с учетом объема данных, поступающих от клиента, даже если это несколько ТБ в день.
 
@@ -106,9 +102,9 @@
 
 О. Это во многом зависит от:
 
-- решения, которое вы используете;
-- количества журналов и счетчиков производительности, которые вы собираете;
-- объема данных в журналах.
+* решения, которое вы используете;
+* количества журналов и счетчиков производительности, которые вы собираете;
+* объема данных в журналах.
 
 Ценовой категории "Бесплатный" достаточно для нескольких серверов и анализа типичного объема данных. Общее использование отображается на странице **Использование** .
 Для компьютеров, на которых может запускаться агент WireData, объем отправляемых данных можно просмотреть с помощью следующего запроса:
@@ -120,10 +116,7 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- [Приступая к работе с Log Analytics](log-analytics-get-started.md) .
-
-
+* [Приступая к работе с Log Analytics](log-analytics-get-started.md) .
 
 <!--HONumber=Oct16_HO2-->
 

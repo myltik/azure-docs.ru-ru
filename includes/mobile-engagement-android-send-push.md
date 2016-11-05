@@ -1,6 +1,5 @@
 
-###<a name="update-manifest-file-to-enable-notifications"></a>Обновление файла манифеста для включения уведомлений
-
+### <a name="update-manifest-file-to-enable-notifications"></a>Обновление файла манифеста для включения уведомлений
 Скопируйте ресурсы обмена сообщениями внутри приложения в файл Manifest.xml между тегами `<application>` и `</application>`.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
@@ -45,8 +44,7 @@
             </intent-filter>
         </receiver>
 
-###<a name="specify-an-icon-for-notifications"></a>Добавление значка для уведомлений
-
+### <a name="specify-an-icon-for-notifications"></a>Добавление значка для уведомлений
 Вставьте следующий фрагмент XML-кода в файл Manifest.xml между тегами `<application>` и `</application>`.
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
@@ -55,28 +53,32 @@
 
 Убедитесь, что вы используете значок, который находится в одной из **папок с рисунками**, например ``engagement_close.png``. **mipmap** не поддерживается.
 
->[AZURE.NOTE] Не следует использовать значок **запуска** . Он имеет другое разрешение и, как правило, находится в неподдерживаемых папках MIP-карт.
+> [!NOTE]
+> Не следует использовать значок **запуска** . Он имеет другое разрешение и, как правило, находится в неподдерживаемых папках MIP-карт.
+> 
+> 
 
 В реальных приложениях следует использовать значок, который подходит для уведомлений в соответствии с [рекомендациями по разработке для Android](http://developer.android.com/design/patterns/notifications.html).
 
->[AZURE.TIP] Чтобы правильно выбрать разрешение значка, ознакомьтесь с [этими примерами](https://www.google.com/design/icons).
-Прокрутите страницу вниз до раздела **Notification** (Уведомления), щелкните значок и выберите команду `PNGS`, чтобы скачать набор рисунков. Вы увидите, какие папки рисунков и с каким разрешением следует использовать для каждой версии значка.
+> [!TIP]
+> Чтобы правильно выбрать разрешение значка, ознакомьтесь с [этими примерами](https://www.google.com/design/icons).
+> Прокрутите страницу вниз до раздела **Notification** (Уведомления), щелкните значок и выберите команду `PNGS`, чтобы скачать набор рисунков. Вы увидите, какие папки рисунков и с каким разрешением следует использовать для каждой версии значка.
+> 
+> 
 
-###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Настройка приложения для приема push-уведомлений GCM
-
+### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>Настройка приложения для приема push-уведомлений GCM
 1. После замены **идентификатора отправителя**, полученного из консоли проекта Firebase, вставьте следующий код в файл Manifest.xml между тегами `<application>` и `</application>`. Перенос строки (\n) указан преднамеренно, поэтому добавьте его в конец номера проекта.
-
+   
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-
 2. Вставьте приведенный ниже код в Manifest.xml между тегами `<application>` и `</application>`. Замените имя пакета <Your package name>.
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
             </intent-filter>
         </receiver>
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -84,17 +86,11 @@
                 <category android:name="<Your package name>" />
             </intent-filter>
         </receiver>
-
 3. Добавьте последний выделенный набор разрешений перед тегом `<application>` . Замените `<Your package name>` фактическим именем пакета вашего приложения.
-
+   
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

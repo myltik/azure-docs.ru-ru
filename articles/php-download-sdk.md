@@ -1,25 +1,23 @@
-<properties
-	pageTitle="Загрузка пакета Azure SDK для PHP"
-	description="Узнайте, как скачать и установить пакет SDK для Azure для PHP."
-	documentationCenter="php"
-	services="app-service\web"
-	authors="allclark"
-	manager="douge"
-	editor=""/>
+---
+title: Загрузка пакета Azure SDK для PHP
+description: Узнайте, как скачать и установить пакет SDK для Azure для PHP.
+documentationcenter: php
+services: app-service\web
+author: allclark
+manager: douge
+editor: ''
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="allclark;yaqiyang"/>
+ms.service: app-service-web
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 06/01/2016
+ms.author: allclark;yaqiyang
 
-#Загрузка пакета Azure SDK для PHP
-
+---
+# Загрузка пакета Azure SDK для PHP
 ## Обзор
-
 Azure SDK для PHP включает компоненты для разработки, развертывания приложений PHP в Azure и управления ими. Пакет Azure SDK для PHP включает следующие средства:
 
 * **Клиентские библиотеки PHP для Azure**. Эти библиотеки классов предоставляют интерфейс для доступа к функциям Azure, таким как службы управления данными и облачные службы.  
@@ -31,51 +29,45 @@ Azure SDK для PHP включает компоненты для разрабо
 
 При работе с инструкциями, приведенными в этом разделе, предполагается, что установлена среда [PHP][install-php].
 
-> [AZURE.NOTE] Для использования клиентских библиотек PHP для Azure требуется PHP версии 5.5 и выше.
+> [!NOTE]
+> Для использования клиентских библиотек PHP для Azure требуется PHP версии 5.5 и выше.
+> 
+> 
 
-##Клиентские библиотеки PHP для Azure
-
+## Клиентские библиотеки PHP для Azure
 Клиентские библиотеки PHP для Azure предоставляют интерфейс для доступа к возможностям Azure, например службам управления данными и облачным службам, из любой операционной системы. Эти библиотеки можно установить с помощью компоновщика.
 
 Сведения об использовании клиентских библиотек PHP для Azure см. в разделах [Использование службы BLOB-объектов][blob-service], [Использование службы таблиц][table-service] и [Использование службы очередей][queue-service].
 
-###Установка через компоновщик
-
+### Установка через компоновщик
 1. [Установите Git][install-git].
 
+    > [AZURE.NOTE] В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
 
-	> [AZURE.NOTE] В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
-
-2. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
-
+1. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
+   
         {
-			"require": {
-				"microsoft/windowsazure": "^0.4"
-			}
+            "require": {
+                "microsoft/windowsazure": "^0.4"
+            }
         }
+2. Загрузите **[composer.phar][composer-phar]** в корневой каталог проекта.
+3. Откройте командную строку и выполните эту команду в корневом каталоге проекта.
+   
+        php composer.phar install
 
-3. Загрузите **[composer.phar][composer-phar]** в корневой каталог проекта.
-
-4. Откройте командную строку и выполните эту команду в корневом каталоге проекта.
-
-		php composer.phar install
-
-##Azure PowerShell и эмуляторы Azure
-
+## Azure PowerShell и эмуляторы Azure
 Azure PowerShell — это набор командлетов PowerShell для развертывания служб Azure и управления ими, например облачных служб и виртуальных машин. Эмуляторы Azure — это локальные эмуляторы облачных служб и служб управления данными, которые позволяют тестировать приложение локально. Эти компоненты поддерживаются только в Windows.
 
 Чтобы установить Azure PowerShell и эмуляторы Azure, рекомендуется использовать [установщик веб-платформы Майкрософт][download-wpi]. Обратите внимание, что также можно установить другие компоненты разработки, например PHP, SQL Server, драйверы Microsoft для SQL Server для PHP и WebMatrix.
 
 Дополнительные сведения о том, как использовать Azure PowerShell, см. в разделе [Использование Azure PowerShell][powershell-tools].
 
-##Инфраструктура CLI Azure
-
+## Инфраструктура CLI Azure
 CLI Azure — это набор команд для развертывания и управления службами Azure, например веб-сайтами Azure и виртуальными машинами Azure. Сведения об установке Azure CLI см. в разделе [Установка Azure CLI](xplat-cli-install.md).
 
 ## Дальнейшие действия
-
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
-
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

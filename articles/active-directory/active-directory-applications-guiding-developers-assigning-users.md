@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD и приложения: назначение пользователей для приложения | Microsoft Azure"
-	description="Как реализовать назначение пользователей для приложений Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD и приложения: назначение пользователей для приложения | Microsoft Docs'
+description: Как реализовать назначение пользователей для приложений Azure.
+services: active-directory
+documentationcenter: ''
+author: femila
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2015
+ms.author: inhenk
 
+---
 # Azure AD и приложения: назначение пользователей для приложения
 Прежде чем назначить пользователей и группы для приложения, необходимо настроить требование назначения пользователей. Чтобы узнать, как настроить требование назначения пользователей, см. статью [Требование назначения пользователей](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
@@ -26,11 +26,11 @@
 4. Откройте вкладку **ПРИЛОЖЕНИЯ**.
 5. Выберите приложение из списка приложений, связанных с данным каталогом.
 6. Откройте вкладку **ПОЛЬЗОВАТЕЛИ И ГРУППЫ**.
-8. Выберите пользователей, которых хотите назначить для приложения.
-9. Щелкните **НАЗНАЧИТЬ**.
-10. Щелкните **Да** при появлении запроса.
+7. Выберите пользователей, которых хотите назначить для приложения.
+8. Щелкните **НАЗНАЧИТЬ**.
+9. Щелкните **Да** при появлении запроса.
 
 ## Дальнейшие действия
-[AZURE.INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0817_2016-->

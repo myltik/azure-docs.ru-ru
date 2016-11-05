@@ -1,32 +1,27 @@
-<properties 
-    pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights | Microsoft Azure" 
-    description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. " 
-    services="application-insights" 
-    documentationCenter=""
-    authors="danhadari" 
-    manager="douge"/>
+---
+title: Использование аналитики — эффективного инструмента поиска Application Insights | Microsoft Docs
+description: 'Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. '
+services: application-insights
+documentationcenter: ''
+author: danhadari
+manager: douge
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/03/2016" 
-    ms.author="danha"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: danha
 
-
-
+---
 # <a name="using-analytics-in-application-insights"></a>Использование аналитики в Application Insights
-
-
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 * **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
 
 ## <a name="open-analytics"></a>Открытие аналитики
-
 В домашнем ресурсе вашего приложения в Application Insights щелкните "Аналитика".
 
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
@@ -36,9 +31,7 @@
 Смотрите [исчерпывающий обзор здесь](app-insights-analytics-tour.md).
 
 ## <a name="query-your-telemetry"></a>Запрос данных телеметрии
-
 ### <a name="write-a-query"></a>Напишите запрос
-
 ![Отображение схемы](./media/app-insights-analytics-using/150.png)
 
 Начните с имен таблиц, перечисленных в левой части окна (либо с операторов [range](app-insights-analytics-reference.md#range-operator) или [union](app-insights-analytics-reference.md#union-operator)). Используйте `|` для создания конвейера [операторов](app-insights-analytics-reference.md#queries-and-operators). IntelliSense подскажет вам операторы и некоторые элементы выражений, которые можно использовать.
@@ -46,7 +39,6 @@
 Ознакомьтесь с [обзором языка аналитики](app-insights-analytics-tour.md) и [справочником по аналитике](app-insights-analytics-reference.md).
 
 ### <a name="run-a-query"></a>Выполнение запроса
-
 ![Выполнение запроса](./media/app-insights-analytics-using/130.png)
 
 1. В запросе можно использовать только однократные разрывы строк.
@@ -55,54 +47,44 @@
 4. Не помещайте в запрос пустые строки. На одной вкладке запроса можно хранить несколько отдельных запросов, разделив их пустыми строками. Выполнится только тот запрос, в котором расположен курсор.
 
 ### <a name="save-a-query"></a>Сохранение запроса
-
 ![Сохранение запроса](./media/app-insights-analytics-using/140.png)
 
 1. Сохраните файл текущего запроса.
 2. Откройте сохраненный файл запроса.
 3. Создайте новый файл запроса.
 
-
 ## <a name="see-the-details"></a>Просмотр подробных сведений
-
 Чтобы просмотреть полный список свойств какой-либо строки, разверните ее в результатах. Можно также развернуть любое свойство, которое представляет собой структурированное значение, например пользовательские измерения или список стеков в исключении.
 
 ![Развертывание строки](./media/app-insights-analytics-using/070.png)
 
- 
-
 ## <a name="arrange-the-results"></a>Упорядочение результатов
-
 Результаты, возвращаемые из запроса, можно сортировать, фильтровать, разбивать на страницы и группировать.
 
-> [AZURE.NOTE] При сортировке, группировании и фильтрации в браузере запрос не выполняется повторно. При этом только переупорядочиваются результаты, возвращенные последним запросом. 
+> [!NOTE]
+> При сортировке, группировании и фильтрации в браузере запрос не выполняется повторно. При этом только переупорядочиваются результаты, возвращенные последним запросом. 
 > 
 > Чтобы выполнить эти задачи на сервере до возвращения результатов, создайте запрос с операторами [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) и [where](app-insights-analytics-reference.md#where-operator).
+> 
+> 
 
 Выберите столбцы, которые необходимо просмотреть. Чтобы переупорядочить столбцы, необходимо перетащить их заголовки, а чтобы изменить их размер — перетащить их границы.
 
 ![Упорядочивание столбцов](./media/app-insights-analytics-using/030.png)
 
 ### <a name="sort-and-filter-items"></a>Сортировка и фильтрация элементов
-
 Чтобы отсортировать результаты, щелкните заголовок столбца. Щелкните еще раз, чтобы отсортировать в другом направлении, и третий раз, чтобы восстановить исходный порядок, возвращенный запросом.
 
 С помощью значка фильтра можно сузить область поиска.
 
 ![Сортировка и фильтрация столбцов](./media/app-insights-analytics-using/040.png)
 
-
-
 ### <a name="group-items"></a>Группирование элементов
-
 Чтобы отсортировать по нескольким столбцам, можно использовать группирование. Сначала активируйте эту функцию, а затем перетащите заголовки столбцов в область над таблицей.
 
 ![Группа](./media/app-insights-analytics-using/060.png)
 
-
-
 ### <a name="missing-some-results?"></a>Если некоторые результаты отсутствуют
-
 В результатах, возвращаемых с портала, есть ограничение в 10 тысяч строк. Если вы превысите его, появится предупреждение. В этом случае при сортировке результатов в таблице не всегда будут представлены все первые или последние результаты. 
 
 Рекомендуется избегать превышения ограничения. Используйте такие операторы:
@@ -112,10 +94,7 @@
 * [take 100;](app-insights-analytics-reference.md#take-operator)
 * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
 
-
-
 ## <a name="diagrams"></a>Схемы
-
 Выберите тип схемы, которая вам нужна:
 
 ![Выберите тип диаграммы](./media/app-insights-analytics-using/230.png)
@@ -125,7 +104,6 @@
 По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. В конце запроса можно также использовать [директиву render](app-insights-analytics-reference.md#render-directive) , чтобы выбрать диаграмму.
 
 ## <a name="pin-to-dashboard"></a>Закрепление на панели мониторинга
-
 Вы можете закрепить диаграмму или таблицу на одной из [общих панелей мониторинга](app-insights-dashboards.md). Для этого просто щелкните значок булавки. (Для включения этой функции может потребоваться [обновить ценовой пакет приложения](app-insights-pricing.md).) 
 
 ![Щелкните значок булавки](./media/app-insights-analytics-using/pin-01.png)
@@ -134,13 +112,10 @@
 
 Если таблица содержит четыре столбца или меньше, вы можете закрепить ее на панели мониторинга. Отображаются только семь верхних строк.
 
-
 #### <a name="dashboard-refresh"></a>Обновление панели мониторинга
-
 Диаграмма, закрепленная на панели мониторинга, обновляется автоматически при повторном выполнении запроса приблизительно каждые полчаса.
 
 #### <a name="automatic-simplifications"></a>Автоматические упрощения
-
 В некоторых случаях при закреплении на панели мониторинга к диаграмме применяются определенные упрощения.
 
 Если закрепляется диаграмма, содержащая много отдельных ячеек (как правило, линейчатая диаграмма), менее заполненные ячейки автоматически группируются в одну ячейку под названием "Другие". Например, запрос
@@ -149,45 +124,32 @@
 
 в аналитике выглядит следующим образом:
 
-
 ![Диаграмма с длинным "хвостом"](./media/app-insights-analytics-using/pin-07.png)
 
 Но если закрепить его на панели мониторинга, он будет выглядеть так:
 
-
 ![Диаграмма с ограниченным количеством ячеек](./media/app-insights-analytics-using/pin-08.png)
 
-
-
-
 ## <a name="export-to-excel"></a>Экспорт в Excel
-
 После выполнения запроса можно скачать CSV-файл. Щелкните **Экспорт в Excel**.
 
-## <a name="export-to-power-bi"></a>Экспорт в Power BI
-
+## <a name="export-to-power-bi"></a>Экспорт в Power BI
 1. Поместите курсор в запрос и выберите **Экспорт в Power BI**.
-
+   
     ![](./media/app-insights-analytics-using/240.png)
-
+   
     При этом скачивается файл скрипта M.
-
-3. Скопируйте скрипт на языке M в расширенный редактор запросов Power BI Desktop.
- * Откройте экспортированный файл.
- * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте скрипт на языке M.
-
-    ![](./media/app-insights-analytics-using/250.png)
-
-4. При необходимости измените учетные данные. Теперь можно строить отчет.
-
+2. Скопируйте скрипт на языке M в расширенный редактор запросов Power BI Desktop.
+   
+   * Откройте экспортированный файл.
+   * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте скрипт на языке M.
+     
+     ![](./media/app-insights-analytics-using/250.png)
+3. При необходимости измените учетные данные. Теперь можно строить отчет.
+   
     ![](./media/app-insights-analytics-using/260.png)
 
-
-
-[AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
+[!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!--HONumber=Oct16_HO2-->
 

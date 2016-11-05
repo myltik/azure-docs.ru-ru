@@ -1,32 +1,28 @@
-<properties
-	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure"
-	description="Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования."
-	keywords="памятка по алгоритмам, памятка, алгоритм машинного обучения"
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Docs
+description: Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования.
+keywords: памятка по алгоритмам, памятка, алгоритм машинного обучения
+services: machine-learning
+documentationcenter: ''
+author: brohrer
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="brohrer;garye" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: brohrer;garye
 
-
+---
 # Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure
-
 **Памятка по алгоритмам Машинного обучения Microsoft Azure** поможет выбрать правильный алгоритм для модели прогнозной аналитики.
 
 [Студия машинного обучения Azure](https://studio.azureml.net/) включает большую библиотеку алгоритмов из семейств ***регрессии***, ***классификации***, ***кластеризации*** и ***обнаружения аномалий***. Каждое семейство предназначено для решения определенного типа проблем, связанных с машинным обучением.
 
-
 ## Скачать памятку по алгоритмам Машинного обучения Microsoft Azure
-
 **Скачать можно здесь: [Памятка по алгоритмам Машинного обучения Microsoft Azure (27,94 x 43,18 см)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Памятка по алгоритмам машинного обучения: как выбрать алгоритм машинного обучения?][cheat-sheet]
@@ -35,17 +31,18 @@
 
 Скачайте и распечатайте памятку по алгоритмам машинного обучения в формате в формате А3 (27,94 x 43,18 см), чтобы вы всегда могли обратиться к ней при выборе алгоритма.
 
-> [AZURE.NOTE] Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
+> [!NOTE]
+> Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
+> 
+> 
 
 ## Дополнительная помощь с алгоритмами
-
 * Более глубокое обсуждение различных типов алгоритмов машинного обучения, их использования и выбора правильного алгоритма с использованием этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 * Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в разделе [Инициализация модели][initialize-model] в справке по алгоритмам и модулям Студии машинного обучения.
 * Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в разделе [Полный список модулей Студии машинного обучения][a-z-list] в справке по алгоритмам и модулям Студии машинного обучения.
 * Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <!-- This needs to be updated based on the new Choosing and Algorithm article
 

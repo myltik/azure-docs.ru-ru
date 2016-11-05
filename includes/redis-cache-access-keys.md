@@ -3,13 +3,11 @@
 ![Параметры кэша Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
 ### Имя узла и порты
-
 Для доступа к имени узла и портам щелкните элемент **Свойства**.
 
 ![Свойства кэша Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
 ### Ключи доступа
-
 Чтобы получить ключи доступа, щелкните **Ключи доступа**.
 
 ![Ключи доступа кэша Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)

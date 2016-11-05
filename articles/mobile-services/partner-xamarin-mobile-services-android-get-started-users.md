@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы"
-	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.Android."
-	services="mobile-services"
-	documentationCenter="xamarin"
-	manager="dwrede"
-	authors="lindydonna"
-	editor=""/>
+---
+title: Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы
+description: Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.Android.
+services: mobile-services
+documentationcenter: xamarin
+manager: dwrede
+author: lindydonna
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016" 
-	ms.author="donnam"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-android
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: donnam
 
+---
 # Добавление проверки подлинности к приложению мобильных служб
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Добавление проверки подлинности в приложение Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md).
+> 
+> 
 
 <p>В этом разделе показано, как аутентифицировать пользователей в мобильных службах Azure с помощью приложения Xamarin.Android. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.</p>
 
@@ -37,32 +39,25 @@
 
 Для изучения учебника требуется Visual Studio с расширением Xamarin для Windows или Xamarin Studio для Mac OS X. Инструкции по установке см. в [руководстве по установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
-
-
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-
-3. В Xamarin Studio откройте проект, созданный в ходе работы с учебником [Приступая к работе с мобильными службами].
-
-4. В меню **Запуск** щелкните **Начать отладку**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано).
-
-	 Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+1. В Xamarin Studio откройте проект, созданный в ходе работы с учебником [Приступая к работе с мобильными службами].
+2. В меню **Запуск** щелкните **Начать отладку**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано).
+   
+     Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица *TodoItem* теперь требует выполнения проверки подлинности.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
-
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 1. Добавьте в класс **TodoActivity** следующее свойство:
-
-		private MobileServiceUser user;
-
+   
+        private MobileServiceUser user;
 2. Добавьте в класс **ToDoActivity** следующий метод:
-
+   
         private async Task Authenticate()
         {
             try
@@ -75,52 +70,49 @@
                 CreateAndShowDialog(ex, "Authentication failed");
             }
         }
-
+   
     При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в учетную запись Майкрософт. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
-
-    > [AZURE.NOTE] Если вы используете поставщик идентификаторов, отличный от Майкрософт, замените значение, переданное в метод **login** выше, одним из следующих: _Facebook_, _Google_, _Twitter_ или _WindowsAzureActiveDirectory_.
-
+   
+   > [!NOTE]
+   > Если вы используете поставщик идентификаторов, отличный от Майкрософт, замените значение, переданное в метод **login** выше, одним из следующих: *Facebook*, *Google*, *Twitter* или *WindowsAzureActiveDirectory*.
+   > 
+   > 
 3. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
-
-		await Authenticate();
-
-	Этот вызов запускает процесс проверки подлинности и асинхронно ждет его.
-
+   
+        await Authenticate();
+   
+    Этот вызов запускает процесс проверки подлинности и асинхронно ждет его.
 4. Переместите оставшийся код после `await Authenticate();` в методе **OnCreate** в новый метод **CreateTable**, который выглядит следующим образом:
-
+   
         private async Task CreateTable()
         {
-
+   
             await InitLocalStoreAsync();
-
+   
             // Get the Mobile Service Table instance to use
             toDoTable = client.GetSyncTable<ToDoItem>();
-
+   
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
-
+   
             // Create an adapter to bind the items with the view
             adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
             var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
-
+   
             // Load the items from the Mobile Service
             await RefreshItemsFromTableAsync();
         }
-
 5. Затем вызовите новый метод **CreateTable** в **OnCreate** после вызова метода **Authenticate**, добавленного на шаге 2:
-
-		await CreateTable();
-
-
+   
+        await CreateTable();
 6. В меню **Запуск** щелкните **Начать отладку**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
-
-   	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
+   
+       После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
 ## Получение полного примера
 Загрузите [полный пример проекта]. Не забудьте обновить переменные **applicationURL** и **applicationKey** с использованием своих параметров Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами.
 
 <!-- Anchors. -->

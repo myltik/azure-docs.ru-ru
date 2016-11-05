@@ -1,35 +1,31 @@
-<properties 
-	pageTitle="Application Insights для ASP.NET Core" 
-	description="Отслеживайте доступность, производительность и использование веб-приложений." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Application Insights для ASP.NET Core
+description: Отслеживайте доступность, производительность и использование веб-приложений.
+services: application-insights
+documentationcenter: .net
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: awills
 
+---
 # Application Insights для ASP.NET Core
-
 [Visual Studio Application Insights](app-insights-overview.md) позволяет отслеживать доступность, производительность и использование вашего веб-приложения. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
 
 ![Пример](./media/app-insights-asp-net-core/sample.png)
 
 Вам потребуется подписка [Microsoft Azure](http://azure.com). Войдите, используя учетную запись Майкрософт, которая уже может быть у вас для Windows, XBox Live или других облачных служб Майкрософт. Возможно, у вашей группы есть подписка организации Azure. Попросите ее владельца добавить вас к ней с помощью вашей учетной записи Майкрософт.
 
-
 ## Приступая к работе
-
 Следуйте [руководству по началу работы](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Работа с Application Insights
-
 Войдите на [портал Microsoft Azure](https://portal.azure.com) и найдите созданный ресурс для отслеживания работы приложения.
 
 В отдельном окне браузера некоторое время поработайте с приложением. Вы увидите, что в диаграммах Application Insights появятся данные. (Возможно, потребуется нажать кнопку "Обновить".) Во время разработки объем этих данных будет небольшим, однако эти диаграммы станут по-настоящему полезными после публикации приложения, когда их будет использовать много пользователей.
@@ -43,21 +39,17 @@
 * [Аналитика](app-insights-analytics.md) позволяет выполнять SQL-подобные запросы данных телеметрии и является мощным средством диагностики и анализа.
 
 ## Оповещения
-
 * Вы автоматически получите [адаптивные оповещения](app-insights-nrt-proactive-diagnostics.md) об аномальных изменениях в частоте неудачных запросов.
 * Настройте [тесты доступности](app-insights-monitor-web-app-availability.md) для постоянного тестирования веб-сайта из расположений по всему миру и немедленного получения сообщений электронной почты в случае сбоя проверки.
 * Настройте [оповещения о метриках](app-insights-monitor-web-app-availability.md), чтобы получать оповещение о выходе метрик, таких как время отклика или доля исключений, за допустимые границы.
 
 ## Дополнительные данные телеметрии
-
 * [Добавьте данные телеметрии на веб-страницы](app-insights-javascript.md), чтобы отслеживать использование и производительность страниц.
 * [Отслеживайте зависимости](app-insights-dependencies.md), чтобы выяснить, что стало причиной медленной работы: REST, SQL или другие внешние ресурсы.
 * [Используйте API](app-insights-api-custom-events-metrics.md) для отправки собственных событий и метрик для более четкого представления о производительности и использовании приложения.
 * [Тесты доступности](app-insights-monitor-web-app-availability.md) позволяют постоянно проверять работу приложения из всех точек мира.
 
-
 ## Открытый исходный код
-
 [Чтение кода и дополнительные наработки](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Microsoft Azure"
-	description="Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Microsoft Docs
+description: Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell.
+services: virtual-machines-windows
+documentationcenter: ''
+author: danielsollondon
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: danielsollondon
 
+---
 # Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell
-
 Ниже приведен пример создания масштабируемого набора виртуальных машин (VMSS), который создает VMSS из 3 узлов со всей соответствующей сетевой инфраструктурой и ресурсами хранения.
 
 ## Первые шаги
@@ -27,9 +26,7 @@
 Чтобы найти связанные с VMSS командлеты, используйте строку поиска *VMSS*.
 
 ## Создание VMSS
-
 ##### Создать группу ресурсов
-
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
@@ -37,7 +34,6 @@ $rgname = 'mynewrgwu';
 ```
 
 ##### Создать учетную запись хранения
-
 Задайте тип и имя учетной записи хранения.
 
 ```
@@ -49,16 +45,13 @@ $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stonam
 ```
 
 #### Создание сетевой инфраструктуры (виртуальной сети и подсети)
-
 ##### Спецификация подсети
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 ##### Спецификация виртуальной сети
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -68,7 +61,6 @@ $subnetId = $vnet.Subnets[0].Id;
 ```
 
 ##### Создание ресурса общедоступного IP-адреса для внешнего доступа
-
 Выполняется привязка к балансировщику нагрузки.
 
 ```
@@ -77,7 +69,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 ##### Создание и настройка балансировщика нагрузки
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -141,7 +132,6 @@ $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
 ##### Настройка и создание VMSS
-
 Обратите внимание, что в этом примере инфраструктуры показано, как настроить распространение и масштабирование веб-трафика в VMSS, однако в указанных здесь образах виртуальных машин нет установленных веб-служб.
 
 ```

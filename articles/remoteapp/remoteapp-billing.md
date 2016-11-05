@@ -1,27 +1,26 @@
 
-<properties
-    pageTitle="Изменение выставления счетов за Azure RemoteApp | Microsoft Azure"
-    description="Узнайте, как остановить выставление счетов за Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Изменение выставления счетов за Azure RemoteApp | Microsoft Docs
+description: Узнайте, как остановить выставление счетов за Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Как остановить выставление счетов за Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Так как у вас есть коллекции Azure RemoteApp, то даже если для них не назначены пользователи, вам будут выставляться счета за использование RemoteApp. Чтобы остановить выставление этих счетов, удалите все коллекции.
 

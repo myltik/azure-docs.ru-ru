@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Предварительная версия службы совместной работы Azure AD B2B | Microsoft Azure"
-   description="Описывает, как служба совместной работы Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
-   services="active-directory"
-   documentationCenter=""
-   authors="viv-liu"
-   manager="cliffdi"
-   editor=""
-   tags=""/>
+---
+title: Предварительная версия службы совместной работы Azure AD B2B | Microsoft Docs
+description: Описывает, как служба совместной работы Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям.
+services: active-directory
+documentationcenter: ''
+author: viv-liu
+manager: cliffdi
+editor: ''
+tags: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="identity"
-   ms.date="05/09/2016"
-   ms.author="viviali"/>
+ms.service: active-directory
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: identity
+ms.date: 05/09/2016
+ms.author: viviali
 
+---
 # Предварительная версия службы совместной работы Azure Active Directory (Azure AD) B2B. Как это работает
 Функционирование службы совместной работы Azure AD B2B основано на модели приглашения и активации. Вы сообщаете адреса электронной почты сторон, с которыми вы хотите работать, а также сообщаете, какие приложения они должны использовать. Azure AD отправляет им по электронной почте приглашение со ссылкой. Пользователь партнера проходит по ссылке и получает запрос на вход с использованием своей учетной записи Azure AD или запрос на регистрацию для получения новой учетной записи Azure AD.
 
@@ -30,18 +30,18 @@
 
 В то время как платная подписка Azure AD (уровня Базовый или Премиум) не обязательна для работы с Azure AD B2B, клиенты с платной подпиской Azure AD (уровня Базовый или Премиум) получают следующие дополнительные преимущества.
 
- - Администраторы могут назначать группы приложениям, создавая условия для более простого управления доступом приглашенных пользователей.
- - Фирменный стиль клиента с правами администратора используется для оформления электронных приглашений и активации, создавая дополнительный контекст для приглашенных пользователей партнера.
+* Администраторы могут назначать группы приложениям, создавая условия для более простого управления доступом приглашенных пользователей.
+* Фирменный стиль клиента с правами администратора используется для оформления электронных приглашений и активации, создавая дополнительный контекст для приглашенных пользователей партнера.
 
 ## Связанные статьи
  Другие статьи о службе совместной работы Azure AD B2B:
 
- - [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
- - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
- - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
- - [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
- - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
- - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
- - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+* [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
+* [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
+* [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
+* [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
+* [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
+* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 <!---HONumber=AcomDC_0511_2016-->

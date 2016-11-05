@@ -7,7 +7,6 @@
 3. Выберите узел **Очереди** и в контекстном меню выберите пункт **Создать очередь**.
 4. Введите имя очереди и нажмите кнопку **ОК**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
 <!---HONumber=Oct15_HO3-->

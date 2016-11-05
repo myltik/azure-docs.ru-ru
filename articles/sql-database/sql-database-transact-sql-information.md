@@ -1,107 +1,101 @@
-<properties
-   pageTitle="Отсутствие поддержки в SQL T-SQL базы данных Azure | Microsoft Azure"
-   description="Инструкции Transact-SQL, которые не полностью поддерживаются в базе данных SQL Azure"
-   services="sql-database"
-   documentationCenter=""
-   authors="BYHAM"
-   manager="jhubbard"
-   editor=""
-   tags=""/>
+---
+title: Отсутствие поддержки в SQL T-SQL базы данных Azure | Microsoft Docs
+description: Инструкции Transact-SQL, которые не полностью поддерживаются в базе данных SQL Azure
+services: sql-database
+documentationcenter: ''
+author: BYHAM
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="08/30/2016"
-   ms.author="rick.byham@microsoft.com"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 08/30/2016
+ms.author: rick.byham@microsoft.com
 
+---
 # Отличия Transact-SQL базы данных SQL Azure
-
-
 Большинство функций Transact-SQL, используемых приложениями, поддерживаются как в Microsoft SQL Server, так и в базе данных SQL Azure. Ниже приведен неполный список поддерживаемых функций для приложений:
 
-- Типы данных.
-- Операторы.
-- Строковые, арифметические, логические функции и функции работы с курсорами.
+* Типы данных.
+* Операторы.
+* Строковые, арифметические, логические функции и функции работы с курсорами.
 
 Однако база данных SQL Azure позволяет изолировать функции от любых зависимостей от базы данных **master**. Поэтому многие действия на уровне сервера не подходят для базы данных SQL и не поддерживаются. Обычно функции, устаревшие в SQL Server, не поддерживаются в Базе данных SQL.
 
-> [AZURE.NOTE]
-В этом разделе рассматриваются функции, которые становятся доступными в Базе данных SQL после ее обновления до текущей версии 12. Дополнительные сведения о версии 12 см. в разделе [Новые возможности версии 12 базы данных SQL](sql-database-v12-whats-new.md).
+> [!NOTE]
+> В этом разделе рассматриваются функции, которые становятся доступными в Базе данных SQL после ее обновления до текущей версии 12. Дополнительные сведения о версии 12 см. в разделе [Новые возможности версии 12 базы данных SQL](sql-database-v12-whats-new.md).
+> 
+> 
 
 В следующих разделах перечислены частично поддерживаемые и неподдерживаемые функции.
 
-
 ## Функции, которые частично поддерживаются в версии 12 базы данных SQL
-
 База данных SQL версии 12 поддерживает некоторые, но не все аргументы, которые существуют в соответствующих инструкциях Transact-SQL в SQL Server 2016. Например, инструкция CREATE PROCEDURE доступна, однако ее параметры недоступны. Подробные сведения о поддерживаемых параметрах каждой инструкции см. в разделах, посвященных синтаксису, ссылки на которые приведены ниже.
 
-- Базы данных: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-- Для имеющихся функций обычно доступны динамические административные представления.
-- Функции: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
-- [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
-- Входы: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
-- Хранимые процедуры: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
-- Таблицы: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
-- Типы (пользовательские): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
-- Пользователи: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
-- Представления: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
+* Базы данных: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
+* Для имеющихся функций обычно доступны динамические административные представления.
+* Функции: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
+* [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
+* Входы: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
+* Хранимые процедуры: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
+* Таблицы: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
+* Типы (пользовательские): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
+* Пользователи: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
+* Представления: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
 ## Функции, которые не поддерживаются в базе данных SQL
-
-- Параметры сортировки системных объектов
-- Связанные с подключением: инструкции ENDPOINT, ORIGINAL\_DB\_NAME. База данных SQL не поддерживает аутентификацию Windows, но поддерживает аналогичную аутентификацию Azure Active Directory. Для некоторых типов аутентификации требуется последняя версия SSMS. Дополнительные сведения см. в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md).
-- Межбазовые запросы с помощью имен из трех или четырех частей. (Межбазовые запросы только для чтения поддерживаются с помощью [запроса к эластичной базе данных](sql-database-elastic-query-overview.md).)
-- Межбазовые цепочки владения, параметр TRUSTWORTHY
-- Сборщик данных
-- Диаграммы базы данных
-- Компонент Database Mail
-- DATABASEPROPERTY (вместо него следует использовать DATABASEPROPERTYEX)
-- Входы EXECUTE AS
-- Шифрование: расширенное управление ключами
-- Отправка событий: события, уведомления о событиях, уведомления о запросах
-- Функции, связанные с размещением файла базы данных и его размером, и файлы базы данных, которые автоматически управляются Microsoft Azure.
-- Функции, связанные с обеспечением высокой доступности, для управления которыми используется учетная запись Microsoft Azure: архивация, восстановление, AlwaysOn, зеркальное отображение базы данных, доставка журналов, режимы восстановления. Дополнительные сведения см. в статье "Резервное копирование и восстановление Базы данных SQL Azure".
-- Функции, которые зависят от средства чтения журнала, запущенного в базе данных SQL: принудительная репликация, запись изменения данных.
-- Функции, которые зависят от агента SQL Server или базы данных MSDB: задания, предупреждения, операторы, управление на основе политик, компонент database mail, центральные серверы управления.
-- FILESTREAM
-- Функции: fn\_get\_sql, fn\_virtualfilestats, fn\_virtualservernodes
-- Глобальные временные таблицы
-- Параметры сервера, связанные с оборудованием: память, рабочие потоки, сходство ЦП, флаги трассировки и т. д. Вместо них используйте уровни обслуживания.
-- HAS\_DBACCESS
-- KILL STATS JOB
-- Связанные серверы, инструкции OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT и имена из четырех частей.
-- Главный и целевые серверы
-- [Интеграция SQL Server со средой CLR](http://msdn.microsoft.com/library/ms254963.aspx) в .NET Framework
-- Регулятор ресурсов
-- Семантический поиск
-- Учетные данные сервера. Вместо них используйте учетные данные базы данных.
-- Элементы уровня сервера: роли сервера, IS\_SRVROLEMEMBER, sys.login\_token. Разрешения уровня сервера недоступны, хотя некоторые заменяются разрешениями уровня базы данных. Некоторые динамические административные представления уровня сервера недоступны, хотя некоторые заменены динамическими административными представлениями уровня базы данных.
-- Независимый express: localdb пользовательские экземпляры
-- Компонент Service broker
-- SET REMOTE\_PROC\_TRANSACTIONS
-- SHUTDOWN
-- sp\_addmessage
-- Параметры sp\_configure и инструкция RECONFIGURE. Некоторые параметры доступны в инструкции [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- sp\_helpuser
-- sp\_migrate\_user\_to\_contained
-- Аудит SQL Server. Вместо него используйте аудита Базы данных SQL.
-- SQL Server Profiler
-- Трассировка SQL Server
-- Флаги трассировки. Некоторые элементы флагов трассировки были перемещены в режимы совместимости.
-- Отладка Transact-SQL
-- Триггеры: уровня сервера или триггеры входа
-- Инструкция USE: для изменения контекста базы данных на другую базу данных необходимо создать подключение к новой базе данных.
-
+* Параметры сортировки системных объектов
+* Связанные с подключением: инструкции ENDPOINT, ORIGINAL\_DB\_NAME. База данных SQL не поддерживает аутентификацию Windows, но поддерживает аналогичную аутентификацию Azure Active Directory. Для некоторых типов аутентификации требуется последняя версия SSMS. Дополнительные сведения см. в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md).
+* Межбазовые запросы с помощью имен из трех или четырех частей. (Межбазовые запросы только для чтения поддерживаются с помощью [запроса к эластичной базе данных](sql-database-elastic-query-overview.md).)
+* Межбазовые цепочки владения, параметр TRUSTWORTHY
+* Сборщик данных
+* Диаграммы базы данных
+* Компонент Database Mail
+* DATABASEPROPERTY (вместо него следует использовать DATABASEPROPERTYEX)
+* Входы EXECUTE AS
+* Шифрование: расширенное управление ключами
+* Отправка событий: события, уведомления о событиях, уведомления о запросах
+* Функции, связанные с размещением файла базы данных и его размером, и файлы базы данных, которые автоматически управляются Microsoft Azure.
+* Функции, связанные с обеспечением высокой доступности, для управления которыми используется учетная запись Microsoft Azure: архивация, восстановление, AlwaysOn, зеркальное отображение базы данных, доставка журналов, режимы восстановления. Дополнительные сведения см. в статье "Резервное копирование и восстановление Базы данных SQL Azure".
+* Функции, которые зависят от средства чтения журнала, запущенного в базе данных SQL: принудительная репликация, запись изменения данных.
+* Функции, которые зависят от агента SQL Server или базы данных MSDB: задания, предупреждения, операторы, управление на основе политик, компонент database mail, центральные серверы управления.
+* FILESTREAM
+* Функции: fn\_get\_sql, fn\_virtualfilestats, fn\_virtualservernodes
+* Глобальные временные таблицы
+* Параметры сервера, связанные с оборудованием: память, рабочие потоки, сходство ЦП, флаги трассировки и т. д. Вместо них используйте уровни обслуживания.
+* HAS\_DBACCESS
+* KILL STATS JOB
+* Связанные серверы, инструкции OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT и имена из четырех частей.
+* Главный и целевые серверы
+* [Интеграция SQL Server со средой CLR](http://msdn.microsoft.com/library/ms254963.aspx) в .NET Framework
+* Регулятор ресурсов
+* Семантический поиск
+* Учетные данные сервера. Вместо них используйте учетные данные базы данных.
+* Элементы уровня сервера: роли сервера, IS\_SRVROLEMEMBER, sys.login\_token. Разрешения уровня сервера недоступны, хотя некоторые заменяются разрешениями уровня базы данных. Некоторые динамические административные представления уровня сервера недоступны, хотя некоторые заменены динамическими административными представлениями уровня базы данных.
+* Независимый express: localdb пользовательские экземпляры
+* Компонент Service broker
+* SET REMOTE\_PROC\_TRANSACTIONS
+* SHUTDOWN
+* sp\_addmessage
+* Параметры sp\_configure и инструкция RECONFIGURE. Некоторые параметры доступны в инструкции [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+* sp\_helpuser
+* sp\_migrate\_user\_to\_contained
+* Аудит SQL Server. Вместо него используйте аудита Базы данных SQL.
+* SQL Server Profiler
+* Трассировка SQL Server
+* Флаги трассировки. Некоторые элементы флагов трассировки были перемещены в режимы совместимости.
+* Отладка Transact-SQL
+* Триггеры: уровня сервера или триггеры входа
+* Инструкция USE: для изменения контекста базы данных на другую базу данных необходимо создать подключение к новой базе данных.
 
 ## Полный справочник по Transact-SQL
-
 Дополнительные сведения о грамматике языка Transact-SQL, его использовании и примеры см. в разделе [Справочник по Transact-SQL (ядро СУБД)](https://msdn.microsoft.com/library/bb510741.aspx) в электронной документации по SQL Server.
 
 ### Сведения о тегах "Относится к"
-
 Справочник по Transact-SQL включает в себя разделы, относящиеся к версиям SQL Server с 2008 по текущую. Под заголовком раздела есть панель значков, на которой указаны четыре платформы SQL Server и их применимость. Например, группы доступности появились в SQL Server 2012. Раздел [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) указывает, что эта инструкция применяется в **SQL Server (начиная с версии 2012). Инструкция не применяется в SQL Server 2008, SQL Server 2008 R2, Базе данных SQL Azure, хранилище данных SQL Azure или Parallel Data Warehouse.
 
 В некоторых случаях функция или инструкция, рассматриваемая в разделе, может использоваться в продукте, однако по-разному поддерживаться в разных продуктах. Эти различия отмечаются по мере изложения материала.

@@ -1,28 +1,26 @@
-<properties
-   pageTitle="Применение пользовательских сценариев на виртуальных машинах Windows с помощью шаблонов | Microsoft Azure"
-   description="Автоматизируйте задачи настройки виртуальных машин Windows с помощью расширения пользовательских сценариев и шаблонов Resource Manager."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Применение пользовательских сценариев на виртуальных машинах Windows с помощью шаблонов | Microsoft Docs
+description: Автоматизируйте задачи настройки виртуальных машин Windows с помощью расширения пользовательских сценариев и шаблонов Resource Manager.
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Использование расширений пользовательских сценариев для виртуальной машины Windows с шаблонами Azure Resource Manager
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Пример шаблона для виртуальной машины Windows
-
 В разделе Resource шаблона определите следующий ресурс.
 
        {
@@ -52,7 +50,6 @@
 Если вы хотите сохранить конфиденциальность URL-адресов и параметров в сценарии, то можете указать, что URL-адрес сценария является **частным**. Если указать URL-адрес сценария как **частный**, то доступ к нему предоставлялся только по имени учетной записи хранения и ключу, которые передаются как защищенные параметры. Параметры сценария могут также предоставляться расширению пользовательских сценариев как защищенные параметры, начиная с версии 1.7 или выше.
 
 ## Пример шаблона для виртуальной машины Windows с защищенными параметрами
-
         {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",

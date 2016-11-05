@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Общие сведения о разработке базы данных SQL | Microsoft Azure"
-	description="Сведения о доступных библиотеках подключения и рекомендации для приложений, подключающихся к базе данных SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: Общие сведения о разработке базы данных SQL | Microsoft Docs
+description: Сведения о доступных библиотеках подключения и рекомендации для приложений, подключающихся к базе данных SQL.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # Общие сведения о разработке базы данных SQL
 В этой статье рассматриваются основные вопросы, которые разработчик должен учитывать при программировании подключения к базе данных SQL Azure.
 
@@ -48,7 +47,7 @@
 * Дополнительные сведения: [Сообщения об ошибках для клиентских программ базы данных SQL](sql-database-develop-error-messages.md).
 
 ## Управление подключениями
-* В логике подключения к клиенту задайте для времени ожидания по умолчанию 30 секунд. Установленных изначально 15 секунд недостаточно, если подключение зависит от Интернета.
+* В логике подключения к клиенту задайте для времени ожидания по умолчанию 30 секунд. Установленных изначально 15 секунд недостаточно, если подключение зависит от Интернета.
 * Если вы используете [пул подключений](http://msdn.microsoft.com/library/8xx3tyca.aspx), не забудьте закрыть экземпляр подключения, который ваша программа не использует активно и который не предполагается использовать повторно.
 
 ## Сетевые аспекты
@@ -64,7 +63,6 @@
 * [Начало работы с эластичным масштабированием базы данных SQL Azure (предварительная версия)](sql-database-elastic-scale-get-started.md)
 
 ## Дальнейшие действия
-
 Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,53 +1,50 @@
-<properties 
-	pageTitle="IP-адреса, используемые службой Application Insights | Microsoft Azure"
-	description="Исключения брандмауэра сервера, требуемые для Application Insights" 
-	services="application-insights"
-    documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: IP-адреса, используемые службой Application Insights | Microsoft Docs
+description: Исключения брандмауэра сервера, требуемые для Application Insights
+services: application-insights
+documentationcenter: .net
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: awills
+
+---
 # IP-адреса, используемые службой Application Insights
-
 Служба [Visual Studio Application Insights](app-insights-overview.md) использует несколько IP-адресов. Вам могут понадобиться эти адреса, если отслеживаемое приложение расположено за брандмауэром.
 
-> [AZURE.NOTE] Эти адреса статические, но время от времени мы можем их менять.
-
+> [!NOTE]
+> Эти адреса статические, но время от времени мы можем их менять.
+> 
+> 
 
 ## Порты для исходящего трафика
-
 Чтобы разрешить пакету SDK службы Application Insights и/или монитору состояния отправлять данные на портал, в брандмауэре сервера нужно открыть несколько портов для исходящего трафика.
 
-|Назначение|URL-адрес|IP-адрес|порты;
-|---|---|---|---
-| Телеметрия|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40\.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
-|Потоковая передача в реальном времени|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |Переменный|443
+| Назначение | URL-адрес | IP-адрес | порты; |
+| --- | --- | --- | --- |
+| Телеметрия |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40\.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221 |443 |
+| Потоковая передача в реальном времени |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |Переменный |443 |
 
-
-
-+ Настройка монитора состояния (требуется только для внесения изменений):
- -	`management.core.windows.net:443`
- -	.`management.azure.com:443`
- -	.`login.windows.net:443`
- -	.`login.microsoftonline.com:443`
- -	.`secure.aadcdn.microsoftonline-p.com:443`
- -	.`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Установка монитора состояния:
- +	`packages.nuget.org:443`
+* Настройка монитора состояния (требуется только для внесения изменений):
+  * `management.core.windows.net:443`
+  * .`management.azure.com:443`
+  * .`login.windows.net:443`
+  * .`login.microsoftonline.com:443`
+  * .`secure.aadcdn.microsoftonline-p.com:443`
+  * .`auth.gfx.ms:443`
+  * `login.live.com:443`
+* Установка монитора состояния:
+  * `packages.nuget.org:443`
 
 Время от времени этот список может меняться.
 
 ## Тесты доступности
-
 Ниже приведен список адресов, которые используются для [проверки доступности веб-сайтов](app-insights-monitor-web-app-availability.md). Если вам нужно запустить веб-тесты в приложении, а веб-сервер обслуживает только определенные клиенты, следует разрешить входящий трафик от наших серверов тестирования доступности.
 
 Откройте порты 80 (http) и 443 (https) для входящего трафика с этих адресов:
@@ -170,18 +167,9 @@
 ```  
 
 ## API доступа к данным
-
-
-
-|URI|IP-адрес|порты;
-|---|---|---
-|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13\.82.26.252<br/>40.76.213.73|80, 443
-|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13\.82.24.149<br/>40.114.82.10|80, 443
-
-
-
-
-
- 
+| URI | IP-адрес | порты; |
+| --- | --- | --- |
+| api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13\.82.26.252<br/>40.76.213.73 |80, 443 |
+| dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13\.82.24.149<br/>40.114.82.10 |80, 443 |
 
 <!---HONumber=AcomDC_0824_2016-->

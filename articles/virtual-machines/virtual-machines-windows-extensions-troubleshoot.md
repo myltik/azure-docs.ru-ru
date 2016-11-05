@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Устранение неполадок расширений для виртуальных машин Windows | Microsoft Azure"
-   description="Узнайте об устранении неполадок в работе расширений виртуальной машины Windows в Azure."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="top-support-issue,azure-resource-manager"/>
+---
+title: Устранение неполадок расширений для виртуальных машин Windows | Microsoft Docs
+description: Узнайте об устранении неполадок в работе расширений виртуальной машины Windows в Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: top-support-issue,azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: support-article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Troubleshooting Azure Windows VM extension failures
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
+[!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Просмотр состояния расширения
 Шаблоны Azure Resource Manager можно выполнять из Azure PowerShell. После выполнения шаблона состояние расширения можно узнать в обозревателе ресурсов Azure или с помощью средств командной строки.
@@ -56,14 +55,10 @@ Azure PowerShell.
   ]
 
 ## Устранение неполадок расширений
-
 ### Повторное выполнение расширения на виртуальной машине
-
 При выполнении сценариев на виртуальной машине с помощью расширения пользовательских сценариев может возникать ошибка, указывающая на то, что виртуальная машина создана успешно, но сценарий не выполнен. В этом случае рекомендуется удалить соответствующее расширение и выполнить шаблон еще раз. Примечание. В будущем эта функция будет усовершенствована, что позволит устранить необходимость в удалении расширения.
 
-
 #### Удаление расширения с помощью Azure PowerShell
-
     Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.

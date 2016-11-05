@@ -1,47 +1,41 @@
-<properties
-    pageTitle="Новые возможности машинного обучения | Microsoft Azure"
-    description="Новые возможности в Машинном обучении Azure."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor=""/>
+---
+title: Новые возможности машинного обучения | Microsoft Docs
+description: Новые возможности в Машинном обучении Azure.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: ''
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="what's-new-in-azure-machine-learning"></a>Новые возможности Машинного обучения Azure
-
-###<a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>Обновления для машинного обучения Microsoft Azure за август 2016 года обеспечивают приведенные ниже возможности.
-
+### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>Обновления для машинного обучения Microsoft Azure за август 2016 года обеспечивают приведенные ниже возможности.
 * Классическими веб-службами теперь можно управлять на новом портале [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который предоставляет возможность централизованно управлять всеми аспектами веб-службы.   
-    * На нем предоставляется [статистика использования](machine-learning-manage-new-webservice.md) веб-службы.
-    * Упрощается тестирование вызовов удаленных запросов машинного обучения Azure с использованием примеров данных.
-    * Предоставляется новая страница тестирования службы пакетного выполнения, на которой можно использовать примеры данных и журнал отправки заданий.
-    * Обеспечивается более простое управление конечными точками.
+  * На нем предоставляется [статистика использования](machine-learning-manage-new-webservice.md) веб-службы.
+  * Упрощается тестирование вызовов удаленных запросов машинного обучения Azure с использованием примеров данных.
+  * Предоставляется новая страница тестирования службы пакетного выполнения, на которой можно использовать примеры данных и журнал отправки заданий.
+  * Обеспечивается более простое управление конечными точками.
 
 ### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>Обновления для машинного обучения Microsoft Azure за июль 2016 года обеспечивают приведенные ниже возможности.
-
 * Веб-службы теперь управляются как ресурсы Azure, с помощью интерфейсов [Azure Resource Manager](../resource-group-overview.md) , что обеспечивает следующие усовершенствования:
-    * Добавлены новые [интерфейсы REST API](https://msdn.microsoft.com/library/azure/Dn950030.aspx) для развертывания веб-служб с помощью Resource Manager и управления ими.
-    * Доступен новый портал [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который позволяет централизованно управлять всеми аспектами веб-службы.
+  * Добавлены новые [интерфейсы REST API](https://msdn.microsoft.com/library/azure/Dn950030.aspx) для развертывания веб-служб с помощью Resource Manager и управления ими.
+  * Доступен новый портал [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который позволяет централизованно управлять всеми аспектами веб-службы.
 * Добавлена новая модель развертывания веб-служб в нескольких регионах по подписке, в которой применяются интерфейсы API на основе Resource Manager, использующие поставщик ресурсов Resource Manager для веб-служб.
 * Добавлены новые [ценовые планы](https://azure.microsoft.com/pricing/details/machine-learning/) и возможности планирования управления, использующие новые функции поставщика ресурсов Resource Manager для выставления счетов.
-    * Теперь можно [развернуть веб-службу в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md) без необходимости создавать новую подписку в каждом из них.
+  * Теперь можно [развернуть веб-службу в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md) без необходимости создавать новую подписку в каждом из них.
 * Предоставляется [статистика использования](machine-learning-manage-new-webservice.md)веб-службы.
 * Упрощается тестирование вызовов удаленных запросов машинного обучения Azure с использованием примеров данных.
 * Предоставляется новая страница тестирования службы пакетного выполнения, на которой можно использовать примеры данных и журнал отправки заданий.
 
 Кроме того, обновлена студия машинного обучения. Теперь вы можете развертывать веб-службы с помощью новой модели или продолжать использовать классическую модель развертывания. 
-
-
 
 <!--HONumber=Oct16_HO2-->
 

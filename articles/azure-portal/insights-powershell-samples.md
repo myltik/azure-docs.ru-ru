@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Azure Insights. Примеры для быстрого запуска Azure Insights с помощью PowerShell | Microsoft Azure"
-	description="Примеры команд PowerShell, которые помогут быстро обращаться к функциям мониторинга Azure Insights."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Insights. Примеры для быстрого запуска Azure Insights с помощью PowerShell | Microsoft Docs
+description: Примеры команд PowerShell, которые помогут быстро обращаться к функциям мониторинга Azure Insights.
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: ashwink
 
+---
 # Примеры для быстрого запуска Azure Insights с помощью PowerShell
-
 В этой статье показаны примеры команд PowerShell, которые помогут быстро обратиться к функциям мониторинга Azure Insights. Azure Insights позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
 
 ## Настройка PowerShell
 Если вы этого еще не сделали, настройте PowerShell для выполнения на своем компьютере. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Примеры в этой статье
-
 Примеры в статье демонстрируют, как можно использовать командлеты Azure Insights. Можно также просмотреть полный список командлетов PowerShell (для мониторинга) в документации [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
-
 ## Вход в систему и использование подписок
-
 Сначала войдите в свою подписку Azure.
 
 ```
@@ -90,7 +86,10 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` поддерживает много других параметров. Дополнительные сведения см. в справке по `Get-AzureRmLog`.
 
->[AZURE.NOTE] `Get-AzureRmLog` предоставляет данные журнала только за 15 дней. С помощью параметра **-MaxEvents** можно запрашивать N последних событий за 15 дней. Чтобы получить события старше 15 дней, используйте REST API или пакет SDK (пример на C# с использованием пакета SDK). Если не указать **StartTime**, то значением **EndTime** по умолчанию будет минус один час. Если не указать **EndTime**, то значением по умолчанию будет текущее время. Все значения времени указаны в формате UTC.
+> [!NOTE]
+> `Get-AzureRmLog` предоставляет данные журнала только за 15 дней. С помощью параметра **-MaxEvents** можно запрашивать N последних событий за 15 дней. Чтобы получить события старше 15 дней, используйте REST API или пакет SDK (пример на C# с использованием пакета SDK). Если не указать **StartTime**, то значением **EndTime** по умолчанию будет минус один час. Если не указать **EndTime**, то значением по умолчанию будет текущее время. Все значения времени указаны в формате UTC.
+> 
+> 
 
 ## Извлечение журнала оповещений
 Чтобы просмотреть все события оповещения, можно запросить журналы Azure Resource Manager (ARM), используя следующие примеры.
@@ -106,7 +105,6 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 ```
 
 Командлет `Get-AzureRmAlertHistory` поддерживает различные параметры. Дополнительные сведения см. в разделе [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
-
 
 ## Извлечение информации о правилах генерации оповещений
 Все следующие команды оперируют с группой ресурсов montest.
@@ -141,20 +139,19 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ### Правило генерации оповещений на основе метрики
 В следующей таблице описаны параметры и значения, используемые для создания оповещения с использованием метрики.
 
-
-|Параметр|value|
-|---|---|
-|Имя|	simpletestdiskwrite|
-|Расположение этого правила генерации оповещений|	Восток США|
-|ResourceGroup|	montest|
-|TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName созданного оповещения|	\\Физический диск(\_общий объем ресурсов)\\скорость записи на диск/с. Получить точные имена метрик можно с помощью командлета `Get-MetricDefinitions` (см. ниже).|
-|operator|	GreaterThan|
-|Пороговое значение (число/с для этой метрики)|	1|
-|WindowSize (в формате чч:мм:сс)|	00:05:00|
-|агрегатор (статистические данные о метрике — в этом случае при использовании среднего значения)|	Средняя|
-|пользовательские сообщения электронной почты (строковый массив)|'foo@example.com','bar@example.com'|
-|отправка сообщений электронной почты владельцам, участникам и читателям|	-SendToServiceOwners|
+| Параметр | value |
+| --- | --- |
+| Имя |simpletestdiskwrite |
+| Расположение этого правила генерации оповещений |Восток США |
+| ResourceGroup |montest |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| MetricName созданного оповещения |\\Физический диск(\_общий объем ресурсов)\\скорость записи на диск/с. Получить точные имена метрик можно с помощью командлета `Get-MetricDefinitions` (см. ниже). |
+| operator |GreaterThan |
+| Пороговое значение (число/с для этой метрики) |1 |
+| WindowSize (в формате чч:мм:сс) |00:05:00 |
+| агрегатор (статистические данные о метрике — в этом случае при использовании среднего значения) |Средняя |
+| пользовательские сообщения электронной почты (строковый массив) |'foo@example.com','bar@example.com' |
+| отправка сообщений электронной почты владельцам, участникам и читателям |-SendToServiceOwners |
 
 Создание действия электронного сообщения
 
@@ -183,8 +180,10 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 Командлет добавления оповещения также обновляет правило, если уже существует правило генерации оповещений с заданными свойствами. Чтобы отключить правило оповещения, необходимо добавить параметр **-DisableRule**.
 
 ### Оповещение о событии журнала аудита
-
->[AZURE.NOTE] Пока что доступна только предварительная версия этой функции.
+> [!NOTE]
+> Пока что доступна только предварительная версия этой функции.
+> 
+> 
 
 В этом примере вы отправите сообщение электронной почты после успешного запуска веб-сайта в группе ресурсов *abhingrgtest123* своей подписки.
 
@@ -229,7 +228,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Полный список доступных параметров для `Get-AzureRmMetricDefinition` представлен в разделе [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-
 ## Создание параметров автомасштабирования и управление ими
 Для ресурса, например веб-приложения, виртуальной машины, облачной службы или набора масштабирования виртуальных машин, можно настроить только один параметр автомасштабирования. Однако у каждого параметра автомасштабирования может быть несколько профилей. Например, один профиль для масштабирования на основе производительности, а второй — на основе расписания. Для каждого профиля можно настроить несколько правил. Дополнительные сведения об автомасштабировании см. в статье [Автомасштабирование облачной службы](../cloud-services/cloud-services-how-to-scale.md).
 
@@ -246,7 +244,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 ```
 $rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
-```		
+```        
 
 Затем создайте правило для свертывания, которое уменьшает количество экземпляров.
 
@@ -318,26 +316,22 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## Управление профилями журнала для журналов аудита
-
 Можно создать *профиль журнала* и экспортировать данные из журналов аудита в учетную запись хранения, настроив для них период хранения. При необходимости можно также осуществить потоковую передачу этих данных в концентратор событий. Обратите внимание, что в настоящее время доступна предварительная версия этой функции и можно создать только один профиль журнала на подписку. Чтобы создать профили журнала и управлять ими, используйте следующие командлеты в текущей подписке. Вы также можете выбрать другую подписку. Хотя по умолчанию PowerShell использует текущую подписку, ее всегда можно сменить с помощью командлета `Set-AzureRmContext`. Вы можете настроить журналы аудита для маршрутизации данных в любую учетную запись хранения или концентратор событий в пределах этой подписки. Данные записываются как файлы больших двоичных объектов в формате JSON.
 
 ### Получение профиля журнала
 Чтобы получить существующие профили журнала, используйте командлет `Get-AzureRmLogProfile`.
 
 ### Добавление профиля журнала без хранения данных
-
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Удаление профиля журнала
-
 ```
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### Добавление профиля журнала с хранением данных
-
 Можно указать свойство **-RetentionInDays** с положительным целым числом дней хранения данных.
 
 ```
@@ -355,7 +349,6 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Многие службы Azure предоставляют дополнительные журналы и данные телеметрии, в том числе группы безопасности сети Azure, балансировщики нагрузки программного обеспечения, хранилище ключей, службы поиска Azure и приложения логики, и их можно настроить для сохранения данных в вашей учетной записи хранения Azure. Эта операция может выполняться только на уровне ресурсов, и учетная запись хранения должна находиться в том же регионе, что и целевой ресурс, для которого настроены параметры диагностики.
 
 ### Получение параметра диагностики
-
 ```
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```

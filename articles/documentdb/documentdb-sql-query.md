@@ -1,35 +1,37 @@
-<properties 
-	pageTitle="SQL-запросы и синтаксис SQL в DocumentDB | Microsoft Azure" 
-	description="Узнайте о синтаксисе SQL, основных понятиях баз данных и запросах SQL для DocumentDB, базы данных NoSQL. SQL можно использовать в качестве языка запросов JSON в DocumentDB." 
-	keywords="синтаксис SQL, запрос SQL, язык запросов JSON, понятия баз данных и запросы SQL, статистические функции"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: SQL-запросы и синтаксис SQL в DocumentDB | Microsoft Docs
+description: Узнайте о синтаксисе SQL, основных понятиях баз данных и запросах SQL для DocumentDB, базы данных NoSQL. SQL можно использовать в качестве языка запросов JSON в DocumentDB.
+keywords: синтаксис SQL, запрос SQL, язык запросов JSON, понятия баз данных и запросы SQL, статистические функции
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="arramac"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: arramac
 
+---
 # SQL-запросы и синтаксис SQL в DocumentDB
 Служба Microsoft Azure DocumentDB поддерживает запросы документов с помощью SQL (язык структурированных запросов) как языка запросов JSON. DocumentDB действительно не имеет схемы. В силу своей приверженности к модели данных JSON непосредственно внутри ядра СУБД, что обеспечивает автоматическое индексирование документов JSON, не требуя явной схемы или создания вторичных индексов.
 
 При проектировании языка запросов для DocumentDB перед нами стояло две цели.
 
--	Вместо того чтобы изобретать новый язык запросов JSON, мы хотели поддержать SQL. SQL — это один из самых популярных и хорошо известных языков формирования запросов. DocumentDB SQL предоставляет формальную модель программирования для выполнения многофункциональных запросов над документами JSON.
--	Поскольку база данных документов JSON способна выполнять JavaScript непосредственно в ядре базы данных, мы хотели использовать модель программирования JavaScript в качестве основы для нашего языка запросов. DocumentDB SQL основывается на системе типов, вычисления выражений и вызовов функций JavaScript. Это, в свою очередь, обеспечивает естественную модель программирования для реляционных проекций, иерархической навигации по документам JSON, внутренних соединений, пространственных данных и вызовов определяемых пользователем функций (UDF), написанных полностью на JavaScript, наряду с другими особенностями.
+* Вместо того чтобы изобретать новый язык запросов JSON, мы хотели поддержать SQL. SQL — это один из самых популярных и хорошо известных языков формирования запросов. DocumentDB SQL предоставляет формальную модель программирования для выполнения многофункциональных запросов над документами JSON.
+* Поскольку база данных документов JSON способна выполнять JavaScript непосредственно в ядре базы данных, мы хотели использовать модель программирования JavaScript в качестве основы для нашего языка запросов. DocumentDB SQL основывается на системе типов, вычисления выражений и вызовов функций JavaScript. Это, в свою очередь, обеспечивает естественную модель программирования для реляционных проекций, иерархической навигации по документам JSON, внутренних соединений, пространственных данных и вызовов определяемых пользователем функций (UDF), написанных полностью на JavaScript, наряду с другими особенностями.
 
 Мы считаем, что эти возможности являются ключевыми для уменьшения рассогласованности между приложением и базой данных и имеют решающее значение для производительности разработчика.
 
 Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик, в котором Аравинд Рамачадран (Aravind Ramachandran) демонстрирует возможности использования запросов DocumentDB, и посетить нашу службу [Query Playground](http://www.documentdb.com/sql/demo), где можно попробовать DocumentDB в работе и выполнить запросы SQL к нашему набору данных.
 
-> [AZURE.VIDEO dataexposedqueryingdocumentdb]
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
+> 
+> 
 
 После этого вернитесь к этой статье, где мы рассмотрим несколько простых документов JSON и команд SQL.
 
@@ -38,55 +40,55 @@
 
 **Документ**
 
-	{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }
 
 
 Это второй документ с одним небольшим различием: `givenName` и `familyName` используются вместо `firstName` и `lastName`.
 
 **Документ**
 
-	{
-	    "id": "WakefieldFamily",
-	    "parents": [
-	        { "familyName": "Wakefield", "givenName": "Robin" },
-	        { "familyName": "Miller", "givenName": "Ben" }
-	    ],
-	    "children": [
-	        {
-	            "familyName": "Merriam", 
-	            "givenName": "Jesse", 
-	            "gender": "female", "grade": 1,
-	            "pets": [
-	                { "givenName": "Goofy" },
-	                { "givenName": "Shadow" }
-	            ]
-	        },
-	        { 
-	            "familyName": "Miller", 
-	             "givenName": "Lisa", 
-	             "gender": "female", 
-	             "grade": 8 }
-	    ],
-	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-	    "creationDate": 1431620462,
-	    "isRegistered": false
-	}
+    {
+        "id": "WakefieldFamily",
+        "parents": [
+            { "familyName": "Wakefield", "givenName": "Robin" },
+            { "familyName": "Miller", "givenName": "Ben" }
+        ],
+        "children": [
+            {
+                "familyName": "Merriam", 
+                "givenName": "Jesse", 
+                "gender": "female", "grade": 1,
+                "pets": [
+                    { "givenName": "Goofy" },
+                    { "givenName": "Shadow" }
+                ]
+            },
+            { 
+                "familyName": "Miller", 
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
+        ],
+        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+        "creationDate": 1431620462,
+        "isRegistered": false
+    }
 
 
 
@@ -94,98 +96,92 @@
 
 **Запрос**
 
-	SELECT * 
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT * 
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результаты**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
 
 Теперь рассмотрим случай, когда нам необходимо переформатировать вывод JSON в другую форму. Этот запрос создает новый объект JSON с двумя выбранными полями, Имя и Город, если название города совпадает с названием штата. В этом случае совпадут NY и NY.
 
 **Запрос**
 
-	SELECT {"Name":f.id, "City":f.address.city} AS Family 
-	FROM Families f 
-	WHERE f.address.city = f.address.state
+    SELECT {"Name":f.id, "City":f.address.city} AS Family 
+    FROM Families f 
+    WHERE f.address.city = f.address.state
 
 **Результаты**
 
-	[{
-	    "Family": {
-	        "Name": "WakefieldFamily", 
-	        "City": "NY"
-	    }
-	}]
+    [{
+        "Family": {
+            "Name": "WakefieldFamily", 
+            "City": "NY"
+        }
+    }]
 
 
 Следующий запрос возвращает все заданные имена потомков в семействе, идентификатор которого соответствует `WakefieldFamily`, упорядоченному по городу проживания.
 
 **Запрос**
 
-	SELECT c.givenName 
-	FROM Families f 
-	JOIN c IN f.children 
-	WHERE f.id = 'WakefieldFamily'
-	ORDER BY f.address.city ASC
+    SELECT c.givenName 
+    FROM Families f 
+    JOIN c IN f.children 
+    WHERE f.id = 'WakefieldFamily'
+    ORDER BY f.address.city ASC
 
 **Результаты**
 
-	[
-	  { "givenName": "Jesse" }, 
-	  { "givenName": "Lisa"}
-	]
+    [
+      { "givenName": "Jesse" }, 
+      { "givenName": "Lisa"}
+    ]
 
 
 Мы хотели бы обратить внимание на несколько примечательных аспектов языка запросов DocumentDB на примерах, которые мы уже рассмотрели:
- 
--	В DocumentDB язык SQL работает со значениями JSON, т. е. имеет дело с сущностями в виде деревьев, а не со строками и столбцами. Таким образом, язык позволяет обращаться к узлам дерева любой произвольной вложенности, как `Node1.Node2.Node3…..Nodem`, что похоже на реляционный SQL со ссылкой, состоящей из двух частей `<table>.<column>`.
--	Язык SQL работает с данными без схемы. Таким образом, система типов должна быть динамически связанной. Одно и то же выражение может возвращать различные типы на разных документах. Результатом запроса является допустимое значение JSON, но оно не обязательно будет иметь фиксированную схему.
--	DocumentDB поддерживает только документы, строго соответствующие JSON. Это означает, что система типов и выражения могут обрабатывать только типы JSON. Дополнительные сведения см. в статье [Спецификации JSON](http://www.json.org/).
--	Коллекция DocumentDB является контейнером документов JSON, не имеющим схемы. Отношения между сущностями данных внутри документов и между документами в коллекции неявно захвачены сдерживанием, а не базируются на основе отношений между первичными и внешними ключами. Это является важным аспектом, на котором нужно заострить внимание, в свете внутренних соединений документа, которые будут обсуждаться позже в этой статье.
+
+* В DocumentDB язык SQL работает со значениями JSON, т. е. имеет дело с сущностями в виде деревьев, а не со строками и столбцами. Таким образом, язык позволяет обращаться к узлам дерева любой произвольной вложенности, как `Node1.Node2.Node3…..Nodem`, что похоже на реляционный SQL со ссылкой, состоящей из двух частей `<table>.<column>`.
+* Язык SQL работает с данными без схемы. Таким образом, система типов должна быть динамически связанной. Одно и то же выражение может возвращать различные типы на разных документах. Результатом запроса является допустимое значение JSON, но оно не обязательно будет иметь фиксированную схему.
+* DocumentDB поддерживает только документы, строго соответствующие JSON. Это означает, что система типов и выражения могут обрабатывать только типы JSON. Дополнительные сведения см. в статье [Спецификации JSON](http://www.json.org/).
+* Коллекция DocumentDB является контейнером документов JSON, не имеющим схемы. Отношения между сущностями данных внутри документов и между документами в коллекции неявно захвачены сдерживанием, а не базируются на основе отношений между первичными и внешними ключами. Это является важным аспектом, на котором нужно заострить внимание, в свете внутренних соединений документа, которые будут обсуждаться позже в этой статье.
 
 ## Индексирование DocumentDB
-
 Прежде чем мы перейдем к знакомству с синтаксисом SQL DocumentDB, стоит рассмотреть принципы индексирования в DocumentDB.
 
 Цель индексов базы данных заключается в обслуживании запросов в их различных формах с минимальным потреблением ресурсов (например, процессора, операций ввода-вывода), обеспечивая при этом хорошую пропускную способность и низкие задержки. Часто, чтобы сделать правильный выбор индекса для запроса к базе данных, требуется много планирования и экспериментов. Такой подход представляет препятствие для баз данных, не имеющих схем, где данные не соответствуют строгим схемам и быстро развиваются.
 
 Поэтому при разработке подсистемы индексирования DocumentDB нами были поставлены следующие цели.
 
--	Индексация документов не должна требовать наличия схемы: подсистема индексации не требует информации о схеме и не делает никаких предположений о схеме документов.
-
--	Поддержка эффективных, иерархически развитых и реляционных запросов: индекс эффективно поддерживает язык запросов DocumentDB, в том числе иерархические и реляционные проекции.
-
--	Поддержка согласованных запросов при устойчивом объеме записи: в случае высоких нагрузок записи данных с согласованными запросами индекс обновляется постепенно, эффективно и оперативно при устойчивом объеме записи. Последовательное обновление индекса имеет решающее значение для удовлетворения запросов с уровнем согласованности, настроенным пользователем для службы документов.
-
--	Поддержка мультитенантности: учитывая модель резервирования для управления ресурсами для всех клиентов, обновления индекса выполняются в рамках бюджета системных ресурсов (процессор, память и количество операций ввода/вывода в секунду), выделенных на реплики.
-
--	Эффективность хранения: для повышения эффективности затрат накладные расходы дискового пространства при индексировании являются ограниченными и предсказуемыми. Это очень важно, потому что DocumentDB позволяет разработчику прийти к компромиссу между эффективностью запросов и накладными расходами.
+* Индексация документов не должна требовать наличия схемы: подсистема индексации не требует информации о схеме и не делает никаких предположений о схеме документов.
+* Поддержка эффективных, иерархически развитых и реляционных запросов: индекс эффективно поддерживает язык запросов DocumentDB, в том числе иерархические и реляционные проекции.
+* Поддержка согласованных запросов при устойчивом объеме записи: в случае высоких нагрузок записи данных с согласованными запросами индекс обновляется постепенно, эффективно и оперативно при устойчивом объеме записи. Последовательное обновление индекса имеет решающее значение для удовлетворения запросов с уровнем согласованности, настроенным пользователем для службы документов.
+* Поддержка мультитенантности: учитывая модель резервирования для управления ресурсами для всех клиентов, обновления индекса выполняются в рамках бюджета системных ресурсов (процессор, память и количество операций ввода/вывода в секунду), выделенных на реплики.
+* Эффективность хранения: для повышения эффективности затрат накладные расходы дискового пространства при индексировании являются ограниченными и предсказуемыми. Это очень важно, потому что DocumentDB позволяет разработчику прийти к компромиссу между эффективностью запросов и накладными расходами.
 
 Ознакомьтесь с [примерами DocumentDB](https://github.com/Azure/azure-documentdb-net) на веб-сайте MSDN, чтобы увидеть, как настроить политику индексации для коллекции. Давайте теперь перейдем к деталям синтаксиса SQL DocumentDB.
 
-
 ## Основы использования SQL-запросов DocumentDB
 Каждый запрос состоит из предложения SELECT и необязательных предложений FROM и WHERE в соответствии со стандартами ANSI-SQL. Как правило, в каждом запросе источник в предложении FROM является перечислимым. Затем к исходному множеству применяется предложение WHERE для извлечения подмножества документов JSON. И наконец, предложение SELECT используется для проекции запрошенных значений JSON в списке выборки.
-    
+
     SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
@@ -197,64 +193,62 @@
 
 Запрос типа `SELECT * FROM Families` показывает, что вся коллекция Families является источником для перечисления. Специальный идентификатор ROOT может использоваться для представления коллекции вместо использования имени коллекции. Следующий список содержит правила, которые применяются для запроса:
 
-- Коллекция может иметь псевдоним, например `SELECT f.id FROM Families AS f` или просто `SELECT f.id FROM Families f`. Здесь `f` — эквивалент `Families`. `AS` — необязательное ключевое слово для создания псевдонима идентификатора.
+* Коллекция может иметь псевдоним, например `SELECT f.id FROM Families AS f` или просто `SELECT f.id FROM Families f`. Здесь `f` — эквивалент `Families`. `AS` — необязательное ключевое слово для создания псевдонима идентификатора.
+* Обратите внимание, что после создания псевдонима оригинальный источник связывать нельзя. Например, выражение `SELECT Families.id FROM Families f` является синтаксически неверным, так как идентификатор Families уже не может быть разрешен.
+* Все свойства, на которые необходимо ссылаться, должны иметь полное название. В отсутствие строгого следования схеме это реализуется для того, чтобы избежать любых неоднозначных привязок. Это значит, что `SELECT id FROM Families f` синтаксически неверен, так как свойство `id` не имеет привязки.
 
--	Обратите внимание, что после создания псевдонима оригинальный источник связывать нельзя. Например, выражение `SELECT Families.id FROM Families f` является синтаксически неверным, так как идентификатор Families уже не может быть разрешен.
-
--	Все свойства, на которые необходимо ссылаться, должны иметь полное название. В отсутствие строгого следования схеме это реализуется для того, чтобы избежать любых неоднозначных привязок. Это значит, что `SELECT id FROM Families f` синтаксически неверен, так как свойство `id` не имеет привязки.
-	
 ### Вложенные документы
 Исходные документы могут быть включены в еще меньшее подмножество. Например, если нужно перечисление только вложенного дерева в каждом документе, корень вложенного дерева может стать источником, как в следующем примере.
 
 **Запрос**
 
-	SELECT * 
-	FROM Families.children
+    SELECT * 
+    FROM Families.children
 
 **Результаты**
 
-	[
-	  [
-	    {
-	        "firstName": "Henriette Thaulow",
-	        "gender": "female",
-	        "grade": 5,
-	        "pets": [
-	          {
-	              "givenName": "Fluffy"
-	          }
-	        ]
-	    }
-	  ],
-	  [
-	    {
-	        "familyName": "Merriam",
-	        "givenName": "Jesse",
-	        "gender": "female",
-	        "grade": 1
-	    },
-	    {
-	        "familyName": "Miller",
-	        "givenName": "Lisa",
-	        "gender": "female",
-	        "grade": 8
-	    }
-	  ]
-	]
+    [
+      [
+        {
+            "firstName": "Henriette Thaulow",
+            "gender": "female",
+            "grade": 5,
+            "pets": [
+              {
+                  "givenName": "Fluffy"
+              }
+            ]
+        }
+      ],
+      [
+        {
+            "familyName": "Merriam",
+            "givenName": "Jesse",
+            "gender": "female",
+            "grade": 1
+        },
+        {
+            "familyName": "Miller",
+            "givenName": "Lisa",
+            "gender": "female",
+            "grade": 8
+        }
+      ]
+    ]
 
 В то время как в приведенном выше примере используется массив в качестве источника, объект также может быть использован в качестве источника, как показано в следующем примере. Любое допустимое значение JSON (кроме неопределенного), которое можно найти в источнике, будет рассматриваться для включения в результат запроса. Если в некоторых семействах отсутствует значение `address.state`, они будут исключены из результатов запроса.
 
 **Запрос**
 
-	SELECT * 
-	FROM Families.address.state
+    SELECT * 
+    FROM Families.address.state
 
 **Результаты**
 
-	[
-	  "WA", 
-	  "NY"
-	]
+    [
+      "WA", 
+      "NY"
+    ]
 
 
 ## Предложение WHERE
@@ -264,31 +258,32 @@
 
 **Запрос**
 
-	SELECT f.address
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результаты**
 
-	[{
-	  "address": {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }
-	}]
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
 
 
 В предыдущем примере показан простой запрос с условием равенства. SQL для DocumentDB также поддерживает различные скалярные выражения. Наиболее часто используются бинарные и унарные выражения. Ссылки на свойства исходного объекта JSON также являются допустимыми выражениями.
 
 В настоящий момент поддерживаются следующие двоичные операторы, они могут быть использованы в запросах, как показано в следующих примерах:
+
 <table>
 <tr>
-<td>Арифметические</td>	
+<td>Арифметические</td>    
 <td>+,-,*,/,%</td>
 </tr>
 <tr>
-<td>Побитовые</td>	
+<td>Побитовые</td>    
 <td>|, &amp;, ^, &lt;&lt;, >>, >>> (сдвиг вправо с заполнением нулями) </td>
 </tr>
 <tr>
@@ -296,39 +291,39 @@
 <td>AND, OR, NOT</td>
 </tr>
 <tr>
-<td>Сравнение</td>	
+<td>Сравнение</td>    
 <td>=, !=, &lt;, >, &lt;=, >=, &lt;></td>
 </tr>
 <tr>
-<td>Строка</td>	
+<td>Строка</td>    
 <td>|| (конкатенация)</td>
 </tr>
 </table>  
 
 Давайте рассмотрим примеры запросов с двоичными операторами.
 
-	SELECT * 
-	FROM Families.children[0] c
-	WHERE c.grade % 2 = 1     -- matching grades == 5, 1
-	
-	SELECT * 
-	FROM Families.children[0] c
-	WHERE c.grade ^ 4 = 1    -- matching grades == 5
-	
-	SELECT *
-	FROM Families.children[0] c
-	WHERE c.grade >= 5     -- matching grades == 5
+    SELECT * 
+    FROM Families.children[0] c
+    WHERE c.grade % 2 = 1     -- matching grades == 5, 1
+
+    SELECT * 
+    FROM Families.children[0] c
+    WHERE c.grade ^ 4 = 1    -- matching grades == 5
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade >= 5     -- matching grades == 5
 
 
 Унарные операторы +,-, ~ и NOT также поддерживаются и могут использоваться в запросах, как показано ниже:
 
-	SELECT *
-	FROM Families.children[0] c
-	WHERE NOT(c.grade = 5)  -- matching grades == 1
-	
-	SELECT *
-	FROM Families.children[0] c
-	WHERE (-c.grade = -5)  -- matching grades == 5
+    SELECT *
+    FROM Families.children[0] c
+    WHERE NOT(c.grade = 5)  -- matching grades == 1
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE (-c.grade = -5)  -- matching grades == 5
 
 
 
@@ -336,6 +331,7 @@
 
 ### Операторы равенства и сравнения
 Ниже приведена таблица, в которой собраны результаты сравнения равенства в SQL для DocumentDB между любыми двумя типами JSON.
+
 <table style = "width:300px">
    <tbody>
       <tr>
@@ -551,8 +547,8 @@
 
 Для других операторов сравнения, например >, > =,! =, < и < =, применяются следующие правила.
 
--	Сравнение типов приводит к неопределенному результату.
--	Сравнение двух объектов или двух массивов приводит к неопределенному результату.
+* Сравнение типов приводит к неопределенному результату.
+* Сравнение двух объектов или двух массивов приводит к неопределенному результату.
 
 Если результат скалярного выражения в фильтре не определен, соответствующий документ не будет включен в результат, так как значение «не определено» не равно логически значению «истина».
 
@@ -577,27 +573,27 @@
 ### Логические операторы (AND, OR или NOT)
 Логические операторы работают над значениями типа Boolean. Таблицы истинности для данных операторов приведены в следующих таблицах.
 
-ИЛИ|Истина|Ложь|Не определено
----|---|---|---
-Истина|Истина|Истина|Истина
-Ложь|Истина|Ложь|Не определено
-Не определено|Истина|Не определено|Не определено
+| ИЛИ | Истина | Ложь | Не определено |
+| --- | --- | --- | --- |
+| Истина |Истина |Истина |Истина |
+| Ложь |Истина |Ложь |Не определено |
+| Не определено |Истина |Не определено |Не определено |
 
-И|Истина|Ложь|Не определено
----|---|---|---
-Истина|Истина|Ложь|Не определено
-Ложь|Ложь|Ложь|Ложь
-Не определено|Не определено|Ложь|Не определено
+| И | Истина | Ложь | Не определено |
+| --- | --- | --- | --- |
+| Истина |Истина |Ложь |Не определено |
+| Ложь |Ложь |Ложь |Ложь |
+| Не определено |Не определено |Ложь |Не определено |
 
-НЕ| |
----|---
-Истина|Ложь
-Ложь|Истина
-Не определено|Не определено
+| НЕ |  |
+| --- | --- |
+| Истина |Ложь |
+| Ложь |Истина |
+| Не определено |Не определено |
 
 ### Ключевое слово IN
 Ключевое слово IN может использоваться, чтобы проверить, соответствует ли указанное значение любому значению в списке. Например этот запрос возвращает все документы семейств, где идентификатор равен "WakefieldFamily" или "AndersenFamily".
- 
+
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
@@ -612,12 +608,12 @@
 Операторы Ternary (тройной) и Coalesce (объединение) могут использоваться для построения условных выражений, аналогичных тем, которые создаются в популярных языках программирования, например C# и JavaScript.
 
 Оператор Ternary (?) может оказаться очень удобным при создании новых свойств JSON в режиме реального времени. Например, теперь можно писать запросы для классификации уровней класса в удобочитаемой форме, скажем, уровень Beginner/Intermediate/Advanced (начинающий, средний, продвинутый), как показано ниже.
- 
+
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
 Можно также вложить вызовы операторов, как в следующем запросе.
- 
+
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
@@ -643,19 +639,19 @@
 
 **Query**
 
-	SELECT f.address
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результаты**
 
-	[{
-	  "address": {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }
-	}]
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
 
 
 ### Вложенные свойства
@@ -663,57 +659,57 @@
 
 **Query**
 
-	SELECT f.address.state, f.address.city
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результат**
 
-	[{
-	  "state": "WA", 
-	  "city": "seattle"
-	}]
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
 
 
 Проекция также поддерживает выражения JSON, как показано в следующем примере.
 
 **Query**
 
-	SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результат**
 
-	[{
-	  "$1": {
-	    "state": "WA", 
-	    "city": "seattle", 
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 Давайте посмотрим, какую роль играет `$1`. `SELECT` необходим для создания объекта JSON, и, так как ни один из ключей не предоставлен, мы используем имена неявных переменных аргументов, начиная с `$1`. Например, этот запрос возвращает две неявные переменные аргументов, помеченные как `$1` и `$2`.
 
 **Query**
 
-	SELECT { "state": f.address.state, "city": f.address.city }, 
-	       { "name": f.id }
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результат**
 
-	[{
-	  "$1": {
-	    "state": "WA", 
-	    "city": "seattle"
-	  }, 
-	  "$2": {
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 ### Псевдонимы
@@ -723,69 +719,69 @@
 
 **Query**
 
-	SELECT 
-	       { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
-	       { "name": f.id } NameInfo
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT 
+           { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
+           { "name": f.id } NameInfo
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результаты**
 
-	[{
-	  "AddressInfo": {
-	    "state": "WA", 
-	    "city": "seattle"
-	  }, 
-	  "NameInfo": {
-	    "name": "AndersenFamily"
-	  }
-	}]
+    [{
+      "AddressInfo": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "NameInfo": {
+        "name": "AndersenFamily"
+      }
+    }]
 
 
 ### Скалярные выражения
-Кроме ссылок на свойства, выражение SELECT также поддерживает скалярные выражения, такие как константы, арифметические выражения, логические выражения и т. д. Например, вот простой запрос "Hello World".
+Кроме ссылок на свойства, выражение SELECT также поддерживает скалярные выражения, такие как константы, арифметические выражения, логические выражения и т. д. Например, вот простой запрос "Hello World".
 
 **Query**
 
-	SELECT "Hello World"
+    SELECT "Hello World"
 
 **Результат**
 
-	[{
-	  "$1": "Hello World"
-	}]
+    [{
+      "$1": "Hello World"
+    }]
 
 
 Вот более сложный пример с использованием скалярного выражения:
 
 **Запрос**
 
-	SELECT ((2 + 11 % 7)-2)/3	
+    SELECT ((2 + 11 % 7)-2)/3    
 
 **Результаты**
 
-	[{
-	  "$1": 1.33333
-	}]
+    [{
+      "$1": 1.33333
+    }]
 
 
 В следующем примере результатом скалярного выражения является логическое.
 
 **Query**
 
-	SELECT f.address.city = f.address.state AS AreFromSameCityState
-	FROM Families f	
+    SELECT f.address.city = f.address.state AS AreFromSameCityState
+    FROM Families f    
 
 **Результаты**
 
-	[
-	  {
-	    "AreFromSameCityState": false
-	  }, 
-	  {
-	    "AreFromSameCityState": true
-	  }
-	]
+    [
+      {
+        "AreFromSameCityState": false
+      }, 
+      {
+        "AreFromSameCityState": true
+      }
+    ]
 
 
 ### Создание объектов и массивов
@@ -793,134 +789,133 @@
 
 **Query**
 
-	SELECT [f.address.city, f.address.state] AS CityState 
-	FROM Families f	
+    SELECT [f.address.city, f.address.state] AS CityState 
+    FROM Families f    
 
 **Результат**
 
-	[
-	  {
-	    "CityState": [
-	      "seattle", 
-	      "WA"
-	    ]
-	  }, 
-	  {
-	    "CityState": [
-	      "NY", 
-	      "NY"
-	    ]
-	  }
-	]
+    [
+      {
+        "CityState": [
+          "seattle", 
+          "WA"
+        ]
+      }, 
+      {
+        "CityState": [
+          "NY", 
+          "NY"
+        ]
+      }
+    ]
 
 ### Ключевое слово VALUE
 Ключевое слово **VALUE** обеспечивает способ для возврата значения JSON. Например, показанный ниже запрос возвращает скалярное значение `"Hello World"` вместо `{$1: "Hello World"}`.
 
 **Query**
 
-	SELECT VALUE "Hello World"
+    SELECT VALUE "Hello World"
 
 **Результат**
 
-	[
-	  "Hello World"
-	]
+    [
+      "Hello World"
+    ]
 
 
 Следующий запрос возвращает значение JSON без метки `"address"` в результатах.
 
 **Query**
 
-	SELECT VALUE f.address
-	FROM Families f	
+    SELECT VALUE f.address
+    FROM Families f    
 
 **Результат**
 
-	[
-	  {
-	    "state": "WA", 
-	    "county": "King", 
-	    "city": "seattle"
-	  }, 
-	  {
-	    "state": "NY", 
-	    "county": "Manhattan", 
-	    "city": "NY"
-	  }
-	]
+    [
+      {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }, 
+      {
+        "state": "NY", 
+        "county": "Manhattan", 
+        "city": "NY"
+      }
+    ]
 
 Следующий пример это расширяет, чтобы показать, как вернуть примитивные значения JSON, то есть на конечном уровне дерева JSON.
 
 **Query**
 
-	SELECT VALUE f.address.state
-	FROM Families f	
+    SELECT VALUE f.address.state
+    FROM Families f    
 
 **Результат**
 
-	[
-	  "WA",
-	  "NY"
-	]
+    [
+      "WA",
+      "NY"
+    ]
 
 
-###Оператор * 
+### Оператор *
 Специальный оператор (*) выводит проект документа в формате "как есть". При его использовании должно быть единственное отображаемое поле. Хотя запрос наподобие `SELECT * FROM Families f` допустим, `SELECT VALUE * FROM Families f ` и `SELECT *, f.id FROM Families f ` недопустимы.
 
 **Запрос**
 
-	SELECT * 
-	FROM Families f 
-	WHERE f.id = "AndersenFamily"
+    SELECT * 
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
 
 **Результаты**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
-###Оператор TOP
+### Оператор TOP
 Ключевое слово TOP можно использовать для ограничения числа значений, получаемых из запроса. Если TOP используется в сочетании с предложением ORDER BY, результирующий набор ограничен первыми N упорядоченными значениями; в противном случае возвращается N первых результатов в неопределенном порядке. В инструкции SELECT рекомендуется всегда использовать предложение ORDER BY с предложением TOP. Это единственный способ, который позволяет предсказуемо указать, на какие строки распространяется действие TOP.
-
 
 **Query**
 
-	SELECT TOP 1 * 
-	FROM Families f 
+    SELECT TOP 1 * 
+    FROM Families f 
 
 **Результат**
 
-	[{
-	    "id": "AndersenFamily",
-	    "lastName": "Andersen",
-	    "parents": [
-	       { "firstName": "Thomas" },
-	       { "firstName": "Mary Kay"}
-	    ],
-	    "children": [
-	       {
-	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-	           "pets": [{ "givenName": "Fluffy" }]
-	       }
-	    ],
-	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472,
-	    "isRegistered": true
-	}]
+    [{
+        "id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+           { "firstName": "Thomas" },
+           { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "creationDate": 1431620472,
+        "isRegistered": true
+    }]
 
 TOP можно использовать с постоянным значением (как показано выше) или с переменным значением посредством параметризованных запросов. Дополнительные сведения см. в описании параметризованных запросов ниже.
 
@@ -931,123 +926,123 @@ TOP можно использовать с постоянным значение
 
 **Query**
 
-	SELECT f.id, f.address.city
-	FROM Families f 
-	ORDER BY f.address.city
-	
-**Результат**
-	
-	[
-	  {
-	    "id": "WakefieldFamily",
-	    "city": "NY"
-	  },
-	  {
-	    "id": "AndersenFamily",
-	    "city": "Seattle"	
-	  }
-	]
+    SELECT f.id, f.address.city
+    FROM Families f 
+    ORDER BY f.address.city
 
-А в этом запросе возвращаются семьи, отсортированные по полю даты создания, которое хранится в виде числа и представляет собой время, прошедшее с начала эпохи, т. е. количество секунд, прошедшее с 1 января 1970 года.
+**Результат**
+
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "NY"
+      },
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"    
+      }
+    ]
+
+А в этом запросе возвращаются семьи, отсортированные по полю даты создания, которое хранится в виде числа и представляет собой время, прошедшее с начала эпохи, т. е. количество секунд, прошедшее с 1 января 1970 года.
 
 **Query**
 
-	SELECT f.id, f.creationDate
-	FROM Families f 
-	ORDER BY f.creationDate DESC
-	
+    SELECT f.id, f.creationDate
+    FROM Families f 
+    ORDER BY f.creationDate DESC
+
 **Результаты**
-	
-	[
-	  {
-	    "id": "WakefieldFamily",
-	    "creationDate": 1431620462
-	  },
-	  {
-	    "id": "AndersenFamily",
-	    "creationDate": 1431620472	
-	  }
-	]
-	
+
+    [
+      {
+        "id": "WakefieldFamily",
+        "creationDate": 1431620462
+      },
+      {
+        "id": "AndersenFamily",
+        "creationDate": 1431620472    
+      }
+    ]
+
 ## Дополнительные понятия базы данных и SQL-запросов
 ### Итерация
 Мы добавили новую конструкцию, чтобы обеспечить поддержку перебора массивов JSON с помощью ключевого слова **IN** в SQL DocumentDB. Исходное выражение FROM поддерживает итерацию. Начнем с такого примера:
 
 **Query**
 
-	SELECT * 
-	FROM Families.children
+    SELECT * 
+    FROM Families.children
 
 **Результат**
 
-	[
-	  [
-	    {
-	      "firstName": "Henriette Thaulow", 
-	      "gender": "female", 
-	      "grade": 5, 
-	      "pets": [{ "givenName": "Fluffy"}]
-	    }
-	  ], 
-	  [
-	    {
-	        "familyName": "Merriam", 
-	        "givenName": "Jesse", 
-	        "gender": "female", 
-	        "grade": 1
-	    }, 
-	    {
-	        "familyName": "Miller", 
-	        "givenName": "Lisa", 
-	        "gender": "female", 
-	        "grade": 8
-	    }
-	  ]
-	]
+    [
+      [
+        {
+          "firstName": "Henriette Thaulow", 
+          "gender": "female", 
+          "grade": 5, 
+          "pets": [{ "givenName": "Fluffy"}]
+        }
+      ], 
+      [
+        {
+            "familyName": "Merriam", 
+            "givenName": "Jesse", 
+            "gender": "female", 
+            "grade": 1
+        }, 
+        {
+            "familyName": "Miller", 
+            "givenName": "Lisa", 
+            "gender": "female", 
+            "grade": 8
+        }
+      ]
+    ]
 
 Теперь давайте посмотрим на другой запрос, который выполняет итерации над членами коллекции. Обратите внимание на различия в результирующем массиве. Этот пример разбивает `children` и собирает результаты в единый массив.
 
 **Query**
 
-	SELECT * 
-	FROM c IN Families.children
+    SELECT * 
+    FROM c IN Families.children
 
 **Результаты**
 
-	[
-	  {
-	      "firstName": "Henriette Thaulow",
-	      "gender": "female",
-	      "grade": 5,
-	      "pets": [{ "givenName": "Fluffy" }]
-	  },
-	  {
-	      "familyName": "Merriam",
-	      "givenName": "Jesse",
-	      "gender": "female",
-	      "grade": 1
-	  },
-	  {
-	      "familyName": "Miller",
-	      "givenName": "Lisa",
-	      "gender": "female",
-	      "grade": 8
-	  }
-	]
+    [
+      {
+          "firstName": "Henriette Thaulow",
+          "gender": "female",
+          "grade": 5,
+          "pets": [{ "givenName": "Fluffy" }]
+      },
+      {
+          "familyName": "Merriam",
+          "givenName": "Jesse",
+          "gender": "female",
+          "grade": 1
+      },
+      {
+          "familyName": "Miller",
+          "givenName": "Lisa",
+          "gender": "female",
+          "grade": 8
+      }
+    ]
 
 Это можно в дальнейшем использовать для фильтрации каждой конкретной записи массива, как показано в следующем примере.
 
 **Query**
 
-	SELECT c.givenName
-	FROM c IN Families.children
-	WHERE c.grade = 8
+    SELECT c.givenName
+    FROM c IN Families.children
+    WHERE c.grade = 8
 
 **Результаты**
 
-	[{
-	  "givenName": "Lisa"
-	}]
+    [{
+      "givenName": "Lisa"
+    }]
 
 ### Соединения
 В реляционных базах данных возможность соединения таблиц является чрезвычайно важной. Это всего логическое следствие проектирования нормализованных схем. В противоположность этому, DocumentDB работает с денормализованной моделью данных документов без схемы. Это является логическим аналогом «автообъединения».
@@ -1058,65 +1053,65 @@ TOP можно использовать с постоянным значение
 
 **Query**
 
-	SELECT f.id
-	FROM Families f
-	JOIN f.NonExistent
+    SELECT f.id
+    FROM Families f
+    JOIN f.NonExistent
 
 **Результаты**
 
-	[{
-	}]
+    [{
+    }]
 
 
 В следующем примере показано соединение между корнем документа и подкорнем `children`. Это векторное произведение между двумя объектами JSON. Дочерние элементы этого массива не оказывают влияния в JOIN, так как мы имеем дело с одним корнем, который является массивом дочерних элементов. Отсюда и результат содержит только два результата, так как векторное произведение каждого документа с массивом дает точно только один документ.
 
 **Query**
 
-	SELECT f.id
-	FROM Families f
-	JOIN f.children
- 
+    SELECT f.id
+    FROM Families f
+    JOIN f.children
+
 **Результат**
 
-	[
-	  {
-	    "id": "AndersenFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }
-	]
+    [
+      {
+        "id": "AndersenFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }
+    ]
 
 
 Следующий пример является более традиционным присоединением:
 
 **Query**
 
-	SELECT f.id
-	FROM Families f
-	JOIN c IN f.children 
+    SELECT f.id
+    FROM Families f
+    JOIN c IN f.children 
 
 **Результаты**
 
-	[
-	  {
-	    "id": "AndersenFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }, 
-	  {
-	    "id": "WakefieldFamily"
-	  }
-	]
+    [
+      {
+        "id": "AndersenFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }, 
+      {
+        "id": "WakefieldFamily"
+      }
+    ]
 
 
 
 Прежде всего, следует помнить, что `from_source` из предложения **JOIN** является итератором. В этом случае поток выглядит следующим образом.
 
--	Развернуть все дочерние элементы **c** в массиве.
--	Примените векторное произведение корня документа **f** с каждым дочерним элементом **c**, развернутым на первом шаге.
--	В конце выполните проецирование только для имени **f** свойства объекта корневого документа.
+* Развернуть все дочерние элементы **c** в массиве.
+* Примените векторное произведение корня документа **f** с каждым дочерним элементом **c**, развернутым на первом шаге.
+* В конце выполните проецирование только для имени **f** свойства объекта корневого документа.
 
 Первый документ (`AndersenFamily`) содержит только один дочерний элемент, так что результирующий набор содержит только один соответствующий этому документу объект. Второй документ (`WakefieldFamily`) имеет два дочерних объекта. Так, векторное произведение создает отдельный объект для каждого дочернего, в результате получаются два объекта, по одному для каждого дочернего, соответствующего этому документу. Обратите внимание, что корневые поля в обоих этих документах будут такими же, как и следовало ожидать при векторном произведении.
 
@@ -1124,52 +1119,52 @@ TOP можно использовать с постоянным значение
 
 **Query**
 
-	SELECT 
-		f.id AS familyName,
-		c.givenName AS childGivenName,
-		c.firstName AS childFirstName,
-		p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p IN c.pets
- 
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName,
+        p.givenName AS petName 
+    FROM Families f 
+    JOIN c IN f.children 
+    JOIN p IN c.pets
+
 **Результат**
 
-	[
-	  {
-	    "familyName": "AndersenFamily", 
-	    "childFirstName": "Henriette Thaulow", 
-	    "petName": "Fluffy"
-	  }, 
-	  {
-	    "familyName": "WakefieldFamily", 
-	    "childGivenName": "Jesse", 
-	    "petName": "Goofy"
-	  }, 
-	  {
-	   "familyName": "WakefieldFamily", 
-	   "childGivenName": "Jesse", 
-	   "petName": "Shadow"
-	  }
-	]
+    [
+      {
+        "familyName": "AndersenFamily", 
+        "childFirstName": "Henriette Thaulow", 
+        "petName": "Fluffy"
+      }, 
+      {
+        "familyName": "WakefieldFamily", 
+        "childGivenName": "Jesse", 
+        "petName": "Goofy"
+      }, 
+      {
+       "familyName": "WakefieldFamily", 
+       "childGivenName": "Jesse", 
+       "petName": "Shadow"
+      }
+    ]
 
 
 
 Этот пример является естественным продолжением предыдущего и выполняет двойное соединение. Таким образом, перекрестное произведение можно рассматривать как следующий псевдокод.
 
-	for-each(Family f in Families)
-	{	
-		for-each(Child c in f.children)
-		{
-			for-each(Pet p in c.pets)
-			{
-				return (Tuple(f.id AS familyName, 
-	              c.givenName AS childGivenName, 
-	              c.firstName AS childFirstName,
-	              p.givenName AS petName));
-			}
-		}
-	}
+    for-each(Family f in Families)
+    {    
+        for-each(Child c in f.children)
+        {
+            for-each(Pet p in c.pets)
+            {
+                return (Tuple(f.id AS familyName, 
+                  c.givenName AS childGivenName, 
+                  c.firstName AS childFirstName,
+                  p.givenName AS petName));
+            }
+        }
+    }
 
 У `AndersenFamily` имеется один ребенок, у которого один питомец. Векторное произведение представляет собой одну строку (1*1*1) в случае этого семейства. Однако семейство Wakefield включает двух детей, но только у одного ребенка «Джесси» есть питомцы. У нее 2 питомца. Векторное произведение представляет собой две строки (1*1*2 = 2) в случае этого семейства.
 
@@ -1177,136 +1172,137 @@ TOP можно использовать с постоянным значение
 
 **Query**
 
-	SELECT 
-		f.id AS familyName,
-		c.givenName AS childGivenName,
-		c.firstName AS childFirstName,
-		p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p IN c.pets
-	WHERE p.givenName = "Shadow"
+    SELECT 
+        f.id AS familyName,
+        c.givenName AS childGivenName,
+        c.firstName AS childFirstName,
+        p.givenName AS petName 
+    FROM Families f 
+    JOIN c IN f.children 
+    JOIN p IN c.pets
+    WHERE p.givenName = "Shadow"
 
 **Результаты**
 
-	[
-	  {
-	   "familyName": "WakefieldFamily", 
-	   "childGivenName": "Jesse", 
-	   "petName": "Shadow"
-	  }
-	]
+    [
+      {
+       "familyName": "WakefieldFamily", 
+       "childGivenName": "Jesse", 
+       "petName": "Shadow"
+      }
+    ]
 
 
 ## Интеграция JavaScript
 DocumentDB обеспечивает модель программирования для реализации логики приложения на основе JavaScript непосредственно в коллекциях в виде хранимых процедур и триггеров. Это позволяет:
 
--	Получить возможность создания высокопроизводительных транзакционных CRUD и запросов к документам в коллекции благодаря глубокой интеграции среды выполнения JavaScript непосредственно в базы данных.
--	Добиться естественного моделирования потока управления, областей видимости переменных, присвоения и интеграции обработки исключений примитивов с транзакциями базы данных. Для получения более подробной информации о поддержке DocumentDB для интеграции JavaScript, пожалуйста, обратитесь к документации по программированию для серверного JavaScript.
+* Получить возможность создания высокопроизводительных транзакционных CRUD и запросов к документам в коллекции благодаря глубокой интеграции среды выполнения JavaScript непосредственно в базы данных.
+* Добиться естественного моделирования потока управления, областей видимости переменных, присвоения и интеграции обработки исключений примитивов с транзакциями базы данных. Для получения более подробной информации о поддержке DocumentDB для интеграции JavaScript, пожалуйста, обратитесь к документации по программированию для серверного JavaScript.
 
-###Определяемые пользователем функции (UDF)
+### Определяемые пользователем функции (UDF)
 Наряду с уже указанными в статье типами SQL DocumentDB обеспечивает поддержку пользовательских функций (UDF). В частности, поддерживаются скалярные пользовательские функции, где разработчики могут передавать или ни одного, или несколько аргументов и получить один результат. Каждый из этих аргументов проверяется на соответствие допустимым значениям JSON.
 
 Синтаксис SQL DocumentDB расширяется за счет использования этих определяемых пользователем функций для поддержки настраиваемой логики приложения. Пользовательские функции могут быть зарегистрированы в Azure DocumentDB, а затем на них можно ссылаться как на часть SQL-запроса. На самом деле пользовательские функции специально предназначены для вызовов из запросов. Как следствие этого выбора, UDF не имеют доступа к объекту контекста, какой имеется у других типов JavaScript (хранимых процедуры, триггеров). Поскольку запросы выполняются только для чтения, они могут работать как на первичной, так на вторичной репликах. Поэтому UDF предназначены для работы на вторичных репликах, в отличие от других типов JavaScript.
 
 Ниже приведен пример того, как UDF могут быть зарегистрированы в базе данных DocumentDB, специально для коллекции с большим количеством документов.
 
-   
-	   UserDefinedFunction regexMatchUdf = new UserDefinedFunction
-	   {
-	       Id = "REGEX_MATCH",
-	       Body = @"function (input, pattern) { 
-	                   return input.match(pattern) !== null;
-	               };",
-	   };
-	   
-	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
-	       regexMatchUdf).Result;  
-                                                                             
-В предыдущем примере создается определяемая пользователем функция с именем `REGEX_MATCH`. Она принимает два строковых значения JSON — `input` и `pattern` — и проверяет, совпадает ли значение первого поля с шаблоном, указанным во втором поле, с помощью функции string.match() JavaScript.
+       UserDefinedFunction regexMatchUdf = new UserDefinedFunction
+       {
+           Id = "REGEX_MATCH",
+           Body = @"function (input, pattern) { 
+                       return input.match(pattern) !== null;
+                   };",
+       };
 
+       UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
+           UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+           regexMatchUdf).Result;  
+
+В предыдущем примере создается определяемая пользователем функция с именем `REGEX_MATCH`. Она принимает два строковых значения JSON — `input` и `pattern` — и проверяет, совпадает ли значение первого поля с шаблоном, указанным во втором поле, с помощью функции string.match() JavaScript.
 
 Теперь мы можем использовать эту определяемую пользователем функцию в запросе в проекции. При вызовах внутри запросов определяемые пользователем функции следует дополнять префиксом udf. с учетом регистра.
 
->[AZURE.NOTE] До 17 марта 2015 года компонент DocumentDB поддерживал вызовы определяемой пользователем функции без префикса "udf.", например SELECT REGEX\_MATCH(). Теперь этот метод выполнения вызовов устарел.
+> [!NOTE]
+> До 17 марта 2015 года компонент DocumentDB поддерживал вызовы определяемой пользователем функции без префикса "udf.", например SELECT REGEX\_MATCH(). Теперь этот метод выполнения вызовов устарел.
+> 
+> 
 
 **Query**
 
-	SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
-	FROM Families
+    SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
+    FROM Families
 
 **Результат**
 
-	[
-	  {
-	    "$1": true
-	  }, 
-	  {
-	    "$1": false
-	  }
-	]
+    [
+      {
+        "$1": true
+      }, 
+      {
+        "$1": false
+      }
+    ]
 
 Определяемая пользователем функция также может быть использована внутри фильтра при условии дополнения префиксом udf., как показано в примере ниже.
 
 **Query**
 
-	SELECT Families.id, Families.address.city
-	FROM Families
-	WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+    SELECT Families.id, Families.address.city
+    FROM Families
+    WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
 **Результат**
 
-	[{
-	    "id": "AndersenFamily",
-	    "city": "Seattle"
-	}]
+    [{
+        "id": "AndersenFamily",
+        "city": "Seattle"
+    }]
 
 
 В сущности, определяемые пользователем функции являются корректными скалярными выражениями и могут быть использованы в проекциях и фильтрах.
 
 Для расширения понимания возможностей пользовательских функций, давайте посмотрим на другой пример с условной логикой:
 
-	   UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
-	   {
-	       Id = "SEALEVEL",
-	       Body = @"function(city) {
-	       		switch (city) {
-	       		    case 'seattle':
-	       		        return 520;
-	       		    case 'NY':
-	       		        return 410;
-	       		    case 'Chicago':
-	       		        return 673;
-	       		    default:
-	       		        return -1;
-	                }"
+       UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
+       {
+           Id = "SEALEVEL",
+           Body = @"function(city) {
+                   switch (city) {
+                       case 'seattle':
+                           return 520;
+                       case 'NY':
+                           return 410;
+                       case 'Chicago':
+                           return 673;
+                       default:
+                           return -1;
+                    }"
             };
 
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-	
-	
+
+
 Ниже приведен пример осуществления UDF.
 
 **Query**
 
-	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
-	FROM Families f	
+    SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
+    FROM Families f    
 
 **Результат**
 
-	 [
-	  {
-	    "city": "seattle", 
-	    "seaLevel": 520
-	  }, 
-	  {
-	    "city": "NY", 
-	    "seaLevel": 410
-	  }
-	]
+     [
+      {
+        "city": "seattle", 
+        "seaLevel": 520
+      }, 
+      {
+        "city": "NY", 
+        "seaLevel": 410
+      }
+    ]
 
 
 Как показывают приведенные выше примеры, определяемые пользователем функции объединяют мощь языка JavaScript и SQL DocumentDB, чтобы обеспечить богатый программируемый интерфейс для реализации сложной процедурной, условной логики с помощью встроенных возможностей исполнения JavaScript.
@@ -1352,28 +1348,28 @@ DocumentDB поддерживает запросы с параметрами, в
 
 Значениями параметров могут быть любые допустимые JSON (строки, числа, логические значения, значения null, даже массивы или вложенные JSON). Кроме этого, так как DocumentDB не имеет схемы, параметры не проверяются на соответствие типам.
 
-##Встроенные функции
+## Встроенные функции
 DocumentDB также поддерживает несколько встроенных функций для общих операций, которые можно использовать в запросах как определяемые пользователем функции (UDF).
 
 <table>
 <tr>
-<td>Математические функции</td>	
+<td>Математические функции</td>    
 <td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN и TAN</td>
 </tr>
 <tr>
-<td>Функции проверки типа</td>	
+<td>Функции проверки типа</td>    
 <td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED и IS_PRIMITIVE</td>
 </tr>
 <tr>
-<td>Строковые функции</td>	
+<td>Строковые функции</td>    
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING и UPPER</td>
 </tr>
 <tr>
-<td>Функции массивов</td>	
+<td>Функции массивов</td>    
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH и ARRAY_SLICE</td>
 </tr>
 <tr>
-<td>Пространственные функции</td>	
+<td>Пространственные функции</td>    
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID и ST_ISVALIDDETAILED</td>
 </tr>
 </table>  
@@ -1389,96 +1385,96 @@ DocumentDB также поддерживает несколько встроен
 <td><strong>Описание</strong></td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>    
 <td>Возвращает модуль (положительное значение) указанного числового выражения.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>    
 <td>Возвращает наименьшее целочисленное значение, которое больше или равно указанному числовому выражению.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>    
 <td>Возвращает наибольшее целочисленное значение, которое меньше или равно указанному числовому выражению.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>    
 <td>Возвращает значение экспоненты для указанного числового выражения.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>    
 <td>Возвращает натуральный логарифм от указанного числового выражения либо логарифм по заданному основанию</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>    
 <td>Возвращает десятичный логарифм от указанного числового выражения.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>    
 <td>Возвращает числовое значение, округленное до ближайшего целого значения в большую сторону.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>    
 <td>Возвращает числовое значение, округленное до ближайшего целого значения в меньшую сторону.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>    
 <td>Возвращает квадратный корень из указанного числового выражения.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>    
 <td>Возвращает указанное числовое выражение, возведенное в квадрат.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>    
 <td>Возвращает указанное числовое выражение, возведенное в заданную степень.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>    
 <td>Возвращает значение, обозначающее знак (-1, 0, 1) указанного числового выражения.</td>
 </tr>
 <tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>    
 <td>Возвращает угол в радианах, косинус которого равен указанному числовому выражению; также называется арккосинусом.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>    
 <td>Возвращает угол в радианах, синус которого равен указанному числовому выражению. Также называется арксинусом.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>    
 <td>Возвращает угол в радианах, тангенс которого равен указанному числовому выражению. Также называется арктангенсом.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>    
 <td>Возвращает угол в радианах между положительным направлением оси x и лучом, проведенным из начала координат в точку (y, x), где x и y — значения двух заданных выражений с плавающей запятой.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>    
 <td>Возвращает тригонометрический косинус указанного угла в радианах в указанном выражении.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>    
 <td>Возвращает тригонометрический котангенс указанного угла в радианах в указанном числовом выражении.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>    
 <td>Возвращает соответствующее значение угла в градусах для угла, указанного в радианах.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>    
 <td>Возвращает значение константы "пи".</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>    
 <td>Возвращает значение угла в радианах для числового значения, указанного в градусах.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>    
 <td>Возвращает тригонометрический синус заданного угла в радианах для указанного выражения.</td>
 </tr>
 <tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>	
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>    
 <td>Возвращает тангенс угла для указанного выражения.</td>
 </tr>
 
@@ -1552,24 +1548,24 @@ DocumentDB также поддерживает несколько встроен
 ### Строковые функции
 Следующие скалярные функции выполняют операцию над входным строковым значением и возвращают строковое, числовое или логическое значение. Ниже приведена таблица встроенных строковых функций:
 
-Использование|Description (Описание)
----|---
-[LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Возвращает число символов указанного строкового выражения.
-[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Возвращает строку, являющуюся результатом объединения двух или более строковых значений.
-[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|Возвращает часть строкового выражения.
-[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|Возвращает значение логического типа, указывающее, начинается ли первое строковое выражение вторым
-[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|Возвращает значение логического типа, указывающее, начинается ли первое строковое выражение вторым
-[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|Возвращает значение логического типа, указывающее, содержит ли первое строковое выражение второе.
-[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|Возвращает начальную позицию первого вхождения второго строкового выражения в первое указанное строковое выражение или –1, если строка не найдена.
-[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|Возвращает левую часть строки с указанным количеством символов.
-[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|Возвращает правую часть строки с указанным количеством символов.
-[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|Возвращает строковое выражение после удаления начальных пробелов.
-[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|Возвращает строковое выражение после усечения всех конечных пробелов.
-[LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|Возвращает строковое выражение после преобразования символов верхнего регистра в нижний.
-[UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|Возвращает строковое выражение после преобразования символов нижнего регистра в верхний.
-[REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|Заменяет все вхождения указанного строкового значения другим строковым значением.
-[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|Повторяет строковое значение указанное число раз.
-[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|Возвращает обратный порядок строкового значения.
+| Использование | Description (Описание) |
+| --- | --- |
+| [LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Возвращает число символов указанного строкового выражения. |
+| [CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Возвращает строку, являющуюся результатом объединения двух или более строковых значений. |
+| [SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Возвращает часть строкового выражения. |
+| [STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Возвращает значение логического типа, указывающее, начинается ли первое строковое выражение вторым |
+| [ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Возвращает значение логического типа, указывающее, начинается ли первое строковое выражение вторым |
+| [CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Возвращает значение логического типа, указывающее, содержит ли первое строковое выражение второе. |
+| [INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Возвращает начальную позицию первого вхождения второго строкового выражения в первое указанное строковое выражение или –1, если строка не найдена. |
+| [LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Возвращает левую часть строки с указанным количеством символов. |
+| [RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Возвращает правую часть строки с указанным количеством символов. |
+| [LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Возвращает строковое выражение после удаления начальных пробелов. |
+| [RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Возвращает строковое выражение после усечения всех конечных пробелов. |
+| [LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Возвращает строковое выражение после преобразования символов верхнего регистра в нижний. |
+| [UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Возвращает строковое выражение после преобразования символов нижнего регистра в верхний. |
+| [REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Заменяет все вхождения указанного строкового значения другим строковым значением. |
+| [REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Повторяет строковое значение указанное число раз. |
+| [REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Возвращает обратный порядок строкового значения. |
 
 С помощью этих функций можно выполнять запросы следующего вида: Например, вот таким образом можно возвратить имя семьи в верхнем регистре:
 
@@ -1622,12 +1618,12 @@ DocumentDB также поддерживает несколько встроен
 ### Функции массивов
 Следующие скалярные функции выполняют операцию над входным массивом и возвращают числовое или логическое значение, либо массив. Ниже приведена таблица встроенных функций над массивом:
 
-Использование|Описание
----|---
-[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|Возвращает число элементов массива, указанного в выражении.
-[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|Возвращает массив, который является результатом объединения значений двух или более массивов.
-[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|Возвращает логическое значение, указывающее, содержит ли массив указанное значение.
-[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|Возвращает часть выражения массива.
+| Использование | Описание |
+| --- | --- |
+| [ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Возвращает число элементов массива, указанного в выражении. |
+| [ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Возвращает массив, который является результатом объединения значений двух или более массивов. |
+| [ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Возвращает логическое значение, указывающее, содержит ли массив указанное значение. |
+| [ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Возвращает часть выражения массива. |
 
 Функции массивов могут использоваться для обработки массивов в JSON. Например, ниже приведен запрос, который возвращает все документы, в котором один из родительских элементов равен "Robin Wakefield".
 
@@ -1662,7 +1658,6 @@ DocumentDB также поддерживает несколько встроен
     }]
 
 ### Пространственные функции
-
 DocumentDB поддерживает следующие встроенные функции Открытого геопространственного консорциума (OGC) для выполнения запросов к геопространственным данным. Дополнительные сведения о поддержке геопространственных данных в DocumentDB см. в разделе [Работа с геопространственными данными в Azure DocumentDB](documentdb-geospatial.md).
 
 <table>
@@ -1713,8 +1708,8 @@ DocumentDB поддерживает следующие встроенные фу
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **Результаты**
@@ -1722,8 +1717,11 @@ DocumentDB поддерживает следующие встроенные фу
     [{
       "id": "WakefieldFamily",
     }]
-    
->[AZURE.NOTE] По аналогии с несоответствием типов в запросе DocumentDB: если значение местоположения, указанное в любом из аргументов, имеет неправильный формат или является недопустимым, то оно приравнивается к значению **не определено** и соответствующий документ исключается из результатов запроса. Если запрос не возвращает результатов, выполните запрос ST\_ISVALIDDETAILED для выяснения причин, по которым тип пространственных данных является недействительным.
+
+> [!NOTE]
+> По аналогии с несоответствием типов в запросе DocumentDB: если значение местоположения, указанное в любом из аргументов, имеет неправильный формат или является недопустимым, то оно приравнивается к значению **не определено** и соответствующий документ исключается из результатов запроса. Если запрос не возвращает результатов, выполните запрос ST\_ISVALIDDETAILED для выяснения причин, по которым тип пространственных данных является недействительным.
+> 
+> 
 
 Чтобы проверить, является ли пространственный объект действительным, можно воспользоваться ST\_ISVALID и ST\_ISVALIDDETAILED. Например, следующий запрос проверяет действительность точки, значение широты для которой выходит за пределы допустимого диапазона (-132.8). ST\_ISVALID возвращает логическое значение, а ST\_ISVALIDDETAILED возвращает логическое значение и строку, содержащую причину, по которой значение считается недействительным.
 
@@ -1742,18 +1740,18 @@ DocumentDB поддерживает следующие встроенные фу
 **Запрос**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **Результаты**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+            "valid": false, 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+          }
     }]
-    
+
 Он связывает пространственные функции и синтаксис SQL для DocumentDB. Теперь давайте рассмотрим схему работы запросов LINQ и их взаимодействие с синтаксисом, который мы уже видели.
 
 ## LINQ в SQL DocumentDB
@@ -1762,88 +1760,86 @@ LINQ является моделью программирования .NET, ко
 На рисунке ниже показана архитектура поддержки запросов LINQ при использовании DocumentDB. Используя клиент DocumentDB, разработчики могут создать объект **IQueryable**, который будет направлять запросы к поставщику запросов DocumentDB, который затем транслирует запросы LINQ в запросы DocumentDB. Затем запрос передается на сервер DocumentDB для получения набора результатов в формате JSON. Возвращенные результаты десериализуются в поток объектов .NET на стороне клиента.
 
 ![Архитектура поддержки запросов LINQ с помощью DocumentDB — синтаксис SQL, язык запросов JSON, основные понятия баз данных и SQL-запросы][1]
- 
-
 
 ### Сопоставление .NET и JSON
 Сопоставление между объектами .NET и документами JSON естественно: каждый член поля данных отображаются на объект JSON, где имя поля отображается на «ключевой» части объекта, а часть «значений» рекурсивно отображается на части значений объекта. Рассмотрим следующий пример. Объект «Семья» создан и сопоставлен документу JSON, как показано ниже. И наоборот, документ JSON в свою очередь сопоставлен объекту .NET.
 
 **Класс C#**
 
-	public class Family
-	{
-	    [JsonProperty(PropertyName="id")]
-	    public string Id;
-	    public Parent[] parents;
-	    public Child[] children;
-	    public bool isRegistered;
-	};
-	
-	public struct Parent
-	{
-	    public string familyName;
-	    public string givenName;
-	};
-	
-	public class Child
-	{
-	    public string familyName;
-	    public string givenName;
-	    public string gender;
-	    public int grade;
-	    public List<Pet> pets;
-	};
-	
-	public class Pet
-	{
-	    public string givenName;
-	};
-	
-	public class Address
-	{
-	    public string state;
-	    public string county;
-	    public string city;
-	};
-	
-	// Create a Family object.
-	Parent mother = new Parent { familyName= "Wakefield", givenName="Robin" };
-	Parent father = new Parent { familyName = "Miller", givenName = "Ben" };
-	Child child = new Child { familyName="Merriam", givenName="Jesse", gender="female", grade=1 };
-	Pet pet = new Pet { givenName = "Fluffy" };
-	Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
-	Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
+    public class Family
+    {
+        [JsonProperty(PropertyName="id")]
+        public string Id;
+        public Parent[] parents;
+        public Child[] children;
+        public bool isRegistered;
+    };
+
+    public struct Parent
+    {
+        public string familyName;
+        public string givenName;
+    };
+
+    public class Child
+    {
+        public string familyName;
+        public string givenName;
+        public string gender;
+        public int grade;
+        public List<Pet> pets;
+    };
+
+    public class Pet
+    {
+        public string givenName;
+    };
+
+    public class Address
+    {
+        public string state;
+        public string county;
+        public string city;
+    };
+
+    // Create a Family object.
+    Parent mother = new Parent { familyName= "Wakefield", givenName="Robin" };
+    Parent father = new Parent { familyName = "Miller", givenName = "Ben" };
+    Child child = new Child { familyName="Merriam", givenName="Jesse", gender="female", grade=1 };
+    Pet pet = new Pet { givenName = "Fluffy" };
+    Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
+    Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
 
 
 **JSON**
 
-	{
-	    "id": "WakefieldFamily",
-	    "parents": [
-	        { "familyName": "Wakefield", "givenName": "Robin" },
-	        { "familyName": "Miller", "givenName": "Ben" }
-	    ],
-	    "children": [
-	        {
-	            "familyName": "Merriam", 
-	            "givenName": "Jesse", 
-	            "gender": "female", 
-	            "grade": 1,
-	            "pets": [
-	                { "givenName": "Goofy" },
-	                { "givenName": "Shadow" }
-	            ]
-	        },
-	        { 
-	          "familyName": "Miller", 
-	          "givenName": "Lisa", 
-	          "gender": "female", 
-	          "grade": 8 
-	        }
-	    ],
-	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-	    "isRegistered": false
-	};
+    {
+        "id": "WakefieldFamily",
+        "parents": [
+            { "familyName": "Wakefield", "givenName": "Robin" },
+            { "familyName": "Miller", "givenName": "Ben" }
+        ],
+        "children": [
+            {
+                "familyName": "Merriam", 
+                "givenName": "Jesse", 
+                "gender": "female", 
+                "grade": 1,
+                "pets": [
+                    { "givenName": "Goofy" },
+                    { "givenName": "Shadow" }
+                ]
+            },
+            { 
+              "familyName": "Miller", 
+              "givenName": "Lisa", 
+              "gender": "female", 
+              "grade": 8 
+            }
+        ],
+        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+        "isRegistered": false
+    };
 
 
 
@@ -1852,46 +1848,42 @@ LINQ является моделью программирования .NET, ко
 
 Во-первых, для системы типов; мы поддерживаем все примитивные типы JSON: числовые типы, логические, строковые и NULL. Поддерживаются только эти типы JSON. Поддерживаются следующие скалярные выражения.
 
--	Постоянные значения. Включают в себя постоянные значения примитивных типов данных, которые вычисляются на момент.
-
--	Выражения свойств/индексов массивов. Относятся к свойствам объекта или элемента массива.
-
-		family.Id;
-		family.children[0].familyName;
-		family.children[0].grade;
-		family.children[n].grade; //n is an int variable
-
--	Арифметические выражения. К ним относятся общие арифметические выражения на основе численных и логических значений. Для получения полного списка обратитесь к спецификации SQL, указанной выше.
-
-		2 * family.children[0].grade;
-		x + y;
-
--	Выражение сравнения строк. Включает сравнение строкового значения с некоторым постоянным строковым значением.
- 
-		mother.familyName == "Smith";
-		child.givenName == s; //s is a string variable
-
--	Выражение создания объекта/массива. Возвращают объект комбинированного типа, или анонимного типа, или массив таких объектов. Эти значения могут быть вложенными.
-
-		new Parent { familyName = "Smith", givenName = "Joe" };
-		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
-		new int[] { 3, child.grade, 5 };
+* Постоянные значения. Включают в себя постоянные значения примитивных типов данных, которые вычисляются на момент.
+* Выражения свойств/индексов массивов. Относятся к свойствам объекта или элемента массива.
+  
+     family.Id;
+     family.children[0].familyName;
+     family.children[0].grade;
+     family.children[n].grade; //n is an int variable
+* Арифметические выражения. К ним относятся общие арифметические выражения на основе численных и логических значений. Для получения полного списка обратитесь к спецификации SQL, указанной выше.
+  
+     2 * family.children[0].grade;
+     x + y;
+* Выражение сравнения строк. Включает сравнение строкового значения с некоторым постоянным строковым значением.
+  
+     mother.familyName == "Smith";
+     child.givenName == s; //s is a string variable
+* Выражение создания объекта/массива. Возвращают объект комбинированного типа, или анонимного типа, или массив таких объектов. Эти значения могут быть вложенными.
+  
+     new Parent { familyName = "Smith", givenName = "Joe" };
+     new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new int[] { 3, child.grade, 5 };
 
 ### Список поддерживаемых операторов LINQ
 Ниже приведен список поддерживаемых операторов LINQ в поставщике LINQ, входящем в состав пакета SDK .NET DocumentDB.
 
--	**Select**: проекции, преобразуются в SQL SELECT, включая создание объектов.
--	**Where**: фильтры преобразуются в SQL WHERE, а также поддерживают преобразование &&, || и ! в операторы SQL.
--	**SelectMany**: позволяет выполнять очистку массивов в предложение SQL JOIN. Может использоваться для вложения выражений или объединения их в цепочку для фильтрации по элементам массива.
--	**OrderBy и OrderByDescending**: выполняет преобразование в ORDER BY по возрастанию или по убыванию:
--	**CompareTo**: выполняет преобразование в сравнение диапазонов. Обычно используется для строк, так как их нельзя сравнивать в .NET.
--	**Take**: выполняет преобразование в SQL TOP для ограничения результатов запроса.
--	**Math Functions**: поддерживает преобразование из Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate платформы .NET в эквивалентные встроенные функции SQL.
--	**String Functions**: поддерживает преобразование из Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper платформы .NET в эквивалентные встроенные функции SQL.
--	**Array Functions**: поддерживает преобразование из Concat, Contains и Count платформы .NET в эквивалентные встроенные функции SQL.
--	**Geospatial Extension Functions**: поддерживает преобразование из Distance, Within, IsValid и IsValidDetailed методов заглушки в эквивалентные встроенные функции SQL.
--	**User Defined Function Extension Function**: поддерживает преобразование из UserDefinedFunctionProvider.Invoke метода заглушки в соответствующую определяемую пользователем функцию.
--	**Miscellaneous**: поддерживает преобразование операторов объединения и условных операторов. Позволяет преобразовать Contains в строку CONTAINS, ARRAY\_CONTAINS или SQL IN в зависимости от контекста.
+* **Select**: проекции, преобразуются в SQL SELECT, включая создание объектов.
+* **Where**: фильтры преобразуются в SQL WHERE, а также поддерживают преобразование &&, || и ! в операторы SQL.
+* **SelectMany**: позволяет выполнять очистку массивов в предложение SQL JOIN. Может использоваться для вложения выражений или объединения их в цепочку для фильтрации по элементам массива.
+* **OrderBy и OrderByDescending**: выполняет преобразование в ORDER BY по возрастанию или по убыванию:
+* **CompareTo**: выполняет преобразование в сравнение диапазонов. Обычно используется для строк, так как их нельзя сравнивать в .NET.
+* **Take**: выполняет преобразование в SQL TOP для ограничения результатов запроса.
+* **Math Functions**: поддерживает преобразование из Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate платформы .NET в эквивалентные встроенные функции SQL.
+* **String Functions**: поддерживает преобразование из Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper платформы .NET в эквивалентные встроенные функции SQL.
+* **Array Functions**: поддерживает преобразование из Concat, Contains и Count платформы .NET в эквивалентные встроенные функции SQL.
+* **Geospatial Extension Functions**: поддерживает преобразование из Distance, Within, IsValid и IsValidDetailed методов заглушки в эквивалентные встроенные функции SQL.
+* **User Defined Function Extension Function**: поддерживает преобразование из UserDefinedFunctionProvider.Invoke метода заглушки в соответствующую определяемую пользователем функцию.
+* **Miscellaneous**: поддерживает преобразование операторов объединения и условных операторов. Позволяет преобразовать Contains в строку CONTAINS, ARRAY\_CONTAINS или SQL IN в зависимости от контекста.
 
 ### Операторы SQL-запросов
 Вот несколько примеров, которые иллюстрируют, как некоторые из стандартных операторов запросов LINQ транслируются в запросы DocumentDB.
@@ -1901,41 +1893,41 @@ LINQ является моделью программирования .NET, ко
 
 **Лямбда-выражение LINQ**
 
-	input.Select(family => family.parents[0].familyName);
+    input.Select(family => family.parents[0].familyName);
 
 **SQL**
 
-	SELECT VALUE f.parents[0].familyName
-	FROM Families f
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
 
 
 
 **Лямбда-выражение LINQ**
 
-	input.Select(family => family.children[0].grade + c); // c is an int variable
+    input.Select(family => family.children[0].grade + c); // c is an int variable
 
 
 **SQL**
 
-	SELECT VALUE f.children[0].grade + c
-	FROM Families f 
+    SELECT VALUE f.children[0].grade + c
+    FROM Families f 
 
 
 
 **Лямбда-выражение LINQ**
 
-	input.Select(family => new
-	{
-	    name = family.children[0].familyName,
-	    grade = family.children[0].grade + 3
-	});
+    input.Select(family => new
+    {
+        name = family.children[0].familyName,
+        grade = family.children[0].grade + 3
+    });
 
 
 **SQL**
 
-	SELECT VALUE {"name":f.children[0].familyName, 
-	              "grade": f.children[0].grade + 3 }
-	FROM Families f
+    SELECT VALUE {"name":f.children[0].familyName, 
+                  "grade": f.children[0].grade + 3 }
+    FROM Families f
 
 
 
@@ -1944,12 +1936,12 @@ LINQ является моделью программирования .NET, ко
 
 **Лямбда-выражение LINQ**
 
-	input.SelectMany(family => family.children);
+    input.SelectMany(family => family.children);
 
 **SQL**
 
-	SELECT VALUE child
-	FROM child IN Families.children
+    SELECT VALUE child
+    FROM child IN Families.children
 
 
 
@@ -1958,133 +1950,130 @@ LINQ является моделью программирования .NET, ко
 
 **Лямбда-выражение LINQ**
 
-	input.Where(family=> family.parents[0].familyName == "Smith");
+    input.Where(family=> family.parents[0].familyName == "Smith");
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith" 
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith" 
 
 
 
 **Лямбда-выражение LINQ**
 
-	input.Where(
-	    family => family.parents[0].familyName == "Smith" && 
-	    family.children[0].grade < 3);
+    input.Where(
+        family => family.parents[0].familyName == "Smith" && 
+        family.children[0].grade < 3);
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith"
-	AND f.children[0].grade < 3
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith"
+    AND f.children[0].grade < 3
 
 
 ### Составные SQL-запросы
 Вышеуказанные операторы могут комбинироваться, чтобы формировать более расширенные запросы. Так как DocumentDB поддерживает вложенные коллекции, такая композиция может быть либо объединением, либо вложением.
 
-#### Объединение 
-
+#### Объединение
 Синтаксис: `input(.|.SelectMany())(.Select()|.Where())*`. Объединенный запрос может начинаться с необязательного запроса `SelectMany`, за которым идет несколько операторов `Select` или `Where`.
 
-
 **Лямбда-выражение LINQ**
 
-	input.Select(family=>family.parents[0])
-	    .Where(familyName == "Smith");
+    input.Select(family=>family.parents[0])
+        .Where(familyName == "Smith");
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE f.parents[0].familyName = "Smith"
-
-
-
-**Лямбда-выражение LINQ**
-
-	input.Where(family => family.children[0].grade > 3)
-	    .Select(family => family.parents[0].familyName);
-
-**SQL**
-
-	SELECT VALUE f.parents[0].familyName
-	FROM Families f
-	WHERE f.children[0].grade > 3
+    SELECT *
+    FROM Families f
+    WHERE f.parents[0].familyName = "Smith"
 
 
 
 **Лямбда-выражение LINQ**
 
-	input.Select(family => new { grade=family.children[0].grade}).
-	    Where(anon=> anon.grade < 3);
-            
+    input.Where(family => family.children[0].grade > 3)
+        .Select(family => family.parents[0].familyName);
+
 **SQL**
 
-	SELECT *
-	FROM Families f
-	WHERE ({grade: f.children[0].grade}.grade > 3)
+    SELECT VALUE f.parents[0].familyName
+    FROM Families f
+    WHERE f.children[0].grade > 3
 
 
 
 **Лямбда-выражение LINQ**
 
-	input.SelectMany(family => family.parents)
-	    .Where(parent => parents.familyName == "Smith");
+    input.Select(family => new { grade=family.children[0].grade}).
+        Where(anon=> anon.grade < 3);
 
 **SQL**
 
-	SELECT *
-	FROM p IN Families.parents
-	WHERE p.familyName = "Smith"
+    SELECT *
+    FROM Families f
+    WHERE ({grade: f.children[0].grade}.grade > 3)
+
+
+
+**Лямбда-выражение LINQ**
+
+    input.SelectMany(family => family.parents)
+        .Where(parent => parents.familyName == "Smith");
+
+**SQL**
+
+    SELECT *
+    FROM p IN Families.parents
+    WHERE p.familyName = "Smith"
 
 
 
 #### Вложенные операторы
-
 Синтаксис: `input.SelectMany(x=>x.Q())`, где Q — оператор `Select`, `SelectMany` или `Where`.
 
 Во вложенных запросах внутренний запрос применяется к каждому элементу внешнего отбора. Одной из важных особенностей является то, что внутренний запрос может ссылаться на поля элементов во внешней коллекции как к самостоятельно присоединенной.
 
 **Лямбда-выражение LINQ**
 
-	input.SelectMany(family=> 
-	    family.parents.Select(p => p.familyName));
+    input.SelectMany(family=> 
+        family.parents.Select(p => p.familyName));
 
 **SQL**
 
-	SELECT VALUE p.familyName
-	FROM Families f
-	JOIN p IN f.parents
+    SELECT VALUE p.familyName
+    FROM Families f
+    JOIN p IN f.parents
 
 
 **Лямбда-выражение LINQ**
 
-	input.SelectMany(family => 
-	    family.children.Where(child => child.familyName == "Jeff"));
-            
+    input.SelectMany(family => 
+        family.children.Where(child => child.familyName == "Jeff"));
+
 **SQL**
 
-	SELECT *
-	FROM Families f
-	JOIN c IN f.children
-	WHERE c.familyName = "Jeff"
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = "Jeff"
 
 
 
 **Лямбда-выражение LINQ**
-            
-	input.SelectMany(family => family.children.Where(
-	    child => child.familyName == family.parents[0].familyName));
+
+    input.SelectMany(family => family.children.Where(
+        child => child.familyName == family.parents[0].familyName));
 
 **SQL**
 
-	SELECT *
-	FROM Families f
-	JOIN c IN f.children
-	WHERE c.familyName = f.parents[0].familyName
+    SELECT *
+    FROM Families f
+    JOIN c IN f.children
+    WHERE c.familyName = f.parents[0].familyName
 
 
 ## Выполнение SQL-запросов
@@ -2097,15 +2086,14 @@ DocumentDB предлагает простую и открытую модель 
 
 Базовая модель взаимодействия с этими ресурсами осуществляется через команды HTTP GET, PUT, POST и DELETE в их стандартной интерпретации. Команда POST используется как для создания нового ресурса, выполнения хранимой процедуры, так и для выполнения запроса DocumentDB. Запросы всегда включают только операции чтения без побочных эффектов.
 
-Следующие примеры показывают, как сформировать запрос с командой POST для DocumentDB к коллекции, содержащей два образца документа, который мы рассматривали ранее. Запрос имеет простой фильтр по свойству имени JSON. Обратите внимание на использование `x-ms-documentdb-isquery` и Content-Type — заголовков `application/query+json` для обозначения того, что выполняемая операция является запросом.
-
+Следующие примеры показывают, как сформировать запрос с командой POST для DocumentDB к коллекции, содержащей два образца документа, который мы рассматривали ранее. Запрос имеет простой фильтр по свойству имени JSON. Обратите внимание на использование `x-ms-documentdb-isquery` и Content-Type — заголовков `application/query+json` для обозначения того, что выполняемая операция является запросом.
 
 **Запрос**
 
-	POST https://<REST URI>/docs HTTP/1.1
-	...
-	x-ms-documentdb-isquery: True
-	Content-Type: application/query+json
+    POST https://<REST URI>/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
 
     {      
         "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
@@ -2113,111 +2101,111 @@ DocumentDB предлагает простую и открытую модель 
             {"name": "@familyId", "value": "AndersenFamily"}         
         ] 
     }
-	
+
 
 **Результат**
 
-	HTTP/1.1 200 Ok
-	x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
-	x-ms-item-count: 1
-	x-ms-request-charge: 0.32
-	
-	<indented for readability, results highlighted>
-	
-	{  
-	   "_rid":"u1NXANcKogE=",
-	   "Documents":[  
-	      {  
-	         "id":"AndersenFamily",
-	         "lastName":"Andersen",
-	         "parents":[  
-	            {  
-	               "firstName":"Thomas"
-	            },
-	            {  
-	               "firstName":"Mary Kay"
-	            }
-	         ],
-	         "children":[  
-	            {  
-	               "firstName":"Henriette Thaulow",
-	               "gender":"female",
-	               "grade":5,
-	               "pets":[  
-	                  {  
-	                     "givenName":"Fluffy"
-	                  }
-	               ]
-	            }
-	         ],
-	         "address":{  
-	            "state":"WA",
-	            "county":"King",
-	            "city":"seattle"
-	         },
-	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
-	         "_ts":1407691744,
-	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
-	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments\/"
-	      }
-	   ],
-	   "count":1
-	}
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
+    x-ms-item-count: 1
+    x-ms-request-charge: 0.32
+
+    <indented for readability, results highlighted>
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "id":"AndersenFamily",
+             "lastName":"Andersen",
+             "parents":[  
+                {  
+                   "firstName":"Thomas"
+                },
+                {  
+                   "firstName":"Mary Kay"
+                }
+             ],
+             "children":[  
+                {  
+                   "firstName":"Henriette Thaulow",
+                   "gender":"female",
+                   "grade":5,
+                   "pets":[  
+                      {  
+                         "givenName":"Fluffy"
+                      }
+                   ]
+                }
+             ],
+             "address":{  
+                "state":"WA",
+                "county":"King",
+                "city":"seattle"
+             },
+             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
+             "_ts":1407691744,
+             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
+             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
+             "_attachments":"_attachments\/"
+          }
+       ],
+       "count":1
+    }
 
 
 Второй пример показывает более сложный запрос, который возвращает несколько соединенных результатов.
 
 **Запрос**
 
-	POST https://<REST URI>/docs HTTP/1.1
-	...
-	x-ms-documentdb-isquery: True
-	Content-Type: application/query+json
-	
+    POST https://<REST URI>/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
     {      
         "query": "SELECT 
-				     f.id AS familyName, 
-				     c.givenName AS childGivenName, 
-				     c.firstName AS childFirstName, 
-				     p.givenName AS petName 
-				  FROM Families f 
-				  JOIN c IN f.children 
-				  JOIN p in c.pets",     
+                     f.id AS familyName, 
+                     c.givenName AS childGivenName, 
+                     c.firstName AS childFirstName, 
+                     p.givenName AS petName 
+                  FROM Families f 
+                  JOIN c IN f.children 
+                  JOIN p in c.pets",     
         "parameters": [] 
     }
 
 
 **Результат**
 
-	HTTP/1.1 200 Ok
-	x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
-	x-ms-item-count: 1
-	x-ms-request-charge: 7.84
-	
-	<indented for readability, results highlighted>
-	
-	{  
-	   "_rid":"u1NXANcKogE=",
-	   "Documents":[  
-	      {  
-	         "familyName":"AndersenFamily",
-	         "childFirstName":"Henriette Thaulow",
-	         "petName":"Fluffy"
-	      },
-	      {  
-	         "familyName":"WakefieldFamily",
-	         "childGivenName":"Jesse",
-	         "petName":"Goofy"
-	      },
-	      {  
-	         "familyName":"WakefieldFamily",
-	         "childGivenName":"Jesse",
-	         "petName":"Shadow"
-	      }
-	   ],
-	   "count":3
-	}
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
+    x-ms-item-count: 1
+    x-ms-request-charge: 7.84
+
+    <indented for readability, results highlighted>
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "familyName":"AndersenFamily",
+             "childFirstName":"Henriette Thaulow",
+             "petName":"Fluffy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Goofy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Shadow"
+          }
+       ],
+       "count":3
+    }
 
 
 Если результаты запроса не помещаются на одной странице результатов, то API REST возвращает токен продолжения в заголовке ответа `x-ms-continuation-token`. Клиенты могут разбивать результаты на страницы, включая заголовок в последующие результаты. Количеством результатов на одной странице также можно управлять через число в заголовке `x-ms-max-item-count`.
@@ -2226,16 +2214,15 @@ DocumentDB предлагает простую и открытую модель 
 
 Если настроенная политика индексации в коллекции не поддерживает указанный запрос, сервер DocumentDB возвращает код ошибки 400 «Bad Request». Он возвращается для запросов к путям, сконфигурированным для поиска по значениям хэшей (равенство), а также к путям, явно исключенным из индексации. Заголовок `x-ms-documentdb-query-enable-scan` можно задать для разрешения запросу проводить сканирование в случае отсутствия индекса.
 
-### Пакет SDK для C#
+### Пакет SDK для C
 Пакет .NET SDK поддерживает запросы как LINQ, так и SQL. В следующем примере показано, как выполнить простой фильтр для запроса, сформированного ранее в этом документе.
 
+    foreach (var family in client.CreateDocumentQuery(collectionLink, 
+        "SELECT * FROM Families f WHERE f.id = "AndersenFamily""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
 
-	foreach (var family in client.CreateDocumentQuery(collectionLink, 
-	    "SELECT * FROM Families f WHERE f.id = "AndersenFamily""))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", family);
-	}
-	
     SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
     query.Parameters = new SqlParameterCollection();
     query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
@@ -2245,72 +2232,70 @@ DocumentDB предлагает простую и открытую модель 
         Console.WriteLine("\tRead {0} from parameterized SQL", family);
     }
 
-	foreach (var family in (
-	    from f in client.CreateDocumentQuery(collectionLink)
-	    where f.Id == "AndersenFamily"
-	    select f))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
-	}
-	
-	foreach (var family in client.CreateDocumentQuery(collectionLink)
-	    .Where(f => f.Id == "AndersenFamily")
-	    .Select(f => f))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
-	}
+    foreach (var family in (
+        from f in client.CreateDocumentQuery(collectionLink)
+        where f.Id == "AndersenFamily"
+        select f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink)
+        .Where(f => f.Id == "AndersenFamily")
+        .Select(f => f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
 
 
 Этот пример сравнивает два свойства на равенство в каждом документе и использует анонимные проекции.
 
+    foreach (var family in client.CreateDocumentQuery(collectionLink,
+        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family 
+        FROM Families f 
+        WHERE f.address.city = f.address.state"))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
 
-	foreach (var family in client.CreateDocumentQuery(collectionLink,
-	    @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family 
-	    FROM Families f 
-	    WHERE f.address.city = f.address.state"))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", family);
-	}
-	
-	foreach (var family in (
-	    from f in client.CreateDocumentQuery<Family>(collectionLink)
-	    where f.address.city == f.address.state
-	    select new { Name = f.Id, City = f.address.city }))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ query", family);
-	}
-	
-	foreach (var family in
-	    client.CreateDocumentQuery<Family>(collectionLink)
-	    .Where(f => f.address.city == f.address.state)
-	    .Select(f => new { Name = f.Id, City = f.address.city }))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", family);
-	}
+    foreach (var family in (
+        from f in client.CreateDocumentQuery<Family>(collectionLink)
+        where f.address.city == f.address.state
+        select new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in
+        client.CreateDocumentQuery<Family>(collectionLink)
+        .Where(f => f.address.city == f.address.state)
+        .Select(f => new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
 
 
 Следующий пример демонстрирует объединение, выражаемое через LINQ SelectMany.
 
+    foreach (var pet in client.CreateDocumentQuery(collectionLink,
+          @"SELECT p
+            FROM Families f 
+                 JOIN c IN f.children 
+                 JOIN p in c.pets 
+            WHERE p.givenName = ""Shadow"""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", pet);
+    }
 
-	foreach (var pet in client.CreateDocumentQuery(collectionLink,
-	      @"SELECT p
-	        FROM Families f 
-	             JOIN c IN f.children 
-	             JOIN p in c.pets 
-	        WHERE p.givenName = ""Shadow"""))
-	{
-	    Console.WriteLine("\tRead {0} from SQL", pet);
-	}
-	
-	// Equivalent in Lambda expressions
-	foreach (var pet in
-	    client.CreateDocumentQuery<Family>(collectionLink)
-	    .SelectMany(f => f.children)
-	    .SelectMany(c => c.pets)
-	    .Where(p => p.givenName == "Shadow"))
-	{
-	    Console.WriteLine("\tRead {0} from LINQ lambda", pet);
-	}
+    // Equivalent in Lambda expressions
+    foreach (var pet in
+        client.CreateDocumentQuery<Family>(collectionLink)
+        .SelectMany(f => f.children)
+        .SelectMany(c => c.pets)
+        .Where(p => p.givenName == "Shadow"))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
+    }
 
 
 
@@ -2320,74 +2305,71 @@ DocumentDB предлагает простую и открытую модель 
 
 В разделе [Примеры .NET для DocumentDB](https://github.com/Azure/azure-documentdb-net) имеются дополнительные примеры, содержащие запросы.
 
-### Интерфейс API для серверного JavaScript 
+### Интерфейс API для серверного JavaScript
 DocumentDB обеспечивает модель программирования для реализации логики приложения на основе JavaScript непосредственно в коллекциях, используя хранимые процедуры и триггеры. Логика JavaScript регистрируется на уровне коллекции, может выполнять операции в базе данных над документами указанной коллекции. Эти операции оборачиваются транзакциями ACID.
 
 В следующем примере показано, как использовать queryDocuments в интерфейсе API серверного JavaScript чтобы формировать запросы изнутри хранимых процедур и триггеров.
 
+    function businessLogic(name, author) {
+        var context = getContext();
+        var collectionManager = context.getCollection();
+        var collectionLink = collectionManager.getSelfLink()
 
-	function businessLogic(name, author) {
-	    var context = getContext();
-	    var collectionManager = context.getCollection();
-	    var collectionLink = collectionManager.getSelfLink()
-	
-	    // create a new document.
-	    collectionManager.createDocument(collectionLink,
-	        { name: name, author: author },
-	        function (err, documentCreated) {
-	            if (err) throw new Error(err.message);
-	
-	            // filter documents by author
-	            var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-	            collectionManager.queryDocuments(collectionLink,
-	                filterQuery,
-	                function (err, matchingDocuments) {
-	                    if (err) throw new Error(err.message);
-	context.getResponse().setBody(matchingDocuments.length);
-	
-	                    // Replace the author name for all documents that satisfied the query.
-	                    for (var i = 0; i < matchingDocuments.length; i++) {
-	                        matchingDocuments[i].author = "George R. R. Martin";
-	                        // we don't need to execute a callback because they are in parallel
-	                        collectionManager.replaceDocument(matchingDocuments[i]._self,
-	                            matchingDocuments[i]);
-	                    }
-	                })
-	        });
-	}
+        // create a new document.
+        collectionManager.createDocument(collectionLink,
+            { name: name, author: author },
+            function (err, documentCreated) {
+                if (err) throw new Error(err.message);
+
+                // filter documents by author
+                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+                collectionManager.queryDocuments(collectionLink,
+                    filterQuery,
+                    function (err, matchingDocuments) {
+                        if (err) throw new Error(err.message);
+    context.getResponse().setBody(matchingDocuments.length);
+
+                        // Replace the author name for all documents that satisfied the query.
+                        for (var i = 0; i < matchingDocuments.length; i++) {
+                            matchingDocuments[i].author = "George R. R. Martin";
+                            // we don't need to execute a callback because they are in parallel
+                            collectionManager.replaceDocument(matchingDocuments[i]._self,
+                                matchingDocuments[i]);
+                        }
+                    })
+            });
+    }
 
 ## Статистические функции
-
 Встроенная поддержка статистических функций пока не реализована. Если вам нужны функции count или sum, вы можете использовать другие методы для получения тех же результатов.
 
 В процессе чтения.
 
-- Вы можете получить данные и локально выполнить подсчет статистических данных. Мы рекомендуем использовать дешевые запросы проекции, например `SELECT VALUE 1`, а не получать полный документ операцией `SELECT * FROM c`. Так вы получите максимально возможное количество документов на каждой странице результатов без дополнительных запросов к службе.
-- Для минимизации сетевой задержки при выполнении повторяющихся циклов можно применить хранимые процедуры. Пример хранимой процедуры, которая вычисляет количество записей для определенного фильтра запроса, приводится здесь: [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). Хранимые процедуры позволят пользователям сочетать широкие возможности бизнес-логики с эффективным выполнением статистических функций.
+* Вы можете получить данные и локально выполнить подсчет статистических данных. Мы рекомендуем использовать дешевые запросы проекции, например `SELECT VALUE 1`, а не получать полный документ операцией `SELECT * FROM c`. Так вы получите максимально возможное количество документов на каждой странице результатов без дополнительных запросов к службе.
+* Для минимизации сетевой задержки при выполнении повторяющихся циклов можно применить хранимые процедуры. Пример хранимой процедуры, которая вычисляет количество записей для определенного фильтра запроса, приводится здесь: [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). Хранимые процедуры позволят пользователям сочетать широкие возможности бизнес-логики с эффективным выполнением статистических функций.
 
 В процессе записи.
 
-- Еще один распространенный сценарий — предварительная статистическая обработка результатов в процессе записи данных. Это особенно удобно, если количество запросов на чтение существенно выше, чем количество запросов на запись. После предварительной статистической обработки результаты можно будет получить одним простым запросом на чтение. Лучший способ предварительной статистической обработки в DocumentDB — это триггер, который вызывается при каждой операции записи и обновляет метаданные документа, сохраняя актуальную информацию с учетом выполняемого запроса. Пример такого подхода реализован здесь: [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js). Этот код обновляет параметры minSize, maxSize и totalSize в документе метаданных коллекции. Пример можно дополнить функциями count, sum и т. д.
+* Еще один распространенный сценарий — предварительная статистическая обработка результатов в процессе записи данных. Это особенно удобно, если количество запросов на чтение существенно выше, чем количество запросов на запись. После предварительной статистической обработки результаты можно будет получить одним простым запросом на чтение. Лучший способ предварительной статистической обработки в DocumentDB — это триггер, который вызывается при каждой операции записи и обновляет метаданные документа, сохраняя актуальную информацию с учетом выполняемого запроса. Пример такого подхода реализован здесь: [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js). Этот код обновляет параметры minSize, maxSize и totalSize в документе метаданных коллекции. Пример можно дополнить функциями count, sum и т. д.
 
-##Ссылки
-1.	[Введение в Azure DocumentDB][introduction]
-2.	[Спецификация DocumentDB SQL](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.	[Примеры DocumentDB .NET](https://github.com/Azure/azure-documentdb-net)
-4.	[Уровни согласованности DocumentDB][consistency-levels]
-5.	Стандарт ANSI SQL 2011 — [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6.	JSON — [http://json.org/](http://json.org/)
-7.	Спецификация JavaScript — [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
-9.	Методика вычисления запросов для больших баз данных — [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
-12.	Кристофер Олстон (Christopher Olston), Бенджамин Рид (Benjamin Reed), Аткарш Сривастава (Utkarsh Srivastava), Рави Камар (Ravi Kumar), Эндрю Томкинс (Andrew Tomkins): Язык Pig. Не такой уж и незнакомый язык для обработки данных (Pig Latin: A Not-So-Foreign Language for Data Processing), SIGMOD 2008 г.
-13.     Ж. Графе (G. Graefe). Каскадные платформы для оптимизации запросов. IEEE Data Eng. Bull., 18(3): 1995 г.
-
+## Ссылки
+1. [Введение в Azure DocumentDB][introduction]
+2. [Спецификация DocumentDB SQL](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Примеры DocumentDB .NET](https://github.com/Azure/azure-documentdb-net)
+4. [Уровни согласованности DocumentDB][consistency-levels]
+5. Стандарт ANSI SQL 2011 — [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON — [http://json.org/](http://json.org/)
+7. Спецификация JavaScript — [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
+9. Методика вычисления запросов для больших баз данных — [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+10. Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
+11. Lu, Ooi, Tan, Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
+12. Кристофер Олстон (Christopher Olston), Бенджамин Рид (Benjamin Reed), Аткарш Сривастава (Utkarsh Srivastava), Рави Камар (Ravi Kumar), Эндрю Томкинс (Andrew Tomkins): Язык Pig. Не такой уж и незнакомый язык для обработки данных (Pig Latin: A Not-So-Foreign Language for Data Processing), SIGMOD 2008 г.
+13. Ж. Графе (G. Graefe). Каскадные платформы для оптимизации запросов. IEEE Data Eng. Bull., 18(3): 1995 г.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

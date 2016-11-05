@@ -1,23 +1,18 @@
 ## Использование портала Azure
-
 1. Выберите виртуальную машину для повторного развертывания и нажмите кнопку "Повторить развертывание" в колонке "Параметры". Прокрутите вниз, чтобы отобразить раздел **Поддержка и устранение проблем**, содержащий кнопку "Развернуть", как показано в следующем примере.
-
-	![Колонка виртуальной машины Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
-
+   
+    ![Колонка виртуальной машины Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 2. Для подтверждения операции нажмите кнопку "Повторить развертывание".
-
-	![Колонка повторного развертывания виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
-
+   
+    ![Колонка повторного развертывания виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 3. Текущее **состояние** виртуальной машины изменится на *Выполняется обновление* при подготовке к повторному развертыванию, как показано ниже.
-
-	![Обновление виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
-
+   
+    ![Обновление виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 4. Затем **состояние** изменится на *Запуск* при загрузке виртуальной машины на новый узел Azure, как показано ниже.
-
-	![Запуск виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
-
+   
+    ![Запуск виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 5. По завершении процесса загрузки **состояние** виртуальной машины снова будет иметь значение *Работает*. Это значит, что повторное развертывание виртуальной машины успешно завершено.
-
-	![Выполнение виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+   
+    ![Выполнение виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
 <!---HONumber=AcomDC_0921_2016-->

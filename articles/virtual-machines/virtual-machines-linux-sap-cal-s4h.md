@@ -1,34 +1,30 @@
-<properties 
-pageTitle="Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure | Microsoft Azure" 
-description="Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure | Microsoft Docs
+description: Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure 
-
+---
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure
 В этой статье мы расскажем, как развернуть платформу S/4 HANA в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0.
 На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений на базе SAP Hana (например, BW/4 HANA) выполняется аналогичным образом. Нужно только выбрать другое решение.
 
 Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 Далее на снимках экрана показана пошаговая инструкция по развертыванию S/4 HANA в Microsoft Azure. Процесс развертывания других решений, таких как BW/4 HANA, аналогичен описанному ниже.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -92,15 +88,6 @@ tags="azure-resource-manager"
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Другой вариант — войти на клиентскую виртуальную машину Windows и запустить, например, предварительно настроенный интерфейс SAP GUI.
-
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

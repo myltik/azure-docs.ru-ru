@@ -1,39 +1,37 @@
-<properties
-	pageTitle="Управление доступом на основе ролей (RBAC) с помощью Azure PowerShell | Microsoft Azure"
-	description="Узнайте, как осуществлять управление доступом на основе ролей (RBAC) с помощью Azure PowerShell, включая вывод списка ролей, назначение ролей и удаление назначений ролей."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Управление доступом на основе ролей (RBAC) с помощью Azure PowerShell | Microsoft Docs
+description: Узнайте, как осуществлять управление доступом на основе ролей (RBAC) с помощью Azure PowerShell, включая вывод списка ролей, назначение ролей и удаление назначений ролей.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/22/2016
+ms.author: kgremban
 
+---
 # Управление доступом на основе ролей с помощью Azure PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
-- [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
-
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
+> * [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API управления ресурсами Azure позволяет управлять доступом к подписке с высокой точностью. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
 Чтобы использовать PowerShell для управления RBAC, вам понадобится:
 
-- Azure PowerShell версии 0.8.8 или выше. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
-
-- Командлеты Azure Resource Manager. Установите [командлеты Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) в PowerShell.
+* Azure PowerShell версии 0.8.8 или выше. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
+* Командлеты Azure Resource Manager. Установите [командлеты Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) в PowerShell.
 
 ## Вывод списка ролей
-
 ### Вывод списка всех доступных ролей
 Для вывода списка доступных для назначения ролей RBAC и для просмотра операций, к которым они предоставляют доступ, воспользуйтесь командой `Get-AzureRmRoleDefinition`.
 
@@ -41,7 +39,7 @@
 Get-AzureRmRoleDefinition | FT Name, Description
 ```
 
-.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
+.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### Вывод списка действий роли
 Для вывода списка действий для определенной роли воспользуйтесь командой `Get-AzureRmRoleDefinition <role name>`.
@@ -52,19 +50,19 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 (Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
 ```
 
-![RBAC PowerShell — Get-AzureRmRoleDefinition для конкретной роли — снимок экрана](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
+![RBAC PowerShell — Get-AzureRmRoleDefinition для конкретной роли — снимок экрана](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
 ## Увидеть, у кого есть доступ
 Чтобы вывести список назначений доступа RBAC, используйте команду `Get-AzureRmRoleAssignment`.
 
-###	Вывод списка назначений ролей в конкретной области
+### Вывод списка назначений ролей в конкретной области
 Можно вывести список назначений доступа, действующих для указанной подписки, группы ресурсов или отдельного ресурса. Например, чтобы просмотреть все активные назначения для группы ресурсов, используйте команду `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
 Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-.![RBAC PowerShell — Get-AzureRmRoleAssignment для группы ресурсов — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
+.![RBAC PowerShell — Get-AzureRmRoleAssignment для группы ресурсов — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### Вывод списка ролей, назначенных пользователю
 Чтобы вывести список всех ролей, назначенных пользователю, включая роли, назначенные группам, в которые он входит, используйте команду `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
@@ -75,7 +73,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, Role
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-.![RBAC PowerShell — Get-AzureRmRoleAssignment — для пользователя — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
+.![RBAC PowerShell — Get-AzureRmRoleAssignment — для пользователя — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
 ### Вывод списка назначений ролей классического администратора службы и соадминистратора
 Для вывода списка назначений доступа для классического администратора подписки и соадминистраторов воспользуйтесь следующей командой:
@@ -101,28 +99,28 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
-.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
+.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### Назначение роли пользователю в области действия группы ресурсов
 Для предоставления доступа пользователю в области действия группы ресурсов воспользуйтесь следующей командой:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
-.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
+.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### Назначение роли для группы в области действия ресурса
 Для предоставления доступа группе в области действия ресурса воспользуйтесь следующей командой:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
-.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
+.![RBAC PowerShell — New-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## Запрет доступа
 Чтобы запретить доступ для пользователей, групп и приложений, воспользуйтесь следующей командой:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
-![RBAC PowerShell — Remove-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
+![RBAC PowerShell — Remove-AzureRmRoleAssignment — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## Создание настраиваемой роли
 Чтобы создать настраиваемую роль, используйте команду `New-AzureRmRoleDefinition`.
@@ -152,7 +150,7 @@ $role.AssignableScopes.Add("/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
 New-AzureRmRoleDefinition -Role $role
 ```
 
-.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
+.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ## Изменение настраиваемой роли
 Чтобы изменить настраиваемую роль, сначала используйте команду `Get-AzureRmRoleDefinition` для получения определения роли. Затем внесите необходимые изменения в определение роли. Наконец, с помощью команды `Set-AzureRmRoleDefinition` сохраните измененное определение роли.
@@ -165,7 +163,7 @@ $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
 Set-AzureRmRoleDefinition -Role $role
 ```
 
-.![RBAC PowerShell — Set-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
+.![RBAC PowerShell — Set-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
 В следующем примере показано добавление подписки Azure в назначаемые области настраиваемой роли *Оператор виртуальной машины*.
 
@@ -177,10 +175,9 @@ $role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
 Set-AzureRmRoleDefinition -Role $role)
 ```
 
-.![RBAC PowerShell — Set-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+.![RBAC PowerShell — Set-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ## Удаление настраиваемой роли
-
 Чтобы удалить настраиваемую роль, используйте команду `Remove-AzureRmRoleDefinition`.
 
 В следующем примере показано удаление настраиваемой роли *Оператор виртуальной машины*.
@@ -191,7 +188,7 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator"
 Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
 ```
 
-![RBAC PowerShell — Remove-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
+![RBAC PowerShell — Remove-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## Вывод списка настраиваемых ролей
 Чтобы получить список ролей, доступных для назначения в области, используйте команду `Get-AzureRmRoleDefinition`.
@@ -202,14 +199,14 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinit
 Get-AzureRmRoleDefinition | FT Name, IsCustom
 ```
 
-.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
+.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
 
 В следующем примере настраиваемая роль *Оператор виртуальной машины* не доступна в подписке *Production4*, так как эта подписка не входит в **AssignableScopes** роли.
 
-.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
+.![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## Дополнительные материалы
-- [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md) 
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+* [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md) 
+  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,139 +1,128 @@
-<properties
-    pageTitle="Отчеты по масштабируемым облачным базам данных | Microsoft Azure"
-    description="настройка эластичных запросов при горизонтальном секционировании"    
-    services="sql-database"
-    documentationCenter=""  
-    manager="jhubbard"
-    authors="torsteng"/>
+---
+title: Отчеты по масштабируемым облачным базам данных | Microsoft Docs
+description: настройка эластичных запросов при горизонтальном секционировании
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: torsteng
 
-<tags
-    ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/27/2016"
-    ms.author="torsteng" />
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: torsteng
 
+---
 # Отчеты по масштабируемым облачным базам данных (предварительная версия)
-
 ![Запрос по сегментам][1]
 
 Сегментированные базы данных распределяют строки по масштабируемому уровню данных. Во всех базах данных секционирования используется одна и та же схема — это называется горизонтальным секционированием. Используя эластичный запрос, можно создавать отчеты, охватывающие все базы данных в сегментированной базе данных.  
-
 
 Для быстрого старта см. статью [Отчеты по масштабируемым облачным базам данных](sql-database-elastic-query-getting-started.md).
 
 Сведения для несегментированных баз данных см. в статье [Запрос к нескольким облачным базам данных с разными схемами](sql-database-elastic-query-vertical-partitioning.md).
 
- 
 ## Предварительные требования
-
 * Создание карты сегментов с помощью клиентской библиотеки эластичной базы данных рассматривается в статье [Управление картой сегментов](sql-database-elastic-scale-shard-map-management.md). Также можно использовать пример приложения в статье [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md).
 * Также см. статью [Перенос существующих баз данных в масштабируемую базу данных](sql-database-elastic-convert-to-use-elastic-tools.md).
 * Пользователь должен иметь разрешение ALTER ANY EXTERNAL DATA SOURCE. Это разрешение включено в разрешение ALTER DATABASE.
 * Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
 
 ## Обзор
-
 Эти инструкции позволяют представлять метаданные уровня сегментированных данных через запрос к эластичной базе данных.
-
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## 1\.1. Создание главного ключа и учетных данных для конкретной базы данных 
-
+## 1\.1. Создание главного ключа и учетных данных для конкретной базы данных
 Учетные данные используются эластичным запросом для подключения к удаленным базам данных.
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
- 
+
 **Примечание.** Убедитесь, что значение *<username>* не содержит суффикс *@servername*.
 
 ## 1\.2. Создание внешних источников данных
-
 Синтаксис:
 
-	<External_Data_Source> ::=    
-	CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                               	           
-			(TYPE = SHARD_MAP_MANAGER,
-                   	LOCATION = '<fully_qualified_server_name>',
-			DATABASE_NAME = ‘<shardmap_database_name>',
-			CREDENTIAL = <credential_name>, 
-			SHARD_MAP_NAME = ‘<shardmapname>’ 
+    <External_Data_Source> ::=    
+    CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                                              
+            (TYPE = SHARD_MAP_MANAGER,
+                       LOCATION = '<fully_qualified_server_name>',
+            DATABASE_NAME = ‘<shardmap_database_name>',
+            CREDENTIAL = <credential_name>, 
+            SHARD_MAP_NAME = ‘<shardmapname>’ 
                    ) [;] 
 
-### Пример 
+### Пример
+    CREATE EXTERNAL DATA SOURCE MyExtSrc 
+    WITH 
+    ( 
+        TYPE=SHARD_MAP_MANAGER,
+        LOCATION='myserver.database.windows.net', 
+        DATABASE_NAME='ShardMapDatabase', 
+        CREDENTIAL= SMMUser, 
+        SHARD_MAP_NAME='ShardMap' 
+    );
 
-	CREATE EXTERNAL DATA SOURCE MyExtSrc 
-	WITH 
-	( 
-		TYPE=SHARD_MAP_MANAGER,
-		LOCATION='myserver.database.windows.net', 
-		DATABASE_NAME='ShardMapDatabase', 
-		CREDENTIAL= SMMUser, 
-		SHARD_MAP_NAME='ShardMap' 
-	);
- 
 Получение списка актуальных внешних источников данных:
 
-	select * from sys.external_data_sources; 
+    select * from sys.external_data_sources; 
 
 Внешний источник данных ссылается на вашу карту сегментов. Затем эластичный запрос использует внешний источник данных и соответствующую карту сегментов для перебора баз данных, входящих в уровень данных. Когда обрабатывается эластичный запрос, для чтения карты сегментов и доступа к данным в сегментах используются одни и те же учетные данные.
 
-## 1\.3. Создание внешних таблиц 
- 
+## 1\.3. Создание внешних таблиц
 Синтаксис:
 
-	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])     
-	    { WITH ( <sharded_external_table_options> ) }
-	) [;]  
-	
-	<sharded_external_table_options> ::= 
+        { WITH ( <sharded_external_table_options> ) }
+    ) [;]  
+
+    <sharded_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>,       
-	  [ SCHEMA_NAME = N'nonescaped_schema_name',] 
+      [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
       DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
 
 **Пример**
 
-	CREATE EXTERNAL TABLE [dbo].[order_line]( 
-		 [ol_o_id] int NOT NULL, 
-		 [ol_d_id] tinyint NOT NULL,
-		 [ol_w_id] int NOT NULL, 
-		 [ol_number] tinyint NOT NULL, 
-		 [ol_i_id] int NOT NULL, 
-		 [ol_delivery_d] datetime NOT NULL, 
-		 [ol_amount] smallmoney NOT NULL, 
-		 [ol_supply_w_id] int NOT NULL, 
-		 [ol_quantity] smallint NOT NULL, 
-		 [ol_dist_info] char(24) NOT NULL 
-	) 
-	
-	WITH 
-	( 
-		DATA_SOURCE = MyExtSrc, 
-	 	SCHEMA_NAME = 'orders', 
-	 	OBJECT_NAME = 'order_details', 
-		DISTRIBUTION=SHARDED(ol_w_id)
-	); 
+    CREATE EXTERNAL TABLE [dbo].[order_line]( 
+         [ol_o_id] int NOT NULL, 
+         [ol_d_id] tinyint NOT NULL,
+         [ol_w_id] int NOT NULL, 
+         [ol_number] tinyint NOT NULL, 
+         [ol_i_id] int NOT NULL, 
+         [ol_delivery_d] datetime NOT NULL, 
+         [ol_amount] smallmoney NOT NULL, 
+         [ol_supply_w_id] int NOT NULL, 
+         [ol_quantity] smallint NOT NULL, 
+         [ol_dist_info] char(24) NOT NULL 
+    ) 
+
+    WITH 
+    ( 
+        DATA_SOURCE = MyExtSrc, 
+         SCHEMA_NAME = 'orders', 
+         OBJECT_NAME = 'order_details', 
+        DISTRIBUTION=SHARDED(ol_w_id)
+    ); 
 
 Получение списка внешних таблиц из текущей базы данных:
 
-	SELECT * from sys.external_tables; 
+    SELECT * from sys.external_tables; 
 
 Удаление внешних таблиц:
 
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
 ### Примечания
-
 Предложение DATA\_SOURCE определяет внешний источник данных (карту сегментов) для внешней таблицы.
 
 Предложения SCHEMA\_NAME и OBJECT\_NAME сопоставляют определение внешней таблицы с таблицей в другой схеме. Если эти предложения отсутствуют, то предполагается, что удаленный объект является таблицей «dbo», имя которой совпадает с именем внешней таблицы. Это особенно необходимо, если имя удаленной таблицы уже занято в базе данных, где создается внешняя таблица. Например, вы хотите определить внешнюю таблицу для получения общего представления из представлений каталогов или динамических административных представлений, которые находятся на вашем развернутом уровне данных. Так как представления каталогов и динамические административные представления уже существуют локально, их имена нельзя использовать для определения внешней таблицы. Вместо этого вы можете задать другое имя и в предложениях SCHEMA\_NAME и OBJECT\_NAME использовать имя представления каталога или динамического административного представления. (См. пример ниже.)
@@ -146,34 +135,30 @@
 
 **Ссылка на уровень данных**: язык DDL внешней таблицы ссылается на внешний источник данных. Во внешнем источнике данных указывается карта сегментов, в которой есть внешняя таблица, содержащая сведения, необходимые для поиска всех баз данных на вашем уровне данных.
 
-
-### Вопросы безопасности 
-
+### Вопросы безопасности
 Пользователи, имеющие доступ к внешней таблице, автоматически получают доступ к базовой удаленной таблице с учетными данными, указанными в определении внешнего источника данных. Старайтесь избегать нежелательного повышения прав с использованием учетных данных для внешнего источника данных. Методы GRANT или REVOKE применяются к внешней таблице так же, как и к обычной.
 
 Определив внешний источник данных и внешние таблицы, вы можете использовать все возможности T-SQL для создания запросов к внешним таблицам.
 
-## Пример: запрос баз данных с горизонтальным секционированием 
-
+## Пример: запрос баз данных с горизонтальным секционированием
 С помощью следующего запроса устанавливается трехстороннее соединение между хранилищами, заказами и строками заказов, при этом используется несколько статистических выражений и выборочный фильтр. Здесь предполагается, что используется (1) горизонтальное секционирование (сегментирование) и (2) что сегментирование хранилищ, заказов и строк заказов выполняется по столбцу с идентификатором хранилища. В этом случае эластичный запрос может выровнять соединения в сегментах и параллельно обработать ресурсоемкую часть запроса в сегментах.
 
-	select  
-		 w_id as warehouse,
-		 o_c_id as customer,
-		 count(*) as cnt_orderline,
-		 max(ol_quantity) as max_quantity,
-		 avg(ol_amount) as avg_amount, 
-		 min(ol_delivery_d) as min_deliv_date
-	from warehouse 
-	join orders 
-	on w_id = o_w_id
-	join order_line 
-	on o_id = ol_o_id and o_w_id = ol_w_id 
-	where w_id > 100 and w_id < 200 
-	group by w_id, o_c_id 
- 
-## Хранимая процедура для удаленного выполнения T-SQL: sp\_execute\_remote
+    select  
+         w_id as warehouse,
+         o_c_id as customer,
+         count(*) as cnt_orderline,
+         max(ol_quantity) as max_quantity,
+         avg(ol_amount) as avg_amount, 
+         min(ol_delivery_d) as min_deliv_date
+    from warehouse 
+    join orders 
+    on w_id = o_w_id
+    join order_line 
+    on o_id = ol_o_id and o_w_id = ol_w_id 
+    where w_id > 100 and w_id < 200 
+    group by w_id, o_c_id 
 
+## Хранимая процедура для удаленного выполнения T-SQL: sp\_execute\_remote
 С функцией эластичных запросов вам становится доступна хранимая процедура, которая обеспечивает прямой доступ к сегментам. Хранимая процедура называется [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714), она может использоваться для выполнения удаленных хранимых процедур или кода T-SQL в удаленных базах данных. Она принимает следующие параметры.
 
 * Имя источника данных (nvarchar): имя внешнего источника данных типа "реляционная СУБД". 
@@ -185,25 +170,20 @@
 
 Пример:
 
-	EXEC sp_execute_remote
-		N'MyExtSrc',
-		N'select count(w_id) as foo from warehouse' 
+    EXEC sp_execute_remote
+        N'MyExtSrc',
+        N'select count(w_id) as foo from warehouse' 
 
-## Подключение для инструментов  
-
+## Подключение для инструментов
 Используйте обычные строки подключения SQL Server для подключения вашего приложения, инструментов бизнес-аналитики и интеграции данных к базе данных с определениями внешних таблиц. Убедитесь, что в качестве источника данных для вашего инструмента поддерживается SQL Server. Затем добавьте ссылку на запрос к эластичной базе данных, как к любой другой базе данных SQL Server, подключенной к приложению. После этого из своего инструмента или приложения вы сможете использовать внешние таблицы так, как если бы они были локальными таблицами.
 
-## Рекомендации 
-
+## Рекомендации
 * Убедитесь, что брандмауэры баз данных SQL обеспечивают конечной базе данных с эластичными запросами доступ к базе данных карты сегментов и всем сегментам.  
-
 * Эластичный запрос не предполагает проверку или распределение данных в соответствии с внешней таблицей. Если фактическое распространение данных отличается от определения таблицы, то результаты запросов могут быть непредсказуемыми.
-
 * Функция эластичных запросов в настоящее время не позволяет исключать сегменты, когда предикаты для ключа сегментирования безопасно исключают определенные сегменты из процесса обработки.
-
 * Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в сегментах. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в сегментах или соединениях путем секционирования ключей с выравниванием по секциям для всех сегментов. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из сегментов в головной узел, что может стать причиной снижения производительности.
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

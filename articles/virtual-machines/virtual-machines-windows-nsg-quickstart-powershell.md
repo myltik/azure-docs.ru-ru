@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Открытие портов для виртуальной машины с помощью PowerShell | Microsoft Azure"
-   description="Узнайте, как открыть порт или создать конечную точку для виртуальной машины Windows, используя модель развертывания с помощью Azure Resource Manager и Azure PowerShell."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Открытие портов для виртуальной машины с помощью PowerShell | Microsoft Docs
+description: Узнайте, как открыть порт или создать конечную точку для виртуальной машины Windows, используя модель развертывания с помощью Azure Resource Manager и Azure PowerShell.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Открытие портов для виртуальной машины в Azure с помощью PowerShell
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Быстрые команды
 Для создания группы безопасности сети и правил ACL потребуется [последняя версия Azure PowerShell](../powershell-install-configure.md). Эти действия можно также [выполнить с помощью портала Azure](virtual-machines-windows-nsg-quickstart-portal.md).
@@ -68,8 +68,8 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ## Дальнейшие действия
 В этом примере создано простое правило, разрешающее трафик HTTP. Информацию о создании более детализированных сред можно найти в следующих статьях.
 
-- [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
-- [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
-- [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
+* [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
+* [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
+* [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

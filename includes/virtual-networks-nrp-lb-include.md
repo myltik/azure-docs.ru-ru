@@ -4,79 +4,79 @@
 ![Сетевая карта на одной виртуальной машине](./media/resource-groups-networking/figure8.png)
 
 | Свойство | Описание |
-|---|---|
-| *frontendIPConfigurations* | Балансировщик нагрузки может включать в себя один или несколько внешних IP-адресов, которые также называются виртуальными IP-адресами. Эти IP-адреса служат для приема входящего трафика и могут быть общедоступными или частными. |
-|*backendAddressPools* | Это IP-адреса, связанные с сетевыми картами виртуальных машин, между которыми распределяется нагрузка. |
-|*loadBalancingRules* | Свойство правила сопоставляет указанное сочетание внешнего IP-адреса и порта с набором серверных IP-адресов и портов. С помощью одного определения ресурса балансировщика нагрузки можно задать несколько правил балансировки нагрузки, каждое из которых отражает сочетание внешнего IP-адреса и порта с серверным IP-адресом и портом, связанными с виртуальными машинами. Правило сопоставляет один порт в интерфейсном пуле с несколькими виртуальными машинами во внутреннем пуле. |  
-| *Пробы* | Позволяют отслеживать работоспособность экземпляров виртуальных машин. В случае сбоя пробы работоспособности экземпляр виртуальной машины автоматически перестает использоваться. |
-| *inboundNatRules* | Правила NAT, определяющие входящий трафик, который проходит через внешний IP-адрес и передается на внутренний IP-адрес определенному экземпляру виртуальной машины. Правило NAT сопоставляет один порт в интерфейсном пуле с одной виртуальной машиной во внутреннем пуле. | 
+| --- | --- |
+| *frontendIPConfigurations* |Балансировщик нагрузки может включать в себя один или несколько внешних IP-адресов, которые также называются виртуальными IP-адресами. Эти IP-адреса служат для приема входящего трафика и могут быть общедоступными или частными. |
+| *backendAddressPools* |Это IP-адреса, связанные с сетевыми картами виртуальных машин, между которыми распределяется нагрузка. |
+| *loadBalancingRules* |Свойство правила сопоставляет указанное сочетание внешнего IP-адреса и порта с набором серверных IP-адресов и портов. С помощью одного определения ресурса балансировщика нагрузки можно задать несколько правил балансировки нагрузки, каждое из которых отражает сочетание внешнего IP-адреса и порта с серверным IP-адресом и портом, связанными с виртуальными машинами. Правило сопоставляет один порт в интерфейсном пуле с несколькими виртуальными машинами во внутреннем пуле. |
+| *Пробы* |Позволяют отслеживать работоспособность экземпляров виртуальных машин. В случае сбоя пробы работоспособности экземпляр виртуальной машины автоматически перестает использоваться. |
+| *inboundNatRules* |Правила NAT, определяющие входящий трафик, который проходит через внешний IP-адрес и передается на внутренний IP-адрес определенному экземпляру виртуальной машины. Правило NAT сопоставляет один порт в интерфейсном пуле с одной виртуальной машиной во внутреннем пуле. |
 
 Пример шаблона балансировщика нагрузки в формате Json:
 
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "dnsNameforLBIP": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "Unique DNS name"
-	      }
-	    },
-	    "location": {
-	      "type": "string",
-	      "allowedValues": [
-	        "East US",
-	        "West US",
-	        "West Europe",
-	        "East Asia",
-	        "Southeast Asia"
-	      ],
-	      "metadata": {
-	        "description": "Location to deploy"
-	      }
-	    },
-	    "addressPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/16",
-	      "metadata": {
-	        "description": "Address Prefix"
-	      }
-	    },
-	    "subnetPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/24",
-	      "metadata": {
-	        "description": "Subnet Prefix"
-	      }
-	    },
-	    "publicIPAddressType": {
-	      "type": "string",
-	      "defaultValue": "Dynamic",
-	      "allowedValues": [
-	        "Dynamic",
-	        "Static"
-	      ],
-	      "metadata": {
-	        "description": "Public IP type"
-	      }
-	    }
-	  },
-	  "variables": {
-	    "virtualNetworkName": "virtualNetwork1",
-	    "publicIPAddressName": "publicIp1",
-	    "subnetName": "subnet1",
-	    "loadBalancerName": "loadBalancer1",
-	    "nicName": "networkInterface1",
-	    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-	    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-	    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-	    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-	    "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
-	    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-	    "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
-	  },
-	  "resources": [
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "dnsNameforLBIP": {
+          "type": "string",
+          "metadata": {
+            "description": "Unique DNS name"
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ],
+          "metadata": {
+            "description": "Location to deploy"
+          }
+        },
+        "addressPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/16",
+          "metadata": {
+            "description": "Address Prefix"
+          }
+        },
+        "subnetPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/24",
+          "metadata": {
+            "description": "Subnet Prefix"
+          }
+        },
+        "publicIPAddressType": {
+          "type": "string",
+          "defaultValue": "Dynamic",
+          "allowedValues": [
+            "Dynamic",
+            "Static"
+          ],
+          "metadata": {
+            "description": "Public IP type"
+          }
+        }
+      },
+      "variables": {
+        "virtualNetworkName": "virtualNetwork1",
+        "publicIPAddressName": "publicIp1",
+        "subnetName": "subnet1",
+        "loadBalancerName": "loadBalancer1",
+        "nicName": "networkInterface1",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+        "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
+        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+        "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
+      },
+      "resources": [
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -183,11 +183,10 @@
         ]
       }
     }
-	  ]
-	}
+      ]
+    }
 
 ### Дополнительные ресурсы
-
 Дополнительную информацию см. в описании [REST API балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx).
 
 <!---HONumber=AcomDC_1223_2015-->

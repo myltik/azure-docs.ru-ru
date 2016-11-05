@@ -1,6 +1,5 @@
 
 ## Ресурсы
-
 * [Full WebJobs Resources List (Полный список ресурсов веб-заданий)](../articles/app-service-web/websites-webjobs-resources.md)
 * [Начало работы с пакетом SDK для Azure для веб-заданий](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -18,7 +17,6 @@
 * [Удаленная отладка веб-заданий](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## Видеоролики
-
 * [Веб-задания и пакет SDK веб-заданий](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 * [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [Введение в средства для работы с веб-заданиями для Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster)

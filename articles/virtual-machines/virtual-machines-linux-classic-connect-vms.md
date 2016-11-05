@@ -1,25 +1,24 @@
-<properties
-	pageTitle="Подключение виртуальных машин Linux в облачной службе | Microsoft Azure"
-	description="Подключение виртуальных машин Linux, созданных с помощью классической модели развертывания, к облачной службе Azure или виртуальной сети."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+---
+title: Подключение виртуальных машин Linux в облачной службе | Microsoft Docs
+description: Подключение виртуальных машин Linux, созданных с помощью классической модели развертывания, к облачной службе Azure или виртуальной сети.
+services: virtual-machines-linux
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="cynthn"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 07/06/2016
+ms.author: cynthn
 
+---
 # Подключение виртуальных машин Linux, созданных с помощью классической модели развертывания, к виртуальной сети или облачной службе.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Виртуальные машины Linux, созданные по классической модели развертывания, всегда размещаются в облачной службе. Облачная служба выступает в качестве контейнера и предоставляет уникальное общедоступное DNS-имя, общедоступный IP-адрес и набор конечных точек для доступа к виртуальной машине через Интернет. Облачная служба может находиться в виртуальной сети, но это не обязательно. Вы также можете [подключить виртуальные машины Windows к виртуальной сети или облачной службе](virtual-machines-windows-classic-connect-vms.md).
 
@@ -27,10 +26,9 @@
 
 Если разместить виртуальные машины в одной автономной облачной службе, можно использовать балансировку нагрузки и группы доступности. Дополнительные сведения см. в разделах [Балансировка нагрузки виртуальных машин](virtual-machines-linux-load-balance.md) и[ Управление доступностью виртуальных машин](virtual-machines-linux-manage-availability.md). Тем не менее, невозможно упорядочить виртуальные машины в подсетях или подключить автономную облачную службу к локальной сети. Ниже приведен пример:
 
-[AZURE.INCLUDE [virtual-machines-common-classic-connect-vms](../../includes/virtual-machines-common-classic-connect-vms.md)]
+[!INCLUDE [virtual-machines-common-classic-connect-vms](../../includes/virtual-machines-common-classic-connect-vms.md)]
 
 ## Дальнейшие действия
-
 После создания виртуальной машины рекомендуется [добавить диск данных](virtual-machines-linux-classic-attach-disk.md), чтобы ваши службы и рабочие нагрузки имели расположение для хранения данных.
 
 <!---HONumber=AcomDC_0706_2016-->

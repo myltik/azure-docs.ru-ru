@@ -1,84 +1,80 @@
-<properties
-	pageTitle="Обработка конфликтов с автономными данными в мобильных службах (iOS) | Центр мобильных разработок"
-	description="Сведения об использовании мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в приложении iOS"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""
-	services="mobile-services"/>
+---
+title: Обработка конфликтов с автономными данными в мобильных службах (iOS) | Microsoft Docs
+description: Сведения об использовании мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в приложении iOS
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
+services: mobile-services
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh;donnam"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh;donnam
 
-
+---
 # Обработка конфликтов синхронизации автономных данных в мобильных службах
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[!INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 В этом разделе показывается, как синхронизировать данные и обрабатывать конфликты при использовании возможностей автономной работы мобильных служб Azure. Этот учебник основан на учебнике [Начало работы с автономными данными].
 
->[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
-
+> [!NOTE]
+> Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
+> 
+> 
 
 ## Скачайте проект iOS
-
 Для целей данного учебника скачайте [обновленный проект Xcode с веб-сайта Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). В конце учебника [Начало работы с автономными данными] мы использовали проект Xcode в качестве отправной точки, а затем обновили его, чтобы разрешить изменение элементов. Кроме того, мы добавили вспомогательные классы и методы, поэтому в следующем разделе мы можем добавить обработчик конфликтов.
 
 По завершении этого учебника, если вы запустили приложение на двух телефонах, измените один и тот же элемент на обоих телефонах локально и отправьте изменения на сервер. Пользователи этих телефонов смогут выбрать версию, которую следует оставить:
-  * оставить версию клиента (версия на сервере будет заменена);
-  * оставить версию сервера (будет обновлена локальная таблица клиента);
-  * не оставлять ни одну из версий (передача отменяется, операция остается незавершенной).
+
+* оставить версию клиента (версия на сервере будет заменена);
+* оставить версию сервера (будет обновлена локальная таблица клиента);
+* не оставлять ни одну из версий (передача отменяется, операция остается незавершенной).
 
 Теперь добавим обработчик конфликтов, чтобы включить эту возможность.
 
 ## <a name="add-conflict-handling"></a>Добавление обработчика конфликтов в контроллер представлений списка задач
-
 1. Измените **viewDidLoad** в **QSTodoListViewController.m**. Замените вызов **defaultService** на вызов **defaultServiceWithDelegate**:
-
+   
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
-
 2. В **QSTodoListViewController.h** добавьте **&lt;MSSyncContextDelegate&gt;** в объявление интерфейса, чтобы реализовать протокол **MSSyncContextDelegate**.
-
+   
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
-
 3. Добавьте следующую инструкцию импорта в начало **QSTodoListViewController.m**:
-
+   
         #import "QSUIAlertViewWithBlock.h"
-
 4. Наконец, добавьте следующие две операции в **QSTodoListViewController.m** для использования вспомогательного класса и приглашения пользователю обработать конфликт одним из трех способов.
-
+   
         - (void)tableOperation:(MSTableOperation *)operation onComplete:(MSSyncItemBlock)completion
         {
             [self doOperation:operation complete:completion];
         }
-
+   
         -(void)doOperation:(MSTableOperation *)operation complete:(MSSyncItemBlock)completion
         {
             [operation executeWithCompletion:^(NSDictionary *item, NSError *error) {
-
+   
                 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
-
+   
                 if (error.code == MSErrorPreconditionFailed) {
                     QSUIAlertViewWithBlock *alert = [[QSUIAlertViewWithBlock alloc] initWithCallback:^(NSInteger buttonIndex) {
                         if (buttonIndex == 1) { // Client
                             NSMutableDictionary *adjustedItem = [operation.item mutableCopy];
-
+   
                             [adjustedItem setValue:[serverItem objectForKey:MSSystemColumnVersion] forKey:MSSystemColumnVersion];
                             operation.item = adjustedItem;
-
+   
                             [self doOperation:operation complete:completion];
                             return;
-
+   
                         } else if (buttonIndex == 2) { // Server
                             NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
                             completion(serverItem, nil);
@@ -87,9 +83,9 @@
                             completion(nil, error);
                         }
                     }];
-
+   
                     NSString *message = [NSString stringWithFormat:@"Client value: %@\nServer value: %@", operation.item[@"text"], serverItem[@"text"]];
-
+   
                     [alert showAlertWithTitle:@"Server Conflict"
                                       message:message
                             cancelButtonTitle:@"Cancel"
@@ -101,7 +97,6 @@
         }
 
 ## <a name="test-app"></a>Тестирование приложения
-
 Протестируйте приложение с конфликтами. Одновременно измените один элемент в двух разных экземплярах приложения либо воспользуйтесь приложением и клиентом REST.
 
 Выполните жест обновления в экземплярах приложения (перетаскивание сверху вниз). Появится запрос на согласование конфликта.

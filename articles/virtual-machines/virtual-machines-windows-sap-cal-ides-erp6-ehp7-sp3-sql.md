@@ -1,32 +1,29 @@
-<properties 
-pageTitle="Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure | Microsoft Azure" 
-description="В статье описывается развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure." 
-services="virtual-machines-windows" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-keywords=""/>
-<tags  
-ms.service="virtual-machines-windows" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-windows" 
-ms.workload="infrastructure-services" 
-ms.date="09/16/2016" 
-ms.author="hermannd"/>
+---
+title: Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure | Microsoft Docs
+description: В статье описывается развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/16/2016
+ms.author: hermannd
 
-# Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure 
-
+---
+# Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure
 В этой статье описывается, как развернуть SAP IDES с SQL Server и Windows в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0. На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений из списка выполняется аналогичным образом. Нужно только выбрать другое решение.
 
 Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
-
 Далее на снимках экрана показана пошаговая инструкция по развертыванию SAP IDES в Microsoft Azure. Процесс развертывания других решений аналогичен описанному ниже.
-
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 

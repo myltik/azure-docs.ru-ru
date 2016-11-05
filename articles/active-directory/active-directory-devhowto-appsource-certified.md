@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Как получить сертификат AppSource для Azure Active Directory| Microsoft Azure"
-   description="Сведения о получении сертификата AppSource приложения для Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Как получить сертификат AppSource для Azure Active Directory| Microsoft Docs
+description: Сведения о получении сертификата AppSource приложения для Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/22/2016
+ms.author: skwan;bryanla
 
-
-#<a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Как получить сертификат AppSource для Azure Active Directory (AD) 
-
+---
+# <a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Как получить сертификат AppSource для Azure Active Directory (AD)
 Чтобы получить сертификат AppSource для Azure AD, в приложении необходимо реализовать мультитенантный вход с помощью Azure AD с использованием протоколов OpenID Connect, OAuth 2.0 или SAML 2.0. 
 
 Если вы не знакомы с процедурой входа в Azure AD или с разработкой мультитенантных приложений:

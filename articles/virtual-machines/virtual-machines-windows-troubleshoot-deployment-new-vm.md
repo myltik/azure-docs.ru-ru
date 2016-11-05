@@ -1,40 +1,37 @@
-<properties
-   pageTitle="Устранение неполадок развертывания RM виртуальных машин под управлением Windows | Microsoft Azure"
-   description="Устранение неполадок развертывания Resource Manager при создании виртуальной машины Windows в Azure"
-   services="virtual-machines-windows, azure-resource-manager"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+---
+title: Устранение неполадок развертывания RM виртуальных машин под управлением Windows | Microsoft Docs
+description: Устранение неполадок развертывания Resource Manager при создании виртуальной машины Windows в Azure
+services: virtual-machines-windows, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/09/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Сбор журналов аудита
-
 Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные инструкции.
 
 [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **Да.** Если универсальная ОС Windows передается и (или) записывается как универсальный диск, ошибки не возникают. Аналогичным образом, если специализированная ОС Windows передается и (или) записывается как специализированный диск, ошибки не возникают.
 
@@ -65,26 +62,24 @@
 
 **Способ устранения 1.**
 
-- Повторите запрос с указанием меньшего размера виртуальной машины.
-- Если нельзя изменить размер запрошенной виртуальной машины,
-  - остановите все виртуальные машины в группе доступности.
-  Для этого последовательно выберите **Группы ресурсов** > *имя вашей группы ресурсов* > **Ресурсы** > *имя вашей группы доступности* > **Виртуальные машины** > *имя вашей виртуальной машины* > **Остановить**.
-  - После остановки всех виртуальных машин создайте новую виртуальную машину необходимого размера.
-  - Сначала запустите новую виртуальную машину, а затем выберите каждую из остановленных виртуальных машин и нажмите кнопку **Запустить**.
+* Повторите запрос с указанием меньшего размера виртуальной машины.
+* Если нельзя изменить размер запрошенной виртуальной машины,
+  * остановите все виртуальные машины в группе доступности.
+    Для этого последовательно выберите **Группы ресурсов** > *имя вашей группы ресурсов* > **Ресурсы** > *имя вашей группы доступности* > **Виртуальные машины** > *имя вашей виртуальной машины* > **Остановить**.
+  * После остановки всех виртуальных машин создайте новую виртуальную машину необходимого размера.
+  * Сначала запустите новую виртуальную машину, а затем выберите каждую из остановленных виртуальных машин и нажмите кнопку **Запустить**.
 
 **Причина 2**. Кластер не располагает свободными ресурсами.
 
 **Способ устранения 2.**
 
-- Повторите запрос позже.
-- Если новая виртуальная машина должна быть частью другой группы доступности:
-  - создайте новую виртуальную машину в другой группе доступности (в том же регионе);
-  - добавьте новую виртуальную машину в ту же виртуальную сеть.
+* Повторите запрос позже.
+* Если новая виртуальная машина должна быть частью другой группы доступности:
+  * создайте новую виртуальную машину в другой группе доступности (в том же регионе);
+  * добавьте новую виртуальную машину в ту же виртуальную сеть.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

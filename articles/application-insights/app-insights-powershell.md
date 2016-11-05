@@ -1,40 +1,36 @@
-<properties 
-	pageTitle="Создание ресурсов Application Insights с помощью PowerShell" 
-	description="Программное создание ресурсов Application Insights в процессе сборки." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Создание ресурсов Application Insights с помощью PowerShell
+description: Программное создание ресурсов Application Insights в процессе сборки.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/02/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2016
+ms.author: awills
+
+---
 # Создание ресурсов Application Insights с помощью PowerShell
-
 Данная статья демонстрирует автоматическое создание ресурса [Application Insights](app-insights-overview.md) в Azure. Эту функцию можно использовать, например, в процессе сборки. Вместе с основным ресурсом Application Insights можно создать [веб-тесты доступности](app-insights-monitor-web-app-availability.md), [настроить оповещения](app-insights-alerts.md) и создать другие ресурсы Azure.
 
 Ключ к созданию этих ресурсов — шаблоны JSON для [диспетчера ресурсов Azure](../powershell-azure-resource-manager.md). Порядок действий выглядит следующим образом: загрузить JSON-определения существующих ресурсов, параметризовать определенные значения как имена и выполнить шаблон, когда возникнет необходимость в создании нового ресурса. Несколько ресурсов можно объединить, чтобы создавать их одновременно, например, объединить монитор приложений с тестами доступности, оповещениями и хранилищем для непрерывного экспорта. С параметризацией некоторых значений связаны определенные тонкости, которые мы рассмотрим позднее.
 
 ## Однократная настройка
-
 Если вы ранее не использовали PowerShell для подписки Azure:
 
 Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
-1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Используйте его для установки Microsoft Azure PowerShell.
 
 ## Копирование JSON для существующих ресурсов
-
 1. Настройте [Application Insights](app-insights-overview.md) для проектов, которые должны будут создаваться автоматически. При необходимости добавьте веб-тесты и предупреждения.
 2. Создайте новый файл JSON — в данном примере назовем его `template1.json`. Скопируйте в него следующее содержимое:
-
 
     ```JSON
 
@@ -48,7 +44,7 @@
             "text": { "type" : "string" }
           },
           "variables": {
-			"testName": "[concat(parameters('webTestName'), 
+            "testName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')))]"
             "alertRuleName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')), 
@@ -64,61 +60,56 @@
             {
               //alert rule JSON file contents
             }
- 
+
             // Any other resources go here
           ]
         }
-    
+
     ```
 
     Этот шаблон в дополнение к основному ресурсу настроит один тест доступности.
 
 
-2. Откройте [диспетчер ресурсов Azure](https://resources.azure.com/). Прокрутите вниз подписки, группы ресурсов и компоненты и найдите свой ресурс приложения.
-
+1. Откройте [диспетчер ресурсов Azure](https://resources.azure.com/). Прокрутите вниз подписки, группы ресурсов и компоненты и найдите свой ресурс приложения.
+   
     ![](./media/app-insights-powershell/01.png)
-
+   
     *Компоненты* — это основные ресурсы Application Insights для отображения приложений. Для соответствующих правил оповещения и веб-тестов доступности имеются отдельные ресурсы.
-
-3. Скопируйте JSON компонента в соответствующее место в файле `template1.json`.
-6. Удалите следующие свойства:
-  * `id`
-  * `InstrumentationKey`
-  * `CreationDate`
+2. Скопируйте JSON компонента в соответствующее место в файле `template1.json`.
+3. Удалите следующие свойства:
+   * `id`
+   * `InstrumentationKey`
+   * `CreationDate`
 4. Откройте разделы webtests и alertrules и скопируйте JSON для отдельных элементов в шаблон. (Не копируйте содержимое узлов webtests или alertrules, перейдите в элементы под ними.)
-
+   
     С каждым веб-тестом связано правило оповещения, поэтому скопировать необходимо оба элемента.
-
+   
     Веб-тест должен предшествовать правилу оповещений.
-
 5. Чтобы выполнить это условие, вставьте в каждый ресурс следующую строку:
-
+   
     `"apiVersion": "2014-04-01",`
-
+   
     (Схема может также сообщать об использовании прописных букв в именах типов ресурсов `Microsoft.Insights/*`, однако менять их *не нужно*.)
 
-
 ## Параметризация шаблона
-
 Теперь отдельные имена необходимо заменить параметрами. Для [параметризации шаблона](../resource-group-authoring-templates.md) необходимо записать выражения, используя [набор вспомогательных функций](../resource-group-template-functions.md).
 
 Параметризовать только часть строки нельзя, поэтому для формирования строки используйте `concat()`.
 
 Вот примеры возможных замен: Каждая замена используется несколько раз. В вашем шаблоне могут потребоваться другие замены. В данных примерах используются параметры и переменные, определенные в верхней части шаблона.
 
-поиск | заменить на
----|---
-`"hidden-link:/subscriptions/.../components/MyAppName"`| `"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"`
-`"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` | `"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",`
-`"/subscriptions/.../webtests/myTestName-myAppName",` | `"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",`
-`"myWebTest-myAppName"` | `"[variables(testName)]"'`
-`"myTestName-myAppName-subsId"` | `"[variables('alertRuleName')]"`
-`"myAppName"` | `"[parameters('appName')]"`
-`"myappname"` (строчная) | `"[toLower(parameters('appName'))]"`
-`"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
+| поиск | заменить на |
+| --- | --- |
+| `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
+| `"/subscriptions/.../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
+| `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
+| `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
+| `"myAppName"` |`"[parameters('appName')]"` |
+| `"myappname"` (строчная) |`"[toLower(parameters('appName'))]"` |
+| `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"` |`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" ` |
 
 ## Если приложение является веб-приложением Azure
-
 Добавьте этот ресурс или, если ресурс `siteextensions` уже существует, настройте следующие параметры:
 
 ```json
@@ -139,27 +130,23 @@
 Этот ресурс развертывает пакет SDK Application Insights в веб-приложение.
 
 ## Установка зависимостей между ресурсами
-
 Служба Azure должна настраивать ресурсы в строгом порядке. Чтобы одна процедура настройки не начиналась прежде, чем завершится предыдущая, добавьте строки зависимости:
 
 * В ресурсе веб-теста:
-
+  
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-
 * В ресурсе оповещения:
-
+  
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
 ## Создание ресурсов Application Insights
-
 1. В PowerShell войдите в Azure.
-
+   
     `Login-AzureRmAccount`
-
 2. Выполните следующую команду:
-
+   
     ```PS
-
+   
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
                -templateFile .\template1.json `
                -appName myNewApp `
@@ -167,25 +154,21 @@
                -Url http://myapp.com `
                -text "Welcome!"
                -siteName "MyAzureSite"
-
+   
     ``` 
-
-    * -ResourceGroupName — это группа, в которой нужно создать новые ресурсы.
-    * Параметр -templateFile должен предшествовать пользовательским параметрам.
-    * -appName — имя ресурса, который нужно создать.
-    * -webTestName — имя веб-теста, который нужно создать.
-    * -url — это URL-адрес веб-приложения.
-    * -text — это текстовая строка, отображаемая на веб-странице.
-    * -siteName — используется, если это веб-сайт Azure.
-
+   
+   * -ResourceGroupName — это группа, в которой нужно создать новые ресурсы.
+   * Параметр -templateFile должен предшествовать пользовательским параметрам.
+   * -appName — имя ресурса, который нужно создать.
+   * -webTestName — имя веб-теста, который нужно создать.
+   * -url — это URL-адрес веб-приложения.
+   * -text — это текстовая строка, отображаемая на веб-странице.
+   * -siteName — используется, если это веб-сайт Azure.
 
 ## Определение оповещений о метриках
-
 Для настройки оповещений можно использовать [метод PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell).
 
-
 ## Пример
-
 Вот полный текст созданного мною шаблона компонентов, веб-тестов и связанных с ними оповещений:
 
 ``` JSON
@@ -312,7 +295,6 @@
 ```
 
 ## См. также
-
 Другие статьи об автоматизации:
 
 * [Создание ресурса Application Insights](app-insights-powershell-script-create-resource.md) — быстрый метод без использования шаблона.

@@ -1,25 +1,23 @@
-<properties 
-   pageTitle="Управление Azure Data Lake Analytics с помощью пакета SDK Azure для .NET | Azure" 
-   description="Узнайте, как управлять заданиями аналитики озера данных, источниками данных и пользователями. " 
-   services="data-lake-analytics" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="jhubbard" 
-   editor="cgronlun"/>
- 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="09/23/2016"
-   ms.author="jgao"/>
+---
+title: Управление Azure Data Lake Analytics с помощью пакета SDK Azure для .NET | Microsoft Docs
+description: 'Узнайте, как управлять заданиями аналитики озера данных, источниками данных и пользователями. '
+services: data-lake-analytics
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/23/2016
+ms.author: jgao
 
+---
 # <a name="manage-azure-data-lake-analytics-using-azure-.net-sdk"></a>Управление Azure Data Lake Analytics с помощью пакета SDK Azure для .NET
-
-[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Узнайте, как управлять учетными записями, источниками данных, пользователями и заданиями Azure Data Lake Analytics с помощью пакета SDK Azure для .NET. Для просмотра статей, посвященных управлению с помощью других инструментов, щелкните селектор вкладок выше.
 
@@ -27,15 +25,13 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 <!-- ################################ -->
 <!-- ################################ -->
 
 
 ## <a name="connect-to-azure-data-lake-analytics"></a>Подключение к Azure Data Lake Analytics
-
 Необходимо установить следующие пакеты Nuget:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -118,11 +114,9 @@
 
 
 ## <a name="manage-accounts"></a>Управление учетными записями
-
 Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется.  Вы платите только за время, когда выполняется задание.  Дополнительные сведения см. в разделе [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).  
 
-###<a name="create-accounts"></a>Создание учетных записей
-
+### <a name="create-accounts"></a>Создание учетных записей
 Для выполнения следующего примера необходима группа управления ресурсами Azure и учетная запись Data Lake Store.
 
 Ниже приведен код, создающий группу ресурсов.
@@ -153,19 +147,16 @@
     var adlaParameters = new DataLakeAnalyticsAccount(properties: adlaProperties, location: location);
     var adlaAccount = _adlaClient.Account.Create(resourceGroupName, adlaAccountName, adlaParameters);
 
-###<a name="list-accounts"></a>Список учетных записей
-
+### <a name="list-accounts"></a>Список учетных записей
 Ознакомьтесь с разделом [Подключение к Azure Data Lake Analytics](#connect_to_azure_data_lake_analytics).
 
-###<a name="find-an-account"></a>Поиск учетной записи
-
+### <a name="find-an-account"></a>Поиск учетной записи
 После получения объекта со списком учетных записей Data Lake Analytics вы можете найти учетную запись следующим образом.
 
     Predicate<DataLakeAnalyticsAccount> accountFinder = (DataLakeAnalyticsAccount a) => { return a.Name == adlaAccountName; };
     var myAdlaAccount = adlaAccounts.Find(accountFinder);
 
-###<a name="delete-data-lake-analytics-accounts"></a>Удаление учетных записей аналитики озера данных
-
+### <a name="delete-data-lake-analytics-accounts"></a>Удаление учетных записей аналитики озера данных
 Ниже приведен фрагмент кода, удаляющий учетную запись Data Lake Analytics.
 
     _adlaClient.Account.Delete(resourceGroupName, adlaAccountName);
@@ -173,31 +164,28 @@
 <!-- ################################ -->
 <!-- ################################ -->
 ## <a name="manage-account-data-sources"></a>Управление источниками данных учетной записи
-
 Аналитика озера данных в настоящее время поддерживает следующие источники данных:
 
-- [Хранилище озера данных Azure](../data-lake-store/data-lake-store-overview.md)
-- [Хранилище Azure](../storage/storage-introduction.md)
+* [Хранилище озера данных Azure](../data-lake-store/data-lake-store-overview.md)
+* [Хранилище Azure](../storage/storage-introduction.md)
 
 При создании учетной записи аналитики необходимо указать учетную запись хранения озера данных Azure в качестве учетной записи хранения по умолчанию. Учетная запись хранения озера данных по умолчанию используется для хранения метаданных задания и журналов аудита задания. После создания учетной записи аналитики можно добавить дополнительные учетные записи хранения озера данных и учетные записи хранения Azure. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Поиск учетной записи хранения озера данных по умолчанию
-
 Поиск учетной записи Data Lake Analytics описан в разделе "Поиск учетной записи" этой статьи. Найдя нужную учетную запись, используйте следующую команду.
 
     string adlaDefaultDataLakeStoreAccountName = myAccount.Properties.DefaultDataLakeStoreAccount;
 
 
 ## <a name="use-azure-resource-manager-groups"></a>Использование групп диспетчера ресурсов Azure
-
 Обычно приложения состоят из множества компонентов, например веб-приложения, базы данных, сервера базы данных, хранилища и служб сторонних поставщиков. Azure Resource Manager позволяет работать с ресурсами в приложении в виде группы, которая называется группой ресурсов Azure. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции. Вы можете уточнить счета для своей организации, просмотрев сведенные затраты для всей группы. Дополнительные сведения см. в статье [Обзор диспетчера ресурсов Azure](../resource-group-overview.md). 
 
 Служба аналитики озера данных может включать следующие компоненты:
 
-- Учетная запись аналитики озера данных Azure
-- Требуемая учетная запись хранения озера данных Azure по умолчанию
-- Дополнительные учетные записи хранения озера данных Azure
-- Дополнительные учетные записи хранения Azure
+* Учетная запись аналитики озера данных Azure
+* Требуемая учетная запись хранения озера данных Azure по умолчанию
+* Дополнительные учетные записи хранения озера данных Azure
+* Дополнительные учетные записи хранения Azure
 
 Можно создать все эти компоненты в одной группе управления ресурсами, чтобы ими было проще управлять.
 
@@ -206,15 +194,11 @@
 Учетная запись аналитики озера данных и зависимые учетные записи хранения должны находиться в одном центре обработки данных Azure.
 Однако группа управления ресурсами может находиться в другом центре обработки данных.  
 
-##<a name="see-also"></a>Дополнительные материалы 
-
-- [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
-- [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
-- [Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
+## <a name="see-also"></a>Дополнительные материалы
+* [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
+* [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
+* [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
+* [Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 <!--HONumber=Oct16_HO2-->
 

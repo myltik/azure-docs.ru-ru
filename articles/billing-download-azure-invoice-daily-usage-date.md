@@ -1,33 +1,36 @@
-<properties
-	pageTitle="Скачивание счета на оплату и данных о ежедневном использовании в Azure | Microsoft Azure"
-	description="Инструкции по скачиванию счета на оплату и данных о ежедневном использовании в Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+---
+title: Скачивание счета на оплату и данных о ежедневном использовании в Azure | Microsoft Docs
+description: Инструкции по скачиванию счета на оплату и данных о ежедневном использовании в Azure
+services: ''
+documentationcenter: ''
+author: genlin
+manager: mbaldwin
+editor: ''
+tags: billing
 
-<tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="genli"/>
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: genli
 
+---
 # Скачивание счета на оплату и данных о ежедневном использовании в Azure
-
-> [AZURE.NOTE] Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет вам быстро устранить проблему.
+> [!NOTE]
+> Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет вам быстро устранить проблему.
+> 
+> 
 
 Администратор учетной записи Azure может просматривать выставленные счета в центре учетных записей Azure, а также скачивать выписки за шесть предыдущих расчетных периодов. Этот процесс описывается далее.
 
 1. Войдите в [центр учетных записей Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи. На [портале Azure](https://portal.azure.com) в Центр управления учетной записью Azure можно перейти, последовательно щелкнув **Подписка** > *имя подписки* > **Управление**.
-
-	> [AZURE.NOTE] Доступ к центру учетных записей предоставляется только администратору учетной записи. Чтобы узнать, кто является администратором учетной записи для подписки, см. инструкции в разделе [Часто задаваемые вопросы](billing-subscription-transfer.md#faq).
-
+   
+   > [!NOTE]
+   > Доступ к центру учетных записей предоставляется только администратору учетной записи. Чтобы узнать, кто является администратором учетной записи для подписки, см. инструкции в разделе [Часто задаваемые вопросы](billing-subscription-transfer.md#faq).
+   > 
+   > 
 2. Выберите подписку, для которой необходимо получить информацию о счетах и статистику использования.
 3. Щелкните **ЖУРНАЛ ВЫСТАВЛЕННЫХ СЧЕТОВ**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 4. Вы увидите выписки за шесть последних расчетных периодов, а также информацию за текущий период, счет за который еще не выставлен. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
@@ -35,6 +38,9 @@
 6. Выберите **Загрузить накладную**, чтобы просмотреть последний выставленный счет. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Выберите **Загрузить сведения об использовании** и сохраните CSV-файл с данными о ежедневном использовании.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-> [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+> [!NOTE]
+> Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+> 
+> 
 
 <!---HONumber=AcomDC_0824_2016-->

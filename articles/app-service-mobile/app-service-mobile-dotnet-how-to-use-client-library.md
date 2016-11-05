@@ -1,37 +1,32 @@
-<properties
-    pageTitle="Работа с управляемой клиентской библиотекой мобильных приложений службы приложений (Windows | Xamarin) | Microsoft Azure"
-    description="Узнайте, как использовать клиент .NET для мобильных приложений службы приложений Azure с приложениями Windows и Xamarin."
-    services="app-service\mobile"
-    documentationCenter=""
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+---
+title: Работа с управляемой клиентской библиотекой мобильных приложений службы приложений (Windows | Microsoft Docs
+description: Узнайте, как использовать клиент .NET для мобильных приложений службы приложений Azure с приложениями Windows и Xamarin.
+services: app-service\mobile
+documentationcenter: ''
+author: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
 
-
+---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Использование управляемого клиента для мобильных приложений Azure
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-##<a name="overview"></a>Обзор
-
+## <a name="overview"></a>Обзор
 В этом руководстве показано, как реализовать типичные сценарии с использованием управляемой клиентской библиотеки для мобильных приложений службы приложений Azure в приложениях Windows и Xamarin. Если вы не знакомы с мобильными приложениями, рекомендуем сначала изучить учебник [Быстрый запуск мобильного приложения Azure][1]. В данном руководстве мы сосредоточимся на управляемом пакете SDK клиентской части. Дополнительные сведения о серверных пакетах SDK для мобильных приложений см. в документации по [серверному пакету SDK для .NET][2] или [серверному пакету SDK для Node.js][3].
 
 ## <a name="reference-documentation"></a>Справочная документация
-
 Справочная документация по клиентскому пакету SDK находится в [справочнике по клиенту мобильных приложений Azure для .NET][4].
 Несколько примеров клиентов доступно в [репозитории GitHub Azure-Samples][5].
 
 ## <a name="supported-platforms"></a>Поддерживаемые платформы
-
 Платформа .NET поддерживает следующие платформы:
 
 * выпуски Xamarin Android для API 19–24 (от KitKat до Nougat);
@@ -42,8 +37,7 @@
 
 "Серверная" аутентификация использует WebView для представляемого пользовательского интерфейса.  Если устройство не может представить пользовательский интерфейс WebView, требуется применять другие способы аутентификации.  Поэтому данный пакет SDK не подходит для различного рода часов и других устройств с аналогичными ограничениями.
 
-##<a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="setup"></a>Настройка и необходимые компоненты
-
+## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="setup"></a>Настройка и необходимые компоненты
 Предполагается, что вы уже создали и опубликовали проект внутреннего сервера мобильных приложений, который содержит по меньшей мере одну таблицу.  В коде, который используется в этом разделе, применяется таблица `TodoItem`, которая содержит следующие столбцы: `Id`, `Text` и `Complete`. Это та же таблица, которая была создана при выполнении [краткого руководства по мобильным приложениям Azure].
 
 Соответствующий типизированный тип на стороне клиента является приведенным ниже классом в C#.
@@ -63,24 +57,20 @@
 
 Чтобы научиться создавать таблицы в серверной части мобильных приложений, обратитесь к [статье, посвященной серверному пакету SDK для .NET][7], или [статье, посвященной серверному пакету SDK для Node.js][8]. При создании серверной части мобильного приложения на портале Azure с помощью краткого руководства можно использовать параметр **Простые таблицы** на [портале Azure].
 
-###<a name="how-to:-install-the-managed-client-sdk-package"></a>Практическое руководство. Установка пакета SDK для управляемого клиента
-
+### <a name="how-to:-install-the-managed-client-sdk-package"></a>Практическое руководство. Установка пакета SDK для управляемого клиента
 Используйте один из следующих методов установки пакета SDK для управляемого клиента для мобильных приложений с сайта [NuGet][9].
 
-+ **Visual Studio**. Щелкните правой кнопкой мыши свой проект, выберите пункт **Управление пакетами NuGet**, найдите пакет `Microsoft.Azure.Mobile.Client` и нажмите кнопку **Установить**.
-
-+ **Xamarin Studio**. Щелкните правой кнопкой мыши свой проект, выберите пункт **Добавить** > **Add NuGet Packages** (Добавить пакеты NuGet), найдите пакет `Microsoft.Azure.Mobile.Client ` и нажмите кнопку **Добавить пакет**.
+* **Visual Studio**. Щелкните правой кнопкой мыши свой проект, выберите пункт **Управление пакетами NuGet**, найдите пакет `Microsoft.Azure.Mobile.Client` и нажмите кнопку **Установить**.
+* **Xamarin Studio**. Щелкните правой кнопкой мыши свой проект, выберите пункт **Добавить** > **Add NuGet Packages** (Добавить пакеты NuGet), найдите пакет `Microsoft.Azure.Mobile.Client ` и нажмите кнопку **Добавить пакет**.
 
 В своем основном файле действий не забудьте добавить следующий оператор **using** .
 
     using Microsoft.WindowsAzure.MobileServices;
 
-###<a name="<a-name="symbolsource"></a>how-to:-work-with-debug-symbols-in-visual-studio"></a><a name="symbolsource"></a>Практическое руководство. Работа с отладочными символами в Visual Studio
-
+### <a name="<a-name="symbolsource"></a>how-to:-work-with-debug-symbols-in-visual-studio"></a><a name="symbolsource"></a>Практическое руководство. Работа с отладочными символами в Visual Studio
 Символы для пространства имен Microsoft.Azure.Mobile доступны в [SymbolSource][10].  Ознакомьтесь с [инструкциями по SymbolSource][11], чтобы интегрировать SymbolSource с Visual Studio.
 
-##<a name="<a-name="create-client"></a>create-the-mobile-apps-client"></a><a name="create-client"></a>Создание клиента мобильных приложений
-
+## <a name="<a-name="create-client"></a>create-the-mobile-apps-client"></a><a name="create-client"></a>Создание клиента мобильных приложений
 Следующий код создает объект [MobileServiceClient][12], используемый для доступа к серверной части мобильного приложения.
 
     var client = new MobileServiceClient("MOBILE_APP_URL");
@@ -88,7 +78,6 @@
 В приведенном выше коде замените `MOBILE_APP_URL` URL-адресом серверной части мобильного приложения, который можно найти в колонке серверной части мобильного приложения на [портале Azure]. Объект MobileServiceClient должен быть одноэлементным.
 
 ## <a name="work-with-tables"></a>Работа с таблицами
-
 Ниже подробно описано, как выполнить поиск, извлечение записей и изменение данных в таблице.  В этой статье рассматриваются следующие темы:
 
 * [Создание ссылки на таблицу](#instantiating)
@@ -106,8 +95,7 @@
 * [Привязка к пользовательскому интерфейсу Windows](#binding)
 * [Изменение размера страницы](#pagesize)
 
-###<a name="<a-name="instantiating"></a>how-to:-create-a-table-reference"></a><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
-
+### <a name="<a-name="instantiating"></a>how-to:-create-a-table-reference"></a><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
 Весь код, который открывает или изменяет данные в таблице серверной части, вызывает функции для объекта `MobileServiceTable` . Получите ссылку на таблицу, вызвав метод [GetTable] , как показано ниже.
 
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
@@ -119,20 +107,21 @@
 
 В нетипизированных запросах необходимо указать соответствующую строку запроса OData.
 
-###<a name="<a-name="querying"></a>how-to:-query-data-from-your-mobile-app"></a><a name="querying"></a>Практическое руководство. Запрос данных из мобильного приложения
-
+### <a name="<a-name="querying"></a>how-to:-query-data-from-your-mobile-app"></a><a name="querying"></a>Практическое руководство. Запрос данных из мобильного приложения
 В этом разделе показано, как отправлять запросы к внутреннему серверу мобильных приложений. Описаны следующие функциональные возможности:
 
-- [Фильтрация возвращаемых данных](#filtering)
-- [Сортировка возвращаемых данных](#sorting)
-- [Возврат данных на страницах](#paging)
-- [Выбор определенных столбцов](#selecting)
-- [Поиск данных по идентификатору](#lookingup)
+* [Фильтрация возвращаемых данных](#filtering)
+* [Сортировка возвращаемых данных](#sorting)
+* [Возврат данных на страницах](#paging)
+* [Выбор определенных столбцов](#selecting)
+* [Поиск данных по идентификатору](#lookingup)
 
->[AZURE.NOTE] Для предотвращения возврата всех строк принудительно применяется размер страницы, управляемый сервером.  Разбиение по страницам предотвращает негативное воздействие больших наборов данных на функционирование службы.  Для возвращения более 50 строк используйте методы `Skip` и `Take`, как описано в разделе [Возвращение данных на страницах].
+> [!NOTE]
+> Для предотвращения возврата всех строк принудительно применяется размер страницы, управляемый сервером.  Разбиение по страницам предотвращает негативное воздействие больших наборов данных на функционирование службы.  Для возвращения более 50 строк используйте методы `Skip` и `Take`, как описано в разделе [Возвращение данных на страницах].
+> 
+> 
 
-###<a name="<a-name="filtering"></a>how-to:-filter-returned-data"></a><a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
-
+### <a name="<a-name="filtering"></a>how-to:-filter-returned-data"></a><a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
 Следующий код иллюстрирует способ фильтрации данных путем включения предложения `Where` в запрос. Он возвращает все элементы таблицы `todoTable`, свойство `Complete` которых равно `false`. Функция [Where] применяет предикат фильтрации строк для запросов к таблице.
 
     // This query filters out completed TodoItems and items without a timestamp.
@@ -185,8 +174,7 @@
 
 Чтобы узнать, что поддерживает пакет SDK для сервера, обратитесь к [документации по OData версии 3].
 
-###<a name="<a-name="sorting"></a>how-to:-sort-returned-data"></a><a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
-
+### <a name="<a-name="sorting"></a>how-to:-sort-returned-data"></a><a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 В следующем коде показано, как сортировать данные, включая в запрос функцию [OrderBy] или [OrderByDescending]. Он возвращает элементы таблицы `todoTable`, упорядочивая их по возрастанию значений в поле `Text`.
 
     // Sort items in ascending order by Text field
@@ -199,8 +187,7 @@
                     .OrderByDescending(todoItem => todoItem.Text)
     List<TodoItem> items = await query.ToListAsync();
 
-###<a name="<a-name="paging"></a>how-to:-return-data-in-pages"></a><a name="paging"></a>Практическое руководство. Возврат данных на страницах
-
+### <a name="<a-name="paging"></a>how-to:-return-data-in-pages"></a><a name="paging"></a>Практическое руководство. Возврат данных на страницах
 По умолчанию внутренний сервер возвращает только первые 50 строк. Число возвращенных строк можно увеличить путем вызова метода [Take] . Чтобы запросить определенную "страницу" общего набора данных, возвращенного запросом, используйте метод `Take` вместе с методом [Skip] . При выполнении следующего запроса будут возвращены три главных элемента в таблице.
 
     // Define a filtered query that returns the top 3 items.
@@ -216,18 +203,20 @@
                     .Take(3);
     List<TodoItem> items = await query.ToListAsync();
 
-Метод [IncludeTotalCount] запрашивает общее количество _всех_ записей, которые должны быть возвращены, без учета указанных предложений paging/limit.
+Метод [IncludeTotalCount] запрашивает общее количество *всех* записей, которые должны быть возвращены, без учета указанных предложений paging/limit.
 
     query = query.IncludeTotalCount();
 
 В реальных приложениях можно использовать запросы, подобные вышеуказанным, с постраничным навигатором или другим совместимым пользовательским интерфейсом, позволяющим переходить между страницами.
 
->[AZURE.NOTE]Чтобы переопределить ограничение серверной части мобильного приложения в 50 строк, необходимо также применить класс [EnableQueryAttribute] к общедоступному методу GET и настроить разбиение по страницам. В этом случае максимальное количество возвращаемых строк увеличивается до 1000:
->
->    [EnableQuery(MaxTop=1000)]
+> [!NOTE]
+> Чтобы переопределить ограничение серверной части мобильного приложения в 50 строк, необходимо также применить класс [EnableQueryAttribute] к общедоступному методу GET и настроить разбиение по страницам. В этом случае максимальное количество возвращаемых строк увеличивается до 1000:
+> 
+> [EnableQuery(MaxTop=1000)]
+> 
+> 
 
 ### <a name="<a-name="selecting"></a>how-to:-select-specific-columns"></a><a name="selecting"></a>Практическое руководство. Выбор определенных столбцов
-
 Набор свойств, который войдет в результаты, можно задать, добавив в запрос предложение [Select] . Например, в следующем коде показано, как выбрать только одно поле, а также способы выбора и форматирования нескольких полей:
 
     // Select one field -- just the Text
@@ -252,14 +241,12 @@
     List<string> items = await query.ToListAsync();
 
 ### <a name="<a-name="lookingup"></a>how-to:-look-up-data-by-id"></a><a name="lookingup"></a>Практическое руководство. Поиск данных по идентификатору
-
 Функцию [LookupAsync] можно использовать для поиска в базе данных объектов с определенным идентификатором.
 
     // This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
     TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 ### <a name="<a-name="untypedqueries"></a>how-to:-execute-untyped-queries"></a><a name="untypedqueries"></a>Практическое руководство. Выполнение нетипизированных запросов
-
 При выполнении запроса с помощью объекта нетипизированной таблицы необходимо явно указать строку запроса OData, вызвав функцию [ReadAsync], как показано в следующем примере.
 
     // Lookup untyped data using OData
@@ -268,7 +255,6 @@
 Вы будете получать значения JSON, которые можно использовать в качестве контейнера свойств. Более подробные сведения о JToken и Newtonsoft Json.NET см. на сайте [Json.NET].
 
 ### <a name="<a-name="inserting"></a>how-to:-insert-data-into-a-mobile-app-backend"></a><a name="inserting"></a>Практическое руководство. Вставка данных в серверную часть мобильных приложений
-
 Все типы клиентов должны содержать член с именем **Id**(идентификатор), который по умолчанию является строкой. Этот **идентификатор** необходим для выполнения операций CRUD и автономной синхронизации. В следующем коде показано, как вставить новые строки в таблицу с помощью метода [InsertAsync] . Параметр содержит данные, которые вставляются в качестве объекта .NET.
 
     await todoTable.InsertAsync(todoItem);
@@ -292,7 +278,6 @@
     var inserted = await table.InsertAsync(jo);
 
 ### <a name="working-with-id-values"></a>Работа со значениями идентификаторов
-
 Мобильные приложения поддерживают уникальные настраиваемые строковые значения для столбца **Id** таблицы. Строковое значение позволяет приложениям использовать в качестве идентификатора настраиваемые значения, такие как электронные адреса или имена пользователей.  Строковые идентификаторы предоставляют следующие преимущества.
 
 * Идентификаторы создаются без обмена данными с базой данных.
@@ -304,8 +289,7 @@
     JObject jo = new JObject();
     jo.Add("id", Guid.NewGuid().ToString("N"));
 
-###<a name="<a-name="modifying"></a>how-to:-modify-data-in-a-mobile-app-backend"></a><a name="modifying"></a>Практическое руководство. Изменение данных в серверной части мобильных приложений
-
+### <a name="<a-name="modifying"></a>how-to:-modify-data-in-a-mobile-app-backend"></a><a name="modifying"></a>Практическое руководство. Изменение данных в серверной части мобильных приложений
 Следующий код показывает, как обновить существующую запись с тем же идентификатором с помощью метода [UpdateAsync] . Параметр содержит данные, которые обновляются в качестве объекта .NET.
 
     await todoTable.UpdateAsync(todoItem);
@@ -320,8 +304,7 @@
 
 При выполнении обновления необходимо указать поле `id` . Серверная часть использует поле `id` , чтобы определить, какую из строк нужно обновить. Поле `id` можно получить из результатов вызова метода `InsertAsync`. При попытке обновить элемент без указания значения `id` порождается исключение `ArgumentException`.
 
-###<a name="<a-name="deleting"></a>how-to:-delete-data-in-a-mobile-app-backend"></a><a name="deleting"></a>Практическое руководство. Удаление данных в серверной части мобильных приложений
-
+### <a name="<a-name="deleting"></a>how-to:-delete-data-in-a-mobile-app-backend"></a><a name="deleting"></a>Практическое руководство. Удаление данных в серверной части мобильных приложений
 Следующий код показывает, как удалить существующий экземпляр с помощью метода [DeleteAsync] . Экземпляр идентифицируется по полю `id`, заданному в свойстве `todoItem`.
 
     await todoTable.DeleteAsync(todoItem);
@@ -334,8 +317,7 @@
 
 При создании запроса на удаление необходимо указать идентификатор. Другие свойства не передаются в службу или игнорируются ею. В результате вызова функции `DeleteAsync` обычно возвращается значение `null`. Идентификатор для передачи можно получить в результате вызова метода `InsertAsync` . При попытке удалить элемент без указания поля `id` порождается исключение `MobileServiceInvalidOperationException`.
 
-###<a name="<a-name="optimisticconcurrency"></a>how-to:-use-optimistic-concurrency-for-conflict-resolution"></a><a name="optimisticconcurrency"></a>Практическое руководство. Использование оптимистичного параллелизма для устранения конфликтов
-
+### <a name="<a-name="optimisticconcurrency"></a>how-to:-use-optimistic-concurrency-for-conflict-resolution"></a><a name="optimisticconcurrency"></a>Практическое руководство. Использование оптимистичного параллелизма для устранения конфликтов
 Иногда два и более клиентов могут одновременно записывать изменения в один и тот же элемент. Без механизма определения конфликтов последняя операция записи переписывала бы любые предыдущие обновления. **управлении оптимистичным параллелизмом** предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов.  Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается.
 
 Мобильные приложения поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений в каждом элементе с помощью столбца системных свойств `version` , определенного для каждой таблицы в серверной части мобильных приложений. При каждом обновлении записи мобильные приложения задают новое значение свойства `version` для этой записи. При обработке каждого запроса на обновление свойство `version` записи, включенное в запрос, сравнивается с тем же свойством записи на сервере. Если версия, переданная с запросом, не соответствует серверной части, то клиентская библиотека порождает исключение `MobileServicePreconditionFailedException<T>` . Тип, включенный в исключение, является записью серверной части, которая содержит версию записи на сервере. Затем приложение может использовать эти данные, чтобы решить, следует ли повторно выполнить полученный из серверной части запрос изменения с правильным значением `version` для фиксации изменений.
@@ -421,8 +403,7 @@
 
 Дополнительные сведения см. в разделе [Автономная синхронизация данных в мобильных приложениях Azure].
 
-###<a name="<a-name="binding"></a>how-to:-bind-mobile-apps-data-to-a-windows-user-interface"></a><a name="binding"></a>Практическое руководство. Привязка данных мобильных приложений к пользовательскому интерфейсу Windows
-
+### <a name="<a-name="binding"></a>how-to:-bind-mobile-apps-data-to-a-windows-user-interface"></a><a name="binding"></a>Практическое руководство. Привязка данных мобильных приложений к пользовательскому интерфейсу Windows
 В этом разделе показано, как отображать возвращенные объекты данных с использованием элементов пользовательского интерфейса в приложении Windows.  Следующий пример кода осуществляет привязку к источнику списка с помощью запроса незавершенных элементов. При использовании [MobileServiceCollection] создается коллекция привязок, поддерживающих мобильные приложения.
 
     // This query filters out completed TodoItems.
@@ -454,8 +435,7 @@
 
 Представьте, что в таблице есть множество полей, однако необходимо отобразить только те из них, которыми вам нужно управлять. С помощью инструкций в разделе[Выбор конкретных столбцов](#selecting)выше можно выбрать столбцы, отображаемые в пользовательском интерфейсе.
 
-###<a name="<a-name="pagesize"></a>change-the-page-size"></a><a name="pagesize"></a>Изменение размера страницы
-
+### <a name="<a-name="pagesize"></a>change-the-page-size"></a><a name="pagesize"></a>Изменение размера страницы
 По умолчанию мобильные приложения Azure выдают не больше 50 элементов на запрос.  Можно изменить параметры разбиения по страницам, увеличив максимальный размер страницы для клиента и сервера.  Чтобы увеличить размер запрошенной страницы, при использовании `PullAsync()` укажите `PullOptions`.
 
     PullOptions pullOptions = new PullOptions
@@ -465,18 +445,15 @@
 
 Предположим, мы установили на сервере значение `PageSize`, равное или большее 100. Тогда каждый запрос будет возвращать до 100 элементов.
 
-##<a name="<a-name="#offlinesync"></a>work-with-offline-tables"></a><a name="#offlinesync"></a>Работа с автономными таблицами
-
+## <a name="<a-name="#offlinesync"></a>work-with-offline-tables"></a><a name="#offlinesync"></a>Работа с автономными таблицами
 Автономные таблицы используют локальное хранилище SQLite для хранения данных, которые могут использоваться в режиме "вне сети".  Во всех операциях с таблицами используется локальное хранилище SQLite, а не хранилище удаленного сервера.  Чтобы создать автономную таблицу, сначала необходимо подготовить проект.
 
 1. В Visual Studio щелкните правой кнопкой мыши решение, выберите пункт **Управление пакетами NuGet для решения…**, а затем найдите и установите пакет NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** для всех проектов в решении.
-
 2. (Необязательный шаг.) Чтобы обеспечить поддержку устройств Windows, установите один из следующих пакетов среды выполнения SQLite:
-
-    * **Среда выполнения Windows 8.1**: установите [SQLite для Windows 8.1][3].
-    * **Windows Phone 8.1**: установите [SQLite для Windows Phone 8.1][4].
-    * **Универсальная платформа Windows**: установите [SQLite для универсальной платформы Windows][5].
-
+   
+   * **Среда выполнения Windows 8.1**: установите [SQLite для Windows 8.1][3].
+   * **Windows Phone 8.1**: установите [SQLite для Windows Phone 8.1][4].
+   * **Универсальная платформа Windows**: установите [SQLite для универсальной платформы Windows][5].
 3. (необязательно). Для устройств с Windows щелкните правой кнопкой мыши **Ссылки** > **Добавить ссылку…**, разверните папку **Windows** > **Расширения**, а затем включите соответствующий пакет SDK **SQLite для Windows** и пакет SDK **среды выполнения Visual C++ 2013 для Windows**.
     Имена пакетов SDK для SQLite немного отличаются в зависимости от версии платформы Windows.
 
@@ -499,8 +476,7 @@
 
 Для использования автономной таблицы не обязательно проходить аутентификацию.  Ее необходимо проходить только при обмене данными с внутренней службой.
 
-###<a name="<a-name="syncoffline"></a>syncing-an-offline-table"></a><a name="syncoffline"></a>Синхронизация автономной таблицы
-
+### <a name="<a-name="syncoffline"></a>syncing-an-offline-table"></a><a name="syncoffline"></a>Синхронизация автономной таблицы
 По умолчанию автономные таблицы не синхронизируются с серверной частью.  Синхронизация происходит в два этапа.  Можно передавать изменения отдельно от скачивания новых элементов.  Ниже приведен типичный метод синхронизации.
 
     public async Task SyncAsync()
@@ -553,8 +529,7 @@
 
 Обработка конфликтов происходит в методе `PullAsync()`.  Конфликты можно обработать таким же образом, как для таблиц в сети.  Конфликт возникает, когда во время вставки, обновления или удаления вызывается `PullAsync()`. Если возникает несколько конфликтов, они объединяются в одно исключение MobileServicePushFailedException.  Каждая ошибка должна обрабатываться отдельно.
 
-##<a name="<a-name="#customapi"></a>work-with-a-custom-api"></a><a name="#customapi"></a>Работа с настраиваемым API
-
+## <a name="<a-name="#customapi"></a>work-with-a-custom-api"></a><a name="#customapi"></a>Работа с настраиваемым API
 Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
 Настраиваемый API можно вызвать путем вызова одного из методов [InvokeApiAsync] для клиента. Например, следующая строка кода отправляет запрос POST API-интерфейсу **completeAll** в серверную часть:
@@ -563,140 +538,143 @@
 
 Это вызов типизированного метода, для которого требуется определить тип возвращаемого значения **MarkAllResult**. Поддерживаются типизированные и нетипизированные методы.
 
-##<a name="<a-name="authentication"></a>authenticate-users"></a><a name="authentication"></a>Аутентификация пользователей
-
+## <a name="<a-name="authentication"></a>authenticate-users"></a><a name="authentication"></a>Аутентификация пользователей
 Мобильные приложения поддерживают аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетной записи Майкрософт, Twitter и Azure Active Directory. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в учебнике [Добавление проверки подлинности в приложение].
 
-Поддерживаются два потока аутентификации: _управляемой клиентом_ и _управляемый сервером_. Управляемый сервером поток обеспечивает самый простой способ аутентификации, так как он использует веб-интерфейс аутентификации. Управляемый клиентом поток обеспечивает более тесную интеграцию с возможностями устройства, так как использует пакеты SDK конкретного поставщика для конкретного устройства.
+Поддерживаются два потока аутентификации: *управляемой клиентом* и *управляемый сервером*. Управляемый сервером поток обеспечивает самый простой способ аутентификации, так как он использует веб-интерфейс аутентификации. Управляемый клиентом поток обеспечивает более тесную интеграцию с возможностями устройства, так как использует пакеты SDK конкретного поставщика для конкретного устройства.
 
->[AZURE.NOTE] Мы рекомендуем использовать в рабочих приложениях поток, управляемый клиентом.
+> [!NOTE]
+> Мы рекомендуем использовать в рабочих приложениях поток, управляемый клиентом.
+> 
+> 
 
 Чтобы настроить аутентификацию, следует зарегистрировать приложение в одном или нескольких поставщиках удостоверений.  Поставщик удостоверений создаст идентификатор клиента и секрет клиента для вашего приложения.  Затем эти значения задаются в серверной части и используются для аутентификации и авторизации в службе приложений Azure.  Дополнительные сведения приведены в руководстве [Добавление проверки подлинности в приложение].
 
 В этом разделе рассматриваются следующие темы.
 
-+ [Управляемая клиентом проверка подлинности.](#clientflow)
-+ [Управляемая сервером проверка подлинности.](#serverflow)
-+ [Кэширование маркера аутентификации](#caching)
+* [Управляемая клиентом проверка подлинности.](#clientflow)
+* [Управляемая сервером проверка подлинности.](#serverflow)
+* [Кэширование маркера аутентификации](#caching)
 
-###<a name="<a-name="clientflow"></a>client-managed-authentication"></a><a name="clientflow"></a>Управляемая клиентом проверка подлинности.
-
+### <a name="<a-name="clientflow"></a>client-managed-authentication"></a><a name="clientflow"></a>Управляемая клиентом проверка подлинности.
 Приложение может самостоятельно связаться с поставщиком удостоверений и передать серверной части вашего приложения полученный маркер для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений. Клиентский поток аутентификации предпочтительнее, чем серверный, так как пакет SDK поставщика удостоверений обеспечивает более естественный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
 
 Доступны примеры организации некоторых клиентских потоков проверки подлинности.
 
-+ [Библиотека проверки подлинности Active Directory](#adal)
-+ [Facebook или Google](#client-facebook)
-+ [Пакет Live SDK](#client-livesdk)
+* [Библиотека проверки подлинности Active Directory](#adal)
+* [Facebook или Google](#client-facebook)
+* [Пакет Live SDK](#client-livesdk)
 
 #### <a name="<a-name="adal"></a>authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Аутентификация пользователей с помощью библиотеки аутентификации Active Directory
-
 Вы можете использовать библиотеку проверки подлинности Active Directory (ADAL) для управления входом пользователей из клиента с помощью Azure Active Directory.
 
 1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в учебнике [Настройка приложения службы приложений для использования службы входа Azure Active Directory]. Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
 2. Откройте проект в Visual Studio или Xamarin Studio и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Включите в диапазон поиска предварительные версии.
 3. Добавьте в приложение код, соответствующий используемой платформе, который приведен ниже. В каждом коде выполните следующие замены.
+   
+   * Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Формат должен быть следующим: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в разделе Azure Active Directory на [классическом портале Azure].
+   * Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
+   * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
+   * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта */.auth/login/done* , используя схему HTTPS. Это значение должно быть похоже на *https://contoso.azurewebsites.net/.auth/login/done*.
+     
+     Ниже приведены колы для каждой платформы.
+     
+     **Windows:**
+     
+       private MobileServiceUser user;
+       private async Task AuthenticateAsync()
+       {
+     
+           string authority = "INSERT-AUTHORITY-HERE";
+           string resourceId = "INSERT-RESOURCE-ID-HERE";
+           string clientId = "INSERT-CLIENT-ID-HERE";
+           string redirectUri = "INSERT-REDIRECT-URI-HERE";
+           while (user == null)
+           {
+               string message;
+               try
+               {
+                   AuthenticationContext ac = new AuthenticationContext(authority);
+                   AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
+                       new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+                   JObject payload = new JObject();
+                   payload["access_token"] = ar.AccessToken;
+                   user = await App.MobileService.LoginAsync(
+                       MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+                   message = string.Format("You are now logged in - {0}", user.UserId);
+               }
+               catch (InvalidOperationException)
+               {
+                   message = "You must log in. Login Required";
+               }
+               var dialog = new MessageDialog(message);
+               dialog.Commands.Add(new UICommand("OK"));
+               await dialog.ShowAsync();
+           }
+       }
+     
+     **Xamarin.iOS**
+     
+       private MobileServiceUser user;
+       private async Task AuthenticateAsync(UIViewController view)
+       {
+     
+           string authority = "INSERT-AUTHORITY-HERE";
+           string resourceId = "INSERT-RESOURCE-ID-HERE";
+           string clientId = "INSERT-CLIENT-ID-HERE";
+           string redirectUri = "INSERT-REDIRECT-URI-HERE";
+           try
+           {
+               AuthenticationContext ac = new AuthenticationContext(authority);
+               AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
+                   new Uri(redirectUri), new PlatformParameters(view));
+               JObject payload = new JObject();
+               payload["access_token"] = ar.AccessToken;
+               user = await client.LoginAsync(
+                   MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+           }
+           catch (Exception ex)
+           {
+               Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+           }
+       }
+     
+     **Xamarin.Android**
+     
+       private MobileServiceUser user;
+       private async Task AuthenticateAsync()
+       {
+     
+           string authority = "INSERT-AUTHORITY-HERE";
+           string resourceId = "INSERT-RESOURCE-ID-HERE";
+           string clientId = "INSERT-CLIENT-ID-HERE";
+           string redirectUri = "INSERT-REDIRECT-URI-HERE";
+           try
+           {
+               AuthenticationContext ac = new AuthenticationContext(authority);
+               AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
+                   new Uri(redirectUri), new PlatformParameters(this));
+               JObject payload = new JObject();
+               payload["access_token"] = ar.AccessToken;
+               user = await client.LoginAsync(
+                   MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+           }
+           catch (Exception ex)
+           {
+               AlertDialog.Builder builder = new AlertDialog.Builder(this);
+               builder.SetMessage(ex.Message);
+               builder.SetTitle("You must log in. Login Required");
+               builder.Create().Show();
+           }
+       }
+       protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+       {
+     
+           base.OnActivityResult(requestCode, resultCode, data);
+           AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+       }
 
-    * Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Формат должен быть следующим: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в разделе Azure Active Directory на [классическом портале Azure].
-    * Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
-    * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
-    * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_ , используя схему HTTPS. Это значение должно быть похоже на _https://contoso.azurewebsites.net/.auth/login/done_.
-
-    Ниже приведены колы для каждой платформы.
-
-    **Windows:**
-
-        private MobileServiceUser user;
-        private async Task AuthenticateAsync()
-        {
-            string authority = "INSERT-AUTHORITY-HERE";
-            string resourceId = "INSERT-RESOURCE-ID-HERE";
-            string clientId = "INSERT-CLIENT-ID-HERE";
-            string redirectUri = "INSERT-REDIRECT-URI-HERE";
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    AuthenticationContext ac = new AuthenticationContext(authority);
-                    AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
-                        new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
-                    JObject payload = new JObject();
-                    payload["access_token"] = ar.AccessToken;
-                    user = await App.MobileService.LoginAsync(
-                        MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                    message = string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
-        }
-
-    **Xamarin.iOS**
-
-        private MobileServiceUser user;
-        private async Task AuthenticateAsync(UIViewController view)
-        {
-            string authority = "INSERT-AUTHORITY-HERE";
-            string resourceId = "INSERT-RESOURCE-ID-HERE";
-            string clientId = "INSERT-CLIENT-ID-HERE";
-            string redirectUri = "INSERT-REDIRECT-URI-HERE";
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
-                    new Uri(redirectUri), new PlatformParameters(view));
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await client.LoginAsync(
-                    MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
-        }
-
-    **Xamarin.Android**
-
-        private MobileServiceUser user;
-        private async Task AuthenticateAsync()
-        {
-            string authority = "INSERT-AUTHORITY-HERE";
-            string resourceId = "INSERT-RESOURCE-ID-HERE";
-            string clientId = "INSERT-CLIENT-ID-HERE";
-            string redirectUri = "INSERT-REDIRECT-URI-HERE";
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId,
-                    new Uri(redirectUri), new PlatformParameters(this));
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await client.LoginAsync(
-                    MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-            }
-            catch (Exception ex)
-            {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.SetMessage(ex.Message);
-                builder.SetTitle("You must log in. Login Required");
-                builder.Create().Show();
-            }
-        }
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            base.OnActivityResult(requestCode, resultCode, data);
-            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-        }
-
-####<a name="<a-name="client-facebook"></a>single-sign-on-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Единый вход с помощью маркера Google или Facebook
-
+#### <a name="<a-name="client-facebook"></a>single-sign-on-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Единый вход с помощью маркера Google или Facebook
 В этом фрагменте показан пример использования клиентского потока для Google или Facebook.
 
     var token = new JObject();
@@ -728,8 +706,7 @@
         }
     }
 
-####<a name="<a-name="client-livesdk"></a>single-sign-in-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Единый вход с использованием учетной записи Майкрософт и Live SDK
-
+#### <a name="<a-name="client-livesdk"></a>single-sign-in-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Единый вход с использованием учетной записи Майкрософт и Live SDK
 Чтобы аутентифицировать пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Настройте регистрационные данные для серверной части мобильного приложения. Выполните действия, описанные в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт], чтобы создать учетную запись Майкрософт и подключить ее к серверной части мобильного приложения. Если у вас есть версии приложения Магазина Windows и Windows Phone 8/Silverlight, сначала зарегистрируйте версию для Магазина Windows.
 
 Следующий код выполняет проверку подлинности с помощью пакета Live SDK и использует возвращенный маркер для входа в серверную часть мобильного приложения.
@@ -783,8 +760,7 @@
 
 Дополнительные сведения см. в документации по [пакету SDK для Windows Live].
 
-###<a name="<a-name="serverflow"></a>server-managed-authentication"></a><a name="serverflow"></a>Управляемая сервером проверка подлинности.
-
+### <a name="<a-name="serverflow"></a>server-managed-authentication"></a><a name="serverflow"></a>Управляемая сервером проверка подлинности.
 После регистрации поставщика удостоверений вызовите метод [LoginAsync] для [MobileServiceClient], передав ему значение [MobileServiceAuthenticationProvider], соответствующее вашему поставщику. Например, следующий код запускает вход в систему через поток сервера с помощью Facebook.
 
     private MobileServiceUser user;
@@ -815,8 +791,7 @@
 
 При использовании серверного потока служба приложений Azure управляет потоком аутентификации OAuth, отображая страницу входа выбранного поставщика.  После получения ответа от поставщика удостоверений служба приложений Azure создает маркер аутентификации службы приложений. Метод [LoginAsync] возвращает ответ [MobileServiceUser], в котором содержится как [userId] авторизованного пользователя, так и [MobileServiceAuthenticationToken] в качестве веб-маркера JSON Web Token (JWT). Этот маркер можно поместить в кэш и повторно использовать, пока не истечет срок его действия. Дополнительные сведения см. в разделе [Кэширование маркера проверки подлинности](#caching).
 
-###<a name="<a-name="caching"></a>caching-the-authentication-token"></a><a name="caching"></a>Кэширование маркера проверки подлинности
-
+### <a name="<a-name="caching"></a>caching-the-authentication-token"></a><a name="caching"></a>Кэширование маркера проверки подлинности
 В некоторых случаях после первой успешной аутентификации можно не выполнять вызов метода входа в систему. Для этого следует сохранить маркер аутентификации.  Приложения Магазина Windows и UWP могут использовать [PasswordVault] для сохранения текущего маркера аутентификации после успешного входа в систему.
 
     await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -857,16 +832,14 @@
     // Authenticate using the access token.
     await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
-##<a name="<a-name="pushnotifications"></a>push-notifications"></a><a name="pushnotifications"></a>Push-уведомления
-
+## <a name="<a-name="pushnotifications"></a>push-notifications"></a><a name="pushnotifications"></a>Push-уведомления
 Push-уведомления рассматриваются в следующих разделах.
 
 * [Регистрация для получения push-уведомлений](#register-for-push)
 * [Получение SID пакета Магазина Windows](#package-sid)
 * [Регистрация с помощью межплатформенных шаблонов](#register-xplat)
 
-###<a name="<a-name="register-for-push"></a>how-to:-register-for-push-notifications"></a><a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
-
+### <a name="<a-name="register-for-push"></a>how-to:-register-for-push-notifications"></a><a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
 Клиент мобильных приложений позволяет выполнить регистрацию для получения push-уведомлений с помощью центров уведомлений Azure. При регистрации вы получаете маркер из службы push-уведомлений (PNS). Это значение необходимо указать при регистрации вместе со всеми тегами. Следующий код регистрирует ваше приложение Windows для получения push-уведомлений через службу уведомлений Windows (WNS):
 
     private async void InitNotificationsAsync()
@@ -883,8 +856,7 @@ Push-уведомления рассматриваются в следующих
 Запрос тегов от клиента не поддерживается.  Запросы тегов автоматически отбрасываются из регистрации.
 Если вы хотите зарегистрировать устройство с тегами, создайте пользовательский интерфейс API, который использует API центров уведомлений для выполнения регистрации от вашего имени.  [Используйте вызов настраиваемого API](#customapi) вместо метода `RegisterNativeAsync()`.
 
-###<a name="<a-name="package-sid"></a>how-to:-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>Практическое руководство. Получение SID пакета Магазина Windows
-
+### <a name="<a-name="package-sid"></a>how-to:-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>Практическое руководство. Получение SID пакета Магазина Windows
 Для включения push-уведомлений для приложений Магазина Windows необходим SID пакета.  Для получения идентификатора безопасности пакета зарегистрируйте приложение в Магазине Windows.
 
 Для получения этого значения выполните следующие действия:
@@ -895,15 +867,14 @@ Push-уведомления рассматриваются в следующих
 4. Выполните вход в [Центр разработки для Windows] с использованием учетной записи Майкрософт. В разделе **Мои приложения**щелкните созданную регистрацию приложения.
 5. Щелкните **Управление приложениями** > **Удостоверение приложения**, а затем выполните прокрутку вниз, чтобы найти ваш **идентификатор безопасности пакета**.
 
-Во многих случаях идентификатор безопасности пакета рассматривается как универсальный код ресурса (URI). В этом случае необходимо использовать _ms-app://_ в качестве схемы. Запишите версию ИД безопасности пакета, получаемую путем сцепления этого значения в качестве префикса.
+Во многих случаях идентификатор безопасности пакета рассматривается как универсальный код ресурса (URI). В этом случае необходимо использовать *ms-app://* в качестве схемы. Запишите версию ИД безопасности пакета, получаемую путем сцепления этого значения в качестве префикса.
 
 Приложениям Xamarin требуется дополнительный код для регистрации приложений, работающих на платформе iOS или Android. Дополнительные сведения см. в разделе для вашей платформы:
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push)
 
-###<a name="<a-name="register-xplat"></a>how-to:-register-push-templates-to-send-cross-platform-notifications"></a><a name="register-xplat"></a>Использование шаблонов для отправки кроссплатформенных push- уведомлений
-
+### <a name="<a-name="register-xplat"></a>how-to:-register-push-templates-to-send-cross-platform-notifications"></a><a name="register-xplat"></a>Использование шаблонов для отправки кроссплатформенных push- уведомлений
 Чтобы зарегистрировать шаблоны, используйте метод `RegisterAsync()` с шаблонами, как показано ниже.
 
         JObject templates = myTemplates();
@@ -940,10 +911,8 @@ Push-уведомления рассматриваются в следующих
 
 Для отправки уведомлений с использованием этих зарегистрированных шаблонов ознакомьтесь со [справочниками по API].
 
-##<a name="<a-name="misc"></a>miscellaneous-topics"></a><a name="misc"></a>Разное
-
-###<a name="<a-name="errors"></a>how-to:-handle-errors"></a><a name="errors"></a>Практическое руководство. Обработка ошибок
-
+## <a name="<a-name="misc"></a>miscellaneous-topics"></a><a name="misc"></a>Разное
+### <a name="<a-name="errors"></a>how-to:-handle-errors"></a><a name="errors"></a>Практическое руководство. Обработка ошибок
 При возникновении ошибки в серверной части пакет SDK для клиента порождает исключение `MobileServiceInvalidOperationException`.  Следующий пример демонстрирует обработку исключения, возвращенного серверной частью:
 
     private async void InsertTodoItem(TodoItem todoItem)
@@ -963,8 +932,7 @@ Push-уведомления рассматриваются в следующих
 
 Еще один пример работы с состояниями ошибки можно найти в [примере файлов мобильных приложений]. Пример [LoggingHandler] предоставляет обработчик делегированного входа (см. ниже) для ведения журнала запросов к серверной части.
 
-###<a name="<a-name="headers"></a>how-to:-customize-request-headers"></a><a name="headers"></a>Практическое руководство. Настройка заголовков запроса
-
+### <a name="<a-name="headers"></a>how-to:-customize-request-headers"></a><a name="headers"></a>Практическое руководство. Настройка заголовков запроса
 Для поддержки определенного сценария приложения вам может потребоваться настроить связь с внутренним сервером мобильных приложений. Например, может возникнуть необходимость добавлять настраиваемый заголовок к каждому исходящему запросу или даже изменять коды состояний ответов. Вы можете использовать настраиваемый метод [DelegatingHandler], как показано в следующем примере.
 
     public async Task CallClientWithHandler()

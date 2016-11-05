@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Развертывание веб-службы в нескольких регионах | Microsoft Azure"
-    description="Действия по развертыванию (копированию) новой веб-службы в других регионах."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor="cgronlun"/>
+---
+title: Развертывание веб-службы в нескольких регионах | Microsoft Docs
+description: Действия по развертыванию (копированию) новой веб-службы в других регионах.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Развертывание веб-службы в нескольких регионах
-
 Новые веб-службы Azure позволяют легко развернуть веб-службу в нескольких регионах. При этом не требуется иметь несколько подписок или рабочих областей. 
 
 Цены зависят от региона, поэтому план выставления счетов необходимо определить для каждого региона, в котором будет выполняется развертывание веб-службы.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Создание плана в другом регионе
-
 1. Выполните вход в [веб-службы Машинного обучения Microsoft Azure](https://services.azureml.net/).
 2. Щелкните пункт меню **Plans** (Планы).
 3. На странице Plans overview (Обзор планов) нажмите кнопку **New**(Создать).
@@ -35,9 +32,7 @@
 8. В разделе **Plan Options**(Параметры плана) выберите уровень выставления счетов для нового плана.
 9. Щелкните **Создать**.
 
-
 ## <a name="deploying-the-web-service-to-another-region"></a>Развертывание веб-службы в другом регионе
-
 1. Щелкните пункт меню **Web Services** (Веб-службы).
 2. Выберите веб-службу, которую требуется развернуть в новом регионе.
 3. Нажмите **Копировать**.
@@ -49,9 +44,6 @@
 9. В раскрывающемся списке **Storage account** (Учетная запись хранения) выберите учетную запись, в которой будет храниться веб-служба.
 10. В раскрывающемся списке **Price Plan** (Ценовой план) выберите план в регионе, который вы выбрали в действии 8.
 11. Нажмите **Копировать**.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

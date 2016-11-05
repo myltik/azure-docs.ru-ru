@@ -1,42 +1,34 @@
-<properties 
-	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication"
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
+description: Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
-
 В разделе проверки подлинности Windows администратор может включить и настроить проверку подлинности Windows для одного или нескольких приложений. Ниже приведен список факторов, которые необходимо учитывать до настройки проверки подлинности Windows.
 
--  Прежде чем будет выполняться служба Azure Multi-Factor Authentication для служб терминалов, необходимо перезагрузить компьютер.
--  Если установлен флажок «Требуется сопоставление пользователей Multi-Factor Authentication» и вас нет в списке пользователей, после перезагрузки вы не сможете войти в систему.
--  Надежные IP-адреса зависят от того, может ли приложение предоставлять IP-адрес клиента с проверкой подлинности. В настоящее время поддерживаются только службы терминалов.
+* Прежде чем будет выполняться служба Azure Multi-Factor Authentication для служб терминалов, необходимо перезагрузить компьютер.
+* Если установлен флажок «Требуется сопоставление пользователей Multi-Factor Authentication» и вас нет в списке пользователей, после перезагрузки вы не сможете войти в систему.
+* Надежные IP-адреса зависят от того, может ли приложение предоставлять IP-адрес клиента с проверкой подлинности. В настоящее время поддерживаются только службы терминалов.
 
-
-
-
-
-
-
->[AZURE.NOTE]Для обеспечения безопасности служб терминалов в Windows Server 2012 R2 эта функция не поддерживается.
-
-
-
+> [!NOTE]
+> Для обеспечения безопасности служб терминалов в Windows Server 2012 R2 эта функция не поддерживается.
+> 
+> 
 
 ## Для защиты приложения с помощью проверки подлинности Windows используйте следующую процедуру.
-
 1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows. ![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Установите флажок «Включить проверку подлинности Windows». По умолчанию этот флажок не установлен.
 3. На вкладке «Приложения» администратор может настроить одно или несколько приложений для проверки подлинности Windows.

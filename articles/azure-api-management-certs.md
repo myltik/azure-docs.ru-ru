@@ -1,60 +1,54 @@
-<properties 
-	pageTitle="Отправка сертификата API управления в Azure | Azure Microsoft" 
-	description="Узнайте, как отправить сертификат API управления в Microsoft Azure." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Отправка сертификата API управления в Azure | Microsoft Docs
+description: Узнайте, как отправить сертификат API управления в Microsoft Azure.
+services: cloud-services
+documentationcenter: .net
+author: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="na" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/18/2016"
-	ms.author="adegeo"/>
+ms.service: na
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/18/2016
+ms.author: adegeo
 
-
+---
 # Отправка сертификата управления Azure для API управления
-
 Сертификаты управления позволяют выполнять проверку подлинности в API управления службами, которые предоставляются Azure. Многие программы и средства (такие как Visual Studio или Azure SDK) будут использовать эти сертификаты для автоматизации настройки и развертывания различных служб Azure. **Это касается только классического портала Azure**.
 
->[AZURE.WARNING] Будьте осторожны! Эти типы сертификатов позволяют каждому, кто прошел проверку подлинности, управлять подпиской, с которой они связаны.
+> [!WARNING]
+> Будьте осторожны! Эти типы сертификатов позволяют каждому, кто прошел проверку подлинности, управлять подпиской, с которой они связаны.
+> 
+> 
 
 Дополнительные сведения о сертификатах Azure, включая информацию о создании самозаверяющего сертификата, см. [здесь](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 В целях автоматизации для проверки подлинности клиентского кода можно использовать также службу [Azure Active Directory](/services/active-directory/).
 
 ## Отправка сертификата управления
-
 Создав сертификат управления (CER-файл только с открытым ключом), передайте его на портал. Когда сертификат доступен на портале, любой пользователь с соответствующим сертификатом (закрытым ключом) сможет подключаться через API управления и работать с ресурсами связанной подписки.
 
 1. Перейдите на [классический портал Azure](http://manage.windowsazure.com).
-
 2. Обязательно выберите именно ту подписку, с которой необходимо связать сертификат. Щелкните надпись **Подписки** в правом верхнем углу страницы портала.
-
-	![данных](./media/azure-api-management-certs/subscription.png)
-
+   
+    ![данных](./media/azure-api-management-certs/subscription.png)
 3. Выбрав нужную подписку, щелкните **Параметры** в левой части страницы портала (может потребоваться прокрутить страницу вниз).
-    
+   
     ![Параметры](./media/azure-api-management-certs/settings.png)
-
 4. Щелкните вкладку **Сертификаты управления**.
-
+   
     ![Параметры](./media/azure-api-management-certs/certificates-tab.png)
-    
 5. Нажмите кнопку **Отправить**.
-
+   
     ![Параметры](./media/azure-api-management-certs/upload.png)
-    
 6. Укажите в диалоговом окне необходимые данные и нажмите кнопку с **галочкой**.
-
+   
     ![Параметры](./media/azure-api-management-certs/upload-dialog.png)
 
 ## Дальнейшие действия
-
 Связав сертификат управления с подпиской и установив соответствующий сертификат локально, вы можете программно подключаться к [REST API управления службами](https://msdn.microsoft.com/library/azure/mt420159.aspx) и автоматизировать различные ресурсы Azure, связанные с этой же подпиской.
 
 <!---HONumber=AcomDC_0706_2016-->

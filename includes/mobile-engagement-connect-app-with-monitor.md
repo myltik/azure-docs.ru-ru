@@ -1,15 +1,12 @@
 В этом разделе показано, как подключить приложение к серверной части Mobile Engagement с помощью функции мониторинга в реальном времени.
 
 1. Выберите в своей учетной записи **Azure Mobile Engagement** приложение, которое хотите отслеживать и которым нужно управлять на портале **Mobile Engagement**. Перейдите на портал Mobile Engagement, щелкнув внизу кнопку **Выполнить охват**. 
-
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
+   
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 2. Вы попадете на портал Mobile Engagement. Если вкладка **Монитор** не выбрана, щелкните ее.
-
 3. Здесь будут показаны все устройства в режиме реального времени, на которых будет запущено приложение.
-	 
 4. Теперь запустите приложение. Вы увидите один сеанс в мониторе, если интеграция выполнена правильно, то есть теперь приложение подключено к серверной части Mobile Engagement и отправляет в нее данные.
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+   
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
 <!---HONumber=AcomDC_0615_2016-->

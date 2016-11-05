@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Параметры предложения Group By в хранилище данных SQL | Microsoft Azure"
-   description="Советы по реализации параметров предложения Group By в хранилище данных SQL Azure для разработки решений."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Параметры предложения Group By в хранилище данных SQL | Microsoft Docs
+description: Советы по реализации параметров предложения Group By в хранилище данных SQL Azure для разработки решений.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Группировка по параметрам в хранилище данных SQL
-
-Предложение [GROUP BY][] используется для объединения данных в сводную выборку строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
+Предложение [GROUP BY][GROUP BY] используется для объединения данных в сводную выборку строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
 
 Доступны следующие параметры:
-- GROUP BY с ROLLUP;
-- GROUPING SETS;
-- GROUP BY с CUBE.
+
+* GROUP BY с ROLLUP;
+* GROUPING SETS;
+* GROUP BY с CUBE.
 
 ## Параметры Rollup и Grouping Sets
 Самый простой вариант — это выполнить свертку с помощью оператора `UNION ALL`, не используя отдельный синтаксис. Результат будет точно таким же.
@@ -44,9 +44,10 @@ GROUP BY ROLLUP (
 ```
 
 С помощью параметра ROLLUP мы запросили следующие агрегаты.
-- Страна и регион
-- Страна
-- Общий итог
+
+* Страна и регион
+* Страна
+* Общий итог
 
 Вместо этого можно использовать оператор `UNION ALL`, указав, какие группы данных необходимо получить. Результат будет точно такой же.
 
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 Если разбить этот код на разделы и создать циклическую конструкцию, он станет более управляем и удобен в обслуживании.
 
-
 ## Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
+Дополнительные советы по разработке см. в статье [Общие сведения о разработке][Общие сведения о разработке].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

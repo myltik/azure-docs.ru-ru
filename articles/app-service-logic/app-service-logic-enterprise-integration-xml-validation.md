@@ -1,28 +1,27 @@
-<properties 
-	pageTitle="Обзор проверки XML и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
-	description="Узнайте, как функционирует проверка в пакете интеграции Enterprise и приложениях логики." 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Обзор проверки XML и пакета интеграции Enterprise | Microsoft Docs
+description: Узнайте, как функционирует проверка в пакете интеграции Enterprise и приложениях логики.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Интеграция Enterprise с проверкой данных XML
-
 ## Обзор
 Часто в сценариях "бизнес-бизнес" партнерам по соглашению необходимо проверять допустимость сообщений, которыми они обмениваются между собой, перед началом обработки данных. В пакете интеграции Enterprise можно использовать соединитель проверки XML, чтобы проверять документы с помощью предопределенной схемы.
 
 ## Как проверить документ с помощью соединителя проверки XML
-1. Создайте приложение логики и [свяжите его с учетной записью интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте, как связать учетную запись интеграции с приложением логики."), содержащей схему, которая будет использоваться для проверки данных XML.
+1. Создайте приложение логики и [свяжите его с учетной записью интеграции](app-service-logic-enterprise-integration-accounts.md "Узнайте, как связать учетную запись интеграции с приложением логики."), содержащей схему, которая будет использоваться для проверки данных XML.
 2. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. ![](./media/app-service-logic-enterprise-integration-xml/xml-1.png)
 3. Добавьте действие **XML Validation** (Проверка XML), щелкнув **Добавить действие**.
 4. Введите слово *xml* в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать.
@@ -37,7 +36,6 @@
 Теперь можно протестировать действие проверки, выполнив запрос к конечной точке HTTP.
 
 ## Дальнейшие действия
-
-[Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.").
+[Узнайте больше о пакете интеграции Enterprise](app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.").
 
 <!---HONumber=AcomDC_0803_2016-->

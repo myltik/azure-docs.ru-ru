@@ -1,54 +1,55 @@
-<properties
-	pageTitle="Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Служба приложений Microsoft Azure | Microsoft Azure"
-	description="Полный список соединителей, управляемых корпорацией Майкрософт, которые можно использовать для создания приложений логики в службе приложений Azure"
-	services="logic-apps"
-	documentationCenter=""
-	authors="MSFTMAN"
-	manager="erikre"
-	editor=""
-    tags="connectors"/>
+---
+title: Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Microsoft Docs
+description: Полный список соединителей, управляемых корпорацией Майкрософт, которые можно использовать для создания приложений логики в службе приложений Azure
+services: logic-apps
+documentationcenter: ''
+author: MSFTMAN
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/20/2016"
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/20/2016
+ms.author: deonhe
 
+---
 # Список соединителей
-
 Выберите соединитель, чтобы узнать, как быстро создавать рабочие процессы.
 
 ## Стандартные соединители
+| Соединители |  |  |  |
+| --- | --- | --- | --- |
+| [![Значок API][API/Web-Appicon]<br/>**API/веб-приложение**][API/Web-Appdoc] |[![Значок API][Azure-Blobicon]<br/>**Большой двоичный объект Azure**][Azure-Blobdoc] |[![Значок API][Azure~Functionsicon]<br/>**Функции<br/>Azure**][Azure~Functionsdoc] |[![Значок API][Boxicon]<br/>**Box**][Boxdoc] |
+| [![Значок API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![Значок API][DB2icon]<br/>**DB2**][db2doc] |[![Значок API][Delayicon]<br/>**Задержка**][Delaydoc] |[![Значок API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
+| [![Значок API][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![Значок API][FTPicon]<br/>**FTP**][FTPdoc] |[![Значок API][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![Значок API][Google-Driveicon]<br/>**Диск Google**][Google-Drivedoc] |
+| ![Значок API][Google-Sheetsicon]<br/>**Таблицы Google** |![Значок API][Google-Tasksicon]<br/>**Задачи Google** |![Значок API][Google~Calendaricon]<br/>**Календарь<br/>Google** |[![Значок API][HTTPicon]<br/>**HTTP**][HTTPdoc] |
+| [![Значок API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc] |[![Значок API][HTTP~Requesticon]<br/>**Запрос<br/>HTTP**][HTTP~Requestdoc] |[![Значок API][HTTP~Responseicon]<br/>**Ответ<br/>HTTP**][HTTP~Responsedoc] |[![Значок API][Informixicon]<br/>**Informix**][informixdoc] |
+| ![Значок API][Instagramicon]<br/>**Instagram** |[![Значок API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc] |![Значок API][Mandrillicon]<br/>**Mandrill** |[![Значок API][Nested~Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested~Logic-Appdoc] |
+| [![Значок API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc] |[![Значок API][Office-365~Usersicon]<br/>**Office 365<br/>Пользователи**][Office-365~Usersdoc] |[![Значок API][Office-365~Videoicon]<br/>**Office 365<br/>Видео**][Office-365~Videodoc] |[![Значок API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc] |
+| [![Значок API][OneDrive-for~Businessicon]<br/>**OneDrive<br/>для бизнеса**][OneDrive-for~Businessdoc] |[![Значок API][Outlookicon]<br/>**Outlook**][Outlookdoc] |[![Значок API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc] |[![Значок API][Queryicon]<br/>**Запрос**][Querydoc] |
+| [![Значок API][Recurrenceicon]<br/>**Повторение**][Recurrencedoc] |[![Значок API][RSSicon]<br/>**RSS**][RSSdoc] |[![Значок API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc] |[![Значок API][SendGridicon]<br/>**SendGrid**][SendGriddoc] |
+| [![Значок API][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc] |[![Значок API][SFTPicon]<br/>**SFTP**][SFTPdoc] |[![Значок API][SharePointicon]<br/>**SharePoint**][SharePointdoc] |[![Значок API][Slackicon]<br/>**Slack**][Slackdoc] |
+| [![Значок API][SMTPicon]<br/>**SMTP**][SMTPdoc] |![Значок API][SparkPosticon]<br/>**SparkPost** |[![Значок API][SQLicon]<br/>**SQL**][SQLdoc] |[![Значок API][Translatoricon]<br/>**Translator**][Translatordoc] |
+| [![Значок API][Trelloicon]<br/>**Trello**][Trellodoc] |[![Значок API][Twilioicon]<br/>**Twilio**][Twiliodoc] |[![Значок API][Twittericon]<br/>**Twitter**][Twitterdoc] |[![Значок API][Webhookicon]<br/>**Webhook**][Webhookdoc] |
+| [![Значок API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc] |[![Значок API][Yammericon]<br/>**Yammer**][Yammerdoc] |![Значок API][YouTubeicon]<br/>**YouTube** | |
 
-|Соединители||||
-|-----------|-----------|-----------|-----------|
-|[![Значок API][API/Web-Appicon]<br/>**API/веб-приложение**][API/Web-Appdoc]|[![Значок API][Azure-Blobicon]<br/>**Большой двоичный объект Azure**][Azure-Blobdoc]|[![Значок API][Azure~Functionsicon]<br/>**Функции<br/>Azure**][Azure~Functionsdoc]|[![Значок API][Boxicon]<br/>**Box**][Boxdoc]|
-|[![Значок API][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![Значок API][DB2icon]<br/>**DB2**][db2doc]|[![Значок API][Delayicon]<br/>**Задержка**][Delaydoc]|[![Значок API][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
-|[![Значок API][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![Значок API][FTPicon]<br/>**FTP**][FTPdoc]|[![Значок API][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![Значок API][Google-Driveicon]<br/>**Диск Google**][Google-Drivedoc]|
-|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][Google~Calendaricon]<br/>**Календарь<br/>Google**|[![Значок API][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![Значок API][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![Значок API][HTTP~Requesticon]<br/>**Запрос<br/>HTTP**][HTTP~Requestdoc]|[![Значок API][HTTP~Responseicon]<br/>**Ответ<br/>HTTP**][HTTP~Responsedoc]|[![Значок API][Informixicon]<br/>**Informix**][informixdoc]|
-|![Значок API][Instagramicon]<br/>**Instagram**|[![Значок API][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![Значок API][Nested~Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested~Logic-Appdoc]|
-|[![Значок API][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![Значок API][Office-365~Usersicon]<br/>**Office 365<br/>Пользователи**][Office-365~Usersdoc]|[![Значок API][Office-365~Videoicon]<br/>**Office 365<br/>Видео**][Office-365~Videodoc]|[![Значок API][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![Значок API][OneDrive-for~Businessicon]<br/>**OneDrive<br/>для бизнеса**][OneDrive-for~Businessdoc]|[![Значок API][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![Значок API][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![Значок API][Queryicon]<br/>**Запрос**][Querydoc]|
-|[![Значок API][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|[![Значок API][RSSicon]<br/>**RSS**][RSSdoc]|[![Значок API][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![Значок API][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![Значок API][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![Значок API][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![Значок API][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![Значок API][Slackicon]<br/>**Slack**][Slackdoc]|
-|[![Значок API][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Значок API][SparkPosticon]<br/>**SparkPost**|[![Значок API][SQLicon]<br/>**SQL**][SQLdoc]|[![Значок API][Translatoricon]<br/>**Translator**][Translatordoc]|
-|[![Значок API][Trelloicon]<br/>**Trello**][Trellodoc]|[![Значок API][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![Значок API][Twittericon]<br/>**Twitter**][Twitterdoc]|[![Значок API][Webhookicon]<br/>**Webhook**][Webhookdoc]|
-|[![Значок API][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![Значок API][Yammericon]<br/>**Yammer**][Yammerdoc]|![Значок API][YouTubeicon]<br/>**YouTube**||
-
-> [AZURE.NOTE] Если вы хотите опробовать приложения логики Azure, не регистрируя учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое приложение логики для кратковременного использования. Никаких кредитных карт и обязательств.
+> [!NOTE]
+> Если вы хотите опробовать приложения логики Azure, не регистрируя учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое приложение логики для кратковременного использования. Никаких кредитных карт и обязательств.
+> 
+> 
 
 ## Соединители пакета интеграции Enterprise (EIP)
 Используйте соединители EIP, чтобы создавать приложения логики для реализации сценария B2B, который включает EAI и EDI.
- 
-|Соединители EIP ||||
-|-----------|-----------|-----------|-----------|
-|[![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc]|[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc]|[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc]|
-|[![Значок API][as2icon]<br/>**Декодирование</br>AS2**][as2decode]|[![Значок API][as2icon]<br/>**Кодировка</br>AS2**][as2encode]|[![Значок API][x12icon]<br/>**Декодирование</br>X12**][x12decode]|[![Значок API][x12icon]<br/>**Кодировка</br>X12**][x12encode]|
-|[![Значок API][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode]|[![Значок API][x12icon]<br/>**Кодировка</br>EDIFACT**][EDIFACTencode]||||
+
+| Соединители EIP |  |  |  |
+| --- | --- | --- | --- |
+| [![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc] |[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc] |[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc] |[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc] |
+| [![Значок API][as2icon]<br/>**Декодирование</br>AS2**][as2decode] |[![Значок API][as2icon]<br/>**Кодировка</br>AS2**][as2encode] |[![Значок API][x12icon]<br/>**Декодирование</br>X12**][x12decode] |[![Значок API][x12icon]<br/>**Кодировка</br>X12**][x12encode] |
+| [![Значок API][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode] |[![Значок API][x12icon]<br/>**Кодировка</br>EDIFACT**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Соединители могут быть триггерами.
@@ -63,10 +64,9 @@
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 ## Дальнейшие действия
-
-- [См. статью Создание нового приложения логики, подключающего службы SaaS.](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [См. статью о создании пользовательского соединителя.](../app-service-logic/app-service-logic-create-api-app.md)
-- [См. статью Мониторинг приложений логики.](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [См. статью Создание нового приложения логики, подключающего службы SaaS.](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [См. статью о создании пользовательского соединителя.](../app-service-logic/app-service-logic-create-api-app.md)
+* [См. статью Мониторинг приложений логики.](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."

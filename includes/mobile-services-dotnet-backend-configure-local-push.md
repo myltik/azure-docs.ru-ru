@@ -2,21 +2,17 @@
 Вы можете дополнительно протестировать push-уведомления с помощью мобильных служб, запущенных на локальном компьютере или виртуальной машине перед публикацией в Azure. Для этого необходимо задать сведения о концентраторе уведомлений, который использовался приложением в файле web.config. Эти сведения используются только при локальном запуске для подключения к центру уведомлений; они игнорируются при публикации в Azure.
 
 1. Вернитесь на вкладку **Push-уведомления** мобильной службы, щелкните ссылку **Центр уведомлений**.
-
-	![](./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png)
-
-	Вы перейдете в центр уведомлений, который используется мобильной службой.
-
+   
+    ![](./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png)
+   
+    Вы перейдете в центр уведомлений, который используется мобильной службой.
 2. На странице центра уведомлений запишите имя центра уведомлений, затем щелкните кнопку **Просмотреть строку подключения**.
-
-	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-page.png)
-
+   
+    ![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-page.png)
 3. В поле **Сведения о подключении доступа** скопируйте строку подключения **DefaultFullSharedAccessSignature**.
-
-	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
-
+   
+    ![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
 4. Откройте в проекте мобильной службы Visual Studio файл Web.config службы и замените в **connectionStrings** строку подключения для **MS\_NotificationHubConnectionString** на строку подключения из предыдущего шага.
-
 5. В **appSettings** замените значение параметра приложения **MS\_NotificationHubName** на имя центра уведомлений.
 
 Теперь проект мобильной службы настроен для подключения к центру уведомлений в Azure при локальном запуске. Обратите внимание, что следует использовать то же имя центра уведомлений и ту же строку подключения, что и на портале, поскольку при запуске в Azure параметры проекта Web.config переопределяются параметрами портала.

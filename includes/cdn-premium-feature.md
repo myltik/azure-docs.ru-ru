@@ -1,1 +1,5 @@
-> [AZURE.IMPORTANT] Эта функция **Azure CDN уровня "Премиум" из Verizon**; она недоступна для продуктов **Azure CDN уровня "Стандартный"**. Сравнение возможностей CDN в статье [Обзор Azure CDN](cdn-overview.md#azure-cdn-features).
+> [!IMPORTANT]
+> Эта функция **Azure CDN уровня "Премиум" из Verizon**; она недоступна для продуктов **Azure CDN уровня "Стандартный"**. Сравнение возможностей CDN в статье [Обзор Azure CDN](../articles/cdn/cdn-overview.md#azure-cdn-features).
+> 
+> 
+

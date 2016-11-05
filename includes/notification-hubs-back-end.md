@@ -6,32 +6,29 @@
 Пропустите шаги 1-3, если создано консольное приложение при завершении раздела [Приступая к работе с концентраторами уведомлений][get-started].
 
 1. В Visual Studio создайте новое консольное приложение Visual C#: 
-
-   	![][13]
-
+   
+       ![][13]
 2. В главном меню Visual Studio выберите пункт **Сервис**, **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**, затем в окне консоли введите следующую команду и нажмите клавишу **ВВОД**:
-
+   
         Install-Package Microsoft.Azure.NotificationHubs
- 	
-	После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета Microsoft.Azure.Notification Hubs NuGet</a>.
-
+   
+    После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета Microsoft.Azure.Notification Hubs NuGet</a>.
 3. Откройте файл Program.cs и добавьте следующий оператор `using`:
-
+   
         using Microsoft.Azure.NotificationHubs;
-
 4. В класс `Program` добавьте следующий метод или замените его, если он уже существует:
-
+   
         private static async void SendNotificationAsync()
         {
-			// Define the notification hub.
-		    NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
-		
-		    // Create an array of breaking news categories.
-		    var categories = new string[] { "World", "Politics", "Business", 
-		        "Technology", "Science", "Sports"};
-		
+            // Define the notification hub.
+            NotificationHubClient hub = 
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
+   
+            // Create an array of breaking news categories.
+            var categories = new string[] { "World", "Politics", "Business", 
+                "Technology", "Science", "Sports"};
+   
             foreach (var category in categories)
             {
                 try
@@ -41,7 +38,7 @@
                         + "<text id="1">Breaking " + category + " News!" 
                         + "</text></binding></visual></toast>";         
                     await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
-
+   
                     // Define a Windows Phone toast.
                     var mpnsToast =
                         "<?xml version="1.0" encoding="utf-8"?>" +
@@ -51,12 +48,12 @@
                             "</wp:Toast> " +
                         "</wp:Notification>";         
                     await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
-
+   
                     // Define an iOS alert.
                     var alert = "{"aps":{"alert":"Breaking " + category + " News!"}}";
                     await hub.SendAppleNativeNotificationAsync(alert, category);
-
-					// Define an Android notification.
+   
+                    // Define an Android notification.
                     var notification = "{"data":{"msg":"Breaking " + category + " News!"}}";
                     await hub.SendGcmNativeNotificationAsync(notification, category);
                 }
@@ -66,18 +63,19 @@
                     // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
-		 }
-
-	Этот код отправляет уведомления по каждому из шести тегов в массиве строк для приложений Магазина Windows и устройств Windows Phone и iOS. Использование тегов гарантирует, что устройства будут получать уведомления только зарегистрированных категорий.
-	
-	> [AZURE.NOTE]Этот код сервера поддерживает клиентов Магазина Windows, Windows Phone, iOS и Android. Методы "Send" возвращают ошибочный ответ, когда центр уведомлений еще не настроен для определенной платформы клиента.
-
-6. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` на имя центра уведомлений и строку подключения для *DefaultFullSharedAccessSignature*, полученные ранее.
-
-7. Добавьте следующие строки в метод **Main**:
-
+         }
+   
+    Этот код отправляет уведомления по каждому из шести тегов в массиве строк для приложений Магазина Windows и устройств Windows Phone и iOS. Использование тегов гарантирует, что устройства будут получать уведомления только зарегистрированных категорий.
+   
+   > [!NOTE]
+   > Этот код сервера поддерживает клиентов Магазина Windows, Windows Phone, iOS и Android. Методы "Send" возвращают ошибочный ответ, когда центр уведомлений еще не настроен для определенной платформы клиента.
+   > 
+   > 
+5. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` на имя центра уведомлений и строку подключения для *DefaultFullSharedAccessSignature*, полученные ранее.
+6. Добавьте следующие строки в метод **Main**:
+   
          SendNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
 <!-- Anchors -->
 [From a console app]: #console

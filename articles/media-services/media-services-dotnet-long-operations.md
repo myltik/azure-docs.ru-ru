@@ -1,30 +1,26 @@
-<properties 
-    pageTitle="Опрос долговременных операций | Microsoft Azure" 
-    description="В этом разделе содержатся сведения об опросе долговременных операций." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Опрос долговременных операций | Microsoft Docs
+description: В этом разделе содержатся сведения об опросе долговременных операций.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="delivering-live-streaming-with-azure-media-services"></a>Доставка динамической потоковой передачи с помощью служб мультимедиа Azure
-
-##<a name="overview"></a>Обзор
-
+---
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Доставка динамической потоковой передачи с помощью служб мультимедиа Azure
+## <a name="overview"></a>Обзор
 Службы Microsoft Azure Media Services предоставляют интерфейсы API, которые отправляют запросы в службы мультимедиа на запуск операций (например, создание, запуск, остановка или удаление канала). Эти операции являются долговременными.
 
-Пакет SDK .NET служб мультимедиа предоставляет интерфейсы API, которые отправляют запрос и ожидают завершения операции (на внутреннем уровне API выполняют опрос о ходе операции через определенные промежутки времени). Например, при вызове channel.Start() метод возвращается после запуска канала. Кроме того, вы можете использовать асинхронную версию: await channel.StartAsync() (сведения об асинхронном шаблоне на основе задач см. в статье [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx)). API, которые отправляют запрос на операцию, а затем запрашивают состояние до завершения операции, называются методами опроса. Такие методы (особенно асинхронная версия) рекомендуются для полнофункциональных клиентских приложений и (или) служб с отслеживанием состояния.
+Пакет SDK .NET служб мультимедиа предоставляет интерфейсы API, которые отправляют запрос и ожидают завершения операции (на внутреннем уровне API выполняют опрос о ходе операции через определенные промежутки времени). Например, при вызове channel.Start() метод возвращается после запуска канала. Кроме того, вы можете использовать асинхронную версию: await channel.StartAsync() (сведения об асинхронном шаблоне на основе задач см. в статье [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API, которые отправляют запрос на операцию, а затем запрашивают состояние до завершения операции, называются методами опроса. Такие методы (особенно асинхронная версия) рекомендуются для полнофункциональных клиентских приложений и (или) служб с отслеживанием состояния.
 
 Существуют сценарии, когда приложение не может ждать долговременного HTTP-запроса и хочет запросить ход выполнения операции вручную. Типичным примером может служить браузер, взаимодействующий со службой без учета состояния: когда браузер запрашивает создание канала, веб-служба инициирует долговременную операцию и возвращает идентификатор операции в браузер. Затем браузер может запросить в веб-службе состояние операции на основе идентификатора Пакет SDK .NET служб мультимедиа предоставляет интерфейсы API, полезные для этого сценария. Пакет SDK .NET служб мультимедиа предоставляет интерфейсы API, полезные для этого сценария. Такие API называются неопросными методами.
 "Неопросные методы" именуются по такому шаблону: Send*имя_операции*Operation (например, SendCreateOperation). Методы Send*имя_операции*Operation возвращают объект **IOperation**. Полученный объект содержит сведения, которые можно использовать для отслеживания операции. Методы Send*имя_операции*OperationAsync возвращают **Task<IOperation>**.
@@ -33,15 +29,12 @@
 
 Чтобы опросить состояние операции, используйте метод **GetOperation** в классе **OperationBaseCollection**. Для проверки состояния операции используйте такие интервалы: для операций **Channel** и **StreamingEndpoint** — 30 секунд, для операций **Program** — 10 секунд.
 
-
-##<a name="example"></a>Пример
-
+## <a name="example"></a>Пример
 Пример ниже определяет класс, который называется **ChannelOperations**. Это определение класса может быть стартовой точкой для определения класса веб-службы. Для простоты в примерах ниже используются синхронные версии методов.
 
 В примере также показано, как клиент может использовать этот класс.
 
-###<a name="channeloperations-class-definition"></a>Определение класса ChannelOperations
-
+### <a name="channeloperations-class-definition"></a>Определение класса ChannelOperations
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -53,18 +46,18 @@
             ConfigurationManager.AppSettings["MediaServicesAccountName"];
         private static readonly string _mediaServicesAccountKey =
             ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-    
+
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-    
+
         public ChannelOperations()
         {
                 _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
                     _mediaServicesAccountKey);
-    
+
                 _context = new CloudMediaContext(_cachedCredentials);    }
-    
+
         /// <summary>  
         /// Initiates the creation of a new channel.  
         /// </summary>  
@@ -83,10 +76,10 @@
                     Preview = CreateChannelPreview(),
                     Output = CreateChannelOutput()
                 });
-    
+
             return operation.Id;
         }
-    
+
         /// <summary> 
         /// Checks if the operation has been completed. 
         /// If the operation succeeded, the created channel Id is returned in the out parameter.
@@ -100,9 +93,9 @@
         {
             IOperation operation = _context.Operations.GetOperation(operationId);
             bool completed = false;
-    
+
             channelId = null;
-    
+
             switch (operation.State)
             {
                 case OperationState.Failed:
@@ -120,8 +113,8 @@
             }
             return completed;
         }
-    
-    
+
+
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -141,7 +134,7 @@
                 }
             };
         }
-    
+
         private static ChannelPreview CreateChannelPreview()
         {
             return new ChannelPreview
@@ -160,7 +153,7 @@
                 }
             };
         }
-    
+
         private static ChannelOutput CreateChannelOutput()
         {
             return new ChannelOutput
@@ -170,34 +163,29 @@
         }
     }
 
-###<a name="the-client-code"></a>Код клиента
-
+### <a name="the-client-code"></a>Код клиента
     ChannelOperations channelOperations = new ChannelOperations();
     string opId = channelOperations.StartChannelCreation("MyChannel001");
-    
+
     string channelId = null;
     bool isCompleted = false;
-    
+
     while (isCompleted == false)
     {
         System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
         isCompleted = channelOperations.IsCompleted(opId, out channelId);
     }
-    
+
     // If we got here, we should have the newly created channel id.
     Console.WriteLine(channelId);
- 
 
 
-##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Отзывы
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Отзывы
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,47 +1,47 @@
-<properties
-	pageTitle="Добавление push-уведомлений в приложение (iOS) | Серверная часть JavaScript"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: Добавление push-уведомлений в приложение (iOS) | Microsoft Docs
+description: Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Добавление push-уведомлений в приложение iOS и серверную часть JavaScript
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> 
+> 
 
 В этой статье показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
 
-> [AZURE.NOTE] [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
+> [!NOTE]
+> [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
+> 
+> 
 
-[AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
-
+[!INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>Настройка Azure для отправки push-уведомлений
-
-[AZURE.INCLUDE [Настройка push-уведомлений в мобильных службах Azure](../../includes/mobile-services-apns-configure-push.md)]
+[!INCLUDE [Настройка push-уведомлений в мобильных службах Azure](../../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>Обновление сценария серверной части для отправки push-уведомлений
-
 * На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните **TodoItem**. В **TodoItem** перейдите на вкладку **Сценарий** и выберите **Вставить**. При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
-
 * Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**. При этом регистрируется новый скрипт вставки, в котором используется [объект apns] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки. Этот сценарий задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения push-уведомления.
-
 
 ```
         function insert(item, user, request) {
@@ -59,10 +59,9 @@
         }
 ```
 
-[AZURE.INCLUDE [Добавление push-уведомлений в приложение](../../includes/add-push-notifications-to-app.md)]
+[!INCLUDE [Добавление push-уведомлений в приложение](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [Тестирование push-уведомлений в приложении](../../includes/test-push-notifications-in-app.md)]
-
+[!INCLUDE [Тестирование push-уведомлений в приложении](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors. -->
 

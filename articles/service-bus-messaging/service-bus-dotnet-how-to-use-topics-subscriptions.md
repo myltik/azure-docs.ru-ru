@@ -1,58 +1,52 @@
-<properties
-    pageTitle="Использование разделов служебной шины с .NET | Microsoft Azure"
-    description="Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Использование разделов служебной шины с .NET | Microsoft Docs
+description: Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article"
-    ms.date="09/16/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: get-started-article
+ms.date: 09/16/2016
+ms.author: sethm
 
-
+---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Как использовать разделы и подписки служебной шины
-
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 В этой статье описывается использование разделов и подписок служебной шины. Примеры написаны на языке C# и используют интерфейсы API .NET. В этой статье описаны такие сценарии, как создание разделов и подписок, создание фильтров подписок, отправка сообщений в раздел, получение сообщений из подписки и удаление разделов и подписок. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="configure-the-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
-
 При создании приложения, использующего служебную шину, необходимо добавить ссылку на сборку шины обслуживания и указать соответствующие пространства имен. Самый простой способ это сделать — скачать соответствующий пакет [NuGet](https://www.nuget.org).
 
 ## <a name="get-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
-
 [Пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить API служебной шины и настроить свое приложение с учетом всех необходимых зависимостей служебной шины. Для установки пакета NuGet служебной шины в проекте выполните следующие действия:
 
-1.  В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Управление пакетами NuGet**.
-2.  Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure** . Нажмите кнопку **Установить**, чтобы выполнить установку, а затем закройте следующее диалоговое окно.
-
-    ![][7]
+1. В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Управление пакетами NuGet**.
+2. Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure** . Нажмите кнопку **Установить**, чтобы выполнить установку, а затем закройте следующее диалоговое окно.
+   
+   ![][7]
 
 Теперь все готово к написанию кода для служебной шины.
 
 ## <a name="create-a-service-bus-connection-string"></a>Создание строки подключения для служебной шины
-
 Служебная шина использует строку подключения для хранения учетных данных и конечных точек. Строку подключения можно разместить в файле конфигурации, не задавая ее жестко в коде:
 
-- При использовании служб Azure рекомендуется хранить строку подключения с помощью системы конфигурации службы Azure (файлы CSDEF и CSCFG).
-- При использовании веб-сайтов Azure или виртуальных машин Azure рекомендуется сохранять строки подключения с помощью системы конфигурации .NET (например, в файле Web.config).
+* При использовании служб Azure рекомендуется хранить строку подключения с помощью системы конфигурации службы Azure (файлы CSDEF и CSCFG).
+* При использовании веб-сайтов Azure или виртуальных машин Azure рекомендуется сохранять строки подключения с помощью системы конфигурации .NET (например, в файле Web.config).
 
 В обоих случаях строку подключения можно получить с помощью метода `CloudConfigurationManager.GetSetting`, как показано далее в этой статье.
 
 ### <a name="configure-your-connection-string"></a>Настройка строки подключения
-
 Механизм настройки службы позволяет динамически изменять параметры конфигурации на [портале Azure][], не развертывая приложение повторно. Например, добавьте метку `Setting` в файл определения службы (**CSDEF-файл**), как показано в примере ниже.
 
 ```
@@ -85,7 +79,6 @@
 Используйте имя и значения ключа подписанного URL-адреса (SAS), полученные на портале Azure, как описано ранее.
 
 ### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>Настройка строки подключения при использовании веб-сайтов Azure или виртуальных машин Azure
-
 При использовании веб-сайтов или виртуальных машин рекомендуется использовать систему конфигурации .NET (например, Web.config). Строка подключения сохраняется с помощью элемента `<appSettings>`.
 
 ```
@@ -100,7 +93,6 @@
 Используйте имя и значения ключа SAS, полученные на [портале Azure][], как описано выше.
 
 ## <a name="create-a-topic"></a>Создание раздела
-
 Операции управления для разделов и подписок служебной шины можно выполнять, используя класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс предоставляет методы для создания, перечисления и удаления разделов.
 
 В этом примере объект `NamespaceManager` создается с помощью класса Azure `CloudConfigurationManager` со строкой подключения, состоящей из базового адреса пространства имен служебной шины и учетных данных SAS с соответствующими правами на управление. Эта строка подключения имеет следующий вид:
@@ -146,16 +138,20 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE] Примечание. Метод [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) можно использовать для объектов [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), чтобы проверить, существует ли раздел с указанным именем в пространстве имен.
+> [!NOTE]
+> Примечание. Метод [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) можно использовать для объектов [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), чтобы проверить, существует ли раздел с указанным именем в пространстве имен.
+> 
+> 
 
 ## <a name="create-a-subscription"></a>Создание подписки
-
 Подписки раздела можно также создавать с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
-> [AZURE.IMPORTANT] Чтобы в подписку поступали сообщения, создайте ее, прежде чем отправлять какие-либо сообщения в раздел. В противном случае раздел будет отклонять сообщения.
+> [!IMPORTANT]
+> Чтобы в подписку поступали сообщения, создайте ее, прежде чем отправлять какие-либо сообщения в раздел. В противном случае раздел будет отклонять сообщения.
+> 
+> 
 
 ### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
-
 Если при создании новой подписки не указан фильтр, то по умолчанию используется фильтр **MatchAll**. Если используется фильтр **MatchAll**, все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
 
 ```
@@ -172,12 +168,11 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Создание подписок с фильтрами
-
 Кроме того, можно настраивать фильтры, позволяющие определять, какие посылаемые в раздел сообщения должны появляться в рамках конкретной подписки.
 
-Самый гибкий тип фильтра, который поддерживается подписками, — это класс [SqlFilter][], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][].
+Самый гибкий тип фильтра, который поддерживается подписками, — это класс [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-В следующем примере создается подписка с именем **HighMessages**, содержащая объект [SqlFilter][]. Этот объект выбирает только сообщения со значением настраиваемого свойства **MessageNumber** больше 3.
+В следующем примере создается подписка с именем **HighMessages**, содержащая объект [SqlFilter][SqlFilter]. Этот объект выбирает только сообщения со значением настраиваемого свойства **MessageNumber** больше 3.
 
 ```
 // Create a "HighMessages" filtered subscription.
@@ -189,7 +184,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][], который выбирает только сообщения со значением свойства **MessageNumber** меньше или равно 3.
+Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][SqlFilter], который выбирает только сообщения со значением свойства **MessageNumber** меньше или равно 3.
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -204,7 +199,6 @@ namespaceManager.CreateSubscription("TestTopic",
 Теперь, когда в раздел `TestTopic` отправляется сообщение, оно будет всегда доставляться получателям, подписанным на раздел **AllMessages**, и выборочно доставляться получателям, подписанным на разделы **HighMessages** и **LowMessages** в зависимости от содержания сообщения.
 
 ## <a name="send-messages-to-a-topic"></a>Отправка сообщений в раздел
-
 Чтобы отправить сообщение в раздел служебной шины, приложение создает объект [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) с помощью строки подключения.
 
 В примере кода ниже показано, как создать объект [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) для раздела **TestTopic**, созданного ранее с помощью вызова API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx).
@@ -240,7 +234,6 @@ for (int i=0; i<5; i++)
 Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня "Премиум"](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные очереди и разделы](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Как получать сообщения из подписки
-
 Чтобы получить сообщения из подписки, можно использовать объект [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Объекты [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) могут работать в двух режимах —[*ReceiveAndDelete* и *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 В режиме **ReceiveAndDelete** получение — это одиночная операция. Когда служебная шина получает запрос на чтение для сообщения в подписке, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель, которая лучше всего работает в ситуациях, когда приложение может не обрабатывать сообщение при сбое. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Так как служебная шина отметит сообщение как использованное, перезапущенное приложение, начав снова использовать сообщения, пропустит сообщение, использованное до аварийного завершения работы.
@@ -287,7 +280,6 @@ Client.OnMessage((message) =>
 В этом примере обратный вызов [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) настраивается с помощью объекта [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Для [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) устанавливается значение **False**. Это позволяет включить ручное управление вызовом метода [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) для полученного сообщения. Для параметра [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) устанавливается значение 1 минута. Клиент ожидает сообщение в течение одной минуты, после чего действие функции автоматического продления завершается и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Как обрабатывать сбои приложения и нечитаемые сообщения
-
 служебная шина предоставляет функции, помогающие корректно выполнить восстановление после ошибок в приложении или трудностей, возникших при обработке сообщения. Если принимающее приложение по каким-то причинам не может обработать полученное сообщение, оно вызывает метод [Abandon](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) (а не метод [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). После этого служебная шина разблокирует сообщение в подписке и снова сделает его доступным для получения тем же или другим приложением.
 
 Кроме того, с сообщением, заблокированным в подписке, связано время ожидания. Если приложение не может обработать сообщение в течение времени ожидания с блокировкой (например, при сбое приложения), служебная шина разблокирует сообщение автоматически и сделает его доступным для приема.
@@ -295,7 +287,6 @@ Client.OnMessage((message) =>
 Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), это сообщение повторно доставляется в приложение после его перезапуска. Часто такой подход называют *Обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может доставляться повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) сообщения, которое остается постоянным в ходе разных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
-
 В примере ниже показано, как удалить раздел с именем **TestTopic** из пространства имен службы **HowToSample**.
 
 ```
@@ -310,25 +301,24 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Вы узнали основные сведения о разделах и подписках служебной шины. Дополнительные сведения см. в следующих источниках.
 
--   [Очереди, разделы и подписки][]
--   [Пример фильтров раздела][]
--   Справочник API для [SqlFilter][].
--   Дополнительные сведения о создании работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее, см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине][].
--   Примеры служебной шины: скачайте со страницы [примеров Azure][] или [просмотрите обзор](service-bus-samples.md).
+* [Очереди, разделы и подписки][Очереди, разделы и подписки]
+* [Пример фильтров раздела][Пример фильтров раздела]
+* Справочник API для [SqlFilter][SqlFilter].
+* Дополнительные сведения о создании работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее, см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине][Учебное пособие по обмену сообщениями .NET через посредника в служебной шине].
+* Примеры служебной шины: скачайте со страницы [примеров Azure][] или [просмотрите обзор](../service-bus/service-bus-samples.md).
 
-  [портал Azure]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com
 
-  [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+[7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
-  [Пример фильтров раздела]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине]: service-bus-brokered-tutorial-dotnet.md
-  [Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
+[Пример фильтров раздела]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
+[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Учебное пособие по обмену сообщениями .NET через посредника в служебной шине]: service-bus-brokered-tutorial-dotnet.md
+[Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 

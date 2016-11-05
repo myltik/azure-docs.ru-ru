@@ -1,36 +1,35 @@
-<properties
- pageTitle="Рекомендации по обеспечению безопасности IoT | Microsoft Azure"
- description="Рекомендации по обеспечению безопасности инфраструктуры IoT"
- services="iot-hub"
- documentationCenter=""
- authors="YuriDio"
- manager="timlt"
- editor=""/>
+---
+title: Рекомендации по обеспечению безопасности IoT | Microsoft Docs
+description: Рекомендации по обеспечению безопасности инфраструктуры IoT
+services: iot-hub
+documentationcenter: ''
+author: YuriDio
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/02/2016"
- ms.author="yurid"/>
- 
-[AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/02/2016
+ms.author: yurid
+
+---
+[!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## Дальнейшие действия
-
 Дополнительные сведения о безопасности решения IoT см.:
 
-- [Архитектура безопасности IoT][lnk-security-architecture]
-- [Защита развертывания IoT][lnk-security-deployment]
+* [Архитектура безопасности IoT][lnk-security-architecture]
+* [Защита развертывания IoT][lnk-security-deployment]
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- [Разработка решения][lnk-design]
-- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-- [Управление центрами IoT через портал Azure][lnk-portal]
+* [Разработка решения][lnk-design]
+* [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Управление центрами IoT через портал Azure][lnk-portal]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md

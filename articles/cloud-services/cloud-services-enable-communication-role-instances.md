@@ -1,24 +1,23 @@
-<properties 
-pageTitle="Обмен данными между ролями в облачных службах | Microsoft Azure" 
-description="Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей." 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="09/06/2016" 
-ms.author="adegeo"/>
+---
+title: Обмен данными между ролями в облачных службах | Microsoft Docs
+description: Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей.
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
+
+---
 # Включение обмена данными между экземплярами роли в Azure
-
 Ролей облачной службы взаимодействуют через внутренние и внешние подключения. Внешние подключения называются **входными конечными точками**, а внутренние подключения — **внутренними конечными точками**. В этом разделе описывается изменение [определения службы](cloud-services-model-and-package.md#csdef) для создания конечных точек.
-
 
 ## Входная конечная точка
 Входная конечная точка используется, когда необходимо предоставить порт вовне. Необходимо указать тип протокола и порт конечной точки, которые затем применяются для внешнего и внутреннего портов конечной точки. Если требуется, для конечной точки можно указать другой внутренний порт с помощью атрибута [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
@@ -75,9 +74,7 @@ ms.author="adegeo"/>
 
 
 ## Рабочие роли и Веб-роли
-
 При работе с веб-ролями и рабочими ролями существует одно незначительное отличие, связанное с конечными точками. У веб-роли должна быть как минимум одна выходная конечная точка, использующая протокол **HTTP**.
-
 
 ```xml
 <Endpoints>
@@ -89,7 +86,10 @@ ms.author="adegeo"/>
 ## Использование пакета SDK для .NET для доступа к конечной точке
 Управляемая библиотека Azure предоставляет методы для обмена данными между экземплярами роли во время выполнения. Из кода, выполняемого в экземпляре роли, можно получить информацию о существовании других экземпляров роли и их конечных точек, а также сведения о текущем экземпляре роли.
 
-> [AZURE.NOTE] Можно получать сведения только о тех экземплярах, которые запущены в облачной службе и для которых определена по крайней мере одна внутренняя конечная точка. Нельзя получить данные об экземплярах роли, запущенных в другой службе.
+> [!NOTE]
+> Можно получать сведения только о тех экземплярах, которые запущены в облачной службе и для которых определена по крайней мере одна внутренняя конечная точка. Нельзя получить данные об экземплярах роли, запущенных в другой службе.
+> 
+> 
 
 Для получения экземпляров роли можно использовать свойство [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx). Сначала используйте [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx), чтобы вернуть ссылку на текущий экземпляр роли, затем используйте свойство [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx), чтобы вернуть ссылку на саму роль.
 
@@ -101,7 +101,10 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 Свойство **Instances** возвращает коллекцию объектов **RoleInstance**. Эта коллекция всегда содержит текущий экземпляр. Если роль не определяет внутреннюю конечную точку, коллекция содержит текущий экземпляр, но не содержит других экземпляров. Число экземпляров роли в коллекции всегда будет равно 1, когда для роли не определена внутренняя конечная точка. Если роль определяет внутреннюю конечную точку, ее экземпляры можно обнаружить во время выполнения, и число экземпляров в коллекции будет соответствовать числу экземпляров, указанных для роли в файле конфигурации службы.
 
-> [AZURE.NOTE] Управляемая библиотека Azure не предоставляет средства определения работоспособности других экземпляров роли, но вы можете реализовать такие оценки работоспособности самостоятельно, если службе нужна подобная функциональность. Можно использовать [систему диагностики Azure](cloud-services-dotnet-diagnostics.md) для получения информации о выполняемых экземплярах роли.
+> [!NOTE]
+> Управляемая библиотека Azure не предоставляет средства определения работоспособности других экземпляров роли, но вы можете реализовать такие оценки работоспособности самостоятельно, если службе нужна подобная функциональность. Можно использовать [систему диагностики Azure](cloud-services-dotnet-diagnostics.md) для получения информации о выполняемых экземплярах роли.
+> 
+> 
 
 Чтобы определить номер порта внутренней конечной точки экземпляра роли, можно использовать свойство [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx), чтобы вернуть объект Dictionary, содержащий имена конечных точек и их IP-адреса и порты. Свойство [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) возвращает IP-адрес и порт указанной конечной точкой. Свойство **PublicIPEndpoint** возвращает порт для конечной точки с балансировкой нагрузки. Часть IP-адреса в свойстве **PublicIPEndpoint** не используется.
 
@@ -120,7 +123,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 
 Ниже приведен пример рабочей роли, которая получает конечную точку, предоставляемую через определение службы, и начинает прослушивание подключений.
 
-> [AZURE.WARNING] Этот код будет работать только для развернутой службы. При выполнении в эмуляторе вычислений Azure элементы конфигурации службы, создающие конечные точки прямых портов (элементы **InstanceInputEndpoint**), игнорируются.
+> [!WARNING]
+> Этот код будет работать только для развернутой службы. При выполнении в эмуляторе вычислений Azure элементы конфигурации службы, создающие конечные точки прямых портов (элементы **InstanceInputEndpoint**), игнорируются.
+> 
+> 
 
 ```csharp
 using System;
@@ -145,18 +151,18 @@ namespace WorkerRole1
         // Initialize method-wide variables
         var epName = "Endpoint1";
         var roleInstance = RoleEnvironment.CurrentRoleInstance;
-        
+
         // Identify direct communication port
         var myPublicEp = roleInstance.InstanceEndpoints[epName].PublicIPEndpoint;
         Trace.TraceInformation("IP:{0}, Port:{1}", myPublicEp.Address, myPublicEp.Port);
 
         // Identify public endpoint
         var myInternalEp = roleInstance.InstanceEndpoints[epName].IPEndpoint;
-                
+
         // Create socket listener
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
+
         // Bind socket listener to internal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
@@ -242,7 +248,10 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] Обмен данными между ролями с внутренним конечными точками с фиксированными и автоматически назначенными портами может быть ограничен.
+> [!NOTE]
+> Обмен данными между ролями с внутренним конечными точками с фиксированными и автоматически назначенными портами может быть ограничен.
+> 
+> 
 
 По умолчанию после определения внутренней конечной точки данные могут передаваться из одной роли во внутреннюю конечную точку другой роли без каких-либо ограничений. Чтобы ограничить обмен данными, необходимо добавить элемент **NetworkTrafficRules** в элемент **ServiceDefinition** в файле определения службы.
 

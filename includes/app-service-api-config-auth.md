@@ -1,13 +1,11 @@
 1. Перейдите в колонку **Приложение API** для приложения API, которое необходимо защитить.
-
 2. В колонке **Приложение API** щелкните пункт **Параметры**, а затем выберите пункт **Параметры приложения**.
-
-	![Щелкните «Параметры»](./media/app-service-api-config-auth/clicksettings.png)
-
-	![Щелкните «Параметры приложения»](./media/app-service-api-config-auth/clickbasicsettings.png)
-
+   
+    ![Щелкните «Параметры»](./media/app-service-api-config-auth/clicksettings.png)
+   
+    ![Щелкните «Параметры приложения»](./media/app-service-api-config-auth/clickbasicsettings.png)
 3. В колонке **Параметры приложения** измените **уровень доступа** на **Общедоступный (с проверкой подлинности)**, а затем нажмите кнопку **Сохранить**.
-
-	![Щелкните «Основные параметры»](./media/app-service-api-config-auth/setpublicauth.png)
+   
+    ![Щелкните «Основные параметры»](./media/app-service-api-config-auth/setpublicauth.png)
 
 <!---HONumber=Oct15_HO3-->

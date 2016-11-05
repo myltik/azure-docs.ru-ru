@@ -1,16 +1,14 @@
 
 1. Нажмите клавишу F5 для повторного построения проекта, после чего запустите приложение Магазина Windows.
-
 2. В приложении введите содержательный текст, например *Работа с учебником*, в поле **Вставить в TodoItem**, затем щелкните **Сохранить**.
-
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
-
-	Отправляет запрос POST в новую мобильную службу, размещенную в Azure.
-
+   
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
+   
+    Отправляет запрос POST в новую мобильную службу, размещенную в Azure.
 3. Остановите отладку и измените запускаемый по умолчанию проект в универсальном решении Windows на приложение Магазина Windows Phone, после чего нажмите клавишу F5 еще раз.
-
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
-	
-	Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из мобильной службы после запуска приложения.
+   
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
+   
+    Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из мобильной службы после запуска приложения.
 
 <!---HONumber=Oct15_HO3-->

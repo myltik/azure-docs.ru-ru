@@ -1,8 +1,8 @@
-| | **Классическое развертывание** | **Развертывание диспетчера ресурсов** |
-|----------------------------------------|--------------|----------------------|
-| **Классический портал** |[Статья*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | Не поддерживается |
-| **Портал Azure** | Поддерживается** | [Статья](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell** |[Статья+](..articles/vpn-gateway/vpn-gateway-multi-site.md) | [Статья](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+|  | **Классическое развертывание** | **Развертывание диспетчера ресурсов** |
+| --- | --- | --- |
+| **Классический портал** |[Статья*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |Не поддерживается |
+| **Портал Azure** |Поддерживается** |[Статья](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |
+| **PowerShell** |[Статья+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |[Статья](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
 
 "*" означает, что классический портал поддерживает только одно VPN-подключение типа "сеть — сеть".
 

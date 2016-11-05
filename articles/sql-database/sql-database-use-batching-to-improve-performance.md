@@ -1,24 +1,22 @@
- <properties
-	pageTitle="Повышение производительности приложений базы данных SQL Azure с помощью пакетной обработки"
-	description="В разделе предоставлены доказательства того, что пакетная обработка операций базы данных существенно повышает быстродействие и масштабируемость приложений базы данных SQL Azure. Несмотря на то, что эти методы пакетной обработки применимы для любой базы данных SQL Server, основное внимание здесь уделяется базе данных SQL Azure."
-	services="sql-database"
-	documentationCenter="na"
-	authors="annemill"
-	manager="jhubbard"
-	editor="" />
+---
+title: Повышение производительности приложений базы данных SQL Azure с помощью пакетной обработки
+description: В разделе предоставлены доказательства того, что пакетная обработка операций базы данных существенно повышает быстродействие и масштабируемость приложений базы данных SQL Azure. Несмотря на то, что эти методы пакетной обработки применимы для любой базы данных SQL Server, основное внимание здесь уделяется базе данных SQL Azure.
+services: sql-database
+documentationcenter: na
+author: annemill
+manager: jhubbard
+editor: ''
 
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 07/12/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="07/12/2016"
-	ms.author="annemill" />
-
+---
 # Как повысить производительность приложений базы данных SQL с помощью пакетной обработки
-
 Пакетная обработка операций базы данных SQL значительно повышает производительность и масштабируемость приложений. В рамках объяснений преимуществ в первой части этой статьи рассматриваются некоторые примеры результатов проверки, в которых сравниваются последовательные и пакетные запросы к базе данных SQL. В оставшейся части статьи описаны методы, сценарии и рекомендации, позволяющие успешно использовать пакетную обработку в приложениях Azure.
 
 **Авторы**: Джейсон Рот (Jason Roth), Силвано Кориани (Silvano Coriani), Трент Свонсон (Trent Swanson) (Full Scale 180 Inc).
@@ -30,60 +28,62 @@
 
 В этой статье мы опишем различные стратегии и сценарии пакетной обработки базы данных SQL. Хотя эти стратегии также важны для локальных приложений, использующих SQL Server, есть несколько причин уделить внимание использованию пакетной обработки базы данных SQL:
 
-- Потенциально большая задержка в сети при обращении к базе данных SQL, особенно при доступе к базе данных SQL за пределами одного центра обработки данных Microsoft Azure.
-- Мультитенантный характер базы данных SQL означает, что эффективность уровня доступа к данным взаимосвязана с общей масштабируемостью базы данных. База данных SQL должна предотвращать монопольный доступ одного клиента или пользователя к ресурсам базы данных в ущерб другим клиентам. В ответ на использование ресурсов сверх предопределенных квот в базе данных SQL может уменьшаться пропускная способность или возникать исключения регулирования. Эффективные методы, такие как пакетная обработка, позволяют выполнять большие объемы работы в базе данных SQL до достижения этих ограничений.
-- Пакетная обработка также эффективна для архитектур, использующих несколько баз данных (сегментирование). Эффективность каждого обращения к единице базы данных остается главным условием общей масштабируемости.
+* Потенциально большая задержка в сети при обращении к базе данных SQL, особенно при доступе к базе данных SQL за пределами одного центра обработки данных Microsoft Azure.
+* Мультитенантный характер базы данных SQL означает, что эффективность уровня доступа к данным взаимосвязана с общей масштабируемостью базы данных. База данных SQL должна предотвращать монопольный доступ одного клиента или пользователя к ресурсам базы данных в ущерб другим клиентам. В ответ на использование ресурсов сверх предопределенных квот в базе данных SQL может уменьшаться пропускная способность или возникать исключения регулирования. Эффективные методы, такие как пакетная обработка, позволяют выполнять большие объемы работы в базе данных SQL до достижения этих ограничений.
+* Пакетная обработка также эффективна для архитектур, использующих несколько баз данных (сегментирование). Эффективность каждого обращения к единице базы данных остается главным условием общей масштабируемости.
 
 Одно из преимуществ использования базы данных SQL заключается в том, что вам не нужно управлять серверами, на которых размещены базы данных. Однако эта управляемая инфраструктура также означает, что необходимо будет по-другому продумывать оптимизацию баз данных. Придется отказаться от планов по улучшению оборудования для баз данных или сетевой инфраструктуры. Этими средами управляет Microsoft Azure. Основная область, которую можно контролировать, — взаимодействие приложения с базой данных SQL. Пакетная обработка выступает одним из методов такой оптимизации.
 
 В первой части документа рассматриваются различные методы пакетной обработки для приложений .NET, использующих базу данных SQL. В последних двух разделах приведены рекомендации по пакетной обработке и связанные с ней сценарии.
 
 ## Стратегии пакетной обработки
-
 ### Примечание о результатах измерения времени в этом разделе
->[AZURE.NOTE] Результаты не являются измерениями производительности. Они позволяют узнать **относительную производительность**. Временные показатели основаны на среднем значении результата выполнения минимум 10 тестов. Операции представляют собой вставки в пустую таблицу. Эти тесты проведены до выпуска версии 12, и их показатели не обязательно соответствуют пропускной способности базы данных версии 12, получаемой при использовании новых [уровней служб](sql-database-service-tiers.md). Относительное преимущество использования метода пакетной обработки должно быть сходным.
+> [!NOTE]
+> Результаты не являются измерениями производительности. Они позволяют узнать **относительную производительность**. Временные показатели основаны на среднем значении результата выполнения минимум 10 тестов. Операции представляют собой вставки в пустую таблицу. Эти тесты проведены до выпуска версии 12, и их показатели не обязательно соответствуют пропускной способности базы данных версии 12, получаемой при использовании новых [уровней служб](sql-database-service-tiers.md). Относительное преимущество использования метода пакетной обработки должно быть сходным.
+> 
+> 
 
 ### Транзакции
 Может показаться странным начинать рассмотрение пакетной обработки с обсуждения транзакций. Однако использование клиентских транзакций имеет некоторый эффект серверной пакетной обработки, который улучшает производительность. Кроме того, транзакции можно добавлять с помощью всего нескольких строк кода. Поэтому они представляют собой быстрый способ повышения производительности последовательных операций.
 
 Рассмотрим следующий код на языке C#, содержащий последовательность из операций вставки и обновления для простой таблицы.
 
-	List<string> dbOperations = new List<string>();
-	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
-	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
-	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
-	dbOperations.Add("insert MyTable values ('new value',1)");
-	dbOperations.Add("insert MyTable values ('new value',2)");
-	dbOperations.Add("insert MyTable values ('new value',3)");
+    List<string> dbOperations = new List<string>();
+    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
+    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
+    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
+    dbOperations.Add("insert MyTable values ('new value',1)");
+    dbOperations.Add("insert MyTable values ('new value',2)");
+    dbOperations.Add("insert MyTable values ('new value',3)");
 
 Следующий фрагмент кода ADO.NET последовательно выполняет эти операции.
 
-	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	{
-	    conn.Open();
-	
-	    foreach(string commandString in dbOperations)
-	    {
-	        SqlCommand cmd = new SqlCommand(commandString, conn);
-	        cmd.ExecuteNonQuery();                   
-	    }
-	}
+    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+    {
+        conn.Open();
+
+        foreach(string commandString in dbOperations)
+        {
+            SqlCommand cmd = new SqlCommand(commandString, conn);
+            cmd.ExecuteNonQuery();                   
+        }
+    }
 
 Лучший способ оптимизации этого кода — реализовывать какую-либо форму клиентской пакетной обработки этих вызовов. Однако есть простой способ повышения производительности этого кода — просто поместить последовательность вызовов в одну транзакцию. Ниже приведен тот же код с использованием транзакции.
 
-	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	{
-	    conn.Open();
-	    SqlTransaction transaction = conn.BeginTransaction();
-	
-	    foreach (string commandString in dbOperations)
-	    {
-	        SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
-	        cmd.ExecuteNonQuery();
-	    }
-	
-	    transaction.Commit();
-	}
+    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+    {
+        conn.Open();
+        SqlTransaction transaction = conn.BeginTransaction();
+
+        foreach (string commandString in dbOperations)
+        {
+            SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
+            cmd.ExecuteNonQuery();
+        }
+
+        transaction.Commit();
+    }
 
 На самом деле, транзакции используются в обоих этих примерах. В первом примере каждый отдельный вызов — это неявная транзакция. Во втором примере в явную транзакцию включены все вызовы. Согласно документации по [журналу транзакций с упреждающей записью](https://msdn.microsoft.com/library/ms186259.aspx), записи журнала записываются на диск при фиксации транзакции. Таким образом, включая больше вызовов в транзакцию, можно отложить запись в журнал транзакций до момента фиксации транзакции. В действительности реализуется пакетная обработка записей в журнал транзакций сервера.
 
@@ -92,23 +92,25 @@
 **Из локальной среды в Azure**:
 
 | Операции | Без транзакций (мс) | С транзакциями (мс) |
-|---|---|---|
-| 1 | 130 | 402 |
-| 10 | 1208 | 1226 |
-| 100 | 12 662 | 10 395 |
-| 1000 | 128 852 | 102 917 |
-
+| --- | --- | --- |
+| 1 |130 |402 |
+| 10 |1208 |1226 |
+| 100 |12 662 |10 395 |
+| 1000 |128 852 |102 917 |
 
 **Между средами в Azure (один центр обработки данных)**:
 
 | Операции | Без транзакций (мс) | С транзакциями (мс) |
-|---|---|---|
-| 1 | 21 | 26 |
-| 10 | 220 | 56 |
-| 100 | 2145 | 341 |
-| 1000 | 21 479 | 2756 |
+| --- | --- | --- |
+| 1 |21 |26 |
+| 10 |220 |56 |
+| 100 |2145 |341 |
+| 1000 |21 479 |2756 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 Исходя из результатов предыдущего теста, помещение одной операции в транзакцию на самом деле снижает производительность. Однако по мере увеличения количества операций в рамках одной транзакции повышение производительности становится более заметным. Разница в производительности также более заметна, если все операции выполняются в центре обработки данных Microsoft Azure. Повышенная задержка при использовании базы данных SQL за пределами центра обработки данных Microsoft Azure отодвигает на второй план увеличение производительности при использовании транзакций.
 
@@ -121,73 +123,76 @@
 ### Параметры, которые возвращают табличное значение
 Параметры, которые возвращают табличное значение, поддерживают определяемые пользователем типы таблиц в качестве параметров в инструкциях, хранимых процедурах и функциях Transact-SQL. Этот метод клиентской пакетной обработки позволяет отправить несколько строк данных в рамках параметра, который возвращает табличное значение . Чтобы использовать такие параметры, необходимо сначала определить тип таблицы. Следующая инструкция Transact-SQL создает тип таблицы с именем **MyTableType**.
 
-	CREATE TYPE MyTableType AS TABLE 
-	( mytext TEXT,
-	  num INT );
- 
+    CREATE TYPE MyTableType AS TABLE 
+    ( mytext TEXT,
+      num INT );
+
 
 В коде создается объект **DataTable** с теми же именами и типами таблиц. Передайте этот экземпляр **DataTable** в качестве параметра в текстовом запросе или вызове хранимой процедуры. Демонстрация этого метода приведена в следующем примере:
 
-	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	{
-	    connection.Open();
-	
-	    DataTable table = new DataTable();
-	    // Add columns and rows. The following is a simple example.
-	    table.Columns.Add("mytext", typeof(string));
-	    table.Columns.Add("num", typeof(int));    
-	    for (var i = 0; i < 10; i++)
-	    {
-	        table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
-	    }
-	
-	    SqlCommand cmd = new SqlCommand(
-	        "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
-	        connection);
-	                
-	    cmd.Parameters.Add(
-	        new SqlParameter()
-	        {
-	            ParameterName = "@TestTvp",
-	            SqlDbType = SqlDbType.Structured,
-	            TypeName = "MyTableType",
-	            Value = table,
-	        });
-	
-	    cmd.ExecuteNonQuery();
-	}
+    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+    {
+        connection.Open();
+
+        DataTable table = new DataTable();
+        // Add columns and rows. The following is a simple example.
+        table.Columns.Add("mytext", typeof(string));
+        table.Columns.Add("num", typeof(int));    
+        for (var i = 0; i < 10; i++)
+        {
+            table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
+        }
+
+        SqlCommand cmd = new SqlCommand(
+            "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
+            connection);
+
+        cmd.Parameters.Add(
+            new SqlParameter()
+            {
+                ParameterName = "@TestTvp",
+                SqlDbType = SqlDbType.Structured,
+                TypeName = "MyTableType",
+                Value = table,
+            });
+
+        cmd.ExecuteNonQuery();
+    }
 
 В предыдущем примере объект **SqlCommand** вставляет строки из возвращающего табличное значение параметра **@TestTvp**. Ранее созданный объект **DataTable** назначается этому параметру методом **SqlCommand.Parameters.Add**. Пакетная обработка операций вставки в рамках одного вызова существенно повышает производительность по сравнению с последовательными вставками.
 
 Чтобы совершенствовать предыдущий пример, используйте хранимую процедуру вместо текстовой команды. Следующая команда Transact-SQL создает хранимую процедуру, которая принимает возвращающий табличное значение параметр **SimpleTestTableType**.
 
-	CREATE PROCEDURE [dbo].[sp_InsertRows] 
-	@TestTvp as MyTableType READONLY
-	AS
-	BEGIN
-	INSERT INTO MyTable(mytext, num) 
-	SELECT mytext, num FROM @TestTvp
-	END
-	GO
+    CREATE PROCEDURE [dbo].[sp_InsertRows] 
+    @TestTvp as MyTableType READONLY
+    AS
+    BEGIN
+    INSERT INTO MyTable(mytext, num) 
+    SELECT mytext, num FROM @TestTvp
+    END
+    GO
 
 Затем измените объявление объекта **SqlCommand**, приведенное в предыдущем примере кода, на следующее:
 
-	SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
-	cmd.CommandType = CommandType.StoredProcedure;
+    SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
+    cmd.CommandType = CommandType.StoredProcedure;
 
 В большинстве случаев параметры, которые возвращают табличное значение, отличаются аналогичной или более высокой производительностью в сравнении с другими методами пакетной обработки. Зачастую такие параметры более предпочтительны, так как они более универсальны в использовании, чем другие способы. Например, такие способы, как массовое копирование SQL, позволяют вставлять только новые строки. Однако с параметрами, которые возвращают табличное значение, можно использовать логику в хранимой процедуре, чтобы определить, какие строки являются вставками, а какие — обновлениями. Кроме того, тип таблицы можно изменить таким образом, чтобы он содержал столбец «Операция», указывающий на действие, которое следует выполнить со строкой (вставка, обновление или удаление).
 
 В таблице ниже приведены результаты ad-hoc-теста (в миллисекундах) по использованию параметров, которые возвращают табличное значение.
 
 | Операции | Из локальной среды в Azure (мс) | Один центр обработки данных Azure (мс) |
-|---|---|---|
-| 1 | 124 | 32 |
-| 10 | 131 | 25 |
-| 100 | 338 | 51 |
-| 1000 | 2615 | 382 |
-| 10 000 | 23 830 | 3586 |
+| --- | --- | --- |
+| 1 |124 |32 |
+| 10 |131 |25 |
+| 100 |338 |51 |
+| 1000 |2615 |382 |
+| 10 000 |23 830 |3586 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 Увеличение производительности благодаря пакетной обработке заметно сразу. В предыдущем последовательном тесте выполнение 1000 операций заняло 129 секунд за пределами центра обработки данных и 21 секунду в центре обработки данных. Однако при использовании параметров, которые возвращают табличное значение, 1000 операций выполнялись всего лишь за 2,6 секунды за пределами центра обработки данных и 0,4 секунды в центре обработки данных.
 
@@ -196,32 +201,35 @@
 ### Массовое копирование SQL
 Массовое копирование SQL представляет собой еще один способ вставки больших объемов данных в целевую базу данных. Для выполнения операций массовой вставки в приложениях .NET можно использовать класс **SqlBulkCopy**. Класс **SqlBulkCopy** работает аналогично программе командной строки **Bcp.exe** или инструкции Transact-SQL **BULK INSERT**. В следующем примере кода показано, как выполнить массовое копирование строк из исходной таблицы **DataTable** (table) в целевую таблицу SQL Server (MyTable).
 
-	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	{
-	    connection.Open();
-	
-	    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-	    {
-	        bulkCopy.DestinationTableName = "MyTable";
-	        bulkCopy.ColumnMappings.Add("mytext", "mytext");
-	        bulkCopy.ColumnMappings.Add("num", "num");
-	        bulkCopy.WriteToServer(table);
-	    }
-	}
+    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+    {
+        connection.Open();
+
+        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+        {
+            bulkCopy.DestinationTableName = "MyTable";
+            bulkCopy.ColumnMappings.Add("mytext", "mytext");
+            bulkCopy.ColumnMappings.Add("num", "num");
+            bulkCopy.WriteToServer(table);
+        }
+    }
 
 В некоторых случаях вместо параметров, которые возвращают табличное значение, рекомендуется использовать массовое копирование. Таблицу сравнения параметров, которые возвращают табличное значение, и операций с использованием оператора BULK INSERT см. в разделе [Параметры, которые возвращают табличное значение](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Ниже приведены результаты ad-hoc-теста (в миллисекундах), которые демонстрируют производительность пакетной обработки с использованием класса **SqlBulkCopy**.
 
 | Операции | Из локальной среды в Azure (мс) | Один центр обработки данных Azure (мс) |
-|---|---|---|
-| 1 | 433 | 57 |
-| 10 | 441 | 32 |
-| 100 | 636 | 53 |
-| 1000 | 2535 | 341 |
-| 10 000 | 21 605 | 2737 |
+| --- | --- | --- |
+| 1 |433 |57 |
+| 10 |441 |32 |
+| 100 |636 |53 |
+| 1000 |2535 |341 |
+| 10 000 |21 605 |2737 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 В случае с пакетами меньшего размера использование параметров, которые возвращают табличное значение, приводит к повышению производительности в сравнении с использованием класса **SqlBulkCopy**. Однако при выполнении тестов на 1000 и 10 000 строк с использованием класса **SqlBulkCopy** операции выполнялись на 12–31 % быстрее, чем при использовании параметров, которые возвращают табличное значение. Аналогично параметрам, которые возвращают табличное значение, класс **SqlBulkCopy** — это хорошее решение для пакетных вставок, особенно в сравнении с операциями, в которых не используются пакеты.
 
@@ -230,36 +238,39 @@
 ### Многострочные параметризованные инструкции INSERT
 Альтернатива небольшим пакетам — создание большой параметризованной инструкции INSERT, которая вставляет несколько строк. Использование этого метода показано в следующем примере кода.
 
-	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	{
-	    connection.Open();
-	
-	    string insertCommand = "INSERT INTO [MyTable] \( mytext, num ) " +
-	        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
-	
-	    SqlCommand cmd = new SqlCommand(insertCommand, connection);
-	
-	    for (int i = 1; i <= 10; i += 2)
-	    {
-	        cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
-	        cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
-	    }
-	
-	    cmd.ExecuteNonQuery();
-	}
- 
+    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+    {
+        connection.Open();
+
+        string insertCommand = "INSERT INTO [MyTable] \( mytext, num ) " +
+            "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
+
+        SqlCommand cmd = new SqlCommand(insertCommand, connection);
+
+        for (int i = 1; i <= 10; i += 2)
+        {
+            cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
+            cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
+        }
+
+        cmd.ExecuteNonQuery();
+    }
+
 
 Этот пример демонстрирует сам принцип. В более реалистичном случае необходимо выполнить цикл с включением необходимых сущностей для одновременного создания строки запроса и параметров команды. Для запроса существует ограничение в 2100 параметров, поэтому общее количество строк, которое можно обработать таким образом, также ограничивается.
 
 Ниже приведены результаты ad-hoc-теста (в миллисекундах), которые демонстрируют производительность инструкции вставки этого типа.
 
 | Операции | Параметры, которые возвращают табличное значение (мс) | Один оператор INSERT (мс) |
-|---|---|---|
-| 1 | 32 | 20 |
-| 10 | 30 | 25 |
-| 100 | 33 | 51 |
+| --- | --- | --- |
+| 1 |32 |20 |
+| 10 |30 |25 |
+| 100 |33 |51 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 Этот подход показывает чуть более высокие результаты по времени для пакетов, состоящих менее чем из 100 строк. Хотя улучшение и незначительно, использование этого метода может привести к хорошим результатам в конкретном сценарии использования приложения.
 
@@ -274,9 +285,9 @@
 
 У этого подхода есть несколько недостатков.
 
-- Работа с содержимым XML может быть весьма трудоемкой и приводить к ошибкам.
-- Анализ содержимого XML в базе данных может сильно нагружать ЦП.
-- В большинстве случаев при использовании этого метода операции выполняются медленнее, чем при использовании параметров, которые возвращают табличное значение.
+* Работа с содержимым XML может быть весьма трудоемкой и приводить к ошибкам.
+* Анализ содержимого XML в базе данных может сильно нагружать ЦП.
+* В большинстве случаев при использовании этого метода операции выполняются медленнее, чем при использовании параметров, которые возвращают табличное значение.
 
 Поэтому не рекомендуется использовать его для пакетных запросов.
 
@@ -292,13 +303,16 @@
 В наших тестах, как правило, не было никаких преимуществ при разбивке больших пакетов на более мелкие фрагменты данных. На самом деле такое деление часто приводит к меньшей производительности по сравнению с отправкой одного большого пакета. Например, рассмотрим сценарий, когда нужно вставить 1000 строк. В следующей таблице показано, сколько времени нужно для вставки 1000 строк с помощью параметров, которые возвращают табличное значение, при разбивке на более мелкие пакеты.
 
 | Размер пакета | Количество итераций | Параметры, которые возвращают табличное значение (мс) |
-| -------- | --- | --- |
-| 1000 | 1 | 347 |
-| 500 | 2 | 355 |
-| 100 | 10 | 465 |
-| 50 | 20 | 630 |
+| --- | --- | --- |
+| 1000 |1 |347 |
+| 500 |2 |355 |
+| 100 |10 |465 |
+| 50 |20 |630 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 Видно, что наилучшая производительность для 1000 строк достигается при отправке всех строк одновременно. В других тестах (не показанных здесь) наблюдалось небольшое повышение производительности при разбивке пакета на 10 000 строк на два пакета по 5000 строк. Однако схема таблицы для этих тестов довольно проста, поэтому следует провести тесты с учетом размеров пакета и данных.
 
@@ -310,20 +324,23 @@
 Что если вы выбрали стратегию уменьшения размера пакета, но используете несколько потоков для выполнения работы? Снова-таки, результаты наших тестов продемонстрировали, что несколько мелких многопоточных пакетов, как правило, обрабатываются хуже, чем один большой пакет. В рамках следующего теста выполняется попытка вставить 1000 строк в одном или нескольких параллельных пакетах. Результаты этого теста демонстрируют, что передача нескольких параллельных пакетов снизила производительность.
 
 | Размер пакета [количество итераций] | Два потока (мс) | Четыре потока (мс) | Шесть потоков (мс) |
-| -------- | --- | --- | --- |
-| 1000 [1] | 277 | 315 | 266 |
-| 500 [2] | 548 | 278 | 256 |
-| 250 [4] | 405 | 329 | 265 |
-| 100 [10] | 488 | 439 | 391 |
+| --- | --- | --- | --- |
+| 1000 [1] |277 |315 |266 |
+| 500 [2] |548 |278 |256 |
+| 250 [4] |405 |329 |265 |
+| 100 [10] |488 |439 |391 |
 
->[AZURE.NOTE] Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> [!NOTE]
+> Результаты не являются измерениями производительности. См. [примечание о результатах измерения времени в этом разделе](#note-about-timing-results-in-this-topic).
+> 
+> 
 
 Существует несколько возможных причин снижения производительности из-за параллелизма.
 
-- Выполняется несколько одновременных вызовов сети вместо одного.
-- Выполнение нескольких операций с одной таблицей может привести к состязанию и блокировке.
-- Возникают издержки, связанные с многопоточностью.
-- Расходы на открытие нескольких подключений перевешивают выгоду от параллельной обработки.
+* Выполняется несколько одновременных вызовов сети вместо одного.
+* Выполнение нескольких операций с одной таблицей может привести к состязанию и блокировке.
+* Возникают издержки, связанные с многопоточностью.
+* Расходы на открытие нескольких подключений перевешивают выгоду от параллельной обработки.
 
 Если вы планируете использовать разные таблицы или базы данных, с помощью этой стратегии вы можете получить некоторое увеличение производительности. Этот метод подходит для сегментирования баз данных или использования федераций. Сегментирование подразумевает использование нескольких баз данных с отправкой в каждую из них различных данных. Если каждый небольшой пакет отправляется в другую базу данных, параллельное выполнение операций может оказаться более эффективным. Однако этого увеличения производительности недостаточно, чтобы быть основанием для принятия решения о сегментировании базы данных.
 
@@ -348,194 +365,194 @@
 
 Следующий класс NavHistoryData моделирует информацию о навигации пользователя. Он содержит основную информацию, например идентификатор пользователя, URL-адрес, к которому получен доступ, а также время доступа.
 
-	public class NavHistoryData
-	{
-	    public NavHistoryData(int userId, string url, DateTime accessTime)
-	    { UserId = userId; URL = url; AccessTime = accessTime; }
-	    public int UserId { get; set; }
-	    public string URL { get; set; }
-	    public DateTime AccessTime { get; set; }
-	}
+    public class NavHistoryData
+    {
+        public NavHistoryData(int userId, string url, DateTime accessTime)
+        { UserId = userId; URL = url; AccessTime = accessTime; }
+        public int UserId { get; set; }
+        public string URL { get; set; }
+        public DateTime AccessTime { get; set; }
+    }
 
 Класс NavHistoryDataMonitor отвечает за буферизацию данных навигации пользователя в базу данных. Он содержит метод RecordUserNavigationEntry, который отвечает вызовом события **OnAdded**. В следующем коде показано, как логика конструктора использует расширение Rx, чтобы создать наблюдаемую коллекцию на основе события. Затем с помощью метода Buffer реализуется подписка на эту наблюдаемую коллекцию. Перегрузка указывает, что буфер должен отправляться каждые 20 секунд или при достижении 1000 записей.
 
-	public NavHistoryDataMonitor()
-	{
-	    var observableData =
-	        Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-	
-	    observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
-	}
+    public NavHistoryDataMonitor()
+    {
+        var observableData =
+            Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+
+        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+    }
 
 Обработчик преобразует все буферизованные элементы в тип, который возвращает табличное значение, а затем передает этот тип в хранимую процедуру, которая обрабатывает пакет. В следующем примере кода показаны полные определения для классов NavHistoryDataEventArgs и NavHistoryDataMonitor.
 
-	public class NavHistoryDataEventArgs : System.EventArgs
-	{
-	    public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
-	    public NavHistoryData Data { get; set; }
-	}
-	
-	public class NavHistoryDataMonitor
-	{
-	    public event EventHandler<NavHistoryDataEventArgs> OnAdded;
-	
-	    public NavHistoryDataMonitor()
-	    {
-	        var observableData =
-	            Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-	
-	        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
-	    }
-	
-	    public void RecordUserNavigationEntry(NavHistoryData data)
-	    {    
-	        if (OnAdded != null)
-	            OnAdded(this, new NavHistoryDataEventArgs(data));
-	    }
-	
-	    protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
-	    {
-	        DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
-	        navHistoryBatch.Columns.Add("UserId", typeof(int));
-	        navHistoryBatch.Columns.Add("URL", typeof(string));
-	        navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
-	        foreach (EventPattern<NavHistoryDataEventArgs> item in items)
-	        {
-	            NavHistoryData data = item.EventArgs.Data;
-	            navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
-	        }
-	
-	        using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-	        {
-	            connection.Open();
-	
-	            SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
-	            cmd.CommandType = CommandType.StoredProcedure;
-	
-	            cmd.Parameters.Add(
-	                new SqlParameter()
-	                {
-	                    ParameterName = "@NavHistoryBatch",
-	                    SqlDbType = SqlDbType.Structured,
-	                    TypeName = "NavigationHistoryTableType",
-	                    Value = navHistoryBatch,
-	                });
-	
-	            cmd.ExecuteNonQuery();
-	        }
-	    }
-	}
+    public class NavHistoryDataEventArgs : System.EventArgs
+    {
+        public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
+        public NavHistoryData Data { get; set; }
+    }
+
+    public class NavHistoryDataMonitor
+    {
+        public event EventHandler<NavHistoryDataEventArgs> OnAdded;
+
+        public NavHistoryDataMonitor()
+        {
+            var observableData =
+                Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+
+            observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+        }
+
+        public void RecordUserNavigationEntry(NavHistoryData data)
+        {    
+            if (OnAdded != null)
+                OnAdded(this, new NavHistoryDataEventArgs(data));
+        }
+
+        protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
+        {
+            DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
+            navHistoryBatch.Columns.Add("UserId", typeof(int));
+            navHistoryBatch.Columns.Add("URL", typeof(string));
+            navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
+            foreach (EventPattern<NavHistoryDataEventArgs> item in items)
+            {
+                NavHistoryData data = item.EventArgs.Data;
+                navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
+            }
+
+            using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(
+                    new SqlParameter()
+                    {
+                        ParameterName = "@NavHistoryBatch",
+                        SqlDbType = SqlDbType.Structured,
+                        TypeName = "NavigationHistoryTableType",
+                        Value = navHistoryBatch,
+                    });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
 Для использования этого класса буферизации приложение создает статический объект NavHistoryDataMonitor. Каждый раз, когда пользователь обращается к странице, приложение вызывает метод NavHistoryDataMonitor.RecordUserNavigationEntry. Затем выполняется логика буферизации, которая отправляет эти записи в базу данных в виде пакетов.
 
 ### Основная и подробная информация
 Параметры, которые возвращают табличное значение, используются в простых сценариях с использованием инструкции INSERT. Однако этот метод может быть более трудоемким для пакетных вставок при использовании нескольких таблиц. Сценарий с использованием основной или подробной информации хорошо это иллюстрирует. Главная таблица определяет базовую сущность. В одной или нескольких таблицах хранятся дополнительные данные о сущности. В этом случае внешний ключ принудительно устанавливает связь подробной информации с уникальной основной сущностью. Рассмотрим упрощенную версию таблицы PurchaseOrder и связанной с ней таблицы OrderDetail. Следующий сценарий Transact-SQL создает таблицу PurchaseOrder с четырьмя столбцами: OrderID, OrderDate, CustomerID и Status.
 
-	CREATE TABLE [dbo].[PurchaseOrder](
-	[OrderID] [int] IDENTITY(1,1) NOT NULL,
-	[OrderDate] [datetime] NOT NULL,
-	[CustomerID] [int] NOT NULL,
-	[Status] [nvarchar](50) NOT NULL,
-	 CONSTRAINT [PrimaryKey_PurchaseOrder] 
-	PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+    CREATE TABLE [dbo].[PurchaseOrder](
+    [OrderID] [int] IDENTITY(1,1) NOT NULL,
+    [OrderDate] [datetime] NOT NULL,
+    [CustomerID] [int] NOT NULL,
+    [Status] [nvarchar](50) NOT NULL,
+     CONSTRAINT [PrimaryKey_PurchaseOrder] 
+    PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 
 Каждый заказ содержит информацию об одной или нескольких покупках товара. Эта информация сохраняется в таблице PurchaseOrderDetail. Следующий сценарий Transact-SQL создает таблицу PurchaseOrderDetail с пятью столбцами: OrderID, OrderDetailID, ProductID, UnitPrice и OrderQty.
 
-	CREATE TABLE [dbo].[PurchaseOrderDetail](
-	[OrderID] [int] NOT NULL,
-	[OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
-	[ProductID] [int] NOT NULL,
-	[UnitPrice] [money] NULL,
-	[OrderQty] [smallint] NULL,
-	 CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
-	( [OrderID] ASC, [OrderDetailID] ASC ))
+    CREATE TABLE [dbo].[PurchaseOrderDetail](
+    [OrderID] [int] NOT NULL,
+    [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
+    [ProductID] [int] NOT NULL,
+    [UnitPrice] [money] NULL,
+    [OrderQty] [smallint] NULL,
+     CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+    ( [OrderID] ASC, [OrderDetailID] ASC ))
 
 Столбец OrderID таблицы PurchaseOrderDetail должен ссылаться на заказ из таблицы PurchaseOrder. Следующее определение внешнего ключа обеспечивает принудительное применение этого ограничения.
 
-	ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
-	CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-	REFERENCES [dbo].[PurchaseOrder] \([OrderID])
+    ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+    CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
+    REFERENCES [dbo].[PurchaseOrder] \([OrderID])
 
 Чтобы использовать параметры, которые возвращают табличное значение, необходимо иметь по одному пользовательскому типу таблицы для каждой целевой таблицы.
 
-	CREATE TYPE PurchaseOrderTableType AS TABLE 
-	( OrderID INT,
-	  OrderDate DATETIME,
-	  CustomerID INT,
-	  Status NVARCHAR(50) );
-	GO
-	
-	CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
-	( OrderID INT,
-	  ProductID INT,
-	  UnitPrice MONEY,
-	  OrderQty SMALLINT );
-	GO
+    CREATE TYPE PurchaseOrderTableType AS TABLE 
+    ( OrderID INT,
+      OrderDate DATETIME,
+      CustomerID INT,
+      Status NVARCHAR(50) );
+    GO
+
+    CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+    ( OrderID INT,
+      ProductID INT,
+      UnitPrice MONEY,
+      OrderQty SMALLINT );
+    GO
 
 Затем определите хранимую процедуру, которая принимает таблицы этих типов. Эта процедура позволяет приложению выполнять локальную пакетную обработку набора заказов и информации о них в одном вызове. Следующий сценарий Transact-SQL позволяет выполнить полное объявление хранимой процедуры для этого примера заказа на покупку.
 
-	CREATE PROCEDURE sp_InsertOrdersBatch (
-	@orders as PurchaseOrderTableType READONLY,
-	@details as PurchaseOrderDetailTableType READONLY )
-	AS
-	SET NOCOUNT ON;
-	
-	-- Table that connects the order identifiers in the @orders
-	-- table with the actual order identifiers in the PurchaseOrder table
-	DECLARE @IdentityLink AS TABLE ( 
-	SubmittedKey int, 
-	ActualKey int, 
-	RowNumber int identity(1,1)
-	);
-	 
-	      -- Add new orders to the PurchaseOrder table, storing the actual
-	-- order identifiers in the @IdentityLink table   
-	INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
-	OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
-	SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
-	
-	-- Match the passed-in order identifiers with the actual identifiers
-	-- and complete the @IdentityLink table for use with inserting the details
-	WITH OrderedRows As (
-	SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
-	FROM @orders
-	)
-	UPDATE @IdentityLink SET SubmittedKey = M.OrderID
-	FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
-	
-	-- Insert the order details into the PurchaseOrderDetail table, 
-	      -- using the actual order identifiers of the master table, PurchaseOrder
-	INSERT INTO PurchaseOrderDetail (
-	[OrderID],
-	[ProductID],
-	[UnitPrice],
-	[OrderQty] )
-	SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
-	FROM @details D
-	JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
-	GO
+    CREATE PROCEDURE sp_InsertOrdersBatch (
+    @orders as PurchaseOrderTableType READONLY,
+    @details as PurchaseOrderDetailTableType READONLY )
+    AS
+    SET NOCOUNT ON;
+
+    -- Table that connects the order identifiers in the @orders
+    -- table with the actual order identifiers in the PurchaseOrder table
+    DECLARE @IdentityLink AS TABLE ( 
+    SubmittedKey int, 
+    ActualKey int, 
+    RowNumber int identity(1,1)
+    );
+
+          -- Add new orders to the PurchaseOrder table, storing the actual
+    -- order identifiers in the @IdentityLink table   
+    INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
+    OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
+    SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
+
+    -- Match the passed-in order identifiers with the actual identifiers
+    -- and complete the @IdentityLink table for use with inserting the details
+    WITH OrderedRows As (
+    SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+    FROM @orders
+    )
+    UPDATE @IdentityLink SET SubmittedKey = M.OrderID
+    FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
+
+    -- Insert the order details into the PurchaseOrderDetail table, 
+          -- using the actual order identifiers of the master table, PurchaseOrder
+    INSERT INTO PurchaseOrderDetail (
+    [OrderID],
+    [ProductID],
+    [UnitPrice],
+    [OrderQty] )
+    SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
+    FROM @details D
+    JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
+    GO
 
 В этом примере локально определенная таблица @IdentityLink сохраняет фактические значения OrderID из только что вставленных строк. Эти идентификаторы заказов отличаются от временных значений OrderID в возвращающих табличное значение параметрах @orders и @details. Поэтому таблица @IdentityLink соединяет значения OrderID из параметра @orders с реальными значениями OrderID для новых строк в таблице PurchaseOrder. После завершения этого шага таблица @IdentityLink может упростить вставку информации о заказе с фактическим значением OrderID, что соответствует ограничению внешнего ключа.
 
 Эту хранимую процедуру можно использовать из кода или из других вызовов Transact-SQL. Примеры кода см. в разделе «Параметры, которые возвращают табличное значение». Следующий сценарий Transact-SQL демонстрирует вызов sp\_InsertOrdersBatch.
 
-	declare @orders as PurchaseOrderTableType
-	declare @details as PurchaseOrderDetailTableType
-	
-	INSERT @orders 
-	([OrderID], [OrderDate], [CustomerID], [Status])
-	VALUES(1, '1/1/2013', 1125, 'Complete'),
-	(2, '1/13/2013', 348, 'Processing'),
-	(3, '1/12/2013', 2504, 'Shipped')
-	
-	INSERT @details
-	([OrderID], [ProductID], [UnitPrice], [OrderQty])
-	VALUES(1, 10, $11.50, 1),
-	(1, 12, $1.58, 1),
-	(2, 23, $2.57, 2),
-	(3, 4, $10.00, 1)
-	
-	exec sp_InsertOrdersBatch @orders, @details
+    declare @orders as PurchaseOrderTableType
+    declare @details as PurchaseOrderDetailTableType
+
+    INSERT @orders 
+    ([OrderID], [OrderDate], [CustomerID], [Status])
+    VALUES(1, '1/1/2013', 1125, 'Complete'),
+    (2, '1/13/2013', 348, 'Processing'),
+    (3, '1/12/2013', 2504, 'Shipped')
+
+    INSERT @details
+    ([OrderID], [ProductID], [UnitPrice], [OrderQty])
+    VALUES(1, 10, $11.50, 1),
+    (1, 12, $1.58, 1),
+    (2, 23, $2.57, 2),
+    (3, 4, $10.00, 1)
+
+    exec sp_InsertOrdersBatch @orders, @details
 
 Это решение позволяет использовать для каждого пакета набор значений OrderID, которые начинаются с 1. Эти временные значения OrderID служат для описания связей в пакете, но фактические значения OrderID определяются во время операции вставки. Можно повторно выполнить операторы, которые использовались в предыдущем примере, и сформировать уникальные заказы в базе данных. Поэтому рассмотрите возможность добавления дополнительного кода или логики базы данных, которые не допустят повторения заказов при использовании этого метода пакетной обработки.
 
@@ -546,62 +563,60 @@
 
 Параметры, которые возвращают табличное значение, можно использовать с помощью инструкции MERGE для выполнения операций обновления и вставки. Например, рассмотрим упрощенную таблицу Employee со следующими столбцами: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 
-	CREATE TABLE [dbo].[Employee](
-	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
-	[FirstName] [nvarchar](50) NOT NULL,
-	[LastName] [nvarchar](50) NOT NULL,
-	[SocialSecurityNumber] [nvarchar](50) NOT NULL,
-	 CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
-	([EmployeeID] ASC ))
- 
+    CREATE TABLE [dbo].[Employee](
+    [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+    [FirstName] [nvarchar](50) NOT NULL,
+    [LastName] [nvarchar](50) NOT NULL,
+    [SocialSecurityNumber] [nvarchar](50) NOT NULL,
+     CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+    ([EmployeeID] ASC ))
+
 В этом примере слияние нескольких сотрудников выполняется на основе уникального свойства SocialSecurityNumber. Сначала создайте определяемый пользователем тип таблицы:
 
-	CREATE TYPE EmployeeTableType AS TABLE 
-	( Employee_ID INT,
-	  FirstName NVARCHAR(50),
-	  LastName NVARCHAR(50),
-	  SocialSecurityNumber NVARCHAR(50) );
-	GO
+    CREATE TYPE EmployeeTableType AS TABLE 
+    ( Employee_ID INT,
+      FirstName NVARCHAR(50),
+      LastName NVARCHAR(50),
+      SocialSecurityNumber NVARCHAR(50) );
+    GO
 
 Затем создайте хранимую процедуру или напишите код, в котором инструкция MERGE выполняет обновление и вставку. В следующем примере инструкция MERGE используется с возвращающим табличное значение параметром @employees типа EmployeeTableType. Содержимое таблицы @employees здесь не показано.
 
-	MERGE Employee AS target
-	USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
-	AS source ([FirstName], [LastName], [SocialSecurityNumber])
-	ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-	WHEN MATCHED THEN 
-	UPDATE SET
-	target.FirstName = source.FirstName, 
-	target.LastName = source.LastName
-	WHEN NOT MATCHED THEN
-	   INSERT ([FirstName], [LastName], [SocialSecurityNumber])
-	   VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+    MERGE Employee AS target
+    USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+    AS source ([FirstName], [LastName], [SocialSecurityNumber])
+    ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
+    WHEN MATCHED THEN 
+    UPDATE SET
+    target.FirstName = source.FirstName, 
+    target.LastName = source.LastName
+    WHEN NOT MATCHED THEN
+       INSERT ([FirstName], [LastName], [SocialSecurityNumber])
+       VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 
 Дополнительную информацию см. в примерах и документации по инструкции MERGE. Хотя такие же действия можно выполнить в рамках вызова многоступенчатой хранимой процедуры с отдельными операциями INSERT и UPDATE, использование инструкции MERGE является более эффективным. Код базы данных также может формировать вызовы Transact-SQL с использованием инструкции MERGE напрямую без необходимости дважды вызывать базу данных, чтобы выполнить операции INSERT и UPDATE.
 
 ## Сводка рекомендаций
-
 В следующем списке приведена сводка рекомендаций по пакетной обработке, рассмотренной в этом разделе.
 
-- Используйте буферизацию и пакетную обработку, чтобы повысить производительность и масштабируемость приложений базы данных SQL.
-- Учитывайте компромиссную природу связи между пакетной обработкой или буферизацией и устойчивостью приложения. Во время сбоя роли риск потери необработанного пакета критически важных бизнес-данных может перевесить прирост в производительности за счет пакетной обработки.
-- Старайтесь выполнять все вызовы базы данных в пределах одного центра обработки данных для сокращения задержки.
-- При использовании метода с отправкой одного пакета оптимальную производительность и гибкость можно получить благодаря использованию параметров, которые возвращают табличное значение.
-- Следуйте следующим рекомендациям для обеспечения самого быстрого выполнения операций вставки, но не забывайте тестировать решение.
-	- Для < 100 строк используйте одну параметризованную команду INSERT.
-	- Для < 1000 строк используйте параметры, которые возвращают табличное значение.
-	- Для >= 1000 строк используйте SqlBulkCopy.
-- Для операций обновления и удаления используйте параметры, которые возвращают табличное значение, с логикой хранимых процедур, которая определяет правильную операцию для каждой строки в параметре таблицы.
-- Рекомендации по размеру пакета.
-	- Используйте самые большие размеры пакетов, которые соответствуют требованиям приложения и бизнес-требованиям.
-	- Сбалансируйте прирост производительности за счет использования больших пакетов и риски временных или неожиданных отказов. Учитывайте последствия повторного выполнения операций или потери данных в пакете.
-	- Протестируйте максимальный размер пакета и убедитесь, что база данных SQL не отклоняет его.
-	- Создайте параметры конфигурации, управляющие пакетной обработкой, такие как размер пакета или период выполнения буферизации. Эти параметры дают возможность гибко управлять пакетной обработкой. Можно изменить поведение пакетной обработки в рабочей среде без повторного развертывания облачной службы.
-- Избегайте параллельного выполнения пакетов, которые используют одну таблицу в одной базе данных. Если вы решили разделить один пакет на несколько рабочих потоков, выполните тесты, чтобы определить оптимальное количество потоков. После достижения неопределенного порогового значения большее число потоков уменьшит производительность, а не повысит ее.
-- Рассмотрите буферизацию операций по количеству и времени в качестве способа реализации пакетной обработки для нескольких сценариев.
+* Используйте буферизацию и пакетную обработку, чтобы повысить производительность и масштабируемость приложений базы данных SQL.
+* Учитывайте компромиссную природу связи между пакетной обработкой или буферизацией и устойчивостью приложения. Во время сбоя роли риск потери необработанного пакета критически важных бизнес-данных может перевесить прирост в производительности за счет пакетной обработки.
+* Старайтесь выполнять все вызовы базы данных в пределах одного центра обработки данных для сокращения задержки.
+* При использовании метода с отправкой одного пакета оптимальную производительность и гибкость можно получить благодаря использованию параметров, которые возвращают табличное значение.
+* Следуйте следующим рекомендациям для обеспечения самого быстрого выполнения операций вставки, но не забывайте тестировать решение.
+  * Для < 100 строк используйте одну параметризованную команду INSERT.
+  * Для < 1000 строк используйте параметры, которые возвращают табличное значение.
+  * Для >= 1000 строк используйте SqlBulkCopy.
+* Для операций обновления и удаления используйте параметры, которые возвращают табличное значение, с логикой хранимых процедур, которая определяет правильную операцию для каждой строки в параметре таблицы.
+* Рекомендации по размеру пакета.
+  * Используйте самые большие размеры пакетов, которые соответствуют требованиям приложения и бизнес-требованиям.
+  * Сбалансируйте прирост производительности за счет использования больших пакетов и риски временных или неожиданных отказов. Учитывайте последствия повторного выполнения операций или потери данных в пакете.
+  * Протестируйте максимальный размер пакета и убедитесь, что база данных SQL не отклоняет его.
+  * Создайте параметры конфигурации, управляющие пакетной обработкой, такие как размер пакета или период выполнения буферизации. Эти параметры дают возможность гибко управлять пакетной обработкой. Можно изменить поведение пакетной обработки в рабочей среде без повторного развертывания облачной службы.
+* Избегайте параллельного выполнения пакетов, которые используют одну таблицу в одной базе данных. Если вы решили разделить один пакет на несколько рабочих потоков, выполните тесты, чтобы определить оптимальное количество потоков. После достижения неопределенного порогового значения большее число потоков уменьшит производительность, а не повысит ее.
+* Рассмотрите буферизацию операций по количеству и времени в качестве способа реализации пакетной обработки для нескольких сценариев.
 
 ## Дальнейшие действия
-
 В этой статье описывается, как методы проектирования и программирования базы данных, связанные с пакетной обработкой, могут повысить производительность и масштабируемость приложения. Но это всего лишь один фактор в общей стратегии. Дополнительные способы повышения производительности и масштабируемости см. в статье [Руководство по производительности базы данных SQL Azure для одной базы данных](sql-database-performance-guidance.md) и [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
 
 <!---HONumber=AcomDC_0720_2016-->

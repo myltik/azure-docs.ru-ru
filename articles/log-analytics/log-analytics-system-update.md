@@ -1,24 +1,31 @@
-<properties
-    pageTitle="Решение "Оценка обновлений системы" в Log Analytics | Microsoft Azure"
-    description="Решение для обновлений системы в службе Log Analytics позволяет применять отсутствующие обновления к серверам в инфраструктуре."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: 'Решение '
+оценка: ''
+обновлений: ''
+системы": ''
+в: ''
+log: ''
+analytics: ''
+'|': ''
+microsoft: ''
+azure": ''
+description: Решение для обновлений системы в службе Log Analytics позволяет применять отсутствующие обновления к серверам в инфраструктуре.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: banders
 
-
+---
 # <a name="system-update-assessment-solution-in-log-analytics"></a>Решение "Оценка обновлений системы" в Log Analytics
-
 Решение для обновлений системы в службе Log Analytics позволяет применять отсутствующие обновления к серверам в инфраструктуре. После установки решения в OMS на странице **Обзор** с помощью плитки **Оценка обновлений системы** можно просмотреть обновления, отсутствующие на отслеживаемых серверах.
 
 Сведения об отсутствующих обновлениях отображаются на панели мониторинга **Обновления** . На панели мониторинга **Обновления** можно работать с пропущенными обновлениями и разработать план для всех серверов, которым требуются обновления.
@@ -26,28 +33,25 @@
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
-- Решение "Оценка обновлений системы" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
+* Решение "Оценка обновлений системы" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
 ## <a name="system-update-data-collection-details"></a>Сведения о сборе данных об обновлениях системы
-
 Оценка системных обновлений собирает метаданные и данные о состоянии с помощью включенных агентов.
 
 В следующей таблице представлены методы сбора данных и другие сведения о сборе данных для решения "Оценка обновлений системы".
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
-|---|---|---|---|---|---|---|
-|Windows|![Да](./media/log-analytics-system-update/oms-bullet-green.png)|![Да](./media/log-analytics-system-update/oms-bullet-green.png)|![Нет](./media/log-analytics-system-update/oms-bullet-red.png)|            ![Нет](./media/log-analytics-system-update/oms-bullet-red.png)|![Да](./media/log-analytics-system-update/oms-bullet-green.png)| Не меньше 2 раз в день и через 15 минут после установки обновления|
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Да](./media/log-analytics-system-update/oms-bullet-green.png) |![Да](./media/log-analytics-system-update/oms-bullet-green.png) |![Нет](./media/log-analytics-system-update/oms-bullet-red.png) |![Нет](./media/log-analytics-system-update/oms-bullet-red.png) |![Да](./media/log-analytics-system-update/oms-bullet-green.png) |Не меньше 2 раз в день и через 15 минут после установки обновления |
 
 В следующей таблице приведены примеры типов данных, собираемых решением "Оценка обновлений системы".
 
-|**Тип данных**|**Поля**|
-|---|---|
-|Метаданные|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
-|Состояние|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
-
+| **Тип данных** | **Поля** |
+| --- | --- |
+| Метаданные |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
+| Состояние |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ### <a name="to-work-with-updates"></a>Работа с обновлениями
-
 1. На странице **Обзор** щелкните плитку **Оценка обновлений системы**.  
    Плитка  ![Оценка обновлений системы](./media/log-analytics-system-update/sys-update-tile.png)
 2. На панели мониторинга **Обновления** просмотрите категории обновлений.  
@@ -75,13 +79,8 @@
 14. Если обновления были установлены в ходе запуска обновления, число обновлений в колонке **Критические обновления или обновления для системы безопасности Windows** сократится.  
     ![Колонка "Критические обновления или обновления для системы безопасности Windows", число обновлений сократилось](./media/log-analytics-system-update/sys-updates12.png)
 
-
-
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные сведения об обновлениях системы.
-
-
+* [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные сведения об обновлениях системы.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Лицензирование Azure RemoteApp | Microsoft Azure"
-    description="Узнайте о лицензировании в Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Лицензирование Azure RemoteApp | Microsoft Docs
+description: Узнайте о лицензировании в Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Как работает лицензирование в Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Итак, вы настроили свою службу Azure RemoteApp, создали шаблоны и готовы опубликовать приложения для пользователей. Осталось рассмотреть еще один вопрос — лицензирование. Так как же работает лицензирование для RemoteApp и приложений, которыми вы обмениваетесь через RemoteApp?
 

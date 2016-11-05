@@ -1,25 +1,30 @@
-<properties
-    pageTitle="Решение "Отслеживание изменений" в Log Analytics | Microsoft Azure"
-    description="Решение для отслеживания изменений конфигурации в службе Log Analytics позволяет легко определять изменения программного обеспечения и служб Windows, возникающие в среде, а выявление таких изменений, в свою очередь, помогает определить проблемы в работе."
-    services="operations-management-suite"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: 'Решение '
+отслеживание: ''
+изменений": ''
+в: ''
+log: ''
+analytics: ''
+'|': ''
+microsoft: ''
+azure": ''
+description: Решение для отслеживания изменений конфигурации в службе Log Analytics позволяет легко определять изменения программного обеспечения и служб Windows, возникающие в среде, а выявление таких изменений, в свою очередь, помогает определить проблемы в работе.
+services: operations-management-suite
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="operations-management-suite"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: operations-management-suite
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="change-tracking-solution-in-log-analytics"></a>Решение "Отслеживание изменений" в Log Analytics
-
-
 Решение для отслеживания изменений конфигурации в службе Log Analytics позволяет легко определять изменения программного обеспечения, служб Windows и управляющей программы Linux, возникающие в среде. Выявление таких изменений, в свою очередь, помогает определить проблемы в работе.
 
 Решение устанавливается для обновления установленного типа агента. На наблюдаемых серверах выполняется считывание информации об изменениях установленного ПО и служб Windows, после чего данные отправляются в службу Log Analytics в облаке для обработки. К полученным данным применяется логика и облачная служба записывает данные. При обнаружении изменений серверы с изменениями отображаются на панели мониторинга «Отслеживание изменений». С помощью сведений на панели мониторинга «Отслеживание изменений» можно без труда обнаружить изменения, внесенные в инфраструктуру серверов.
@@ -27,49 +32,42 @@
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
-- Operations Manager является обязательным компонентом для решения отслеживания изменений.
-- Агент Operations Manager или Windows должен быть установлен на каждом компьютере, для которого требуется выполнять отслеживание изменений.
-- Решение "Отслеживание изменений" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
-
+* Operations Manager является обязательным компонентом для решения отслеживания изменений.
+* Агент Operations Manager или Windows должен быть установлен на каждом компьютере, для которого требуется выполнять отслеживание изменений.
+* Решение "Отслеживание изменений" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
 ## <a name="change-tracking-data-collection-details"></a>Сведения о сборе данных отслеживания изменений.
-
 Отслеживание изменений собирает данные инвентаризации программного обеспечения и метаданные службы Windows с помощью включенных агентов.
 
 В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для решения "Отслеживание изменений".
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
-|---|---|---|---|---|---|---|
-|Windows|![Да](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Да](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png)|            ![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png)|![Да](./media/log-analytics-change-tracking/oms-bullet-green.png)| ежечасно|
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Нет](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Да](./media/log-analytics-change-tracking/oms-bullet-green.png) |ежечасно |
 
 ## <a name="use-change-tracking"></a>Использование функции отслеживания изменений
-
 После установки решения сводку изменений для отслеживаемых серверов можно просмотреть в OMS на странице **Обзор** с помощью плитки **Отслеживание изменений**.
 
 ![image of Change Tracking tile](./media/log-analytics-change-tracking/oms-changetracking-tile.png)
 
 Можно просмотреть изменения инфраструктуры, а затем более подробно рассмотреть следующие категории:
 
-- изменения по типу конфигурации для ПО и служб Windows;
-- изменения ПО для приложений и обновлений для отдельных серверов;
-- общее количество изменений ПО для каждого приложения;
-- изменения служб Windows для отдельных серверов.
+* изменения по типу конфигурации для ПО и служб Windows;
+* изменения ПО для приложений и обновлений для отдельных серверов;
+* общее количество изменений ПО для каждого приложения;
+* изменения служб Windows для отдельных серверов.
 
 ![image of Change Tracking dashboard](./media/log-analytics-change-tracking/oms-changetracking01.png)
 
 ![image of Change Tracking dashboard](./media/log-analytics-change-tracking/oms-changetracking02.png)
 
 ### <a name="to-view-changes-for-any-change-type"></a>Просмотр изменений для любого типа изменений
-
 1. На странице **Обзор** щелкните плитку **Отслеживание изменений**.
 2. На панели мониторинга **Отслеживание изменений** просмотрите сводные данные в одной из колонок типов изменений, а затем щелкните одну из них, чтобы просмотреть подробные сведения на странице **поиска журналов**.
 3. На любой из страниц поиска журналов можно просмотреть результаты по времени, подробные результаты и историю поиска журналов. Для сужения области результатов выполните фильтрацию по аспектам.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по отслеживанию изменений.
-
-
+* Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по отслеживанию изменений.
 
 <!--HONumber=Oct16_HO2-->
 

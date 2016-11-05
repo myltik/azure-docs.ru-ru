@@ -1,26 +1,23 @@
 
-<properties
-	pageTitle="Устранение неполадок динамического членства в группах | Microsoft Azure"
-	description="Советы по устранению неполадок динамического членства в группах в Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: Устранение неполадок динамического членства в группах | Microsoft Docs
+description: Советы по устранению неполадок динамического членства в группах в Azure AD.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: curtand
 
-
+---
 # Устранение неполадок, связанных с динамическим членством в группах
-
 **Мной было настроено правило для группы, но обновление членства в группе не произошло.**<br/>Убедитесь в том, что на вкладке **Настройка** параметр **Разрешить делегированное управление группой** имеет значение **Да**. Этот параметр отображается только в том случае, если вы вошли в систему как пользователь, которому назначена лицензия Azure Active Directory Premium. Проверьте значения атрибутов пользователей в правиле — существуют ли пользователи, удовлетворяющие правилу?
 
 **Мной было настроено правило, но теперь существующие участники правила удалены.**<br/>Это ожидаемое поведение. Существующие участники группы удаляются при включении или изменении правила. В группу добавляются пользователи, подобранные на основе оценки правила.

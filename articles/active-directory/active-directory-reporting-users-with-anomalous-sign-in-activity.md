@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Пользователи с аномальными событиями при входе"
-	description="Отчет, в котором указываются все учетные записи пользователей, для которых были выявлены аномальные события при входе."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Пользователи с аномальными событиями при входе
+description: Отчет, в котором указываются все учетные записи пользователей, для которых были выявлены аномальные события при входе.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Пользователи с аномальными событиями при входе
 Это статистический отчет, объединяющий подозрительные попытки входа из следующих отчетов:
 

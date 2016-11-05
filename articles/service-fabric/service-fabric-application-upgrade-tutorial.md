@@ -1,36 +1,33 @@
- <properties
-   pageTitle="Учебник по обновлению приложения Service Fabric | Microsoft Azure"
-   description="В этой статье рассматривается процесс развертывания приложения Service Fabric, изменения кода и развертывания обновления с помощью Visual Studio."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: Учебник по обновлению приложения Service Fabric | Microsoft Docs
+description: В этой статье рассматривается процесс развертывания приложения Service Fabric, изменения кода и развертывания обновления с помощью Visual Studio.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Учебник по обновлению приложений Service Fabric с помощью Visual Studio
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
-- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> 
+> 
 
 <br/>
 
 Azure Service Fabric упрощает процесс обновления облачных приложений за счет того, что обновляются только измененные службы, кроме того, в процессе обновления отслеживается работоспособность приложения. При обнаружении проблем автоматически выполняется откат к предыдущей версии приложения. Обновление приложений Service Fabric выполняется *без времени простоя*, так как приложение можно обновить без времени простоя. В этом учебнике описывается развертывание последовательного обновления из Visual Studio.
 
-
 ## <a name="step-1:-build-and-publish-the-visual-objects-sample"></a>Шаг 1. Построение и публикация примера приложения Visual Objects
-
 Во-первых, скачайте приложение [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) с сайта GitHub. Затем выполните сборку приложения и опубликуйте его. Для этого щелкните правой кнопкой мыши проект приложения **VisualObjects** и выберите в меню Service Fabric команду **Опубликовать**.
 
 ![Контекстное меню для приложения Service Fabric][image1]
@@ -42,7 +39,6 @@ Azure Service Fabric упрощает процесс обновления обл
 Теперь можно нажать кнопку **Опубликовать** в диалоговом окне. Для просмотра кластера и приложения теперь можно использовать [обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md). Приложение Visual Objects включает в себя веб-службу, к которой можно перейти, указав в адресной строке браузера [http://localhost:8082/visualobjects](http://localhost:8082/visualobjects/) .  Вы должны увидеть 10 плавающих визуальных объектов, перемещающихся по экрану.
 
 ## <a name="step-2:-update-the-visual-objects-sample"></a>Шаг 2. Обновление образца визуальных объектов
-
 Вы можете заметить, что в версии, развернутой на шаге 1, визуальные объекты не вращаются. Давайте обновим это приложение до версии, в которой визуальные объекты будут вращаться.
 
 Выберите проект VisualObjects.ActorService в решении VisualObjects и откройте файл **VisualObjectActor.cs**. В этом файле перейдите к методу `MoveObject`, а затем закомментируйте `visualObject.Move(false)` и раскомментируйте `visualObject.Move(true)`. Это изменение кода приведет к вращению объектов после обновления службы.  **Теперь можно выполнить сборку (не перестроить) решения**. При этом будет выполнена сборка измененных проектов. Если вы выберете *Перестроить все*, то придется обновить версии для всех проектов.
@@ -59,13 +55,10 @@ Azure Service Fabric упрощает процесс обновления обл
 
 Сохраните изменения и установите флажок **Обновить приложение** .
 
-
 ## <a name="step-3:-upgrade-your-application"></a>Шаг 3. Обновление приложения
-
 Ознакомьтесь с [параметрами обновления приложений](service-fabric-application-upgrade-parameters.md) и [процессом обновления](service-fabric-application-upgrade.md) для лучшего понимания различных параметров обновления, значений времени ожидания и применяемых критериев. В этом пошаговом руководстве используется значение критерия оценки работоспособности по умолчанию (неотслеживаемый режим). Эти параметры можно установить, выбрав пункт **Настроить параметры обновления** и изменив параметры по мере необходимости.
 
 Теперь все готово к тому, чтобы запустить обновление приложения нажатием кнопки **Опубликовать**. В результате приложение будет обновлено до версии 2.0.0, в которой объекты вращаются. Service Fabric обновляет домены обновления по одному (некоторые объекты будут обновлены первыми, другие — позже), и во время обновления служба остается доступна. Доступ к службе можно проверить с помощью клиента (в браузере).  
-
 
 По мере обновления приложения этот процесс можно отслеживать с помощью обозревателя Service Fabric (вкладка **Upgrades in Progress** (Выполняемые обновления) в разделе приложений).
 
@@ -73,9 +66,7 @@ Azure Service Fabric упрощает процесс обновления обл
 
 Вы можете попробовать изменить версии и перейти от версии 2.0.0 к версии 3.0.0 в качестве упражнения или даже от версии 2.0.0 назад к версии 1.0.0. Попробуйте изменить значения времени ожидания и параметры политики работоспособности в качестве тренировки. При развертывании в кластер Azure параметры могут отличаться от используемых при развертывании в локальный кластер. Рекомендуется применить консервативный подход при настройке значений времени ожидания.
 
-
 ## <a name="next-steps"></a>Дальнейшие действия
-
 [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
 
 Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).
@@ -85,8 +76,6 @@ Azure Service Fabric упрощает процесс обновления обл
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)содержат сведения о работе с расширенными функциями при обновлении приложения.
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
-
-
 
 [image1]: media/service-fabric-application-upgrade-tutorial/upgrade7.png
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png

@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Приступая к работе с решениями SAP | Microsoft Azure"
-   description="Сведения о работе решений SAP на виртуальных машинах в Microsoft Azure."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="RicksterCDN"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"
-   keywords=""/>
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="09/23/2016"
-   ms.author="rclaus"/>
+---
+title: Приступая к работе с решениями SAP | Microsoft Docs
+description: Сведения о работе решений SAP на виртуальных машинах в Microsoft Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-windows
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/23/2016
+ms.author: rclaus
 
+---
 # <a name="using-sap-on-windows-virtual-machines-(vms)"></a>Использование SAP на виртуальных машинах Windows
-
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
 [826037]:https://service.sap.com/sap/support/notes/826037
@@ -248,35 +247,28 @@
 Корпорация Майкрософт предоставляет службы виртуальных машин Microsoft Azure и крупные экземпляры SAP HANA в Azure в рамках комплексной платформы IaaS (инфраструктура как услуга). Так как в Azure поддерживаются многочисленные решения SAP, этот документ по началу работы будет использоваться как оглавление для нашего текущего набора документов по SAP. По мере добавления новых документов в нашу библиотеку их заголовки будут появляться здесь. 
 
 ## <a name="sap-hana-certifications-on-microsoft-azure"></a>Сертификация SAP HANA в Microsoft Azure
-
-
-Продукт SAP | Поддерживаемая ОС | Предложения Azure 
----------- | ------------ | ------------- 
-SAP HANA, версия для разработчиков (включая клиентское ПО HANA с драйверами SQLODBC, ODBO (только для ОС Windows), ODBC и JDBC, среду разработки HANA Studio и базу данных HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8
-HANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14_v2 (для общедоступной версии)
-SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Управляемая доступность для GS5, SAP HANA в Azure (крупные экземпляры)
-Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | SAP HANA в Azure (крупные экземпляры)
-HANA Enterprise для BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры)
-SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры)
-
+| Продукт SAP | Поддерживаемая ОС | Предложения Azure |
+| --- | --- | --- |
+| SAP HANA, версия для разработчиков (включая клиентское ПО HANA с драйверами SQLODBC, ODBO (только для ОС Windows), ODBC и JDBC, среду разработки HANA Studio и базу данных HANA) |Red Hat Enterprise Linux, SUSE Linux Enterprise |A7, A8 |
+| HANA One |Red Hat Enterprise Linux, SUSE Linux Enterprise |DS14_v2 (для общедоступной версии) |
+| SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |Управляемая доступность для GS5, SAP HANA в Azure (крупные экземпляры) |
+| Suite on HANA, OLTP |Red Hat Enterprise Linux, SUSE Linux Enterprise |SAP HANA в Azure (крупные экземпляры) |
+| HANA Enterprise для BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
+| SAP BW/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 для развертывания на одном узле, SAP HANA в Azure (крупные экземпляры) |
 
 ## <a name="sap-netweaver-certifications"></a>Сертификаты SAP NetWeaver
-
 Платформа Microsoft Azure сертифицирована для следующих продуктов SAP при полной поддержке Майкрософт и SAP.
 
-Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин 
----------- | ------------ | ------------- | ------------- 
-ПО SAP Business Suite | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5–A11, D11–D14, DS11–DS14, GS1–GS5 
-SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5–A11, D11–D14, DS11–DS14, GS1–GS5 
-Бизнес-аналитика SAP BusinessObjects | Windows | Недоступно | A5–A11, D11–D14, DS11–DS14, GS1–GS5 
-SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5–A11, D11–D14, DS11–DS14, GS1–GS5 
+| Продукт SAP | Гостевая ОС | Реляционная СУБД | Типы виртуальных машин |
+| --- | --- | --- | --- |
+| ПО SAP Business Suite |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, GS1–GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, GS1–GS5 |
+| Бизнес-аналитика SAP BusinessObjects |Windows |Недоступно |A5–A11, D11–D14, DS11–DS14, GS1–GS5 |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise |SQL Server, Oracle, DB2, SAP ASE |A5–A11, D11–D14, DS11–DS14, GS1–GS5 |
 
-
-
-[AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
 ## <a name="getting-started-with-sap-hana-on-azure"></a>Начало работы с SAP HANA в Azure
-
 Заголовок. "Краткое руководство по установке SAP HANA вручную на виртуальных машинах Azure"
 
 Сводка. Это краткое руководство по настройке одноэкземплярной демонстрационной системы или системы-прототипа SAP HANA на виртуальных машинах Azure с помощью ручной установки SAP NetWeaver 7.5 и SAP HANA SP12. Здесь предполагается, что читатель ознакомлен с основными принципами работы с Azure IaaS, в частности с развертыванием виртуальных машин или виртуальных сетей с помощью портала Azure, Powershell или интерфейса командной строки, включая метод с использованием шаблонов JSON. Кроме того, предполагается, что читатель ознакомлен с SAP Hana, SAP NetWeaver и знает, как установить их локально.
@@ -286,7 +278,6 @@ SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP AS
 [Это руководство можно найти здесь.](virtual-machines-linux-sap-hana-get-started.md)
 
 ## <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Краткое руководство по NetWeaver под управлением SUSE Linux в Azure
-
 Заголовок. Тестирование SAP NetWeaver на виртуальных машинах Microsoft Azure под управлением SUSE Linux 
 
 Сводка. В этой статье описываются различные моменты, которые следует учитывать при запуске SAP NetWeaver на виртуальных машинах SUSE Linux в Microsoft Azure. По состоянию на 19 мая 2016 года SAP NetWeaver официально поддерживается на виртуальных машинах SUSE Linux в Azure. Все сведения о версиях Linux, версиях ядра SAP и т. д. можно найти в примечании SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Приложения SAP в Azure: поддерживаемые продукты и типы виртуальных машин Azure).
@@ -296,7 +287,6 @@ SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP AS
 [Это руководство можно найти здесь.](virtual-machines-linux-sap-on-suse-quickstart.md)
 
 ## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-6.0-on-microsoft-azure"></a>В статье описывается развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure.
-
 Заголовок. "Краткое руководство по установке SAP HANA вручную на виртуальных машинах Azure"
 
 Сводка. В этой статье описывается, как развернуть SAP IDES с SQL Server и Windows в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0. 
@@ -304,27 +294,26 @@ SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP AS
 Последнее обновление: сентябрь 2016 г.
 
 [Это руководство можно найти здесь.](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md)
-##  <a name="<a-name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>planning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Планирование и реализация
 
+## <a name="<a-name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>planning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Планирование и реализация
 Заголовок: SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению
 
 Сводка: если вы планируете использовать SAP NetWeaver на виртуальных машинах Azure, сначала ознакомьтесь с этим документом. Это руководство по планированию и реализации поможет вам оценить возможности развертывания существующей или планируемой системы на основе SAP NetWeaver в среде виртуальных машин Azure. В нем рассмотрено несколько сценариев развертывания SAP NetWeaver, а также описаны настройки SAP, связанные с Azure. В документе перечислены и описаны все необходимые параметры, которые нужно указать на стороне SAP и Azure для запуска гибридной среды SAP. Также рассматриваются действия, которые можно предпринять для обеспечения высокой доступности систем на основе SAP NetWeaver в среде IaaS.
 
 Дата обновления: август 2016 г.
 
-[Это руководство можно найти здесь.] [planning-guide]
-## <a name="<a-name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>deployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Развертывание
+[Это руководство можно найти здесь.][planning-guide]
 
+## <a name="<a-name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>deployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Развертывание
 Заголовок: SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию
 
 Сводка: этот документ содержит пошаговые инструкции по развертыванию программного обеспечения SAP NetWeaver на виртуальных машинах Azure. В документе рассмотрены три сценария развертывания с акцентом на активации расширений мониторинга Azure для SAP. Также приведены рекомендации по устранению неполадок в расширениях мониторинга Azure для SAP. Для работы с документом вам нужно ознакомиться с руководством по планированию и реализации.
 
 Дата обновления: август 2016 г.
 
-[Это руководство можно найти здесь.] [deployment-guide]
+[Это руководство можно найти здесь.][deployment-guide]
 
 ## <a name="<a-name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>dbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Руководство по развертыванию СУБД
-
 Заголовок: SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД
 
 Сводка: в этом документе рассматриваются вопросы планирования и реализации систем СУБД, которые должны работать вместе с SAP. В первой части перечислены и описаны общие рекомендации. Следующие разделы документа посвящены развертыванию в Azure разных СУБД, поддерживаемых SAP. Описаны следующие СУБД: SQL Server, SAP ASE и Oracle. В этих разделах обсуждаются некоторые моменты, которые следует учитывать при запуске систем SAP на платформе Azure вместе с этими СУБД. Также рассмотрены методы резервного копирования и обеспечения высокой доступности, поддерживаемые разными СУБД при развертывании в Azure и используемые с приложениями SAP.
@@ -334,7 +323,6 @@ SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP AS
 [Это руководство можно найти здесь.] [dbms-guide]
 
 ## <a name="<a-name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>high-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Руководство по развертыванию и обеспечению высокого уровня доступности
-
 Заголовок: SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию и обеспечению высокого уровня доступности
 
 Сводка. В этом документе описано, как в Azure можно защитить такие компоненты, как SAP ASCS/SCS и СУБД, представляющие собой единые точки отказа. Компоненты SAP ASCS/SCS, СУБД и серверы приложений крайне важны для работы систем SAP NetWeaver, например систем SAP NetWeaver ABAP, Java SAP NetWeaver и SAP NetWeaver ABAP с Java. Поэтому обеспечение высокого уровня доступности является залогом работоспособности этих компонентов при сбое сервера или виртуальной машины. Конфигурации кластеров Windows Server выполняют эту задачу для аппаратной среды и среды Hyper-V.
@@ -342,8 +330,6 @@ SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP AS
 Дата обновления: август 2016 г.
 
 [Это руководство можно найти здесь ][ha-guide].
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,90 +1,91 @@
-<properties
-    pageTitle="Перечисление ресурсов хранилища Azure с помощью клиентской библиотеки для службы хранилища Microsoft Azure для C++ | Microsoft Azure"
-    description="Узнайте, как использовать API-интерфейсов перечисления в клиентской библиотеке для службы хранилища Microsoft Azure для C++ для получения списка контейнеров, больших двоичных объектов, очередей, таблиц и сущностей."
-    documentationCenter=".net"
-    services="storage"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="dineshm;tamram"/>
+---
+title: Перечисление ресурсов хранилища Azure с помощью клиентской библиотеки для службы хранилища Microsoft Azure для C++ | Microsoft Docs
+description: Узнайте, как использовать API-интерфейсов перечисления в клиентской библиотеке для службы хранилища Microsoft Azure для C++ для получения списка контейнеров, больших двоичных объектов, очередей, таблиц и сущностей.
+documentationcenter: .net
+services: storage
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: dineshm;tamram
+
+---
 # Перечисление ресурсов хранилища Azure в C++
-
 Операции перечисления необходимы для многих сценариев разработки с использованием хранилища Azure. В этой статье описано, как наиболее эффективно перечислять объекты в хранилище Azure с помощью API-интерфейсов, предоставленных в клиентской библиотеке для службы хранилища Microsoft Azure для C++.
 
->[AZURE.NOTE] Это руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 2.x, которая доступна в [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
+> [!NOTE]
+> Это руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 2.x, которая доступна в [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
+> 
+> 
 
 Клиентская библиотека хранилища предоставляет разнообразные методы перечисления или запроса объектов в хранилище Azure. В этой статье рассматриваются следующие сценарии:
 
--	перечисление контейнеров в учетной записи;
--	перечисление больших двоичных объектов в контейнере или виртуальном каталоге больших двоичных объектов;
--	перечисление очередей в учетной записи;
--	перечисление таблиц в учетной записи;
--	запрос сущностей в таблице.
+* перечисление контейнеров в учетной записи;
+* перечисление больших двоичных объектов в контейнере или виртуальном каталоге больших двоичных объектов;
+* перечисление очередей в учетной записи;
+* перечисление таблиц в учетной записи;
+* запрос сущностей в таблице.
 
 Каждый из этих методов продемонстрирован с использованием различных перегрузок для разных сценариев.
 
 ## Асинхронный или синхронный
-
 Так как клиентская библиотека хранилища для C++ основана на [библиотеке C++ REST](https://github.com/Microsoft/cpprestsdk), мы поддерживаем асинхронные операции с использованием [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Например:
 
-	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
+    pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
 Синхронные операции создают оболочку для соответствующих асинхронных операций:
 
-	list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
-	{
-	    return list_blobs_segmented_async(token).get();
-	}
+    list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
+    {
+        return list_blobs_segmented_async(token).get();
+    }
 
 При работе с несколькими потоковыми приложениями или службами мы рекомендуем напрямую использовать асинхронные интерфейсы API, а не создавать поток для вызова API синхронизации, что существенно влияет на производительность.
 
 ## Сегментированное перечисление
-
 Из-за масштаба облачного хранилища требуется сегментированное перечисление. Например, в контейнере больших двоичных объектов Azure может быть больше миллиона больших двоичных объектов, а в таблице Azure может быть больше миллиарда сущностей. Это не теоретические значения, а фактические примеры реальных пользователей.
 
 Поэтому нецелесообразно получать список всех объектов в одном ответе. Вместо этого можно получить список объектов с разбиением на страницы. Каждый из API-интерфейсов перечисления содержит *сегментированную* перегрузку.
 
 Ответ для операции сегментированного перечисления включает в себя:
 
--	<i>\_segment</i>, который содержит набор результатов, возвращаемых для одного вызова API перечисления;
--	*continuation\_token*, который передается в следующий вызов для получения следующей страницы результатов. Если дополнительных результатов для возврата нет, маркер продолжения имеет значение null.
+* <i>\_segment</i>, который содержит набор результатов, возвращаемых для одного вызова API перечисления;
+* *continuation\_token*, который передается в следующий вызов для получения следующей страницы результатов. Если дополнительных результатов для возврата нет, маркер продолжения имеет значение null.
 
 Типичный вызов для перечисления всех больших двоичных объектов в контейнере указан в приведенном ниже фрагменте кода. Этот кода можно найти в наших [примерах](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
-	// List blobs in the blob container
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	{
-	    if (it->is_blob())
-	    {
-	        process_blob(it->as_blob());
-	    }
-	    else
-	    {
-	        process_diretory(it->as_directory());
-	    }
-	}
+    // List blobs in the blob container
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_diretory(it->as_directory());
+        }
+    }
 
-	    token = segment.continuation_token();
-	}
-	while (!token.empty());
+        token = segment.continuation_token();
+    }
+    while (!token.empty());
 
 Обратите внимание, что количество результатов, возвращаемых на странице, определяется параметром*max\_results* в перегрузке каждого интерфейса API, например:
 
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
-		blob_listing_details::values includes, int max_results, const continuation_token& token,
-		const blob_request_options& options, operation_context context)
+    list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+        blob_listing_details::values includes, int max_results, const continuation_token& token,
+        const blob_request_options& options, operation_context context)
 
 Если вы не укажете параметр *max\_results*, по умолчанию на одной странице возвращается до 5000 результатов.
 
@@ -93,12 +94,11 @@
 Рекомендуемый шаблон для большинства сценариев таков — сегментированное перечисление, которое предоставляет явные сведения о ходе выполнения перечисления или запроса и указывает, как служба отвечает на каждый запрос. В частности, для приложений и служб на C++ низкоуровневое управление ходом выполнения перечисления может помочь контролировать память и производительность.
 
 ## Каскадное перечисление
-
 Более ранние версии клиентской библиотеки хранилища для C++ (предварительные версии 0.5.0 и более ранние) содержали интерфейсы API несегментированного перечисления для таблиц и очередей, как показано в следующем примере:
 
-	std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
-	std::vector<table_entity> execute_query(const table_query& query) const;
-	std::vector<cloud_queue> list_queues() const;
+    std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
+    std::vector<table_entity> execute_query(const table_query& query) const;
+    std::vector<cloud_queue> list_queues() const;
 
 Эти методы были реализованы в виде оболочки сегментированных API-интерфейсов. Для каждого ответа сегментированного перечисления код дополнил результаты до вектора и вернул все результаты после проверки полных контейнеров.
 
@@ -108,55 +108,54 @@
 
 Если ваш код вызывает эти каскадные API-интерфейсы:
 
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
-	for (auto it = entities.cbegin(); it != entities.cend(); ++it)
-	{
-	    process_entity(*it);
-	}
+    std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+    for (auto it = entities.cbegin(); it != entities.cend(); ++it)
+    {
+        process_entity(*it);
+    }
 
 Затем следует изменить код, чтобы использовать API сегментированного перечисления:
 
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	    {
-	        process_entity(*it);
-	    }
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+        {
+            process_entity(*it);
+        }
 
-	    token = segment.continuation_token();
-	} while (!token.empty());
+        token = segment.continuation_token();
+    } while (!token.empty());
 
 Указывая параметр *max\_results* сегмента, можно балансировать между количеством запросов и объемом памяти для удовлетворения требований к производительности вашего приложения.
 
 Кроме того, если вы используете API сегментированного перечисления, но храните данные в локальной коллекции в каскадном стиле, мы также настоятельно рекомендуем переработать код так, чтобы осторожно обрабатывать хранение данных в локальной коллекции при масштабировании.
 
 ## Отложенное перечисление
-
 Хотя каскадное перечисление может вызывать проблемы, оно удобно, если в контейнере не слишком много объектов.
 
 Если вы также используете пакеты SDK C# или Oracle Java, вам необходимо ознакомиться с перечисляемой моделью программирования, которая реализует отложенное перечисление, когда данные извлекаются по определенному смещению только при необходимости. В C++ шаблон на основе итератора также предоставляет подобный подход.
 
 Типичный API отложенного перечисления, использующий **list\_blobs**, например, выглядит следующим образом:
 
-	list_blob_item_iterator list_blobs() const;
+    list_blob_item_iterator list_blobs() const;
 
 Фрагмент типичного кода, использующего отложенное перечисление, может выглядеть следующим образом:
 
-	// List blobs in the blob container
-	azure::storage::list_blob_item_iterator end_of_results;
-	for (auto it = container.list_blobs(); it != end_of_results; ++it)
-	{
-		if (it->is_blob())
-		{
-			process_blob(it->as_blob());
-		}
-		else
-		{
-			process_directory(it->as_directory());
-		}
-	}
+    // List blobs in the blob container
+    azure::storage::list_blob_item_iterator end_of_results;
+    for (auto it = container.list_blobs(); it != end_of_results; ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_directory(it->as_directory());
+        }
+    }
 
 Обратите внимание, что отложенное перечисление доступно только в синхронном режиме.
 
@@ -165,23 +164,21 @@
 API-интерфейсы отложенного перечисления включены в клиентскую библиотеку хранилища C++ версии 2.2.0.
 
 ## Заключение
-
 В этой статье мы рассмотрели различные перегрузки для API-интерфейсов перечисления для различных объектов в клиентской библиотеке хранилища C++. Итог:
 
--	Настоятельно рекомендуется использовать асинхронные интерфейсы API в сценариях с несколькими потоками.
--	Для большинства сценариев рекомендуется сегментированное перечисление.
--	Отложенное перечисление представлено в библиотеке как удобная оболочка для синхронных сценариев.
--	Мы не рекомендуем использовать каскадное перечисление — оно было удалено из библиотеки.
+* Настоятельно рекомендуется использовать асинхронные интерфейсы API в сценариях с несколькими потоками.
+* Для большинства сценариев рекомендуется сегментированное перечисление.
+* Отложенное перечисление представлено в библиотеке как удобная оболочка для синхронных сценариев.
+* Мы не рекомендуем использовать каскадное перечисление — оно было удалено из библиотеки.
 
-##Дальнейшие действия
-
+## Дальнейшие действия
 Для получения дополнительной информации о хранилище Azure и клиентской библиотеке для C++ см. следующие ресурсы.
 
--	[Использование хранилища BLOB-объектов из C++](storage-c-plus-plus-how-to-use-blobs.md)
--	[Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
--	[Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
--	[Документация по API-интерфейсам клиентской библиотеки хранилища Azure для C++.](http://azure.github.io/azure-storage-cpp/)
--	[Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Использование хранилища BLOB-объектов из C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
+* [Документация по API-интерфейсам клиентской библиотеки хранилища Azure для C++.](http://azure.github.io/azure-storage-cpp/)
+* [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 
 <!---HONumber=AcomDC_0921_2016-->

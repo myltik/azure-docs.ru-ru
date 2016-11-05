@@ -3,7 +3,7 @@
 
 Чтобы найти общедоступный IP-адрес виртуального сетевого шлюза с помощью PowerShell, используйте следующий пример:
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
 Общедоступный IP-адрес виртуального сетевого шлюза также можно просмотреть с помощью портала Azure. Перейдите к разделу **Шлюзы виртуальной сети**, затем щелкните имя шлюза.
 

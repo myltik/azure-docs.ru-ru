@@ -1,39 +1,35 @@
-<properties
-   pageTitle="Мониторинг кластера службы контейнеров Azure с помощью Datadog | Microsoft Azure"
-   description="Мониторинг кластера службы контейнеров Azure с помощью Datadog. Использование веб-интерфейса DC/OS для развертывания агентов Datadog в кластере."
-   services="container-service"
-   documentationCenter=""
-   authors="rbitia"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Контейнеры, DC/OS, Docker Swarm, Azure"/>
+---
+title: Мониторинг кластера службы контейнеров Azure с помощью Datadog | Microsoft Docs
+description: Мониторинг кластера службы контейнеров Azure с помощью Datadog. Использование веб-интерфейса DC/OS для развертывания агентов Datadog в кластере.
+services: container-service
+documentationcenter: ''
+author: rbitia
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Контейнеры, DC/OS, Docker Swarm, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"   
-   ms.date="07/28/2016"
-   ms.author="t-ribhat"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure
+ms.date: 07/28/2016
+ms.author: t-ribhat
 
+---
 # Мониторинг кластера службы контейнеров Azure с помощью Datadog
-
 В этой статье описывается развертывание агентов Datadog на всех узлах агентов в кластере службы контейнеров Azure. Для работы с этой конфигурацией вам понадобится учетная запись с Datadog.
 
-## Предварительные требования 
-
+## Предварительные требования
 [Разверните](container-service-deployment.md) и [подключите](container-service-connect.md) кластер, настроенный службой контейнеров Azure. Изучите [пользовательский интерфейс Marathon](container-service-mesos-marathon-ui.md). Перейдите на страницу [http://datadoghq.com](http://datadoghq.com) для настройки учетной записи Datadog.
 
-## Datadog 
-
+## Datadog
 Datadog представляет собой службу мониторинга, которая собирает данные мониторинга из контейнеров в кластере службы контейнеров Azure. Datadog имеет панель мониторинга интеграции с Docker, в которой вы можете увидеть некоторые метрики своих контейнеров. Метрики контейнеров собраны в несколько групп: ЦП, память, сеть и ввод-вывод. Datadog разделяет метрики по контейнерам и образам. Ниже представлен пример пользовательского интерфейса для метрик использования ЦП.
 
 ![Пользовательский интерфейс Datadog](./media/container-service-monitoring/datadog4.png)
 
 ## Настройка развертывания Datadog с помощью Marathon
-
 Ниже описано, как настраивать и развертывать в кластере приложения Datadog с помощью Marathon.
 
 Откройте пользовательский интерфейс DC/OS по адресу [http://localhost:80/](http://localhost:80/). В этом интерфейсе щелкните Universe (Среда) в левом нижнем углу, выполните поиск по запросу "Datadog" и щелкните "Установить".

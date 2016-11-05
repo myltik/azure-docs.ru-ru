@@ -1,21 +1,21 @@
-<properties
-    pageTitle="Использование образцов экспериментов машинного обучения | Microsoft Azure"
-    description="Узнайте, как использовать образцы экспериментов машинного обучения из коллекции Cortana Intelligence для создания экспериментов с использованием Машинного обучения Microsoft Azure."
-    services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Использование образцов экспериментов машинного обучения | Microsoft Docs
+description: Узнайте, как использовать образцы экспериментов машинного обучения из коллекции Cortana Intelligence для создания экспериментов с использованием Машинного обучения Microsoft Azure.
+services: machine-learning
+documentationcenter: ''
+author: cjgronlund
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/17/2016"
-    ms.author="cgronlun;chhavib;olgali"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/17/2016
+ms.author: cgronlun;chhavib;olgali
 
+---
 # Использование образцов экспериментов для создания новых экспериментов машинного обучения
 Узнайте, как использовать образцы экспериментов машинного обучения из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/), чтобы не создавать собственные решения с нуля. Эти образцы помогут вам создать решение машинного обучения.
 
@@ -23,35 +23,33 @@
 
 Чтобы узнать, как использовать коллекцию, просмотрите 3-минутное видео [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) из серии [Обработка и анализ данных для начинающих](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Поиск эксперимента для копирования в коллекции Cortana Intelligence
-
 Чтобы просмотреть доступные эксперименты, перейдите в раздел [Коллекция](http://gallery.cortanaintelligence.com/) и щелкните **Эксперименты** в верхней части страницы.
 
 ### Поиск последних и самых популярных экспериментов
-
 На этой странице можно просмотреть **недавно добавленные** эксперименты, а также **популярные эксперименты** или последние **популярные эксперименты Майкрософт**.
 
 ### Поиск эксперимента, соответствующего определенным требованиям
-
 Для просмотра всех экспериментов выполните следующие действия.
 
 1. В верхней части страницы щелкните **Просмотреть все**.
 2. В разделе **Отфильтровать по** выберите **Эксперимент**, чтобы просмотреть все эксперименты в коллекции.
 3. Эксперименты, соответствующие определенным требованиям, можно найти несколькими различными способами.
-    * **Выберите фильтры в левой части окна.** Например, чтобы просмотреть эксперименты, в которых используется алгоритм обнаружения аномалий на основе PCA, выберите **Эксперимент** в разделе **Категории** и **PCA-Based Anomaly Detection** (Обнаружение аномалий на основе PCA) в разделе **Algorithms Used** (Используемые алгоритмы). (Если этот алгоритм не отображается, нажмите кнопку **Показать все** в нижней части списка.)<br></br> ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-    *  **Используйте поле поиска.** Например, чтобы найти эксперименты, предоставленные корпорацией Майкрософт и относящиеся к распознаванию цифр с использованием алгоритма двухклассовой машины опорных векторов, введите "распознавание цифр" в поле поиска. Затем выберите **Эксперимент**, **Microsoft content only** (Только содержимое Майкрософт) и **Two-Class Support Vector Machine** (Двухклассовая машина опорных векторов). ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Выберите фильтры в левой части окна.** Например, чтобы просмотреть эксперименты, в которых используется алгоритм обнаружения аномалий на основе PCA, выберите **Эксперимент** в разделе **Категории** и **PCA-Based Anomaly Detection** (Обнаружение аномалий на основе PCA) в разделе **Algorithms Used** (Используемые алгоритмы). (Если этот алгоритм не отображается, нажмите кнопку **Показать все** в нижней части списка.)<br></br> ![](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Используйте поле поиска.** Например, чтобы найти эксперименты, предоставленные корпорацией Майкрософт и относящиеся к распознаванию цифр с использованием алгоритма двухклассовой машины опорных векторов, введите "распознавание цифр" в поле поиска. Затем выберите **Эксперимент**, **Microsoft content only** (Только содержимое Майкрософт) и **Two-Class Support Vector Machine** (Двухклассовая машина опорных векторов). ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Щелкните эксперимент, чтобы узнать о нем подробнее.
 5. Чтобы запустить или изменить эксперимент, щелкните **Open in Studio** (Открыть в Студии) на странице эксперимента.
-
-    > [AZURE.NOTE] Чтобы открыть эксперимент в Студии машинного обучения, потребуется выполнить вход с использованием учетной записи Майкрософт. Если у вас еще нет рабочего пространства машинного обучения, создается бесплатное пробное рабочее пространство. [Узнайте, что входит в бесплатную пробную версию программы машинного обучения](https://azure.microsoft.com/pricing/details/machine-learning/)
-
+   
+   > [!NOTE]
+   > Чтобы открыть эксперимент в Студии машинного обучения, потребуется выполнить вход с использованием учетной записи Майкрософт. Если у вас еще нет рабочего пространства машинного обучения, создается бесплатное пробное рабочее пространство. [Узнайте, что входит в бесплатную пробную версию программы машинного обучения](https://azure.microsoft.com/pricing/details/machine-learning/)
+   > 
+   > 
+   
      ![](./media/machine-learning-sample-experiments/example-experiment.png)
 
-
 ## Использование шаблона в студии машинного обучения
-
 Эксперимент в студии машинного обучения также можно создать, используя образец из коллекции в качестве шаблона.
 
 1. Войдите в [Студию](https://studio.azureml.net) с использованием учетной записи Майкрософт, после чего щелкните **Создать**, чтобы создать эксперимент.
@@ -60,10 +58,10 @@
 В рабочей области будет создан эксперимент на основе выбранного образца в качестве шаблона.
 
 ## Дальнейшие действия
-- [Подготовка данных](machine-learning-data-science-import-data.md)
-- [Попробуйте использовать R в вашем эксперименте](machine-learning-r-quickstart.md)
-- [Просмотрите образцы экспериментов на R](machine-learning-r-csharp-web-service-examples.md)
-- [Создание API веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
-- [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
+* [Подготовка данных](machine-learning-data-science-import-data.md)
+* [Попробуйте использовать R в вашем эксперименте](machine-learning-r-quickstart.md)
+* [Просмотрите образцы экспериментов на R](machine-learning-r-csharp-web-service-examples.md)
+* [Создание API веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
+* [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
 
 <!---HONumber=AcomDC_0914_2016-->

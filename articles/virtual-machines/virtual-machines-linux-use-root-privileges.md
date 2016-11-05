@@ -1,58 +1,50 @@
-<properties 
-	pageTitle="Использование прав корневой учетной записи на виртуальных машинах Linux | Microsoft Azure" 
-	description="Узнайте, как использовать права корневой учетной записи на виртуальных машинах Linux в Azure." 
-	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+---
+title: Использование прав корневой учетной записи на виртуальных машинах Linux | Microsoft Docs
+description: Узнайте, как использовать права корневой учетной записи на виртуальных машинах Linux в Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: szarkos
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
 
-<tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2016" 
-	ms.author="szark"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: szark
 
-
+---
 # Использование прав корневой учетной записи на виртуальных машинах Linux в Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 По умолчанию пользователь `root` отключен в виртуальных машинах Linux в Azure. Пользователи могут выполнять команды с повышенными привилегиями, используя команду `sudo`. При этом в зависимости от способа подготовки системы процедура может отличаться.
 
 1. **Ключ SSH и пароль ИЛИ только пароль** — виртуальная машина была подготовлена либо с использованием сертификата (файл `.CER`) или ключа SSH и пароля, либо с использованием только имени пользователя и пароля. В этом случае `sudo` запросит пароль пользователя перед выполнением команды.
-
 2. **Только ключ SSH** — виртуальная машина была подготовлена с использованием сертификата (файла с расширением `.cer`, `.pem` или `.pub`) или ключа SSH, но без пароля. В этом случае `sudo` ** не будет** запрашивать пароль пользователя перед выполнением команды.
 
-
 ## Ключ и пароль или только пароль SSH
-
 Войдите в виртуальную машину Linux с использованием ключа SSH или пароля, а затем выполните команды с использованием `sudo`, например:
 
-	# sudo <command>
-	[sudo] password for azureuser:
+    # sudo <command>
+    [sudo] password for azureuser:
 
 В этом случае пользователю будет предложено ввести пароль. После ввода пароля `sudo` выполнит команду с привилегиями `root`.
 
 Вы также можете включить работу sudo без пароля, изменив файл `/etc/sudoers.d/waagent`, например:
 
-	#/etc/sudoers.d/waagent
-	azureuser ALL = (ALL) NOPASSWD: ALL
+    #/etc/sudoers.d/waagent
+    azureuser ALL = (ALL) NOPASSWD: ALL
 
 Это изменение позволит пользователю azureuser использовать sudo без пароля.
 
 ## Только ключ SSH
-
 Войдите в виртуальную машину Linux с использованием ключа SSH, а затем выполните команды с использованием `sudo`, например:
 
-	# sudo <command>
+    # sudo <command>
 
 В этом случае пользователю **не будет** предложено ввести пароль. После нажатия клавиши `<enter>` `sudo` выполнит команду с привилегиями `root`.
-
- 
 
 <!---HONumber=AcomDC_0713_2016-->

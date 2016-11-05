@@ -1,31 +1,29 @@
-<properties
-    pageTitle="Копирование базы данных SQL Azure | Microsoft Azure"
-    description="Создание копии Базы данных SQL Azure"
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Копирование базы данных SQL Azure | Microsoft Docs
+description: Создание копии Базы данных SQL Azure
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="06/16/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 06/16/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
-
-
+---
 # <a name="copy-an-azure-sql-database"></a>Копирование Базы данных SQL Azure
-
-> [AZURE.SELECTOR]
-- [Обзор](sql-database-copy.md)
-- [Портал Azure](sql-database-copy-portal.md)
-- [PowerShell](sql-database-copy-powershell.md)
-- [T-SQL](sql-database-copy-transact-sql.md)
+> [!div class="op_single_selector"]
+> * [Обзор](sql-database-copy.md)
+> * [Портал Azure](sql-database-copy-portal.md)
+> * [PowerShell](sql-database-copy-powershell.md)
+> * [T-SQL](sql-database-copy-transact-sql.md)
+> 
+> 
 
 Вы можете использовать [автоматически создаваемые резервные копии базы данных SQL](sql-database-automated-backups.md) , чтобы создать копию базы данных SQL. Операция копирования копирует заключительный фрагмент журнала транзакций, а затем использует полную, разностную резервные копии и резервную копию журнала транзакций, которые являются частью автоматически созданной резервной копии, чтобы создать копию базы данных, транзакционно согласованную с базой данных, являющейся источником, на момент создания окончательной резервной копии журнала транзакций. 
 
@@ -35,30 +33,23 @@
 
 При копировании базы данных на другой логический сервер субъект безопасности на новом сервере становится владельцем новой базы данных. Пользователи базы данных, которые являются автономными, могут использоваться в копии базы данных. Тем не менее при копировании базы данных на новый сервер пользователи не смогут использовать свои имена для входа, так как их не будет существовать на новом сервере, а если и будут, то их идентификаторы безопасности могут не совпадать. После того как новая база данных на целевом сервере будет в сети, сопоставьте пользователей из новой базы данных с именами входа на целевом сервере с помощью оператора [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx). Сведения о разрешении потерянных пользователей см. в разделе [Диагностика пользователей, утративших связь с учетной записью](https://msdn.microsoft.com/library/ms175475.aspx). 
 
-
 Для копирования Базы данных SQL необходимо следующее:
 
-- Подписка Azure. Если вам нужна подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
-- База данных SQL для копирования. Если у вас нет базы данных SQL, создайте ее в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
+* Подписка Azure. Если вам нужна подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
+* База данных SQL для копирования. Если у вас нет базы данных SQL, создайте ее в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- В разделе [Копирование базы данных SQL Azure помощью портала Azure](sql-database-copy-portal.md) рассматривается копирование базы данных с помощью портала Azure.
-- В разделе [Копирование базы данных SQL Azure с помощью PowerShell](sql-database-copy-powershell.md) рассматривается копирование базы данных с помощью PowerShell.
-- В разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md) рассматривается копирование базы данных с помощью Transact-SQL.
-- В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
-
-
+* В разделе [Копирование базы данных SQL Azure помощью портала Azure](sql-database-copy-portal.md) рассматривается копирование базы данных с помощью портала Azure.
+* В разделе [Копирование базы данных SQL Azure с помощью PowerShell](sql-database-copy-powershell.md) рассматривается копирование базы данных с помощью PowerShell.
+* В разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md) рассматривается копирование базы данных с помощью Transact-SQL.
+* В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-
-- [Управление именами для входа](sql-database-manage-logins.md)
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-- [Экспорт базы данных в BACPAC](sql-database-export.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
+* [Управление именами для входа](sql-database-manage-logins.md)
+* [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
+* [Экспорт базы данных в BACPAC](sql-database-export.md)
+* [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
+* [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
 <!--HONumber=Oct16_HO2-->
 

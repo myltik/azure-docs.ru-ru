@@ -1,25 +1,21 @@
-<properties 
-	pageTitle="Использование Twilio для поддержки голосовых вызовов и SMS (Ruby) | Microsoft Azure" 
-	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры кода написаны на Ruby." 
-	services="" 
-	documentationCenter="ruby" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor=""/>
+---
+title: Использование Twilio для поддержки голосовых вызовов и SMS (Ruby) | Microsoft Docs
+description: Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры кода написаны на Ruby.
+services: ''
+documentationcenter: ruby
+author: devinrader
+manager: twilio
+editor: ''
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="MicrosoftHelp@twilio.com"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 11/25/2014
+ms.author: MicrosoftHelp@twilio.com
 
-
-
-
-
+---
 # Использование Twilio для поддержки голосовых возможностей и SMS в Ruby
 В этом руководстве показано, как выполнять типовые задачи программирования с помощью службы Twilio API в Azure. Здесь описываются такие сценарии, как телефонный звонок и отправка SMS-сообщения. Дополнительные сведения о Twilio и использовании голосовых функций и SMS в приложениях см. в разделе [Дальнейшие действия](#NextSteps).
 
@@ -114,23 +110,23 @@ TwiML — это набор инструкций на основе XML, кото
 Добавьте эту функцию в `web.md`:
 
     # Set your account ID and authentication token.
-	sid = "your_twilio_account_sid";
-	token = "your_twilio_authentication_token";
+    sid = "your_twilio_account_sid";
+    token = "your_twilio_authentication_token";
 
-	# The number of the phone initiating the the call.
+    # The number of the phone initiating the the call.
     # This should either be a Twilio number or a number that you've verified
-	from = "NNNNNNNNNNN";
+    from = "NNNNNNNNNNN";
 
-	# The number of the phone receiving call.
-	to = "NNNNNNNNNNN";
+    # The number of the phone receiving call.
+    to = "NNNNNNNNNNN";
 
-	# Use the Twilio-provided site for the TwiML response.
+    # Use the Twilio-provided site for the TwiML response.
     url = "http://yourdomain.cloudapp.net/voice_url";
-      
+
     get '/make_call' do
-	  # Create the call client.
-	  client = Twilio::REST::Client.new(sid, token);
-      
+      # Create the call client.
+      client = Twilio::REST::Client.new(sid, token);
+
       # Make the call
       client.account.calls.create(to: to, from: from, url: url)
     end
@@ -140,7 +136,7 @@ TwiML — это набор инструкций на основе XML, кото
          <Say>Hello Monkey!</Say>
        </Response>"
     end
-    
+
 Если открыть `http://yourdomain.cloudapp.net/make_call` в браузере, вы активируете вызов API Twilio для осуществления звонка. Первые два параметра в `client.account.calls.create` говорят сами за себя: номер вызова `from` и номер вызова `to`.
 
 Третий параметр (`url`) — URL-адрес, который Twilio запрашивает для получения инструкций по действиям после подключения вызова. В этом случае мы задаем URL-адрес (`http://yourdomain.cloudapp.net`), который возвращает простой документ TwiML и использует команду `<Say>`, чтобы преобразовать текст в речь и сказать "Hello Monkey" для принимающего вызов абонента.

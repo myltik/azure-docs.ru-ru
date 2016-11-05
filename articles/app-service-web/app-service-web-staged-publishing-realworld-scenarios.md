@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Эффективное использование сред разработки и операций для веб-приложений"
-   description="Узнайте, как использовать слоты развертывания для настройки нескольких сред разработки приложения и управления ими"
-   services="app-service\web"
-   documentationCenter=""
-   authors="sunbuild"
-   manager="yochayk"
-   editor=""/>
+---
+title: Эффективное использование сред разработки и операций для веб-приложений
+description: Узнайте, как использовать слоты развертывания для настройки нескольких сред разработки приложения и управления ими
+services: app-service\web
+documentationcenter: ''
+author: sunbuild
+manager: yochayk
+editor: ''
 
-<tags
-   ms.service="app-service"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="web"
-   ms.date="05/31/2016"
-   ms.author="sumuth"/>
+ms.service: app-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 05/31/2016
+ms.author: sumuth
 
+---
 # Эффективное использование сред разработки и операций для веб-приложений
-
-В этой статье показано, как настроить развертывание разных версий веб-приложений, например в среде разработки, промежуточной среде, среде для проверки качества и рабочей среде, а также управлять ими. Каждая версия приложения может рассматриваться как среда разработки для конкретной цели в рамках процесса развертывания. Например, среда для проверки качества может использоваться разработчиками для тестирования перед переносом изменений в рабочую среду. Настройка нескольких сред разработки может вызывать затруднения, так как необходимо отслеживать ресурсы (вычислительные ресурсы, веб-приложения, базы данных, кэш и т. д.) в этих средах и управлять перемещением содержимого из одной среды в другую.
+В этой статье показано, как настроить развертывание разных версий веб-приложений, например в среде разработки, промежуточной среде, среде для проверки качества и рабочей среде, а также управлять ими. Каждая версия приложения может рассматриваться как среда разработки для конкретной цели в рамках процесса развертывания. Например, среда для проверки качества может использоваться разработчиками для тестирования перед переносом изменений в рабочую среду. Настройка нескольких сред разработки может вызывать затруднения, так как необходимо отслеживать ресурсы (вычислительные ресурсы, веб-приложения, базы данных, кэш и т. д.) в этих средах и управлять перемещением содержимого из одной среды в другую.
 
 ## Настройка непроизводственной среды (для подготовки, разработки, контроля качества)
 После того как вы создадите и настроите рабочую версию веб-приложения, необходимо создать непроизводственную среду. Для использования слотов развертывания убедитесь, что вы работаете в рамках плана обслуживания **Standard** или **Premium**. Слоты развертывания фактически являются динамическими веб-приложениями со своими собственными именами узлов. Содержимое веб-приложений и элементы конфигурации можно переключать между двумя слотами развертывания (включая рабочий). Развертывание приложения в области развертывания дает следующие преимущества:
@@ -30,8 +29,7 @@
 Сведения о настройке промежуточного слота развертывания см. в статье [Настройка промежуточных сред для веб-приложений в службе приложений Azure](web-sites-staged-publishing.md). Каждая среда должна включать в себя собственный набор ресурсов. Например, рабочая и промежуточная версии веб-приложения должны использовать разные базы данных. Чтобы настроить промежуточную среду развертывания, добавьте для нее такие ресурсы, как база данных, хранилище и кэш.
 
 ## Примеры использования нескольких сред разработки
-
-Все проекты разработки необходимо вести в рамках системы управления исходным кодом как минимум с двумя средами (средой разработки и рабочей). Однако при использовании систем управления контентом, платформ приложений и т. п. можно столкнуться с ситуацией, когда приложение не поддерживает по умолчанию тот или иной сценарий. Это справедливо для некоторых популярных платформ, рассмотренных ниже. При работе с CMS и платформами возникает множество вопросов.
+Все проекты разработки необходимо вести в рамках системы управления исходным кодом как минимум с двумя средами (средой разработки и рабочей). Однако при использовании систем управления контентом, платформ приложений и т. п. можно столкнуться с ситуацией, когда приложение не поддерживает по умолчанию тот или иной сценарий. Это справедливо для некоторых популярных платформ, рассмотренных ниже. При работе с CMS и платформами возникает множество вопросов.
 
 1. Как разделить содержимое между средами?
 2. Какие файлы можно менять, не опасаясь, что изменение потребует обновления версии платформы?
@@ -45,23 +43,22 @@
 
 Прежде чем создавать промежуточный слот развертывания, настройте поддержку нескольких сред кодом приложения. Для этого добавьте в начало файла `wp-config.php` в веб-приложении в локальной среде разработки следующий код. Это позволит приложению использовать конфигурацию в зависимости от выбранной среды.
 
-
-	// Support multiple environments
-	// set the config file based on current environment
-	/**/
-	if (strpos(filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING),'localhost') !== false) {
-	    // local development
-	    $config_file = 'config/wp-config.local.php';
-	}
-	elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
-	      //single file for all azure development environments
-	      $config_file = 'config/wp-config.azure.php';
-	}
-	$path = dirname(__FILE__) . '/';
-	if (file_exists($path . $config_file)) {
-	    // include the config file if it exists, otherwise WP is going to fail
-	    require_once $path . $config_file;
-	}
+    // Support multiple environments
+    // set the config file based on current environment
+    /**/
+    if (strpos(filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING),'localhost') !== false) {
+        // local development
+        $config_file = 'config/wp-config.local.php';
+    }
+    elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
+          //single file for all azure development environments
+          $config_file = 'config/wp-config.azure.php';
+    }
+    $path = dirname(__FILE__) . '/';
+    if (file_exists($path . $config_file)) {
+        // include the config file if it exists, otherwise WP is going to fail
+        require_once $path . $config_file;
+    }
 
 
 
@@ -70,104 +67,103 @@
 Скопируйте в файл `wp-config.local.php` следующий код:
 
 ```
-	
-	<?php
-	
-	// MySQL settings
-	/** The name of the database for WordPress */
-	
-	define('DB_NAME', 'yourdatabasename');
-	
-	/** MySQL database username */
-	define('DB_USER', 'yourdbuser');
-	
-	/** MySQL database password */
-	define('DB_PASSWORD', 'yourpassword');
-	
-	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
-	/**
-	 * For developers: WordPress debugging mode.
-	 * * Change this to true to enable the display of notices during development.
-	 * It is strongly recommended that plugin and theme developers use WP_DEBUG
-	 * in their development environments.
-	 */
-	define('WP_DEBUG', true);
-	
-	//Security key settings
-	define('AUTH_KEY',         'put your unique phrase here');
-	define('SECURE_AUTH_KEY',  'put your unique phrase here');
-	define('LOGGED_IN_KEY',    'put your unique phrase here');
-	define('NONCE_KEY',        'put your unique phrase here');
-	define('AUTH_SALT',        'put your unique phrase here');
-	define('SECURE_AUTH_SALT', 'put your unique phrase here');
-	define('LOGGED_IN_SALT',   'put your unique phrase here');
-	define('NONCE_SALT',       'put your unique phrase here');
-	
-	/**
-	 * WordPress Database Table prefix.
-	 *
-	 * You can have multiple installations in one database if you give each a unique
-	 * prefix. Only numbers, letters, and underscores please!
-	 */
-	$table_prefix  = 'wp_';
+
+    <?php
+
+    // MySQL settings
+    /** The name of the database for WordPress */
+
+    define('DB_NAME', 'yourdatabasename');
+
+    /** MySQL database username */
+    define('DB_USER', 'yourdbuser');
+
+    /** MySQL database password */
+    define('DB_PASSWORD', 'yourpassword');
+
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+    /**
+     * For developers: WordPress debugging mode.
+     * * Change this to true to enable the display of notices during development.
+     * It is strongly recommended that plugin and theme developers use WP_DEBUG
+     * in their development environments.
+     */
+    define('WP_DEBUG', true);
+
+    //Security key settings
+    define('AUTH_KEY',         'put your unique phrase here');
+    define('SECURE_AUTH_KEY',  'put your unique phrase here');
+    define('LOGGED_IN_KEY',    'put your unique phrase here');
+    define('NONCE_KEY',        'put your unique phrase here');
+    define('AUTH_SALT',        'put your unique phrase here');
+    define('SECURE_AUTH_SALT', 'put your unique phrase here');
+    define('LOGGED_IN_SALT',   'put your unique phrase here');
+    define('NONCE_SALT',       'put your unique phrase here');
+
+    /**
+     * WordPress Database Table prefix.
+     *
+     * You can have multiple installations in one database if you give each a unique
+     * prefix. Only numbers, letters, and underscores please!
+     */
+    $table_prefix  = 'wp_';
 ```
 
 Такая настройка ключей безопасности помогает предотвратить хакерские атаки на веб-приложение, поэтому используйте уникальные значения. Если вы хотите создать ключи безопасности (пары «ключ-значение»), перейдите к автоматическому генератору по этой [ссылке](https://api.wordpress.org/secret-key/1.1/salt).
 
 Скопируйте в файл `wp-config.azure.php` следующий код:
 
-
 ```
 
-	<?php
-	// MySQL settings
-	/** The name of the database for WordPress */
-	
-	define('DB_NAME', getenv('DB_NAME'));
-	
-	/** MySQL database username */
-	define('DB_USER', getenv('DB_USER'));
-	
-	/** MySQL database password */
-	define('DB_PASSWORD', getenv('DB_PASSWORD'));
-	
-	/** MySQL hostname */
-	define('DB_HOST', getenv('DB_HOST'));
-	
-	/**
-	* For developers: WordPress debugging mode.
-	*
-	* Change this to true to enable the display of notices during development.
-	* It is strongly recommended that plugin and theme developers use WP_DEBUG
-	* in their development environments.
-	* Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
-	* do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
-	* with WP_DEBUG_LOG so that errors are not displayed on the page */
-	
-	*/
-	define('WP_DEBUG', getenv('WP_DEBUG'));
-	define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
-	define('WP_DEBUG_DISPLAY',false);
-	
-	//Security key settings
-	/** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
-	define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
-	define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
-	define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
-	define('NONCE_KEY', getenv('DB_NONCE_KEY'));
-	define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
-	define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
-	define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
-	define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
-	
-	/**
-	* WordPress Database Table prefix.
-	*
-	* You can have multiple installations in one database if you give each a unique
-	* prefix. Only numbers, letters, and underscores please!
-	*/
-	$table_prefix  = getenv('DB_PREFIX');
+    <?php
+    // MySQL settings
+    /** The name of the database for WordPress */
+
+    define('DB_NAME', getenv('DB_NAME'));
+
+    /** MySQL database username */
+    define('DB_USER', getenv('DB_USER'));
+
+    /** MySQL database password */
+    define('DB_PASSWORD', getenv('DB_PASSWORD'));
+
+    /** MySQL hostname */
+    define('DB_HOST', getenv('DB_HOST'));
+
+    /**
+    * For developers: WordPress debugging mode.
+    *
+    * Change this to true to enable the display of notices during development.
+    * It is strongly recommended that plugin and theme developers use WP_DEBUG
+    * in their development environments.
+    * Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
+    * do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
+    * with WP_DEBUG_LOG so that errors are not displayed on the page */
+
+    */
+    define('WP_DEBUG', getenv('WP_DEBUG'));
+    define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
+    define('WP_DEBUG_DISPLAY',false);
+
+    //Security key settings
+    /** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
+    define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
+    define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
+    define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
+    define('NONCE_KEY', getenv('DB_NONCE_KEY'));
+    define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
+    define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
+    define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
+    define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
+
+    /**
+    * WordPress Database Table prefix.
+    *
+    * You can have multiple installations in one database if you give each a unique
+    * prefix. Only numbers, letters, and underscores please!
+    */
+    $table_prefix  = getenv('DB_PREFIX');
 ```
 
 #### Использование относительных путей
@@ -178,9 +174,9 @@
 ```
 
     define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_CONTENT_URL', '/wp-content');
-	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_CONTENT_URL', '/wp-content');
+    define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 ```
 
 Активируйте подключаемый модуль, используя меню `Plugins` в панели администратора WordPress. Сохраните постоянную ссылку на приложение WordPress.
@@ -190,62 +186,62 @@
 
 ```
 
-	<?php
-	/**
-	 * The base configurations of the WordPress.
-	 *
-	 * This file has the following configurations: MySQL settings, Table Prefix,
-	 * Secret Keys, and ABSPATH. You can find more information by visiting
-	 *
-	 * Codex page. You can get the MySQL settings from your web host.
-	 *
-	 * This file is used by the wp-config.php creation script during the
-	 * installation. You don't have to use the web web app, you can just copy this file
-	 * to "wp-config.php" and fill in the values.
-	 *
-	 * @package WordPress
-	 */
-	
-	// Support multiple environments
-	// set the config file based on current environment
-	if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
-	    $config_file = 'config/wp-config.local.php';
-	}
-	elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
-	    $config_file = 'config/wp-config.azure.php';
-	}
-	
-	
-	$path = dirname(__FILE__) . '/';
-	if (file_exists($path . $config_file)) {
-	    // include the config file if it exists, otherwise WP is going to fail
-	    require_once $path . $config_file;
-	}
-	
-	/** Database Charset to use in creating database tables. */
-	define('DB_CHARSET', 'utf8');
-	
-	/** The Database Collate type. Don't change this if in doubt. */
-	define('DB_COLLATE', '');
-	
-	
-	/* That's all, stop editing! Happy blogging. */
-	
-	define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_CONTENT_URL', '/wp-content');
-	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	
-	/** Absolute path to the WordPress directory. */
-	if ( !defined('ABSPATH') )
-		define('ABSPATH', dirname(__FILE__) . '/');
-	
-	/** Sets up WordPress vars and included files. */
-	require_once(ABSPATH . 'wp-settings.php');
+    <?php
+    /**
+     * The base configurations of the WordPress.
+     *
+     * This file has the following configurations: MySQL settings, Table Prefix,
+     * Secret Keys, and ABSPATH. You can find more information by visiting
+     *
+     * Codex page. You can get the MySQL settings from your web host.
+     *
+     * This file is used by the wp-config.php creation script during the
+     * installation. You don't have to use the web web app, you can just copy this file
+     * to "wp-config.php" and fill in the values.
+     *
+     * @package WordPress
+     */
+
+    // Support multiple environments
+    // set the config file based on current environment
+    if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
+        $config_file = 'config/wp-config.local.php';
+    }
+    elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
+        $config_file = 'config/wp-config.azure.php';
+    }
+
+
+    $path = dirname(__FILE__) . '/';
+    if (file_exists($path . $config_file)) {
+        // include the config file if it exists, otherwise WP is going to fail
+        require_once $path . $config_file;
+    }
+
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8');
+
+    /** The Database Collate type. Don't change this if in doubt. */
+    define('DB_COLLATE', '');
+
+
+    /* That's all, stop editing! Happy blogging. */
+
+    define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_CONTENT_URL', '/wp-content');
+    define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+
+    /** Absolute path to the WordPress directory. */
+    if ( !defined('ABSPATH') )
+        define('ABSPATH', dirname(__FILE__) . '/');
+
+    /** Sets up WordPress vars and included files. */
+    require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Настройка промежуточной среды
-Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал Azure](https://portal.azure.com/) и перейдите к веб-приложению WordPress. Если приложения нет, вы можете создать его в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery.md). Чтобы создать слот развертывания с именем stage, последовательно выберите **Параметры** –> **Слоты развертывания** –> **Добавить**. Слот развертывания — это другое веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное ранее.
+Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал Azure](https://portal.azure.com/) и перейдите к веб-приложению WordPress. Если приложения нет, вы можете создать его в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery.md). Чтобы создать слот развертывания с именем stage, последовательно выберите **Параметры** –> **Слоты развертывания** –> **Добавить**. Слот развертывания — это другое веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное ранее.
 
 ![Создание промежуточного слота развертывания](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -260,15 +256,15 @@
 
 Описанный ниже процесс удобен при выполнении обновления, ведь он объединяет изменения как файлов, так и базы данных для приложения WordPress:
 
-- обновление версии WordPress;
-- добавление, изменение или обновление подключаемых модулей;
-- добавление, изменение или обновление тем.
+* обновление версии WordPress;
+* добавление, изменение или обновление подключаемых модулей;
+* добавление, изменение или обновление тем.
 
 Настройка параметров приложения:
 
-- сведения о базе данных;
-- включение и выключение ведения журнала для WordPress;
-- параметры безопасности WordPress.
+* сведения о базе данных;
+* включение и выключение ведения журнала для WordPress;
+* параметры безопасности WordPress.
 
 ![Параметры приложения для веб-приложения WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
@@ -282,13 +278,14 @@
 
 ![Просмотр промежуточных веб-приложений до переключения слотов](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
-
  Если ничего менять не требуется, щелкните **Переключить** в параметрах промежуточного веб-приложения, чтобы переместить его содержимое в рабочую среду. В нашем примере каждая операция **переключения** приводит к переключению веб-приложения и базы данных между средами.
 
 ![Просмотр изменений при переключении для WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- > [AZURE.NOTE]
- > Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. На данном этапе после операции **переключения** в веб-приложении WordPress будут **ТОЛЬКО** обновленные файлы.
+> [!NOTE]
+> Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. На данном этапе после операции **переключения** в веб-приложении WordPress будут **ТОЛЬКО** обновленные файлы.
+> 
+> 
 
 Перед выполнением операции перемещения рабочее приложение WordPress выглядит так: ![Рабочее веб-приложение перед переключением слотов](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -314,7 +311,7 @@
 ### Umbraco
 Из этого раздела вы узнаете, как использовать пользовательские модули в системе CMS Umbraco для развертывания в нескольких средах разработки и операций. В этом примере представлен другой подход к управлению развертыванием в нескольких средах разработки.
 
-[Umbraco CMS](http://umbraco.com/) — популярное среди разработчиков CMS-решение на основе .NET, предоставляющее модуль [Courier2](http://umbraco.com/products/more-add-ons/courier-2) для переноса содержимого из среды разработки в промежуточную, а затем и в рабочую среду. Вы можете легко создать локальную среду разработки для веб-приложения Umbraco CMS с помощью Visual Studio или WebMatrix.
+[Umbraco CMS](http://umbraco.com/) — популярное среди разработчиков CMS-решение на основе .NET, предоставляющее модуль [Courier2](http://umbraco.com/products/more-add-ons/courier-2) для переноса содержимого из среды разработки в промежуточную, а затем и в рабочую среду. Вы можете легко создать локальную среду разработки для веб-приложения Umbraco CMS с помощью Visual Studio или WebMatrix.
 
 1. Чтобы создать веб-приложение Umbraco с помощью Visual Studio, щелкните [здесь](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget).
 2. Чтобы создать веб-приложение Umbraco с помощью WebMatrix, щелкните [здесь](http://umbraco.com/help-and-support/video-tutorials/getting-started/working-with-webmatrix).
@@ -332,15 +329,15 @@
 
  ![Получение параметров публикации для промежуточного веб-приложения](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
-- Откройте веб-приложение в локальной среде разработки **WebMatrix** или **Visual Studio**. В этом учебнике я использую WebMatrix, и сначала нам необходимо импортировать файл параметров публикации для промежуточного веб-приложения.
+* Откройте веб-приложение в локальной среде разработки **WebMatrix** или **Visual Studio**. В этом учебнике я использую WebMatrix, и сначала нам необходимо импортировать файл параметров публикации для промежуточного веб-приложения.
 
 ![Импорт параметров публикации в Umbraco с помощью Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Просмотрите изменения в диалоговом окне и разверните локальное веб-приложение в веб-приложение Azure *umbracositecms-1-stage*. При развертывании файлов непосредственно в промежуточное веб-приложение исключаются все файлы в папке `~/app_data/TEMP/`, так как они будут повторно сгенерированы при первом запуске промежуточного веб-приложения. Следует также пропустить файл `~/app_data/umbraco.config`, так как он тоже будет создан заново.
+* Просмотрите изменения в диалоговом окне и разверните локальное веб-приложение в веб-приложение Azure *umbracositecms-1-stage*. При развертывании файлов непосредственно в промежуточное веб-приложение исключаются все файлы в папке `~/app_data/TEMP/`, так как они будут повторно сгенерированы при первом запуске промежуточного веб-приложения. Следует также пропустить файл `~/app_data/umbraco.config`, так как он тоже будет создан заново.
 
 ![Просмотр изменений публикации в WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
-- После успешной публикации локального веб-приложения Umbraco в промежуточное веб-приложение перейдите к промежуточному веб-приложению и выполните несколько тестов, чтобы исключить возможные проблемы.
+* После успешной публикации локального веб-приложения Umbraco в промежуточное веб-приложение перейдите к промежуточному веб-приложению и выполните несколько тестов, чтобы исключить возможные проблемы.
 
 #### Настройка модуля развертывания Courier2
 Используя модуль [Courier2](http://umbraco.com/products/more-add-ons/courier-2), вы можете щелчком правой кнопкой мыши передавать содержимое, таблицы стилей, модули разработки и многое другое из промежуточного веб-приложения в рабочее. Это значительно упрощает развертывание и снижает риск возникновения сбоев рабочего веб-приложения при развертывании обновлений. Приобретите лицензию на Courier2 для домена `*.azurewebsites.net` и пользовательского домена (например, http://abc.com). После этого поместите загруженный файл лицензии (файл LIC) в папку `bin`.
@@ -372,7 +369,7 @@
   </repositories>
  ```
 
-В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) по модулю Courier.
+В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) по модулю Courier.
 
 Аналогичным образом установите модуль Courier на рабочий сайт и настройте его на размещенное веб-приложение в соответствующем файле courier.config, как показано здесь
 
@@ -392,7 +389,7 @@
 
 ![Просмотр целевого репозитория веб-приложения](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-Теперь развернем часть содержимого промежуточного сайта в рабочей среде. Перейдите в раздел «Содержимое» и выберите существующую или создайте новую страницу. Выберем существующую страницу в разделе "Мое веб-приложение", заголовок которой изменен на **Приступая к работе — новый**, после чего нажмем кнопку **Сохранить и опубликовать**.
+Теперь развернем часть содержимого промежуточного сайта в рабочей среде. Перейдите в раздел «Содержимое» и выберите существующую или создайте новую страницу. Выберем существующую страницу в разделе "Мое веб-приложение", заголовок которой изменен на **Приступая к работе — новый**, после чего нажмем кнопку **Сохранить и опубликовать**.
 
 ![Изменение заголовка страницы и публикация](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
@@ -415,20 +412,19 @@
 Дополнительные сведения об использовании Courier см. в документации.
 
 #### Обновление Umbraco CMS
-
 Пакеты Courier невозможно развернуть при обновлении с одной версии CMS Umbraco до другой. При обновлении Umbraco CMS до новой версии необходимо проверить совместимость с пользовательскими модулями, модулями сторонних поставщиков и основными библиотеками Umbraco. Рекомендации:
 
 1. Всегда создавайте резервную копию веб-приложения и базы данных перед выполнением обновления. Для веб-приложений Azure можно настроить автоматическое резервное копирование компонентов веб-сайтов с помощью функции архивации. При необходимости веб-сайт можно восстановить с помощью функции восстановления. Дополнительные сведения см. в статьях [Резервное копирование веб-приложения](web-sites-backup.md) и [Восстановление веб-приложения](web-sites-restore.md).
-
 2. Проверьте используемые пакеты сторонних поставщиков на совместимость с версией, до которой выполняется обновление. На странице загрузки пакета проверьте совместимость проекта с версией Umbraco CMS.
 
 Дополнительные сведения о локальном обновлении веб-приложения см. [здесь](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-После обновления локального сайта опубликуйте изменения в промежуточное веб-приложение. Протестируйте приложение. Если все в порядке, нажмите кнопку **Переместить**, чтобы **перенести** промежуточный сайт в рабочее веб-приложение. При выполнении операции **перемещения** можно просмотреть изменения, которые произойдут в конфигурации веб-приложения. В рамках данной операции **перемещения** происходит переключение веб-приложений и баз данных. Это означает, что после ее завершения рабочее веб-приложение будет указывать на базу данных umbraco-stage-db, а промежуточное — на базу данных umbraco-prod-db.
+После обновления локального сайта опубликуйте изменения в промежуточное веб-приложение. Протестируйте приложение. Если все в порядке, нажмите кнопку **Переместить**, чтобы **перенести** промежуточный сайт в рабочее веб-приложение. При выполнении операции **перемещения** можно просмотреть изменения, которые произойдут в конфигурации веб-приложения. В рамках данной операции **перемещения** происходит переключение веб-приложений и баз данных. Это означает, что после ее завершения рабочее веб-приложение будет указывать на базу данных umbraco-stage-db, а промежуточное — на базу данных umbraco-prod-db.
 
 ![Предварительный просмотр перед операцией перемещения при развертывании Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
 Преимущества переключения веб-приложения и базы данных:
+
 1. При возникновении проблем позволяет выполнить откат к предыдущей версии веб-приложения с помощью другой операции **перемещения**.
 2. Для обновления необходимо выполнить развертывание файлов и базы данных из промежуточного веб-приложения в рабочие веб-приложение и базу данных. Развертывание файлов и базы данных связано с большим количеством рисков. Используя функцию **переключения** между слотами, мы сокращаем время простоя при обновлении и снижаем риск сбоев, которые могут произойти при развертывании изменений.
 3. Позволяет выполнять **A/B-тестирование** с помощью функции [Тестирование в рабочей среде](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).

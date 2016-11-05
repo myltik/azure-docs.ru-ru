@@ -1,34 +1,31 @@
-<properties
-   pageTitle="Справочные темы по хранилищу данных SQL | Microsoft Azure"
-   description="Ссылки на статьи, содержащие справочную информацию о хранилище данных SQL."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Справочные темы по хранилищу данных SQL | Microsoft Docs
+description: Ссылки на статьи, содержащие справочную информацию о хранилище данных SQL.
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/08/2016
+ms.author: barbkess;sonyama
 
+---
 # Справочные темы по хранилищу данных SQL
-
 Приведенные ниже статьи содержат справочные сведения о хранилище данных SQL.
 
-- [Элементы языка Transact-SQL][]
-- [Инструкции Transact-SQL][]
-- [Системные представления Transact-SQL][]
-- [Командлеты PowerShell][]
-
-
+* [Элементы языка Transact-SQL][Элементы языка Transact-SQL]
+* [Инструкции Transact-SQL][Инструкции Transact-SQL]
+* [Системные представления Transact-SQL][Системные представления Transact-SQL]
+* [Командлеты PowerShell][Командлеты PowerShell]
 
 ## Дальнейшие действия
-Информацию о разработке см. в обзоре [Общие сведения о разработке][].
+Информацию о разработке см. в обзоре [Общие сведения о разработке][Общие сведения о разработке].
 
 <!--Image references-->
 

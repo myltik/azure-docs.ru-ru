@@ -1,5 +1,5 @@
 Сведения об ограничениях, касающихся служебной шины, см. в следующем разделе:
 
- - [Квоты на служебную шину](http://msdn.microsoft.com/library/azure/ee732538.aspx)
+* [Квоты на служебную шину](http://msdn.microsoft.com/library/azure/ee732538.aspx)
 
 <!---HONumber=62-->

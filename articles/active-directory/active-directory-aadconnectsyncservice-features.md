@@ -1,28 +1,26 @@
-<properties
-    pageTitle="Функции и конфигурация службы синхронизации Azure AD Connect | Microsoft Azure"
-    description="Описываются функциональные возможности службы синхронизации Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: Функции и конфигурация службы синхронизации Azure AD Connect | Microsoft Docs
+description: Описываются функциональные возможности службы синхронизации Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="andkjell;markvi"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: andkjell;markvi
 
-
+---
 # <a name="azure-ad-connect-sync-service-features"></a>Функции службы синхронизации Azure AD Connect
-
 Средство синхронизации Azure AD Connect состоит из двух компонентов.
 
-- Локальный компонент под названием **Синхронизация Azure AD Connect**, который также называется **модулем синхронизации**.
-- Размещенная в Azure AD служба, которая также называется **службой синхронизации Azure AD Connect**
+* Локальный компонент под названием **Синхронизация Azure AD Connect**, который также называется **модулем синхронизации**.
+* Размещенная в Azure AD служба, которая также называется **службой синхронизации Azure AD Connect**
 
 В этом разделе описаны следующие функции **службы синхронизации Azure AD Connect** и их настройка с помощью Windows PowerShell.
 
@@ -35,25 +33,28 @@
 
 Следующие параметры можно настроить с помощью `Set-MsolDirSyncFeature`:
 
-DirSyncFeature | Комментарий
---- | ---
-[DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Позволяет поместить атрибут, являющийся копией другого объекта, на карантин, вместо того чтобы прерывать весь процесс экспорта для этого объекта.
-[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Позволяет присоединять объекты по атрибуту userPrincipalName в дополнение к основному адресу SMTP.
-[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Позволяет модулю синхронизации обновлять атрибут userPrincipalName для управляемых или лицензированных пользователей (не являющихся федеративными).
+| DirSyncFeature | Комментарий |
+| --- | --- |
+| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Позволяет поместить атрибут, являющийся копией другого объекта, на карантин, вместо того чтобы прерывать весь процесс экспорта для этого объекта. |
+| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Позволяет присоединять объекты по атрибуту userPrincipalName в дополнение к основному адресу SMTP. |
+| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Позволяет модулю синхронизации обновлять атрибут userPrincipalName для управляемых или лицензированных пользователей (не являющихся федеративными). |
 
 После включения функции отключить ее нельзя.
 
->[AZURE.NOTE] Начиная с 24 августа 2016 г. функция *Устойчивость повторяющихся атрибутов* включена по умолчанию для всех новых каталогов Azure AD. Эта функция будет постепенно активирована и включена для каталогов, созданных до этой даты. Вы получите по электронной почте уведомление о включении этой функции для вашего каталога.
+> [!NOTE]
+> Начиная с 24 августа 2016 г. функция *Устойчивость повторяющихся атрибутов* включена по умолчанию для всех новых каталогов Azure AD. Эта функция будет постепенно активирована и включена для каталогов, созданных до этой даты. Вы получите по электронной почте уведомление о включении этой функции для вашего каталога.
+> 
+> 
 
 Следующие параметры настраиваются службой Azure AD Connect и не могут изменяться командлетом `Set-MsolDirSyncFeature`:
 
-DirSyncFeature | Комментарий
---- | ---
-DeviceWriteback | [Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md)
-DirectoryExtensions | [Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
-PasswordSync | [Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
-UnifiedGroupWriteback | [Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback)
-UserWriteback | Сейчас не поддерживается.
+| DirSyncFeature | Комментарий |
+| --- | --- |
+| DeviceWriteback |[Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) |
+| DirectoryExtensions |[Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |
+| PasswordSync |[Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| UnifiedGroupWriteback |[Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback) |
+| UserWriteback |Сейчас не поддерживается. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Устойчивость повторяющихся атрибутов
 При подготовке объектов с повторяющимися именами участников-пользователей (UPN) или адресами прокси-сервера (proxyAddress) процесс не прерывается ошибкой, а повторяющийся атрибут помещается на карантин, и ему присваивается временное значение. После разрешения конфликта временное имя участника-пользователя (UPN) будет автоматически исправлено на соответствующее значение. Такой механизм можно включить отдельно для имени участника-пользователя (UPN) и адреса прокси-сервера (proxyAddress). Дополнительные сведения см. в статье [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
@@ -64,11 +65,13 @@ UserWriteback | Сейчас не поддерживается.
 Эта функция удобна для сопоставления локальных учетных записей AD с существующими учетными записями, созданными в облаке, если вы не используете Exchange Online. В такой ситуации устанавливать атрибут SMTP для облака обычно не нужно.
 
 Эта функция по умолчанию включена для создаваемых каталогов Azure AD. Чтобы увидеть, включена ли эта функция, выполните следующую команду:  
+
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 Если эта функция отключена для вашего каталога Azure AD, ее можно включить, выполнив следующую команду:  
+
 ```
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
@@ -76,19 +79,21 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ## <a name="synchronize-userprincipalname-updates"></a>Синхронизация обновлений атрибута userPrincipalName
 Обновления атрибута userPrincipalName с помощью службы синхронизации из локальной среды блокируются за исключением тех случаев, когда выполняются два следующих условия:
 
-- пользователь является управляемым (нефедеративным);
-- пользователю не назначена лицензия.
+* пользователь является управляемым (нефедеративным);
+* пользователю не назначена лицензия.
 
 Дополнительные сведения см. в статье [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192) (Имена пользователей в Office 365, Azure или Intune не совпадают с локальным именем участника-пользователя или альтернативным именем для входа).
 
 Включение этой функции позволяет модулю синхронизации обновлять атрибут userPrincipalName при его изменении в локальной среде и при использовании синхронизации паролей. Если используется федерация, эта функция не будет работать.
 
 Эта функция по умолчанию включена для создаваемых каталогов Azure AD. Чтобы увидеть, включена ли эта функция, выполните следующую команду:  
+
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 Если эта функция отключена для вашего каталога Azure AD, ее можно включить, выполнив следующую команду:  
+
 ```
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
@@ -96,11 +101,8 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 После включения этой функции существующие значения атрибут userPrincipalName останутся неизменными. Если в дальнейшем атрибут userPrincipalName изменится в локальной среде, то имя участника-пользователя будет обновлено при обычной синхронизации изменений для пользователей.  
 
 ## <a name="see-also"></a>Дополнительные материалы
-
-- [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
+* [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
 <!--HONumber=Oct16_HO2-->
 

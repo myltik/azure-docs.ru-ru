@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Подготовка к работе веб-приложения, использующего базу данных SQL" 
-	description="Используйте шаблон диспетчера ресурсов Azure для развертывания веб-приложения с базой данных SQL." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Подготовка к работе веб-приложения, использующего базу данных SQL
+description: Используйте шаблон диспетчера ресурсов Azure для развертывания веб-приложения с базой данных SQL.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/27/2016
+ms.author: cephalin
 
+---
 # Подготовка веб-приложения к работе с базой данных SQL
-
 В этом разделе рассказывается, как создать шаблон диспетчера ресурсов Azure, выполняющий развертывание веб-приложения и базы данных SQL. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
@@ -26,29 +25,26 @@
 
 Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Что именно развертывается
-
 В этом шаблоне будут развернуты перечисленные ниже компоненты.
 
-- Веб-приложение
-- Сервер базы данных SQL
-- База данных SQL
-- Параметры автомасштабирования
-- Правила оповещения
-- Анализ приложения
+* Веб-приложение
+* Сервер базы данных SQL
+* База данных SQL
+* Параметры автомасштабирования
+* Правила оповещения
+* Анализ приложения
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
 [![Развертывание в Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Указываемые параметры
-
-[AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+[!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### administratorLogin
-
 Имя учетной записи администратора сервера баз данных.
 
     "administratorLogin": {
@@ -56,7 +52,6 @@
     }
 
 ### administratorLoginPassword
-
 Пароль администратора сервера баз данных.
 
     "administratorLoginPassword": {
@@ -64,7 +59,6 @@
     }
 
 ### databaseName
-
 Имя создаваемой базы данных.
 
     "databaseName": {
@@ -73,7 +67,6 @@
     }
 
 ### collation
-
 Параметры сортировки базы данных, определяющие надлежащий порядок использования символов.
 
     "collation": {
@@ -82,7 +75,6 @@
     }
 
 ### edition
-
 Тип создаваемой базы данных.
 
     "edition": {
@@ -99,7 +91,6 @@
     }
 
 ### maxSizeBytes
-
 Максимальный размер базы данных в байтах.
 
     "maxSizeBytes": {
@@ -108,7 +99,6 @@
     }
 
 ### requestedServiceObjectiveName
-
 Имя, соответствующее уровню производительности выпуска.
 
     "requestedServiceObjectiveName": {
@@ -129,7 +119,6 @@
     }
 
 ## Переменные для имен
-
 В этом шаблоне находятся переменные, которые используются для создания имен, используемых в шаблоне. В значениях переменных используется функция **uniqueString**, формирующая имя по идентификатору группы ресурсов в качестве аргумента.
 
     "variables": {
@@ -140,10 +129,8 @@
 
 
 ## Развертываемые ресурсы
-
 ### Сервер SQL Server и база данных SQL
-
-Создает новый сервер SQL Server и базу данных. Имя сервера задается с помощью параметра **serverName**, а его расположение — с помощью параметра **serverLocation**. При создании нового сервера баз данных необходимо указать имя и пароль учетной записи администратора.
+Создает новый сервер SQL Server и базу данных. Имя сервера задается с помощью параметра **serverName**, а его расположение — с помощью параметра **serverLocation**. При создании нового сервера баз данных необходимо указать имя и пароль учетной записи администратора.
 
     {
       "name": "[variables('sqlserverName')]",
@@ -192,11 +179,9 @@
       ]
     },
 
-[AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
-
+[!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### Веб-приложение
-
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -233,7 +218,6 @@
 
 
 ### Автомасштабирование
-
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -302,8 +286,7 @@
     },
 
 
-### Правила оповещения для кодов состояний 403 и 500, высокой загрузки ЦП и длины очереди HTTP 
-
+### Правила оповещения для кодов состояний 403 и 500, высокой загрузки ЦП и длины очереди HTTP
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -440,9 +423,8 @@
         }
       }
     },
-    
-### Анализ приложения
 
+### Анализ приложения
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -461,18 +443,15 @@
     }
 
 ## Команды для выполнения развертывания
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Инфраструктура CLI Azure
-
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
- 
+
 
 <!---HONumber=AcomDC_0810_2016-->

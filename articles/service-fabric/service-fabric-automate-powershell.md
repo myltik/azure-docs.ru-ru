@@ -1,37 +1,35 @@
-<properties
-	pageTitle="Автоматизация управления приложениями Service Fabric с помощью PowerShell | Microsoft Azure"
-	description="Развертывание, обновление, тестирование и удаление приложений Service Fabric с помощью PowerShell."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+---
+title: Автоматизация управления приложениями Service Fabric с помощью PowerShell | Microsoft Docs
+description: Развертывание, обновление, тестирование и удаление приложений Service Fabric с помощью PowerShell.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-fabric"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Автоматизация жизненного цикла приложения с помощью PowerShell
-
 Многие аспекты [жизненного цикла приложения Service Fabric](service-fabric-application-lifecycle.md) можно автоматизировать. В этой статье показано, как использовать PowerShell для автоматизации типовых задач по развертыванию, обновлению, удалению и тестированию приложений Service Fabric. Также доступны управляемые API и API HTTP для управления приложениями. Дополнительные сведения см. в разделе о [жизненном цикле приложения](service-fabric-application-lifecycle.md).
 
 ## Предварительные требования
 Прежде чем переходить к задачам в этой статье, нужно сделать следующее:
 
-+ Ознакомьтесь с основными понятиями Service Fabric, описанными в статье [Технический обзор платформы Service Fabric](service-fabric-technical-overview.md).
-+ Выполните инструкции по установке, описанные в статье [Установка среды выполнения, пакета SDK и инструментов](service-fabric-get-started.md). При выполнении этих инструкций также будет установлен модуль PowerShell для **ServiceFabric**.
-+ [Включение сценариев PowerShell](service-fabric-get-started.md#enable-powershell-script-execution)
-+ Запустите локальный кластер. Откройте новое окно PowerShell с правами администратора и запустите сценарий установки кластера из папки пакета SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
-+ Перед выполнением команд PowerShell, описанных в этой статье, необходимо подключиться к локальному кластеру Service Fabric с помощью команды [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
-+ Следующие задачи требуют развертывания пакета приложения версии 1 и пакета приложения версии 2 для обновления. Скачайте [пример приложения **WordCount**](http://aka.ms/servicefabricsamples) (его можно найти в примерах "Приступая к работе"). Соберите и упакуйте приложение в Visual Studio (щелкнув **WordCount** в обозревателе решений правой кнопкой мыши и выбрав **Упаковать**). Скопируйте пакет версии 1 из `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` в `C:\Temp\WordCount`. Скопируйте `C:\Temp\WordCount` в `C:\Temp\WordCountV2` для создания пакета приложения версии 2 для обновления. Откройте `C:\Temp\WordCountV2\ApplicationManifest.xml` в текстовом редакторе. В элементе **ApplicationManifest** измените значение атрибута **ApplicationTypeVersion** с "1.0.0" на "2.0.0", чтобы обновить версию приложения. Сохраните измененный файл ApplicationManifest.xml.
+* Ознакомьтесь с основными понятиями Service Fabric, описанными в статье [Технический обзор платформы Service Fabric](service-fabric-technical-overview.md).
+* Выполните инструкции по установке, описанные в статье [Установка среды выполнения, пакета SDK и инструментов](service-fabric-get-started.md). При выполнении этих инструкций также будет установлен модуль PowerShell для **ServiceFabric**.
+* [Включение сценариев PowerShell](service-fabric-get-started.md#enable-powershell-script-execution)
+* Запустите локальный кластер. Откройте новое окно PowerShell с правами администратора и запустите сценарий установки кластера из папки пакета SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
+* Перед выполнением команд PowerShell, описанных в этой статье, необходимо подключиться к локальному кластеру Service Fabric с помощью команды [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
+* Следующие задачи требуют развертывания пакета приложения версии 1 и пакета приложения версии 2 для обновления. Скачайте [пример приложения **WordCount**](http://aka.ms/servicefabricsamples) (его можно найти в примерах "Приступая к работе"). Соберите и упакуйте приложение в Visual Studio (щелкнув **WordCount** в обозревателе решений правой кнопкой мыши и выбрав **Упаковать**). Скопируйте пакет версии 1 из `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` в `C:\Temp\WordCount`. Скопируйте `C:\Temp\WordCount` в `C:\Temp\WordCountV2` для создания пакета приложения версии 2 для обновления. Откройте `C:\Temp\WordCountV2\ApplicationManifest.xml` в текстовом редакторе. В элементе **ApplicationManifest** измените значение атрибута **ApplicationTypeVersion** с "1.0.0" на "2.0.0", чтобы обновить версию приложения. Сохраните измененный файл ApplicationManifest.xml.
 
 ## Задача: развернуть приложение Service Fabric
-
 Собрав и упаковав приложение (или загрузив пакет приложения), можно развернуть приложение в локальном кластере Service Fabric. Развертывание включает отправку пакета приложения, регистрацию типа приложения и создание экземпляра приложения. В этом разделе приводятся инструкции по развертыванию нового приложения в кластере.
 
 ### Шаг 1. Отправка пакета приложения
@@ -90,7 +88,7 @@ Register-ServiceFabricApplicationType WordCountV2
 ```
 
 ### Шаг 3. Запуск обновления
-При обновлении приложения можно изменить различные параметры, время ожидания и критерий оценки работоспособности. Дополнительные сведения см. в статьях [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md) и [Процесс обновления](service-fabric-application-upgrade.md). После обновления все службы и экземпляры должны быть _работоспособны_. Установите для атрибута **HealthCheckStableDuration** значение 60 секунд (чтобы все службы были работоспособны не менее 20 секунд перед переходом процесса обновления к другому домену обновления). Кроме того, укажите для атрибута **UpgradeDomainTimeout** значение 1200 секунд, а для атрибута **UpgradeTimeout** — 3000 секунд. И наконец, установите атрибут **UpgradeFailureAction** в значение **rollback**, чтобы Service Fabric выполняла откат приложения до предыдущей версии при возникновении любых неполадок во время обновления.
+При обновлении приложения можно изменить различные параметры, время ожидания и критерий оценки работоспособности. Дополнительные сведения см. в статьях [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md) и [Процесс обновления](service-fabric-application-upgrade.md). После обновления все службы и экземпляры должны быть *работоспособны*. Установите для атрибута **HealthCheckStableDuration** значение 60 секунд (чтобы все службы были работоспособны не менее 20 секунд перед переходом процесса обновления к другому домену обновления). Кроме того, укажите для атрибута **UpgradeDomainTimeout** значение 1200 секунд, а для атрибута **UpgradeTimeout** — 3000 секунд. И наконец, установите атрибут **UpgradeFailureAction** в значение **rollback**, чтобы Service Fabric выполняла откат приложения до предыдущей версии при возникновении любых неполадок во время обновления.
 
 Теперь можно запустить обновление приложения, выполнив командлет [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx):
 
@@ -110,7 +108,6 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 Через несколько минут командлет [Get ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) покажет, что все домены обновления обновлены (обновление завершено).
 
 ## Задача: протестировать приложение Service Fabric
-
 Чтобы создавать высококачественные службы, разработчики должны иметь возможность вызывать сбои в ненадежных инфраструктурах, чтобы проверять стабильность работы своих служб. Платформа Service Fabric позволяет разработчикам вызывать сбои и тестировать службы при наличии последних с помощью сценариев хаотического тестирования и отработки отказа. Дополнительные сведения см. в статье [Обзор Testability](service-fabric-testability-overview.md).
 
 ### Шаг 1. Выполнение сценария хаотического тестирования

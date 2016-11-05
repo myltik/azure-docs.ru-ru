@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Использование Azure AD Connect Health с AD DS | Microsoft Azure"
-	description="На этой странице Azure AD Connect Health описывается мониторинг AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Использование Azure AD Connect Health с AD DS | Microsoft Docs
+description: На этой странице Azure AD Connect Health описывается мониторинг AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
+---
 # Использование Azure AD Connect Health с AD DS
 Приведенная ниже документация относится к мониторингу доменных служб Active Directory с помощью Azure AD Connect Health. Поддерживаемые версии AD DS: Windows Server 2008 R2, Windows Server 2012 и Windows Server 2012 R2.
 
@@ -51,7 +51,6 @@
 По умолчанию выделены четыре счетчика производительности. Но вы можете включить другие. Для этого щелкните команду "Фильтр" и выберите нужные счетчики или отмените выбор ненужных. Если дважды щелкнуть график счетчика производительности, откроется новая колонка, содержащая точки данных каждого отслеживаемого контроллера домена.
 
 ## Связанные ссылки
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

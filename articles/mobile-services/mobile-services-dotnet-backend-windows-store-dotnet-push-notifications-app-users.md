@@ -1,58 +1,53 @@
-<properties
-	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1."
-	services="mobile-services,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+---
+title: Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Microsoft Docs
+description: Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1.
+services: mobile-services,notification-hubs
+documentationcenter: windows
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Рассылка push-уведомлений проверенным пользователям
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[!INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Практическое руководство. Отправка push-уведомлений пользователю, прошедшему проверку подлинности](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user).
+> 
+> 
 
-##Обзор
-
+## Обзор
 В этом разделе демонстрируется отправка push-уведомлений прошедшему проверку подлинности пользователю на любом зарегистрированном устройстве. В отличие от предыдущего учебника по [push-уведомлениям][Get started with push notifications], в данном учебнике будет изменяться мобильная служба, чтобы она требовала выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный код, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
 
 Этот учебник поддерживает приложения Магазина Windows и приложения Магазина Windows Phone.
 
-##Предварительные требования
-
+## Предварительные требования
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
-+ [Приступая к работе с аутентификацией в мобильных службах] В этом учебнике в пример приложения TodoList добавлено требование входа.
-
-+ [Приступая к работе с push-уведомлениями в мобильных службах] В этом учебнике выполняется настройка демонстрационного приложения TodoList для push-уведомлений с использованием центров уведомлений.
+* [Приступая к работе с аутентификацией в мобильных службах] В этом учебнике в пример приложения TodoList добавлено требование входа.
+* [Приступая к работе с push-уведомлениями в мобильных службах] В этом учебнике выполняется настройка демонстрационного приложения TodoList для push-уведомлений с использованием центров уведомлений.
 
 После выполнения обоих учебников можно приступить к запрету регистрации непроверенных пользователей для получения push-уведомлений от мобильной службы.
 
-##<a name="register"></a>Обновление службы, чтобы для регистрации требовалась проверка подлинности
+## <a name="register"></a>Обновление службы, чтобы для регистрации требовалась проверка подлинности
+[!INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
+## <a name="update-app"></a>Обновление приложения, чтобы для регистрации требовался вход
+[!INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
 
-##<a name="update-app"></a>Обновление приложения, чтобы для регистрации требовался вход
-
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
-
-##<a name="test"></a>Тестирование приложения
-
-[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
-
-
+## <a name="test"></a>Тестирование приложения
+[!INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register

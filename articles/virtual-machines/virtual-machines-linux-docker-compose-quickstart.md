@@ -1,35 +1,31 @@
-<properties
-   pageTitle="Docker и Compose на виртуальной машине | Microsoft Azure"
-   description="Краткое введение в работу с Compose и Docker на виртуальных машинах Linux в Azure."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Docker и Compose на виртуальной машине | Microsoft Docs
+description: Краткое введение в работу с Compose и Docker на виртуальных машинах Linux в Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
-   ms.author="danlep"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/22/2016
+ms.author: danlep
 
+---
 # Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure
-
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose), чтобы определить и запустить сложное приложение на виртуальной машине Linux в Azure. Решение Compose позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение развертывается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине.
 
 В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB на виртуальной машине Ubuntu. Решение Compose можно использовать для настройки и более сложных приложений.
 
-
 ## Шаг 1. Настройка виртуальной машины Linux как узла Docker
-
 Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы или шаблоны Resource Manager, доступные в Azure Marketplace. Например, в статье [Использование расширения виртуальной машины Docker для развертывания среды](virtual-machines-linux-dockerextension.md) описано быстрое создание виртуальной машины Ubuntu с расширением виртуальной машины Azure Docker с помощью [шаблона быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). При использовании этого расширения Docker виртуальная машина настраивается как узел Docker и компонент Compose устанавливается автоматически. Приведенный в этой статье пример демонстрирует создание виртуальной машины с помощью [интерфейса командной строки Azure (Azure CLI) для Mac, Linux и Windows](../xplat-cli-install.md) в режиме Resource Manager.
 
 ## Шаг 2. Проверка установки Compose
-
 После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания.
 
 Чтобы проверить установку Compose на виртуальной машине, выполните следующую команду:
@@ -40,11 +36,12 @@ $ docker-compose --version
 
 Должен появиться примерно такой результат: `docker-compose 1.6.2, build 4d72027`.
 
->[AZURE.TIP] Если использован другой способ создания узла Docker и необходимо самостоятельно установить Compose, ознакомьтесь с [документацией по Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
+> [!TIP]
+> Если использован другой способ создания узла Docker и необходимо самостоятельно установить Compose, ознакомьтесь с [документацией по Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
+> 
+> 
 
-
-## Шаг 3. Создание файла конфигурации docker-compose.yml
-
+## Шаг 3. Создание файла конфигурации docker-compose.yml
 Теперь необходимо создать файл `docker-compose.yml` (простой текстовый файл конфигурации), определяющий контейнеры Docker для запуска на виртуальной машине. В файле указывается образ для выполнения в каждом контейнере (или сборка из Dockerfile), необходимые переменные и зависимости среды, порты и ссылки между контейнерами. Дополнительные сведения о синтаксисе YML-файла приведены в [справке по файлу Compose](http://docs.docker.com/compose/yml/).
 
 Создайте рабочий каталог на своей виртуальной машине и с помощью текстового редактора создайте файл `docker-compose.yml`. Для подтверждения концепции скопируйте следующий текст в файл. Эта конфигурация обеспечивает установку WordPress (системы для управления блогами и содержимым с открытым исходным кодом) и связанной серверной базы данных SQL MariaDB с использованием образов из [реестра DockerHub](https://registry.hub.docker.com/_/wordpress/).
@@ -65,7 +62,6 @@ db:
 ```
 
 ## Шаг 4. Запуск контейнеров с Compose
-
 В рабочем каталоге на виртуальной машине выполните следующую команду. (В зависимости от среды может потребоваться выполнить `docker-compose` с помощью `sudo`.)
 
 ```
@@ -81,7 +77,10 @@ Creating wordpress_wordpress_1...
 ...
 ```
 
->[AZURE.NOTE] При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
+> [!NOTE]
+> При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
+> 
+> 
 
 Чтобы убедиться, что контейнеры работоспособны, введите `docker-compose ps`. Вы увидите нечто вроде этого:
 
@@ -99,9 +98,7 @@ ess_1              apache2-for ...                       /tcp
 
 ![Начальный экран WordPress][wordpress_start]
 
-
 ## Дальнейшие действия
-
 * Дополнительные возможности настройки Docker и Compose на виртуальной машине Docker см. в [руководстве пользователя по расширению виртуальной машины Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md). Например, один из вариантов — поместить YML-файл Compose (преобразованный в формат JSON) непосредственно в конфигурацию расширения виртуальной машины Docker.
 * Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справочнике по командной строке Compose](http://docs.docker.com/compose/reference/) и [руководстве пользователя](http://docs.docker.com/compose/).
 * Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](https://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например, в шаблоне [Развертывание блога WordPress с помощью Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.

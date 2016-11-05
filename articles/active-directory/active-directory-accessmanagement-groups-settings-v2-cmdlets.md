@@ -1,34 +1,33 @@
-<properties
-    pageTitle="Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Microsoft Azure"
-    description="На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
-    keywords="Azure AD, Azure Active Directory, PowerShell, группы, управление группами"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+---
+title: Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Microsoft Docs
+description: На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory.
+keywords: Azure AD, Azure Active Directory, PowerShell, группы, управление группами
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/29/2016
+ms.author: curtand
 
-
+---
 # <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Командлеты предварительной версии Azure Active Directory для управления группами
-
-> [AZURE.SELECTOR]
-- [Портал Azure](active-directory-groups-create-azure-portal.md)
-- [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
-- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> [!div class="op_single_selector"]
+> * [Портал Azure](active-directory-groups-create-azure-portal.md)
+> * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
+> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> 
+> 
 
 В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD).  Также в нем содержатся сведения о том, как выполнить настройки предварительной версии модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Установка модуля Azure AD PowerShell
-
 Чтобы установить предварительную версию модуля AzureAD PowerShell , воспользуйтесь следующими командами:
 
     PS C:\Windows\system32> install-module azureadpreview
@@ -222,14 +221,10 @@
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

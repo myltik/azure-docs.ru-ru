@@ -1,52 +1,49 @@
-<properties
-	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Серверная часть JavaScript | Microsoft Azure"
-	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="erikre"
-	editor=""/>
+---
+title: Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Microsoft Docs
+description: Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт.
+services: mobile-services
+documentationcenter: ios
+author: krisragh
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Добавление проверки подлинности в существующее приложение
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в разделе [Добавление проверки подлинности в приложение iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
+> 
+> 
 
 В этом учебнике вы добавляете проверку подлинности в [краткий учебник по мобильным службам] с помощью поддерживаемого поставщика удостоверений.
 
-Рекомендуется изучить [краткий учебник по мобильным службам]. Можно также загрузить проект быстрого запуска iOS: на [классическом портале Azure] последовательно щелкните **Мобильные службы** > ваша мобильная служба > значок облака в верхнем левом углу > **iOS** > **Создать новое приложение iOS** > **Загрузить и запустить приложение** > **Objective-C** > **Загрузить**. Не забудьте выбрать параметр **Создание таблицы TodoItem**, прежде чем щелкнуть **Загрузить** (если вы еще не создали эту таблицу).
+Рекомендуется изучить [краткий учебник по мобильным службам]. Можно также загрузить проект быстрого запуска iOS: на [классическом портале Azure] последовательно щелкните **Мобильные службы** > ваша мобильная служба > значок облака в верхнем левом углу > **iOS** > **Создать новое приложение iOS** > **Загрузить и запустить приложение** > **Objective-C** > **Загрузить**. Не забудьте выбрать параметр **Создание таблицы TodoItem**, прежде чем щелкнуть **Загрузить** (если вы еще не создали эту таблицу).
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности
+## <a name="register"></a>Регистрация приложения для проверки подлинности
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
+[!INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>Сохранение маркеров проверки подлинности в приложении
-
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+## <a name="store-authentication"></a>Сохранение маркеров проверки подлинности в приложении
+[!INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Узнайте, [как использовать значение идентификатора пользователя для фильтрации возвращаемых данных](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->

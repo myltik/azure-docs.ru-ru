@@ -1,64 +1,69 @@
-<properties
-	pageTitle="Создание первой фабрики данных (портал Azure) | Microsoft Azure"
-	description="В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Создание первой фабрики данных (портал Azure) | Microsoft Docs
+description: В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="09/14/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 09/14/2016
+ms.author: spelluru
 
+---
 # Руководство. Создание первой фабрики данных Azure с помощью портала Azure
-> [AZURE.SELECTOR]
-- [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
-- [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
-- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
+> * [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> 
+> 
 
 Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью [портала Azure](https://portal.azure.com/).
 
-## Предварительные требования		
+## Предварительные требования
 1. Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования**.
 2. Здесь не приводятся общие сведения о службе фабрики данных Azure. Рекомендуем ознакомиться со статьей [Введение в службу фабрики данных Azure](data-factory-introduction.md), в которой вы найдете подробный обзор этой службы.
 
 ## Создание фабрики данных
 Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в конечное, и действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные в выходные данные продукта. Начнем с создания фабрики данных.
 
-1.	Войдите на [портал Azure](https://portal.azure.com/).
-2.	Щелкните **Создать** в меню слева, выберите **Данные+аналитика** и щелкните **Фабрика данных**.
-		
-	![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
-
-2.	В колонке **Новая фабрика данных** введите **GetStartedDF** в поле «Имя».
-
-	![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
-
-	> [AZURE.IMPORTANT] 
-	Имя фабрики данных Azure должно быть **глобально уникальным**. Если появится сообщение об ошибке **Имя GetStartedDF фабрики данных недоступно**, измените это имя (например, на ваше\_имя\_GetStartedDF) и попробуйте создать ее снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
-	> 
-	> В будущем имя фабрики данных может быть зарегистрировано в качестве **DNS-имени** и, следовательно, стать отображаемым.
-
-3.	Выберите **подписку Azure**, в рамках которой вы хотите создать фабрику данных.
-4.	Выберите имеющуюся **группу ресурсов** или создайте новую. Для примера в этом руководстве создайте группу ресурсов с именем **ADFGetStartedRG**.
-5.	В колонке **Создание фабрики данных** нажмите кнопку **Создать**.
-
-	> [AZURE.IMPORTANT] Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../active-directory/role-based-access-built-in-roles.md/#data-factory-contributor) на уровне подписки или группы ресурсов.
-6.	Созданная фабрика данных появится на **начальной панели** портала Azure.
-
-	![Статус создания фабрики данных](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-7. Поздравляем! Вы успешно создали свою первую фабрику данных! Ее содержимое отобразится на соответствующей странице.
-
-	![Колонка "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. Щелкните **Создать** в меню слева, выберите **Данные+аналитика** и щелкните **Фабрика данных**.
+   
+   ![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
+3. В колонке **Новая фабрика данных** введите **GetStartedDF** в поле «Имя».
+   
+   ![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
+   
+   > [!IMPORTANT]
+   > Имя фабрики данных Azure должно быть **глобально уникальным**. Если появится сообщение об ошибке **Имя GetStartedDF фабрики данных недоступно**, измените это имя (например, на ваше\_имя\_GetStartedDF) и попробуйте создать ее снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
+   > 
+   > В будущем имя фабрики данных может быть зарегистрировано в качестве **DNS-имени** и, следовательно, стать отображаемым.
+   > 
+   > 
+4. Выберите **подписку Azure**, в рамках которой вы хотите создать фабрику данных.
+5. Выберите имеющуюся **группу ресурсов** или создайте новую. Для примера в этом руководстве создайте группу ресурсов с именем **ADFGetStartedRG**.
+6. В колонке **Создание фабрики данных** нажмите кнопку **Создать**.
+   
+   > [!IMPORTANT]
+   > Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
+   > 
+   > 
+7. Созданная фабрика данных появится на **начальной панели** портала Azure.
+   
+   ![Статус создания фабрики данных](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
+8. Поздравляем! Вы успешно создали свою первую фабрику данных! Ее содержимое отобразится на соответствующей странице.
+   
+    ![Колонка "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
 Прежде чем создавать конвейер в фабрике данных, необходимо создать несколько сущностей этой службы. Сначала создайте связанные службы, чтобы связать хранилища данных и вычисления со своим хранилищем данных, и определите входные и выходные наборы данных, которые будут представлять входные и выходные данные в связанных хранилищах. Затем создайте конвейер с действием, в котором используются эти наборы данных.
 
@@ -68,303 +73,303 @@
 ### Создание связанной службы хранения Azure
 На этом шаге вы свяжете учетную запись хранения Azure с фабрикой данных. В рамках этого руководства будет использоваться одна и та же учетная запись хранения Azure для хранения входных и выходных данных и файла скрипта HQL.
 
-1.	Щелкните **Создать и развернуть** в колонке **Фабрика данных** для **GetStartedDF**. Откроется редактор фабрики данных.
-	 
-	![Плитка "Создание и развертывание"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
-2.	Щелкните **Новое хранилище данных** и выберите пункт **Служба хранилища Azure**.
-
-	!["Новое хранилище данных" — пункт меню "Служба хранилища Azure"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
-
-3.	В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure.
-	
-	![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-	 
-4. Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+1. Щелкните **Создать и развернуть** в колонке **Фабрика данных** для **GetStartedDF**. Откроется редактор фабрики данных.
+   
+   ![Плитка "Создание и развертывание"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
+2. Щелкните **Новое хранилище данных** и выберите пункт **Служба хранилища Azure**.
+   
+   !["Новое хранилище данных" — пункт меню "Служба хранилища Azure"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
+3. В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure.
+   
+   ![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+4. Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
-
-	![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
-
+   
+    ![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
+   
    После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**. ![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
- 
 ### Создание связанной службы Azure HDInsight
 На этом шаге вы свяжете используемый по запросу кластер HDInsight с фабрикой данных. Кластер HDInsight автоматически создается в среде выполнения и удаляется после завершения обработки и простоя в течение указанного времени.
 
 1. В **редакторе фабрики данных** нажмите кнопку **... Еще**, щелкните **Новое вычисление** и выберите **On-demand HDInsight cluster** (Кластер HDInsight по требованию).
-
-	![Новая служба вычислений](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
+   
+    ![Новая служба вычислений](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Вставьте следующий фрагмент в окно **Draft-1**. Фрагмент JSON описывает свойства, которые будут использоваться для создания кластера HDInsight по требованию.
-
-		{
-		  "name": "HDInsightOnDemandLinkedService",
-		  "properties": {
-		    "type": "HDInsightOnDemand",
-		    "typeProperties": {
-		      "version": "3.2",
-		      "clusterSize": 1,
-		      "timeToLive": "00:30:00",
-		      "linkedServiceName": "AzureStorageLinkedService"
-		    }
-		  }
-		}
-	
-	В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
-	
-	| Свойство | Описание |
-	| :------- | :---------- |
-	| Version (версия) | Указывает, что версия создаваемого кластера HDInsight — 3.2. | 
-	| ClusterSize (размер кластера) | Указывает размер кластера HDInsight. | 
-	| TimeToLive (срок жизни) | Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
-	| linkedServiceName (имя связанной службы) | Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
-
-	Обратите внимание на следующие моменты.
-	
-	- С помощью JSON-файла фабрика данных создает кластер HDInsight **под управлением Windows**. Можно также создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-	- Вместо кластера HDInsight по запросу можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-	- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. В этом весь замысел. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается при каждой обработке среза данных (если не используется динамический кластер **timeToLive**). После завершения обработки кластер автоматически удаляется.
-	
-		По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Подобные контейнеры имеют имена в формате "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Чтобы удалить контейнеры из хранилища BLOB-объектов Azure, используйте [обозреватель хранилищ Microsoft](http://storageexplorer.com/).
-
-	Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+   
+        {
+          "name": "HDInsightOnDemandLinkedService",
+          "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+              "version": "3.2",
+              "clusterSize": 1,
+              "timeToLive": "00:30:00",
+              "linkedServiceName": "AzureStorageLinkedService"
+            }
+          }
+        }
+   
+    В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
+   
+   | Свойство | Описание |
+   |:--- |:--- |
+   | Version (версия) |Указывает, что версия создаваемого кластера HDInsight — 3.2. |
+   | ClusterSize (размер кластера) |Указывает размер кластера HDInsight. |
+   | TimeToLive (срок жизни) |Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
+   | linkedServiceName (имя связанной службы) |Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
+   
+    Обратите внимание на следующие моменты.
+   
+   * С помощью JSON-файла фабрика данных создает кластер HDInsight **под управлением Windows**. Можно также создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+   * Вместо кластера HDInsight по запросу можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+   * Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. В этом весь замысел. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается при каждой обработке среза данных (если не используется динамический кластер **timeToLive**). После завершения обработки кластер автоматически удаляется.
+     
+       По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Подобные контейнеры имеют имена в формате "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Чтобы удалить контейнеры из хранилища BLOB-объектов Azure, используйте [обозреватель хранилищ Microsoft](http://storageexplorer.com/).
+     
+     Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 3. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
-
-	![Развертывание связанной службы HDInsight по запросу](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
-
+   
+    ![Развертывание связанной службы HDInsight по запросу](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 4. Убедитесь, что обе службы (**AzureStorageLinkedService** и **HDInsightOnDemandLinkedService**) отображаются в представлении в виде дерева слева.
-
-	![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+   
+    ![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## Создание наборов данных
 На этом шаге вы создадите наборы данных, которые представляют входные и выходные данные для обработки Hive. Эти наборы данных ссылаются на службу **AzureStorageLinkedService**, созданную ранее в ходе работы с этим руководством. Точки связанной службы указывают на учетную запись хранения Azure, а наборы данных указывают контейнер, папку и имя файла в хранилище, в котором содержатся входные и выходные данные.
 
 ### Создание входного набора данных
-
 1. В **редакторе фабрики данных** нажмите кнопку **... Еще** на панели команд, щелкните **Новый набор данных** и выберите **Хранилище больших двоичных объектов Azure**.
-
-	![Новый набор данных](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
+   
+    ![Новый набор данных](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Вставьте следующий фрагмент в окно Draft-1. В фрагменте JSON создается набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, нужно указать, что входные данные размещаются в контейнере BLOB-объектов **adfgetstarted** и в папке **inputdata**.
-		
-		{
-			"name": "AzureBlobInput",
-		    "properties": {
-		        "type": "AzureBlob",
-		        "linkedServiceName": "AzureStorageLinkedService",
-		        "typeProperties": {
-		            "fileName": "input.log",
-		            "folderPath": "adfgetstarted/inputdata",
-		            "format": {
-		                "type": "TextFormat",
-		                "columnDelimiter": ","
-		            }
-		        },
-		        "availability": {
-		            "frequency": "Month",
-		            "interval": 1
-		        },
-		        "external": true,
-		        "policy": {}
-		    }
-		} 
-
-	В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
-
-	| Свойство | Описание |
-	| :------- | :---------- |
-	| type | Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |  
-	| linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу AzureStorageLinkedService. |
-	| fileName | Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом случае обрабатывается только файл input.log. |
-	| type | Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. | 
-	| columnDelimiter | Столбцы в файлах журнала разделяются запятыми (,). |
-	| frequency и interval | Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. | 
-	| external | Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. | 
-	  	
+   
+        {
+            "name": "AzureBlobInput",
+            "properties": {
+                "type": "AzureBlob",
+                "linkedServiceName": "AzureStorageLinkedService",
+                "typeProperties": {
+                    "fileName": "input.log",
+                    "folderPath": "adfgetstarted/inputdata",
+                    "format": {
+                        "type": "TextFormat",
+                        "columnDelimiter": ","
+                    }
+                },
+                "availability": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "external": true,
+                "policy": {}
+            }
+        } 
+   
+    В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
+   
+   | Свойство | Описание |
+   |:--- |:--- |
+   | type |Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |
+   | linkedServiceName (имя связанной службы) |Ссылается на созданную ранее службу AzureStorageLinkedService. |
+   | fileName |Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом случае обрабатывается только файл input.log. |
+   | type |Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. |
+   | columnDelimiter |Столбцы в файлах журнала разделяются запятыми (,). |
+   | frequency и interval |Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. |
+   | external |Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. |
 3. На панели команд нажмите кнопку **Развернуть**, чтобы развернуть только что созданный набор данных. Вы увидите набор данных в представлении в виде дерева слева.
-
 
 ### Создание выходного набора данных
 Теперь создайте выходной набор данных, представляющий выходные данные, которые хранятся в хранилище BLOB-объектов Azure.
 
 1. В **редакторе фабрики данных** нажмите кнопку **... Еще** на панели команд, щелкните **Новый набор данных** и выберите **Хранилище больших двоичных объектов Azure**.
 2. Вставьте следующий фрагмент в окно Draft-1. Этот фрагмент кода JSON создает набор данных с именем **AzureBlobOutput** и определяет структуру данных, получаемых с помощью скрипта Hive. Кроме того, нужно указать, что результаты будут храниться в контейнере больших двоичных объектов с именем **adfgetstarted** и в папке с именем **partitioneddata**. В разделе **availability** указывается частота, с которой будет создаваться выходной набор данных (ежемесячно).
-	
-		{
-		  "name": "AzureBlobOutput",
-		  "properties": {
-		    "type": "AzureBlob",
-		    "linkedServiceName": "AzureStorageLinkedService",
-		    "typeProperties": {
-		      "folderPath": "adfgetstarted/partitioneddata",
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "availability": {
-		      "frequency": "Month",
-		      "interval": 1
-		    }
-		  }
-		}
-
-	Описание этих свойств можно найти в разделе **Создание входного набора данных**. Значение свойства external для выходного набора данных не указывается, так как набор данных создается службой фабрики данных.
+   
+        {
+          "name": "AzureBlobOutput",
+          "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+              "folderPath": "adfgetstarted/partitioneddata",
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "availability": {
+              "frequency": "Month",
+              "interval": 1
+            }
+          }
+        }
+   
+    Описание этих свойств можно найти в разделе **Создание входного набора данных**. Значение свойства external для выходного набора данных не указывается, так как набор данных создается службой фабрики данных.
 3. На панели команд нажмите кнопку **Развернуть**, чтобы развернуть только что созданный набор данных.
 4. Убедитесь, что набор данных успешно создан.
-
-	![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
+   
+    ![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## Создание конвейера
 На этом шаге вы создадите свой первый конвейер с действием **HDInsightHive**. Срез входных данных создается ежемесячно (frequency: Month, interval: 1), срез выходных данных создается ежемесячно, свойство scheduler для действия также указывается ежемесячно. Параметры выходного набора данных (outputs) и планировщика действия (scheduler) должны совпадать. В настоящее время расписание активируется с помощью выходного набора данных, поэтому его необходимо создать, даже если действие не создает никаких выходных данных. Если действие не принимает никаких входных данных, входной набор данных можно не создавать. Свойства, используемые в следующем фрагменте JSON, описаны в конце этого раздела.
 
 1. В **редакторе фабрики данных** щелкните **значок многоточия (…) Дополнительные команды** и выберите **Новый конвейер**.
-	
-	![Кнопка "Создать конвейер"](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
+   
+    ![Кнопка "Создать конвейер"](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Вставьте следующий фрагмент в окно Draft-1.
-
-	> [AZURE.IMPORTANT] В JSON-файле замените свойство **storageaccountname** именем своей учетной записи хранения.
-		
-		{
-		    "name": "MyFirstPipeline",
-		    "properties": {
-		        "description": "My first Azure Data Factory pipeline",
-		        "activities": [
-		            {
-		                "type": "HDInsightHive",
-		                "typeProperties": {
-		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-		                    "scriptLinkedService": "AzureStorageLinkedService",
-		                    "defines": {
-		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		                    }
-		                },
-		                "inputs": [
-		                    {
-		                        "name": "AzureBlobInput"
-		                    }
-		                ],
-		                "outputs": [
-		                    {
-		                        "name": "AzureBlobOutput"
-		                    }
-		                ],
-		                "policy": {
-		                    "concurrency": 1,
-		                    "retry": 3
-		                },
-		                "scheduler": {
-		                    "frequency": "Month",
-		                    "interval": 1
-		                },
-		                "name": "RunSampleHiveActivity",
-		                "linkedServiceName": "HDInsightOnDemandLinkedService"
-		            }
-		        ],
-		        "start": "2016-04-01T00:00:00Z",
-		        "end": "2016-04-02T00:00:00Z",
-		        "isPaused": false
-		    }
-		}
- 
-	Этот фрагмент создает конвейер из одного действия, использующего Hive для обработки данных в кластере HDInsight.
-	
-	Файл **partitionweblogs.hql** скрипта Hive хранится в учетной записи хранения Azure (указывается с помощью свойства scriptLinkedService с именем **AzureStorageLinkedService**) в папке **script** в контейнере **adfgetstarted**.
-
-	Раздел **defines** используется для настройки параметров среды выполнения, которые будут переданы в скрипт Hive в качестве значений конфигурации Hive (например, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
-
-	Активный период конвейера задается с помощью свойств **start** и **end**.
-
-	В JSON действия укажите, что скрипт Hive будет выполняться в среде вычислений, указанной в свойстве **linkedServiceName**, — **HDInsightOnDemandLinkedService**.
-
-	> [AZURE.NOTE] Дополнительные сведения о свойствах JSON, используемых в этом примере, см. в статье, описывающей [принцип работы конвейера](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
-
+   
+   > [!IMPORTANT]
+   > В JSON-файле замените свойство **storageaccountname** именем своей учетной записи хранения.
+   > 
+   > 
+   
+        {
+            "name": "MyFirstPipeline",
+            "properties": {
+                "description": "My first Azure Data Factory pipeline",
+                "activities": [
+                    {
+                        "type": "HDInsightHive",
+                        "typeProperties": {
+                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                            "scriptLinkedService": "AzureStorageLinkedService",
+                            "defines": {
+                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                            }
+                        },
+                        "inputs": [
+                            {
+                                "name": "AzureBlobInput"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "AzureBlobOutput"
+                            }
+                        ],
+                        "policy": {
+                            "concurrency": 1,
+                            "retry": 3
+                        },
+                        "scheduler": {
+                            "frequency": "Month",
+                            "interval": 1
+                        },
+                        "name": "RunSampleHiveActivity",
+                        "linkedServiceName": "HDInsightOnDemandLinkedService"
+                    }
+                ],
+                "start": "2016-04-01T00:00:00Z",
+                "end": "2016-04-02T00:00:00Z",
+                "isPaused": false
+            }
+        }
+   
+    Этот фрагмент создает конвейер из одного действия, использующего Hive для обработки данных в кластере HDInsight.
+   
+    Файл **partitionweblogs.hql** скрипта Hive хранится в учетной записи хранения Azure (указывается с помощью свойства scriptLinkedService с именем **AzureStorageLinkedService**) в папке **script** в контейнере **adfgetstarted**.
+   
+    Раздел **defines** используется для настройки параметров среды выполнения, которые будут переданы в скрипт Hive в качестве значений конфигурации Hive (например, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+   
+    Активный период конвейера задается с помощью свойств **start** и **end**.
+   
+    В JSON действия укажите, что скрипт Hive будет выполняться в среде вычислений, указанной в свойстве **linkedServiceName**, — **HDInsightOnDemandLinkedService**.
+   
+   > [!NOTE]
+   > Дополнительные сведения о свойствах JSON, используемых в этом примере, см. в статье, описывающей [принцип работы конвейера](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+   > 
+   > 
 3. Проверьте следующее:
-	1. В папке **inputdata** контейнера **adfgetstarted** в хранилище BLOB-объектов есть файл **input.log**.
-	2. В папке **script** контейнера **adfgetstarted** в хранилище BLOB-объектов есть файл **partitionweblogs.hql**. Выполните необходимые действия, описанные в [обзоре руководства](data-factory-build-your-first-pipeline.md), если этих файлов нет в указанных папках.
-	3. В JSON-файле конвейера замените свойство **storageaccountname** именем своей учетной записи хранения.
-2. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд. Так как время в свойствах **start** и **end** задано в прошлом, а для свойства **isPaused** задано значение false, конвейер (действие в конвейере) запускается сразу после развертывания.
-4. Убедитесь, что конвейер отображается в иерархической структуре.
-
-	![Иерархическое представление с конвейером](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
-5. Поздравляем! Вы создали свой первый конвейер!
+   
+   1. В папке **inputdata** контейнера **adfgetstarted** в хранилище BLOB-объектов есть файл **input.log**.
+   2. В папке **script** контейнера **adfgetstarted** в хранилище BLOB-объектов есть файл **partitionweblogs.hql**. Выполните необходимые действия, описанные в [обзоре руководства](data-factory-build-your-first-pipeline.md), если этих файлов нет в указанных папках.
+   3. В JSON-файле конвейера замените свойство **storageaccountname** именем своей учетной записи хранения.
+4. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд. Так как время в свойствах **start** и **end** задано в прошлом, а для свойства **isPaused** задано значение false, конвейер (действие в конвейере) запускается сразу после развертывания.
+5. Убедитесь, что конвейер отображается в иерархической структуре.
+   
+    ![Иерархическое представление с конвейером](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
+6. Поздравляем! Вы создали свой первый конвейер!
 
 ## Отслеживание конвейера
-
 ### Мониторинг конвейера с использованием представления схемы
+1. Щелкните **X**, чтобы закрыть колонки редактора фабрики данных и вернуться в колонку фабрики данных. Затем щелкните **Схема**.
+   
+    ![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
+2. В представлении схемы вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
+   
+    ![Представление схемы](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
+3. Чтобы просмотреть все действия в конвейере, щелкните конвейер в схеме правой кнопкой мыши и выберите пункт "Открыть конвейер".
+   
+    ![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
+4. Убедитесь, что действие HDInsightHive отображается в конвейере.
+   
+    ![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
+   
+    Чтобы перейти к предыдущему представлению, щелкните **Фабрики данных** в меню навигации вверху.
+5. В **представлении схемы** дважды щелкните набор данных **AzureBlobInput**. Убедитесь, что срез находится в состоянии **Готово**. Для отображения этого состояния может потребоваться несколько минут. Если это не произойдет через некоторое время, убедитесь, что входной файл (input.log) расположен в правильном контейнере (adfgetstarted) и папке (inputdata).
+   
+   ![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
+6. Щелкните **X**, чтобы закрыть колонку **AzureBlobInput**.
+7. В **представлении схемы** дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
+   
+   ![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+8. Как только обработка завершится, срез перейдет в состояние **Готово**.
+   
+   > [!IMPORTANT]
+   > Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут**.
+   > 
+   > 
+   
+    ![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+9. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
+   
+   ![выходные данные](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
+10. Щелкните срез, чтобы просмотреть сведения о нем в колонке **Срез данных**.
+    
+    ![Сведения о срезе данных](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
+11. Щелкните выполнение действия в списке **Выполнения действий**, чтобы просмотреть сведения о нем (действие Hive в нашем сценарии) в окне **Подробности о выполнении операции**.
+    
+    ![Сведения о цикле выполнения действия](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)
+    
+    В файлах журналов содержатся сведения о выполненном запросе Hive и его состоянии. Эти журналы полезны при устранении неполадок. Дополнительные сведения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).
 
-6. Щелкните **X**, чтобы закрыть колонки редактора фабрики данных и вернуться в колонку фабрики данных. Затем щелкните **Схема**.
-  
-	![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
-7. В представлении схемы вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
-	
-	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
-8. Чтобы просмотреть все действия в конвейере, щелкните конвейер в схеме правой кнопкой мыши и выберите пункт "Открыть конвейер".
-
-	![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
-9. Убедитесь, что действие HDInsightHive отображается в конвейере.
-  
-	![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
-
-	Чтобы перейти к предыдущему представлению, щелкните **Фабрики данных** в меню навигации вверху.
-10. В **представлении схемы** дважды щелкните набор данных **AzureBlobInput**. Убедитесь, что срез находится в состоянии **Готово**. Для отображения этого состояния может потребоваться несколько минут. Если это не произойдет через некоторое время, убедитесь, что входной файл (input.log) расположен в правильном контейнере (adfgetstarted) и папке (inputdata).
-
-	![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
-11. Щелкните **X**, чтобы закрыть колонку **AzureBlobInput**.
-12. В **представлении схемы** дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
-
-	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Как только обработка завершится, срез перейдет в состояние **Готово**.
-	>[AZURE.IMPORTANT] Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут**.
-
-	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
-	
-10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
- 
-	![выходные данные](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-11. Щелкните срез, чтобы просмотреть сведения о нем в колонке **Срез данных**.
-
-	![Сведения о срезе данных](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
-12. Щелкните выполнение действия в списке **Выполнения действий**, чтобы просмотреть сведения о нем (действие Hive в нашем сценарии) в окне **Подробности о выполнении операции**.
-
-	![Сведения о цикле выполнения действия](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)
-	
-	В файлах журналов содержатся сведения о выполненном запросе Hive и его состоянии. Эти журналы полезны при устранении неполадок. Дополнительные сведения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).
-
-> [AZURE.IMPORTANT] В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.
+> [!IMPORTANT]
+> В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.
+> 
+> 
 
 ### Мониторинг конвейера с использованием приложения по мониторингу и управлению
 Для мониторинга конвейеров также можно использовать приложение по мониторингу и управлению. Дополнительные сведения об использовании этого приложения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md).
 
 1. Щелкните плитку **Monitor & Manage** (Мониторинг и управление) на домашней странице фабрики данных.
-
-	![Плитка Monitor & Manage (Мониторинг и управление)](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
+   
+    ![Плитка Monitor & Manage (Мониторинг и управление)](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 2. Вы должны увидеть **приложение по мониторингу и управлению**. Для параметров **времени начала** и **времени окончания** введите значения "01-04-2016 12:00" и "02-04-2016 12:00" для вашего конвейера и щелкните **Применить**.
-
-	![Приложение по мониторингу и управлению](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
+   
+    ![Приложение по мониторингу и управлению](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Выберите окно действия в списке **Activity Windows** (Окна действий), чтобы просмотреть сведения о нем. ![Сведения об окне действия](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
-
-## Сводка 
+## Сводка
 Следуя инструкциям из этого руководства, вы создали фабрику данных Azure для обработки данных путем выполнения сценария Hive в кластере Hadoop HDInsight. Вы использовали редактор фабрики данных на портале Azure для выполнения следующих действий:
 
-1.	создание **фабрики данных Azure**;
-2.	создание двух **связанных служб**.
-	1.	**Служба хранилища Azure** — связанная служба для связывания хранилища BLOB-объектов Azure, которое содержит входные и выходные файлы, с фабрикой данных.
-	2.	**Azure HDInsight** — связанная служба по запросу для связывания кластера HDInsight Hadoop с фабрикой данных. Фабрика данных Azure своевременно создает кластер HDInsight Hadoop для обработки входных данных и генерирования выходных данных.
-3.	Создание двух **наборов данных**, которые описывают входные и выходные данные для действия HDInsight Hive в конвейере.
-4.	Создание **конвейера** с действием **HDInsight Hive**.
+1. создание **фабрики данных Azure**;
+2. создание двух **связанных служб**.
+   1. **Служба хранилища Azure** — связанная служба для связывания хранилища BLOB-объектов Azure, которое содержит входные и выходные файлы, с фабрикой данных.
+   2. **Azure HDInsight** — связанная служба по запросу для связывания кластера HDInsight Hadoop с фабрикой данных. Фабрика данных Azure своевременно создает кластер HDInsight Hadoop для обработки входных данных и генерирования выходных данных.
+3. Создание двух **наборов данных**, которые описывают входные и выходные данные для действия HDInsight Hive в конвейере.
+4. Создание **конвейера** с действием **HDInsight Hive**.
 
 ## Дальнейшие действия
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## См. также
 | Раздел | Описание |
-| :---- | :---- |
-| [Действия по преобразованию данных](data-factory-data-transformation-activities.md) | В этой статье рассматриваются действия по преобразованию данных (например, преобразование HDInsight Hive, используемое в этом руководстве), поддерживаемые фабрикой данных Azure. | 
-| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) | Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
-| [Конвейеры](data-factory-create-pipelines.md) | Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |
-| [Наборы данных](data-factory-create-datasets.md) | Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure.
-| [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) | В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. 
-
-  
+|:--- |:--- |
+| [Действия по преобразованию данных](data-factory-data-transformation-activities.md) |В этой статье рассматриваются действия по преобразованию данных (например, преобразование HDInsight Hive, используемое в этом руководстве), поддерживаемые фабрикой данных Azure. |
+| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
+| [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |
+| [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
+| [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
 
 <!---HONumber=AcomDC_0921_2016-->

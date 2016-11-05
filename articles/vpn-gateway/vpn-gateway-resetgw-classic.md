@@ -1,26 +1,23 @@
-<properties
-   pageTitle="Сброс настроек VPN-шлюза Azure | Microsoft Azure"
-   description="В этой статье описывается сброс настроек VPN-шлюза Azure. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager,azure-service-management"/>
+---
+title: Сброс настроек VPN-шлюза Azure | Microsoft Docs
+description: В этой статье описывается сброс настроек VPN-шлюза Azure. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager.
+services: vpn-gateway
+documentationcenter: na
+author: cherylmc
+manager: carmonm
+editor: ''
+tags: azure-resource-manager,azure-service-management
 
-<tags
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/23/2016"
-   ms.author="cherylmc"/>
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/23/2016
+ms.author: cherylmc
 
-
+---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Сброс настроек VPN-шлюза Azure с помощью PowerShell
-
-
 В этой статье описывается, как выполнить сброс настроек VPN-шлюза Azure с помощью командлетов PowerShell. В инструкциях используется классическая модель развертывания, а также модель развертывания с помощью Resource Manager.
 
 Сброс настроек VPN-шлюза Azure полезен при потере распределенного VPN-подключения в одном или нескольких VPN-туннелях типа S2S. В этой ситуации все локальные VPN-устройства работают правильно, но не могут взаимодействовать с VPN-шлюзами Azure через туннели IPsec. 
@@ -34,26 +31,23 @@
 Если после двух перезагрузок проблема с распределенным подключением не решится, отправьте запрос в службу поддержки на портале Azure.
 
 ## <a name="before-you-begin"></a>Перед началом работы
-
 Перед сбросом настроек шлюза проверьте ключевые условия для каждого VPN-туннеля IPsec типа S2S, перечисленные ниже. Если какое-то из условий не выполняется, подключение через VPN-туннели типа S2S не будет работать. Проверка и исправление конфигурации для локальных VPN-шлюзов и VPN-шлюзов Azure избавляет от ненужных перезагрузок, а другие рабочие подключения через шлюзы — от сбоев.
 
 Перед сбросом настроек шлюза проверьте следующие условия.
 
-- IP-адреса в Интернете (VIP) для VPN-шлюза Azure и локального VPN-шлюза должны быть настроены правильно в политиках Azure и локальных политиках VPN.
-- Общий ключ должен быть одинаковым для VPN-шлюза Azure и локального VPN-шлюза.
-- Если применяется определенная конфигурация IPsec/IKE, например шифрование, алгоритмы хэширования и режим безопасной пересылки (PFS), задайте для VPN-шлюза Azure и локального VPN-шлюза одинаковые настройки.
+* IP-адреса в Интернете (VIP) для VPN-шлюза Azure и локального VPN-шлюза должны быть настроены правильно в политиках Azure и локальных политиках VPN.
+* Общий ключ должен быть одинаковым для VPN-шлюза Azure и локального VPN-шлюза.
+* Если применяется определенная конфигурация IPsec/IKE, например шифрование, алгоритмы хэширования и режим безопасной пересылки (PFS), задайте для VPN-шлюза Azure и локального VPN-шлюза одинаковые настройки.
 
 ## <a name="reset-a-vpn-gateway-using-the-resource-management-deployment-model"></a>Сброс настроек VPN-шлюза с помощью модели развертывания Resource Manager
-
 Командлет PowerShell для сброса настроек шлюза в Resource Manager — `Reset-AzureRmVirtualNetworkGateway`. Приведенный ниже пример выполняет сброс настроек VPN-шлюза Azure VNet1GW в группе ресурсов TestRG1.
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
     Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ## <a name="reset-a-vpn-gateway-using-the-classic-deployment-model"></a>Сброс настроек VPN-шлюза с помощью классической модели развертывания
-
 Для сброса настроек VPN-шлюза Azure используется командлет PowerShell `Reset-AzureVNetGateway`. В следующем примере будет сброшен VPN-шлюз Azure для виртуальной сети с именем ContosoVNet.
- 
+
     Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
 Результат:
@@ -67,16 +61,7 @@
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-    
 Подробные сведения см. в справочниках по [командлетам PowerShell для управления службами](https://msdn.microsoft.com/library/azure/mt617104.aspx) и [командлетам PowerShell Resource Manager](http://go.microsoft.com/fwlink/?LinkId=828732).
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

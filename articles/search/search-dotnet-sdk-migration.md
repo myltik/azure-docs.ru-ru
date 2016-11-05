@@ -1,45 +1,47 @@
-<properties
-   pageTitle="Обновление пакета SDK службы поиска Azure для .NET до версии 1.1 | Microsoft Azure | Размещенная облачная служба поиска"
-   description="Обновление пакета SDK службы поиска Azure для .NET до версии 1.1"
-   services="search"
-   documentationCenter=""
-   authors="brjohnstmsft"
-   manager="pablocas"
-   editor=""/>
+---
+title: Обновление пакета SDK службы поиска Azure для .NET до версии 1.1 | Microsoft Docs
+description: Обновление пакета SDK службы поиска Azure для .NET до версии 1.1
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: pablocas
+editor: ''
 
-<tags
-   ms.service="search"
-   ms.devlang="dotnet"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="08/15/2016"
-   ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 08/15/2016
+ms.author: brjohnst
 
+---
 # Обновление до пакета SDK для .NET для Поиска Azure версии 2.0-preview
-
 Если вы используете версию 1.1-preview [пакета SDK для .NET для Поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) или более раннюю версию, то эта статья поможет вам обновить приложения для использования последней версии 2.0-preview.
 
 Более общее пошаговое руководство по пакету SDK, включая примеры, см. в разделе [Использование поиска Azure из приложения .NET](search-howto-dotnet-sdk.md).
 
 Версия 2.0-preview пакета SDK для .NET для Поиска Azure содержит некоторые отличия от более ранних версий. Эти отличия в основном незначительные, поэтому изменение кода потребует минимальных усилий. В разделе [Действия по обновлению](#UpgradeSteps) вы найдете инструкции о том, как изменить код для использования новой версии пакета SDK.
 
-> [AZURE.NOTE] Если вы используете версию 0.13-preview или более раннюю версию, то сначала следует установить версию 1.1, и только затем обновить ее до 2.0-preview. Ознакомьтесь с инструкциями в разделе [Приложение. Инструкции по обновлению до версии 1.1](#UpgradeStepsV1).
+> [!NOTE]
+> Если вы используете версию 0.13-preview или более раннюю версию, то сначала следует установить версию 1.1, и только затем обновить ее до 2.0-preview. Ознакомьтесь с инструкциями в разделе [Приложение. Инструкции по обновлению до версии 1.1](#UpgradeStepsV1).
+> 
+> 
 
 <a name="WhatsNew"></a>
-## Новые возможности в версии 2.0-preview
 
+## Новые возможности в версии 2.0-preview
 Версия 2.0-preview — первая версия пакета SDK для .NET для Поиска Azure, предназначенная для предварительной версии REST API Поиска Azure, в частности версии 2015-02-28-preview. Это дает возможность использовать различные функции предварительной версии Поиска Azure из приложения .NET, включая следующие:
 
-- [пользовательские анализаторы](https://aka.ms/customanalyzers);
-- поддержка индексатора [хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md) и [хранилища таблиц Azure](search-howto-indexing-azure-tables.md);
-- настройка индексатора посредством [сопоставления полей](search-indexer-field-mappings.md);
-- поддержка тегов eTag, обеспечивающих безопасное одновременное обновление определений индекса, индексаторов и источников данных;
-- поддержка .NET Core и .NET Portable Profile 111.
+* [пользовательские анализаторы](https://aka.ms/customanalyzers);
+* поддержка индексатора [хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md) и [хранилища таблиц Azure](search-howto-indexing-azure-tables.md);
+* настройка индексатора посредством [сопоставления полей](search-indexer-field-mappings.md);
+* поддержка тегов eTag, обеспечивающих безопасное одновременное обновление определений индекса, индексаторов и источников данных;
+* поддержка .NET Core и .NET Portable Profile 111.
 
 <a name="UpgradeSteps"></a>
-## Действия по обновлению
 
+## Действия по обновлению
 Прежде всего обновите справочник NuGet для `Microsoft.Azure.Search`, воспользовавшись консолью диспетчера пакетов NuGet или щелкнув правой кнопкой мыши ссылки проекта и выбрав "Управление пакетами NuGet" в Visual Studio. Обязательно включите пакеты предварительных выпусков, выбрав "Включить предварительные выпуски" в окне "Управление пакетами" в Visual Studio или воспользовавшись переключателем `-IncludePrerelease`, если используется консоли диспетчера пакетов NuGet.
 
 После того как NuGet загрузит новые пакеты и их зависимости, перестройте проект. Сборка может быть выполнена успешно — в зависимости от того, как структурирован ваш код. Если она выполнена, то теперь все готово.
@@ -55,16 +57,14 @@
 После устранения ошибки сборки при необходимости можно внести изменения в приложение, чтобы воспользоваться преимуществами новых функциональных возможностей. Новые возможности в пакете SDK описаны в разделе [Новые возможности в версии 2.0-preview](#WhatsNew).
 
 <a name="ListOfChanges"></a>
-## Критические изменения в версии 2.0-preview
 
+## Критические изменения в версии 2.0-preview
 В версии 2.0-preview имеется только одно критическое изменение, которое может потребовать внесения изменений в код для выполнения сборки приложения.
 
 ### Тип возвращаемого значения Indexes.GetClient
-
 Метод `Indexes.GetClient` имеет новый тип возвращаемого значения. Раньше он возвращал `SearchIndexClient`, но в версии 2.0-preview он возвращает `ISearchIndexClient`. Это необходимо для поддержки клиентов, которые желают макетировать метод `GetClient` для модульных тестов, возвращая реализацию макета `ISearchIndexClient`.
 
 #### Пример
-
 Если код выглядит следующим образом:
 
 ```csharp
@@ -85,9 +85,12 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 Благодарим вас за использование поиска Azure!
 
 <a name="UpgradeStepsV1"></a>
-## Приложение. Инструкции по обновлению до версии 1.1 
 
-> [AZURE.NOTE] Этот раздел относится только к пользователям версии 0.13-preview пакета SDK для .NET для Поиска Azure и более старых версий.
+## Приложение. Инструкции по обновлению до версии 1.1
+> [!NOTE]
+> Этот раздел относится только к пользователям версии 0.13-preview пакета SDK для .NET для Поиска Azure и более старых версий.
+> 
+> 
 
 Прежде всего обновите справочник NuGet для `Microsoft.Azure.Search`, воспользовавшись консолью диспетчера пакетов NuGet или щелкнув правой кнопкой мыши ссылки проекта и выбрав "Управление пакетами NuGet" в Visual Studio.
 
@@ -109,18 +112,16 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 Наконец, после устранения ошибки сборки при необходимости можно внести изменения в приложение, чтобы воспользоваться преимуществами новых функциональных возможностей.
 
 <a name="ListOfChangesV1"></a>
-### Список критических изменений в версии 1.1
 
+### Список критических изменений в версии 1.1
 Следующий список упорядочен по вероятности того, повлияет ли изменение на код приложения.
 
 #### Изменения IndexBatch и IndexAction
-
 `IndexBatch.Create` был переименован в `IndexBatch.New` и больше не имеет аргумента `params`. Можно использовать `IndexBatch.New` для пакетов, сочетающих в себе различные типы действий (слияние, удаление и т. д.). Кроме того, существуют новые статические методы для создания пакетов, в которых все действия одинаковы: `Delete`, `Merge`, `MergeOrUpload` и `Upload`.
 
 `IndexAction` больше не имеет открытых конструкторов, и его свойства теперь являются неизменяемыми. Следует использовать новые статические методы для создания действий для различных целей: `Delete`, `Merge`, `MergeOrUpload` и `Upload`. `IndexAction.Create` был удален. Если используется перегрузка, которая принимает только документ, обязательно используйте вместо нее `Upload`.
 
 ##### Пример
-
 Если код выглядит следующим образом:
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -137,11 +138,9 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
     indexClient.Documents.Index(batch);
 
 #### Изменения IndexBatchException
-
 Свойство `IndexBatchException.IndexResponse` было переименовано в `IndexingResults`, и теперь его тип `IList<IndexingResult>`.
 
 ##### Пример
-
 Если код выглядит следующим образом:
 
     catch (IndexBatchException e)
@@ -161,8 +160,8 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
     }
 
 <a name="OperationMethodChanges"></a>
-#### Изменение метода операции
 
+#### Изменение метода операции
 Каждая операция в пакете SDK для .NET для поиска Azure представляется как набор перегрузок метода для синхронных и асинхронных вызовов. В версии 1.1 были изменены подписи и разложение этих перегрузок метода.
 
 Например, операция "Получить статистику индекса" в более старых версиях пакета SDK предоставляла эти подписи:
@@ -214,16 +213,14 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 Начиная с версии 1.1, пакет SDK для .NET для поиска Azure распределяет методы операции иначе:
 
- - Необязательные параметры теперь моделируются как параметры по умолчанию, а не как дополнительные перегрузки метода. Это уменьшает количество перегрузок метода, порой радикально.
- - Методы расширения теперь скрывают много лишних сведений HTTP от вызывающего объекта. Например, более старые версии пакета SDK возвращали объект ответа с кодом состояния HTTP, который часто не нужно проверять, так как методы операции создают исключение `CloudException` для любого кода состояния, который указывает на ошибку. Новые методы расширения просто возвращают объекты модели, что устраняет необходимость развертывать их в коде.
- - И наоборот, основные интерфейсы теперь демонстрируют методы, которые предоставляют более полный контроль на уровне HTTP при необходимости. Теперь можно передавать пользовательские заголовки HTTP для добавления в запросы, и новый возвращаемый тип `AzureOperationResponse<T>` предоставляет прямой доступ к `HttpRequestMessage` и `HttpResponseMessage` для операции. `AzureOperationResponse` определяется в пространства имен `Microsoft.Rest.Azure` и заменяет `Hyak.Common.OperationResponse`.
+* Необязательные параметры теперь моделируются как параметры по умолчанию, а не как дополнительные перегрузки метода. Это уменьшает количество перегрузок метода, порой радикально.
+* Методы расширения теперь скрывают много лишних сведений HTTP от вызывающего объекта. Например, более старые версии пакета SDK возвращали объект ответа с кодом состояния HTTP, который часто не нужно проверять, так как методы операции создают исключение `CloudException` для любого кода состояния, который указывает на ошибку. Новые методы расширения просто возвращают объекты модели, что устраняет необходимость развертывать их в коде.
+* И наоборот, основные интерфейсы теперь демонстрируют методы, которые предоставляют более полный контроль на уровне HTTP при необходимости. Теперь можно передавать пользовательские заголовки HTTP для добавления в запросы, и новый возвращаемый тип `AzureOperationResponse<T>` предоставляет прямой доступ к `HttpRequestMessage` и `HttpResponseMessage` для операции. `AzureOperationResponse` определяется в пространства имен `Microsoft.Rest.Azure` и заменяет `Hyak.Common.OperationResponse`.
 
 #### Изменения в параметрах оценки
-
 В последнюю версию пакета SDK был добавлен класс `ScoringParameter` для упрощения передачи параметров профилям оценки в поисковом запросе. Ранее свойство `ScoringProfiles` класса `SearchParameters` имело тип `IList<string>`. Теперь оно имеет тип `IList<ScoringParameter>`.
 
 ##### Пример
-
 Если код выглядит следующим образом:
 
     var sp = new SearchParameters();
@@ -242,20 +239,18 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
         };
 
 #### Изменение классов модели
-
 Из-за изменений подписи, описанных в разделе [Изменение метода операции](#OperationMethodChanges), многие классы в пространстве имен `Microsoft.Azure.Search.Models` были переименованы или удалены. Например:
 
- - `IndexDefinitionResponse` был заменен на `AzureOperationResponse<Index>`.
- - `DocumentSearchResponse` был переименован в `DocumentSearchResult`.
- - `IndexResult` был переименован в `IndexingResult`.
- - `Documents.Count()` теперь возвращает `long` с количеством документов вместо `DocumentCountResponse`.
- - `IndexGetStatisticsResponse` был переименован в `IndexGetStatisticsResult`.
- - `IndexListResponse` был переименован в `IndexListResult`.
+* `IndexDefinitionResponse` был заменен на `AzureOperationResponse<Index>`.
+* `DocumentSearchResponse` был переименован в `DocumentSearchResult`.
+* `IndexResult` был переименован в `IndexingResult`.
+* `Documents.Count()` теперь возвращает `long` с количеством документов вместо `DocumentCountResponse`.
+* `IndexGetStatisticsResponse` был переименован в `IndexGetStatisticsResult`.
+* `IndexListResponse` был переименован в `IndexListResult`.
 
 Подводя итог, классы, производные от `OperationResponse`, которые существовали только для оборачивания объектов модели, были удалены. В остальных классах суффикс изменен с `Response` на `Result`.
 
 ##### Пример
-
 Если код выглядит следующим образом:
 
     IndexerGetStatusResponse statusResponse = null;
@@ -289,7 +284,6 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
     IndexerExecutionResult lastResult = status.LastResult;
 
 ##### Классы ответа и IEnumerable
-
 Дополнительное изменение, которое может повлиять на код, состоит в том, что классы ответов, содержащие коллекции, больше не реализуют `IEnumerable<T>`. Вместо этого вы можете получать прямой доступ к свойству коллекции. Например, если код выглядит следующим образом:
 
     DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
@@ -307,7 +301,6 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
     }
 
 ##### Важное примечание для веб-приложений
-
 Если у вас есть веб-приложение, которое сериализует `DocumentSearchResponse` непосредственно для отправки результатов поиска в браузер, необходимо будет внести изменения в код, иначе результаты не будут сериализованы правильно. Например, если код выглядит следующим образом:
 
     public ActionResult Search(string q = "")
@@ -341,11 +334,9 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 Вам придется найти такие случаи в коде самостоятельно. **Компилятор не предупредит вас**, так как `JsonResult.Data` имеет тип `object`.
 
 #### Изменения CloudException
-
 Класс `CloudException` перемещен из пространства имен `Hyak.Common` в пространство имен `Microsoft.Rest.Azure`. Кроме того, его свойство `Error` было изменено на `Body`.
 
 #### Изменения SearchServiceClient и SearchIndexClient
-
 Тип свойства `Credentials` был изменен с `SearchCredentials` на базовый класс `ServiceClientCredentials`. Если необходимо получить доступ к `SearchCredentials` из `SearchIndexClient` или `SearchServiceClient`, используйте новое свойство `SearchCredentials`.
 
 В более старых версиях пакета SDK у `SearchServiceClient` и `SearchIndexClient` были конструкторы, которые принимали параметр `HttpClient`. Они были заменены конструкторами, принимающими `HttpClientHandler` и массив объектов `DelegatingHandler`. При необходимости это упрощает установку пользовательских обработчиков для предварительной обработки HTTP-запросов.
@@ -367,13 +358,14 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 Также обратите внимание, что тип параметра учетных данных изменился на `ServiceClientCredentials`. Это вряд ли повлияет на код, так как `SearchCredentials` является производным от `ServiceClientCredentials`.
 
 #### Передача идентификатора запроса
-
 В более старых версиях пакета SDK можно было задать идентификатор запроса в `SearchServiceClient` или `SearchIndexClient`, и он включался в каждый запрос к REST API. Это полезно для устранения неполадок в службе поиска, если необходимо обратиться в службу поддержки. Однако более полезно присвоить уникальный идентификатор запроса для каждой операции, а не использовать тот же идентификатор для всех операций. По этой причине методы `SetClientRequestId` из `SearchServiceClient` и `SearchIndexClient` были удалены. Вместо этого вы можете передать идентификатор запроса для каждого метода операции через необязательный параметр `SearchRequestOptions`.
 
-> [AZURE.NOTE] В будущем выпуске пакета SDK мы добавим новый механизм для глобальной настройки идентификатора запроса на объектах клиента, который согласован с подходом, используемым другим пакетом SDK Azure.
+> [!NOTE]
+> В будущем выпуске пакета SDK мы добавим новый механизм для глобальной настройки идентификатора запроса на объектах клиента, который согласован с подходом, используемым другим пакетом SDK Azure.
+> 
+> 
 
 #### Пример
-
 Если у вас есть код, который выглядит следующим образом:
 
     client.SetClientRequestId(Guid.NewGuid());
@@ -385,23 +377,21 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
     long count = client.Documents.Count(new SearchRequestOptions(requestId: Guid.NewGuid()));
 
 #### Изменение имени интерфейса
-
 Имена интерфейсов группы операций изменены, чтобы согласовать их с соответствующими именами свойств:
 
- - Тип `ISearchServiceClient.Indexes` был переименован из `IIndexOperations` в `IIndexesOperations`.
- - Тип `ISearchServiceClient.Indexers` был переименован из `IIndexerOperations` в `IIndexersOperations`.
- - Тип `ISearchServiceClient.DataSources` был переименован из `IDataSourceOperations` в `IDataSourcesOperations`.
- - Тип `ISearchIndexClient.Documents` был переименован из `IDocumentOperations` в `IDocumentsOperations`.
+* Тип `ISearchServiceClient.Indexes` был переименован из `IIndexOperations` в `IIndexesOperations`.
+* Тип `ISearchServiceClient.Indexers` был переименован из `IIndexerOperations` в `IIndexersOperations`.
+* Тип `ISearchServiceClient.DataSources` был переименован из `IDataSourceOperations` в `IDataSourcesOperations`.
+* Тип `ISearchIndexClient.Documents` был переименован из `IDocumentOperations` в `IDocumentsOperations`.
 
 Это изменение вряд ли повлияет на код, если вы не создали макеты этих интерфейсов для тестирования.
 
 <a name="BugFixesV1"></a>
-### Исправления в версии 1.1
 
+### Исправления в версии 1.1
 В более старых версиях пакета SDK для .NET для поиска Azure была ошибка, связанная с сериализацией классов пользовательской модели. Ошибка могла произойти, если вы создавали класс пользовательской модели со свойством типа значения, не допускающего нуля.
 
 #### Шаги для воспроизведения
-
 Создайте класс пользовательской модели со свойством типа значения, не допускающего нуля. Например, добавьте открытое свойство `UnitCount` типа `int` вместо `int?`.
 
 При индексировании документа со значением по умолчанию этого типа (например 0 для `int`) поле будет иметь значение NULL в Поиске Azure. Если впоследствии выполняется поиск этого документа, вызов `Search` выдаст `JsonSerializationException` с сообщением о том, что невозможно преобразовать `null` в `int`.
@@ -409,7 +399,6 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 Кроме того, фильтры могут не работать, как ожидалось, поскольку в индекс был записано значение null вместо ожидаемого значения.
 
 #### Сведения об исправлении
-
 Эта проблема устранена в пакете SDK версии 1.1. Теперь, если имеется такой класс модели:
 
     public class Model

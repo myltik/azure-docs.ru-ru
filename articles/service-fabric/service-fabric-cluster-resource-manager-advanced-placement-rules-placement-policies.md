@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Диспетчер кластерных ресурсов Service Fabric — политики размещения | Microsoft Azure"
-   description="Общие сведения о дополнительных политиках размещения и правилах для служб Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Диспетчер кластерных ресурсов Service Fabric — политики размещения | Microsoft Docs
+description: Общие сведения о дополнительных политиках размещения и правилах для служб Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Политики размещения для служб Service Fabric
 Если ваш кластер Service Fabric охватывает широкую географическую область, например, включает несколько центров обработки данных или регионов Azure, либо ваша среда распространяется на несколько зон геополитического контроля (а также в некоторых других ситуациях, требующих соблюдения юридических или политических границ), приходится принимать во внимание множество дополнительных правил, а также учитывать удаленность, связанную с задержками и ухудшением производительности. Эти проблемы преимущественно можно решить, используя свойства узла и ограничения на размещение, но бывают и более сложные случаи. Для упрощения процесса доступны дополнительные команды. Для каждой службы политики размещения (как и ограничения) можно настроить отдельно на уровне имени экземпляра службы.
 
@@ -96,7 +96,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Можно ли использовать эти конфигурации для служб в кластере, который не отличается широкой географией? Можно, но не нужно. В частности, не следует прибегать к обязательным, недопустимым и предпочтительным доменам, если ваш кластер не отличается широким географическим распределением. Не имеет смысла добиваться того, чтобы определенная рабочая нагрузка принудительно выполнялась в одной стойке, или чтобы какой-то сегмент локального кластера использовался вместо другого, если только не применяются различные типы оборудования или не происходит сегментация рабочей нагрузки. Для таких случаев можно применить обычные ограничения на размещение.
 
 ## Дальнейшие действия
-- Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
+* Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png

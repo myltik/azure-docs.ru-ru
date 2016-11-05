@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Подключение виртуальных машин Azure к службе Log Analytics | Microsoft Azure"
-    description="Для виртуальных машин Windows и Linux, работающих в Azure, рекомендуемым способом сбора данных журналов и метрик является установка расширения виртуальной машины Azure Log Analytics. Для установки расширения виртуальной машины Log Analytics на виртуальные машины Azure можно использовать портал Azure или PowerShell."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Подключение виртуальных машин Azure к службе Log Analytics | Microsoft Docs
+description: Для виртуальных машин Windows и Linux, работающих в Azure, рекомендуемым способом сбора данных журналов и метрик является установка расширения виртуальной машины Azure Log Analytics. Для установки расширения виртуальной машины Log Analytics на виртуальные машины Azure можно использовать портал Azure или PowerShell.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: richrund
 
-
+---
 # <a name="connect-azure-virtual-machines-to-log-analytics"></a>Подключение виртуальных машин Azure к службе Log Analytics
-
 Для компьютеров Windows и Linux рекомендуемым методом сбора данных журналов и метрик является установка агента Log Analytics.
 
 Проще всего установить агент Log Analytics на виртуальные машины Azure при помощи расширения виртуальной машины Log Analytics.  Использование расширения упрощает процесс установки и автоматически настраивает агент на отправку данных в указанную вами рабочую область службы Log Analytics. Кроме того, агент обновляется автоматически, обеспечивая наличие новейших компонентов и исправлений.
@@ -26,40 +24,39 @@
 Для виртуальных машин Windows необходимо включить расширение виртуальной машины *Microsoft Monitoring Agent*.
 Для виртуальных машин Linux необходимо включить расширение виртуальной машины *Агент OMS для Linux*.
 
-Подробнее о [расширениях виртуальной машины Azure](../virtual-machines/virtual-machines-windows-extensions-features.md) и [агенте для Linux] (../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+Подробнее о [расширениях виртуальной машины Azure](../virtual-machines/virtual-machines-windows-extensions-features.md) и [агенте для Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
 При использовании агента для сбора данных журнала необходимо настроить [источники данных в Log Analytics](log-analytics-data-sources.md), указав, какие данные журналов и метрик следует собирать.
 
->[AZURE.IMPORTANT] Если настроить службу Log Analytics для индексации данных журналов с помощью [системы диагностики Azure](log-analytics-azure-storage.md), а агент — для сбора данных тех же журналов, то данные журналов будут собираться дважды. Плата взимается за использование обоих источников данных. Если агент уже установлен, то сбор данных журнала должен выполняться только с помощью агента. Настраивать Log Analytics для сбора данных журнала системы диагностики Azure не требуется.
+> [!IMPORTANT]
+> Если настроить службу Log Analytics для индексации данных журналов с помощью [системы диагностики Azure](log-analytics-azure-storage.md), а агент — для сбора данных тех же журналов, то данные журналов будут собираться дважды. Плата взимается за использование обоих источников данных. Если агент уже установлен, то сбор данных журнала должен выполняться только с помощью агента. Настраивать Log Analytics для сбора данных журнала системы диагностики Azure не требуется.
+> 
+> 
 
 Существует три простых способа включить расширение виртуальной машины Log Analytics:
 
-+ с помощью портала Azure;
-+ с помощью Azure PowerShell;
-+ с помощью шаблона Azure Resource Manager.
+* с помощью портала Azure;
+* с помощью Azure PowerShell;
+* с помощью шаблона Azure Resource Manager.
 
 ## <a name="enable-the-vm-extension-in-the-azure-portal"></a>Включение расширения виртуальной машины на портале Azure
-
 Установить агент для Log Analytics и подключить виртуальную машину Azure для его использования можно с помощью [портала Azure](https://portal.azure.com).
 
 ### <a name="to-install-the-log-analytics-agent-and-connect-the-virtual-machine-to-a-log-analytics-workspace"></a>Установка агента Log Analytics и подключение виртуальной машины к рабочей области Log Analytics
-
-1.  Войдите на [портал Azure](http://portal.azure.com).
-2.  Выберите **Обзор** в левой части страницы, затем найдите пункт **Log Analytics (OMS)** и выберите его.
-3.  В списке рабочих областей Log Analytics выберите ту, которую вы собираетесь использовать для работы с виртуальной машиной Azure.  
-    ![Рабочие области OMS](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
-4.  В меню **Управление службой Log Analytics** выберите плитку **Виртуальные машины**.  
-    ![Виртуальные машины](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
-5.  В списке **Виртуальные машины** выберите виртуальную машину, на которую следует установить агент. Для параметра **состояния подключения OMS** выбранной виртуальной машины указано значение **Не подключено**.  
-    ![Виртуальная машина не подключена](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
-6.  В колонке сведений о выбранной виртуальной машине выберите **Подключить**. Агент будет автоматически установлен и настроен для рабочей области Log Analytics. Этот процесс занимает несколько минут. В течение этого времени отображается следующее состояние подключения OMS: *Подключение…*  
-    ![Подключение виртуальной машины](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
-7.  После установки и подключения агента состояние **подключения OMS** обновится и примет значение **Эта рабочая область**.  
-    ![Подключено](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
-
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. Выберите **Обзор** в левой части страницы, затем найдите пункт **Log Analytics (OMS)** и выберите его.
+3. В списке рабочих областей Log Analytics выберите ту, которую вы собираетесь использовать для работы с виртуальной машиной Azure.  
+   ![Рабочие области OMS](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
+4. В меню **Управление службой Log Analytics** выберите плитку **Виртуальные машины**.  
+   ![Виртуальные машины](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
+5. В списке **Виртуальные машины** выберите виртуальную машину, на которую следует установить агент. Для параметра **состояния подключения OMS** выбранной виртуальной машины указано значение **Не подключено**.  
+   ![Виртуальная машина не подключена](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
+6. В колонке сведений о выбранной виртуальной машине выберите **Подключить**. Агент будет автоматически установлен и настроен для рабочей области Log Analytics. Этот процесс занимает несколько минут. В течение этого времени отображается следующее состояние подключения OMS: *Подключение…*  
+   ![Подключение виртуальной машины](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
+7. После установки и подключения агента состояние **подключения OMS** обновится и примет значение **Эта рабочая область**.  
+   ![Подключено](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Включение расширения виртуальной машины с помощью PowerShell
-
 Существуют разные команды для классических виртуальных машин Azure и виртуальных машин, созданных с помощью Resource Manager. Ниже представлено несколько примеров для виртуальных машин обоих типов.
 
 Для классических виртуальных машин используйте следующий пример команды PowerShell:
@@ -116,7 +113,6 @@ $location = $vm.Location
 ![Идентификатор рабочей области и первичный ключ](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Развертывание расширения виртуальной машины с помощью шаблона
-
 С помощью Azure Resource Manager можно создать простой шаблон (в формате JSON), определяющий развертывание и конфигурацию приложения. Этот шаблон, который также называется шаблоном диспетчера ресурсов, предоставляет декларативный способ определения развертывания. Такой шаблон позволяет повторно развертывать приложение в течение его жизненного цикла и гарантирует согласованное развертывание ресурсов.
 
 Включив агент Log Analytics в шаблон Resource Manager, можно обеспечить предварительную настройку каждой виртуальной машины для отправки отчетов в рабочую область Log Analytics.
@@ -125,10 +121,9 @@ $location = $vm.Location
 
 Ниже приведен пример шаблона Resource Manager, который используется для развертывания виртуальной машины Windows с установленным расширением Microsoft Monitoring Agent. По сути это стандартный шаблон виртуальной машины с некоторыми дополнениями:
 
-+ Параметры workspaceId и workspaceName.
-+ Раздел расширения ресурса Microsoft.EnterpriseCloud.Monitoring.
-+ Выходные данные выполняют поиск workspaceId и workspaceSharedKey.
-
+* Параметры workspaceId и workspaceName.
+* Раздел расширения ресурса Microsoft.EnterpriseCloud.Monitoring.
+* Выходные данные выполняют поиск workspaceId и workspaceSharedKey.
 
 ```
 {
@@ -362,51 +357,45 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 ```
 
 ## <a name="troubleshooting-windows-virtual-machines"></a>Устранение неполадок на виртуальных машинах Windows
-
 Если расширение агента виртуальной машины *Microsoft Monitoring Agent* не устанавливается или не создает отчеты, можно выполнить следующие действия для решения проблемы.
 
-1. Следуя инструкции в статье базы знаний [KB 2965986](https://support.microsoft.com/kb/2965986#mt1), убедитесь, что агент виртуальной машины установлен и работает правильно.
-  + Также можно проверить, существует ли файл журнала агента ВМ `C:\WindowsAzure\logs\WaAppAgent.log`.
-  + Если журнал не создан, значит агент виртуальной машины не установлен.
-    - [Установите агент виртуальной машины Azure на классической виртуальной машине](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+1. Следуя инструкции в статье базы знаний [KB 2965986](https://support.microsoft.com/kb/2965986#mt1), убедитесь, что агент виртуальной машины установлен и работает правильно.
+   * Также можно проверить, существует ли файл журнала агента ВМ `C:\WindowsAzure\logs\WaAppAgent.log`.
+   * Если журнал не создан, значит агент виртуальной машины не установлен.
+     * [Установите агент виртуальной машины Azure на классической виртуальной машине](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 2. Проверьте пульс расширения Microsoft Monitoring Agent, выполнив следующие действия:
-  + Войдите на виртуальную машину.
-  + Откройте планировщик задач и найдите задачу `update_azureoperationalinsight_agent_heartbeat`.
-  + Убедитесь, что задача активна и выполняется ежеминутно.
-  + Проверьте, есть ли в папке `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log` файл журнала пульса.
+   * Войдите на виртуальную машину.
+   * Откройте планировщик задач и найдите задачу `update_azureoperationalinsight_agent_heartbeat`.
+   * Убедитесь, что задача активна и выполняется ежеминутно.
+   * Проверьте, есть ли в папке `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log` файл журнала пульса.
 3. Просмотрите файлы журнала расширения виртуальной машины Microsoft Monitoring Agent в папке `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
-3. Убедитесь, что на виртуальной машине можно запускать сценарии PowerShell.
-4. Убедитесь, что разрешения на доступ к папке C:\Windows\temp не были изменены.
-5. Просмотрите состояние агента Microsoft Monitoring Agent. Для этого на виртуальной машине в окне PowerShell с повышенными правами введите следующий код `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
-6. Просмотрите файлы журнала установки агента Microsoft Monitoring Agent в папке `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
+4. Убедитесь, что на виртуальной машине можно запускать сценарии PowerShell.
+5. Убедитесь, что разрешения на доступ к папке C:\Windows\temp не были изменены.
+6. Просмотрите состояние агента Microsoft Monitoring Agent. Для этого на виртуальной машине в окне PowerShell с повышенными правами введите следующий код `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+7. Просмотрите файлы журнала установки агента Microsoft Monitoring Agent в папке `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Подробные сведения см. в статье об [устранении неполадок расширений для виртуальных машин Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md).
 
 ## <a name="troubleshooting-linux-virtual-machines"></a>Устранение неполадок на виртуальных машинах Linux
-
 Если расширение агента виртуальной машины *Агент OMS для Linux* не устанавливается или не создает отчеты, можно выполнить следующие действия для решения проблемы.
 
 1. Если состояние расширения *неизвестно*, убедитесь, что агент виртуальной машины Azure установлен и работает правильно, просмотрев файл журнала агента ВМ `/var/log/waagent.log`.
-  + Если журнал не создан, значит агент виртуальной машины не установлен.
-  - [Установите агент виртуальной машины Azure на виртуальной машине Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+   * Если журнал не создан, значит агент виртуальной машины не установлен.
+   * [Установите агент виртуальной машины Azure на виртуальной машине Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 2. В случае возникновения других неполадок просмотрите файлы журнала расширения ВМ "Агент OMS для Linux" в папке `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` и `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Если расширение исправно, но данные не отправляются, просмотрите файлы журнала агента OMS для Linux в папке `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
 Подробные сведения см. в статье [Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
-
 ## <a name="next-steps"></a>Дальнейшие действия
-
-+ Настройте [источники данных в Log Analytics](log-analytics-data-sources.md) чтобы указать, какие данные журналов и метрик следует собирать.
-+ Для сбора данных с виртуальных машин [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md).
-+ [С помощью системы диагностики Azure соберите данные](log-analytics-azure-storage.md) для других ресурсов, работающих в Azure.
+* Настройте [источники данных в Log Analytics](log-analytics-data-sources.md) чтобы указать, какие данные журналов и метрик следует собирать.
+* Для сбора данных с виртуальных машин [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md).
+* [С помощью системы диагностики Azure соберите данные](log-analytics-azure-storage.md) для других ресурсов, работающих в Azure.
 
 На компьютеры, не подключенные к Azure, агент Log Analytics можно установить при помощи методов, описанных в следующих статьях:
 
-+ [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md)
-+ [Подключение компьютеров Linux к Log Analytics](log-analytics-linux-agents.md)
-
-
+* [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md)
+* [Подключение компьютеров Linux к Log Analytics](log-analytics-linux-agents.md)
 
 <!--HONumber=Oct16_HO2-->
 

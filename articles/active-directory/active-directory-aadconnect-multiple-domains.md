@@ -1,22 +1,21 @@
-<properties
-    pageTitle="Поддержка нескольких доменов в Azure AD Connect"
-    description="В этом документе описываются процедуры установки и настройки нескольких доменов верхнего уровня в Office 365 и Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Поддержка нескольких доменов в Azure AD Connect
+description: В этом документе описываются процедуры установки и настройки нескольких доменов верхнего уровня в Office 365 и Azure AD.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Поддержка нескольких доменов для федерации с Azure AD
 В следующей документации представлено руководство по использованию нескольких доменов верхнего уровня и поддоменов в федерации с Office 365 или доменами Azure AD.
 
@@ -25,7 +24,10 @@
 
 При добавлении домена в федерацию с Azure AD необходимо установить несколько свойств для этого домена в Azure.  Важным свойством является IssuerUri.  Это URI, который используется Azure AD для идентификации домена, с которым связан маркер.  URI не должен разрешаться, но обязан быть действительным.  По умолчанию Azure AD устанавливает для этого свойства значение идентификатора службы федерации в локальной конфигурации службы AD FS.
 
->[AZURE.NOTE]Идентификатор службы федерации — это URI, который уникально идентифицирует службу федерации.  Служба федерации — это экземпляр AD FS, который работает как служба токенов безопасности. 
+> [!NOTE]
+> Идентификатор службы федерации — это URI, который уникально идентифицирует службу федерации.  Служба федерации — это экземпляр AD FS, который работает как служба токенов безопасности. 
+> 
+> 
 
 Для просмотра IssuerUri можно воспользоваться следующей командой PowerShell `Get-MsolDomainFederationSettings - DomainName <your domain>`.
 
@@ -36,17 +38,15 @@
 ![Домены](./media/active-directory-multiple-domains/domains.png)
 
 При попытке преобразования нашего домена bmfabrikam.com домена в федеративный мы получим сообщение об ошибке.  Причина в том, что в Azure AD существует ограничение, при котором свойство IssuerUri не может иметь одно и то же значение для нескольких доменов.  
-  
 
 ![Ошибка федерации](./media/active-directory-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>Параметр SupportMultipleDomain
-
 Чтобы обойти это, необходимо добавить другой IssuerUri. Это можно сделать с помощью параметра `-SupportMultipleDomain`.  Этот параметр используется со следующими командлетами:
-    
-- `New-MsolFederatedDomain`
-- `Convert-MsolDomaintoFederated`
-- `Update-MsolFederatedDomain`
+
+* `New-MsolFederatedDomain`
+* `Convert-MsolDomaintoFederated`
+* `Update-MsolFederatedDomain`
 
 Этот параметр заставляет Azure AD настроить IssuerUri таким образом, чтобы он был основан на имени домена.  Оно будет уникальным в различных каталогах в Azure AD.  Использование параметра позволяет успешно выполнить команду PowerShell.
 
@@ -69,8 +69,10 @@
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
 
->[AZURE.IMPORTANT]Чтобы использовать параметр -SupportMultipleDomain при добавлении новых или преобразовании существующих доменов, необходимо заранее включить федеративное отношение доверия для этих доменов.  
-
+> [!IMPORTANT]
+> Чтобы использовать параметр -SupportMultipleDomain при добавлении новых или преобразовании существующих доменов, необходимо заранее включить федеративное отношение доверия для этих доменов.  
+> 
+> 
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Обновление отношения доверия между службами федерации Active Directory и Azure AD
 Если вы не настроили федеративного отношения доверия между AD FS и своим экземпляром Azure AD, может потребоваться создать это отношение доверия снова.  Это вызвано тем, что при изначальной настройке без параметра `-SupportMultipleDomain` в IssuerUri записывается значение по умолчанию.  На приведенном ниже снимке экрана видно, что IssuerUri имеет значение https://adfs.bmcontoso.com/adfs/services/trust.
@@ -91,32 +93,30 @@
 
 Выполните следующие действия для удаления доверия Microsoft Online и обновления исходного домена.
 
-2.  На сервере федерации AD FS откройте **Управление AD FS** 
-2.  Разверните **Отношения доверия** и **Отношения доверия проверяющей стороны** слева.
-3.  Удалите запись **Платформа идентификации Microsoft Office 365** справа.
-![Удалить Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
-2.  Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
-2.  В PowerShell введите `Connect-MsolService -Credential $cred`
-4.  В PowerShell введите `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Это исходный домен.  С приведенными выше доменами мы получим следующее: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`.
-
+1. На сервере федерации AD FS откройте **Управление AD FS** 
+2. Разверните **Отношения доверия** и **Отношения доверия проверяющей стороны** слева.
+3. Удалите запись **Платформа идентификации Microsoft Office 365** справа.
+   ![Удалить Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
+4. На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
+5. Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
+6. В PowerShell введите `Connect-MsolService -Credential $cred`
+7. В PowerShell введите `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Это исходный домен.  С приведенными выше доменами мы получим следующее: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`.
 
 Выполните следующие действия для добавления нового домена верхнего уровня с помощью PowerShell.
 
-1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
-2.  Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
-2.  В PowerShell введите `Connect-MsolService -Credential $cred`
-3.  В PowerShell введите `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
+1. На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
+2. Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
+3. В PowerShell введите `Connect-MsolService -Credential $cred`
+4. В PowerShell введите `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
 
 Выполните следующие действия для добавления нового домена верхнего уровня с помощью Azure AD Connect.
 
-1.  Запустите Azure AD Connect на рабочем столе или в меню "Пуск".
-2.  Выберите "Добавить дополнительный домен Azure AD" ![Добавить дополнительный домен Azure AD](./media/active-directory-multiple-domains/add1.png).
-3.  Введите учетные данные Azure AD и Active Directory.
-4.  Выберите второй домен, который необходимо настроить для федерации.
-![Добавить дополнительный домен Azure AD](./media/active-directory-multiple-domains/add2.png)
-5.  Нажмите "Установить".
-
+1. Запустите Azure AD Connect на рабочем столе или в меню "Пуск".
+2. Выберите "Добавить дополнительный домен Azure AD" ![Добавить дополнительный домен Azure AD](./media/active-directory-multiple-domains/add1.png).
+3. Введите учетные данные Azure AD и Active Directory.
+4. Выберите второй домен, который необходимо настроить для федерации.
+   ![Добавить дополнительный домен Azure AD](./media/active-directory-multiple-domains/add2.png)
+5. Нажмите "Установить".
 
 ### <a name="verify-the-new-top-level-domain"></a>Проверка нового домена верхнего уровня
 С помощью команды PowerShell `Get-MsolDomainFederationSettings - DomainName <your domain>`можно просмотреть обновленный IssuerUri.  На приведенном ниже снимке экрана показано, что настройки федерации для исходного домена http://bmcontoso.com/adfs/services/trust были обновлены.
@@ -127,8 +127,7 @@
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-
-##<a name="support-for-sub-domains"></a>Поддержка поддоменов
+## <a name="support-for-sub-domains"></a>Поддержка поддоменов
 При добавлении поддомена он унаследует параметры родительского домена из-за особенностей обработки доменов Azure AD.  Это означает, что IssuerUri будет совпадать со значением аналогичного параметра у родительского элемента.
 
 Давайте предположим, что у меня был домен bmcontoso.com, а затем я добавил поддомен corp.bmcontoso.com.  Это значит, что значение IssuerUri для пользователя из corp.bmcontoso.com должно быть **http://bmcontoso.com/adfs/services/trust**.  Однако реализованное выше стандартное правило для Azure AD создает маркер с издателем **http://corp.bmcontoso.com/adfs/services/trust**. , который не будет соответствовать необходимому значению для домена, и аутентификация завершится неудачно.
@@ -142,22 +141,20 @@
 
 Используйте следующие шаги для добавления пользовательского утверждения для поддержки поддоменов.
 
-1.  Откройте оснастку управления AD FS.
-2.  Щелкните правой кнопкой мыши по отношению доверия Microsoft Online RP и выберите "Изменить правила утверждения".
-3.  Выберите третье правило утверждения и замените ![Изменить правила утверждений](./media/active-directory-multiple-domains/sub1.png).
-4.  Замените текущее утверждение:
-    
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-        
-    на
-    
-        `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
-    
+1. Откройте оснастку управления AD FS.
+2. Щелкните правой кнопкой мыши по отношению доверия Microsoft Online RP и выберите "Изменить правила утверждения".
+3. Выберите третье правило утверждения и замените ![Изменить правила утверждений](./media/active-directory-multiple-domains/sub1.png).
+4. Замените текущее утверждение:
+   
+       c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   
+   на
+   
+       `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
+
 ![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
-5.  Нажмите кнопку "ОК".  Нажмите кнопку "Применить".  Нажмите кнопку "ОК".  Откройте оснастку управления AD FS.
 
-
-
+1. Нажмите кнопку "ОК".  Нажмите кнопку "Применить".  Нажмите кнопку "ОК".  Откройте оснастку управления AD FS.
 
 <!--HONumber=Oct16_HO2-->
 

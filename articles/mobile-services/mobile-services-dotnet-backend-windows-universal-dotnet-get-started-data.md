@@ -1,107 +1,95 @@
-<properties
-	pageTitle="Добавление мобильных служб в существующее приложение для Магазина Windows | Microsoft Azure"
-	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+---
+title: Добавление мобильных служб в существующее приложение для Магазина Windows | Microsoft Docs
+description: Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows.
+services: mobile-services
+documentationcenter: windows
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Добавление мобильных служб к существующему приложению
+[!INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
- 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Аналогичные сведения для мобильных приложений см. в статье [Использование управляемого клиента для мобильных приложений Azure](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md).
+> 
+> 
 
-##Обзор
-
+## Обзор
 В этом разделе показано, как использовать мобильные службы Azure в качестве серверного источника данных для приложения из Магазина Windows. В этом учебнике вам предстоит загрузить проект Visual Studio 2013 для приложения, хранящего данные в памяти, создать новую мобильную службу, интегрировать мобильную службу с приложением и просмотреть изменения, внесенные в данные во время работы приложения.
 
-Мобильная служба, которую вы создадите в данном учебнике, — это серверная мобильная служба .NET. Серверная часть .NET позволяет использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе, чтобы можно было заниматься запуском и отладкой мобильной службы на локальном компьютере. Сведения о создании мобильной службы, которая позволяет реализовать серверную бизнес-логику в JavaScript, см. в подразделе "Серверная версия JavaScript" этого раздела.
+Мобильная служба, которую вы создадите в данном учебнике, — это серверная мобильная служба .NET. Серверная часть .NET позволяет использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе, чтобы можно было заниматься запуском и отладкой мобильной службы на локальном компьютере. Сведения о создании мобильной службы, которая позволяет реализовать серверную бизнес-логику в JavaScript, см. в подразделе "Серверная версия JavaScript" этого раздела.
 
->[AZURE.NOTE]В этом разделе поясняется, как использовать средства Visual Studio Professional 2013 с обновлением 3 для подключения новой мобильной службы к универсальному приложению Windows. Эти же инструкции можно использовать для подключения мобильной службы к приложению Магазина Windows или Магазина Windows Phone 8.1. Сведения о том, как подключить мобильную службу к приложению Windows Phone 8.0 или Windows Phone Silverlight 8.1, см. в разделе [Приступая к работе с данными для Windows Phone](mobile-services-windows-phone-get-started-data.md).
+> [!NOTE]
+> В этом разделе поясняется, как использовать средства Visual Studio Professional 2013 с обновлением 3 для подключения новой мобильной службы к универсальному приложению Windows. Эти же инструкции можно использовать для подключения мобильной службы к приложению Магазина Windows или Магазина Windows Phone 8.1. Сведения о том, как подключить мобильную службу к приложению Windows Phone 8.0 или Windows Phone Silverlight 8.1, см. в разделе [Приступая к работе с данными для Windows Phone](mobile-services-windows-phone-get-started-data.md).
+> 
+> 
 
-##Предварительные требования
-
+## Предварительные требования
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> с обновлением 3 или более поздней версии.
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> с обновлением 3 или более поздней версии.
 
-##Загрузка пакета GetStartedWithData
+## Загрузка пакета GetStartedWithData
+[!INCLUDE [mobile-services-windows-universal-dotnet-download-project](../../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
-[AZURE.INCLUDE [mobile-services-windows-universal-dotnet-download-project](../../includes/mobile-services-windows-universal-dotnet-download-project.md)]
-
-##Создание мобильной службы в Visual Studio
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
+## Создание мобильной службы в Visual Studio
+[!INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
 &nbsp;&nbsp;7. В обозревателе решений откройте файл кода App.xaml.cs в папке проекта GetStartedWithData.Shared и обратите внимание на новое статическое поле, добавленное в класс **App** в блоке условной компиляции приложения Магазина Windows, которое выглядит как в следующем примере:
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
-	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-	        "https://todolist.azure-mobile.net/",
-	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
+        todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "https://todolist.azure-mobile.net/",
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
 
 &nbsp;&nbsp;Этот код предоставляет доступ к новой мобильной службе в вашем приложении с помощью экземпляра [класса MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). Клиент создается с указанием URI и ключа приложения новой мобильной службы. Это статическое поле доступно для всех страниц в приложении.
 
-&nbsp;&nbsp;8. Щелкните проект приложения Windows Phone правой кнопкой мыши, выберите пункт **Добавить**, щелкните **Подключенная служба...**, выберите только что созданную мобильную службу и нажмите кнопку **ОК**. Этот же код будет добавлен в общий файл App.xaml.cs, но на этот раз — в блок условной компиляции приложения Windows Phone.
+&nbsp;&nbsp;8. Щелкните проект приложения Windows Phone правой кнопкой мыши, выберите пункт **Добавить**, щелкните **Подключенная служба...**, выберите только что созданную мобильную службу и нажмите кнопку **ОК**. Этот же код будет добавлен в общий файл App.xaml.cs, но на этот раз — в блок условной компиляции приложения Windows Phone.
 
-Теперь приложение Магазина Windows и приложение Магазина Windows Phone подключены к новой мобильной службе. Следующий шаг — тестирование нового проекта мобильной службы.
+Теперь приложение Магазина Windows и приложение Магазина Windows Phone подключены к новой мобильной службе. Следующий шаг — тестирование нового проекта мобильной службы.
 
+## Локальное тестирование проекта мобильной службы
+[!INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
 
-##Локальное тестирование проекта мобильной службы
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
-
-
-##Обновление приложения для использования мобильной службы
-
+## Обновление приложения для использования мобильной службы
 В этом разделе вы обновите универсальное приложение Windows, чтобы использовать мобильную службу в качестве серверной службы для приложения. Изменения необходимо внести только в файл проекта MainPage.cs в папке проекта GetStartedWithData.Shared.
 
-[AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
+[!INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
+## Публикация мобильной службы в Azure
+[!INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-##Публикация мобильной службы в Azure
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
-
-
-##Тестирование мобильной службы, размещенной в Azure
-
+## Тестирование мобильной службы, размещенной в Azure
 Теперь мы можем протестировать обе версии универсального приложения Windows с мобильной службой, размещенной в Azure.
 
-[AZURE.INCLUDE [mobile-services-windows-universal-test-app](../../includes/mobile-services-windows-universal-test-app.md)]
+[!INCLUDE [mobile-services-windows-universal-test-app](../../includes/mobile-services-windows-universal-test-app.md)]
 
-##Просмотр данных, хранящихся в базе данных SQL
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
+## Просмотр данных, хранящихся в базе данных SQL
+[!INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
 Это заключительный шаг учебника.
 
-##Дальнейшие действия
-
+## Дальнейшие действия
 В этом учебнике содержатся базовые сведения о том, как включить в проекте универсального приложения Windows возможности работы с данными из мобильных служб. Рекомендуем прочитать один из следующих разделов.
 
 * [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения.
-
 * [Приступая к работе с push-уведомлениями] <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
-
 * [Справочник принципов использования мобильных служб C#](mobile-services-dotnet-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с .NET.
-
 
 <!-- Images. -->
 

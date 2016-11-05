@@ -1,22 +1,29 @@
-<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+---
+services: virtual-machines
+title: Using Azure CLI with Azure Resource Manager
+author: squillace
+solutions: ''
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
+ms.service: virtual-machine
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: linux
+ms.workload: infrastructure
+ms.date: 04/13/2015
+ms.author: rasquill
 
+---
 ## Использование Azure CLI с диспетчером ресурсов Azure (ARM)
-
 Чтобы использовать интерфейс Azure CLI с командами диспетчера ресурсов и шаблонами для развертывания ресурсов Azure и рабочих нагрузок с помощью групп ресурсов, вам, разумеется, потребуется учетная запись Azure. Если у вас нет учетной записи, бесплатную пробную версию Azure можно получить [здесь](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] Если вас еще нет учетной записи Azure, но есть подписка MSDN, вы можете получать бесплатные кредиты Azure, активировав [здесь преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Также можно использовать бесплатную учетную запись. Для доступа к Azure подойдут оба способа.
+> [!NOTE]
+> Если вас еще нет учетной записи Azure, но есть подписка MSDN, вы можете получать бесплатные кредиты Azure, активировав [здесь преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Также можно использовать бесплатную учетную запись. Для доступа к Azure подойдут оба способа.
+> 
+> 
 
-### Шаг 1. Проверка версии Azure CLI
-
+### Шаг 1. Проверка версии Azure CLI
 Чтобы использовать Azure CLI для выполнения безусловных команд и шаблонов ARM, вам потребуется версия не ниже 0.8.17. Чтобы проверить версию, введите `azure --version`. Вы увидите нечто вроде этого:
 
     $ azure --version
@@ -25,7 +32,6 @@
 Инструкции по обновлению Azure CLI см. в разделе [Azure CLI](https://github.com/Azure/azure-xplat-cli).
 
 ### Шаг 2. Проверка используемого рабочего удостоверения для Azure
-
 Режим команд ARM можно использовать только в случае, если вы используете [клиент Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) или [имя субъекта-службы](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Они также называются *идентификаторами организаций*.)
 
 Чтобы узнать, есть ли у вас такой идентификатор, войдите, введя `azure login`, и укажите рабочее имя пользователя и пароль при запросе. Если он у вас есть, вы увидите следующее:
@@ -44,8 +50,7 @@
 Если вы не видите этого, необходимо создать новый клиент (или субъект-службу) с помощью вашего удостоверения учетной записи Майкрософт. (Это часто требуется в случае с личными подписками MSDN или бесплатными пробными подписками.) Чтобы создать рабочий идентификатор с помощью своей учетной записи Azure, созданной с помощью идентификатора Майкрософт, см. раздел [Связывание Azure AD Directory с новой подпиской Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Если вы считаете, что у вас уже есть идентификатор организации, может потребоваться обратиться к лицу, создавшему учетную запись для вас.
 
 ### Шаг 3. Выбор подписки Azure
-
-Если в вашей учетной записи Azure только одна подписка, Azure CLI связывается с ней по умолчанию. Если у вас несколько подписок, необходимо выбрать подписку, которую следует использовать, введя `azure account set <subscription id or name> true`, где _идентификатор или имя подписки_ — это идентификатор или имя подписки, с которой вы хотите работать в текущем сеансе.
+Если в вашей учетной записи Azure только одна подписка, Azure CLI связывается с ней по умолчанию. Если у вас несколько подписок, необходимо выбрать подписку, которую следует использовать, введя `azure account set <subscription id or name> true`, где *идентификатор или имя подписки* — это идентификатор или имя подписки, с которой вы хотите работать в текущем сеансе.
 
 Вы должны увидеть нечто вроде этого:
 
@@ -55,13 +60,15 @@
     info:    Changes saved
     info:    account set command OK
 
-### Шаг 4. Перевод Azure CLI в режим ARM
-
+### Шаг 4. Перевод Azure CLI в режим ARM
 Чтобы использовать режим управления ресурсами Azure (ARM) с Azure CLI, введите `azure config mode arm`. Вы должны увидеть нечто вроде этого:
 
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE] Вернуться к использованию команд управления службами Azure можно, введя `azure config mode asm`.
+> [!NOTE]
+> Вернуться к использованию команд управления службами Azure можно, введя `azure config mode asm`.
+> 
+> 
 
 <!---HONumber=AcomDC_0128_2016-->

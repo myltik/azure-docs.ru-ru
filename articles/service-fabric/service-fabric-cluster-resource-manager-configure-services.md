@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric | Microsoft Azure"
-   description="Описание службы Service Fabric с указанием метрик, ограничений на размещение и других политик размещения."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric | Microsoft Docs
+description: Описание службы Service Fabric с указанием метрик, ограничений на размещение и других политик размещения.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
-
+---
 # Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric
 Диспетчер кластерных ресурсов Service Fabric позволяет очень точно управлять правилами, регулирующими работу отдельных служб. Каждый экземпляр именованной службы может задать правила своего выделения в кластере. Он может также определить набор метрик, о которых будет сообщать, включая их важность для данной службы. Обычно настройка служб делится на три задачи:
 
@@ -36,11 +35,11 @@
 Существуют другие типы правил размещения, которые главным образом используются в кластерах, распределенных географически, или в других менее распространенных случаях. Они настраиваются с помощью корреляций или политик. Хотя они и не используются в большинстве сценариев, мы опишем их для полноты информации.
 
 ## Дальнейшие действия
-- Метрики показывают, как диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Дополнительные сведения о метриках и их настройке см. в [этой статье](service-fabric-cluster-resource-manager-metrics.md).
-- Сходство — один режимов, который можно настроить для служб. Этот режим редко используется; узнать о нем подробнее можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
-- Существует много различных правил размещения, которые можно настроить для службы, чтобы реализовать дополнительные сценарии. Узнать о разных политиках размещения можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
-- Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
-- В диспетчере кластерных ресурсов много параметров для описания кластера. Дополнительные сведения о них см. в статье с [описанием кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
+* Метрики показывают, как диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Дополнительные сведения о метриках и их настройке см. в [этой статье](service-fabric-cluster-resource-manager-metrics.md).
+* Сходство — один режимов, который можно настроить для служб. Этот режим редко используется; узнать о нем подробнее можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
+* Существует много различных правил размещения, которые можно настроить для службы, чтобы реализовать дополнительные сценарии. Узнать о разных политиках размещения можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+* Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+* Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
+* В диспетчере кластерных ресурсов много параметров для описания кластера. Дополнительные сведения о них см. в статье с [описанием кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Сбор журналов с помощью системы диагностики Azure | Microsoft Azure"
-   description="В этой статье описывается, как настроить систему диагностики Azure для сбора журналов из кластера Service Fabric, запущенного в Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Сбор журналов с помощью системы диагностики Azure | Microsoft Docs
+description: В этой статье описывается, как настроить систему диагностики Azure для сбора журналов из кластера Service Fabric, запущенного в Azure.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: toddabel
 
-
-
+---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Сбор журналов с помощью системы диагностики Azure
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Централизованное хранение журналов упрощает анализ и устранение неполадок в кластере, а также в приложениях и службах, работающих в этом кластере.
 
@@ -37,14 +36,12 @@
 * [Клиент Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Шаблон Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Источники журналов, которые вы можете собирать
-- **Журналы Service Fabric**. Генерируются из платформы в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
-  - Рабочие события. Это журналы операций, выполняемых платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении.
-  - [События модели программирования на основе Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
-  - [События модели программирования на основе Reliable Services](service-fabric-reliable-services-diagnostics.md).
-- **События приложения**. Это события, которые генерируются кодом служб и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. в статье [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
+* **Журналы Service Fabric**. Генерируются из платформы в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
+  * Рабочие события. Это журналы операций, выполняемых платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении.
+  * [События модели программирования на основе Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
+  * [События модели программирования на основе Reliable Services](service-fabric-reliable-services-diagnostics.md).
+* **События приложения**. Это события, которые генерируются кодом служб и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. в статье [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Развертывание расширения системы диагностики
 Первым шагом при сборе журналов является развертывание расширения системы диагностики на каждой виртуальной машине в кластере Service Fabric. Расширение системы диагностики собирает журналы на каждой виртуальной машине и отправляет их в указанную учетную запись хранения. Действия могут немного отличаться в зависимости от того, что вы используете — портал Azure или Azure Resource Manager. Кроме того, они зависят о того, как выполняется развертывание — в ходе создания кластера или для уже существующего кластера. Рассмотрим действия для каждого сценария.
@@ -77,7 +74,6 @@
 2. Измените это содержимое в соответствии с новой конфигурацией.
 3. Запустите PowerShell и перейдите в папку, в которую было извлечено содержимое.
 4. Запустите шаблон **deploy.ps1** и введите идентификатор подписки, имя группы ресурсов (используйте то же самое имя, чтобы обновить конфигурацию) и уникальное имя развертывания.
-
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Развертывание расширения системы диагностики в ходе создания кластера с помощью диспетчера ресурсов Azure
 Чтобы создать кластер с помощью диспетчера ресурсов, добавьте JSON-файл конфигурации системы диагностики в полный шаблон Resource Manager ресурсов кластера перед созданием кластера. Мы предоставляем пример шаблона диспетчера ресурсов для кластера из пяти виртуальных машин с конфигурацией системы диагностики (эта конфигурация входит в примеры шаблонов диспетчера ресурсов). Этот шаблон можно найти в коллекции примеров Azure. См. статью [Пример шаблона Resource Manager — кластер из пяти узлов с системой диагностики](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
@@ -193,7 +189,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 После изменения файла template.json (как описано выше) повторно опубликуйте шаблон Resource Manager. Если шаблон экспортирован, для повторной публикации шаблона выполните файл deploy.ps1. После развертывания убедитесь, что параметр **ProvisioningState** имеет значение **Succeeded**.
 
-
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Обновление службы диагностики для сбора и отправки журналов из новых каналов EventSource
 Чтобы обновить службу диагностики для сбора журналов из новых каналов EventSource, представляющих новое приложение, которое вы собираетесь развернуть, выполните шаги из [предыдущего раздела](#deploywadarm), в которых описана настройка службы диагностики для существующего кластера.
 
@@ -216,12 +211,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок, ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
-
 ## <a name="related-articles"></a>Связанные статьи
 * [Узнайте, как собирать данные счетчиков производительности или журналы, используя расширения системы диагностики.](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Service Fabric Solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md) (Решение Service Fabric в Log Analytics)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

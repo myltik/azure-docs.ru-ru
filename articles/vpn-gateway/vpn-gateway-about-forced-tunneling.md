@@ -1,26 +1,39 @@
-<properties 
-   pageTitle="Настройка принудительного туннелирования для подключений типа ";сеть — сеть"; с помощью классической модели развертывания | Microsoft Azure"
-   description="Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"/>
-<tags 
-   ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
-   ms.author="cherylmc" />
+---
+title: 'Настройка принудительного туннелирования для подключений типа '
+;сеть: ''
+—: ''
+сеть";: ''
+с: ''
+помощью: ''
+классической: ''
+модели: ''
+развертывания: ''
+'|': ''
+microsoft: ''
+azure": ''
+description: Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение.
+services: vpn-gateway
+documentationcenter: na
+author: cherylmc
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/10/2016
+ms.author: cherylmc
+
+---
 # Настройка принудительного туннелирования с помощью классической модели развертывания
-
-> [AZURE.SELECTOR]
-- [PowerShell — классическая модель](vpn-gateway-about-forced-tunneling.md)
-- [PowerShell — Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+> [!div class="op_single_selector"]
+> * [PowerShell — классическая модель](vpn-gateway-about-forced-tunneling.md)
+> * [PowerShell — Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+> 
+> 
 
 Оно позволяет перенаправлять или "принудительно направлять" весь Интернет-трафик обратно в локальное расположение через VPN типа "сеть — сеть" для проверки и аудита. Это критически важное требование безопасности, имеющееся в большинстве корпоративных ИТ-политик.
 
@@ -30,68 +43,45 @@
 
 **О моделях развертывания Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 **Модели развертывания и средства для принудительного туннелирования**
 
 Можно настроить подключение с принудительным туннелированием для классической модели развертывания и модели развертывания Resource Manager. Дополнительные сведения приведены в таблице ниже. Мы обновляем эту таблицу по мере выпуска новых статей, моделей развертывания и дополнительных инструментов для этой конфигурации. Если статья доступна, таблица ссылается на нее напрямую.
 
-[AZURE.INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
-
+[!INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
 ## Требования и рекомендации
-
 В Azure принудительное туннелирование настраивается с помощью определяемых пользователем маршрутов виртуальной сети (UDR). Перенаправление трафика на локальный сайт выполняется с помощью маршрута по умолчанию к VPN-шлюзу Azure. В разделе ниже перечислены текущие ограничения таблицы маршрутизации и маршрутов для виртуальной сети Azure.
 
-
--  Каждая подсеть виртуальной сети имеет встроенные системные таблицы маршрутизации. Системная таблица маршрутизации содержит три указанные ниже группы маршрутов.
-
-	- **Маршруты локальной виртуальной сети.** Они ведут непосредственно к виртуальным машинам назначения в той же виртуальной сети.
-	
-	- **Локальные маршруты.** Ведут к VPN-шлюзу Azure.
-	
-	- **Маршрут по умолчанию.** Ведет напрямую в Интернет. Пакеты, предназначенные для частных IP-адресов, не входящих в предыдущие два маршрута, будут удалены.
-
-
--  Задав пользовательские маршруты, вы сможете создать таблицу маршрутизации для добавления маршрута по умолчанию, а затем сопоставить таблицу маршрутизации с подсетями вашей виртуальной сети для включения принудительного туннелирования в этих подсетях.
-
-- Из числа локальных межорганизационных сайтов, подключенных к виртуальной сети, необходимо выбрать "сайт по умолчанию".
-
-- Принудительное туннелирование должно быть сопоставлено с виртуальной сетью, в которой есть VPN-шлюз с динамической маршрутизацией (а не статический шлюз).
- 
-- С помощью этого механизма невозможно настроить принудительное туннелирование ExpressRoute. Такое туннелирование включается, когда предлагается маршрут по умолчанию с помощью сеансов пиринга BGP ExpressRoute. Дополнительные сведения см. в [документации по ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-
-
+* Каждая подсеть виртуальной сети имеет встроенные системные таблицы маршрутизации. Системная таблица маршрутизации содержит три указанные ниже группы маршрутов.
+  
+  * **Маршруты локальной виртуальной сети.** Они ведут непосредственно к виртуальным машинам назначения в той же виртуальной сети.
+  * **Локальные маршруты.** Ведут к VPN-шлюзу Azure.
+  * **Маршрут по умолчанию.** Ведет напрямую в Интернет. Пакеты, предназначенные для частных IP-адресов, не входящих в предыдущие два маршрута, будут удалены.
+* Задав пользовательские маршруты, вы сможете создать таблицу маршрутизации для добавления маршрута по умолчанию, а затем сопоставить таблицу маршрутизации с подсетями вашей виртуальной сети для включения принудительного туннелирования в этих подсетях.
+* Из числа локальных межорганизационных сайтов, подключенных к виртуальной сети, необходимо выбрать "сайт по умолчанию".
+* Принудительное туннелирование должно быть сопоставлено с виртуальной сетью, в которой есть VPN-шлюз с динамической маршрутизацией (а не статический шлюз).
+* С помощью этого механизма невозможно настроить принудительное туннелирование ExpressRoute. Такое туннелирование включается, когда предлагается маршрут по умолчанию с помощью сеансов пиринга BGP ExpressRoute. Дополнительные сведения см. в [документации по ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## Общие сведения о настройке
-
 В следующем примере для интерфейсной подсети не применяется принудительное туннелирование. Рабочие нагрузки в интерфейсной подсети могут продолжать принимать запросы клиентов непосредственно из Интернета и отвечать на них. Для подсетей среднего уровня и внутренних подсетей применяется принудительное туннелирование. Любые исходящие подключения из этих двух подсетей к Интернету будут принудительно перенаправлены обратно на локальный сайт через один из VPN-туннелей, работающих по протоколу S2S.
 
 Это позволяет ограничивать и проверять доступ в Интернет с виртуальных машин или облачных служб в Azure, при этом поддерживая необходимую многоуровневую архитектуру служб. Кроме того, вы можете применять принудительное туннелирование для всех виртуальных сетей, если в них нет рабочих нагрузок, требующих взаимодействия с Интернетом.
 
-
 ![Принудительное туннелирование](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
-
-
 ## Перед началом работы
-
 Перед началом настройки убедитесь, что у вас есть следующее.
 
-- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-
-- Настроенная виртуальная сеть.
-
-- Последняя версия командлетов Azure PowerShell. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
-
+* Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
+* Настроенная виртуальная сеть.
+* Последняя версия командлетов Azure PowerShell. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Настройка принудительного туннелирования
-
 Выполнив описанную ниже процедуру, вы сможете настроить принудительное туннелирование в виртуальной сети. Рекомендации по настройке относятся к файлу конфигурации виртуальной сети.
 
-
-
-	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
+    <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>
         </AddressSpace>
@@ -125,62 +115,51 @@
             </LocalNetworkSiteRef>
         </Gateway>
       </VirtualNetworkSite>
-	</VirtualNetworkSite>
+    </VirtualNetworkSite>
 
 В этом примере в виртуальную сеть MultiTier-VNet входят три подсети (*Frontend*, *Midtier* и *Backend*) с четырьмя распределенными подключениями *DefaultSiteHQ* и тремя *ветвями*.
 
 Выполнив указанные ниже действия, можно настроить подключение *DefaultSiteHQ* в качестве подключения к сайту по умолчанию для принудительного туннелирования, а также настроить принудительное туннелирование для подсетей Midtier и Backend.
 
-
 1. Создайте таблицу маршрутизации. Для этого воспользуйтесь указанным ниже командлетом.
-
-		New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-
+   
+        New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
 2. Добавьте маршрут по умолчанию в таблицу маршрутизации.
-
-	В примере ниже показано, как добавить маршрут по умолчанию в таблицу маршрутизации, созданную в действии 1. Обратите внимание, что поддерживается только маршрут с указанием префикса места назначения "0.0.0.0/0" для значения VPNGateway свойства NextHop.
- 
-		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-
+   
+    В примере ниже показано, как добавить маршрут по умолчанию в таблицу маршрутизации, созданную в действии 1. Обратите внимание, что поддерживается только маршрут с указанием префикса места назначения "0.0.0.0/0" для значения VPNGateway свойства NextHop.
+   
+        Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 3. Сопоставьте таблицу маршрутизации с подсетями.
-
-	После создания таблицы маршрутизации и добавления маршрута с помощью примера ниже добавьте таблицу маршрутизации в подсеть виртуальной сети или сопоставьте таблицу с этой подсетью. В примере ниже показано, как добавить таблицу маршрутизации MyRouteTable в подсети Midtier и Backend виртуальной сети MultiTier-VNet.
-
-		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-
-		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-
+   
+    После создания таблицы маршрутизации и добавления маршрута с помощью примера ниже добавьте таблицу маршрутизации в подсеть виртуальной сети или сопоставьте таблицу с этой подсетью. В примере ниже показано, как добавить таблицу маршрутизации MyRouteTable в подсети Midtier и Backend виртуальной сети MultiTier-VNet.
+   
+        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   
+        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 4. Назначьте сайт по умолчанию для принудительного туннелирования.
-
-	В предыдущем действии с помощью сценариев с командлетами была создана таблица маршрутизации, которая затем была сопоставлена с двумя подсетями виртуальной сети. В последнем действии среди подключений к нескольким сайтам в виртуальной сети необходимо выбрать локальный сайт, который будет сайтом по умолчанию или туннелем.
-
-		$DefaultSite = @("DefaultSiteHQ")
-		Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   
+    В предыдущем действии с помощью сценариев с командлетами была создана таблица маршрутизации, которая затем была сопоставлена с двумя подсетями виртуальной сети. В последнем действии среди подключений к нескольким сайтам в виртуальной сети необходимо выбрать локальный сайт, который будет сайтом по умолчанию или туннелем.
+   
+        $DefaultSite = @("DefaultSiteHQ")
+        Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
 
 ## Дополнительные командлеты PowerShell
-
 ### Удаление таблицы маршрутизации
-
-	Remove-AzureRouteTable -Name <routeTableName>
+    Remove-AzureRouteTable -Name <routeTableName>
 
 ### Отображение таблицы маршрутизации
-
-	Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
+    Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
 
 ### Удаление маршрута из таблицы маршрутизации
-
-	Remove-AzureRouteTable –Name <routeTableName>
+    Remove-AzureRouteTable –Name <routeTableName>
 
 ### Удаление маршрута из подсети
-
-	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+    Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Отображение таблицы маршрутизации, сопоставленной с подсетью
-	
-	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+    Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Удаление сайта по умолчанию из VPN-шлюза виртуальной сети
-
-	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
+    Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
 <!---HONumber=AcomDC_0810_2016-->

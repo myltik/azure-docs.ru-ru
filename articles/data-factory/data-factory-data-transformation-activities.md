@@ -1,41 +1,44 @@
-<properties 
-    pageTitle="Преобразование данных: обработка и преобразование данных | Microsoft Azure" 
-    description="Узнайте, как преобразовать или обработать данные в фабрике данных Azure с помощью Hadoop, Машинного обучения Azure или Azure Data Lake Analytics." 
-    keywords="преобразование данных, обработка данных, преобразование данных, действие преобразования"
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: 'Преобразование данных: обработка и преобразование данных | Microsoft Docs'
+description: Узнайте, как преобразовать или обработать данные в фабрике данных Azure с помощью Hadoop, Машинного обучения Azure или Azure Data Lake Analytics.
+keywords: преобразование данных, обработка данных, преобразование данных, действие преобразования
+services: data-factory
+documentationcenter: ''
+author: sharonlo101
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/23/2016" 
-    ms.author="shlo"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/23/2016
+ms.author: shlo
 
-
+---
 # <a name="transform-data-in-azure-data-factory"></a>Преобразование данных в фабрике данных Azure
-> [AZURE.SELECTOR]
-[Hive](data-factory-hive-activity.md)  
-[Pig](data-factory-pig-activity.md)  
-[MapReduce](data-factory-map-reduce.md)  
-[Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-[Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
-[Хранимая процедура](data-factory-stored-proc-activity.md)
-[Сценарий U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
-[Настраиваемое действие .NET](data-factory-use-custom-activities.md)
-   
+> [!div class="op_single_selector"]
+> [Hive](data-factory-hive-activity.md)  
+> [Pig](data-factory-pig-activity.md)  
+> [MapReduce](data-factory-map-reduce.md)  
+> [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
+> [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
+> [Хранимая процедура](data-factory-stored-proc-activity.md)
+> [Сценарий U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
+> [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+> 
+> 
 
-## <a name="overview"></a>Обзор 
+## <a name="overview"></a>Обзор
 В этой статье объясняются действия преобразования данных в фабрике данных Azure, с помощью которых можно обрабатывать необработанные данные и преобразовывать их в прогнозы и аналитику. Действие преобразования выполняется в вычислительной среде, например в кластере Azure HDInsight или пакетной службе Azure. Статья содержит ссылки на статьи с подробными сведениями о каждом действии преобразования.
- 
+
 Фабрика данных поддерживает указанные ниже действия преобразования, которые вы можете добавлять в [конвейеры](data-factory-create-pipelines.md) как по отдельности, так и в цепочке с другим действием.
 
-> [AZURE.NOTE] Пошаговое руководство см. в статье [Учебник. Создание первого конвейера для обработки данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).  
+> [!NOTE]
+> Пошаговое руководство см. в статье [Учебник. Создание первого конвейера для обработки данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).  
+> 
+> 
 
 ## <a name="hdinsight-hive-activity"></a>Действие Hive HDInsight
 Действие Hive HDInsight в конвейере фабрики данных выполняет запросы Hive к вашему собственному кластеру HDInsight или кластеру HDInsight по запросу под управлением Windows или Linux. Дополнительные сведения об этом действии см. в разделе [Действие Hive](data-factory-hive-activity.md). 
@@ -59,7 +62,7 @@
 Дополнительные сведения об этих действиях машинного обучения см. в разделе [Создание прогнозных конвейеров с помощью действий машинного обучения Azure](data-factory-azure-ml-batch-execution-activity.md). 
 
 ## <a name="stored-procedure-activity"></a>Действие хранимой процедуры
-C помощью действия хранимой процедуры SQL Server в конвейере фабрики данных можно вызвать хранимую процедуру из одного из следующих хранилищ данных: база данных SQL Azure, хранилище данных SQL Azure, база данных SQL Server вашего предприятия или виртуальная машина Azure. Дополнительные сведения см. в разделе [Действие хранимой процедуры](data-factory-stored-proc-activity.md).  
+C помощью действия хранимой процедуры SQL Server в конвейере фабрики данных можно вызвать хранимую процедуру из одного из следующих хранилищ данных: база данных SQL Azure, хранилище данных SQL Azure, база данных SQL Server вашего предприятия или виртуальная машина Azure. Дополнительные сведения см. в разделе [Действие хранимой процедуры](data-factory-stored-proc-activity.md).  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Действие U-SQL Data Lake Analytics
 Действие U-SQL Data Lake Analytics запускает сценарий U-SQL для кластера Azure Data Lake Analytics. Дополнительные сведения см. в разделе [Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure](data-factory-usql-activity.md). 
@@ -73,28 +76,23 @@ C помощью действия хранимой процедуры SQL Serve
 Вы создаете связанную службу для среды вычислений, а затем используете эту службу при определении действия преобразования. Фабрика данных поддерживает вычислительные среды двух типов. 
 
 1. **По требованию**: в этом случае вычислительная среда полностью управляется фабрикой данных. Среда автоматически создается службой фабрики данных перед отправкой задания для обработки данных и удаляется после его выполнения. Вы можете настраивать и изменять для вычислительной среды "по требованию" детализированные параметры выполнения задания, управления кластером и действий начальной загрузки. 
-2. **Собственная**— в этом случае вы регистрируете собственную вычислительную среду (например, кластер HDInsight) и используете ее в качестве связанной службы в фабрике данных. Вы будете управлять средой вычислений, а служба фабрики данных — использовать ее для выполнения действий. 
+2. **Собственная**— в этом случае вы регистрируете собственную вычислительную среду (например, кластер HDInsight) и используете ее в качестве связанной службы в фабрике данных. Вы будете управлять средой вычислений, а служба фабрики данных — использовать ее для выполнения действий. 
 
 В статье [Связанные службы вычислений](data-factory-compute-linked-services.md) описывается, какие службы вычислений поддерживает фабрика данных. 
-
 
 ## <a name="summary"></a>Сводка
 Фабрика данных Azure поддерживает приведенные ниже действия преобразования данных и вычислительных сред для них. Действия преобразования можно добавлять в конвейеры как по отдельности, так и в цепочке с другим действием.
 
-Действия по преобразованию данных |  Вычислительная среда 
-:----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Действия машинного обучения: выполнение пакета и обновление ресурса](data-factory-azure-ml-batch-execution-activity.md) | Azure 
-[Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL, хранилище данных Azure SQL или SQL Server |
-[Аналитика озера данных U-SQL](data-factory-usql-activity.md) | Аналитика озера данных Azure 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure
-   
-
-
-
+| Действия по преобразованию данных | Вычислительная среда |
+|:--- |:--- |
+| [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
+| [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
+| [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
+| [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
+| [Действия машинного обучения: выполнение пакета и обновление ресурса](data-factory-azure-ml-batch-execution-activity.md) |Azure |
+| [Хранимая процедура](data-factory-stored-proc-activity.md) |Azure SQL, хранилище данных Azure SQL или SQL Server |
+| [Аналитика озера данных U-SQL](data-factory-usql-activity.md) |Аналитика озера данных Azure |
+| [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] или пакетная служба Azure |
 
 <!--HONumber=Oct16_HO2-->
 

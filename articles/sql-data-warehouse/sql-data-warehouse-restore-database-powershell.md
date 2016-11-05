@@ -1,43 +1,40 @@
-<properties
-   pageTitle="Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Azure"
-   description="Задачи PowerShell для восстановления хранилища данных SQL."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="Lakshmi1812"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Docs
+description: Задачи PowerShell для восстановления хранилища данных SQL.
+services: sql-data-warehouse
+documentationcenter: NA
+author: Lakshmi1812
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="lakshmir;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: lakshmir;barbkess
 
-
+---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Восстановление хранилища данных SQL Azure (PowerShell)
-
-> [AZURE.SELECTOR]
-- [Обзор][]
-- [Портал][]
-- [PowerShell][]
-- [REST][]
+> [!div class="op_single_selector"]
+> * [Обзор][Обзор]
+> * [Портал][Портал]
+> * [PowerShell][PowerShell]
+> * [REST][REST]
+> 
+> 
 
 Из этой статьи вы узнаете, как восстановить хранилище данных SQL Azure с помощью PowerShell.
 
 ## <a name="before-you-begin"></a>Перед началом работы
-
-**Проверьте ресурсы DTU.**  Каждое хранилище данных SQL размещается на сервере SQL Server (например, myserver.database.windows.net), которому выделена квота DTU по умолчанию.  Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы узнать, как вычислить необходимое количество DTU или запросить дополнительные единицы DTU, ознакомьтесь с разделом [Создание запроса в службу поддержки для хранилища данных SQL][].
+**Проверьте ресурсы DTU.**  Каждое хранилище данных SQL размещается на сервере SQL Server (например, myserver.database.windows.net), которому выделена квота DTU по умолчанию.  Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы узнать, как вычислить необходимое количество DTU или запросить дополнительные единицы DTU, ознакомьтесь с разделом [Создание запроса в службу поддержки для хранилища данных SQL][Создание запроса в службу поддержки для хранилища данных SQL].
 
 ### <a name="install-powershell"></a>Установка PowerShell
-
-Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии.  Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name AzureRM**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][].  Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
+Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии.  Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name AzureRM**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][].  Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][Как установить и настроить Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Восстановление активной или приостановленной базы данных
-
-Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][] .
+Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -79,12 +76,13 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][].
-
+> [!NOTE]
+> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Настройка базы данных после восстановления].
+> 
+> 
 
 ## <a name="restore-a-deleted-database"></a>Восстановление удаленной базы данных.
-
-Для восстановления удаленной базы данных используйте командлет [Restore-AzureRmSqlDatabase][] .
+Для восстановления удаленной базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -114,12 +112,13 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 ```
 
->[AZURE.NOTE] Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][].
-
+> [!NOTE]
+> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Настройка базы данных после восстановления].
+> 
+> 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Восстановление из географического региона Azure
-
-Для восстановления базы данных используйте командлет [Restore-AzureRmSqlDatabase][] .
+Для восстановления базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -143,14 +142,15 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 $GeoRestoredDatabase.status
 ```
 
->[AZURE.NOTE] Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][]. 
-
+> [!NOTE]
+> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Настройка базы данных после восстановления]. 
+> 
+> 
 
 Восстановленная база данных будет поддерживать прозрачное шифрование данных, если исходная база данных поддерживает прозрачное шифрование данных.
 
-
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о функциях, обеспечивающих непрерывность бизнес-процессов в выпусках базы данных SQL Azure, см. в статье [Обзор непрерывности бизнес-процессов в базе данных SQL Azure][].
+Дополнительные сведения о функциях, обеспечивающих непрерывность бизнес-процессов в выпусках базы данных SQL Azure, см. в статье [Обзор непрерывности бизнес-процессов в базе данных SQL Azure][Обзор непрерывности бизнес-процессов в базе данных SQL Azure].
 
 <!--Image references-->
 

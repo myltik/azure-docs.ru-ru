@@ -1,28 +1,30 @@
-<properties
-pageTitle="Индексирование хранилища таблиц Azure с помощью поиска Azure"
-description="Узнайте, как индексировать данные в таблицах Azure с помощью поиска Azure"
-services="search"
-documentationCenter=""
-authors="chaosrealm"
-manager="pablocas"
-editor="" />
+---
+title: Индексирование хранилища таблиц Azure с помощью поиска Azure
+description: Узнайте, как индексировать данные в таблицах Azure с помощью поиска Azure
+services: search
+documentationcenter: ''
+author: chaosrealm
+manager: pablocas
+editor: ''
 
-<tags
-ms.service="search"
-ms.devlang="rest-api"
-ms.workload="search" ms.topic="article"  
-ms.tgt_pltfrm="na"
-ms.date="08/16/2016"
-ms.author="eugenesh" />
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 08/16/2016
+ms.author: eugenesh
 
+---
 # Индексирование хранилища таблиц Azure с помощью поиска Azure
-
 В этой статье показано, как использовать поиск Azure для индексирования данных в хранилище таблиц Azure. Новый индексатор таблиц поиска Azure позволяет сделать этот процесс быстрым и эффективным.
 
-> [AZURE.IMPORTANT] Сейчас эта функция доступна в режиме предварительной версии. Она доступна только в REST API при использовании версии **2015-02-28-Preview** и в пакете SDK для .NET версии 2.0-preview. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> [!IMPORTANT]
+> Сейчас эта функция доступна в режиме предварительной версии. Она доступна только в REST API при использовании версии **2015-02-28-Preview** и в пакете SDK для .NET версии 2.0-preview. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> 
+> 
 
 ## Настройка индексирования таблиц Azure
-
 Для установки и настройки индексатора таблиц Azure можно использовать API REST поиска Azure. С помощью API вы сможете создать **индексаторы** и **источники данных**, а также управлять ими, как описано в разделе [Операции индексатора](https://msdn.microsoft.com/library/azure/dn946891.aspx). Можно также использовать [версию 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) пакета SDK для .NET. В будущем поддержка индексирования таблиц будет добавлена на портал Azure.
 
 Источник данных определяет следующее: какие данные нужно индексировать, какие учетные данные требуются для доступа к этим данным, а также какие политики нужны, чтобы служба поиска Azure могла эффективно определять изменения в данных (новые, измененные или удаленные строки).
@@ -32,96 +34,92 @@ ms.author="eugenesh" />
 Настройка индексации таблицы:
 
 1. Создание источника данных
-	- Задайте для параметра `type` значение `azuretable`.
-	- Передайте строку подключения к учетной записи хранилища как параметр `credentials.connectionString`.
-	- Укажите имя таблицы с помощью параметра `container.name`.
-	- При необходимости укажите запрос с помощью параметра `container.query`. По возможности используйте фильтр для PartitionKey для наилучшей производительности. Любой другой запрос приведет к полному сканированию таблицы, что может стать причиной снижения производительности для больших таблиц.
+   * Задайте для параметра `type` значение `azuretable`.
+   * Передайте строку подключения к учетной записи хранилища как параметр `credentials.connectionString`.
+   * Укажите имя таблицы с помощью параметра `container.name`.
+   * При необходимости укажите запрос с помощью параметра `container.query`. По возможности используйте фильтр для PartitionKey для наилучшей производительности. Любой другой запрос приведет к полному сканированию таблицы, что может стать причиной снижения производительности для больших таблиц.
 2. Создание индекса службы поиска со схемой, соответствующей столбцам в таблице, которую необходимо проиндексировать.
 3. Создайте индексатор путем подключения источника данных к индексу службы поиска.
 
 ### Создание источника данных
+    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
-
-	{
-	    "name" : "table-datasource",
-	    "type" : "azuretable",
-	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
-	}   
+    {
+        "name" : "table-datasource",
+        "type" : "azuretable",
+        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
+    }   
 
 Дополнительные сведения об API создания источника данных см. в разделе [Создание источника данных](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Создание индекса 
+### Создание индекса
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [admin key]
 
-	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
-	Content-Type: application/json
-	api-key: [admin key]
-
-	{
-  		"name" : "my-target-index",
-  		"fields": [
-    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-  		]
-	}
+    {
+          "name" : "my-target-index",
+          "fields": [
+            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+          ]
+    }
 
 Дополнительные сведения об API создания индекса см. в статье, посвященной [созданию индекса](https://msdn.microsoft.com/library/dn798941.aspx)
 
-### Создание индексатора 
-
+### Создание индексатора
 Наконец, создайте индексатор со ссылкой на источник данных и целевой индекс. Например:
 
-	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	{
-	  "name" : "table-indexer",
-	  "dataSourceName" : "table-datasource",
-	  "targetIndexName" : "my-target-index",
-	  "schedule" : { "interval" : "PT2H" }
-	}
+    {
+      "name" : "table-indexer",
+      "dataSourceName" : "table-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" }
+    }
 
 Дополнительные сведения об API для создания индексатора см. в разделе [Создание индексатора](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 Это все. Удачного индексирования!
 
 ## Работа с различными именами полей
-
 Имена полей в существующем индексе часто отличаются от имен свойств в таблице. Для сопоставления имен свойств таблицы с именами полей в индексе поиска можно использовать **сопоставления полей**. Дополнительные сведения о сопоставлениях полей см. в статье [Сопоставления полей индексатора в поиске Azure устраняют расхождения между источниками данных и индексами поиска](search-indexer-field-mappings.md).
 
 ## Обработка ключей документа
-
 В службе поиска Azure ключ документа однозначно определяет документ. Каждый индекс поиска должен содержать только одно поле ключа типа `Edm.String`. Поле ключа является обязательным для каждого документа, который добавляется к индексу (собственно, это единственное обязательное для заполнения поле).
 
 Так как строки таблицы имеют составной ключ, Поиск Azure создает синтетическое поле с именем `Key`, которое представляет собой объединение значений ключа секции и ключа строки. Например, если PartitionKey равен `PK1` и RowKey равен `RK1`, то значение поля `Key` будет равно `PK1RK1`.
 
-> [AZURE.NOTE] Значение `Key` может содержать знаки, недопустимые в ключах документов, например дефисы. С недопустимыми знаками можно работать с помощью [функции сопоставления полей](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. В этом случае при передаче ключей документов в вызовах API (например, при поиске) необходимо также использовать безопасное кодирование строки входных данных в Base64.
+> [!NOTE]
+> Значение `Key` может содержать знаки, недопустимые в ключах документов, например дефисы. С недопустимыми знаками можно работать с помощью [функции сопоставления полей](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. В этом случае при передаче ключей документов в вызовах API (например, при поиске) необходимо также использовать безопасное кодирование строки входных данных в Base64.
+> 
+> 
 
 ## Добавочное индексирование и обнаружение удаления
- 
 При настройке запуска индексатора таблицы по расписанию он повторно индексирует только новые или обновленные строки в соответствии со значением строки `Timestamp`. Политику обнаружения изменений указывать не нужно — добавочное индексирование будет включено автоматически.
 
 Чтобы указать, что определенные документы необходимо удалить из индекса, можно воспользоваться стратегией обратимого удаления — вместо строки добавьте свойство, указывающее, что строка удалена, и настройте политику обнаружения обратимого удаления в источнике данных. Например, для указанной ниже политики строка удаляется, если она имеет свойство `IsDeleted` со значением `"true"`.
 
-	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
-	
-	{
-	    "name" : "my-table-datasource",
-	    "type" : "azuretable",
-	    "credentials" : { "connectionString" : "<your storage connection string>" },
-	    "container" : { "name" : "table name", "query" : "query" },
-	    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-	}   
+    PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+        "name" : "my-table-datasource",
+        "type" : "azuretable",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "table name", "query" : "query" },
+        "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
+    }   
 
 
 ## Помогите нам усовершенствовать службу поиска Azure
-
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
 <!---HONumber=AcomDC_0817_2016-->

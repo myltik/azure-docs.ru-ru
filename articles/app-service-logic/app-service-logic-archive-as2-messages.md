@@ -1,26 +1,23 @@
-<properties 
-   pageTitle="Архивация сообщений соединителя AS2 | Служба приложений Microsoft Azure" 
-   description="Как архивировать или сохранить сообщения соединителя AS2 в службе приложений Azure" 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Архивация сообщений соединителя AS2 | Microsoft Docs
+description: Как архивировать или сохранить сообщения соединителя AS2 в службе приложений Azure
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-
+---
 # Обзор архивации сообщений соединителя AS2
-
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 [Соединитель AS2](app-service-logic-connector-as2.md) предоставляет возможность архивации сообщений. Архивация сохраняет сообщения в **контейнере больших двоичных объектов Azure**, который является частью настроек пакета.
 
@@ -30,16 +27,13 @@
 2. **Действие кодирования или отправки**: закодированное сообщение архивируется после завершения всей обработки и непосредственно перед отправкой партнеру.
 
 ## Практическое руководство. Получение архивного URL-адреса сообщения
-
 Перейдите в экземпляр приложения API «Соединитель AS2» и нажмите «Отслеживание». Выберите сведения отслеживания с помощью параметров фильтра. Когда сообщение откроется в представлении, щелкните его, чтобы увидеть его подробное представление. Архивный URL-адрес для этого сообщения будет отображаться в этом подробном представлении: ![][1]
 
 ## Практическое руководство. Извлечение архивированного сообщения
-
 Для извлечения архивированного сообщения из хранилища BLOB-объектов Azure используйте URL-адрес, полученный выше.
-
 
 <!--Image references-->
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
- 
+
 
 <!---HONumber=AcomDC_0803_2016-->

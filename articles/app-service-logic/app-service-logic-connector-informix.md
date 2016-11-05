@@ -1,43 +1,45 @@
-<properties
-   pageTitle="Использование соединителя Informix в службе приложений Microsoft Azure | Microsoft Azure"
-   description="Использование соединителя Informix с триггерами и действиями приложения логики"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="gplarsen"
-   manager="erikre"
-   editor=""/>
+---
+title: Использование соединителя Informix в службе приложений Microsoft Azure | Microsoft Docs
+description: Использование соединителя Informix с триггерами и действиями приложения логики
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: gplarsen
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="05/31/2016"
-   ms.author="plarsen"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 05/31/2016
+ms.author: plarsen
 
+---
 # Соединитель Informix
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+> [!NOTE]
+> Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+> 
+> 
 
 Соединитель Informix корпорации Майкрософт представляет собой приложение API для подключения приложений через службу приложений Azure к ресурсам, которые хранятся в базе данных IBM Informix. Соединитель включает клиент Майкрософт для подключения к удаленным серверам Informix через сетевые подключения TCP/IP, включая гибридные подключения Azure к локальным серверам Informix с использованием ретранслятора служебной шины Azure. Соединитель поддерживает следующие действия с базой данных:
 
-- чтение строк с помощью инструкции SELECT;
-- запрос на чтение строк с помощью инструкции SELECT COUNT, за которой следует SELECT;
-- добавление одной или нескольких строк (массовое) с помощью инструкции INSERT;
-- изменение одной или нескольких строк (массовое) с помощью инструкции UPDATE;
-- удаление одной или нескольких строк (массовое) с помощью инструкции DELETE;
-- чтение для изменения строк с помощью инструкции SELECT CURSOR, за которой следует UPDATE WHERE CURRENT OF CURSOR;
-- чтение для удаления строк с помощью инструкции SELECT CURSOR, за которой следует UPDATE WHERE CURRENT OF CURSOR;
-- запуск процедуры с входными и выходными параметрами, возвращаемым значением и набором данных с помощью инструкции CALL;
-- пользовательские команды и составные операции с помощью инструкций SELECT, INSERT, UPDATE, DELETE.
+* чтение строк с помощью инструкции SELECT;
+* запрос на чтение строк с помощью инструкции SELECT COUNT, за которой следует SELECT;
+* добавление одной или нескольких строк (массовое) с помощью инструкции INSERT;
+* изменение одной или нескольких строк (массовое) с помощью инструкции UPDATE;
+* удаление одной или нескольких строк (массовое) с помощью инструкции DELETE;
+* чтение для изменения строк с помощью инструкции SELECT CURSOR, за которой следует UPDATE WHERE CURRENT OF CURSOR;
+* чтение для удаления строк с помощью инструкции SELECT CURSOR, за которой следует UPDATE WHERE CURRENT OF CURSOR;
+* запуск процедуры с входными и выходными параметрами, возвращаемым значением и набором данных с помощью инструкции CALL;
+* пользовательские команды и составные операции с помощью инструкций SELECT, INSERT, UPDATE, DELETE.
 
 ## Триггеры и действия
 Соединитель поддерживает следующие триггеры и действия приложения логики:
 
-триггеры; | Действия
---- | ---
-<ul><li>Опрос данных</li></ul> | <ul><li>Bulk Insert (Массовая вставка)</li><li>Insert (Вставка)</li><li>Bulk Update (Массовое обновление)</li><li>Update (Обновление)</li><li>Call (Вызов)</li><li>Bulk Delete (Массовое удаление)</li><li>Delete (Удаление)</li><li>Select (Выбор)</li><li>Conditional update (Условное обновление)</li><li>Post to EntitySet (Публикация в набор сущностей)</li><li>Conditional delete (Условное удаление)</li><li>Select single entity (Выбор одной сущности)</li><li>Delete (Удаление)</li><li>Upsert to EntitySet (Добавление с модификацией к набору сущностей)</li><li>Custom commands (Пользовательские команды)</li><li>Composite operations (Составные операции)</li></ul>
-
+| триггеры; | Действия |
+| --- | --- |
+| <ul><li>Опрос данных</li></ul> |<ul><li>Bulk Insert (Массовая вставка)</li><li>Insert (Вставка)</li><li>Bulk Update (Массовое обновление)</li><li>Update (Обновление)</li><li>Call (Вызов)</li><li>Bulk Delete (Массовое удаление)</li><li>Delete (Удаление)</li><li>Select (Выбор)</li><li>Conditional update (Условное обновление)</li><li>Post to EntitySet (Публикация в набор сущностей)</li><li>Conditional delete (Условное удаление)</li><li>Select single entity (Выбор одной сущности)</li><li>Delete (Удаление)</li><li>Upsert to EntitySet (Добавление с модификацией к набору сущностей)</li><li>Custom commands (Пользовательские команды)</li><li>Composite operations (Составные операции)</li></ul> |
 
 ## Создание соединителя Informix
 Вы можете определить соединитель в приложении логики или в Azure Marketplace, как показано в следующем примере.
@@ -48,26 +50,27 @@
 4. В колонке описания соединителя Informix выберите **Создать**.
 5. В колонке пакета соединителя Informix введите имя (например, InformixConnectorNewOrders), план службы приложений и другие свойства.
 6. Выберите **Параметры пакета** и введите следующие параметры пакета:
-
-	Имя | Обязательно | Описание
---- | --- | ---
-ConnectionString | Да | Строка подключения клиента Informix (например, Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix).
-Таблицы | Да | Разделенный запятыми список таблиц, представлений и псевдонимов, необходимых для операций OData и для создания документации Swagger с примерами (например, NEWORDERS).
-Процедуры | Да | Разделенный запятыми список имен процедур и функций (например, SPORDERID).
-OnPremise | Нет | Локальное развертывание с использованием ретранслятора служебной шины Azure.
-ServiceBusConnectionString | Нет | Строка подключения для ретранслятора служебной шины Azure.
-PollToCheckData | Нет | Инструкция SELECT COUNT, которая будет использоваться с триггером приложения логики (например, SELECT COUNT(*) FROM NEWORDERS, WHERE SHIPDATE IS NULL).
-PollToReadData | Нет | Инструкция SELECT, которая будет использоваться с триггером приложения логики (например, SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE).
-PollToAlterData | Нет | Инструкция UPDATE или DELETE, которая будет использоваться с триггером приложения логики (например, UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;).
-
+   
+   | Имя | Обязательно | Описание |
+   | --- | --- | --- |
+   | ConnectionString |Да |Строка подключения клиента Informix (например, Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix). |
+   | Таблицы |Да |Разделенный запятыми список таблиц, представлений и псевдонимов, необходимых для операций OData и для создания документации Swagger с примерами (например, NEWORDERS). |
+   | Процедуры |Да |Разделенный запятыми список имен процедур и функций (например, SPORDERID). |
+   | OnPremise |Нет |Локальное развертывание с использованием ретранслятора служебной шины Azure. |
+   | ServiceBusConnectionString |Нет |Строка подключения для ретранслятора служебной шины Azure. |
+   | PollToCheckData |Нет |Инструкция SELECT COUNT, которая будет использоваться с триггером приложения логики (например, SELECT COUNT(*) FROM NEWORDERS, WHERE SHIPDATE IS NULL). |
+   | PollToReadData |Нет |Инструкция SELECT, которая будет использоваться с триггером приложения логики (например, SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE). |
+   | PollToAlterData |Нет |Инструкция UPDATE или DELETE, которая будет использоваться с триггером приложения логики (например, UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;). |
 7. Щелкните **ОК**, а затем выберите **Создать**.
 8. После завершения параметры пакета будут выглядеть примерно так: ![][1]
 
-
-## Приложение логики с действием соединителя Informix для добавления данных ##
+## Приложение логики с действием соединителя Informix для добавления данных
 Вы можете определить действие приложения логики для добавления данных в таблицу Informix с помощью операции API OData «Insert» или «Post to Entity». Например, можно вставить запись для нового заказа клиента, выполнив инструкцию SQL INSERT для таблицы, в которой определен столбец идентификатора, и вернуть в приложение логики значения идентификатора для затронутых строк (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] Подключение Informix *Post to EntitySet* возвращает значение столбца идентификатора, а *API Insert* возвращает количество затронутых строк.
+> [!TIP]
+> Подключение Informix *Post to EntitySet* возвращает значение столбца идентификатора, а *API Insert* возвращает количество затронутых строк.
+> 
+> 
 
 1. На начальной панели Azure выберите **+** (знак плюс), **Интернет+мобильные устройства**, а затем — **Приложение логики**.
 2. Введите имя (например, NewOrdersInformix), план службы приложений, другие свойства, а затем выберите **Создать**.
@@ -76,17 +79,16 @@ PollToAlterData | Нет | Инструкция UPDATE или DELETE, котор
 5. На панели приложения API выберите **Повторения**, задайте частоту и интервал, а затем установите **флажок**.
 6. На панели приложения API выберите **Соединитель Informix**, разверните список операций и выберите **Insert into NEWORDER**.
 7. В раскрывающемся списке параметров введите следующие значения:
-
-	Имя | Значение
---- | --- 
-CUSTID | 10042
-SHIPID | 10 000
-SHIPNAME | Lazy K Kountry Store 
-SHIPADDR | 12 Orchestra Terrace
-SHIPCITY | Walla Walla 
-SHIPREG | WA
-SHIPZIP | 99362 
-
+   
+   | Имя | Значение |
+   | --- | --- |
+   | CUSTID |10042 |
+   | SHIPID |10 000 |
+   | SHIPNAME |Lazy K Kountry Store |
+   | SHIPADDR |12 Orchestra Terrace |
+   | SHIPCITY |Walla Walla |
+   | SHIPREG |WA |
+   | SHIPZIP |99362 |
 8. Щелкните **флажок**, чтобы сохранить параметры действия, а затем нажмите кнопку **Сохранить**.
 9. Параметры должны выглядеть так: ![][3]
 10. В списке **Все запуски** в разделе **Операции** выберите первый элемент списка (последнюю запущенную команду).
@@ -95,14 +97,12 @@ SHIPZIP | 99362
 13. В колонке **Действие приложения логики** выберите **Ссылка на выходные данные**. Входные данные должны выглядеть так: ![][4]
 
 #### Это важно знать
+* Соединитель усекает имена таблиц Informix при создании имен действий приложения логики. Например, для операции **Insert into NEWORDERS** имя будет усечено до **Insert into NEWORDER**.
+* После сохранения **триггеров и действий** приложение логики обрабатывает операцию. Возможна задержка в несколько секунд (например, 3–5 секунд) до начала обработки операции. Кроме того, для выполнения операции вы можете нажать кнопку **Выполнить сейчас**.
+* Соединитель Informix определяет элементы EntitySet с атрибутами, один из которых указывает, соответствует ли элемент столбцу таблицы Informix со столбцами по умолчанию или настроенными столбцами (например, столбец удостоверения). Приложение логики отображает звездочку красного цвета рядом с именами тех элементов EntitySet, которые обозначают столбцы Informix, для которых ввод значения является обязательным. Не вводите значение для элемента ORDID, который соответствует столбцу идентификатора в Informix. Для других необязательных элементов (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY) значения можно ввести. Это те столбцы Informix, которые имеют значения по умолчанию.
+* Соединитель Informix возвращает приложению логики ответ на действие Post to EntitySet, в котором указаны значения столбцов идентификаторов, полученные из DRDA SQLDARD (данные ответа области данных SQL) для подготовленной инструкции SQL INSERT. Сервер Informix не возвращает вставленные значения для столбцов со значениями по умолчанию.
 
-- Соединитель усекает имена таблиц Informix при создании имен действий приложения логики. Например, для операции **Insert into NEWORDERS** имя будет усечено до **Insert into NEWORDER**.
-- После сохранения **триггеров и действий** приложение логики обрабатывает операцию. Возможна задержка в несколько секунд (например, 3–5 секунд) до начала обработки операции. Кроме того, для выполнения операции вы можете нажать кнопку **Выполнить сейчас**.
-- Соединитель Informix определяет элементы EntitySet с атрибутами, один из которых указывает, соответствует ли элемент столбцу таблицы Informix со столбцами по умолчанию или настроенными столбцами (например, столбец удостоверения). Приложение логики отображает звездочку красного цвета рядом с именами тех элементов EntitySet, которые обозначают столбцы Informix, для которых ввод значения является обязательным. Не вводите значение для элемента ORDID, который соответствует столбцу идентификатора в Informix. Для других необязательных элементов (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY) значения можно ввести. Это те столбцы Informix, которые имеют значения по умолчанию.
-- Соединитель Informix возвращает приложению логики ответ на действие Post to EntitySet, в котором указаны значения столбцов идентификаторов, полученные из DRDA SQLDARD (данные ответа области данных SQL) для подготовленной инструкции SQL INSERT. Сервер Informix не возвращает вставленные значения для столбцов со значениями по умолчанию.
-
-
-## Приложение логики с действием соединителя Informix для массового добавления данных ##
+## Приложение логики с действием соединителя Informix для массового добавления данных
 Вы можете определить действие приложения логики для массового добавления данных в таблицу Informix с помощью операции API «Bulk Insert». Например, можно вставить запись для двух новых заказов клиента, выполнив инструкцию SQL INSERT с массивом значений для таблицы, в которой определен столбец идентификатора, и вернуть в приложение логики затронутые строки (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
 1. На начальной панели Azure выберите **+** (знак плюс), **Интернет+мобильные устройства**, а затем — **Приложение логики**.
@@ -112,48 +112,42 @@ SHIPZIP | 99362
 5. На панели приложения API выберите **Повторения**, задайте частоту и интервал, а затем установите **флажок**.
 6. На панели приложения API выберите **Соединитель Informix**, разверните список операций и выберите **Bulk Insert into NEW**.
 7. Введите значения **строк** в формате массива. Например, скопируйте и вставьте такой код:
-
-	```
+   
+    ```
     [{"custid":10081,"shipid":10000,"shipname":"Trail's Head Gourmet Provisioners","shipaddr":"722 DaVinci Blvd.","shipcity":"Kirkland","shipreg":"WA","shipzip":"98034"},{"custid":10088,"shipid":10000,"shipname":"White Clover Markets","shipaddr":"305 14th Ave. S. Suite 3B","shipcity":"Seattle","shipreg":"WA","shipzip":"98128","shipctry":"USA"}]
-	```
-        
+    ```
 8. Щелкните **флажок**, чтобы сохранить параметры действия, а затем нажмите кнопку **Сохранить**. Параметры должны выглядеть так: ![][6]
-
 9. В списке **Все запуски** в разделе **Операции** выберите первый элемент списка (последнюю запущенную команду).
 10. В колонке **Запуск приложения логики** щелкните элемент **Действие**.
 11. В колонке **Действие приложения логики** щелкните элемент **Ссылка на входные данные**. Выходные данные должны выглядеть так: [][7]
 12. В колонке **Действие приложения логики** щелкните элемент **Ссылка на выходные данные**. Выходные данные должны выглядеть так: ![][8]
 
 #### Это важно знать
+* Соединитель усекает имена таблиц Informix при создании имен действий приложения логики. Например, для операции **Bulk Insert into NEWORDERS** имя будет усечено до **Bulk Insert into NEW**.
+* В базе данных Informix имена таблиц и столбцов могут обрабатываться с учетом регистра. Например, имена столбцов в массиве для операции Bulk Insert потребуется указывать в нижнем (custid), а не верхнем (CUSTID) регистре.
+* Если опустить столбцы идентификаторов (например, ORDID), столбцы, допускающие значение Null (например, SHIPDATE), и столбцы со значениями по умолчанию (например, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), база данных Informix создаст для них значения автоматически.
+* Если указать today и tomorrow, соединитель Informix использует функции CURRENT DATE и CURRENT DATE + 1 DAY (например, REQDATE).
 
-- Соединитель усекает имена таблиц Informix при создании имен действий приложения логики. Например, для операции **Bulk Insert into NEWORDERS** имя будет усечено до **Bulk Insert into NEW**.
-- В базе данных Informix имена таблиц и столбцов могут обрабатываться с учетом регистра. Например, имена столбцов в массиве для операции Bulk Insert потребуется указывать в нижнем (custid), а не верхнем (CUSTID) регистре.
-- Если опустить столбцы идентификаторов (например, ORDID), столбцы, допускающие значение Null (например, SHIPDATE), и столбцы со значениями по умолчанию (например, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), база данных Informix создаст для них значения автоматически.
-- Если указать today и tomorrow, соединитель Informix использует функции CURRENT DATE и CURRENT DATE + 1 DAY (например, REQDATE).
-
-
-## Приложение логики с триггером соединителя Informix для чтения, изменения или удаления данных ##
+## Приложение логики с триггером соединителя Informix для чтения, изменения или удаления данных
 Вы можете определить триггер приложения логики для опроса и чтения данных из таблицы Informix с помощью составной операции API «Poll Data». Например, можно прочитать одну или несколько записей для новых заказов клиентов и вернуть эти записи в приложение логики. Параметры пакета и приложения соединителя Informix должны выглядеть так:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(*) FROM NEWORDERS, WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | <значение не указано>
 
-
 Также вы можете определить триггер приложения логики для опроса, чтения и изменения данных в таблице Informix с помощью составной операции API «Poll Data». Например, можно прочитать одну или несколько записей для новых заказов клиентов, изменить значения записей и вернуть эти записи (со значениями до обновления) в приложение логики. Параметры пакета и приложения соединителя Informix должны выглядеть так:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(*) FROM NEWORDERS, WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
 
-
 Также вы можете определить триггер приложения логики для опроса, чтения и удаления данных в таблице Informix с помощью составной операции API «Poll Data». Например, можно прочитать одну или несколько записей для новых заказов клиентов, удалить эти записи и вернуть эти записи (со значениями до удаления) в приложение логики. Параметры пакета и приложения соединителя Informix должны выглядеть так:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(*) FROM NEWORDERS, WHERE SHIPDATE IS NULL
 PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
@@ -173,11 +167,10 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 10. В колонке **Запуск приложения логики** щелкните элемент **Действие**.
 11. В колонке **Действие приложения логики** щелкните элемент **Ссылка на выходные данные**. Выходные данные должны выглядеть так: ![][11]
 
-
-## Приложение логики с действием соединителя Informix для удаления данных ##
+## Приложение логики с действием соединителя Informix для удаления данных
 Вы можете определить действие приложения логики для удаления данных из таблицы Informix с помощью операции API OData «Delete» или «Post to Entity». Например, можно вставить запись для нового заказа клиента, выполнив инструкцию SQL INSERT для таблицы, в которой определен столбец идентификатора, и вернуть в приложение логики значения идентификатора для затронутых строк (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-## Создание приложения логики, которое использует соединитель Informix для удаления данных ##
+## Создание приложения логики, которое использует соединитель Informix для удаления данных
 Вы можете создать новое приложение логики из Azure Marketplace, а затем использовать соединитель Informix как действие для удаления заказов клиентов. Например, можно использовать условную операцию Delete соединителя Informix для обработки инструкции SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
 1. В меню концентратора на **начальной панели** Azure нажмите кнопку **+** (знак плюс), а потом щелкните **Интернет+мобильные устройства** и **Приложение логики**.
@@ -199,56 +192,59 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
 **Примечание.** Конструктор приложения логики усекает имена таблиц. Например, для операции **Conditional delete from NEWORDERS** имя будет усечено до **Conditional delete from N**.
 
-
-> [AZURE.TIP] Используйте следующие инструкции SQL для создания примера таблицы и хранимых процедур.
+> [!TIP]
+> Используйте следующие инструкции SQL для создания примера таблицы и хранимых процедур.
+> 
+> 
 
 С помощью следующих инструкций Informix SQL DDL можно создать пример таблицы NEWORDERS.
- 
+
     create table neworders (  
- 		ordid serial(10000) unique ,  
- 		custid int not null ,  
- 		empid int not null default 10000 ,  
- 		orddate date not null default today ,  
- 		reqdate date default today ,  
- 		shipdate date ,  
- 		shipid int not null default 10000 ,  
- 		freight decimal (9,2) not null default 0.00 ,  
- 		shipname char (40) not null ,  
- 		shipaddr char (60) not null ,  
- 		shipcity char (20) not null ,  
- 		shipreg char (15) not null ,  
- 		shipzip char (10) not null ,  
- 		shipctry char (15) not null default ''USA'' 
- 		)
+         ordid serial(10000) unique ,  
+         custid int not null ,  
+         empid int not null default 10000 ,  
+         orddate date not null default today ,  
+         reqdate date default today ,  
+         shipdate date ,  
+         shipid int not null default 10000 ,  
+         freight decimal (9,2) not null default 0.00 ,  
+         shipname char (40) not null ,  
+         shipaddr char (60) not null ,  
+         shipcity char (20) not null ,  
+         shipreg char (15) not null ,  
+         shipzip char (10) not null ,  
+         shipctry char (15) not null default ''USA'' 
+         )
 
 
 С помощью следующих инструкций Informix DDL можно создать пример хранимой процедуры SPORDERID.
- 
+
     create procedure sporderid ( ord_id int)  
- 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
- 		define xordid, xcustid, xempid, xshipid int;  
- 		define xorddate, xreqdate, xshipdate date;  
- 		define xfreight decimal (9,2);  
- 		define xshipname char (40);  
- 		define xshipaddr char (60);  
- 		define xshipcity char (20);  
- 		define xshipreg, xshipctry char (15);  
- 		define xshipzip char (10);  
- 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
- 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
- 			from neworders where ordid = ord_id;  
- 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
+         returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
+         define xordid, xcustid, xempid, xshipid int;  
+         define xorddate, xreqdate, xshipdate date;  
+         define xfreight decimal (9,2);  
+         define xshipname char (40);  
+         define xshipaddr char (60);  
+         define xshipcity char (20);  
+         define xshipreg, xshipctry char (15);  
+         define xshipzip char (10);  
+         select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
+             into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
+             from neworders where ordid = ord_id;  
+         return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
     end procedure; 
 
 
 ## Гибридная конфигурация (необязательно)
-
-> [AZURE.NOTE] Этот шаг необходим, только если соединитель DB2 используется локально за брандмауэром.
+> [!NOTE]
+> Этот шаг необходим, только если соединитель DB2 используется локально за брандмауэром.
+> 
+> 
 
 Служба приложений использует диспетчер гибридных соединений для безопасного подключения к вашей локальной системе. Если ваш соединитель использует локальный сервер IBM DB2 Server для Windows, применение диспетчера гибридных подключений обязательно.
 
 См. раздел [Установка диспетчера гибридных соединений](app-service-logic-hybrid-connection-manager.md).
-
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. статью [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)
@@ -256,7 +252,6 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 Создание приложений API с помощью интерфейсов REST API. См. статью [Справочник по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
-
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-informix/ApiApp_InformixConnector_Create.png

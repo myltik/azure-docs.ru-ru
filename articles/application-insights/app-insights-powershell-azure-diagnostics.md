@@ -1,26 +1,24 @@
-<properties
-    pageTitle="Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell | Microsoft Azure"
-    description="Автоматизируйте настройку системы диагностики Azure для передачи данных в Application Insights."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell | Microsoft Docs
+description: Автоматизируйте настройку системы диагностики Azure для передачи данных в Application Insights.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-	ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
+---
 # Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell
-
 [Microsoft Azure](https://azure.com) можно [настроить для отправки данных системы диагностики Azure](app-insights-azure-diagnostics.md) в [Visual Studio Application Insights](app-insights-overview.md). Данные диагностики связаны с облачными службами Azure и виртуальными машинами Azure. Они дополняют данные телеметрии, отправляемые из приложения с помощью пакета SDK Application Insights. В рамках автоматизации создания новых ресурсов в Azure вы можете настроить диагностику с помощью PowerShell.
 
 ## Включение расширения диагностики как части развертывания облачной службы
-
 Параметр `ExtensionConfiguration` командлета `New-AzureDeployment` принимает массив значений для конфигурации диагностики. Их можно создать с помощью командлета `New-AzureServiceDiagnosticsExtensionConfig`. Например:
 
 ```ps
@@ -57,11 +55,10 @@
 ``` 
 
 ## Включение расширения диагностики в существующей облачной службе
-
 Для уже существующей службы используйте командлет `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -87,7 +84,6 @@
 ```
 
 ## Получение текущей конфигурации расширения диагностики
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -95,7 +91,6 @@
 
 
 ## Удаление расширения диагностики
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -112,7 +107,6 @@
 
 
 ## См. также
-
 * [Мониторинг приложений облачных служб Azure с помощью Application Insights](app-insights-cloudservices.md)
 * [Отправка данных системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md)
 * [Use PowerShell to set alerts in Application Insights](app-insights-powershell-alerts.md) (Использование PowerShell для настройки оповещений в Application Insights)

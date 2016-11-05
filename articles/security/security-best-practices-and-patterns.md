@@ -1,32 +1,31 @@
-<properties
-   pageTitle="Рекомендации и шаблоны для обеспечения безопасности в Azure | Microsoft Azure"
-   description="В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure."
-   services="azure-security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Рекомендации и шаблоны для обеспечения безопасности в Azure | Microsoft Docs
+description: В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure.
+services: azure-security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/16/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/16/2016
+ms.author: terrylan
 
+---
 # Рекомендации и шаблоны для обеспечения безопасности в Azure
-
 Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.
 
-- [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
-- [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
-- [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
-- [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
-- [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
+* [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
+* [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
+* [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
+* [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+* [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
+* [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты ваших решений в Azure мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты, рекомендуемыми специалистами Майкрософт.
 
@@ -36,11 +35,11 @@ Azure — это безопасная платформа для создания
 
 В рамках каждой рекомендации объясняется следующее:
 
-- суть рекомендации;
-- почему необходимо применять эту рекомендацию;
-- что может случиться, если не применить эту рекомендацию;
-- возможные альтернативы рекомендации;
-- как научиться применять эту рекомендацию.
+* суть рекомендации;
+* почему необходимо применять эту рекомендацию;
+* что может случиться, если не применить эту рекомендацию;
+* возможные альтернативы рекомендации;
+* как научиться применять эту рекомендацию.
 
 Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.
 

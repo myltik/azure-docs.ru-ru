@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Операции входа с возможно инфицированных устройств"
-	description="Отчет, в котором указываются попытки входа, выполненные с устройств, на которых могут выполняться вредоносные программы."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Операции входа с возможно инфицированных устройств
+description: Отчет, в котором указываются попытки входа, выполненные с устройств, на которых могут выполняться вредоносные программы.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
-
+---
 # Операции входа с возможно инфицированных устройств
 Предназначение этого отчета — определить инфицированные устройства пользователей, которые теперь являются частью ботнета. Мы сопоставляем IP-адреса, с которых вошли пользователи, с IP-адресами, с которых подключались к серверам ботнета.
 

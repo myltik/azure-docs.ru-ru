@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Уведомления о подготовке учетных записей | Microsoft Azure"
-    description="Узнайте, как гарантированно получать уведомления о проблемах, которые требуют вашего внимания, путем включения уведомления о проблемах связанных с подготовкой пользователей."
-    services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+---
+title: Уведомления о подготовке учетных записей | Microsoft Docs
+description: Узнайте, как гарантированно получать уведомления о проблемах, которые требуют вашего внимания, путем включения уведомления о проблемах связанных с подготовкой пользователей.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="markusvi"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: markusvi
 
-
-
+---
 # <a name="account-provisioning-notifications"></a>Уведомления о подготовке учетных записей
-
 С помощью подготовки пользователей можно автоматизировать процесс управления пользователями в сторонних приложениях SaaS. <br>
  Хотя этот процесс автоматизирован, время от времени ваше участие будет необходимо. <br>
  Например, когда истечет срок действия пароля учетной записи, которую вы настроили для обмена данными со сторонним приложением SaaS. 
@@ -30,30 +27,22 @@
 
 ![Подготовка пользователей][1] 
 
-
-
 Чтобы включить уведомления о подготовке учетных записей, на странице **Подтверждение** установите соответствующий флажок и введите псевдоним электронной почты получателя.
 
 ![Уведомления о подготовке учетных записей][2]
- 
 
-
-В качестве получателя можно указать список рассылки. Тем не менее следует отметить, что уведомление, отправляемое по электронной почте, содержит ссылки, доступные только администраторам Azure AD.
+В качестве получателя можно указать список рассылки. Тем не менее следует отметить, что уведомление, отправляемое по электронной почте, содержит ссылки, доступные только администраторам Azure AD.
 
 Если уведомления о подготовке учетных записей включены, вы будете получать сообщения о критических проблемах, связанных с подготовкой пользователей. Чтобы не перегружать почту, вы будете получать одно уведомление в день о каждом приложении SaaS, для которого включены уведомления по электронной почте.
 
-
-##<a name="related-articles"></a>Связанные статьи
-
-- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
-- [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
-- [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-- [Фильтры области для подготовки пользователей](active-directory-saas-scoping-filters.md)
-- [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
-- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-
-
+## <a name="related-articles"></a>Связанные статьи
+* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+* [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
+* [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
+* [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Фильтры области для подготовки пользователей](active-directory-saas-scoping-filters.md)
+* [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
+* [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png

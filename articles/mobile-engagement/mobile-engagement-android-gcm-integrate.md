@@ -1,44 +1,44 @@
-<properties
-    pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
-    description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+---
+title: Интеграция пакета Android SDK для Azure Mobile Engagement
+description: Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: Java
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: piyushjo
 
-
-#<a name="how-to-integrate-gcm-with-mobile-engagement"></a>Интеграция GCM с помощью службы Mobile Engagement
-
-> [AZURE.IMPORTANT] Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе "Интеграция Engagement на платформе Android".
->
+---
+# <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Интеграция GCM с помощью службы Mobile Engagement
+> [!IMPORTANT]
+> Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе "Интеграция Engagement на платформе Android".
+> 
 > Этот документ пригоден только в том случае, если вы уже встроили модуль обработки рекламных кампаний и план для отправки данных на устройства Google Play. Для интеграции кампаний, обработанных модулем, в приложение необходимо сначала ознакомиться с разделом «Интеграция модуля обработки рекламных кампаний платформы Engagement для Android».
+> 
+> 
 
-##<a name="introduction"></a>Введение
-
+## <a name="introduction"></a>Введение
 Интеграция GCM позволяет приложению получать push-уведомления.
 
 Полезные данные GCM, перемещаемые при помощи push-технологии в SDK, всегда содержат ключ `azme` в объекте данных. Таким образом, если вы в своем приложении используете GCM для другой цели, вы можете фильтровать push-передачи в зависимости от этого ключа.
 
-> [AZURE.IMPORTANT] С помощью GCM отправлять push-уведомления можно только на устройства под управлением Android 2.2 или выше с установленным Google Play, а также включенным фоновым подключением Google. Тем не менее, этот код можно безопасно интегрировать и на неподдерживаемых  устройствах (он использует только намерения).
+> [!IMPORTANT]
+> С помощью GCM отправлять push-уведомления можно только на устройства под управлением Android 2.2 или выше с установленным Google Play, а также включенным фоновым подключением Google. Тем не менее, этот код можно безопасно интегрировать и на неподдерживаемых  устройствах (он использует только намерения).
+> 
+> 
 
-##<a name="create-a-google-cloud-messaging-project-with-api-key"></a>Создание проекта Google Cloud Messaging с ключом API
+## <a name="create-a-google-cloud-messaging-project-with-api-key"></a>Создание проекта Google Cloud Messaging с ключом API
+[!INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
-
-##<a name="sdk-integration"></a>Интеграция пакета SDK
-
+## <a name="sdk-integration"></a>Интеграция пакета SDK
 ### <a name="managing-device-registrations"></a>Управление регистрацией устройств
-
 Каждое устройство должно отправлять команду регистрации серверам Google, в противном случае с ними невозможно связаться.
 
 Устройство также может отменить регистрацию на получение уведомлений GCM (отмена регистрации устройства выполняется автоматически при удалении приложения).
@@ -51,7 +51,6 @@
             <meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
 
 ### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Передайте идентификатор регистрации службе Push-уведомлений платформы Engagement и начните получать уведомления.
-
 Чтобы передать идентификатор регистрации устройства службе push-уведомлений Engagement и получать ее уведомления, необходимо добавить следующий код в файл `AndroidManifest.xml` внутри тега `<application/>` (даже если вы управляете регистрацией устройств самостоятельно):
 
             <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
@@ -75,8 +74,7 @@
             <uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
             <permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-##<a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Предоставление Mobile Engagement доступа к ключу API GCM
-
+## <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Предоставление Mobile Engagement доступа к ключу API GCM
 Следуйте [этому руководству](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) , чтобы предоставить Mobile Engagement доступ к вашему ключу API GCM.
 
 [Пакет SDK для Google Play]:https://developers.google.com/cloud-messaging/android/start

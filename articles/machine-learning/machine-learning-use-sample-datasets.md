@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Использование примеров наборов данных Студии машинного обучения | Microsoft Azure"
-	description="Описания наборов данных, используемых в примерах моделей, который входят в состав Студии машинного обучения. Эти наборы данных можно использовать для собственных экспериментов."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Использование примеров наборов данных Студии машинного обучения | Microsoft Docs
+description: Описания наборов данных, используемых в примерах моделей, который входят в состав Студии машинного обучения. Эти наборы данных можно использовать для собственных экспериментов.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Использование образцов наборов данных в Студии машинного обучения Azure
-
 [top]: #machine-learning-sample-datasets
 
 При создании новой рабочей области в службе машинного обучения Azure по умолчанию в нее добавляется ряд примеров экспериментов и наборов данных. Многие из этих демонстрационных наборов данных используются в примерах моделей в [коллекции Cortana Intelligence для Azure](http://gallery.cortanaintelligence.com/), а остальные включены как примеры различных типов данных, обычно используемых для машинного обучения.
@@ -27,15 +25,13 @@
 
 Остальная часть этих наборов данных предоставлена в разделе **Сохраненные наборы данных** на палитре модуля слева от холста эксперимента. Эти наборы отображаются каждый раз, когда вы открываете или создаете новый эксперимент в Студии машинного обучения. Любой из этих наборов данных можно просто перетянуть на холст собственного эксперимента.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

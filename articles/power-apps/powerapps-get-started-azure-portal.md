@@ -1,27 +1,27 @@
-<properties
-	pageTitle="Что такое PowerApps Enterprise и как приступить к работе с ним | Microsoft Azure"
-	description="Сведения о том, как приступить к работе с PowerApps Enterprise и создать среду службы приложений"
-	services=""
-    suite="powerapps"
-	documentationCenter=""
-	authors="linhtranms"
-	manager="dwrede"
-	editor=""/>
+---
+title: Что такое PowerApps Enterprise и как приступить к работе с ним | Microsoft Docs
+description: Сведения о том, как приступить к работе с PowerApps Enterprise и создать среду службы приложений
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: linhtranms
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/04/2016"
-   ms.author="litran"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/04/2016
+ms.author: litran
 
+---
 # Что такое Microsoft PowerApps Enterprise?
-
-> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
-
-
+> [!IMPORTANT]
+> Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> 
 
 [1]: ./media/powerapps-get-started-azure-portal/browseall.png
 [2]: ./media/powerapps-get-started-azure-portal/allresources.png

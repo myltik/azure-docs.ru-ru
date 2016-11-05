@@ -1,23 +1,21 @@
-<properties
-	
-	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
-	description="Upgrade apps and libraries using Nuget" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove"/>
+---
+title: Upgrade to the latest elastic database client library | Microsoft Docs
+description: Upgrade apps and libraries using Nuget
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="ddove" />
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Обновление приложения для использования новой версии клиентской библиотеки эластичной базы данных
-
 Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
 
 **Новая версия**: [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
@@ -27,15 +25,12 @@
 В результате выполнения этих действий в указанном порядке предыдущие версии клиентской библиотеки будут удалены из текущей среды, а объекты метаданных обновлены. Это гарантирует, что данные объекты предыдущей версии не будут повторно созданы после обновления.
 
 ## Действия по обновлению
-
 **1. Обновите свои приложения.** В Visual Studio скачайте последнюю версию клиентской библиотеки, создайте на нее ссылку во всех проектах разработки, использующих библиотеку, а затем выполните повторную сборку и развертывание.
 
- * В Visual Studio выберите **Инструменты** --> **Диспетчер пакетов NuGet** --> **Управление пакетами NuGet для решения**. 
- * (Visual Studio 2013.) В левой области выберите **Обновления** и нажмите кнопку **Обновить** возле отобразившегося в окне пакета **База данных SQL Azure — клиентская библиотека эластичного масштабирования**.
- * (Visual Studio 2015.) В поле фильтра выберите значение **Доступно обновление**. Выберите пакет для обновления и нажмите кнопку **Обновить**.
-	
- 
- * Выполните сборку и развертывание.
+* В Visual Studio выберите **Инструменты** --> **Диспетчер пакетов NuGet** --> **Управление пакетами NuGet для решения**. 
+* (Visual Studio 2013.) В левой области выберите **Обновления** и нажмите кнопку **Обновить** возле отобразившегося в окне пакета **База данных SQL Azure — клиентская библиотека эластичного масштабирования**.
+* (Visual Studio 2015.) В поле фильтра выберите значение **Доступно обновление**. Выберите пакет для обновления и нажмите кнопку **Обновить**.
+* Выполните сборку и развертывание.
 
 **2. Обновите свои сценарии.** Если для управления сегментами используются сценарии **PowerShell**, [скачайте новую версию библиотеки](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) и скопируйте ее в каталог, из которого выполняются сценарии.
 
@@ -46,44 +41,37 @@
 ***Вариант 1. Обновление метаданных с помощью PowerShell***
 
 1. Скачайте последнюю версию служебной программы командной строки для NuGet [здесь](http://nuget.org/nuget.exe) и сохраните ее в папке. 
-
 2. Откройте командную строку, перейдите к указанной папке и выполните следующую команду: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-
 3. Перейдите к вложенной папке, в которой сохранена скачанная новая версия клиентской библиотеки DLL, например: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
-
 4. Скачайте сценарий обновления клиента эластичного масштабирования из [Центра сценариев](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9) и сохраните его в папке, содержащей библиотеку DLL.
-
 5. Находясь в этой папке, выполните в командной строке команду PowerShell .\\upgrade.ps1 и следуйте указаниям на экране.
- 
+
 ***Вариант 2. Обновление метаданных с помощью C#***
 
 Создайте приложение Visual Studio, которое открывает диспетчер сопоставления сегментов, выполняет итерацию сегментов и обновляет метаданные с помощью методов [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) и [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx), как в следующем примере:
 
-	ShardMapManager smm =
-	   ShardMapManagerFactory.GetSqlShardMapManager
-	   (connStr, ShardMapManagerLoadPolicy.Lazy); 
-	smm.UpgradeGlobalStore(); 
-	
-	foreach (ShardLocation loc in
-	 smm.GetDistinctShardLocations()) 
-	{   
-	   smm.UpgradeLocalStore(loc); 
-	} 
+    ShardMapManager smm =
+       ShardMapManagerFactory.GetSqlShardMapManager
+       (connStr, ShardMapManagerLoadPolicy.Lazy); 
+    smm.UpgradeGlobalStore(); 
+
+    foreach (ShardLocation loc in
+     smm.GetDistinctShardLocations()) 
+    {   
+       smm.UpgradeLocalStore(loc); 
+    } 
 
 Эти методы обновления метаданных могут многократно применяться без каких-либо последствий. Например, если клиент предыдущей версии после обновления случайно создаст какой-либо сегмент, вы сможете повторно обновить все сегменты, чтобы в инфраструктуре использовалась последняя версия метаданных.
 
 **Примечание.** Имеющиеся на сегодняшний день новые версии клиентской библиотеки поддерживают предыдущие версии метаданных диспетчера сопоставления сегментов, используемые в Базе данных SQL Azure, и наоборот. Однако, чтобы воспользоваться преимуществами некоторых новых функций, реализованных в последней версии клиента, необходимо обновить метаданные. Обратите внимание, что обновление метаданных не повлияет на пользовательские данные или данные приложения. Оно затронет исключительно объекты, созданные и используемые диспетчером сопоставления сегментов. Во время выполнения всех этапов обновления, описанных выше, приложения будут работать, как и раньше.
 
-## Журнал версий клиента эластичной базы данных 
-
+## Журнал версий клиента эластичной базы данных
 Журнал версий можно просмотреть здесь: [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

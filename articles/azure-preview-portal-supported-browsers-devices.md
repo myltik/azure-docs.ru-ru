@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Поддерживаемые браузеры и устройства"
-	description="Описание браузеров и устройств, поддерживаемых порталом Azure." 
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	writer="flanakin"
-	manager="lwelicki"
-	editor=""/>
+---
+title: Поддерживаемые браузеры и устройства
+description: Описание браузеров и устройств, поддерживаемых порталом Azure.
+services: ''
+documentationcenter: ''
+author: flanakin
+writer: flanakin
+manager: lwelicki
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="micflan"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/23/2015
+ms.author: micflan
 
-#Поддерживаемые браузеры и устройства
+---
+# Поддерживаемые браузеры и устройства
 Портал Microsoft Azure запускается на всех современных настольных и планшетных устройствах и во всех браузерах.
 
 ### Поддерживаемые устройства
@@ -26,10 +26,10 @@
 ### Поддерживаемые браузеры
 Поддерживаются последние версии следующих браузеров:
 
-- Edge (последняя версия);
-- Internet Explorer 11;
-- Safari (последняя версия, только для Mac);
-- Chrome (последняя версия);
-- Firefox (последняя версия).
+* Edge (последняя версия);
+* Internet Explorer 11;
+* Safari (последняя версия, только для Mac);
+* Chrome (последняя версия);
+* Firefox (последняя версия).
 
 <!---HONumber=AcomDC_0420_2016-->

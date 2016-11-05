@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Создание оповещения метрики с помощью шаблона Resource Manager | Microsoft Azure"
-	description="Узнайте, как использовать шаблон Resource Manager для создания оповещения метрики, чтобы получать уведомления по электронной почте или вызывать webhook."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Создание оповещения метрики с помощью шаблона Resource Manager | Microsoft Docs
+description: Узнайте, как использовать шаблон Resource Manager для создания оповещения метрики, чтобы получать уведомления по электронной почте или вызывать webhook.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Создание оповещения метрики с помощью шаблона Resource Manager
-
 В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки оповещений метрик Azure. Это позволяет автоматически настраивать оповещения для ресурсов при их создании, чтобы обеспечить правильный мониторинг всех ресурсов.
 
 Основные этапы:
@@ -28,7 +27,6 @@
 Ниже описано, как сначала создать шаблон Resource Manager только для оповещения, а затем — как это сделать во время создания другого ресурса.
 
 ## Шаблон Resource Manager для оповещения метрики
-
 Чтобы создать оповещение с помощью шаблона Resource Manager, создайте ресурс типа `Microsoft.Insights/alertRules` и заполните все связанные свойства. Ниже приведен шаблон, который создает правило генерации оповещений.
 
 ```json
@@ -179,7 +177,6 @@
 Описание схемы и свойств правила генерации оповещений [доступно здесь](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Шаблон Resource Manager для ресурса с оповещением
-
 Оповещение в шаблоне Resource Manager чаще всего используется, чтобы создать оповещение при создании ресурса. Например, может потребоваться задавать правило "Загрузка ЦП > 80 %" при каждом развертывании виртуальной машины. Для этого следует добавить в массив ресурсов для шаблона виртуальной машины правило генерации оповещений в качестве ресурса, а также добавить зависимость с помощью свойства `dependsOn`, указав в нем идентификатор ресурса виртуальной машины. Ниже приведен полный пример, который создает виртуальную машину Windows и добавляет оповещение, которое уведомляет администраторов подписки, когда загрузка ЦП превышает 80 %.
 
 ```json
@@ -400,7 +397,7 @@
 ```
 
 ## Дальнейшие действия
-- [Узнайте больше об оповещениях](./insights-receive-alert-notifications.md).
-- [Добавьте параметры диагностики](./monitoring-enable-diagnostic-logs-using-template.md) в шаблон Resource Manager.
+* [Узнайте больше об оповещениях](insights-receive-alert-notifications.md).
+* [Добавьте параметры диагностики](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) в шаблон Resource Manager.
 
 <!---HONumber=AcomDC_0928_2016-->

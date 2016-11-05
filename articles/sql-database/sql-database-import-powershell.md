@@ -1,51 +1,49 @@
-<properties
-    pageTitle="Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell | Microsoft Azure"
-    description="Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell | Microsoft Docs
+description: Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
-    ms.workload="data-management"
-    ms.date="08/31/2016"
-    ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: powershell
+ms.workload: data-management
+ms.date: 08/31/2016
+ms.author: sstein
 
+---
 # Импорт BACPAC-файла для создания базы данных SQL Azure с помощью PowerShell
-
 **Отдельная база данных**
 
-> [AZURE.SELECTOR]
-- [Портал Azure](sql-database-import.md)
-- [PowerShell](sql-database-import-powershell.md)
-- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+> [!div class="op_single_selector"]
+> * [Портал Azure](sql-database-import.md)
+> * [PowerShell](sql-database-import-powershell.md)
+> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+> 
+> 
 
 В этой статье приведены указания о том, как создать базу данных SQL Azure, импортировав [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл с помощью PowerShell.
 
 База данных создается на основе BACPAC-файла, импортированного из контейнера больших двоичных объектов в службе хранилища Azure. Если в службе хранилища Azure нет BACPAC-файла, ознакомьтесь с разделом [Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell](sql-database-export-powershell.md). Если у вас уже есть BACPAC-файл, который находится не в службе хранилища Azure, то вы можете [легко передать его в свою учетную запись хранения Azure с помощью AzCopy](../storage/storage-use-azcopy.md#blob-upload).
 
-> [AZURE.NOTE] База данных SQL Azure автоматически создает и обслуживает резервные копии для каждой пользовательской базы данных, которую можно восстановить. Дополнительные сведения см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL Azure](sql-database-automated-backups.md).
-
+> [!NOTE]
+> База данных SQL Azure автоматически создает и обслуживает резервные копии для каждой пользовательской базы данных, которую можно восстановить. Дополнительные сведения см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL Azure](sql-database-automated-backups.md).
+> 
+> 
 
 Чтобы импортировать базу данных SQL, необходимо следующее.
 
-- Подписка Azure. Если вам требуется подписка Azure, то в верхней части этой страницы нажмите кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
-- BACPAC-файл базы данных, которую вы хотите импортировать. BACPAC-файл должен находиться в контейнере больших двоичных объектов [учетной записи хранения Azure](../storage/storage-create-storage-account.md).
+* Подписка Azure. Если вам требуется подписка Azure, то в верхней части этой страницы нажмите кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
+* BACPAC-файл базы данных, которую вы хотите импортировать. BACPAC-файл должен находиться в контейнере больших двоичных объектов [учетной записи хранения Azure](../storage/storage-create-storage-account.md).
 
-
-
-[AZURE.INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
-
-
+[!INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
 
 ## Настройка переменных для среды
-
 В некоторых переменных приведенные для примера значения необходимо заменить на значения, соответствующие вашей базе данных и учетной записи хранения.
 
 В качестве имени сервера следует указать сервер, уже существующий в подписке, выбранной на предыдущем шаге. Это должен быть сервер, на котором требуется создать базу данных. Импорт базы данных непосредственно в пул эластичных БД не поддерживается. Однако вы можете сначала выполнить импорт в отдельную базу данных, а затем переместить эту базу данных в пул.
@@ -73,14 +71,12 @@
 
 
 ## Импорт базы данных
-
 Эта команда отправляет в службу запрос об импорте базы данных. Операция импорта может занять некоторое время в зависимости от размера базы данных.
 
     $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
 ## Отслеживание хода выполнения операции
-
 Состояние запроса после выполнения [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/mt707793.aspx) можно проверить, выполнив командлет [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx).
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -88,8 +84,6 @@
 
 
 ## Сценарий импорта базы данных SQL с помощью PowerShell
-
-
     $ResourceGroupName = "resourceGroupName"
     $ServerName = "servername"
     $DatabaseName = "databasename"
@@ -108,7 +102,6 @@
 
 
 ## Дальнейшие действия
-
-- Чтобы научиться подключаться к импортированной базе данных SQL и отправлять к ней запросы, ознакомьтесь с разделом [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
+* Чтобы научиться подключаться к импортированной базе данных SQL и отправлять к ней запросы, ознакомьтесь с разделом [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,40 +1,31 @@
-<properties 
-	pageTitle="Мониторинг сайта SharePoint с помощью Application Insights" 
-	description="Начало мониторинга нового приложения с помощью нового ключа инструментирования" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Мониторинг сайта SharePoint с помощью Application Insights
+description: Начало мониторинга нового приложения с помощью нового ключа инструментирования
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/24/2016
+ms.author: awills
 
+---
 # Мониторинг сайта SharePoint с помощью Application Insights
-
-
 Visual Studio Application Insights позволяет отслеживать доступность, производительность и использование приложений. В этой статье вы узнаете, как настроить эту службу для сайта SharePoint.
 
-
 ## Создание ресурса Application Insights
-
-
 На [портале Azure](https://portal.azure.com) создайте новый ресурс Application Insights. Выберите приложение ASP.NET в качестве типа приложения.
 
 ![Нажмите «Свойства», выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-sharepoint/01-new.png)
 
-
 В отобразившейся колонке будут содержатся данные о производительности и использовании приложения. Чтобы возвратиться к нему после очередного входа в Azure, найдите соответствующую плитку на начальном экране. Ее также можно найти, щелкнув «Обзор».
-    
-
 
 ## Добавьте свой скрипт на веб-страницы
-
 В разделе «Быстрый запуск» получите сценарий для веб-страниц:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
@@ -44,33 +35,25 @@ Visual Studio Application Insights позволяет отслеживать д�
 Сценарий содержит ключ инструментирования, который направляет данные телеметрии к ресурсу Application Insights.
 
 ### Добавление кода на страницы сайта
-
 #### На главной странице
-
 Отредактировав главную страницу сайта, можно обеспечить мониторинг каждой страницы сайта.
 
 Ознакомьтесь с главной страницей и измените ее с помощью SharePoint Designer или другого редактора.
 
 ![](./media/app-insights-sharepoint/03-master.png)
 
-
 Добавьте код прямо перед тегом </head>.
-
 
 ![](./media/app-insights-sharepoint/04-code.png)
 
 #### На отдельных страницах
-
 Для мониторинга ограниченного набора страниц добавьте сценарий отдельно для каждой страницы.
 
 Вставьте веб-часть и внедрите в нее фрагмент кода.
 
-
 ![](./media/app-insights-sharepoint/05-page.png)
 
-
 ## Просмотр данных о приложении
-
 Разверните приложение заново.
 
 Вернитесь к колонке приложения на [портале Azure](https://portal.azure.com).
@@ -91,54 +74,46 @@ Visual Studio Application Insights позволяет отслеживать д�
 
 или "Пользователей":
 
-
 ![](./media/app-insights-sharepoint/08-users.png)
 
-
 ## Запись идентификатора пользователя
-
-
 Фрагмент кода стандартной веб-страницы не записывает идентификатор пользователя из SharePoint, однако эту возможность можно реализовать, внеся небольшое изменение.
-
 
 1. Скопируйте ключ инструментирования приложения из раскрывающегося списка "Основные компоненты" в Application Insights. 
 
-
     ![](./media/app-insights-sharepoint/02-props.png)
 
-2. Вставьте ключ инструментирования вместо строки "XXXX" в приведенном ниже фрагменте кода.
-3. Внедрите скрипт в приложение SharePoint вместо фрагмента кода, полученного с портала.
-
-
+1. Вставьте ключ инструментирования вместо строки "XXXX" в приведенном ниже фрагменте кода.
+2. Внедрите скрипт в приложение SharePoint вместо фрагмента кода, полученного с портала.
 
 ```
 
 
 <SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
 <SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
-  
+
 <script type="text/javascript"> 
 var personProperties; 
-  
+
 // Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
 SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
-  
+
 function getUserProperties() { 
     // Get the current client context and PeopleManager instance. 
     var clientContext = new SP.ClientContext.get_current(); 
     var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
-     
+
     // Get user properties for the target user. 
     // To get the PersonProperties object for the current user, use the 
     // getMyProperties method. 
-    
+
     personProperties = peopleManager.getMyProperties(); 
-  
+
     // Load the PersonProperties object and send the request. 
     clientContext.load(personProperties); 
     clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
 } 
-     
+
 // This function runs if the executeQueryAsync call succeeds. 
 function onRequestSuccess() { 
 var appInsights=window.appInsights||function(config){
@@ -149,7 +124,7 @@ function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){
     window.appInsights=appInsights;
     appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
 } 
-  
+
 // This function runs if the executeQueryAsync call fails. 
 function onRequestFail(sender, args) { 
 } 
@@ -161,16 +136,12 @@ function onRequestFail(sender, args) {
 
 
 ## Дальнейшие действия
-
 * [Использование веб-тестов](app-insights-monitor-web-app-availability.md) для мониторинга доступности сайта.
-
 * [Использование Application Insights](app-insights-overview.md) для других типов приложений.
-
-
 
 <!--Link references-->
 
 
- 
+
 
 <!---HONumber=AcomDC_0608_2016-->

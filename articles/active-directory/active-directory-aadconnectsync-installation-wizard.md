@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Синхронизация Azure AD Connect: повторный запуск мастера установки | Microsoft Azure"
-	description="Объясняется, как работает мастер установки при повторном запуске."
-	keywords="При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Синхронизация Azure AD Connect: повторный запуск мастера установки | Microsoft Docs'
+description: Объясняется, как работает мастер установки при повторном запуске.
+keywords: При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: andkjell
 
-
+---
 # Синхронизация Azure AD Connect sync: повторный запуск мастера установки
 При первом запуске мастера установки Azure AD Connect выполняется пошаговая настройка установки. При повторном запуске мастера установки предлагается настроить параметры обслуживания.
 
@@ -33,7 +32,10 @@
 
 Чтобы продолжить, выберите одну из задач и нажмите кнопку **Далее**.
 
-> [AZURE.IMPORTANT] Когда открыт мастер установки, приостанавливаются все операции в модуле синхронизации. Убедитесь, что сразу после внесения изменений в конфигурацию вы завершили работу мастера установки.
+> [!IMPORTANT]
+> Когда открыт мастер установки, приостанавливаются все операции в модуле синхронизации. Убедитесь, что сразу после внесения изменений в конфигурацию вы завершили работу мастера установки.
+> 
+> 
 
 ## Просмотр текущей конфигурации
 Этот параметр позволяет быстро просмотреть текущие настройки параметров.
@@ -45,16 +47,16 @@
 ## Настройка параметров синхронизации
 Этот параметр используется для изменения конфигурации синхронизации. Вы увидите набор параметров из пути установки пользовательской конфигурации. Они отобразятся, даже если изначально использовались параметры экспресс-установки.
 
-- [Добавить дополнительные каталоги](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Сведения об удалении каталога см. в разделе [Удаление соединителя](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-- [Изменить фильтрацию доменов и подразделений](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
-- Удалить групповую фильтрацию.
-- [Изменить дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features).
+* [Добавить дополнительные каталоги](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Сведения об удалении каталога см. в разделе [Удаление соединителя](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+* [Изменить фильтрацию доменов и подразделений](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+* Удалить групповую фильтрацию.
+* [Изменить дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features).
 
 Другие параметры из начальной установки нельзя изменить, поэтому они недоступны. Доступны следующие параметры:
 
-- Изменить атрибут, используемый для userPrincipalName и sourceAnchor.
-- Изменить метод соединения для объектов из другого леса.
-- Включить фильтрацию на основе группы.
+* Изменить атрибут, используемый для userPrincipalName и sourceAnchor.
+* Изменить метод соединения для объектов из другого леса.
+* Включить фильтрацию на основе группы.
 
 ## Обновление схемы каталога
 Этот параметр используется при изменении схемы в одном из локальных лесов AD DS. Например, когда выполнена установка Exchange или обновление до схемы Windows Server 2012 с объектами устройства. В этом случае необходимо настроить Azure AD Connect на повторное чтение схемы из AD DS и обновление кэша. Это действие также повторно создает правила синхронизации. Если добавить, например, схему Exchange, то правила синхронизации для Exchange добавятся в конфигурацию.
@@ -76,12 +78,11 @@
 Дополнительные сведения об этом параметре см. в разделе [Вход пользователя](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
 ## Дальнейшие действия
-
-- Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Обзорные статьи**
 
-- [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+* [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

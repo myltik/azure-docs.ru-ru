@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Назначение переменных в хранилище данных SQL | Microsoft Azure"
-   description="Советы по присваиванию значений переменных Transact-SQL в хранилище данных SQL Azure для разработки решений."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Назначение переменных в хранилище данных SQL | Microsoft Docs
+description: Советы по присваиванию значений переменных Transact-SQL в хранилище данных SQL Azure для разработки решений.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Назначение переменных в хранилище данных SQL
 Переменные в хранилище данных SQL задаются с помощью инструкции `DECLARE` или инструкции `SET`.
 
 Ниже перечислены допустимые способы задания значения переменной:
 
 ## Задание переменных с помощью DECLARE
-
 Инициализация переменных с помощью DECLARE — один из наиболее гибких способов задать значение переменной в хранилище данных SQL.
 
 ```sql
@@ -63,9 +62,8 @@ SET     @v +=1;
 ## Ограничения
 Нельзя использовать SELECT или UPDATE, чтобы присвоить значение переменной.
 
-
 ## Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
+Дополнительные советы по разработке см. в статье [Общие сведения о разработке][Общие сведения о разработке].
 
 <!--Image references-->
 

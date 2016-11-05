@@ -5,10 +5,10 @@
 Вы можете найти этот URI на портале Azure, выполнив следующие действия:
 
 1. Выберите **Надстройки**. ![AddonsButton][button-addons]
-1. Найдите нужную службу MongoLab в списке надстроек. ![MongolabEntry][entry-mongolabaddon]
-1. Чтобы перейти на страницу надстройки, выберите ее имя.
-1. Нажмите кнопку **Сведения о подключении** ![ConnectionInfoButton][button-connectioninfo] Отобразится URI MongoLab: ![ConnectionInfoScreen][screen-connectioninfo]  
-1.  Нажмите кнопку буфера обмена справа от значения MONGOLAB\_URI, чтобы скопировать полное значение в буфер обмена.
+2. Найдите нужную службу MongoLab в списке надстроек. ![MongolabEntry][entry-mongolabaddon]
+3. Чтобы перейти на страницу надстройки, выберите ее имя.
+4. Нажмите кнопку **Сведения о подключении** ![ConnectionInfoButton][button-connectioninfo] Отобразится URI MongoLab: ![ConnectionInfoScreen][screen-connectioninfo]  
+5. Нажмите кнопку буфера обмена справа от значения MONGOLAB\_URI, чтобы скопировать полное значение в буфер обмена.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png

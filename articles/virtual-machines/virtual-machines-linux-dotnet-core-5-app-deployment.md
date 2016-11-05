@@ -1,37 +1,33 @@
-<properties
-   pageTitle="Автоматизация развертывания приложений с помощью расширений виртуальных машин | Microsoft Azure"
-   description="Руководство по .NET Core для виртуальных машин Azure"
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-service-management"/>
+---
+title: Автоматизация развертывания приложений с помощью расширений виртуальных машин | Microsoft Docs
+description: Руководство по .NET Core для виртуальных машин Azure
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/21/2016"
-   ms.author="nepeters"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/21/2016
+ms.author: nepeters
 
-
+---
 # <a name="application-deployment-with-azure-resource-manager-templates"></a>Развертывание приложений с использованием шаблонов Azure Resource Manager
-
 Как только все инфраструктурные требования Azure будут определены и на их основе будет создан шаблон развертывания, можно приступать фактическому развертыванию приложения. Развертывание приложения в данном случае сводится к установке фактических двоичных файлов приложения в ресурсы Azure. Чтобы развернуть пример приложения магазина музыки, на каждой виртуальной машине необходимо установить и настроить .NET Core, NGINX и Supervisor. Вам потребуется установить двоичные файлы магазина музыки на виртуальную машину и предварительно создать базу данных музыкального магазина.
 
 В этом документе описана автоматизация развертывания и настройки приложений на виртуальных машинах Azure с помощью расширений виртуальных машин. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="configuration-script"></a>Скрипт настройки
-
 Расширения виртуальных машин — это специальные программы, которые выполняются на виртуальных машинах для автоматизации настройки. Расширения используются в различных целях, например для автоматизации антивирусных программ, настройки ведения журнала и конфигурации Docker. Расширение пользовательских скриптов можно использовать для запуска любого скрипта на виртуальной машине. В примере магазина музыки расширение пользовательских скриптов используется для настройки виртуальных машинах Ubuntu и установки приложения магазина музыки.
 
 Прежде чем перейти к подробному описанию того, как расширения виртуальных машин объявляются в шаблоне Azure Resource Manager, изучите выполняющийся скрипт. Он настраивает виртуальную машину Ubuntu для размещения приложения магазина музыки. Во время выполнения скрипт устанавливает все необходимое программное обеспечение, устанавливает приложение магазина музыки из системы управления версиями и выполняет подготовку базы данных. 
 
 Дополнительные сведения о размещении приложения .NET Core на платформе Linux см. в статье [Публикация в рабочей среде Linux](https://docs.asp.net/en/latest/publishing/linuxproduction.html). 
-
 
 ```none
 #!/bin/bash
@@ -74,7 +70,6 @@ sudo service supervisor start
 ```
 
 ## <a name="vm-script-extension"></a>Расширение скриптов виртуальной машины
-
 Расширения ВМ можно запустить на виртуальной машине во время сборки, включив ресурс расширения в шаблон Azure Resource Manager. Чтобы добавить расширение, можно использовать мастер добавления ресурсов в Visual Studio или вставить в шаблон развертывания правильно определенный объект JSON. Ресурс расширения скрипта вложен в ресурс виртуальной машины. Это можно увидеть в следующем примере.
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager: [расширение скрипта виртуальной машины](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359). 
@@ -110,15 +105,12 @@ sudo service supervisor start
 }
 ```
 
-Дополнительные сведения об использовании пользовательского расширения сценария см. в статье [Использование расширения пользовательских сценариев для виртуальных машин Linux с шаблонами Azure Resource Manager](./virtual-machines-linux-extensions-customscript.md).
+Дополнительные сведения об использовании пользовательского расширения сценария см. в статье [Использование расширения пользовательских сценариев для виртуальных машин Linux с шаблонами Azure Resource Manager](virtual-machines-linux-extensions-customscript.md).
 
 ## <a name="next-step"></a>Дальнейшее действие
-
 <hr>
 
 [Ознакомьтесь с другими шаблонами Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

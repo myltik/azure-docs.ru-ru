@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Рекомендации по использованию службы приложений Azure"
-	description="Ознакомьтесь с рекомендациями и методами устранения неполадок для службы приложений Azure."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+---
+title: Рекомендации по использованию службы приложений Azure
+description: Ознакомьтесь с рекомендациями и методами устранения неполадок для службы приложений Azure.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: wpickett
+editor: mollybos
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
-    
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2016
+ms.author: dariagrigoriu
+
+---
 # Рекомендации по использованию службы приложений Azure
-
 В этой статье собраны рекомендации по использованию [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ## <a name="colocation"></a> Совместное размещение
 Если входящие в решение ресурсы Azure, например веб-приложения и базы данных, находятся в разных регионах, возможны следующие последствия:
 
-*  увеличение задержки при взаимодействии между ресурсами,
-*  денежные расходы на передачу данных между регионами в соответствии со [стоимостью услуг Azure](https://azure.microsoft.com/pricing/details/data-transfers).
+* увеличение задержки при взаимодействии между ресурсами,
+* денежные расходы на передачу данных между регионами в соответствии со [стоимостью услуг Azure](https://azure.microsoft.com/pricing/details/data-transfers).
 
 Совместное размещение в одном и том же регионе — оптимальный вариант для ресурсов Azure, составляющих отдельное решение, таких как веб-приложение и база данных, а также учетной записи хранения, в которой хранятся содержимое или данные. При создании ресурсов следует убедиться в том, что они находятся в одном регионе Azure, если иное не диктуется особенностями вашего бизнеса или структуры решения. Вы можете переместить приложение службы приложений в тот же регион, в котором расположена база данных, с помощью [функции клонирования службы приложений](app-service-web-app-cloning-portal.md). В настоящее время она доступна для приложений с планом обслуживания Premium.
 

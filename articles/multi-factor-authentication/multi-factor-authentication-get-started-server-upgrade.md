@@ -1,24 +1,23 @@
-<properties 
-	pageTitle="Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication"
-	description="В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
+description: В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
-
-Чтобы перейти с агента PhoneFactor (до версии 5.x включительно) на сервер Azure Multi-Factor Authentication, необходимо сначала удалить агент PhoneFactor и все его компоненты. После этого можно устанавливать сервер Multi-Factor Authentication Server со всеми необходимыми компонентами.
+Чтобы перейти с агента PhoneFactor (до версии 5.x включительно) на сервер Azure Multi-Factor Authentication, необходимо сначала удалить агент PhoneFactor и все его компоненты. После этого можно устанавливать сервер Multi-Factor Authentication Server со всеми необходимыми компонентами.
 
 ## Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
 <ol>
@@ -39,6 +38,7 @@
 
 
 <li>Если веб-служба мобильного приложения установлена:
+
 <ol>
 <li>Перейдите в папку установки и создайте резервную копию файла web.config. По умолчанию файл хранится в расположении C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Удалите веб-службу мобильного приложения через компонент "Программы и компоненты" в ОС Windows.</li></ol>
@@ -56,6 +56,7 @@
 <li>Если пользовательский портал был ранее установлен на сервере с агентом PhoneFactor, установите новый пользовательский портал Multi-Factor Authentication через пользовательский интерфейс сервера Multi-Factor Authentication. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuth, а не PhoneFactor. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Если во время установки не изменять имя каталога по умолчанию, щелкните значок пользовательского портала на сервере Multi-Factor Authentication и измените URL-адрес пользовательского портала на вкладке «Параметры».
 
 <li>Если пользовательский портал или веб-служба мобильного приложения были ранее установлены на другом сервере (не на том, где установлен агент PhoneFactor):
+
 <ol>
 <li>Перейдите в папку установки (например, C:\Program Files\PhoneFactor) и скопируйте соответствующие установщики на другой сервер. Для пользовательского портала и веб-службы мобильного приложения существуют 32- и 64-разрядные установщики. Соответствующие файлы имеют имена MultiFactorAuthenticationUserPortalSetupXX.msi и MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.</li>
 <li>Чтобы установить пользовательский портал на веб-сервер, откройте командную строку от имени администратора и запустите файл MultiFactorAuthenticationUserPortalSetupXX.msi. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuth, а не PhoneFactor. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Если во время установки не изменять имя каталога по умолчанию, щелкните значок пользовательского портала на сервере Multi-Factor Authentication и измените URL-адрес пользовательского портала на вкладке «Параметры». Новый URL-адрес следует сообщить всем существующим пользователям.</li>

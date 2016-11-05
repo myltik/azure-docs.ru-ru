@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Вводные сведения о каталоге U-SQL аналитики озера данных Azure | Azure"
-   description="Вводные сведения о каталоге U-SQL аналитики озера данных Azure"
-   services="data-lake-analytics"
-   documentationCenter=""
-   authors="edmacauley"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Вводные сведения о каталоге U-SQL аналитики озера данных Azure | Microsoft Docs
+description: Вводные сведения о каталоге U-SQL аналитики озера данных Azure
+services: data-lake-analytics
+documentationcenter: ''
+author: edmacauley
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="05/16/2016"
-   ms.author="edmaca"/>
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 05/16/2016
+ms.author: edmaca
 
+---
 # Использование каталога U-SQL
-
 Каталог U-SQL используется для структурирования данных и кода, чтобы их могли совместно использовать сценарии U-SQL. Каталог обеспечивает максимальную производительность, возможную с данными в озере данных Azure.
 
 Каждая учетная запись аналитики озера данных Azure имеет ровно один связанный с ней каталог U-SQL. Невозможно удалить каталог U-SQL. В настоящее время каталоги U-SQL не могут совместно использоваться учетными записями хранилища озера данных.
@@ -26,30 +25,25 @@
 
 База данных U-SQL содержит следующее.
 
-- Сборки: для совместного использования кода .NET между скриптами U-SQL.
-- Функции табличных значений: для совместного использования кода U-SQL между скриптами U-SQL.
-- Таблицы: для совместного использования данных между скриптами U-SQL.
-- Схемы: для совместного использования табличных схем между скриптами U-SQL.
+* Сборки: для совместного использования кода .NET между скриптами U-SQL.
+* Функции табличных значений: для совместного использования кода U-SQL между скриптами U-SQL.
+* Таблицы: для совместного использования данных между скриптами U-SQL.
+* Схемы: для совместного использования табличных схем между скриптами U-SQL.
 
 ## Управление каталогами
 Каждая учетная запись аналитики озера данных Azure имеет связанную с ней учетную запись хранилища озера данных Azure по умолчанию. Эта учетная запись хранилища озера данных называется учетной записью хранения озера данных по умолчанию. Каталог U-SQL хранится в учетной записи хранилища озера данных по умолчанию в папке /catalog. Не удаляйте файлы из папки /catalog.
 
 ### Использование портала Azure.
-
 См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-use-portal.md#view-u-sql-catalog).
 
-
 ### Использование средств озера данных для Visual Studio.
-
 Можно воспользоваться средствами озера данных для Visual Studio, чтобы управлять каталогом. Дополнительные сведения об инструментах см. в разделе [Использование средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 **Управление каталогом**
 
 1. Откройте Visual Studio и подключитесь к Azure. См. инструкции в разделе [Подключение к Azure](data-lake-analytics-data-lake-tools-get-started.md#connect-to-azure).
-1. Откройте **обозреватель серверов**, нажав **CTRL + ALT + S**.
-2. В **обозревателе серверов** разверните узел **Azure**, затем **Аналитика озера данных**, разверните учетную запись аналитики озера данных, а затем последовательно откройте **Базы данных** и **master**.
-
-
+2. Откройте **обозреватель серверов**, нажав **CTRL + ALT + S**.
+3. В **обозревателе серверов** разверните узел **Azure**, затем **Аналитика озера данных**, разверните учетную запись аналитики озера данных, а затем последовательно откройте **Базы данных** и **master**.
 
     - Чтобы добавить новую базу данных, щелкните правой кнопкой мыши **База данных** и нажмите кнопку **Создать базу данных**.
     - Чтобы добавить новую сборку, щелкните правой кнопкой мыши **Сборки**, а затем нажмите кнопку **Зарегистрировать сборку**.
@@ -60,28 +54,27 @@
 
 ![Обзор каталогов U-SQL Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
-
 ## Дополнительные материалы
-
-- Приступая к работе
-    - [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
-    - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-    - [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
-    - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-    - [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
-
-- U-SQL и разработка
-    - [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
-    - [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-    - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-Analytics-u-sql-user-defined-operators.md)
-
-- управления
-    - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
-    - [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-use-powershell.md)
-    - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-- Полный учебник
-    - [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
-    - [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
+* Приступая к работе
+  
+  * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
+  * [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+  * [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
+  * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+  * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
+* U-SQL и разработка
+  
+  * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
+  * [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
+  * [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-Analytics-u-sql-user-defined-operators.md)
+* управления
+  
+  * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
+  * [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-use-powershell.md)
+  * [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* Полный учебник
+  
+  * [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
+  * [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,31 +1,27 @@
-<properties 
-	pageTitle="Аналитика — эффективный инструмент поиска Application Insights | Microsoft Azure" 
-	description="Обзор аналитики — мощного инструмента поиска Application Insights. " 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Аналитика — эффективный инструмент поиска Application Insights | Microsoft Docs
+description: 'Обзор аналитики — мощного инструмента поиска Application Insights. '
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: awills
 
-
+---
 # Аналитика в Application Insights
-
-
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 * **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
 
 ## Запросы в аналитике
- 
 Типичный запрос содержит *исходную* таблицу и ряд *операторов*, разделенных `|`.
 
 Например, давайте выясним, в какое время суток граждане Хайдерабада испытывают наше веб-приложение. Кроме того, давайте еще посмотрим, какие коды результата возвращаются в ответ на их HTTP-запросы.
@@ -47,11 +43,9 @@
 
 Похоже, в Хайдерабаде наше приложение наиболее популярно в обеденное время и время отхода ко сну. (И нам следует изучить эти 500 кодов.)
 
-
 Кроме того, существуют сложные статистические операции.
 
 ![](./media/app-insights-analytics/025.png)
-
 
 Язык имеет много привлекательных функций.
 
@@ -61,32 +55,17 @@
 * Такие же мощные, как в SQL, но гораздо проще для составления сложных запросов: вместо вложенных инструкций данные передаются из одной простой операции в другую.
 * Мгновенные яркие визуализации.
 
-
-
-
-
-
-
 ## Подключение к данным Application Insights
-
-
 Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) приложения в Application Insights.
 
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics/001.png)
 
-
 ## Ограничения
-
 В настоящее время результаты запросов ограничены данными за последнюю неделю.
 
-
-
-[AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
+[!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 ## Дальнейшие действия
-
-
 * Мы рекомендуем начать со [знакомства с языком](app-insights-analytics-tour.md).
 
 <!---HONumber=AcomDC_0831_2016-->

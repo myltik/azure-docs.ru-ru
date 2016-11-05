@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect: автоматическое обновление | Microsoft Azure"
-   description="В этом разделе описывается встроенная функция автоматического обновления в Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: автоматическое обновление | Microsoft Docs'
+description: В этом разделе описывается встроенная функция автоматического обновления в Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/24/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/24/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
 
@@ -25,18 +24,18 @@
 
 Автоматическое обновление по умолчанию включено в следующих случаях:
 
-- Экспресс-установка параметров и обновление DirSync.
-- Использование SQL Express LocalDB (всегда используется при экспресс-установке). DirSync с SQL Express также использует LocalDB.
-- Учетной записью AD является учетная запись MSOL_ по умолчанию, создаваемая при экспресс-установке и обновлении DirSync.
-- В метавселенной меньше 100 000 объектов.
+* Экспресс-установка параметров и обновление DirSync.
+* Использование SQL Express LocalDB (всегда используется при экспресс-установке). DirSync с SQL Express также использует LocalDB.
+* Учетной записью AD является учетная запись MSOL_ по умолчанию, создаваемая при экспресс-установке и обновлении DirSync.
+* В метавселенной меньше 100 000 объектов.
 
 Текущее состояние автоматического обновления можно узнать с помощью командлета PowerShell `Get-ADSyncAutoUpgrade`. Возможны следующие состояния:
 
-Состояние | Комментарий
----- | ----
-Включено | Автоматическое обновление включено.
-Приостановлено | Устанавливается только системой. Система больше не может получать автоматические обновления.
-Отключено | Автоматическое обновление отключено.
+| Состояние | Комментарий |
+| --- | --- |
+| Включено |Автоматическое обновление включено. |
+| Приостановлено |Устанавливается только системой. Система больше не может получать автоматические обновления. |
+| Отключено |Автоматическое обновление отключено. |
 
 Переключаться между состояниями **Включено** и **Отключено** позволяет командлет `Set-ADSyncAutoUpgrade`. Состояние **Приостановлено**может устанавливаться только системой.
 
@@ -61,43 +60,41 @@
 
 Итоговый код содержит префикс и общие сведения о состоянии.
 
-Префикс итогового кода | Description (Описание)
---- | ---
-Успешно | Установка успешно обновлена.
-UpgradeAborted | Временное состояние привело к остановке обновления. Будет выполнена повторная попытка установки, и ожидается, что она будет успешной.
-UpgradeNotSupported | Конфигурация системы блокирует автоматическое обновление. Будет выполнена повторная попытка для проверки изменения состояния, однако ожидается, что систему потребуется обновить вручную.
+| Префикс итогового кода | Description (Описание) |
+| --- | --- |
+| Успешно |Установка успешно обновлена. |
+| UpgradeAborted |Временное состояние привело к остановке обновления. Будет выполнена повторная попытка установки, и ожидается, что она будет успешной. |
+| UpgradeNotSupported |Конфигурация системы блокирует автоматическое обновление. Будет выполнена повторная попытка для проверки изменения состояния, однако ожидается, что систему потребуется обновить вручную. |
 
 Ниже приведен список наиболее распространенных сообщений. В списке приведены не все сообщения, однако сообщение о результате должно явно указывать на проблему.
 
-Сообщение о результате | Description (Описание)
---- | ---
-**UpgradeAborted** |
-UpgradeAbortedCouldNotSetUpgradeMarker | Не удалось сделать запись в реестре.
-UpgradeAbortedInsufficientDatabasePermissions | Встроенная группа администраторов не имеет разрешений в базе данных. Для решения этой проблемы необходимо установить обновление до новейшей версии Azure AD Connect вручную.
-UpgradeAbortedInsufficientDiskSpace | Недостаточно дискового пространства для поддержки обновления.
-UpgradeAbortedSecurityGroupsNotPresent | Не удалось найти и разрешить все группы безопасности, используемые модулем синхронизации.
-UpgradeAbortedServiceCanNotBeStarted | Не удалось запустить **синхронизацию Microsoft Azure AD** для службы NT.
-UpgradeAbortedServiceCanNotBeStopped | Не удалось остановить **синхронизацию Microsoft Azure AD** для службы NT.
-UpgradeAbortedServiceIsNotRunning | **Синхронизация Microsoft Azure AD** для службы NT не выполняется.
-UpgradeAbortedSyncCycleDisabled | Параметр SyncCycle в [планировщике](active-directory-aadconnectsync-feature-scheduler.md) был отключен.
-UpgradeAbortedSyncExeInUse | На сервере открыт [пользовательский интерфейс Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) .
-UpgradeAbortedSyncOrConfigurationInProgress | Выполняется мастер установки, или синхронизация была запланирована вне планировщика.
-**UpgradeNotSupported** |
-UpgradeNotSupportedCustomizedSyncRules | Пользователь добавил собственные правила в конфигурацию.
-UpgradeNotSupportedDeviceWritebackEnabled | Включена функция [обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md) .
-UpgradeNotSupportedGroupWritebackEnabled | Включена функция [обратной записи групп](active-directory-aadconnect-feature-preview.md#group-writeback) .
-UpgradeNotSupportedInvalidPersistedState | Установка не является экспресс-установкой параметров или обновлением DirSync.
-UpgradeNotSupportedMetaverseSizeExceeeded | В метавселенной больше 100 000 объектов.
-UpgradeNotSupportedMultiForestSetup | Выполняется подключение к нескольким лесам. Экспресс-установка подключается только к одному лесу.
-UpgradeNotSupportedNonLocalDbInstall | Вы не используете базу данных SQL Server Express LocalDB.
-UpgradeNotSupportedNonMsolAccount | [Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию.
-UpgradeNotSupportedStagingModeEnabled | Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode).
-UpgradeNotSupportedUserWritebackEnabled | Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) .
+| Сообщение о результате | Description (Описание) |
+| --- | --- |
+| **UpgradeAborted** | |
+| UpgradeAbortedCouldNotSetUpgradeMarker |Не удалось сделать запись в реестре. |
+| UpgradeAbortedInsufficientDatabasePermissions |Встроенная группа администраторов не имеет разрешений в базе данных. Для решения этой проблемы необходимо установить обновление до новейшей версии Azure AD Connect вручную. |
+| UpgradeAbortedInsufficientDiskSpace |Недостаточно дискового пространства для поддержки обновления. |
+| UpgradeAbortedSecurityGroupsNotPresent |Не удалось найти и разрешить все группы безопасности, используемые модулем синхронизации. |
+| UpgradeAbortedServiceCanNotBeStarted |Не удалось запустить **синхронизацию Microsoft Azure AD** для службы NT. |
+| UpgradeAbortedServiceCanNotBeStopped |Не удалось остановить **синхронизацию Microsoft Azure AD** для службы NT. |
+| UpgradeAbortedServiceIsNotRunning |**Синхронизация Microsoft Azure AD** для службы NT не выполняется. |
+| UpgradeAbortedSyncCycleDisabled |Параметр SyncCycle в [планировщике](active-directory-aadconnectsync-feature-scheduler.md) был отключен. |
+| UpgradeAbortedSyncExeInUse |На сервере открыт [пользовательский интерфейс Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) . |
+| UpgradeAbortedSyncOrConfigurationInProgress |Выполняется мастер установки, или синхронизация была запланирована вне планировщика. |
+| **UpgradeNotSupported** | |
+| UpgradeNotSupportedCustomizedSyncRules |Пользователь добавил собственные правила в конфигурацию. |
+| UpgradeNotSupportedDeviceWritebackEnabled |Включена функция [обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Включена функция [обратной записи групп](active-directory-aadconnect-feature-preview.md#group-writeback) . |
+| UpgradeNotSupportedInvalidPersistedState |Установка не является экспресс-установкой параметров или обновлением DirSync. |
+| UpgradeNotSupportedMetaverseSizeExceeeded |В метавселенной больше 100 000 объектов. |
+| UpgradeNotSupportedMultiForestSetup |Выполняется подключение к нескольким лесам. Экспресс-установка подключается только к одному лесу. |
+| UpgradeNotSupportedNonLocalDbInstall |Вы не используете базу данных SQL Server Express LocalDB. |
+| UpgradeNotSupportedNonMsolAccount |[Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию. |
+| UpgradeNotSupportedStagingModeEnabled |Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
+| UpgradeNotSupportedUserWritebackEnabled |Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

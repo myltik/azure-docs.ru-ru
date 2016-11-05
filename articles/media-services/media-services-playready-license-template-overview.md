@@ -1,42 +1,43 @@
-<properties 
-    pageTitle="Обзор шаблонов лицензий PlayReady служб мультимедиа" 
-    description="В этом разделе содержится обзор шаблонов лицензий PlayReady, которые используются для настройки лицензий PlayReady." 
-    authors="juliako" 
-    manager="erikre" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: Обзор шаблонов лицензий PlayReady служб мультимедиа
+description: В этом разделе содержится обзор шаблонов лицензий PlayReady, которые используются для настройки лицензий PlayReady.
+author: juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"  
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#<a name="media-services-playready-license-template-overview"></a>Обзор шаблонов лицензий PlayReady служб мультимедиа
-
+---
+# <a name="media-services-playready-license-template-overview"></a>Обзор шаблонов лицензий PlayReady служб мультимедиа
 Службы мультимедиа Azure теперь обеспечивают доставку лицензий Microsoft PlayReady. Когда проигрыватель конечного пользователя (например, Silverlight) пытается воспроизвести содержимое, защищенное с помощью PlayReady, в службу доставки лицензий отправляется запрос на получение лицензии. Если служба лицензий утверждает запрос, она выдает лицензию, которая отправляется клиенту и может использоваться для расшифровки и воспроизведения указанного содержимого.
 
 Также службы мультимедиа предоставляют интерфейсы API, которые позволяют настраивать лицензии PlayReady. Лицензии определяют права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое.
 Ниже приведены некоторые примеры лицензионных ограничений PlayReady, которые вы можете указать.
 
-- Значение даты и времени (DateTime) начала действия лицензии.
-- Значение даты и времени (DateTime) окончания действия лицензии. 
-- Для лицензии, которая будет храниться в постоянном хранилище на стороне клиента. Постоянные лицензии обычно используются для разрешения автономного воспроизведения содержимого.
-- Минимальный уровень безопасности, необходимый для воспроизведения содержимого проигрывателем. 
-- Уровень защиты выходных данных для элементов управления выводом аудио- или видеосодержимого. 
-- Дополнительные сведения см. в разделе "Элементы управления выходными данными" (3.5) в [правилах соответствия PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+* Значение даты и времени (DateTime) начала действия лицензии.
+* Значение даты и времени (DateTime) окончания действия лицензии. 
+* Для лицензии, которая будет храниться в постоянном хранилище на стороне клиента. Постоянные лицензии обычно используются для разрешения автономного воспроизведения содержимого.
+* Минимальный уровень безопасности, необходимый для воспроизведения содержимого проигрывателем. 
+* Уровень защиты выходных данных для элементов управления выводом аудио- или видеосодержимого. 
+* Дополнительные сведения см. в разделе "Элементы управления выходными данными" (3.5) в [правилах соответствия PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
->[AZURE.NOTE]В настоящее время можно настроить только право PlayRight лицензии PlayReady (это право является обязательным). Право PlayRight дает клиенту возможность воспроизводить содержимое. Также PlayRight позволяет настраивать ограничения, касающиеся воспроизведения. Дополнительные сведения см. в разделе [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> [!NOTE]
+> В настоящее время можно настроить только право PlayRight лицензии PlayReady (это право является обязательным). Право PlayRight дает клиенту возможность воспроизводить содержимое. Также PlayRight позволяет настраивать ограничения, касающиеся воспроизведения. Дополнительные сведения см. в разделе [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> 
+> 
 
 Чтобы настроить лицензии PlayReady с помощью служб мультимедиа, необходимо настроить шаблон лицензии PlayReady служб мультимедиа. Шаблон определяется в XML-коде.
 
 В следующем примере показан самый простой (и наиболее распространенный) шаблон, который позволяет настроить базовую лицензию на потоковую передачу. С этой лицензией клиенты могут воспроизводить защищенное содержимое PlayReady.
-    
+
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
                                       xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
@@ -54,34 +55,30 @@ XML-код соответствует XML-схеме шаблона лиценз
 
 Комплексный пример использования классов .NET для настройки шаблона лицензии PlayReady см. в статье [Использование общего динамического шифрования PlayReady и (или) Widevine DRM](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
-##<a name="<a-id="classes"></a>media-services-.net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Классы .NET служб мультимедиа, используемые для настройки шаблонов лицензий
-
+## <a name="<a-id="classes"></a>media-services-.net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Классы .NET служб мультимедиа, используемые для настройки шаблонов лицензий
 Ниже перечислены основные классы .NET, которые используются для настройки шаблонов лицензий PlayReady служб мультимедиа. Эти классы сопоставляются с типами, определенными в [XML-схеме шаблона лицензий PlayReady](media-services-playready-license-template-overview.md#schema).
 
 Класс [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) используется для сериализации шаблона лицензии служб мультимедиа в XML-код и десериализации из XML-кода.
 
-###<a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-
+### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
 [PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) — этот класс представляет шаблон для ответа, отправляемого конечному пользователю. Он содержит поле для строки пользовательских данных, используемых сервером лицензий и приложением (может быть полезно для настраиваемой логики приложения), а также список из одного или нескольких шаблонов лицензий.
 
 Это класс верхнего уровня в иерархии шаблонов. Это означает, что шаблон ответа включает список шаблонов лицензий, а шаблоны лицензий содержат (напрямую или косвенно) все прочие классы, составляющие сериализуемый шаблон данных.
 
-
-###<a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-
+### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) — этот класс представляет шаблон лицензии для создания лицензий PlayReady, которые будут возвращены конечным пользователям. Он содержит данные о ключе содержимого в лицензии и возможные права или ограничения, которые должны применяться средой выполнения DRM PlayReady при использовании данного ключа содержимого.
 
-
-###<a name="<a-id="playreadyplayright"></a>playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-
+### <a name="<a-id="playreadyplayright"></a>playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) — этот класс представляет право PlayRight лицензии PlayReady. Он предоставляет пользователю возможность воспроизводить содержимое с ограничениями и без, что указано в лицензии и самом праве PlayRight (для политики, касающейся воспроизведения). Большая часть политики в PlayRight связана с ограничениями выходных данных. Эти ограничения определяют типы выходных данных, в формате которых возможно воспроизведение содержимого. А также возможные ограничения, которые должны быть установлены при использовании заданных выходных данных. Например, если включено ограничение DigitalVideoOnlyContentRestriction, среда выполнения DRM будет разрешать отображение видео только через цифровые выходы (на аналоговые видеовыходы содержимое нельзя будет передавать).
 
->[AZURE.IMPORTANT]Эти типы ограничений могут быть очень мощными, но также могут негативно влиять на возможности, доступные для пользователя. Если указаны слишком строгие правила защиты выходных данных, содержимое может не воспроизводиться на некоторых клиентах. Дополнительные сведения см. [в правилах соответствия PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+> [!IMPORTANT]
+> Эти типы ограничений могут быть очень мощными, но также могут негативно влиять на возможности, доступные для пользователя. Если указаны слишком строгие правила защиты выходных данных, содержимое может не воспроизводиться на некоторых клиентах. Дополнительные сведения см. [в правилах соответствия PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+> 
+> 
 
 Пример уровней защиты, которые поддерживает Silverlight, см. [здесь](http://go.microsoft.com/fwlink/?LinkId=617318).
 
-##<a name="<a-id="schema"></a>playready-license-template-xml-schema"></a><a id="schema"></a>XML-схема шаблона лицензий PlayReady
-    
+## <a name="<a-id="schema"></a>playready-license-template-xml-schema"></a><a id="schema"></a>XML-схема шаблона лицензий PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -305,15 +302,11 @@ XML-код соответствует XML-схеме шаблона лиценз
 
 
 
-##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Отзывы
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Отзывы
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

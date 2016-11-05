@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Библиотека Azure Multi-Factor Authentication — дополнительные сведения"
-	description="На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Библиотека Azure Multi-Factor Authentication — дополнительные сведения
+description: На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Дополнительные сведения о службе Azure Multi-Factor Authentication
-
-
 Ниже приводится набор дополнительных ресурсов, благодаря которым вы сможете воспользоваться преимуществами всех доступных функций службы Azure Multi-Factor Authentication.
 
 ## Документация
-
 [Настройка сервера MFA для использования проверки подлинности IIS.](https://msdn.microsoft.com/library/azure/dn394291.aspx)
 
 [Настройка сервера MFA для использования проверки подлинности Radius.](https://msdn.microsoft.com/library/azure/dn394299.aspx)

@@ -1,26 +1,23 @@
-<properties 
-    pageTitle="Что такое соединители и приложения API BizTalk" 
-    description="Сведения о приложениях API, соединителях и приложениях API BizTalk" 
-    services="logic-apps" 
-    documentationCenter="" 
-    authors="MandiOhlinger" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Что такое соединители и приложения API BizTalk
+description: Сведения о приложениях API, соединителях и приложениях API BizTalk
+services: logic-apps
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="09/01/2016" 
-    ms.author="mandia"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: mandia
 
-
+---
 # <a name="what-are-connectors-and-biztalk-api-apps"></a>Что такое соединители и приложения API BizTalk
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 *Соединитель* — это тип приложения API, предназначенного для подключения. Соединители, как и любые другие приложения API, используются из веб-приложений, мобильных приложений и приложений логики. Соединители облегчают подключение к существующим службам и помогают управлять проверкой подлинности, предоставляя мониторинг, аналитику и многое другое.
 
@@ -34,8 +31,7 @@
 
 [цен на службу приложений](https://azure.microsoft.com/pricing/details/app-service/) описываются эти уровни служб, а также перечисляется, что в них включено. В следующих разделах рассматриваются различные категории приложений API BizTalk и соединителей.
 
-
-## <a name="hybrid-connectors"></a>Гибридные соединители 
+## <a name="hybrid-connectors"></a>Гибридные соединители
 Гибридные соединители позволяют выйти на корпоративный уровень благодаря возможности подключения к системам [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) и WebSphere MQ. 
 
 Дополнительные ресурсы: [соединители "бизнес — бизнес" и приложения API](app-service-logic-b2b-connectors.md)  
@@ -43,15 +39,11 @@
 [Создание соглашения с торговыми партнерами](app-service-logic-create-a-trading-partner-agreement.md)  
 [отслеживание сообщений B2B](app-service-logic-track-b2b-messages.md)  
 
-
 ## <a name="rules"></a>Правила
 Бизнес-правила инкапсулируют политики и решения, которые управляют бизнес-процессами. Как правило, правила являются динамическими и изменяются со временем по разным причинам, например в результате изменения бизнес-планов, нормативов, и по многим другим причинам. [Правила BizTalk](app-service-logic-use-biztalk-rules.md) позволяют выделить эти политики из кода приложения, а также упростить и ускорить процесс изменения.
 
 ## <a name="connector-and-api-app-list"></a>Список соединителей и приложений API
 В разделе [Список соединителей и приложений API](app-service-logic-connectors-list.md) можно найти полный список соединителей и приложений API, содержащихся в каждой категории, включая стандартные соединители, BizTalk EAI, соединители Premium и так далее.
- 
-
-
 
 <!--HONumber=Oct16_HO2-->
 

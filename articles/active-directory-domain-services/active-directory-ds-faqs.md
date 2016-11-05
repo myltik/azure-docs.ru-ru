@@ -1,32 +1,28 @@
-<properties
-    pageTitle="Часто задаваемые вопросы — Доменные службы Azure Active Directory | Microsoft Azure"
-    description="Часто задаваемые вопросы о доменных службах Azure Active Directory"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: Часто задаваемые вопросы — Доменные службы Azure Active Directory | Microsoft Docs
+description: Часто задаваемые вопросы о доменных службах Azure Active Directory
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+ms.author: maheshu
 
-
+---
 # <a name="azure-active-directory-domain-services:-frequently-asked-questions-(faqs)"></a>Доменные службы Azure Active Directory: часто задаваемые вопросы
-
 На этой странице вы найдете ответы на часто задаваемые вопросы о доменных службах Azure Active Directory. Следите за обновлениями.
 
 ### <a name="troubleshooting-guide"></a>Руководство по устранению неполадок
 Обратитесь к нашему [Руководству по устранению неполадок](active-directory-ds-troubleshooting.md) для решения распространенных проблем при настройке или администрировании доменных служб Azure AD.
 
-
 ### <a name="configuration"></a>Конфигурация
-
 #### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory?"></a>Можно ли создать несколько доменов для одного каталога Azure AD?
 Нет. Для одного каталога Azure AD можно создать только один домен, поддерживаемый доменными службами Azure AD.  
 
@@ -43,7 +39,6 @@
 Нет. Домен, предоставленный доменными службами Azure AD — это управляемый домен. Вам не нужно подготавливать, настраивать или иным образом обрабатывать контроллеры домена для этого домена. Корпорация Майкрософт предоставляет эти операции управления как услугу. Поэтому вы не можете добавить дополнительные контроллеры домена (ни контроллеры чтения и записи, ни контроллеры только для чтения) для управляемого домена.
 
 ### <a name="administration-and-operations"></a>Администрирование и операции
-
 #### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop?"></a>Можно ли подключиться к контроллеру управляемого домена с помощью удаленного рабочего стола?
 Нет. У вас нет разрешений на подключение к контроллерам доменов для управляемого домена с помощью удаленного рабочего стола. Члены группы «Администраторы контроллера домена AAD» могут администрировать управляемый домен, используя средства администрирования AD, такие как центр администрирования Active Directory (ADAC) или AD PowerShell. Эти средства устанавливаются с помощью функции «Средства удаленного администрирования сервера» на сервере Windows, присоединенном к управляемому домену.
 
@@ -63,7 +58,6 @@
 Да. Пользователи, принадлежащие к группе "Администраторы контроллера домена AAD", получают права администратора DNS, позволяющие изменять записи DNS в управляемом домене. Эти пользователи могут использовать консоль диспетчера DNS на компьютере под управлением Windows Server, присоединенном к управляемому домену, для управления службами DNS. Чтобы использовать консоль диспетчера DNS, установите "Средства DNS-сервера", которые входят в необязательный компонент "Средства удаленного администрирования сервера" на сервере. Дополнительные сведения о [служебных программам для администрирования, мониторинга и устранения неполадок DNS](https://technet.microsoft.com/library/cc753579.aspx) доступны в библиотеке TechNet.
 
 ### <a name="billing-and-availability"></a>Выставление счетов и доступность
-
 #### <a name="is-azure-ad-domain-services-a-paid-service?"></a>Являются ли доменные службы Azure AD платной службой?
 Да. Дополнительные сведения см. на [странице с расценками](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
@@ -71,12 +65,10 @@
 Эта служба включена в бесплатную пробную версию Azure. Вы можете зарегистрировать [бесплатную пробную версию Azure на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-(ems)?"></a>Можно ли получить доменные службы Azure AD в составе Enterprise Mobility Suite (EMS)?
-Нет, доменные службы Azure — это служба Azure с оплатой по мере использования, не входящая в предложение EMS. Доменные службы Azure AD доступны для всех SKU Azure AD (Free, Basic, и Premium) и оплачиваются на почасовой основе в зависимости от использования.
+Нет, доменные службы Azure — это служба Azure с оплатой по мере использования, не входящая в предложение EMS. Доменные службы Azure AD доступны для всех SKU Azure AD (Free, Basic, и Premium) и оплачиваются на почасовой основе в зависимости от использования.
 
 #### <a name="what-azure-regions-is-the-service-available-in?"></a>В каких регионах Azure доступна служба?
 Список регионов Azure, в которых доступны доменные службы Azure AD, приведен на нашей [странице регионов](active-directory-ds-regions.md) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

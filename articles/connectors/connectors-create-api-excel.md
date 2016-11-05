@@ -1,24 +1,23 @@
-<properties
-pageTitle="Добавление соединителя Excel | Microsoft Azure"
-description="Обзор соединителя Excel с параметрами API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+---
+title: Добавление соединителя Excel | Microsoft Docs
+description: Обзор соединителя Excel с параметрами API REST
+services: ''
+documentationcenter: ''
+author: msftman
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="08/23/2016"
-ms.author="deonhe"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/23/2016
+ms.author: deonhe
 
+---
 # Начало работы с соединителем Excel
-
 В настоящее время в приложениях логики нет соединителя Excel.
 
 ## Использование данных Excel

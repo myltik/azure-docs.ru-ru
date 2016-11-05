@@ -1,23 +1,21 @@
-<properties
-   pageTitle="Библиотеки версии 2.0 для Azure Active Directory | Microsoft Azure"
-   description="Содержит список всех совместимых клиентских библиотек и серверных библиотек ПО промежуточного слоя, а также ссылки на связанные библиотеки, исходный код и примеры для конечной точки Azure Active Directory версии 2.0."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Библиотеки версии 2.0 для Azure Active Directory | Microsoft Docs
+description: Содержит список всех совместимых клиентских библиотек и серверных библиотек ПО промежуточного слоя, а также ссылки на связанные библиотеки, исходный код и примеры для конечной точки Azure Active Directory версии 2.0.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/30/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/30/2016
+ms.author: skwan;bryanla
 
-
-
+---
 # <a name="azure-active-directory-(ad)-v2.0-and-authentication-libraries"></a>Azure Active Directory (AD) версии 2.0 и библиотеки аутентификации
 Конечная точка версии 2.0 Azure AD поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0.  Конечную точку версии 2.0 можно использовать с множеством библиотек корпорации Майкрософт и сторонних поставщиков.
 
@@ -26,24 +24,24 @@
 ## <a name="types-of-libraries"></a>Типы библиотек
 С версией 2.0 совместимы два вида библиотек: 
 
-- **Клиентские библиотеки**. Клиентские библиотеки используются во встроенных клиентах и на серверах для получения маркеров доступа для вызова ресурса, например Microsoft Graph.
-- **Серверные библиотеки ПО промежуточного слоя**. Серверные библиотеки ПО промежуточного слоя используют веб-приложения для реализации входа пользователя и веб-API для проверки маркеров, отправленных встроенными клиентами или другими серверами.
+* **Клиентские библиотеки**. Клиентские библиотеки используются во встроенных клиентах и на серверах для получения маркеров доступа для вызова ресурса, например Microsoft Graph.
+* **Серверные библиотеки ПО промежуточного слоя**. Серверные библиотеки ПО промежуточного слоя используют веб-приложения для реализации входа пользователя и веб-API для проверки маркеров, отправленных встроенными клиентами или другими серверами.
 
 ## <a name="library-support"></a>Поддержка библиотек
 Так как при использовании конечной точки версии 2.0 можно выбрать любую библиотеку, соответствующую стандартам, важно знать, куда обратиться за поддержкой.  Проблемы и запросы возможностей в коде библиотеки отправляются владельцу библиотеки. Проблемы и запросы возможностей в реализации протокола на стороне службы отправляются в корпорацию Майкрософт.
 
 Для библиотек предусмотрено две категории поддержки:
 
-- **Библиотеки, поддерживаемые корпорацией Майкрософт**. Корпорация Майкрософт предоставляет исправления для этих библиотек.  Корпорация Майкрософт провела комплексную экспертизу жизненного цикла разработки защищенных приложений для этих библиотек. 
-- **Совместимые библиотеки**. Корпорация Майкрософт протестировала несколько библиотек в основных сценариях и подтвердила их совместимость с конечной точкой версии 2.0.  Корпорация Майкрософт не предоставляет исправления для этих библиотек и не выполняла их проверку.  Проблемы и запросы возможностей следует отправлять в проекты с открытым кодом библиотеки.
+* **Библиотеки, поддерживаемые корпорацией Майкрософт**. Корпорация Майкрософт предоставляет исправления для этих библиотек.  Корпорация Майкрософт провела комплексную экспертизу жизненного цикла разработки защищенных приложений для этих библиотек. 
+* **Совместимые библиотеки**. Корпорация Майкрософт протестировала несколько библиотек в основных сценариях и подтвердила их совместимость с конечной точкой версии 2.0.  Корпорация Майкрософт не предоставляет исправления для этих библиотек и не выполняла их проверку.  Проблемы и запросы возможностей следует отправлять в проекты с открытым кодом библиотеки.
 
 Список библиотек, совместимых с конечной точкой версии 2.0, см. в следующих разделах. 
 
 ## <a name="microsoft-supported-client-libraries"></a>Клиентские библиотеки, поддерживаемые корпорацией Майкрософт
-| Платформа| Имя библиотеки| Загрузить | Исходный код | Образец |
-| :-: | :-: | :-: | :-: | :-: |
-| .NET, Магазин Windows, Xamarin | Библиотека аутентификации Майкрософт (MSAL) для .NET | [Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] | [MSAL для .NET (GitHub)][ClientLib-NET-Repo] | [Пример классического собственного клиента Windows][ClientLib-NET-Sample] |
-| Node.js | Подключаемый модуль Passport.js Microsoft Azure Active Directory | [Passport-Azure-AD (npm)][ClientLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] | Скоро |
+| Платформа | Имя библиотеки | Загрузить | Исходный код | Образец |
+|:---:|:---:|:---:|:---:|:---:|
+| .NET, Магазин Windows, Xamarin |Библиотека аутентификации Майкрософт (MSAL) для .NET |[Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] |[MSAL для .NET (GitHub)][ClientLib-NET-Repo] |[Пример классического собственного клиента Windows][ClientLib-NET-Sample] |
+| Node.js |Подключаемый модуль Passport.js Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ClientLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] |Скоро |
 
 <!--- COMMENTING OUT UNTIL THEY ARE READY
 | iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
@@ -52,24 +50,26 @@
  -->
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Серверные библиотеки ПО промежуточного слоя, поддерживаемые корпорацией Майкрософт
-| Платформа| Имя библиотеки| Загрузить | Исходный код | Образец |
-| :-: | :-: | :-: | :-: | :-: |
-| .NET 4.x | ПО промежуточного слоя OWIN OpenID Connect для ASP.NET | [Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] | [Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] | [Пример веб-приложения][ServerLib-Net4-Owin-Oidc-Sample] |
-| .NET 4.x | ПО промежуточного слоя носителя OWIN OAuth для ASP.NET | [Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] | [Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] | [Пример веб-API][ServerLib-Net4-Owin-Oauth-Sample] |
-| .NET Core | ПО промежуточного слоя OWIN OpenID Connect для .NET Core | [Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] | [Безопасность ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] | [Пример веб-приложения][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core | ПО промежуточного слоя носителя OWIN OAuth для .NET Core | [Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] | [Безопасность ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] | Скоро |
-| Node.js | Подключаемый модуль Passport.js Microsoft Azure Active Directory | [Passport-Azure-AD (npm)][ServerLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] | [Пример веб-приложения][ServerLib-Node-Sample] |
+| Платформа | Имя библиотеки | Загрузить | Исходный код | Образец |
+|:---:|:---:|:---:|:---:|:---:|
+| .NET 4.x |ПО промежуточного слоя OWIN OpenID Connect для ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Пример веб-приложения][ServerLib-Net4-Owin-Oidc-Sample] |
+| .NET 4.x |ПО промежуточного слоя носителя OWIN OAuth для ASP.NET |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Пример веб-API][ServerLib-Net4-Owin-Oauth-Sample] |
+| .NET Core |ПО промежуточного слоя OWIN OpenID Connect для .NET Core |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Безопасность ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Пример веб-приложения][ServerLib-NetCore-Owin-Oidc-Sample] |
+| .NET Core |ПО промежуточного слоя носителя OWIN OAuth для .NET Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Безопасность ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Скоро |
+| Node.js |Подключаемый модуль Passport.js Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ServerLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] |[Пример веб-приложения][ServerLib-Node-Sample] |
+
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
 | .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
 ## <a name="compatible-client-libraries"></a>Совместимые клиентские библиотеки
-| Платформа| Имя | Проверенные версии | Исходный код | Образец |
-| :-: | :-: | :-: | :-: | :-: |
-| Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Пример встроенного приложения](active-directory-v2-devquickstarts-android.md) |
-| iOS | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | 1.2.8 | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | [Пример встроенного приложения](active-directory-v2-devquickstarts-ios.md)|
-| JavaScript | [Hello.js](https://adodson.com/hello.js/) | 1.13.5 | [Hello.js](https://github.com/MrSwitch/hello.js) | Скоро |
-| Python — Flask | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | 0.9.3 | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | Скоро |
-| Ruby | [OmniAuth](https://github.com/omniauth/omniauth/wiki) | omniauth:1.3.1</br>omniauth-oauth2:1.4.0 | [OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) | Скоро |
+| Платформа | Имя | Проверенные версии | Исходный код | Образец |
+|:---:|:---:|:---:|:---:|:---:|
+| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Пример встроенного приложения](active-directory-v2-devquickstarts-android.md) |
+| iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Пример встроенного приложения](active-directory-v2-devquickstarts-ios.md) |
+| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |Скоро |
+| Python — Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |Скоро |
+| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Скоро |
+
 <!--- REMOVING BRANDON'S FOR NOW
 |  |  |  |  |  |
 | Android | [OAuth2 Client](https://github.com/wuman/android-oauth-client) |   | [OAuth2 Client](https://github.com/wuman/android-oauth-client)  | Coming soon  |
@@ -79,9 +79,8 @@
 | PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
 -->
 
-## <a name="compatible-server-middleware-libraries"></a>Совместимые серверные библиотеки ПО промежуточного слоя 
+## <a name="compatible-server-middleware-libraries"></a>Совместимые серверные библиотеки ПО промежуточного слоя
 Скоро
-
 
 ## <a name="related-content"></a>Связанная информация
 Дополнительные сведения о конечной точке версии 2.0 Azure AD см. в статье [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] (Обзор модели приложения Azure AD версии 2.0). 
@@ -107,6 +106,7 @@
 [ClientLib-Js-Lib]:
 [ClientLib-Js-Repo]:
 [ClientLib-Js-Sample]:
+
 [Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/

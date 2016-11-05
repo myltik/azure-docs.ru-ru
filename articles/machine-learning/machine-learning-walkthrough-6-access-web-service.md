@@ -1,43 +1,38 @@
-<properties
-    pageTitle="Шаг 6: доступ к веб-службе машинного обучения | Microsoft Azure"
-    description="Шестой этап разработки прогнозного решения: доступ к активной веб-службе машинного обучения Azure."
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: 'Шаг 6: доступ к веб-службе машинного обучения | Microsoft Docs'
+description: 'Шестой этап разработки прогнозного решения: доступ к активной веб-службе машинного обучения Azure.'
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: garye
 
-
-
+---
 # <a name="walkthrough-step-6:-access-the-azure-machine-learning-web-service"></a>Шаг 6 пошагового руководства: доступ к веб-службе Машинного обучения Azure
-
 Это последний этап пошагового руководства [Разработка решения для прогнозной аналитики в службе машинного обучения Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
+1. [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
+2. [Отправка существующих данных](machine-learning-walkthrough-2-upload-data.md)
+3. [Создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)
+4. [Обучение и анализ моделей](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
+6. **Доступ к веб-службе**
 
-1.  [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
-2.  [Отправка существующих данных](machine-learning-walkthrough-2-upload-data.md)
-3.  [Создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)
-4.  [Обучение и анализ моделей](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.  [Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
-6.  **Доступ к веб-службе**
-
-----------
-
+- - -
 На предыдущем шаге в этом руководстве мы развернули веб-службу, использующую модель прогнозирования риска некредитоспособности. Теперь пользователи должны иметь возможность отправлять в нее данные и получать результаты. 
 
 Веб-служба представляет собой веб-службу Azure, которая может получать и возвращать данные с помощью REST API одним из двух способов.  
 
--   **Запрос и ответ** — пользователь отправляет одну или несколько строк данных о кредитах в службу с помощью протокола HTTP, а служба в качестве ответа возвращает один или несколько наборов результатов.
--   **Пакетное выполнение** — пользователь сохраняет одну или несколько строк данных о кредитах в BLOB-объекте Azure, а затем отправляет адрес BLOB-объекта в Azure. Служба оценивает все строки данных во входном BLOB-объекте, сохраняет результаты в другом BLOB-объекте и возвращает URL-адрес данного контейнера.  
+* **Запрос и ответ** — пользователь отправляет одну или несколько строк данных о кредитах в службу с помощью протокола HTTP, а служба в качестве ответа возвращает один или несколько наборов результатов.
+* **Пакетное выполнение** — пользователь сохраняет одну или несколько строк данных о кредитах в BLOB-объекте Azure, а затем отправляет адрес BLOB-объекта в Azure. Служба оценивает все строки данных во входном BLOB-объекте, сохраняет результаты в другом BLOB-объекте и возвращает URL-адрес данного контейнера.  
 
 Самым быстрым и легким способом доступа к веб-службе является доступ через шаблоны веб-приложений, доступный в [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 С помощью шаблонов веб-служб можно создать пользовательское веб-приложение, которое "знает" входные данные вашей веб-службы и ожидаемые результаты. Вам нужно всего лишь предоставить доступ к веб-службе и данным, а шаблон выполнит все остальные действия.
@@ -46,8 +41,6 @@
 
 Можно также разработать настраиваемое приложение для доступа к веб-службе с помощью стартового кода в языках программирования R, C# и Python.
 Полные сведения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

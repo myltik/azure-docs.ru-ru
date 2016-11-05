@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: вопросы и ответы | Microsoft Azure"
-    description="На этой странице изложены часто задаваемые вопросы об Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Azure AD Connect: вопросы и ответы | Microsoft Docs'
+description: На этой странице изложены часто задаваемые вопросы об Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-faq"></a>Azure AD Connect: вопросы и ответы
-
 ## <a name="general-installation"></a>Общая установка
 **Вопрос. Будет ли установка выполнена корректно, если глобальный администратор Azure AD включил 2FA?**  
  Это поддерживается в сборках от февраля 2016 года.
@@ -59,8 +57,8 @@
 **Вопрос. Атрибут имени участника-пользователя (userPrincipalName) в Azure AD не совпадает с локальным именем участника. Почему?**  
 См. следующие статьи:
 
-- [Имена пользователей в Office 365, Azure или Intune не совпадают с локальным именем участника-пользователя или альтернативным именем для входа](https://support.microsoft.com/en-us/kb/2523192)
-- [Изменения не синхронизируются с помощью инструмента синхронизации Azure Active Directory после изменения имени участника-пользователя или учетной записи пользователя для использования другого федеративного домена](https://support.microsoft.com/en-us/kb/2669550)
+* [Имена пользователей в Office 365, Azure или Intune не совпадают с локальным именем участника-пользователя или альтернативным именем для входа](https://support.microsoft.com/en-us/kb/2523192)
+* [Изменения не синхронизируются с помощью инструмента синхронизации Azure Active Directory после изменения имени участника-пользователя или учетной записи пользователя для использования другого федеративного домена](https://support.microsoft.com/en-us/kb/2669550)
 
 Можно также настроить Azure AD так, чтобы модуль синхронизации обновлял userPrincipalName, как описано в статье [Функции службы синхронизации Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
@@ -76,17 +74,15 @@
 
 [Поиск в базе знаний Майкрософт](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
-- В базе знаний Майкрософт можно найти технические решения распространенных проблем, связанные с поддержкой Azure AD Connect.
+* В базе знаний Майкрософт можно найти технические решения распространенных проблем, связанные с поддержкой Azure AD Connect.
 
 [Форумы по Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- [Здесь](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)вы можете искать и просматривать ответы членов сообщества на технические вопросы, а также задавать собственные.
+* [Здесь](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)вы можете искать и просматривать ответы членов сообщества на технические вопросы, а также задавать собственные.
 
 [Служба поддержки клиентов Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
-- Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
-
-
+* Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
 
 <!--HONumber=Oct16_HO2-->
 

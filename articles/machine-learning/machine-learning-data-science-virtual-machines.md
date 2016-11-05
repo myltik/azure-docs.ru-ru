@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Виртуальные машины для обработки и анализа данных в Azure | Microsoft Azure"
-	description="Настройка виртуальной машины для обработки и анализа данных."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard" 
-	editor="cgronlun"  />
+---
+title: Виртуальные машины для обработки и анализа данных в Azure | Microsoft Docs
+description: Настройка виртуальной машины для обработки и анализа данных.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="xibingao;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: xibingao;bradsev
 
+---
 # Виртуальные машины для обработки и анализа данных в Azure
-
 Приведенные здесь инструкции касаются настройки виртуальной машины Azure и виртуальной машины Azure со службой SQL в качестве серверов IPython Notebook. Виртуальная машина под управлением Windows настраивается с помощью средств поддержки, таких как IPython Notebook, обозреватель хранилищ Azure и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище Azure с локального компьютера и наоборот.
 
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых [процессом обработки и анализа данных группы (TDSP)](data-science-process-overview.md).
 
-[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+[!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 Для использования в облачной среде обработки и анализа данных можно подготовить и настроить несколько типов виртуальных машин Azure. Выбор типа виртуальной машины зависит от типа и количества данных, которые нужно моделировать с помощью машинного обучения, и места хранения этих данных в облаке.
 
@@ -32,13 +31,13 @@
 Рассмотрите два набора инструкций.
 
 * В статье [Настройка виртуальной машины Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-virtual-machine.md) объясняется, как подготовить виртуальную машину Azure с IPython Notebook и другими инструментами, которые используются для обработки и анализа данных. Этот вариант подходит для случаев, когда данные хранятся в хранилище Azure, которое не является базой данных SQL.
-
 * В статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-sql-server-virtual-machine.md) объясняется, как подготовить виртуальную машину Azure SQL Server с IPython Notebook и другими инструментами, которые используются для обработки и анализа данных. Этот вариант подходит для случаев, когда данные хранятся в базе данных SQL.
 
 После подготовки и настройки эти виртуальные машины можно использовать в качестве серверов IPython Notebook для просмотра и обработки данных, а также для других задач, необходимых для Машинного обучения Azure и процесса обработки и анализа данных группы (TDSP). Дальнейшие действия по обработке данных представлены в [схеме обучения TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Это могут быть действия по перемещению данных в SQL Server или HDInsight, их обработке и составлению выборки из них в целях подготовки к обучению в рамках Машинного обучения Azure.
 
-
-> [AZURE.NOTE] За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлена (освобождена)** на [классическом портале Azure](http://manage.windowsazure.com/). Пошаговые указания по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы и освобождение виртуальной машины при неиспользовании](machine-learning-data-science-setup-virtual-machine.md#shutdown).
- 
+> [!NOTE]
+> За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлена (освобождена)** на [классическом портале Azure](http://manage.windowsazure.com/). Пошаговые указания по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы и освобождение виртуальной машины при неиспользовании](machine-learning-data-science-setup-virtual-machine.md#shutdown).
+> 
+> 
 
 <!---HONumber=AcomDC_0921_2016-->

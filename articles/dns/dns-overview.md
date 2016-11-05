@@ -1,26 +1,23 @@
-<properties 
-   pageTitle="Обзор Azure DNS | Microsoft Azure" 
-   description="Обзор служб размещения Azure DNS в Microsoft Azure. Размещение домена в Microsoft Azure." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="cherylmc" 
-   manager="carmonm" 
-   editor=""/>
+---
+title: Обзор Azure DNS | Microsoft Docs
+description: Обзор служб размещения Azure DNS в Microsoft Azure. Размещение домена в Microsoft Azure.
+services: dns
+documentationcenter: na
+author: cherylmc
+manager: carmonm
+editor: ''
 
-<tags
-   ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+ms.service: dns
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/16/2016
+ms.author: cherylmc
 
+---
 # Обзор Azure DNS
-
-
 Служба доменных имен, или DNS, отвечает за преобразование (или разрешение) имени веб-сайта или службы в IP-адрес. Azure DNS является службой размещения для доменов DNS, предоставляющей разрешение имен с помощью инфраструктуры Microsoft Azure. Размещая домены в Azure, вы можете управлять своими записями DNS с помощью тех же учетных данных, API и инструментов и оплачивать использование, как и другие службы Azure.
-
 
 Домены DNS в Azure DNS размещаются в глобальной сети DNS-серверов Azure. Мы используем адресацию любому устройству сети, чтобы на каждый запрос DNS отвечал ближайший доступный DNS-сервер. Это обеспечивает высокую производительность и высокий уровень доступности для вашего домена.
 
@@ -28,14 +25,7 @@
 
 Azure DNS в настоящее время не поддерживает приобретение доменных имен. Если вы хотите приобрести домены, вам потребуется использовать регистратор доменных имен стороннего поставщика. Регистратор обычно взимает небольшую годовую плату. Затем вы сможете разместить домены в Azure DNS, чтобы управлять записями DNS. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
-
 ## Дальнейшие действия
-
 [Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
-
-
-
-
- 
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="Глоссарий по средствам работы с эластичными базами данных | Microsoft Azure" 
-    description="Пояснения к терминам, используемым в средствах работы с эластичными базами данных." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Глоссарий по средствам работы с эластичными базами данных | Microsoft Docs
+description: Пояснения к терминам, используемым в средствах работы с эластичными базами данных.
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Глоссарий по средствам работы с эластичными базами данных
 В связи со [средствами работы с эластичными базами данных SQL Azure](sql-database-elastic-scale-introduction.md) применяются следующие термины. Для управления [картами сегментов](sql-database-elastic-scale-shard-map-management.md) используются такие инструменты, как [клиентская библиотека](sql-database-elastic-database-client-library.md), [средство разбиения и слияния](sql-database-elastic-scale-overview-split-and-merge.md), [пулы эластичных баз данных](sql-database-elastic-pool.md) и [запросы](sql-database-elastic-query-overview.md).
 
@@ -57,7 +57,7 @@
 
 **Набор сегментов**: коллекция сегментов, которые относятся к одной карте в диспетчере карт сегментов.
 
-**Шардлет**: все данные, связанные с одним значением ключа сегментирования в сегменте. Шардлет — это наименьшая единица возможного переноса данных при перераспределении сегментированных таблиц.
+**Шардлет**: все данные, связанные с одним значением ключа сегментирования в сегменте. Шардлет — это наименьшая единица возможного переноса данных при перераспределении сегментированных таблиц.
 
 **Карта сегментов** — это набор сопоставлений ключей сегментирования и соответствующих сегментов.
 
@@ -65,9 +65,7 @@
 
 ![Сопоставления][2]
 
-
-##Команды
-
+## Команды
 **Горизонтальное масштабирование**: масштабирование из коллекции сегментов (или в нее) путем добавления или удаления сегментов в карте, как показано ниже.
 
 ![Горизонтальное и вертикальное масштабирование][3]
@@ -82,12 +80,12 @@
 
 **Вертикальное масштабирование**: масштабирование уровня производительности отдельного сегмента вверх (или вниз). Например, перевод сегмента Standard в сегмент Premium (в соответствии с необходимым уровнем производительности).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

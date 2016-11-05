@@ -1,6 +1,5 @@
 
 ## <a id="add-push"></a>Добавление push-уведомлений в приложение
-
 * В QSAppDelegate.m импортируйте пакет SDK для iOS и QSTodoService.h:
 
 ```

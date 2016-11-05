@@ -1,25 +1,26 @@
-<properties
- pageTitle="Выполнение заданий STAR-CCM+ с помощью пакета HPC на виртуальных машинах Linux | Microsoft Azure"
- description="Развертывание кластера Microsoft HPC в Azure и запуск задания STAR-CCM+ на нескольких вычислительных узлах Linux в сети RDMA."
- services="virtual-machines-linux"
- documentationCenter=""
- authors="xpillons"
- manager="timlt"
- editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>
-<tags
- ms.service="virtual-machines-linux"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="big-compute"
- ms.date="09/13/2016"
- ms.author="xpillons"/>
+---
+title: Выполнение заданий STAR-CCM+ с помощью пакета HPC на виртуальных машинах Linux | Microsoft Docs
+description: Развертывание кластера Microsoft HPC в Azure и запуск задания STAR-CCM+ на нескольких вычислительных узлах Linux в сети RDMA.
+services: virtual-machines-linux
+documentationcenter: ''
+author: xpillons
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager,hpc-pack
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: big-compute
+ms.date: 09/13/2016
+ms.author: xpillons
+
+---
 # Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC
 В этой статье показано, как развернуть кластер пакета Microsoft HPC в Azure и запустить задание [STAR-CCM+ CD-adapco](http://www.cd-adapco.com/products/star-ccm%C2%AE) на нескольких вычислительных узлах Linux, соединенных с помощью InfiniBand.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Пакет Microsoft HPC предоставляет функции, необходимые для работы приложений высокопроизводительных и параллельных вычислений, включая приложения MPI, в кластерах виртуальных машин Microsoft Azure. Пакет HPC также поддерживает приложения высокопроизводительных вычислений для Linux на виртуальных вычислительных узлах Linux, развернутых в кластере HPC. Общие сведения об использовании вычислительных узлов Linux и пакета HPC см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
@@ -84,11 +85,9 @@
 
 Со временем может потребоваться исправить DNS-сервер пересылки. Для этого необходимо запустить диспетчер DNS.
 
-1.  Щелкните правой кнопкой мыши имя сервера в диспетчере DNS, выберите пункт **Свойства** и перейдите на вкладку **Серверы пересылки**.
-
-2.  Нажмите кнопку **Изменить**, чтобы удалить серверы пересылки, а затем нажмите кнопку **ОК**.
-
-3.  Убедитесь, что установлен флажок **Использовать корневые ссылки, если нет доступных серверов пересылки**, и нажмите кнопку **ОК**.
+1. Щелкните правой кнопкой мыши имя сервера в диспетчере DNS, выберите пункт **Свойства** и перейдите на вкладку **Серверы пересылки**.
+2. Нажмите кнопку **Изменить**, чтобы удалить серверы пересылки, а затем нажмите кнопку **ОК**.
+3. Убедитесь, что установлен флажок **Использовать корневые ссылки, если нет доступных серверов пересылки**, и нажмите кнопку **ОК**.
 
 ## Настройка вычислительных узлов Linux
 Развертывание вычислительных узлов Linux выполняется с помощью того же шаблона развертывания, который использовался для создания головного узла.
@@ -99,15 +98,12 @@
 
 В командной строке с повышенными привилегиями выполните следующие команды Azure PowerShell:
 
-1.  Выполните командлет **Add-AzureAccount**, чтобы подключиться к подписке Azure.
-
-2.  При наличии нескольких подписок выполните командлет **Get-AzureSubscription**, чтобы получить их список.
-
-3.  Установите подписку по умолчанию, выполнив команду **Select-AzureSubscription -SubscriptionName xxxx -Default**.
-
-4.  Выполните команду **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**, чтобы запустить развертывание вычислительных узлов Linux.
-
-    ![Развертывание головного узла][hndeploy]
+1. Выполните командлет **Add-AzureAccount**, чтобы подключиться к подписке Azure.
+2. При наличии нескольких подписок выполните командлет **Get-AzureSubscription**, чтобы получить их список.
+3. Установите подписку по умолчанию, выполнив команду **Select-AzureSubscription -SubscriptionName xxxx -Default**.
+4. Выполните команду **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**, чтобы запустить развертывание вычислительных узлов Linux.
+   
+   ![Развертывание головного узла][hndeploy]
 
 Откройте диспетчер кластера пакета HPC. Через несколько минут вычислительные узлы Linux станут периодически появляться в списке вычислительных узлов кластера. В режиме классического развертывания виртуальные машины IaaS создаются последовательно. Поэтому, если важно количество узлов, развертывание всех машин может занять значительное время.
 
@@ -118,7 +114,7 @@
 ## Настройка общей папки Azure для узлов Windows и Linux
 Службу файлов Azure можно использовать для хранения сценариев, пакетов приложений и файлов данных. Служба файлов Azure предоставляет возможности CIFS на базе хранилища BLOB-объектов Azure как постоянного хранилища. Это не самое масштабируемое решение, но оно самое простое и не требует выделенных виртуальных машин.
 
-Создайте общую папку Azure, следуя инструкциям в статье [Приступая к работе с хранилищем файлов Azure в Windows](..\storage\storage-dotnet-how-to-use-files.md).
+Создайте общую папку Azure, следуя инструкциям в статье [Приступая к работе с хранилищем файлов Azure в Windows](../storage/storage-dotnet-how-to-use-files.md).
 
 Оставьте **saname** в качестве имени учетной записи хранения, **sharename** — в качестве имени общей папки и **sakey** — в качестве ключа учетной записи хранения.
 
@@ -199,11 +195,9 @@
 
 Следующий сценарий PowerShell применяется для помещения задания STAR-CCM+ в очередь. Он принимает три аргумента:
 
-*  имя модели;
-
-*  количество используемых узлов;
-
-*  число используемых ядер на каждом узле.
+* имя модели;
+* количество используемых узлов;
+* число используемых ядер на каждом узле.
 
 Так как STAR-CCM+ может использовать всю пропускную способность памяти, как правило, лучше использовать меньше ядер на один вычислительный узел и добавлять новые узлы. Точное число ядер на каждый узел будет зависеть от семейства процессора и скорости взаимодействия.
 
@@ -212,7 +206,6 @@
 Модель ввода и сценарий **runstarccm.sh** хранятся в общей папке **/hpcdata**, подключенной ранее.
 
 Файлам журнала присваиваются имена с использованием идентификаторов заданий. Файлы журнала и выходные файлы STAR-CCM+ хранятся в **общей папке /hpcdata**.
-
 
 #### Пример сценария SubmitStarccmJob.ps1
 ```
@@ -229,7 +222,7 @@
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job 	
+    # Submit the job     
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -267,19 +260,19 @@
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-    	let "I=${I}+2"
-    	let "NBNODES=${NBNODES}+1"
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+        let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-    	-power -podkey "<yourkey>" -rsh ssh \
-    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
-    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-    	-batch $2 $3
+        -power -podkey "<yourkey>" -rsh ssh \
+        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
+        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+        -batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
@@ -299,25 +292,18 @@
 Описание
 
 * `<Number of nodes>` — количество узлов, выделенных для этого задания.
-
 * `<Name of node_n_...>` — имя каждого узла, выделенного для этого задания.
-
 * `<Cores of node_n_...>` — количество ядер узла, выделенного для этого задания.
 
 Число ядер (**$NBCORES**) рассчитывается на основе числа узлов (**$NBNODES**) и числа ядер на узел, заданного в параметре **$NBCORESPERNODE**.
 
 Для Intel MPI в среде Azure используются следующие параметры MPI:
 
-*   `-mpi intel` для указания Intel MPI;
-
-*   `-fabric UDAPL` для использования команд Azure InfiniBand;
-
-*   `-cpubind bandwidth,v` для оптимизации пропускной способности для MPI со STAR-CCM+;
-
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` для настройки работы Intel MPI с Azure InfiniBand и задания необходимого числа ядер на узел;
-
-*   `-batch` для запуска STAR-CCM+ в пакетном режиме без пользовательского интерфейса.
-
+* `-mpi intel` для указания Intel MPI;
+* `-fabric UDAPL` для использования команд Azure InfiniBand;
+* `-cpubind bandwidth,v` для оптимизации пропускной способности для MPI со STAR-CCM+;
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` для настройки работы Intel MPI с Azure InfiniBand и задания необходимого числа ядер на узел;
+* `-batch` для запуска STAR-CCM+ в пакетном режиме без пользовательского интерфейса.
 
 Наконец, чтобы запустить задание, убедитесь, что узлы работают и подключены в диспетчере кластера. В командной строке PowerShell выполните следующую команду:
 
@@ -337,9 +323,7 @@
 Попробуйте запустить другие рабочие нагрузки Linux. Например, ознакомьтесь со следующими статьями:
 
 * [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-
 * [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
-
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png

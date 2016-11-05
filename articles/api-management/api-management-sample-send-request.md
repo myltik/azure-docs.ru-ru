@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Использование службы управления API для создания HTTP-запросов"
-	description="Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API."
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+---
+title: Использование службы управления API для создания HTTP-запросов
+description: Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API.
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: ''
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: darrmi
 
-
+---
 # Использование внешних служб из службы управления API Azure
-
 Политики, доступные в службе управления API Azure, позволяют выполнять множество полезных задач исключительно на основе входящих запросов, исходящих ответов и сведений о базовой конфигурации. Однако возможность взаимодействия с внешними службами управления из политик управления API предоставляет гораздо больше преимуществ.
 
 Мы уже имеем представление о взаимодействии со [службой концентратора событий Azure для ведения журнала, мониторинга и анализа](api-management-log-to-eventhub-sample.md). В этой статье вы узнаете о политиках, которые позволяют работать с любой внешней HTTP-службой. Эти политики можно использовать для запуска удаленных событий или для получения данных, которые определенным образом будут применяться для обработки исходного запроса и ответа.
@@ -130,17 +128,17 @@
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +147,7 @@
 ## Структура ответа
 Политику `send-request` можно использовать для совершенствования основного запроса к серверной системе (как показано в предыдущем примере) или в качестве полной замены вызова серверной части. С помощью этой методики можно легко создавать сложные ресурсы, которые объединяются из нескольких разных систем.
 
-### Создание панели мониторинга   
+### Создание панели мониторинга
 Иногда требуется возможность предоставлять информацию, которая существует в нескольких серверных системах, для улучшения взаимодействия с панелью мониторинга. Ключевые показатели эффективности поставляются из разных серверных систем, но вы не хотите предоставлять к ним прямой доступ и планируете получать все данные в одном запросе. Возможно, некоторые извлеченные сведения потребуется сначала секционировать, фрагментировать и немного очистить. Возможность кэширования составного ресурса будет полезна для снижения нагрузки серверной части, поскольку вам известно, что пользователи имеют привычку многократно нажимать клавишу F5, чтобы увидеть изменение показателей низкой производительности.
 
 ### Создание ресурса
@@ -192,7 +190,6 @@
 Эти запросы выполняются последовательно, что не очень удобно. В предстоящем выпуске будет представлена новая политика с именем `wait`, которая обеспечит параллельное выполнение всех этих запросов.
 
 ### Ответы на запросы
-
 Для формирования составного запроса можно использовать политику [возврата ответа](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). Элемент `set-body` может применять выражение для создания нового `JObject` со всеми представлениями компонентов, внедренными в качестве свойств.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +209,7 @@
 Законченная политика выглядит следующим образом:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +247,13 @@
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 В конфигурации операции заполнителя можно настроить ресурс панели мониторинга для кэширования в течение как минимум часа, поскольку согласно своей природе, даже если данные устарели на час, они все равно будут достаточно эффективными для передачи пользователям.
@@ -267,6 +264,8 @@
 ## Посмотрите видеообзор этих политик.
 Дополнительные сведения о политиках [отправки одностороннего запроса](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [запроса на отправку](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) и [возврата ответа](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse), которые рассматриваются в этой статье, см. в следующем видеоролике.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,65 +1,50 @@
-<properties
-   pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала Azure | Microsoft Azure"
-   description="Узнайте, как создать балансировщика нагрузки для Интернета в классической модели развертывания с помощью портала Azure."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+---
+title: Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала Azure | Microsoft Docs
+description: Узнайте, как создать балансировщика нагрузки для Интернета в классической модели развертывания с помощью портала Azure.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/17/2016
+ms.author: sewhee
+
+---
 # Приступая к созданию балансировщика нагрузки (классический режим) для Интернета на портале Azure
+[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
+В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
 
-
-[AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
-
-
+[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Начните с создания конечной точки балансировщика нагрузки с помощью портала Azure
-
 Чтобы создать балансировщик нагрузки для Интернета по классической модели развертывания из портала Azure, выполните следующие действия.
 
 1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
-
 2. Перейдите в колонку "Виртуальные машины (классические)" и выберите виртуальную машину.
-
 3. В колонке "Основные сведения" виртуальных машин выберите "Все параметры".
-
 4. Щелкните «Наборы балансировки нагрузки».
-
 5. Для создания нового балансировщика нагрузки щелкните значок "Присоединение" в верхней части колонки наборов балансировки нагрузки.
-
 6. Выберите общедоступный "Тип набора балансировки нагрузки" для балансировщика нагрузки для Интернета.
-
 7. Щелкните "Настроить обязательные параметры", чтобы открыть окно "Выбрать набор балансировки нагрузки", и нажмите кнопку "Создать набор балансировки нагрузки".
-
 8. В колонке "Создать набор балансировки нагрузки" создайте имя для набора балансировки нагрузки. Укажите имя, общий порт, протокол пробы и порт пробы.
-
 9. При необходимости измените интервал пробы и число повторных попыток.
-
 10. (Необязательно) Если необходимо, можно настроить правила контроля доступа в колонке создания набора балансировки нагрузки.
-
 11. Нажмите кнопку "ОК", чтобы вернуться в колонку "Присоединиться к набору балансировки нагрузки".
-
 12. Нажмите кнопку "ОК" и дождитесь появления нового ресурса балансировщика нагрузки в колонке "Наборы балансировщика нагрузки".
 
 ## Дальнейшие действия
-
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)

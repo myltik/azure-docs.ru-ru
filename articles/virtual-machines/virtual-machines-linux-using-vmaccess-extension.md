@@ -1,41 +1,36 @@
-<properties
-    pageTitle="Сброс доступа в виртуальных машинах Linux в Azure с помощью расширения VMAccess | Microsoft Azure"
-    description="Узнайте, как сбросить доступ в виртуальных машинах Linux в Azure с помощью расширения VMAccess."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="vlivech"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"
-/>
+---
+title: Сброс доступа в виртуальных машинах Linux в Azure с помощью расширения VMAccess | Microsoft Docs
+description: Узнайте, как сбросить доступ в виртуальных машинах Linux в Azure с помощью расширения VMAccess.
+services: virtual-machines-linux
+documentationcenter: ''
+author: vlivech
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="v-livech"
-/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: v-livech
 
+---
 # Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess
-
 В этой статье показано, как использовать расширение Azure VMAcesss для проверки или восстановления диска, сброса разрешений пользователей на доступ, управления учетными записями пользователей или сброса конфигурации SSHD в Linux.
 
 Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md) и интерфейс командной строки Azure (Azure CLI), установленный и переведенный в режим Resource Manager с помощью `azure config mode arm`.
 
 ## Быстрые команды
-
 Использовать расширение VMAccess для виртуальных машин Linux можно двумя способами.
 
-- С помощью командной строки Azure и необходимых параметров.
-- С помощью необработанных файлов JSON, которые расширение VMAccess обрабатывает для выполнения операций с ними.
+* С помощью командной строки Azure и необходимых параметров.
+* С помощью необработанных файлов JSON, которые расширение VMAccess обрабатывает для выполнения операций с ними.
 
 В разделе с кратким описанием команд будет использоваться метод `azure vm reset-access` Azure CLI. В примерах команд ниже замените значения, содержащие example, значениями, соответствующими вашей среде.
 
 ## Создание группы ресурсов и виртуальной машины Linux
-
 ```bash
 azure group create resourcegroupexample westus
 ```
@@ -52,7 +47,6 @@ azure vm quick-create \
 ```
 
 ## Сброс пароля пользователя root
-
 Чтобы сбросить пароль пользователя root, выполните следующую команду:
 
 ```bash
@@ -60,7 +54,6 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p exampl
 ```
 
 ## Сброс ключа SSH
-
 Чтобы сбросить ключ SSH для пользователя, отличного от root, выполните следующую команду:
 
 ```bash
@@ -68,7 +61,6 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M
 ```
 
 ## Создание пользователя
-
 Чтобы создать пользователя, выполните следующую команду:
 
 ```bash
@@ -76,13 +68,11 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p
 ```
 
 ## Удаление пользователя
-
 ```bash
 azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 ```
 
 ## Сброс SSHD
-
 Чтобы сбросить конфигурацию SSHD, выполните следующую команду:
 
 ```bash
@@ -91,15 +81,12 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 
 
 ## Подробное пошаговое руководство
-
 ### Определение VMAccess
-
 На диске в виртуальной машине Linux имеются ошибки. Вы каким-то образом сбросили пароль пользователя root для виртуальной машины Linux или случайно удалили закрытый ключ SSH. Если бы такое случилось раньше, вам пришлось бы ехать в центр данных и открывать KVM-консоль для доступа к серверу. Расширение Azure VMAccess можно представить как KVM-коммутатор, который позволяет открывать консоль для сброса разрешений на доступ к Linux или обслуживания дисков.
 
 В подробном пошаговом руководстве мы будем использовать полную форму VMAccess, которая использует необработанные файлы JSON. Эти файлы JSON VMAccess также можно вызывать из шаблонов Azure.
 
 ### Использование VMAccess для проверки или восстановления диска виртуальной машины Linux
-
 С помощью VMAccess можно выполнить проверку fsck для диска в виртуальной машине Linux. Также можно выполнить проверку и восстановление диска с помощью VMAccess.
 
 Для проверки и последующего восстановления диска используйте следующий сценарий VMAccess:
@@ -122,7 +109,6 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ### Использование VMAccess для сброса доступа пользователя к Linux
-
 Если вы потеряли доступ к учетной записи root на виртуальной машине Linux, то можете выполнить сценарий VMAccess, чтобы сбросить пароль пользователя root.
 
 Чтобы сбросить пароль пользователя root, используйте следующий сценарий VMAccess:
@@ -164,7 +150,6 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ### Использование VMAccess для управления учетными записями пользователей в Linux
-
 VMAccess — это сценарий Python, который можно применять для управления пользователями в виртуальной машине Linux, не выполняя вход и не используя учетную запись sudo или root.
 
 Чтобы создать пользователя, используйте следующий сценарий VMAccess:
@@ -206,7 +191,6 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ### Использование VMAccess для сброса конфигурации SSHD
-
 Если вы внесли изменения в конфигурацию SSHD для виртуальных машин Linux и закрыли подключение SSH, не проверив изменения, то последующий вход по SSH может оказаться невозможным. VMAccess можно использовать для сброса конфигурации SSHD в известное исправное состояние, не выполняя вход с помощью SSH.
 
 Чтобы сбросить конфигурацию SSHD, используйте следующий сценарий VMAccess:
@@ -228,7 +212,6 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 ```
 
 ## Дальнейшие действия
-
 Обновление Linux с помощью расширения Azure VMAccess — это один из методов внесения изменений на работающей виртуальной машине Linux. Для изменения виртуальной машины Linux при загрузке также можно использовать инструменты, такие как cloud-init или шаблоны Azure.
 
 [Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md)

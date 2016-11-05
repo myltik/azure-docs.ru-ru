@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Импорт данных в студию машинного обучения из локального файла | Microsoft Azure"
-	description="В статье описывается импорт обучающих данных в студию машинного обучения Azure из локального файла."
-	keywords="импорт данных, формат данных, типы данных, источники данных, обучающие данные"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Импорт данных в студию машинного обучения из локального файла | Microsoft Docs
+description: В статье описывается импорт обучающих данных в студию машинного обучения Azure из локального файла.
+keywords: импорт данных, формат данных, типы данных, источники данных, обучающие данные
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # Импорт обучающих данных в студию машинного обучения Azure из локального файла.
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Чтобы использовать данные в Студии машинного обучения Microsoft Azure, можно заблаговременно передать файл данных с локального жесткого диска, чтобы создать модуль набора данных в рабочей области.
 
-
 ## Импорт данных из локального файла
-
 Данные можно импортировать с локального жесткого диска, выполнив такие действия:
 
 1. В Студии машинного обучения щелкните **+СОЗДАТЬ** внизу окна.

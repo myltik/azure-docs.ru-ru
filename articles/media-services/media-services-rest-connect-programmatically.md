@@ -1,28 +1,27 @@
-<properties 
-    pageTitle="Подключение к учетной записи служб мультимедиа с помощью REST API | Microsoft Azure" 
-    description="В этом разделе показано, как подключиться к службам мультимедиа с помощью REST API." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Подключение к учетной записи служб мультимедиа с помощью REST API | Microsoft Docs
+description: В этом разделе показано, как подключиться к службам мультимедиа с помощью REST API.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="09/26/2016"  
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
+---
 # <a name="connecting-to-media-services-account-using-media-services-rest-api"></a>Подключение к учетной записи служб мультимедиа с помощью REST API служб мультимедиа
-
-> [AZURE.SELECTOR]
-- [.NET](media-services-dotnet-connect-programmatically.md)
-- [REST](media-services-rest-connect-programmatically.md)
+> [!div class="op_single_selector"]
+> * [.NET](media-services-dotnet-connect-programmatically.md)
+> * [REST](media-services-rest-connect-programmatically.md)
+> 
+> 
 
 В этом разделе описывается установка программного подключения к службам мультимедиа Microsoft Azure при программировании с помощью REST API служб мультимедиа.
 
@@ -32,25 +31,25 @@
 
 1. Получение маркера доступа 
 2. Подключение к универсальному коду ресурса служб мультимедиа 
-
-    >[AZURE.NOTE] После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
-Кроме того, вы можете получить ответ 200 HTTP/1.1, содержащий описание метаданных API ODATA.
-
+   
+   > [!NOTE]
+   > После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
+   > Кроме того, вы можете получить ответ 200 HTTP/1.1, содержащий описание метаданных API ODATA.
+   > 
+   > 
 3. Последующие вызовы API будут отправляться на новый URL-адрес. 
-
+   
     Например, если после попытки подключения вы получите следующее:
-
+   
         HTTP/1.1 301 Moved Permanently
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
-
+   
     Отправляйте последующие вызовы API на адрес https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-##<a name="access-control-address"></a>Адрес контроля доступа
-
+## <a name="access-control-address"></a>Адрес контроля доступа
 Адрес для контроля доступа к службам мультимедиа: https://wamsprodglobal001acs.accesscontrol.windows.net. Для северного Китая используется другой адрес: https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
 
-##<a name="getting-an-access-token"></a>Получение маркера доступа
-
+## <a name="getting-an-access-token"></a>Получение маркера доступа
 Для прямого доступа к службам мультимедиа с помощью REST API необходимо получить маркер доступа из ACS и использовать его при каждом HTTP-запросе, отправляемом в службу. Этот маркер похож на другие маркеры, предоставляемые ACS на основе утверждений доступа в заголовке HTTP-запроса и использующие протокол OAuth версии 2. Для непосредственного подключения к службам мультимедиа не нужно выполнять другие предварительные требования.
 
 В следующем примере показан заголовок и текст HTTP-запроса, используемого для получения маркера.
@@ -65,7 +64,7 @@
     Connection: Keep-Alive
     Accept: application/json
 
-    
+
 **Текст**:
 
 В тексте этого запроса следует указать значения client_id и client_secret. Эти значения соответствуют значениям AccountName и AccountKey соответственно. Они предоставляются службами мультимедиа при настройке учетной записи. 
@@ -92,22 +91,23 @@
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Thu, 15 Jan 2015 08:07:20 GMT
     Content-Length: 670
-    
+
     {  
        "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
        "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
        "expires_in":"21600",
        "scope":"urn:WindowsAzureMediaServices"
     }
-    
 
->[AZURE.NOTE]
-Мы советуем кэшировать значения access_token и expires_in во внешнее хранилище. Позже данные маркера можно извлечь из хранилища и повторно использовать в вызовах REST API служб мультимедиа. Это особенно удобно в сценариях, в которых маркер может безопасно использоваться несколькими процессами или компьютерами.
+
+> [!NOTE]
+> Мы советуем кэшировать значения access_token и expires_in во внешнее хранилище. Позже данные маркера можно извлечь из хранилища и повторно использовать в вызовах REST API служб мультимедиа. Это особенно удобно в сценариях, в которых маркер может безопасно использоваться несколькими процессами или компьютерами.
+> 
+> 
 
 Обязательно следите за значением expires_in маркера доступа и при необходимости обновляйте вызовы REST API новыми маркерами.
 
-###<a name="connecting-to-the-media-services-uri"></a>Подключение к универсальному коду ресурса служб мультимедиа
-
+### <a name="connecting-to-the-media-services-uri"></a>Подключение к универсальному коду ресурса служб мультимедиа
 Корневой URI для служб мультимедиа — это https://media.windows.net/. Изначально необходимо подключиться к этому URI, а если вы получите ответ 301 (перенаправление), следует использовать для последующих вызовов новый URI. Кроме того, не используйте в запросах логику автоматического перенаправления или следования. HTTP-команды и тексты запросов не будут перенаправляться на новый URI.
 
 Обратите внимание, что корневой URI для передачи и скачивания файлов ресурсов — https://имя_учетной_записи_хранения.blob.core.windows.net/, где имя_учетной_записи_хранения — это имя, использованное при настройке учетной записи служб мультимедиа.
@@ -115,7 +115,7 @@
 В следующем примере показан HTTP-запрос к корневому URI служб мультимедиа (https://media.windows.net/). При выполнении запроса возвращается код ошибки 301 (перенаправление). Следующий запрос использует новый URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **HTTP-запрос**:
-    
+
     GET https://media.windows.net/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
     x-ms-version: 2.11
@@ -124,7 +124,7 @@
 
 
 **HTTP-ответ**:
-    
+
     HTTP/1.1 301 Moved Permanently
     Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
     Server: Microsoft-IIS/8.5
@@ -134,14 +134,14 @@
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Sat, 17 Jan 2015 07:44:53 GMT
     Content-Length: 164
-    
+
     <html><head><title>Object moved</title></head><body>
     <h2>Object moved to <a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
     </body></html>
 
 
 **HTTP-запрос** (с использованием нового URI):
-            
+
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
     x-ms-version: 2.11
@@ -150,7 +150,7 @@
 
 
 **HTTP-ответ**:
-    
+
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 1250
@@ -163,23 +163,21 @@
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Sat, 17 Jan 2015 07:44:52 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
-     
 
 
->[AZURE.NOTE] После получения нового универсального кода ресурса именно этот новый код нужно использовать для взаимодействия со службами мультимедиа. 
 
+> [!NOTE]
+> После получения нового универсального кода ресурса именно этот новый код нужно использовать для взаимодействия со службами мультимедиа. 
+> 
+> 
 
-##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Отзывы
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Отзывы
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

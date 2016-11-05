@@ -1,50 +1,45 @@
-<properties 
-	pageTitle="Основные сведения о службе Stream Analytics и журналах операций | Microsoft Azure" 
-	description="Порядок работы с журналами операций Stream Analytics" 
-	keywords="журналы служб"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Основные сведения о службе Stream Analytics и журналах операций | Microsoft Docs
+description: Порядок работы с журналами операций Stream Analytics
+keywords: журналы служб
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="09/26/2016" 
-	ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
+---
 # Основные сведения о службе Stream Analytics и журналах операций
-
 Все службы Azure предоставляют пользователям сообщения операционного журнала для записи данных, связанных с операциями управления. В службе Azure Stream Analytics эти данные можно использовать в целях отладки, например для просмотра состояния задания, хода его выполнения и сообщений об ошибках, а также для отслеживания хода выполнения задания с течением времени, от запуска до обработки и получения выходных данных.
 
 ## Поиск журналов операций на портале управления Azure
-
 Доступ к журналам операций можно получить одним из двух способов.
 
-- Панель мониторинга задания Stream Analytics
-- Службы управления на классическом портале Azure
+* Панель мониторинга задания Stream Analytics
+* Службы управления на классическом портале Azure
 
 ## Панель мониторинга задания Stream Analytics
-
 Ссылка на соответствующие журналы задания Stream Analytics отображается на вкладке панели мониторинга задания. При переходе по этой ссылке фильтры настраиваются на отображение последних журналов соответствующего задания.
 
   ![Выбор журналов служб управления](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)
 
 ## Службы управления
-
 Чтобы перейти к журналам операций Stream Analytics и других служб на классическом портале Azure, выполните следующие действия:
 
-1.	На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Службы управления**.
-2.	Выберите значение **Stream Analytics** в поле **Тип** и имя задания а поле **Имя службы**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Службы управления**.
+2. Выберите значение **Stream Analytics** в поле **Тип** и имя задания а поле **Имя службы**.
+   
+   ![Выбор Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
-  ![Выбор Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
-
-## Поиск журналов аудита на портале Azure ##
-
+## Поиск журналов аудита на портале Azure
 Чтобы найти на портале Azure журналы операций для задания Stream Analytics, щелкните **Обзор** и выберите **Журналы аудита**.
 
   ![Выбор Stream Analytics на портале Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
@@ -54,7 +49,6 @@
   ![Выбор Stream Analytics на портале Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
 ## Получение подробных сведений журнала
-
 Для просмотра журналов задания можно использовать фильтры "Диапазон времени" и "Состояние".
 
 На портале управления Azure нажмите кнопку **Сведения** в нижней части окна, чтобы увидеть дополнительные сведения о выбранном событии.
@@ -70,7 +64,6 @@
   ![Выбор подробных сведений на портале Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
 
 ## Отладка невыполненного задания
-
 На портале управления Azure нажмите значок поиска и введите "failed". Это позволит получить все журналы с ошибками.
 
   ![Отладка задания с ошибкой](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
@@ -89,11 +82,10 @@
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
-
-- [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-- [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
-- [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
+* [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
+* [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!---HONumber=AcomDC_0928_2016-->

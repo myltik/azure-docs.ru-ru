@@ -1,25 +1,23 @@
-<properties
-    pageTitle="Создание и передача пользовательского образа Linux | Microsoft Azure"
-    description="Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux, использующим модель развертывания с помощью Resource Manager."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="iainfoulds"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager"/>
+---
+title: Создание и передача пользовательского образа Linux | Microsoft Docs
+description: Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux, использующим модель развертывания с помощью Resource Manager.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: iainfou
 
-
+---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image"></a>Передача пользовательского образа диска и создание виртуальной машины Linux на его основе
-
 В этой статье показано, как передать виртуальный жесткий диск (VHD-файл) в Azure с использованием модели развертывания с помощью Resource Manager и создавать на его основе виртуальные машины Linux. Эта функциональная возможность позволяет установить и настроить дистрибутив Linux в соответствии с требованиями, а затем использовать этот VHD для быстрого создания виртуальных машин Azure.
 
 ## <a name="quick-commands"></a>Быстрые команды
@@ -78,15 +76,18 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
 ## <a name="requirements"></a>Требования
 Чтобы выполнить приведенные ниже действия, требуется:
 
-- **Операционная система Linux, установленная в VHD-файле**. Установите [рекомендуемый для Azure дистрибутив Linux](virtual-machines-linux-endorsed-distros.md) (или см. [сведения о нерекомендованных дистрибутивах](virtual-machines-linux-create-upload-generic.md)) на виртуальный диск в формате VHD. Для создания VHD-файлов существует несколько средств.
-    - Установите и настройте [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) или [KVM](http://www.linux-kvm.org/page/RunningKVM), используя VHD в качестве формата образа. При необходимости вы можете [преобразовать образ](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) с помощью `qemu-img convert`.
-    - Кроме того, можно использовать Hyper-V [в Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) или [Windows Server 2012 и 2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+* **Операционная система Linux, установленная в VHD-файле**. Установите [рекомендуемый для Azure дистрибутив Linux](virtual-machines-linux-endorsed-distros.md) (или см. [сведения о нерекомендованных дистрибутивах](virtual-machines-linux-create-upload-generic.md)) на виртуальный диск в формате VHD. Для создания VHD-файлов существует несколько средств.
+  * Установите и настройте [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) или [KVM](http://www.linux-kvm.org/page/RunningKVM), используя VHD в качестве формата образа. При необходимости вы можете [преобразовать образ](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) с помощью `qemu-img convert`.
+  * Кроме того, можно использовать Hyper-V [в Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) или [Windows Server 2012 и 2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. При создании виртуальной машины укажите формат VHD. При необходимости можно преобразовать диски VHDX в диски VHD с помощью командлета PowerShell [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) или [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). Кроме того, Azure не поддерживает отправку динамических дисков VHD, поэтому перед отправкой необходимо преобразовать такие диски в статические диски VHD. Для преобразования динамических дисков во время передачи в Azure можно использовать [служебные программы Azure VHD для GO](https://github.com/Microsoft/azure-vhd-utils-for-go) .
+> [!NOTE]
+> Более новый формат VHDX не поддерживается в Azure. При создании виртуальной машины укажите формат VHD. При необходимости можно преобразовать диски VHDX в диски VHD с помощью командлета PowerShell [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) или [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). Кроме того, Azure не поддерживает отправку динамических дисков VHD, поэтому перед отправкой необходимо преобразовать такие диски в статические диски VHD. Для преобразования динамических дисков во время передачи в Azure можно использовать [служебные программы Azure VHD для GO](https://github.com/Microsoft/azure-vhd-utils-for-go) .
+> 
+> 
 
-- Виртуальные машины, созданные на основе пользовательского образа, должны находиться в той же учетной записи хранения, что и образ.
-    - Создайте учетную запись хранения и контейнер для хранения пользовательского образа и созданных виртуальных машин.
-    - После создания всех виртуальных машин можно спокойно удалить образ.
+* Виртуальные машины, созданные на основе пользовательского образа, должны находиться в той же учетной записи хранения, что и образ.
+  * Создайте учетную запись хранения и контейнер для хранения пользовательского образа и созданных виртуальных машин.
+  * После создания всех виртуальных машин можно спокойно удалить образ.
 
 Войдите в [интерфейс командной строки Azure](../xplat-cli-install.md) и перейдите в режим Resource Manager:
 
@@ -96,24 +97,25 @@ azure config mode arm
 
 В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `myimages`.
 
-
 <a id="prepimage"> </a>
-## <a name="prepare-the-image-to-be-uploaded"></a>подготовка образа для передачи
 
+## <a name="prepare-the-image-to-be-uploaded"></a>подготовка образа для передачи
 Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure.
 
-- **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-centos.md)**
-- **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-- **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-- **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES и OpenSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-- **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
-- **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-generic.md)**
+* **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-centos.md)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
+* **[SLES и OpenSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+* **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-generic.md)**
 
 Другие общие советы по подготовке образов Linux для Azure см. в разделе **[Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)**.
 
-> [AZURE.NOTE] [Соглашение об уровне обслуживания платформы Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) применяется к виртуальным машинам, работающим под управлением Linux, только в том случае, если используется один из рекомендуемых дистрибутивов из раздела "Поддерживаемые версии" статьи [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md) с заданными параметрами конфигурации.
-
+> [!NOTE]
+> [Соглашение об уровне обслуживания платформы Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) применяется к виртуальным машинам, работающим под управлением Linux, только в том случае, если используется один из рекомендуемых дистрибутивов из раздела "Поддерживаемые версии" статьи [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md) с заданными параметрами конфигурации.
+> 
+> 
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 Группы ресурсов логически объединяют все ресурсы Azure для обеспечения работы виртуальных машин, в том числе виртуальные сети и хранилища. Узнайте больше о группах ресурсов Azure [здесь](../resource-group-overview.md). Перед отправкой пользовательского образа и созданием виртуальных машин необходимо создать группу ресурсов. 
@@ -180,7 +182,6 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
 ## <a name="create-vm-from-custom-image"></a>Создание виртуальной машины на основе пользовательского образа
 При создании виртуальных машин из пользовательского образа диска следует указать универсальный код ресурса (URI) этого образа диска. Убедитесь, что целевая учетная запись хранения соответствует расположению, в котором хранится ваш пользовательский образ диска. Можно создать виртуальную машину с помощью Azure CLI или шаблона Resource Manager в формате JSON.
 
-
 ### <a name="create-a-vm-using-the-azure-cli"></a>Создание виртуальной машины с помощью Azure CLI
 Используйте параметр `--image-urn` в команде `azure vm create`, чтобы указать свой пользовательский образ. Убедитесь, что `--storage-account-name` соответствует учетной записи хранения, в которой находится пользовательский образ диска. Нет необходимости использовать контейнер, в котором расположен пользовательский образа, для хранения виртуальных машин. Вы можете создать любые дополнительные контейнеры так же, как перед передачей пользовательских образов дисков.
 
@@ -234,7 +235,6 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Дальнейшие действия
 После подготовки и передачи пользовательского виртуального диска ознакомьтесь с дополнительными сведениями об [использовании Resource Manager и шаблонов](../resource-group-overview.md). Возможно, вам также потребуется [добавить диск данных](virtual-machines-linux-add-disk.md) для новых виртуальных машин. Если на виртуальных машинах запущены приложения, к которым необходим доступ, [откройте порты и конечные точки](virtual-machines-linux-nsg-quickstart.md).
-
 
 <!--HONumber=Oct16_HO2-->
 

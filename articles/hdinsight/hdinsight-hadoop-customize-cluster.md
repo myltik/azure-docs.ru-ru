@@ -1,41 +1,42 @@
-<properties
-	pageTitle="Настройка кластеров HDInsight с помощью действий скрипта | Microsoft Azure"
-	description="Дополнительные сведения о настройке кластеров HDInsight с помощью действия скрипта."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="jhubbard"
-	editor="cgronlun"
-	tags="azure-portal"/>
+---
+title: Настройка кластеров HDInsight с помощью действий скрипта | Microsoft Docs
+description: Дополнительные сведения о настройке кластеров HDInsight с помощью действия скрипта.
+services: hdinsight
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
 
-<tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="nitinme"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: nitinme
 
+---
 # Настройка кластеров HDInsight под управлением Windows с помощью действия сценария
-
 С помощью **действий сценария** можно вызывать [пользовательские сценарии](hdinsight-hadoop-script-actions.md) во время создания кластера для установки в нем дополнительного программного обеспечения.
 
 Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Windows. О кластерах под управлением Linux читайте в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 Кластеры HDInsight можно настраивать множеством других способов, например включая дополнительные учетные записи хранения Azure, изменяя файлы конфигурации Hadoop (core-site.xml, hive-site.xml и т. д.) или добавляя общие библиотеки (например, Hive, Oozie) в стандартные расположения в кластере. Эти настройки можно внести с помощью Azure PowerShell, пакета SDK для Azure для HDInsight .NET или на портале Azure. Дополнительные сведения см. в статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster].
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## Действие сценария в процессе создания кластера
-
 Действие сценария используется только в том случае, когда кластеры находятся в процессе создания. На следующей схеме показано, когда выполняется действие сценария в процессе создания.
 
 ![Настройка кластера HDInsight и этапы создания кластера][img-hdi-cluster-states]
 
 При выполнении сценария кластер переходит к этапу **ClusterCustomization**. На этой стадии скрипт выполняется под учетной записью администратора системы, параллельно на всех указанных узлах в кластере и предоставляет права администратора на узлах в полном объеме.
 
-> [AZURE.NOTE] Так как у вас есть права администратора в узлах кластера на этапе **ClusterCustomization**, вы можете использовать сценарий для выполнения таких операций, как остановка и запуск служб, в том числе служб, связанных с Hadoop. Таким образом, перед завершением работы сценария необходимо запустить службы Ambari и другие службы, связанные с Hadoop. Эти службы нужны для определения работоспособности и состояния кластера при его создании. При изменении любых настроек в кластере, затрагивающих эти службы, необходимо использовать указанные вспомогательные функции. Подробнее о вспомогательных функциях см. в статье [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script].
+> [!NOTE]
+> Так как у вас есть права администратора в узлах кластера на этапе **ClusterCustomization**, вы можете использовать сценарий для выполнения таких операций, как остановка и запуск служб, в том числе служб, связанных с Hadoop. Таким образом, перед завершением работы сценария необходимо запустить службы Ambari и другие службы, связанные с Hadoop. Эти службы нужны для определения работоспособности и состояния кластера при его создании. При изменении любых настроек в кластере, затрагивающих эти службы, необходимо использовать указанные вспомогательные функции. Подробнее о вспомогательных функциях см. в статье [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script].
+> 
+> 
 
 Выходные данные и журналы ошибок сценария хранятся в учетной записи хранения, заданной по умолчанию для кластера. Журналы хранятся в таблице с именем **u<\\cluster-name-fragment><\\time-stamp>setuplog**. Это сводные журналы сценария, выполняемого на всех узлах (на головном и рабочих) в кластере.
 
@@ -43,146 +44,139 @@
 
 HDInsight предоставляет несколько скриптов для установки следующих компонентов в кластерах HDInsight:
 
-Имя | Скрипт
------ | -----
-**Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
-**Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r].
-**Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
-| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Ознакомьтесь со статьей [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
-
+| Имя | Скрипт |
+| --- | --- |
+| **Установка Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]. |
+| **Установка R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r]. |
+| **Установка Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). |
+| — **Установка Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). |
+| **Предварительная загрузка библиотек Hive** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Ознакомьтесь со статьей [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## Вызов сценариев с помощью портала Azure
-
 **На портале Azure**
 
 1. Начните создание кластера, как описано в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md#portal).
 2. В разделе «Необязательная конфигурация» в колонке **Действия сценария** щелкните **Добавить действие сценария**, чтобы указать сведения об этом действии сценария:
-
-	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Использование действия сценария для настройки кластера")
-
-	<table border='1'>
-		<tr><th>Свойство</th><th>Значение</th></tr>
-		<tr><td>Имя</td>
-			<td>Укажите имя для действия сценария.</td></tr>
-		<tr><td>URI-адрес сценария</td>
-			<td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
-		<tr><td>Головной/рабочий</td>
-			<td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется сценарий настройки.</b>
-		<tr><td>Параметры</td>
-			<td>Укажите параметры, если они требуются для сценария.</td></tr>
-	</table>
-
-	Нажмите клавишу ВВОД, чтобы добавить несколько действий сценария для установки нескольких компонентов в кластере.
-
+   
+    ![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Использование действия сценария для настройки кластера")
+   
+    <table border='1'>
+        <tr><th>Свойство</th><th>Значение</th></tr>
+        <tr><td>Имя</td>
+            <td>Укажите имя для действия сценария.</td></tr>
+        <tr><td>URI-адрес сценария</td>
+            <td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
+        <tr><td>Головной/рабочий</td>
+            <td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется сценарий настройки.</b>
+        <tr><td>Параметры</td>
+            <td>Укажите параметры, если они требуются для сценария.</td></tr>
+    </table>
+   
+    Нажмите клавишу ВВОД, чтобы добавить несколько действий сценария для установки нескольких компонентов в кластере.
 3. Щелкните **Выбрать**, чтобы сохранить конфигурацию действия сценария и продолжить создание кластера.
 
 ## Вызов сценариев с помощью Azure PowerShell
-
 Этот сценарий PowerShell показывает, как установить Spark в кластере HDInsight под управлением Windows.
 
-	# Provide values for these variables
-	$subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    # Provide values for these variables
+    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
-	$nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
-	$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-	
-	$resourceGroupName = $namePrefix + "rg"
-	$location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
-	
-	$hdinsightClusterName = $namePrefix + "spark"
-	$httpUserName = "admin"
-	$httpPassword = "<Enter a Password>"
-	
-	$defaultStorageAccountName = "$namePrefix" + "store"
-	$defaultBlobContainerName = $hdinsightClusterName
-	
-	#############################################################
-	# Connect to Azure
-	#############################################################
-	
-	Try{
-		Get-AzureRmSubscription
-	}
-	Catch{
-		Login-AzureRmAccount
-	}
-	Select-AzureRmSubscription -SubscriptionId $subscriptionID
-	
-	#############################################################
-	# Prepare the dependent components
-	#############################################################
-	
-	# Create resource group
-	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-	
-	# Create storage account
-	New-AzureRmStorageAccount `
+    $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+
+    $resourceGroupName = $namePrefix + "rg"
+    $location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
+
+    $hdinsightClusterName = $namePrefix + "spark"
+    $httpUserName = "admin"
+    $httpPassword = "<Enter a Password>"
+
+    $defaultStorageAccountName = "$namePrefix" + "store"
+    $defaultBlobContainerName = $hdinsightClusterName
+
+    #############################################################
+    # Connect to Azure
+    #############################################################
+
+    Try{
+        Get-AzureRmSubscription
+    }
+    Catch{
+        Login-AzureRmAccount
+    }
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
+
+    #############################################################
+    # Prepare the dependent components
+    #############################################################
+
+    # Create resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create storage account
+    New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_GRS
-	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
-	$defaultStorageAccountContext = New-AzureStorageContext `
+    $defaultStorageAccountContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $storageAccountKey  
-	New-AzureStorageContainer `
+    New-AzureStorageContainer `
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext
-	
-	#############################################################
-	# Create cluster with ApacheSpark
-	#############################################################
-	
-	# Specify the configuration options
-	$config = New-AzureRmHDInsightClusterConfig `
-				-DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-				-DefaultStorageAccountKey $defaultStorageAccountKey 
-				
-	
-	# Add a script action to the cluster configuration
-	$config = Add-AzureRmHDInsightScriptAction `
-				-Config $config `
-				-Name "Install Spark" `
-				-NodeType HeadNode `
-				-Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
-	
-	# Start creating a cluster with Spark installed
-	New-AzureRmHDInsightCluster `
-			-ResourceGroupName $resourceGroupName `
-			-ClusterName $hdinsightClusterName `
-			-Location $location `
-			-ClusterSizeInNodes 2 `
-			-ClusterType Hadoop `
-			-OSType Windows `
-			-DefaultStorageContainer $defaultBlobContainerName `
-			-Config $config
+
+    #############################################################
+    # Create cluster with ApacheSpark
+    #############################################################
+
+    # Specify the configuration options
+    $config = New-AzureRmHDInsightClusterConfig `
+                -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+                -DefaultStorageAccountKey $defaultStorageAccountKey 
+
+
+    # Add a script action to the cluster configuration
+    $config = Add-AzureRmHDInsightScriptAction `
+                -Config $config `
+                -Name "Install Spark" `
+                -NodeType HeadNode `
+                -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
+
+    # Start creating a cluster with Spark installed
+    New-AzureRmHDInsightCluster `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $hdinsightClusterName `
+            -Location $location `
+            -ClusterSizeInNodes 2 `
+            -ClusterType Hadoop `
+            -OSType Windows `
+            -DefaultStorageContainer $defaultBlobContainerName `
+            -Config $config
 
 
 Чтобы установить другое программное обеспечение, необходимо заменить файл скрипта в сценарии:
 
-
 При появлении запроса введите учетные данные для кластера. Создание кластера может занять несколько минут.
 
-## Вызов сценариев с помощью пакета SDK для .NET 
-
+## Вызов сценариев с помощью пакета SDK для .NET
 В следующем примере показано, как установить Spark на кластер HDInsight под управлением Windows. Чтобы установить другое программное обеспечение, необходимо заменить файл скрипта в коде.
 
 **Создание кластера HDInsight с использованием Spark**
 
 1. Создайте в Visual Studio консольное приложение C#.
 2. Введите следующую команду в окне консоли диспетчера пакетов NuGet.
-
-		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+   
+        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-
-2. Используйте следующие инструкции using в файле Program.cs:
-
-		using System;
-		using System.Security;
+3. Используйте следующие инструкции using в файле Program.cs:
+   
+        using System;
+        using System.Security;
         using Microsoft.Azure;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
@@ -190,11 +184,10 @@ HDInsight предоставляет несколько скриптов для 
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-
-3. Замените существующий код в файле класса следующим:
-
+4. Замените существующий код в файле класса следующим:
+   
         private static HDInsightManagementClient _hdiManagementClient;
-
+   
         // Replace with your AAD tenant ID if necessary
         private const string TenantId = UserTokenProvider.CommonTenantId; 
         private const string SubscriptionId = "<Your Azure Subscription ID>";
@@ -212,21 +205,21 @@ HDInsight предоставляет несколько скриптов для 
         private const OSType NewClusterOSType = OSType.Windows;
         private const string NewClusterUsername = "<HttpUserName>";
         private const string NewClusterPassword = "<HttpUserPassword>";
-
+   
         static void Main(string[] args)
         {
             System.Console.WriteLine("Running");
-
+   
             // Authenticate and get a token
             var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
             // Flag subscription for HDInsight, if it isn't already.
             EnableHDInsight(authToken);
             // Get an HDInsight management client
             _hdiManagementClient = new HDInsightManagementClient(authToken);
-
+   
             CreateCluster();
         }
-
+   
         private static void CreateCluster()
         {
             var parameters = new ClusterCreateParameters
@@ -236,24 +229,24 @@ HDInsight предоставляет несколько скриптов для 
                 ClusterType = NewClusterType,
                 OSType = NewClusterOSType,
                 Version = NewClusterVersion,
-
+   
                 DefaultStorageAccountName = ExistingStorageName,
                 DefaultStorageAccountKey = ExistingStorageKey,
                 DefaultStorageContainer = ExistingContainer,
-
+   
                 UserName = NewClusterUsername,
                 Password = NewClusterPassword,
             };
-
+   
             ScriptAction sparkScriptAction = new ScriptAction("Install Spark",
                 new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1"), "");
-
+   
             parameters.ScriptActions.Add(ClusterNodeType.HeadNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
             parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
-
+   
             _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
         }
-
+   
         /// <summary>
         /// Authenticate to an Azure subscription and retrieve an authentication token
         /// </summary>
@@ -285,24 +278,24 @@ HDInsight предоставляет несколько скриптов для 
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
-
-
-4. Нажмите клавишу **F5** для запуска приложения.
-
+5. Нажмите клавишу **F5** для запуска приложения.
 
 ## Поддержка программного обеспечения с открытым исходным кодом, используемого в кластере HDInsight
 Служба Microsoft Azure HDInsight — это гибкая платформа, которая позволяет создавать приложения для работы с данными большого размера в облаке, используя сформированную вокруг Hadoop экосистему технологий с открытым исходным кодом. Microsoft Azure предоставляет общий уровень поддержки для технологий с открытым исходным кодом, как описано в разделе **Объем поддержки** на <a href="http://azure.microsoft.com/support/faq/" target="_blank">веб-сайте часто задаваемых вопросов о поддержке Azure</a>. Служба HDInsight предоставляет дополнительный уровень поддержки для некоторых описанных ниже компонентов.
 
 В службе HDInsight доступно два типа компонентов с открытым исходным кодом.
 
-- **Встроенные компоненты**. Эти компоненты предварительно установлены в кластерах HDInsight и предоставляют его базовые функциональные возможности. Например, к этой категории относится диспетчер ресурсов YARN, язык запросов Hive (HiveQL) и библиотека Mahout. Полный список компонентов кластера приведен в статье [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight](hdinsight-component-versioning.md)</a>.
-- **Настраиваемые компоненты**. Как пользователь кластера вы можете установить или использовать в рабочей нагрузке любой компонент, полученный из сообщества или созданный самостоятельно.
+* **Встроенные компоненты**. Эти компоненты предварительно установлены в кластерах HDInsight и предоставляют его базовые функциональные возможности. Например, к этой категории относится диспетчер ресурсов YARN, язык запросов Hive (HiveQL) и библиотека Mahout. Полный список компонентов кластера приведен в статье [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight](hdinsight-component-versioning.md)</a>.
+* **Настраиваемые компоненты**. Как пользователь кластера вы можете установить или использовать в рабочей нагрузке любой компонент, полученный из сообщества или созданный самостоятельно.
 
 Встроенные компоненты полностью поддерживаются, и служба поддержки корпорации Майкрософт поможет выявить и устранить проблемы, связанные с этими компонентами.
 
-> [AZURE.WARNING] Компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
->
+> [!WARNING]
+> Компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
+> 
 > Настраиваемые компоненты получают ограниченную коммерчески оправданную поддержку, способствующую дальнейшей диагностике проблемы. В результате проблема может быть устранена, либо вас могут попросить воспользоваться доступными каналами по технологиям с открытым исходным кодом, чтобы связаться с экспертами в данной области. Можно использовать ряд сайтов сообществ, например [форум MSDN по HDInsight](https://social.msdn.microsoft.com/Forums/azure/ru-RU/home?forum=hdinsight) и [http://stackoverflow.com](http://stackoverflow.com). Кроме того, для проектов Apache есть соответствующие сайты по адресу [http://apache.org](http://apache.org), например для [Hadoop](http://hadoop.apache.org/) и [Spark](http://spark.apache.org/).
+> 
+> 
 
 Служба HDInsight позволяет использовать настраиваемые компоненты несколькими разными способами. Уровень поддержки не зависит от того, как компонент используется или устанавливается в кластере. Ниже приведен список самых распространенных способов использования настраиваемых компонентов в кластерах HDInsight.
 
@@ -311,18 +304,15 @@ HDInsight предоставляет несколько скриптов для 
 3. Примеры. Для популярных настраиваемых компонентов корпорация Майкрософт и другие компании могут предоставлять примеры использования таких компонентов в кластерах HDInsight. Эти примеры представляются без поддержки.
 
 ## Разработка скрипта действия сценария
-
 См. статью [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script].
 
-
 ## Дополнительные материалы
-
-- В статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
-- [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
-- [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
-- [Установка и использование R в кластерах HDInsight][hdinsight-install-r]
-- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+* В статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
+* [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
+* [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
+* [Установка и использование R в кластерах HDInsight][hdinsight-install-r]
+* [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
+* [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md

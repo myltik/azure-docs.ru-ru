@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Выборка данных в таблицах Azure HDInsight Hive | Microsoft Azure"
-    description="Уменьшение выборки данных в таблицах Hive Azure HDInsight (Hadopop)"
-    services="machine-learning,hdinsight"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"  />
+---
+title: Выборка данных в таблицах Azure HDInsight Hive | Microsoft Docs
+description: Уменьшение выборки данных в таблицах Hive Azure HDInsight (Hadopop)
+services: machine-learning,hdinsight
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="hangzh;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: hangzh;bradsev
 
-
+---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Выборка данных в таблицах Azure HDInsight Hive
-
 В этой статье мы опишем, как уменьшить размер выборки данных, хранящихся в таблицах Azure HDInsight Hive, с помощью запросов Hive. Мы охватим три распространенных метода выборки:
 
 * Универсальная случайная выборка
@@ -30,10 +28,9 @@
 
 **Меню** ниже содержит ссылки на разделы, описывающие выборку данных из различных сред хранения.
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+[!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 Эта задача выборки является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-
 
 ## <a name="how-to-submit-hive-queries"></a>Отправка запросов Hive
 Запросы Hive можно отправлять из окна командной строки Hadoop на головном узле кластера Hadoop. Для этого войдите в головной узел кластера Hadoop, откройте окно командной строки Hadoop и отправьте оттуда запросы Hive. Инструкции по отправке запросов Hive в консоли командной строки Hadoop см. в статье [Отправка запросов Hive](machine-learning-data-science-move-hive-tables.md#submit).
@@ -57,7 +54,6 @@
 Здесь `<sample rate, 0-1>` указывает долю записей, которые пользователи желают включить в выборку.
 
 ## <a name="<a-name="group"></a>-random-sampling-by-groups"></a><a name="group"></a> Случайная выборка по группам
-
 При выборке данных о категориях может быть необходимо либо включить, либо исключить все экземпляры определенного значения переменной категории. Это называется "выборкой по группам".
 Например, если имеется переменная категории "Штат" со значениями NY, MA, CA, NJ, PA и т. д., необходимо, чтобы записи одного и того же штата всегда были вместе, независимо от их включения в выборку.
 
@@ -88,7 +84,6 @@
     on b.catfield=c.catfield
 
 ## <a name="<a-name="stratified"></a>stratified-sampling"></a><a name="stratified"></a>Стратифицированная выборка
-
 Случайная выборка является стратифицированной по отношению к переменной категории, когда выбранные данные имеют значения этой категории, содержащиеся в такой же пропорции, как и в родительской популяции, из которой была получена выборка. Используя тот же вышеупомянутый пример, предположим, что в данных имеются субпопуляции по штатам, например для NJ имеется 100 наблюдений, для NY — 60 наблюдений, для WA — 300. Если указать коэффициент стратифицированной выборки 0,5, то в полученной выборке должно быть примерно по 50, 30 и 150 наблюдений из штатов NJ, NY и WA соответственно.
 
 Вот пример запроса:
@@ -108,8 +103,6 @@
 
 
 Сведения о дополнительных методах выборки, доступных в Hive, см. на странице [руководства по выборке](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

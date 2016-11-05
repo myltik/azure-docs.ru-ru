@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Azure"
-   description="Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных"
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Docs
+description: Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных
+services: sql-data-warehouse
+documentationcenter: ''
+author: ronortloff
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="10/31/2016" 
-   ms.author="rortloff;barbkess"/>
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
 
-
+---
 # <a name="sql-data-warehouse-downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Хранилище данных SQL. Поддержка клиентов прежних версий для аудита и динамического маскирования данных
-
 [аудита](sql-data-warehouse-auditing-overview.md) работают в клиентах SQL, которые поддерживают перенаправление TDS.
 
 Любой клиент, который реализует TDS 7.4, также должен поддерживать перенаправление. К исключениям относятся JDBC 4.0, где функция перенаправления поддерживается не полностью, и Tedious для Node.JS, где перенаправление не реализовано.
@@ -31,14 +29,12 @@
 
 Частичный список клиентов прежних версий включает:
 
-- .NET 4.0 и ниже
-- ODBC 10.0 и ниже
-- JDBC (хотя JDBC поддерживает TDS 7.4, но функция перенаправления TDS поддерживается не полностью)
-- Tedious (для Node.JS)
+* .NET 4.0 и ниже
+* ODBC 10.0 и ниже
+* JDBC (хотя JDBC поддерживает TDS 7.4, но функция перенаправления TDS поддерживается не полностью)
+* Tedious (для Node.JS)
 
 **Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).     
-
-
 
 <!--HONumber=Oct16_HO2-->
 

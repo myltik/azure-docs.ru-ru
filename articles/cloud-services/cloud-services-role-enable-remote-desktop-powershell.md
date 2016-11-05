@@ -1,35 +1,34 @@
-<properties
-pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell"
-description="Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell"
-services="cloud-services"
-documentationCenter=""
-authors="thraka"
-manager="timlt"
-editor=""/>
-<tags
-ms.service="cloud-services"
-ms.workload="tbd"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="08/05/2016"
-ms.author="adegeo"/>
+---
+title: Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
+description: Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell
+services: cloud-services
+documentationcenter: ''
+author: thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: adegeo
+
+---
 # Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
-
->[AZURE.SELECTOR]
-- [Классический портал Azure](cloud-services-role-enable-remote-desktop.md)
-- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-
+> [!div class="op_single_selector"]
+> * [Классический портал Azure](cloud-services-role-enable-remote-desktop.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> 
+> 
 
 С помощью удаленного рабочего стола обеспечивается доступ к рабочему столу экземпляра, работающего в Azure. Подключение к удаленному рабочему столу позволяет диагностировать и устранять неполадки выполняющегося приложения.
 
 В этой статье описывается включение удаленного рабочего стола для ролей облачной службы с помощью PowerShell. Сведения о компонентах, которые потребуются для выполнения инструкций в этой статье, см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). В PowerShell используется расширение удаленного рабочего стола, поэтому удаленный рабочий стол можно включить даже после развертывания приложения.
 
-
 ## Настройка удаленного рабочего стола с помощью PowerShell
-
 Командлет [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) позволяет включить удаленный рабочий стол для всех или некоторых ролей в развернутой облачной службе. Он позволяет указать имя и пароль пользователя удаленного рабочего стола с помощью параметра *Credential*, который принимает объект PSCredential.
 
 Если вы используете PowerShell в интерактивном режиме, то можете задать объект PSCredential, вызвав командлет [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
@@ -48,7 +47,10 @@ $remoteusercredentials = Get-Credential
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] При выборе пароля убедитесь, что соблюдены [требования к сложности](https://technet.microsoft.com/library/cc786468.aspx).
+> [!IMPORTANT]
+> При выборе пароля убедитесь, что соблюдены [требования к сложности](https://technet.microsoft.com/library/cc786468.aspx).
+> 
+> 
 
 Чтобы создать объект учетных данных из файла с надежным паролем, необходимо считать содержимое файла и преобразовать его обратно в защищенную строку с помощью командлета [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -67,7 +69,6 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 При необходимости вы также можете указать слот развертывания и роли, для которых необходимо включить удаленный рабочий стол. Если эти параметры не указаны, командлет по умолчанию включит использование удаленного рабочего стола для всех ролей в слоте развертывания **рабочей среды**.
 
 Расширение удаленного рабочего стола привязывается к развернутой службе. В случае создания нового развертывания службы потребуется включить использование удаленного рабочего стола для этого развертывания. Если необходимо, чтобы использование удаленного рабочего стола включалось всегда, рассмотрите возможность интеграции соответствующих сценариев PowerShell в рабочий процесс развертывания.
-
 
 ## Подключение к экземпляру роли по протоколу удаленного рабочего стола
 Командлет [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) можно использовать, чтобы добавить удаленный рабочий стол для определенного экземпляра роли облачной службы. Можно использовать параметр *LocalPath*, чтобы скачать RDP-файл на локальный компьютер. Вы можете также использовать параметр *Launch*, чтобы открыть диалоговое окно "Подключение к удаленному рабочему столу" для доступа к экземпляру роли облачной службы.
@@ -93,14 +94,14 @@ Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] Чтобы полностью удалить конфигурацию расширения, выполните командлет *remove* с параметром **UninstallConfiguration**.
->
->Параметр **UninstallConfiguration** удаляет все конфигурации расширения, примененные к службе. Каждая конфигурация расширения связана с конфигурацией службы. Вызов командлета *remove* без параметра **UninstallConfiguration** разорвет связь <mark>развертывания</mark> с конфигурацией расширения, фактически удаляя это расширение. Однако конфигурация расширения будет по-прежнему связана со службой.
-
-
+> [!NOTE]
+> Чтобы полностью удалить конфигурацию расширения, выполните командлет *remove* с параметром **UninstallConfiguration**.
+> 
+> Параметр **UninstallConfiguration** удаляет все конфигурации расширения, примененные к службе. Каждая конфигурация расширения связана с конфигурацией службы. Вызов командлета *remove* без параметра **UninstallConfiguration** разорвет связь <mark>развертывания</mark> с конфигурацией расширения, фактически удаляя это расширение. Однако конфигурация расширения будет по-прежнему связана со службой.
+> 
+> 
 
 ## дополнительные ресурсы.
-
 [Настройка облачных служб](cloud-services-how-to-configure.md)
 
 <!---HONumber=AcomDC_0810_2016-->

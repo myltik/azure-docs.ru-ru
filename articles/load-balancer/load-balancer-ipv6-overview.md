@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Общие сведения о поддержке IPv6 для Azure Load Balancer | Microsoft Azure"
-    description="Основные сведения о поддержке IPv6 для Azure Load Balancer и виртуальных машин с балансировкой нагрузки."
-    services="load-balancer"
-    documentationCenter="na"
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-    keywords="IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
-/>
-<tags
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    ms.author="sewhee"
-/>
+---
+title: Общие сведения о поддержке IPv6 для Azure Load Balancer | Microsoft Docs
+description: Основные сведения о поддержке IPv6 для Azure Load Balancer и виртуальных машин с балансировкой нагрузки.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+keywords: IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+ms.author: sewhee
 
+---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Общие сведения о поддержке IPv6 для Azure Load Balancer
-
 Балансировщики нагрузки для Интернета можно развертывать с использованием IPv6-адресов. Помимо подключения по протоколу IPv4 это дает следующие возможности:
 
 * Собственное сквозное подключение по протоколу IPv6 между клиентами общедоступного Интернета и виртуальными машинами Azure через балансировщик нагрузки.
@@ -33,7 +30,6 @@
 После развертывания Интернет-клиент с поддержкой IPv4 или IPv6 может взаимодействовать с общедоступными IPv4 или IPv6-адресами (или именами узлов) балансировщика нагрузки Azure Load Balancer для Интернета. Балансировщик нагрузки маршрутизирует пакеты IPv6 на частные IPv6-адреса виртуальных машин с помощью преобразования сетевых адресов (NAT). Интернет-клиент с поддержкой IPv6 не может напрямую взаимодействовать с IPv6-адресами виртуальных машин.
 
 ## <a name="features"></a>Функции
-
 Встроенная поддержка IPv6 для виртуальных машин, развернутых с помощью Azure Resource Manager, предоставляет следующие возможности:
 
 1. Службы IPv6 с балансировкой нагрузки для клиентов IPv6 в Интернете.
@@ -42,14 +38,12 @@
 4. Поддерживаемые протоколы, такие как TCP, UDP и HTTP(S), позволяют использовать полный спектр архитектур служб.
 
 ## <a name="benefits"></a>Преимущества
-
 Эта функциональность обеспечивает следующие ключевые преимущества:
 
 * Соответствие законодательным требованиям, согласно которым новые приложения должны быть доступны для клиентов, поддерживающих только протокол IPv6.
 * Возможность для разработчиков мобильных решений и "Интернета вещей" использовать виртуальные машины Azure с двойным стеком (IPv4+IPv6), что соответствует требованиям этих растущих рынков.
 
 ## <a name="details-and-limitations"></a>Подробные сведения и ограничения
-
 Сведения
 
 * Служба DNS Azure содержит обе записи имен IPv4 (A) и IPv6 (AAAA) и отвечает балансировщику нагрузки, используя обе записи. Клиент выбирает, с каким адресом (IPv4 или IPv6) взаимодействовать.
@@ -71,15 +65,12 @@
 * Изменение параметра IdleTimeout для IPv6 **в настоящее время не поддерживается**. Значение по умолчанию — четыре минуты.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Узнайте, как выполнять развертывание балансировщика нагрузки с IPv6.
 
 * [Availability of IPv6 by region](https://go.microsoft.com/fwlink/?linkid=828357) (Доступность IPv6 по регионам)
 * [Развертывание решения балансировки нагрузки для Интернета с поддержкой IPv6 с помощью шаблона](load-balancer-ipv6-internet-template.md)
 * [Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager](load-balancer-ipv6-internet-ps.md)
 * [Создание балансировщика нагрузки для Интернета с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI](load-balancer-ipv6-internet-cli.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

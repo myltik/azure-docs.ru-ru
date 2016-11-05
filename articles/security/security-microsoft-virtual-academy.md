@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Microsoft Virtual Academy: курсы по безопасности в Azure | Microsoft Azure"
-   description="Эта статья содержит проверенный список курсов Microsoft Virtual Academy, связанных с безопасностью Azure. Microsoft Virtual Academy предлагает бесплатное интерактивное обучение, помогающее разработчикам, ИТ-специалистам, специалистам по обработке данных и студентам узнать о новейших технологиях, усовершенствовать навыки и подняться по карьерной лестнице."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: 'Microsoft Virtual Academy: курсы по безопасности в Azure | Microsoft Docs'
+description: Эта статья содержит проверенный список курсов Microsoft Virtual Academy, связанных с безопасностью Azure. Microsoft Virtual Academy предлагает бесплатное интерактивное обучение, помогающее разработчикам, ИТ-специалистам, специалистам по обработке данных и студентам узнать о новейших технологиях, усовершенствовать навыки и подняться по карьерной лестнице.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Microsoft Virtual Academy: курсы по безопасности в Azure
-
 Microsoft Virtual Academy предлагает бесплатное интерактивное обучение, помогающее разработчикам, ИТ-специалистам, специалистам по обработке данных и студентам узнать о новейших технологиях, усовершенствовать навыки и подняться по карьерной лестнице.
 
 На этой странице приведен проверенный список курсов по безопасности Azure. Посетите [Microsoft Virtual Academy](https://mva.microsoft.com/) для просмотра всех доступных курсов.

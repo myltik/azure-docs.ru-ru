@@ -1,30 +1,30 @@
-<properties
-	pageTitle="# Настройка автоматической регистрации присоединенных к домену устройств Windows 7 | Microsoft Azure"
-	description="Пошаговая процедура настройки автоматической регистрации присоединенных к домену устройств Windows 7 в Azure AD, а также шаги по развертыванию программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
-	editor=""/>
+---
+title: '# Настройка автоматической регистрации присоединенных к домену устройств Windows 7 | Microsoft Docs'
+description: Пошаговая процедура настройки автоматической регистрации присоединенных к домену устройств Windows 7 в Azure AD, а также шаги по развертыванию программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager.
+services: active-directory
+documentationcenter: ''
+author: femila
+manager: swadhwa
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="MarkVi"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: MarkVi
 
+---
 # Настройка автоматической регистрации присоединенных к домену устройств Windows 7
-
 ИТ-администраторы могут настроить автоматическую регистрацию присоединенных к домену устройств Windows 7 с помощью Azure AD. Для этого необходимо развернуть программный пакет регистрации устройств на присоединенных к домену устройствах Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager. Обязательно прочитайте и выполните предварительные требования, приведенные в статье "Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows".
 
->[AZURE.NOTE]
- Дополнительные сведения о настройке автоматической регистрации устройств см. в статье [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
+> [!NOTE]
+> Дополнительные сведения о настройке автоматической регистрации устройств см. в статье [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
+> 
+> 
 
-##Установка программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7
-
+## Установка программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7
 Регистрация устройств для Windows 7 доступна в качестве [скачиваемого пакета MSI](https://connect.microsoft.com/site1164). Этот пакет следует установить на компьютерах под управлением Windows 7, присоединенных к домену Active Directory. Для развертывания пакета нужно использовать систему распространения программного обеспечения, например System Center Configuration Manager. Пакет MSI поддерживает параметры стандартной автоматической установки с использованием параметра /quiet. Программный пакет доступен для скачивания на [веб-сайте Microsoft Connect](https://connect.microsoft.com/site1164). Здесь вы можете выбрать инструмент присоединения к рабочей области для Windows 7 и скачать его.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
@@ -37,30 +37,30 @@
 ![](./media/active-directory-conditional-access/automatic-device-registration-windows7.png)
 
 1. Пользователь (информационный работник) входит в клиентский компьютер Windows 7, используя учетные данные домена Active Directory.
-1. Выполняется запланированная задача присоединения к рабочей области.
-1. Пользователь автоматически проходит аутентификацию с помощью AD FS и встроенной проверки подлинности Windows.
-1. Компьютер под управлением Windows 7 закрепляется за этим пользователем в Azure AD.
-1. В Azure AD создаются объект устройства и сертификат. Для обозначения объекта устройства используется формат user@device.
-1. Сертификат присоединения к рабочей области сохраняется на компьютере.
+2. Выполняется запланированная задача присоединения к рабочей области.
+3. Пользователь автоматически проходит аутентификацию с помощью AD FS и встроенной проверки подлинности Windows.
+4. Компьютер под управлением Windows 7 закрепляется за этим пользователем в Azure AD.
+5. В Azure AD создаются объект устройства и сертификат. Для обозначения объекта устройства используется формат user@device.
+6. Сертификат присоединения к рабочей области сохраняется на компьютере.
 
 ## Отмена регистрации присоединенных к домену устройств Windows 7
-
 Чтобы отменить регистрацию присоединенных к домену устройств Windows 7, выполните следующие действия. Удалите программный пакет для присоединения к рабочей области с присоединенных к домену устройств Windows 7 с помощью системы распространения ПО, например System Center Configuration Manager.
 
 Затем откройте командную строку на компьютере под управлением Windows 7 и выполните следующую команду для отмены регистрации устройства:
 
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
->[AZURE.NOTE]
-Эта команда должна выполняться в контексте каждого пользователя домена, вошедшего в установленную на компьютере систему. Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 7
+> [!NOTE]
+> Эта команда должна выполняться в контексте каждого пользователя домена, вошедшего в установленную на компьютере систему. Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 7
+> 
+> 
 
 На компьютере под управлением Windows 7 сообщения, связанные с присоединением к рабочей области, отображаются в журнале событий Windows. Здесь вы можете просмотреть все события присоединения к рабочей области, как успешные, так и завершившиеся сбоем. Журнал событий можно найти в разделе «Просмотр событий» в меню «Журналы приложений и служб» > «Microsoft — присоединение к рабочей области».
 
 ## Дополнительные разделы
-
-- [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
-- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
-- [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+* [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
+* [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
+* [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
 <!---HONumber=AcomDC_0928_2016-->

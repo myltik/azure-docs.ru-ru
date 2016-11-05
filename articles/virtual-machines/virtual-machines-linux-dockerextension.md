@@ -1,41 +1,37 @@
-<properties
-   pageTitle="Дополнительные сведения о расширении виртуальной машины Docker в Azure | Microsoft Azure"
-   description="Сведения об использовании расширения виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Дополнительные сведения о расширении виртуальной машины Docker в Azure | Microsoft Docs
+description: Сведения об использовании расширения виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="10/10/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 10/10/2016
+ms.author: iainfou
 
-
+---
 # <a name="using-the-docker-vm-extension-to-deploy-your-environment"></a>Использование расширения виртуальной машины Docker для развертывания среды
-
 Docker — это популярная платформа управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux (а также в Windows). В Azure вы можете выполнить развертывание Docker несколькими разными способами в зависимости от потребностей.
 
-- Чтобы быстро создать прототип приложения, можно [использовать драйвер Azure для Docker Machine](./virtual-machines-linux-docker-machine.md) для развертывания узлов Docker в Azure.
-- Расширение виртуальной машины Docker используется для развертывания виртуальных машин Azure на основе шаблона. Этот подход поддерживает интеграцию с развертыванием шаблонов Azure Resource Manager и предоставляет все связанные с этим преимущества, такие как доступ на основе ролей, диагностика и настройка после развертывания.
-- Расширение виртуальной машины Docker также поддерживает Docker Compose. Docker Compose использует декларативный файл YAML, позволяющий использовать смоделированное разработчиком приложение в любой среде и обеспечить согласованное развертывание.
-- Кроме того, можно [развернуть полный кластер Docker Swarm в службах контейнеров Azure](../container-service/container-service-deployment.md) , чтобы получить готовые к работе, масштабируемые развертывания, использующие дополнительные средства планирования и управления, предоставляемые Swarm.
+* Чтобы быстро создать прототип приложения, можно [использовать драйвер Azure для Docker Machine](virtual-machines-linux-docker-machine.md) для развертывания узлов Docker в Azure.
+* Расширение виртуальной машины Docker используется для развертывания виртуальных машин Azure на основе шаблона. Этот подход поддерживает интеграцию с развертыванием шаблонов Azure Resource Manager и предоставляет все связанные с этим преимущества, такие как доступ на основе ролей, диагностика и настройка после развертывания.
+* Расширение виртуальной машины Docker также поддерживает Docker Compose. Docker Compose использует декларативный файл YAML, позволяющий использовать смоделированное разработчиком приложение в любой среде и обеспечить согласованное развертывание.
+* Кроме того, можно [развернуть полный кластер Docker Swarm в службах контейнеров Azure](../container-service/container-service-deployment.md) , чтобы получить готовые к работе, масштабируемые развертывания, использующие дополнительные средства планирования и управления, предоставляемые Swarm.
 
 Эта статья посвящена использованию шаблонов Resource Manager для развертывания расширения виртуальной машины Docker в настраиваемой, готовой к эксплуатации среде.
 
 ## <a name="azure-docker-vm-extension-for-template-deployments"></a>Расширение виртуальной машины Docker Azure для развертывания шаблонов
-
 Расширение Docker для виртуальных машин Azure устанавливает и настраивает управляющую программу Docker, клиент Docker и Docker Compose на виртуальной машине Linux. Кроме того, расширение используется для определения и развертывания приложений контейнера с помощью Docker Compose. В этом расширении доступны дополнительные элементы управления для использования Docker Machine и для самостоятельного создания узла Docker. Благодаря этому оно подходит для более надежных сред разработки или рабочих сред.
 
 С помощью Azure Resource Manager можно создать и развернуть шаблоны, определяющие структуру всей среды. Шаблоны позволяют определить узлы Docker, хранилище, элементы управления доступом на основе ролей (RBAC), службу диагностики и т. д. Вы можете ознакомиться с [дополнительными сведениями об Azure Resource Manager](../resource-group-overview.md) и шаблонах, чтобы лучше понять некоторые преимущества. С помощью шаблонов Resource Manager можно будет также воспроизвести развертывания в будущем, если потребуется.
 
 ## <a name="deploy-a-template-with-the-docker-vm-extension:"></a>Развертывание шаблона с помощью расширения виртуальной машины Docker
-
 Чтобы продемонстрировать развертывание виртуальной машины Ubuntu, на которой установлено расширение виртуальной машины Docker, мы используем готовый шаблон быстрого запуска. Шаблон можно найти в разделе [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Простое развертывание виртуальной машины Ubuntu с Docker). Также потребуется [последняя версия Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
 
 Разверните шаблон с помощью Azure CLI, указав имя новой группы ресурсов (в данном случае это `myDockerResourceGroup`) и универсальный код ресурса (URI) шаблона.
@@ -106,7 +102,6 @@ info:    vm show command OK
 
 В конце выходных данных `FQDN` отображает полное доменное имя на основе указанного DNS-имени и расположения, которое вы выбрали. Это полное доменное имя будет использовано для подключения к виртуальной машине по протоколу SSH на последующих шагах.
 
-
 ## <a name="deploy-your-first-nginx-container"></a>Развертывание первого контейнера nginx
 После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания.
 
@@ -148,7 +143,6 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 Возможно, потребуется настроить TCP-порт и параметры безопасности управляющей программы Docker или развернуть контейнеры с помощью Docker Compose. Чтобы узнать больше, ознакомьтесь с [проектом расширения виртуальной машины Azure для Docker на сайте GitHub](https://github.com/Azure/azure-docker-extension/).
 
 ## <a name="docker-vm-extension-json-template-reference"></a>Пример шаблона JSON расширения виртуальной машины Docker
-
 В этом примере используется шаблон быстрого запуска. Чтобы развернуть расширение виртуальной машины Docker для Azure с помощью собственных шаблонов Resource Manager, добавьте следующий код JSON.
 
 ```
@@ -174,15 +168,12 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 Подробное пошаговое руководство по использованию шаблонов Resource Manager см. в статье [Обзор Azure Resource Manager](../resource-group-overview.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 Более подробные инструкции для разных вариантов развертывания см. в следующих статьях:
 
-1. [Использование машины Docker с драйвером Azure](./virtual-machines-linux-docker-machine.md)  
-2. [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+1. [Использование машины Docker с драйвером Azure](virtual-machines-linux-docker-machine.md)  
+2. [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-linux-classic-cli-use-docker.md)  
 3. [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure](virtual-machines-linux-docker-compose-quickstart.md)
-3. [Развертывание кластера службы контейнеров Azure](../container-service/container-service-deployment.md)
-
-
+4. [Развертывание кластера службы контейнеров Azure](../container-service/container-service-deployment.md)
 
 <!--HONumber=Oct16_HO2-->
 
