@@ -1,155 +1,146 @@
-# Overview
+# Обзор
 
-## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [How does pricing work?](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## Learn
+## [Что такое хранилище данных SQL?](sql-data-warehouse-overview-what-is.md)
+## [Рабочая нагрузка хранилища данных](sql-data-warehouse-overview-workload.md)
+## [Распределенные данные](sql-data-warehouse-distributed-data.md)
 
-### [Data warehouse workload](sql-data-warehouse-overview-workload.md)
-### [Distributed data](sql-data-warehouse-distributed-data.md)
+# Начало работы
 
-# Get Started
+## Создание хранилища данных SQL
+### [Портал Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
+## [Управление](sql-data-warehouse-overview-manage.md)
+## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
 
-## Create
+# Практическое руководство:
 
-### [Create - portal](sql-data-warehouse-get-started-provision.md)
-### [Create - PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [Create - T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## Архивация и восстановление
 
-## [Connect](sql-data-warehouse-query-ssms.md)
-## [Best practices](sql-data-warehouse-best-practices.md)
-## [Develop](sql-data-warehouse-overview-develop.md)
-## [Manage](sql-data-warehouse-overview-manage.md)
-## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+### [Обзор службы архивации](sql-data-warehouse-backups.md)
+### [Обзор восстановления](sql-data-warehouse-restore-database-overview.md)
+#### [Портал Azure](sql-data-warehouse-restore-database-portal.md)
+#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-# How To
+## Подключение
 
-## Backup and restore
+### [Обзор](sql-data-warehouse-connect-overview.md)
+### [Строки подключения](sql-data-warehouse-connection-strings.md)
+### Запрос
+#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+#### [SSMS](sql-data-warehouse-query-ssms.md)
+#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [Установка Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
-### [Backup Overview](sql-data-warehouse-backups.md)
-### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
-### [Restore - Portal](sql-data-warehouse-restore-database-portal.md)
-### [Restore - PowerShell](sql-data-warehouse-restore-database-powershell.md)
-### [Restore - REST](sql-data-warehouse-restore-database-rest-api.md)
+## Разработка
 
-## Connect
+### [Обзор](sql-data-warehouse-overview-develop.md)
 
-### [Overview](sql-data-warehouse-connect-overview.md)
-### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [Connect - sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Connect - SSMS](sql-data-warehouse-query-ssms.md)
-### [Connect - Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### Таблицы
 
-## Develop
-
-### [Overview](sql-data-warehouse-overview-develop.md)
-
-### Tables
-
-#### [Overview](sql-data-warehouse-tables-overview.md)
+#### [Обзор](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
-#### [Data types](sql-data-warehouse-tables-data-types.md)
-#### [Distributed tables](sql-data-warehouse-tables-distribute.md)
-#### [Indexes](sql-data-warehouse-tables-index.md)
-#### [Partitions](sql-data-warehouse-tables-partition.md)
-#### [Statistics](sql-data-warehouse-tables-statistics.md)
-#### [Temporary](sql-data-warehouse-tables-temporary.md)
+#### [Типы данных](sql-data-warehouse-tables-data-types.md)
+#### [Распределенные таблицы](sql-data-warehouse-tables-distribute.md)
+#### [Индексы](sql-data-warehouse-tables-index.md)
+#### [Секции](sql-data-warehouse-tables-partition.md)
+#### [Статистика](sql-data-warehouse-tables-statistics.md)
+#### [Временные](sql-data-warehouse-tables-temporary.md)
 
-### Queries
+### Запросы
 
-#### [Dynamic SQL](sql-data-warehouse-develop-dynamic-sql.md)
-#### [Group by options](sql-data-warehouse-develop-group-by-options.md)
-#### [Labels](sql-data-warehouse-develop-label.md)
+#### [Динамический SQL](sql-data-warehouse-develop-dynamic-sql.md)
+#### [Группировка по параметрам](sql-data-warehouse-develop-group-by-options.md)
+#### [Метки](sql-data-warehouse-develop-label.md)
 
-### T-SQL language elements
+### Элементы языка T-SQL
 
-#### [Loops](sql-data-warehouse-develop-loops.md)
-#### [Stored procedures](sql-data-warehouse-develop-stored-procedures.md)
-#### [Transactions](sql-data-warehouse-develop-transactions.md)
-#### [Transactions Best Practices](sql-data-warehouse-develop-best-practices-transactions.md)
-#### [User-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
-#### [Variable assignment](sql-data-warehouse-develop-variable-assignment.md)
-#### [Views](sql-data-warehouse-develop-views.md)
+#### [Циклы](sql-data-warehouse-develop-loops.md)
+#### [Хранимые процедуры](sql-data-warehouse-develop-stored-procedures.md)
+#### [Транзакции](sql-data-warehouse-develop-transactions.md)
+#### [Рекомендации по транзакциям](sql-data-warehouse-develop-best-practices-transactions.md)
+#### [Пользовательские схемы](sql-data-warehouse-develop-user-defined-schemas.md)
+#### [Присвоение значения переменной](sql-data-warehouse-develop-variable-assignment.md)
+#### [Представления](sql-data-warehouse-develop-views.md)
 
-## Integrate
+## Интеграция
 
-### [Overview](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Обзор](sql-data-warehouse-overview-integrate.md)
+### [Фабрика данных](sql-data-warehouse-integrate-azure-data-factory.md)
+### [Машинное обучение](sql-data-warehouse-integrate-azure-machine-learning.md)
+### [Учебник по машинному обучению](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Визуализация Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+### [Анализ потока](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
-## Load
+## загрузить
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Load - AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [Load - bcp](sql-data-warehouse-load-with-bcp.md)
-### [Load - bcp from SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Load - Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Load - Data Factory from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-### [Load - PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [Load - PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [Load - PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [Load - PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [Load - RedGate](sql-data-warehouse-load-with-redgate.md)
-### [Load - SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### [Обзор](sql-data-warehouse-overview-load.md)
+### [Пример данных](sql-data-warehouse-load-sample-databases.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [BCP из SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+### [Фабрика данных](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+### [Фабрика данных из хранилища BLOB-объектов](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
+### [Руководство по PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [PolyBase из хранилища BLOB-объектов](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [PolyBase из SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [Redgate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
-## Migrate
+## Миграция
 
-### [Overview](sql-data-warehouse-overview-migrate.md)
-### [Migration Utility](sql-data-warehouse-migrate-migration-utility.md)
-### [Migrate schema](sql-data-warehouse-migrate-schema.md)
-### [Migrate code](sql-data-warehouse-migrate-code.md)
-### [Migrate data](sql-data-warehouse-migrate-data.md)
-### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Обзор](sql-data-warehouse-overview-migrate.md)
+### [Служебная программа переноса](sql-data-warehouse-migrate-migration-utility.md)
+### [Перенос схемы](sql-data-warehouse-migrate-schema.md)
+### [Перенос кода](sql-data-warehouse-migrate-code.md)
+### [Перенос данных](sql-data-warehouse-migrate-data.md)
+### [Переход на использование хранилища класса Premium](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Приостановка и масштабирование
 
-### [Overview](sql-data-warehouse-manage-compute-overview.md)
-### [Pause and scale - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Pause and scale - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Pause and scale - REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [Pause and scale - T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Обзор](sql-data-warehouse-manage-compute-overview.md)
+### [Портал Azure](sql-data-warehouse-manage-compute-portal.md)
+### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [ИНТЕРФЕЙС REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
-## Performance
+## Производительность
 
-### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
-### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+### [Обзор](sql-data-warehouse-overview-manage-user-queries.md)
+### [Запросы](sql-data-warehouse-manage-monitor.md)
+### [Рабочая нагрузка](sql-data-warehouse-develop-concurrency.md)
+### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
-## Security
+## Безопасность
 
-### [Overview](sql-data-warehouse-overview-manage-security.md)
-### [Auditing](sql-data-warehouse-auditing-overview.md)
-### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Authentication](sql-data-warehouse-authentication.md)
-### [Encryption](sql-data-warehouse-encryption-tde.md)
-### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
-### [Threat detection](sql-data-warehouse-security-threat-detection.md)
+### [Обзор](sql-data-warehouse-overview-manage-security.md)
+### [Аудит](sql-data-warehouse-auditing-overview.md)
+### [Аудит клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
+### [Аутентификация](sql-data-warehouse-authentication.md)
+### [Шифрование](sql-data-warehouse-encryption-tde.md)
+### [Шифрование с помощью T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
 
-# Reference
+# Справочные материалы
 
-## [Overview](sql-data-warehouse-overview-reference.md)
-## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL language elements](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL statements](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL system views](sql-data-warehouse-reference-tsql-system-views.md)
-## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Ограничения емкости](sql-data-warehouse-service-capacity-limits.md)
+## [Элементы языка T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
+## [Инструкции T-SQL](sql-data-warehouse-reference-tsql-statements.md)
+## [Системные представления T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## [Командлеты PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
-# Resources
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 
-## Partners
-
-### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
-### [Data integration](sql-data-warehouse-partner-data-integration.md)
-### [Data management](sql-data-warehouse-partner-data-management.md)
-
-
-
+## Партнеры
+### [Бизнес-аналитика](sql-data-warehouse-partner-business-intelligence.md)
+### [Интеграция данных](sql-data-warehouse-partner-data-integration.md)
+### [Управление данными](sql-data-warehouse-partner-data-management.md)
 
 
 <!--HONumber=Nov16_HO2-->

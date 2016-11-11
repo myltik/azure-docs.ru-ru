@@ -1,4 +1,4 @@
-- name: "Azure"
+- name: "Таблицы Azure"
   tocHref: /azure/
   topicHref: /azure/index
   items:
@@ -6,112 +6,112 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/active-directory-whatis
     items:
-      - name: "Connect"
+      - name: "Подключение"
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
-      - name: "Develop"
+      - name: "Разработка"
         tocHref: /azure/active-directory/develop/
         topicHref: azure/active-directory/develop/
-      - name: "Privileged Identity Management"
+      - name: "Управление привилегированными пользователями (PIM)"
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
   - name: "Active Directory B2C"
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/active-directory-b2c-overview
-  - name: "Active Directory Domain Services"
+  - name: "Доменные службы Active Directory"
     tocHref: /azure/active-directory-domain-services/
     topicHref: /azure/active-directory-domain-services/active-directory-ds-overview
-  - name: "Analysis Services"
+  - name: "службы Analysis Services"
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/analysis-services-overview
-  - name: "API Management"
+  - name: "Управление API"
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/api-management-key-concepts
-  - name: "App Service"
+  - name: "Служба приложений"
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: "API Apps"
+  - name: "Приложения API"
     tocHref: /azure/app-service-api/
     topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
-  - name: "Logic Apps"
+  - name: "Приложения логики"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: "App Service Mobile"
+  - name: "Мобильное приложение службы приложений"
     tocHref: /azure/app-service-mobile/
     topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: "App Service Web"
+  - name: "Веб-приложение службы приложений"
     tocHref: /azure/app-service-web/
     topicHref: /azure/app-service-web/app-service-web-overview
-  - name: "Application Gateway"
+  - name: "Шлюз приложений"
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "Automation"
+  - name: "Автоматизация"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
-  - name: "Functions"
+  - name: "Функции"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
-  - name: "Government"
+  - name: "Государственные организации"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/documentation-government-overview
-  - name: "Portal"
+  - name: "Microsoft Azure"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
-  - name: "Resource Manager"
+  - name: "Диспетчер ресурсов"
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/resource-group-overview
   - name: "Azure Stack"
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/azure-stack-poc
-  - name: "Supportability"
+  - name: "Возможности поддержки"
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
-  - name: "Backup"
+  - name: "Архивация"
     tocHref: /azure/backup/
     topicHref: /azure/backup/backup-introduction-to-azure-backup
-  - name: "Batch"
+  - name: "Пакетная служба"
     tocHref: /azure/batch/
     topicHref: /azure/batch/batch-technical-overview
-  - name: "Billing"
+  - name: "Выставление счетов"
     tocHref: /azure/billing/
     topicHref: /azure/billing/../billing-use-existing-office-365-account-azure-subscription
-  - name: "Biztalk Services"
+  - name: "Службы BizTalk"
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
-  - name: "Cache"
+  - name: "Кэш"
     tocHref: /azure/cache/
     topicHref: /azure/cache/
   - name: "CDN"
     tocHref: /azure/cdn/
     topicHref: /azure/cdn/cdn-overview
-  - name: "Cloud Services"
+  - name: "Облачные службы"
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/cloud-services-choose-me
   - name: "Cognitive Services"
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/cognitive-services-text-analytics-quick-start
-  - name: "Connectors"
+  - name: "Соединители"
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: "Container Service"
+  - name: "Служба контейнеров"
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/container-service-intro
-  - name: "Data Catalog"
+  - name: "Каталог данных"
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/data-catalog-what-is-data-catalog
-  - name: "Data Factory"
+  - name: "Фабрика данных"
     tocHref: /azure/data-factory/
     topicHref: /azure/data-factory/data-factory-introduction
-  - name: "Data Lake Analytics"
+  - name: "Аналитика озера данных"
     tocHref: /azure/data-lake-analytics/
     topicHref: /azure/data-lake-analytics/data-lake-analytics-overview
-  - name: "Data Lake Store"
+  - name: "Хранилище озера данных"
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/data-lake-store-overview
-  - name: "Devtest Lab"
+  - name: "DevTest Lab"
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/devtest-lab-overview
   - name: "DNS"
@@ -120,62 +120,62 @@
   - name: "DocumentDB"
     tocHref: /azure/documentdb/
     topicHref: /azure/documentdb/documentdb-introduction
-  - name: "Event Hubs"
+  - name: "Концентраторы событий"
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/event-hubs-what-is-event-hubs
-  - name: "Expressroute"
+  - name: "ExpressRoute"
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/expressroute-introduction
-  - name: "Guidance"
+  - name: "Руководство"
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/guidance-resiliency-overview
   - name: "HDInsight"
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/hdinsight-hadoop-introduction
-  - name: "IoT Hub"
+  - name: "Центр IoT"
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/iot-hub-what-is-azure-iot
   - name: "IoT Suite"
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/iot-suite-what-is-azure-iot
-  - name: "Key Vault"
+  - name: "хранилище ключей;"
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/key-vault-whatis
-  - name: "Load Balancer"
+  - name: "Балансировщик нагрузки"
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/load-balancer-overview
-  - name: "Log Analytics"
+  - name: "Служба Log Analytics"
     tocHref: /azure/log-analytics/
     topicHref: /azure/log-analytics/log-analytics-overview
-  - name: "Machine Learning"
+  - name: "Машинное обучение"
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/machine-learning-faq
-  - name: "Marketplace Consumer"
+  - name: "Потребитель Marketplace"
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
-  - name: "Marketplace Publishing"
+  - name: "Публикация в Marketplace"
     tocHref: /azure/marketplace-publishing/
     topicHref: /azure/marketplace-publishing/
-  - name: "Media Services"
+  - name: "Службы носителей"
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/media-services-overview
-  - name: "Mobile Engagement"
+  - name: "Mobile Engagement;"
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/mobile-engagement-overview
-  - name: "Mobile Services"
+  - name: "Мобильные службы"
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: "Monitoring And Diagnostics"
+  - name: "Мониторинг и диагностика"
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/monitoring-and-diagnostics/../azure-portal/monitoring-get-started
   - name: "Multi-Factor Authentication"
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
     items:
-      - name: "User Guide"
+      - name: "Руководство пользователя"
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
-  - name: "Notification Hubs"
+  - name: "Центры уведомлений"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview
   - name: "Operations Management Suite"
@@ -184,37 +184,37 @@
   - name: "Power BI Embedded"
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded
-  - name: "Redis Cache"
+  - name: "Кэш Redis"
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq
-  - name: "Remoteapp"
+  - name: "Удаленное приложение RemoteApp"
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/remoteapp-whatis
-  - name: "Resiliency"
+  - name: "Устойчивость"
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
-  - name: "Resource Health"
+  - name: "Работоспособность ресурса"
     tocHref: /azure/resource-health/
     topicHref: /azure/resource-health/
-  - name: "Scheduler"
+  - name: "Планировщик"
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/scheduler-intro
-  - name: "Search"
+  - name: "Поиск"
     tocHref: /azure/search/
     topicHref: /azure/search/search-what-is-azure-search
-  - name: "Security"
+  - name: "Безопасность"
     tocHref: /azure/security/
     topicHref: /azure/security/azure-security-getting-started
-  - name: "Security Center"
+  - name: "Центр безопасности"
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/security-center-intro
-  - name: "Service Bus"
+  - name: "Служебная шина"
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/../service-bus-messaging/service-bus-queues-topics-subscriptions
-  - name: "Service Bus Messaging"
+  - name: "Обмен сообщениями через служебную шину"
     tocHref: /azure/service-bus-messaging/
     topicHref: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
-  - name: "Service Bus Relay"
+  - name: "Ретрансляция служебной шины"
     tocHref: /azure/service-bus-relay/
     topicHref: /azure/service-bus-relay/service-bus-relay-overview
   - name: "Service Fabric"
@@ -223,51 +223,51 @@
   - name: "Site Recovery"
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/site-recovery-overview
-  - name: "SQL Data Warehouse"
+  - name: "Хранилище данных SQL"
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
-  - name: "SQL Database"
+  - name: "База данных SQL"
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/sql-database-technical-overview
-  - name: "SQL Server Stretch Database"
+  - name: "База данных SQL Server Stretch"
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/sql-server-stretch-database-overview
-  - name: "Storage"
+  - name: "Хранилище"
     tocHref: /azure/storage/
     topicHref: /azure/storage/storage-introduction
   - name: "StorSimple"
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/storsimple-ova-overview
-  - name: "Stream Analytics"
+  - name: "Анализ потока"
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/stream-analytics-introduction
-  - name: "Traffic Manager"
+  - name: "Диспетчер трафика"
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/traffic-manager-overview
-  - name: "Virtual Machine Scale Sets"
+  - name: "Наборы для масштабирования виртуальных машин"
     tocHref: /azure/virtual-machine-scale-sets/
     topicHref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-  - name: "Virtual Machines"
+  - name: "Виртуальные машины"
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
     items:
-      - name: "Linux"
+      - name: " Linux"
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/virtual-machines-linux-azure-overview
         items:
-          - name: "Classic Deployment"
+          - name: "Классическое развертывание"
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: "Windows"
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/virtual-machines-windows-about
         items:
-          - name: "Classic Deployment"
+          - name: "Классическое развертывание"
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
-  - name: "Virtual Network"
+  - name: "Виртуальная сеть"
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/virtual-networks-overview
-  - name: "VPN Gateway"
+  - name: "VPN-шлюз"
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/vpn-gateway-about-vpn-devices

@@ -1,111 +1,111 @@
-# Overview
-## [What is DocumentDB?](documentdb-introduction.md)
-## [Core concepts](documentdb-resources.md)
-## [Storage and performance](documentdb-manage.md)
-## [Partitioning and scaling](documentdb-partition-data.md)
-## [Global distribution](documentdb-distribute-data-globally.md)
-## [Consistency](documentdb-consistency-levels.md)
+# Обзор
+## [Что такое DocumentDB?](documentdb-introduction.md)
+## [Ключевые понятия](documentdb-resources.md)
+## [Хранилище и производительность](documentdb-manage.md)
+## [Секционирование и масштабирование](documentdb-partition-data.md)
+## [Глобальное распределение](documentdb-distribute-data-globally.md)
+## [Целостность](documentdb-consistency-levels.md)
 ## [SQL query](documentdb-sql-query.md)
-## [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
-## Scenarios
-### [Common use cases](documentdb-use-cases.md)
-### [Going social with DocumentDB](documentdb-social-media-apps.md)
-### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
+## [Базы данных NoSQL и SQL](documentdb-nosql-vs-sql.md)
+## Сценарии
+### [Распространенные варианты использования](documentdb-use-cases.md)
+### [Использование социальных сетей с DocumentDB](documentdb-social-media-apps.md)
+### [Мультитенантность](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
 
 
-# Get Started
-## Write your first app
-### [.NET console app](documentdb-get-started.md)
-### [Node.js console app](documentdb-nodejs-get-started.md)
-## Build a web app
-### [.NET web app](documentdb-dotnet-application.md)
-### [Node.js web app](documentdb-nodejs-application.md)
-### [Java web app](documentdb-java-application.md)
-### [Python Flask web app](documentdb-python-application.md)
-## [FAQ](documentdb-faq.md)
+# Начало работы
+## Создание первого приложения
+### [Консольное приложение .NET](documentdb-get-started.md)
+### [Консольное приложение Node.js](documentdb-nodejs-get-started.md)
+## Создание веб-приложения
+### [Веб-приложение .NET](documentdb-dotnet-application.md)
+### [Веб-приложение Node.js](documentdb-nodejs-application.md)
+### [Веб-приложение Java](documentdb-java-application.md)
+### [Веб-приложения Python Flask](documentdb-python-application.md)
+## [Часто задаваемые вопросы](documentdb-faq.md)
 
 
 
-# How To
+# Практическое руководство:
 
-## Manage 
-### [Import your data](documentdb-import-data.md)
-### [Model your data](documentdb-modeling-data.md)
-### [Use geospatial data](documentdb-geospatial.md)
-### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
-### [Expire data automatically](documentdb-time-to-live.md)
-### [Customize your indexes](documentdb-indexing-policies.md)
-### [Secure access to data](documentdb-secure-access-to-data.md)
-### [Backup and restore](documentdb-online-backup-and-restore.md)
-### [Performance levels](documentdb-performance-levels.md)
-### [Resource quotas](documentdb-limits.md)
-### [Increase quotas](documentdb-increase-limits.md)
-### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
-### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
+## Управление 
+### [Импорт данных](documentdb-import-data.md)
+### [Моделирование данных](documentdb-modeling-data.md)
+### [Использование геопространственных данных](documentdb-geospatial.md)
+### [Разработка для нескольких регионов](documentdb-developing-with-multiple-regions.md)
+### [Автоматическое истечение срока хранения данных](documentdb-time-to-live.md)
+### [Настройка индексов](documentdb-indexing-policies.md)
+### [Безопасный доступ к данным](documentdb-secure-access-to-data.md)
+### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
+### [Уровни производительности](documentdb-performance-levels.md)
+### [Квоты ресурсов](documentdb-limits.md)
+### [Увеличение квот](documentdb-increase-limits.md)
+### [Единицы запроса](documentdb-request-units.md)
+### [Azure CLI и Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
+### [Расширение возможностей учетной записи](documentdb-supercharge-your-account.md)
 
-## Develop
-### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
-### [Performance testing](documentdb-performance-testing.md)
-### [Performance tips](documentdb-performance-tips.md)
-### DocumentDB for MongoDB developers
-#### [What is protocol support for MongoDB?](documentdb-protocol-mongodb.md)
-#### [Create account](documentdb-create-mongodb-account.md)
-#### [Connect to your account](documentdb-connect-mongodb-account.md)
-#### [Use MongoChef](documentdb-mongodb-mongochef.md)
-#### [Protocol support samples](documentdb-mongodb-samples.md)
+## Разработка
+### [Хранимые процедуры, триггеры и определяемые пользователем функции](documentdb-programming.md)
+### [Тестирование производительности](documentdb-performance-testing.md)
+### [Советы по улучшению производительности](documentdb-performance-tips.md)
+### DocumentDB для разработчиков MongoDB
+#### [Общие сведения о поддержке протокола для MongoDB](documentdb-protocol-mongodb.md)
+#### [Создание учетной записи](documentdb-create-mongodb-account.md)
+#### [Подключение к учетной записи](documentdb-connect-mongodb-account.md)
+#### [Использование MongoChef](documentdb-mongodb-mongochef.md)
+#### [Примеры поддержки протокола](documentdb-mongodb-samples.md)
 
-## Use the portal 
-### [Create a database account](documentdb-create-account.md)
-### [Create a collection](documentdb-create-collection.md)
-### [Add global replication](documentdb-portal-global-replication.md)
-### [Add and edit documents](documentdb-view-json-document-explorer.md)
-### [Query documents](documentdb-query-collections-query-explorer.md)
-### [Manage an account](documentdb-manage-account.md)
-### [Monitor an account](documentdb-monitor-accounts.md)
-### [Manage scripts](documentdb-view-scripts.md)
-### [Troubleshooting tips](documentdb-portal-troubleshooting.md)
-
-
-## Integrate
-### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
-### [Application logging with Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
-### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)
-### [Analyze data with Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrate with Azure Search](documentdb-search-indexer.md)
-### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
-### [Get notifications with Logic Apps](documentdb-change-notification.md)
-### [Process sensor data in real-time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
-### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+## Использование портала 
+### [Создание учетной записи базы данных](documentdb-create-account.md)
+### [Создание коллекции](documentdb-create-collection.md)
+### [Добавление глобальной репликации](documentdb-portal-global-replication.md)
+### [Добавление и редактирование документов](documentdb-view-json-document-explorer.md)
+### [Запрос документов](documentdb-query-collections-query-explorer.md)
+### [Управление учетной записью](documentdb-manage-account.md)
+### [Мониторинг учетной записи](documentdb-monitor-accounts.md)
+### [Управление сценариями](documentdb-view-scripts.md)
+### [Советы по устранению неполадок](documentdb-portal-troubleshooting.md)
 
 
-# Reference
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET samples](documentdb-dotnet-samples.md)
-## [Java SDK](documentdb-sdk-java.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
+## Интеграция
+### [Развертывание веб-сайта в службе приложений Azure](documentdb-create-documentdb-website.md)
+### [Вход в приложения с помощью Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Привязка к Функциям Azure](../azure-functions/functions-bindings-documentdb.md)
+### [Анализ данных с использованием Hadoop](documentdb-run-hadoop-with-hdinsight.md)
+### [Интеграция с Поиском Azure](documentdb-search-indexer.md)
+### [Перенос данных с помощью фабрики данных Azure](../data-factory/data-factory-azure-documentdb-connector.md)
+### [Анализ данных в реальном времени с помощью Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Получение уведомлений с помощью Logic Apps](documentdb-change-notification.md)
+### [Обработка данных, поступающих от датчиков, в реальном времени](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
+### [Визуализация данных с помощью Power BI](documentdb-powerbi-visualize.md)
+
+
+# Справочные материалы
+## [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
+## [Примеры для .NET](documentdb-dotnet-samples.md)
+## [Пакет SDK для Java](documentdb-sdk-java.md)
+## [Пакет SDK для Node.js](documentdb-sdk-node.md)
+## [Примеры для Node.js](documentdb-nodejs-samples.md)
 ## [Python](documentdb-sdk-python.md)
-## [Python samples](documentdb-python-samples.md)
+## [Примеры для Python](documentdb-python-samples.md)
 ## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+## [Памятка по грамматике SQL](documentdb-sql-query-cheat-sheet.md)
 
 
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/documentdb/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
-## [Ask DocumentDB](documentdb-community.md#contact-the-team)
-## [Community portal](documentdb-community.md)
-## [Events and recordings](documentdb-community.md#events-and-recordings)
+## [Форумы MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Как задать вопрос команде разработчиков DocumentDB](documentdb-community.md#contact-the-team)
+## [Портал сообщества](documentdb-community.md)
+## [События и записи](documentdb-community.md#events-and-recordings)
 ## [Query Playground](https://www.documentdb.com/sql/demo)
-## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
-## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
-## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+## [Документ по индексированию без схемы](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+## [Объяснение согласованности данных на примере игры в бейсбол](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
+## [Книга: "Using Microsoft Azure DocumentDB in a Node.js Application" (Использование Microsoft Azure DocumentDB в приложении Node.js)](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
+## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 

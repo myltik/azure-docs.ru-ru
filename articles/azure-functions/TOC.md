@@ -1,47 +1,47 @@
-# [Overview](functions-overview.md)
+# [Обзор](functions-overview.md)
 
-# Get Started
-## [Create your first function](functions-create-first-azure-function.md)
-## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
-## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
-## [Create an event processing function](functions-create-an-event-processing-function.md)
-# How To
-## Plan and design
-### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
+# Начало работы
+## [Создание первой функции](functions-create-first-azure-function.md)
+## [Создание функции webhook](functions-create-a-web-hook-or-api-function.md)
+## [Создание функции, исполняемой в Azure](functions-create-an-azure-connected-function.md)
+## [Создание функции обработки события](functions-create-an-event-processing-function.md)
+# Практическое руководство:
+## планирование и разработка
+### [Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure](functions-compare-logic-apps-ms-flow-webjobs.md)
+### [Выбор между потреблением и планом службы приложений](functions-scale.md)
 
-## Develop
-### [Develop function apps](functions-reference.md)
+## Разработка
+### [Разработка приложений-функций](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
-### [Work with triggers and bindings](functions-triggers-bindings.md)
-#### [Event Hub bindings](functions-bindings-event-hubs.md)
-#### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
-#### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
-#### [Notification Hub output binding](functions-bindings-notification-hubs.md)
-#### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
-#### Storage
-##### [Blob bindings](functions-bindings-storage-blob.md)
-##### [Queue bindings](functions-bindings-storage-queue.md)
-##### [Table bindings](functions-bindings-storage-table.md)
-#### [Timer trigger](functions-bindings-timer.md)
-#### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
+### [Работа с триггерами и привязками](functions-triggers-bindings.md)
+#### [Привязки концентратора событий](functions-bindings-event-hubs.md)
+#### [Привязки HTTP и webhook](functions-bindings-http-webhook.md)
+#### [Привязки мобильных приложений](functions-bindings-mobile-apps.md)
+#### [Привязка к выходным данным концентратора уведомлений](functions-bindings-notification-hubs.md)
+#### [Триггеры и привязки служебной шины, используемые для очередей и разделов](functions-bindings-service-bus.md)
+#### Хранилище
+##### [Привязки больших двоичных объектов](functions-bindings-storage-blob.md)
+##### [Привязки очередей](functions-bindings-storage-queue.md)
+##### [Привязки таблиц](functions-bindings-storage-table.md)
+#### [Триггер таймера](functions-bindings-timer.md)
+#### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
+### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md)
 ### [Testing Azure Functions](functions-test-a-function.md)
-### [Develop and debug locally](functions-run-local.md)
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Локальная разработка и отладка](functions-run-local.md)
+### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
 
-## Manage
-### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
+## Управление
+### [Настройка параметров для приложения-функции](functions-how-to-use-azure-function-app-settings.md)
 
-## Deploy
-### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+## Развернуть
+### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
 
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+# Ресурсы
+## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,36 +1,36 @@
-# Overview
-## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
+# Обзор
+## [Что такое Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
+## [Новые возможности Power BI Embedded](power-bi-embedded-whats-new.md)
 
-# Get started
-## [Get started with Power BI Embedded](power-bi-embedded-get-started.md)
-## [Get started with a sample](power-bi-embedded-get-started-sample.md)
+# Приступая к работе
+## [Приступая к работе с Power BI Embedded](power-bi-embedded-get-started.md)
+## [Приступая к работе с примером](power-bi-embedded-get-started-sample.md)
 
-# How to 
-## Plan and design
-### [Common scenarios](power-bi-embedded-scenarios.md)
+# Практическое руководство 
+## планирование и разработка
+### [Распространенные сценарии](power-bi-embedded-scenarios.md)
 
-## Manage
-### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
-### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+## Управление
+### [Подключение к источнику данных](power-bi-embedded-connect-datasource.md)
+### [Внедрение отчета Power BI с помощью IFrame](power-bi-embedded-iframe.md)
+### [Взаимодействие с отчетами](power-bi-embedded-interact-with-reports.md)
 
-## Secure
-### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
-### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
+## Безопасность
+### [Аутентификация и авторизация](power-bi-embedded-app-token-flow.md)
+### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
 
-# Reference
-## [.NET API reference](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/mt712303)
-## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
+# Справочные материалы
+## [Справочник по API .NET](https://msdn.microsoft.com/en-us/library/azure/mt669800)
+## [Пакет SDK для JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Справочник по REST API](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
 
-# Related 
+# Сопутствующие материалы 
 
-# Resources
-## [FAQ](power-bi-embedded-faq.md)
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+# Ресурсы
+## [Часто задаваемые вопросы](power-bi-embedded-faq.md)
+## [Примеры](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
 
 

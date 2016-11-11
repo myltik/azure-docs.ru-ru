@@ -1,75 +1,75 @@
-# Compute
-## [Container Service](/azure/container-service/)
-## [Batch](/azure/batch/)
-## [Cloud Services](/azure/cloud-services/)
-## [Functions](/azure/functions/)
+# Среда выполнения приложений
+## [Служба контейнеров](/azure/container-service/)
+## [Пакетная служба](/azure/batch/)
+## [Облачные службы](/azure/cloud-services/)
+## [Функции](/azure/functions/)
 ## [Service Fabric](/azure/service-fabric/)
-## [Virtual Machines](/azure/virtual-machines/)
-### [Linux VMs](/azure/virtual-machines/linux/)
-### [Windows VMs](/azure/virtual-machines/windows/)
-## [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
-## [Resource Manager](/azure/azure-resource-manager/)
-# Data and Databases
+## [Виртуальные машины](/azure/virtual-machines/)
+### [Виртуальные машины Linux](/azure/virtual-machines/linux/)
+### [Виртуальные машины Windows](/azure/virtual-machines/windows/)
+## [Наборы для масштабирования виртуальных машин](/azure/virtual-machine-scale-sets/)
+## [Диспетчер ресурсов](/azure/azure-resource-manager/)
+# Данные и базы данных
 ## [DocumentDB](/azure/documentdb/)
-## [Redis Cache](/azure/redis-cache/)
-## [SQL Data Warehouse](/azure/sql-data-warehouse/)
-## [SQL Database](/azure/sql-database/)
-## [SQL Server Stretch DB](/azure/sql-server-stretch-database/)
-# Developer Tools
+## [Кэш Redis](/azure/redis-cache/)
+## [Хранилище данных SQL](/azure/sql-data-warehouse/)
+## [База данных SQL](/azure/sql-database/)
+## [База данных SQL Server Stretch](/azure/sql-server-stretch-database/)
+# Инструменты разработчика
 ## [DevTest Lab](/azure/devtest-lab/)
-## [Best Practices](/azure/guidance/)
-# Enterprise Integration
-## [Biztalk Services](/azure/biztalk-services/)
-## [Service Bus](/azure/service-bus/)
+## [Рекомендации](/azure/guidance/)
+# Интеграция Enterprise
+## [Службы BizTalk](/azure/biztalk-services/)
+## [Служебная шина](/azure/service-bus/)
 ## [Azure Stack](/azure/azure-stack/)
-# Intelligence & Analytics
+# Аналитика
 ## [Cognitive Services](/azure/cognitive-services/)
-## [Data Catalog](/azure/data-catalog/)
-## [Data Factory](/azure/data-factory/)
-## [Data Lake Analytics](/azure/data-lake-analytics/)
+## [Каталог данных](/azure/data-catalog/)
+## [Фабрика данных](/azure/data-factory/)
+## [Аналитика озера данных](/azure/data-lake-analytics/)
 ## [HDInsights](/azure/hdinsights/)
-## [Machine Learning](/azure/macine-learning/)
+## [Машинное обучение](/azure/macine-learning/)
 ## [PowerBI Embedded](/azure/powerbi-embedded/)
-## [Stream Analytics](/azure/stream-analytics/)
-# Internet of Things
-## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
+## [Анализ потока](/azure/stream-analytics/)
+# Интернет вещей
+## [Концентраторы событий](/azure/event-hubs/)
+## [Центр IoT](/azure/iot-hub/)
 ## [IoT Suite](/azure/iot-suite/)
-# Monitoring & Management
-## [Billing](/azure/billing/)
-## [Operations Management Suite](/azure/operations-management-suite/)
+# Мониторинг и управление
+## [Выставление счетов](/azure/billing/)
+## [Operations Management Suite](/azure/operations-management-suite/).
 ## [Site Recovery](/azure/site-recovery/)
 ## [Application Insights](/azure/application-insights/)
-# Networking
-## [Application Gateway](/azure/application-gateway/)
+# Сеть
+## [Шлюз приложений](/azure/application-gateway/)
 ## [CDN](/azure/cdn/)
 ## [DNS](/azure/dns/)
 ## [ExpressRoute](/azure/expressroute/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [Virtual Network](/azure/virtual-network/)
-## [VPN Gateway](/azure/vpn-gateway/)
-# Security & Identity
-## [Security Center](/azure/security-center/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Диспетчер трафика](/azure/traffic-manager/)
+## [Виртуальная сеть](/azure/virtual-network/)
+## [VPN-шлюз](/azure/vpn-gateway/)
+# Безопасность и идентификация
+## [Центр безопасности](/azure/security-center/)
 ## [Active Directory](/azure/active-directory/)
 ## [Active Directory B2C](/azure/active-directory-b2c/)
-## [Active Directory Domain Services](/azure/active-directory-domain-services/)
-## [KeyVault](/azure/key-vault/)
-## [Multifactor Authentication](/azure/multi-factor-authentication/)
-# Storage
-## [Backup](/azure/backup/)
+## [Доменные службы Active Directory](/azure/active-directory-domain-services/)
+## [Хранилище ключей](/azure/key-vault/)
+## [Многофакторная идентификация](/azure/multi-factor-authentication/)
+# Хранилище
+## [Архивация](/azure/backup/)
 ## [Data Lake Store](/azure/data-lake-store/)
-## [Storage](/azure/storage/)
+## [Хранилище](/azure/storage/)
 ## [StorSimple](/azure/storsimple/)
-# Web + Mobile
-## [API Management](/azure/api-management/)
-## [App Service](/azure/app-service/)
+# Интернет и мобильные устройства
+## [Управление API](/azure/api-management/)
+## [Служба приложений](/azure/app-service/)
 ## [Logic Apps](/azure/app-service-logic/)
-## [Media Services](/azure/media-services/)
-## [Mobile Engagement](/azure/mobile-engagement/)
-## [Notification Hubs](/azure/notification-hubs/)
-## [Search](/azure/search/)
-# [Azure Government](/azure/azure-government/)
+## [Службы мультимедиа](/azure/media-services/)
+## [Mobile Engagement;](/azure/mobile-engagement/)
+## [Центры уведомлений](/azure/notification-hubs/)
+## [Поиск](/azure/search/)
+# [Azure для государственных организаций](/azure/azure-government/)
 
 <!--HONumber=Nov16_HO2-->
 

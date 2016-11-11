@@ -1,68 +1,68 @@
-# Overview
-## [What is Log Analytics?](log-analytics-overview.md)
-## [Data security](log-analytics-security.md)
-## [Log Analytics FAQ](log-analytics-faq.md)
-# Get Started
-## [Sign up for Log Analytics](log-analytics-get-started.md)
-## [Manage access](log-analytics-manage-access.md)
-## [Proxy and firewall](log-analytics-proxy-firewall.md)
-## [Usage data](log-analytics-usage.md)
+# Обзор
+## [Что такое Log Analytics?](log-analytics-overview.md)
+## [Защита данных](log-analytics-security.md)
+## [Часто задаваемые вопросы по Log Analytics](log-analytics-faq.md)
+# Начало работы
+## [Регистрация в службе Log Analytics](log-analytics-get-started.md)
+## [Управление доступом](log-analytics-manage-access.md)
+## [Прокси-сервер и брандмауэр](log-analytics-proxy-firewall.md)
+## [Данные об использовании](log-analytics-usage.md)
 
-# How To
-## Integrate
-### Connected sourcces
-#### [Windows agents](log-analytics-windows-agents.md)
-#### [Linux agents](log-analytics-linux-agents.md)
-#### [Azure virtual machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+# Практическое руководство:
+## Интеграция
+### Подключенные источники
+#### [Агенты Windows](log-analytics-windows-agents.md)
+#### [Агенты Linux](log-analytics-linux-agents.md)
+#### [Виртуальные машины Azure](log-analytics-azure-vm-extension.md)
+#### [Хранилище Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
-### Data Sources
-#### [Data sources overview](log-analytics-data-sources.md)
-#### [Windows events](log-analytics-data-sources-windows-events.md)
-#### [Syslog](log-analytics-data-sources-syslog.md)
-#### [Performance counters](log-analytics-data-sources-performance-counters.md)
-#### [IIS logs](log-analytics-data-sources-iis-logs.md)
-#### [Custom logs](log-analytics-data-sources-custom-logs.md)
-#### [Custom fields](log-analytics-custom-fields.md)
-## Develop
-### [Log searches overview](log-analytics-log-searches.md)
-### [Search reference](log-analytics-search-reference.md)
-### [Computer groups](log-analytics-computer-groups.md)
-### [Alerts](log-analytics-alerts.md)
-### Solutions
-#### [Solutions overview](log-analytics-add-solutions.md)
-#### [AD Assessment](log-analytics-ad-assessment.md)
-#### [AD Replication Status](log-analytics-ad-replication-status.md)
-#### [Alert management](log-analytics-solution-alert-management.md)
-#### [Capacity Management](log-analytics-capacity.md)
-#### [Change Tracking](log-analytics-change-tracking.md)
-#### [Configuration Assessment](log-analytics-configuration-assessment.md)
-#### [Containers](log-analytics-containers.md)
-#### [Key Vault](log-analytics-azure-key-vault.md)
-#### [Malware Assessment](log-analytics-malware.md)
-#### [Networking Analytics](log-analytics-azure-networking-analytics.md)
-#### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
-#### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+### Источники данных
+#### [Обзор источников данных](log-analytics-data-sources.md)
+#### [События Windows](log-analytics-data-sources-windows-events.md)
+#### [Системный журнал](log-analytics-data-sources-syslog.md)
+#### [Счетчики производительности](log-analytics-data-sources-performance-counters.md)
+#### [Журналы IIS](log-analytics-data-sources-iis-logs.md)
+#### [Пользовательские журналы](log-analytics-data-sources-custom-logs.md)
+#### [Настраиваемые поля](log-analytics-custom-fields.md)
+## Разработка
+### [Обзор поиска по журналу](log-analytics-log-searches.md)
+### [Справочник по поиску](log-analytics-search-reference.md)
+### [Группы компьютеров](log-analytics-computer-groups.md)
+### [Оповещения](log-analytics-alerts.md)
+### Решения
+#### [Обзор решений](log-analytics-add-solutions.md)
+#### [Оценка AD](log-analytics-ad-assessment.md)
+#### [Состояние репликации AD](log-analytics-ad-replication-status.md)
+#### [Управление оповещениями](log-analytics-solution-alert-management.md)
+#### [Управление емкостью](log-analytics-capacity.md)
+#### [Отслеживание изменений](log-analytics-change-tracking.md)
+#### [Оценка конфигурации](log-analytics-configuration-assessment.md)
+#### [Контейнеры](log-analytics-containers.md)
+#### [хранилище ключей;](log-analytics-azure-key-vault.md)
+#### [Оценка вредоносных программ](log-analytics-malware.md)
+#### [Анализ сетевой активности](log-analytics-azure-networking-analytics.md)
+#### [Монитор производительности сети](log-analytics-network-performance-monitor.md)
+#### [Аудит безопасности](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
-#### [SQL Assessment](log-analytics-sql-assessment.md)
+#### [Оценка SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [System Update Assessment](log-analytics-system-update.md)
-#### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+#### [Оценка системных обновлений](log-analytics-system-update.md)
+#### [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
-#### [Wire Data](log-analytics-wire-data.md)
-## Analyze
-### [Dashboards](log-analytics-dashboards.md)
-### [View Designer](log-analytics-view-designer.md)
+#### [Данные передачи](log-analytics-wire-data.md)
+## Анализ
+### [Панели мониторинга](log-analytics-dashboards.md)
+### [Конструктор представлений](log-analytics-view-designer.md)
 ### [Power BI](log-analytics-powerbi.md)
-## Automate
-### [Data collector API](log-analytics-data-collector-api.md)
-### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
-### [Log Search API](log-analytics-log-search-api.md)
-### [Alert API](log-analytics-api-alerts.md)
-# Reference
-# Related
-# Resources
+## Автоматизация
+### [API сборщика данных](log-analytics-data-collector-api.md)
+### [Командлеты PowerShell](log-analytics-powershell-workspace-configuration.md)
+### [API поиска по журналам](log-analytics-log-search-api.md)
+### [API оповещений](log-analytics-api-alerts.md)
+# Справочные материалы
+# Сопутствующие материалы
+# Ресурсы
 
 
 

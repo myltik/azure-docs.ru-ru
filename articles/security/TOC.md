@@ -1,61 +1,61 @@
-# Overview
-## [Getting started with Azure security](azure-security-getting-started.md)
-## [Azure security overview](security-get-started-overview.md)
-## [Security services and technologies](azure-security-services-technologies.md)
+# Обзор
+## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)
+## [Общие сведения о безопасности в Azure](security-get-started-overview.md)
+## [Службы и технологии безопасности](azure-security-services-technologies.md)
 
-# Get started
-## Network security
-### [Overview](security-network-overview.md)
-### [Network security best practices](azure-security-network-security-best-practices.md)
-### [Boundary security](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Secure hybrid network architecture](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Storage security
-### [Overview](security-storage-overview.md)
-### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Compute security
-### [Overview](security-virtual-machines-overview.md)
-### [Microsoft Antimalware](azure-security-antimalware.md)
-### [Disk encryption](azure-security-disk-encryption.md)
-### [Encrypt Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## Security management and monitoring
-### [Overview](security-management-and-monitoring-overview.md)
-### [Security management](azure-security-management.md)
-### [Best practices for software updates on IaaS](azure-security-best-practices-software-updates-iaas.md)
-### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### Azure log integration
-#### [Overview](security-azure-log-integration-overview.md)
-#### [Get started](security-azure-log-integration-get-started.md)
-#### [FAQ](security-azure-log-integration-faq.md)
-## Identity management
-### [Overview](security-identity-management-overview.md)
-### [Identity management security best practices](azure-security-identity-management-best-practices.md)
-## PaaS services
-### [IoT security best practices](azure-security-iot-best-practices.md)
-### [IoT security overview](security-internet-of-things-overview.md)
-## Vertical industries
-### [Designing secure health solutions](security-health-care-solution.md)
-## Security architecture
-### [Overview](azure-security-architecture-overview.md)
-### [Data classification for cloud readiness](azure-security-data-classification.md)
-### [Application architecture on Azure](security-application-architecture-on-azure.md)
-### [Security best practices and patterns](security-best-practices-and-patterns.md)
-### [Architecting resilient applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+# Приступая к работе
+## Безопасность сети
+### [Обзор](security-network-overview.md)
+### [Рекомендации по обеспечению сетевой безопасности](azure-security-network-security-best-practices.md)
+### [Защита границ](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Архитектура защищенной гибридной сети](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Безопасность хранилищ
+### [Обзор](security-storage-overview.md)
+### [Рекомендации по шифрованию и обеспечению защиты данных](azure-security-data-encryption-best-practices.md)
+### [Руководство по безопасности хранилища](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Защита вычислений
+### [Обзор](security-virtual-machines-overview.md)
+### [Антивредоносная программа (Майкрософт)](azure-security-antimalware.md)
+### [Шифрование дисков](azure-security-disk-encryption.md)
+### [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Управление безопасностью и мониторинг
+### [Обзор](security-management-and-monitoring-overview.md)
+### [Управление безопасностью](azure-security-management.md)
+### [Рекомендации по обновлению ПО в IaaS](azure-security-best-practices-software-updates-iaas.md)
+### [Центр безопасности Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### Служба интеграции журналов Azure
+#### [Обзор](security-azure-log-integration-overview.md)
+#### [Приступая к работе](security-azure-log-integration-get-started.md)
+#### [Часто задаваемые вопросы](security-azure-log-integration-faq.md)
+## Управление удостоверениями
+### [Обзор](security-identity-management-overview.md)
+### [Рекомендации по управлению удостоверениями для обеспечения безопасности](azure-security-identity-management-best-practices.md)
+## Службы PaaS
+### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
+### [Обзор системы безопасности Интернета вещей](security-internet-of-things-overview.md)
+## Вертикальные отрасли
+### [Разработка безопасных решений для отрасли здравоохранения](security-health-care-solution.md)
+## Архитектура безопасности
+### [Обзор](azure-security-architecture-overview.md)
+### [Классификация данных для обеспечения готовности к переносу в облако](azure-security-data-classification.md)
+### [Архитектура приложения в Azure](security-application-architecture-on-azure.md)
+### [Рекомендации по безопасности и шаблоны](security-best-practices-and-patterns.md)
+### [Разработка отказоустойчивых приложений](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Resources
-## [Trust Center](security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](azure-security-response-center.md)
-## [Pen testing](azure-security-pen-testing.md)
-## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Azure security MVP program](azure-security-mvp.md)
-## [Cybersecurity consulting](azure-security-cyber-services.md)
-## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
-## [Security videos on Channel 9](security-channel-nine.md)
+# Ресурсы
+## [Центр управления безопасностью](security-microsoft-trust-center.md)
+## [Центр Microsoft Security Response Center](azure-security-response-center.md)
+## [Тестирование на проникновение](azure-security-pen-testing.md)
+## [Блог по безопасности и соответствию требованиям](http://blogs.msdn.com/b/azuresecurity/)
+## [Программа специалистов MVP по вопросам обеспечения безопасности в Azure](azure-security-mvp.md)
+## [Консультация по кибербезопасности](azure-security-cyber-services.md)
+## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
+## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
 
-# Related
-## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Key Vault](../key-vault/key-vault-whatis.md)
-## [Log Analytics](../log-analytics/log-analytics-overview.md)
+# Сопутствующие материалы
+## [Центр безопасности](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
+## [хранилище ключей;](../key-vault/key-vault-whatis.md)
+## [Служба Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 

@@ -1,70 +1,70 @@
-# Overview
-## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+# Обзор
+## [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
+## [Сравнение Azure Data Lake Store со службой хранилища Azure](data-lake-store-comparison-with-blob-storage.md)
+## [Использование Azure Data Lake Store для обработки больших данных](data-lake-store-data-scenarios.md)
+## [Приложения с открытым кодом, совместимые с Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
-# Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
-## [Using Node.js](data-lake-store-manage-use-nodejs.md)
+# Приступая к работе
+## [Использование портала](data-lake-store-get-started-portal.md)
+## [Использование PowerShell](data-lake-store-get-started-powershell.md)
+## [Использование пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
+## [Использование пакета SDK для Java](data-lake-store-get-started-java-sdk.md)
+## [Использование REST API](data-lake-store-get-started-rest-api.md)
+## [Использование интерфейса командной строки Azure](data-lake-store-get-started-cli.md)
+## [Использование Node.js](data-lake-store-manage-use-nodejs.md)
 
-# How to
-## Copy Data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
-### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+# Практическое руководство
+## Копирование данных
+### [Использование фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md)
+### [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+### [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
+### [Использование Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+### [Передача данных из источников вне сети](data-lake-store-offline-bulk-data-upload.md)
 
-## Develop
-### [Using PowerShell](data-lake-store-get-started-powershell.md)
-### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-### [Using REST API](data-lake-store-get-started-rest-api.md)
-### [Using Azure CLI](data-lake-store-get-started-cli.md)
-### [Using Node.js](data-lake-store-manage-use-nodejs.md)
+## Разработка
+### [Использование PowerShell](data-lake-store-get-started-powershell.md)
+### [Использование пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
+### [Использование пакета SDK для Java](data-lake-store-get-started-java-sdk.md)
+### [Использование REST API](data-lake-store-get-started-rest-api.md)
+### [Использование интерфейса командной строки Azure](data-lake-store-get-started-cli.md)
+### [Использование Node.js](data-lake-store-manage-use-nodejs.md)
 
-## Secure Data
-### [Security overview](data-lake-store-security-overview.md)
-### [Access control in Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+## Обеспечение безопасности данных
+### [Обзор безопасности](data-lake-store-security-overview.md)
+### [Контроль доступа в Data Lake Store](data-lake-store-access-control.md)
+### [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
+### [Аутентификация между службами](data-lake-store-authenticate-using-active-directory.md)
+### [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md)
  
-## Integrate with Azure Services
-### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
-### [Use with Power BI](data-lake-store-power-bi.md)
-### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
-### [More Azure integration options](data-lake-store-integrate-with-other-services.md)
+## Интеграция со службами Azure
+### [Использование с Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+### [Создание кластера HDInsight с Data Lake Store с помощью портала](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Создание кластера HDInsight с Data Lake Store с помощью PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Создание кластера HDInsight с Data Lake Store с помощью шаблона Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Использование с фабрикой данных](../data-factory/data-factory-azure-datalake-connector.md)
+### [Использование со Stream Analytics](data-lake-store-stream-analytics.md)
+### [Использование с Power BI](data-lake-store-power-bi.md)
+### [Использование с каталогом данных](data-lake-store-with-data-catalog.md)
+### [Другие варианты интеграции с Azure](data-lake-store-integrate-with-other-services.md)
 
-## Manage
-### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
+## Управление
+### [Доступ к журналам диагностики](data-lake-store-diagnostic-logs.md)
 
-# Reference
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+# Справочные материалы
+## [Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/mt581387.aspx)
+## [Пакет SDK для Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [Командлеты PowerShell](https://msdn.microsoft.com/library/azure/mt607120.aspx)
+## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 
-# Related
+# Сопутствующие материалы
 ## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
 
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# Ресурсы
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Форум Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Отправка отзывов с помощью UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Блог Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->

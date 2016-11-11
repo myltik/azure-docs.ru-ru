@@ -1,59 +1,61 @@
-# Overview
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
-## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
-## [Site Recovery blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
-## [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
-# Get Started
-## [What is Site Recovery?](site-recovery-overview.md)
-## [How does Site Recovery work?](site-recovery-components.md)
-## [What workloads can you protect?](site-recovery-workload.md)
-## [What operating systems are supported?](site-recovery-support-matrix.md)
-## [FAQ](site-recovery-faq.md)
+# Обзор
+## [Что такое Site Recovery?](site-recovery-overview.md)
+## [Как работает Site Recovery?](site-recovery-components.md)
+## [Какие рабочие нагрузки можно защитить?](site-recovery-workload.md)
+## [Какие операционные системы поддерживаются?](site-recovery-support-matrix.md)
+## [Часто задаваемые вопросы](site-recovery-faq.md)
+## [Просмотр введения](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
-# How To
+# Начало работы
+## [Подготовка к развертыванию](site-recovery-best-practices.md)
 
-## Plan
-### [Prepare for deployment](site-recovery-best-practices.md)
-### [Start capacity planning](site-recovery-capacity-planner.md)
-### [Performance and scale test results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
-### [Network infrastructure considerations](site-recovery-network-design.md)
-### [Prepare for network mapping (VMM)](site-recovery-network-mapping.md)
-### [Prepare for storage mapping between on-premises sites](site-recovery-storage-mapping.md)
-## Replicate
-### [VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-### [Physical servers to Azure](site-recovery-vmware-to-azure.md)
-### [Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md)
-### [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V VMs (with VMM) to a secondary site](site-recovery-vmm-to-vmm.md)
-### [Hyper-V VMs (with single VMM server)](site-recovery-single-vmm.md)
-### [Hyper-V VMs (with VMM) to secondary site with SAN](site-recovery-vmm-san.md)
-### [VMware VMs to a secondary site](site-recovery-vmware-to-vmware.md)
-### [Physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
-## Migrate
-### [BMigrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
-## Workloads
-### [Active Directory and DNS](site-recovery-active-directory.md)
+# Практическое руководство:
+## План
+### [Планирование загрузки](site-recovery-capacity-planner.md)
+### [Результаты проверки производительности и масштабирования](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Рекомендации по сетевой инфраструктуре](site-recovery-network-design.md)
+### [Сетевое сопоставление (VMM)](site-recovery-network-mapping.md)
+### [Сопоставление хранилищ между локальными сайтами](site-recovery-storage-mapping.md)
+## Репликация
+### [Виртуальные машины и серверы VMWare в Azure](site-recovery-vmware-to-azure.md)
+### [Виртуальные машины и серверы VMware на вторичный сайт](site-recovery-vmware-to-vmware.md)
+### [Виртуальные машины Hyper-V в Azure (с VMM)](site-recovery-vmm-to-azure.md)
+### [Виртуальные машины Hyper-V в Azure (без VMM)](site-recovery-hyper-v-site-to-azure.md)
+### [Виртуальные машины Hyper-V на вторичный сайт](site-recovery-vmm-to-vmm.md)
+### [Виртуальные машины Hyper-V на вторичный сайт с помощью SAN](site-recovery-vmm-san.md)
+### [Виртуальные машины Hyper-V с одним сервером VMM](site-recovery-single-vmm.md)
+## Миграция
+### [Миграция между регионами Azure](site-recovery-migrate-azure-to-azure.md)
+### [Экземпляры AWS Windows в Azure](site-recovery-migrate-aws-to-azure.md)
+## Рабочие нагрузки
+### [Active Directory и DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [центр IoT Azure](site-recovery-workload.md#protect-dynamics-ax)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
-### [Other workloads](site-recovery-workload.md#workload-summary)
-## Automate Replication
-### [Hyper-VMs in VMM clouds to Azure with PowerShell](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VMs (without VMM) to Azure with PowerShell and Azure Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Add automation to recovery plans](site-recovery-runbook-automation.md)
-### [Automate Mobility service deployment](site-recovery-automate-mobility-service-install.md)
-## Manage
-### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-### [Set up recovery plans](site-recovery-create-recovery-plans.md)
-### [Fail over in Site Recovery](site-recovery-failover.md)
-### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
-## Troubleshooting
-### [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
-### [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+### [Другие рабочие нагрузки](site-recovery-workload.md#workload-summary)
+## Автоматизация репликации
+### [Виртуальные машины Hyper-V (с VMM)](site-recovery-deploy-with-powershell.md)
+### [Виртуальные машины Hyper-V (без VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Добавление службы автоматизации для планов восстановления](site-recovery-runbook-automation.md)
+### [Автоматизация развертывания Mobility Service](site-recovery-automate-mobility-service-install.md)
+## Управление
+### [Удаление серверов и отключение защиты](site-recovery-manage-registration-and-protection.md)
+### [Настройка планов восстановления](site-recovery-create-recovery-plans.md)
+### [Отработка отказа в Site Recovery](site-recovery-failover.md)
+### [Восстановление размещения виртуальных машин VMware и физических серверов](site-recovery-failback-azure-to-vmware.md)
+## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
+
+# Сопутствующие материалы
+## [Служба автоматизации Azure](/azure/automation/)
+
+# Ресурсы
+## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+## [Форум](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Блог](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+## [Цены](https://azure.microsoft.com/pricing/details/site-recovery/)
 
 
 <!--HONumber=Nov16_HO2-->

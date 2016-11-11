@@ -1,33 +1,33 @@
-# Overview
-## [ACS introduction](container-service-intro.md)
-# Get Started
+# Обзор
+## [Общие сведения об ACS](container-service-intro.md)
+# Начало работы
 
-## [Deploy an ACS cluster](container-service-deployment.md)
-## [Connect with an ACS cluster](container-service-connect.md)
-## [Scale an ACS cluster](container-service-scale.md)
+## [Развертывание кластера ACS](container-service-deployment.md)
+## [Подключение к кластеру ACS](container-service-connect.md)
+## [Масштабирование кластера ACS](container-service-scale.md)
 
-# How To
+# Практическое руководство:
 
-## Manage with DC/OS
-### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
-### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [DC/OS Agent pools](container-service-dcos-agents.md)
-### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance containers in DC/OS](container-service-load-balancing.md)
-### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## Manage with Docker Swarm
-### [Docker Swarm Overview](container-service-docker-swarm.md)
+## Управление с помощью DC/OS
+### [Управление контейнерами с помощью пользовательского веб-интерфейса DC/OS](container-service-mesos-marathon-ui.md)
+### [Управление контейнерами с помощью REST API DC/OS](container-service-mesos-marathon-rest.md)
+### [Пулы агентов DC/OS](container-service-dcos-agents.md)
+### [Открытие общего доступа в DC/OS](container-service-enable-public-access.md)
+### [Балансировка нагрузки контейнеров в DC/OS](container-service-load-balancing.md)
+### [Оркестратор для пользователей или приложений в DC/OS](container-service-application-specific-marathon.md)
+### [Мониторинг с помощью Datadog (DC/OS)](container-service-monitoring.md)
+### [Мониторинг с помощью Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
+## Управление с помощью Docker Swarm
+### [Обзор Docker Swarm](container-service-docker-swarm.md)
 
-# Reference
+# Справочные материалы
 
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [ИНТЕРФЕЙС REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
 
-# Resources
+# Ресурсы
 
-## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Доступность регионов](https://azure.microsoft.com/regions/services/)
+## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

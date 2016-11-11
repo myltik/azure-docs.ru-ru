@@ -1,38 +1,38 @@
-# Overview 
-## [Azure portal overview](azure-portal-overview.md)
-## [Azure resource manager overview](resource-group-overview.md)
+# Обзор 
+## [Обзор портала Azure](azure-portal-overview.md)
+## [Обзор Azure Resource Manager](resource-group-overview.md)
 
-# Get Started
-## [Deploy using resource manager template](resource-group-template-deploy.md)
+# Начало работы
+## [Развертывание с помощью шаблона Resource Manager](resource-group-template-deploy.md)
 
-# How To
-## Deploy
-### [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md)
-### [Authoring Azure resource manager templates](resource-group-authoring-templates.md)
-### [Azure resource manager template functions](resource-group-template-functions.md)
-### [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
-### [Advanced template operations](resource-group-advanced-template.md)
-## Manage
-### [Use preview portal to manage resources](resource-group-portal.md)
-### [Manage and audit access to resources](resource-group-rbac.md)
-### [Role based access control in the preview portal](role-based-access-control-configure.md)
-### [Use tags to organize resources](resource-group-using-tags.md)
-### [How to scale your resources](insights-how-to-scale.md)
-### [Create a new Azure service principal using the Azure portal](resource-group-create-service-principal-portal.md)
-## Monitor
-### [Monitor service metrics](insights-how-to-customize-monitoring.md)
-### [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md)
-### [Monitor availability and responsiveness of any web site](app-insights-monitor-web-app-availability.md)
-### [Monitor application performance](app-insights-azure-web-apps.md)
-### [View events and audit logs](insights-debugging-with-events.md)
-### [Receive alert notifications](insights-receive-alert-notifications.md)
-### [Best practices for Autoscale](insights-autoscale-best-practices.md)
-### [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
-### [Webhooks for Autoscale notifications](insights-autoscale-to-webhook-email.md)
-### [Webhooks for alerts on audit logs](insights-auditlog-to-webhook-email.md)
-### [Webhooks for alerts on metrics](insights-webhooks-alerts.md)
-### [Azure Insights PowerShell quick start samples](insights-powershell-samples.md)
-### [Azure Insights CLI quick start samples](insights-cli-samples.md)
+# Практическое руководство:
+## Развернуть
+### [Устранение неполадок при развертывании групп ресурсов в Azure](resource-group-deploy-debug.md)
+### [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md)
+### [Функции шаблона Azure Resource Manager](resource-group-template-functions.md)
+### [Развертывание ресурсов с использованием библиотек .NET и шаблона](arm-template-deployment.md)
+### [Расширенные операции с шаблонами](resource-group-advanced-template.md)
+## Управление
+### [Управление ресурсами с помощью портала предварительной версии](resource-group-portal.md)
+### [Управление доступом к ресурсам и его аудит](resource-group-rbac.md)
+### [Управление доступом на основе ролей на портале предварительной версии](role-based-access-control-configure.md)
+### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
+### [Как масштабировать свои ресурсы](insights-how-to-scale.md)
+### [Создание нового субъекта-службы Azure с помощью портала Azure](resource-group-create-service-principal-portal.md)
+## Монитор
+### [Мониторинг метрик службы](insights-how-to-customize-monitoring.md)
+### [Включение мониторинга и диагностики](insights-how-to-use-diagnostics.md)
+### [Мониторинг доступности и скорости реагирования любого веб-сайта](app-insights-monitor-web-app-availability.md)
+### [Мониторинг производительности приложений](app-insights-azure-web-apps.md)
+### [Просмотр журналов событий и аудита](insights-debugging-with-events.md)
+### [Создание оповещений для служб Azure с помощью портала Azure](insights-receive-alert-notifications.md)
+### [Рекомендации по автомасштабированию](insights-autoscale-best-practices.md)
+### [Общие метрики автомасштабирования](insights-autoscale-common-metrics.md)
+### [Использование webhook для уведомлений об автомасштабировании](insights-autoscale-to-webhook-email.md)
+### [Использование webhook для оповещений о журналах аудита](insights-auditlog-to-webhook-email.md)
+### [Использование webhook для оповещений о метриках](insights-webhooks-alerts.md)
+### [Примеры для быстрого начала работы с Azure Insights с использованием PowerShell](insights-powershell-samples.md)
+### [Примеры для быстрого начала работы с интерфейсом командной строки Azure Insights](insights-cli-samples.md)
 
 
 <!--HONumber=Nov16_HO2-->

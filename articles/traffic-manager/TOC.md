@@ -1,33 +1,33 @@
-# Overview
-## [What is Traffic Manager?](traffic-manager-overview.md)
-## [How Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
-## [Traffic Manager endpoint monitoring and failover](traffic-manager-monitoring.md)
-## [Traffic routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md)
-## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
-# Get Started
-## [Manage endpoints](traffic-manager-manage-endpoints.md)
-## [Manage profiles](traffic-manager-manage-profiles.md)
-## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
-# How To
-## [Configure a routing method](traffic-manager-configure-routing-method.md)
-## [Test your settings](traffic-manager-testing-settings.md)
-## [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
-# Reference
-## [Resource Manager APIs](https://msdn.microsoft.com/library/mt163667.aspx)
-## [PowerShell Cmdlets](https://msdn.microsoft.com/library/mt125941.aspx)
-## [Using network resources](../virtual-network/resource-groups-networking.md)
-## [Azure Networking blog](https://azure.microsoft.com/blog/topics/networking/)
-# Related
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+# Обзор
+## [Что такое диспетчер трафика](traffic-manager-overview.md)
+## [Как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md)
+## [Конечные точки диспетчера трафика](traffic-manager-endpoint-types.md)
+## [Мониторинг и отработка отказов конечной точки диспетчера трафика](traffic-manager-monitoring.md)
+## [Методы маршрутизации трафика](traffic-manager-routing-methods.md)
+## [Вложенные профили](traffic-manager-nested-profiles.md)
+## [Рекомендации по производительности для диспетчера трафика](traffic-manager-performance-considerations.md)
+## [Поддержка Azure Resource Manager](traffic-manager-powershell-arm.md)
+# Начало работы
+## [Управление конечными точками](traffic-manager-manage-endpoints.md)
+## [Управление профилями](traffic-manager-manage-profiles.md)
+## [Указание своего интернет-домена для диспетчера трафика](traffic-manager-point-internet-domain.md)
+# Практическое руководство:
+## [Настройка метода маршрутизации](traffic-manager-configure-routing-method.md)
+## [Проверка настроек](traffic-manager-testing-settings.md)
+## [Устранение неполадок, вызывающих ограничение возможностей конечной точки](traffic-manager-troubleshooting-degraded.md)
+# Справочные материалы
+## [Интерфейсы API Resource Manager](https://msdn.microsoft.com/library/mt163667.aspx)
+## [Командлеты PowerShell](https://msdn.microsoft.com/library/mt125941.aspx)
+## [Использование сетевых ресурсов](../virtual-network/resource-groups-networking.md)
+## [Блог о сетях Azure](https://azure.microsoft.com/blog/topics/networking/)
+# Сопутствующие материалы
+## [Шлюз приложений](https://azure.microsoft.com/documentation/services/application-gateway/)
+## [Балансировщик нагрузки](https://azure.microsoft.com/documentation/services/load-balancer/)
 ## [Azure DNS](https://azure.microsoft.com/documentation/services/dns/)
-# Resources
-##[Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
+# Ресурсы
+##[Цены](https://azure.microsoft.com/pricing/details/traffic-manager/)
+##[Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+##[Ограничения служб](../azure-subscription-service-limits.md#traffic-manager-limits)
 
 
 <!--HONumber=Nov16_HO2-->

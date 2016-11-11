@@ -1,68 +1,68 @@
-# Overview
-## [What is RemoteApp?](remoteapp-whatis.md)
-## [How does licensing work?](remoteapp-licensing.md)
-## [FAQ](remoteapp-faq.md)
-## [What's new?](remoteapp-whatsnew.md)
-## [What's coming?](remoteapp-roadmap.md)
-## [Azure service limits](../azure-subscription-service-limits.md)
-## Will my app work?
-### [App requirements](remoteapp-appreqs.md)
-### [OneDrive for Business](remoteapp-onedrive.md)
+# Обзор
+## [Что такое RemoteApp?](remoteapp-whatis.md)
+## [Как работает лицензирование?](remoteapp-licensing.md)
+## [Часто задаваемые вопросы](remoteapp-faq.md)
+## [Новые возможности](remoteapp-whatsnew.md)
+## [Что дальше?](remoteapp-roadmap.md)
+## [Ограничения службы Azure](../azure-subscription-service-limits.md)
+## Будет ли мое приложение работать?
+### [Требования к приложениям](remoteapp-appreqs.md)
+### [OneDrive для бизнеса](remoteapp-onedrive.md)
 ### [SQL Azure](remoteapp-sql.md)
 ### [Office 365](remoteapp-o365.md)
 ### [Outlook 2013](remoteapp-outlook.md)
-### [Using App-V apps](remoteapp-appv.md)
-### [QuickBooks on Azure RemoteApp](remoteapp-quickbooks.md)
+### [Использование приложений App-V](remoteapp-appv.md)
+### [Использование QuickBooks в удаленном приложении Azure RemoteApp](remoteapp-quickbooks.md)
 ### [Microsoft Dynamics AX](https://mbs.microsoft.com/customersource/global/ax/learning/documentation/msdax2012r3azremappprg)
-### [Secure Apps and resources](remoteapp-secure.md)
+### [Защита приложений и ресурсов](remoteapp-secure.md)
 
 
-# Get Started
-## Real world scenarios
-### [Run any app on any device](remoteapp-anyapp.md)
-### [Run Office 365 on any device](remoteapp-tutorial-o365anywhere.md)
+# Начало работы
+## Реальные сценарии
+### [Запуск любого приложения на любом устройстве](remoteapp-anyapp.md)
+### [Запуск Office 365 на любом устройстве](remoteapp-tutorial-o365anywhere.md)
 
-# How To
+# Практическое руководство:
 
-## Create a RemoteApp collection
-### [Which collection do you need?](remoteapp-collections.md)
-### [Create a cloud collection](remoteapp-create-cloud-deployment.md)
-### [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
-### [Update your collection](remoteapp-update.md)
-### [Create a RemoteApp image](remoteapp-imageoptions.md)
-### [What is in the template image?](remoteapp-images.md)
-### [Image requirements](remoteapp-imagereqs.md)
-### [Upload an image](remoteapp-uploadimage.md)
-### [Create an image from an Azure VM](remoteapp-image-on-azurevm.md)
-## Configure a Virtual Network
-### [Plan your VNET](remoteapp-planvnet.md)
-### [Port and URL info](remoteapp-ports.md)
-### [Validate your VNET](remoteapp-vnet.md)
-### [Migrate to an Azure VNET](remoteapp-migratevnet.md)
-## Publish applications
-### [How to publish an app](remoteapp-publish.md)
-## Manage users
-### [How to add users](remoteapp-user.md)
-### [Configure Active Directory](remoteapp-ad.md)
-### [Change the Azure AD tenant](remoteapp-changetenant.md)
-### [Office 365 user accounts](remoteapp-o365user.md)
-### [Secure Data](remoteapp-secureaccess.md)
-### [User data](remoteapp-upd.md)
-## Client experience
-### [Supported clients](remoteapp-clients.md)
-### [Configure redirection](remoteapp-redirection.md)
-### [Client best practices](remoteapp-clientbestpractices.md)
-## Automate RemoteApp
-### [RemoteApp PowerShell cmdlets](remoteapp-tutorial-arawithpowershell.md)
-### [Manage RemoteApp with Azure Automation](automation-manage-remote-app.md)
-## Stay current with RemoteApp
-### [Forums](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Feedback](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Support](https://azure.microsoft.com/support/plans/)
-### [Service status](https://azure.microsoft.com/status/)
-## Troubleshoot
-### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
-### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+## Создание коллекции RemoteApp
+### [Какая коллекция вам нужна?](remoteapp-collections.md)
+### [Создание облачной коллекции](remoteapp-create-cloud-deployment.md)
+### [Создание гибридной коллекции](remoteapp-create-hybrid-deployment.md)
+### [Обновление коллекции](remoteapp-update.md)
+### [Создание образа RemoteApp](remoteapp-imageoptions.md)
+### [Что такое образ шаблона?](remoteapp-images.md)
+### [Требования к образам](remoteapp-imagereqs.md)
+### [Передача образа](remoteapp-uploadimage.md)
+### [Создание образа на основе виртуальной машины Azure](remoteapp-image-on-azurevm.md)
+## Настройка виртуальной сети
+### [Планирование виртуальной сети](remoteapp-planvnet.md)
+### [Сведения о портах и URL-адресах](remoteapp-ports.md)
+### [Проверка виртуальной сети](remoteapp-vnet.md)
+### [Переход в виртуальную сеть Azure](remoteapp-migratevnet.md)
+## Публикация приложений
+### [Как опубликовать приложение](remoteapp-publish.md)
+## Управление пользователями
+### [Как добавлять пользователей](remoteapp-user.md)
+### [Настройка Active Directory](remoteapp-ad.md)
+### [Изменение клиента Azure AD](remoteapp-changetenant.md)
+### [Учетные записи пользователей Office 365](remoteapp-o365user.md)
+### [Обеспечение безопасности данных](remoteapp-secureaccess.md)
+### [Пользовательские данные](remoteapp-upd.md)
+## Взаимодействие с клиентом
+### [Поддерживаемые клиенты](remoteapp-clients.md)
+### [Настройка перенаправления](remoteapp-redirection.md)
+### [Рекомендации по работе с клиентом](remoteapp-clientbestpractices.md)
+## Автоматизация RemoteApp
+### [Командлеты PowerShell для RemoteApp](remoteapp-tutorial-arawithpowershell.md)
+### [Управление RemoteApp с помощью службы автоматизации Azure](automation-manage-remote-app.md)
+## Последние новости RemoteApp
+### [Форумы](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [Отзывы и предложения](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [Поддержка](https://azure.microsoft.com/support/plans/)
+### [Состояние службы](https://azure.microsoft.com/status/)
+## Устранение неполадок
+### [Устранение неполадок в гибридной коллекции](remoteapp-hybridtrouble.md)
+### [Устранение неполадок в облачной коллекции](remoteapp-cloudtrouble.md)
 
 
 <!--HONumber=Nov16_HO2-->

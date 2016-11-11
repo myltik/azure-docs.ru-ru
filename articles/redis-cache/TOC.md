@@ -1,53 +1,53 @@
-# Overview
-##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
-##[Pricing](https://azure.microsoft.com/pricing/details/cache/)
-##[Redis Cache FAQ](cache-faq.md)
-##[Explore premium tier features](cache-premium-tier-intro.md)
-# Get started
+# Обзор
+##[Зачем использовать кэш Redis](https://azure.microsoft.com/services/cache/)
+##[Цены](https://azure.microsoft.com/pricing/details/cache/)
+##[Часто задаваемые вопросы о кэше Redis для Azure](cache-faq.md)
+##[Изучение функций уровня "Премиум"](cache-premium-tier-intro.md)
+# Приступая к работе
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
-# How to
-## Plan
-###[Choose a cache tier](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
-###[Persist your cache with Redis data persistence](cache-how-to-premium-persistence.md)
-###[Secure your cache with a virtual network](cache-how-to-premium-vnet.md)
-###[Distribute your cache with clustering](cache-how-to-premium-clustering.md)
-## Common scenarios
-###[Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
-###[Configure high availability](https://azure.microsoft.com/pricing/details/cache/)
-###[Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[Migrate from Managed Cache Service](cache-migrate-to-redis.md)
-###[Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
-## Automate
-###[Deploy and manage using Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Deploy and Manage using Azure CLI](cache-manage-cli.md)
-###[Provision a Redis Cache](cache-redis-cache-arm-provision.md)
-###[Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
-## ASP.NET integration
-###[Session state provider](cache-aspnet-session-state-provider.md)
-###[Output cache provider](cache-aspnet-output-cache-provider.md)
-## Manage
-###[Configure in the portal](cache-configure.md)
-###[Import/Export data](cache-how-to-import-export-data.md)
+# Практическое руководство
+## План
+###[Выбор уровня кэша](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+###[Сохранение кэша с помощью функции сохраняемости данных Redis](cache-how-to-premium-persistence.md)
+###[Защита кэша с помощью виртуальной сети](cache-how-to-premium-vnet.md)
+###[Распределение кэша с помощью кластеризации](cache-how-to-premium-clustering.md)
+## Распространенные сценарии
+###[Доступ к элементам в кэше](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
+###[Настройка высокого уровня доступности](https://azure.microsoft.com/pricing/details/cache/)
+###[Безопасное подключение с помощью SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
+###[Перенос из управляемой службы кэша](cache-migrate-to-redis.md)
+###[Руководство по шаблонам и методикам кэширования](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+## Автоматизация
+###[Развертывание и управление с помощью PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Развертывание и управление с помощью интерфейса командной строки Azure](cache-manage-cli.md)
+###[Подготовка кэша Redis](cache-redis-cache-arm-provision.md)
+###[Подготовка веб-приложения с использованием кэша Redis](cache-web-app-arm-with-redis-cache-provision.md)
+## Интеграция ASP.NET
+###[Поставщик состояний сеансов](cache-aspnet-session-state-provider.md)
+###[Поставщик кэша вывода](cache-aspnet-output-cache-provider.md)
+## Управление
+###[Настройка на портале](cache-configure.md)
+###[Импорт и экспорт данных](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
-###[Schedule updates](cache-administration.md#schedule-updates
-## Monitor and troubleshoot
-###[Monitor in the portal](cache-how-to-monitor.md)
-###[Troubleshoot cache issues](cache-how-to-troubleshoot.md)
-###[Set alerts for exceptions](cache-how-to-monitor.md#operations-and-alerts)
-## Scale
-###[Update to a different size and tier](cache-how-to-scale.md)
-###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
-#Reference
-## [PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt634513.aspx)
-## [Redis clients](http://redis.io/clients)
-## [Redis commands](http://redis.io/commands#)
-#Resources
-## [Redis cache samples](cache-redis-samples.md)
+###[Планирование обновлений](cache-administration.md#schedule-updates
+## Мониторинг и устранение неполадок
+###[Мониторинг на портале](cache-how-to-monitor.md)
+###[Устранение неполадок с кэшем](cache-how-to-troubleshoot.md)
+###[Настройка оповещений для исключений](cache-how-to-monitor.md#operations-and-alerts)
+## Масштаб
+###[Обновление до другого размера и уровня](cache-how-to-scale.md)
+###[Использование кластера Redis для свертывания и развертывания](cache-how-to-premium-clustering.md)
+#Справочные материалы
+## [Справочник по командлетам PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt634513.aspx)
+## [Клиенты Redis](http://redis.io/clients)
+## [Команды Redis](http://redis.io/commands#)
+#Ресурсы
+## [Примеры кэша Redis](cache-redis-samples.md)
 
 <!--HONumber=Nov16_HO2-->
 
