@@ -1,0 +1,65 @@
+# Обзор
+## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)
+## [Общие сведения о безопасности в Azure](security-get-started-overview.md)
+## [Службы и технологии безопасности](azure-security-services-technologies.md)
+
+# Приступая к работе
+## Безопасность сети
+### [Обзор](security-network-overview.md)
+### [Рекомендации по обеспечению сетевой безопасности](azure-security-network-security-best-practices.md)
+### [Защита границ](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Архитектура защищенной гибридной сети](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Безопасность хранилищ
+### [Обзор](security-storage-overview.md)
+### [Рекомендации по шифрованию и обеспечению защиты данных](azure-security-data-encryption-best-practices.md)
+### [Руководство по безопасности хранилища](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Защита вычислений
+### [Обзор](security-virtual-machines-overview.md)
+### [Антивредоносная программа (Майкрософт)](azure-security-antimalware.md)
+### [Шифрование дисков](azure-security-disk-encryption.md)
+### [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+## Управление безопасностью и мониторинг
+### [Обзор](security-management-and-monitoring-overview.md)
+### [Управление безопасностью](azure-security-management.md)
+### [Рекомендации по обновлению ПО в IaaS](azure-security-best-practices-software-updates-iaas.md)
+### [Центр безопасности Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### Служба интеграции журналов Azure
+#### [Обзор](security-azure-log-integration-overview.md)
+#### [Приступая к работе](security-azure-log-integration-get-started.md)
+#### [Часто задаваемые вопросы](security-azure-log-integration-faq.md)
+## Управление удостоверениями
+### [Обзор](security-identity-management-overview.md)
+### [Рекомендации по управлению удостоверениями для обеспечения безопасности](azure-security-identity-management-best-practices.md)
+## Службы PaaS
+### [Рекомендации по обеспечению безопасности Интернета вещей](azure-security-iot-best-practices.md)
+### [Обзор системы безопасности Интернета вещей](security-internet-of-things-overview.md)
+## Вертикальные отрасли
+### [Разработка безопасных решений для отрасли здравоохранения](security-health-care-solution.md)
+## Архитектура безопасности
+### [Обзор](azure-security-architecture-overview.md)
+### [Классификация данных для обеспечения готовности к переносу в облако](azure-security-data-classification.md)
+### [Архитектура приложения в Azure](security-application-architecture-on-azure.md)
+### [Рекомендации по безопасности и шаблоны](security-best-practices-and-patterns.md)
+### [Разработка отказоустойчивых приложений](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+# Ресурсы
+## [Центр управления безопасностью](security-microsoft-trust-center.md)
+## [Центр Microsoft Security Response Center](azure-security-response-center.md)
+## [Тестирование на проникновение](azure-security-pen-testing.md)
+## [Блог по безопасности и соответствию требованиям](http://blogs.msdn.com/b/azuresecurity/)
+## [Программа специалистов MVP по вопросам обеспечения безопасности в Azure](azure-security-mvp.md)
+## [Консультация по кибербезопасности](azure-security-cyber-services.md)
+## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
+## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
+
+# Сопутствующие материалы
+## [Центр безопасности](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
+## [хранилище ключей;](../key-vault/key-vault-whatis.md)
+## [Служба Log Analytics](../log-analytics/log-analytics-overview.md)
+## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+
+
+<!--HONumber=Nov16_HO2-->
+
+
