@@ -1,26 +1,30 @@
 ---
-title: Обзор гибридных подключений | Microsoft Docs
-description: Сведения о гибридных подключениях, безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS.
+title: "Обзор гибридных подключений | Документация Майкрософт"
+description: "Сведения о гибридных подключениях, безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
-ms.author: mandia
+ms.date: 10/18/2016
+ms.author: ccompy
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+
 
 ---
-# Обзор гибридных подключений
+# <a name="hybrid-connections-overview"></a>Обзор гибридных подключений
 В этой статье приведены обзорная информация о гибридных подключениях, список поддерживаемых конфигураций и список необходимых TCP-портов.
 
-## Что такое гибридное подключение
-Гибридное подключение является компонентом службы Azure BizTalk. Гибридное подключение обеспечивает простой и удобный способ соединения веб-приложений Azure (ранее — веб-сайты) и мобильных приложений Azure (ранее — мобильные службы) в службе приложений Azure с локальными ресурсами, защищенными брандмауэром.
+## <a name="what-is-a-hybrid-connection"></a>Что такое гибридное подключение
+Гибридное подключение является компонентом службы Azure BizTalk. Гибридное подключение обеспечивает простой и удобный способ соединения веб-приложений Azure (ранее — веб-сайты) и мобильных приложений Azure (ранее — мобильные службы) в службе приложений Azure с локальными ресурсами, защищенными брандмауэром.
 
 ![через гибридные подключения][HCImage]
 
@@ -44,7 +48,7 @@ ms.author: mandia
 * Используя групповые политики, администраторы могут предоставлять доступ гибридным подключениям к сети и задавать ресурсы, которые будут доступны гибридным приложениям.
 * Журналы события и аудита корпоративной сети обеспечивают видимость ресурсов, к которым осуществляется доступ гибридными подключениями.
 
-## Примеры сценариев
+## <a name="example-scenarios"></a>Примеры сценариев
 Гибридные подключения поддерживают следующие комбинации платформ и приложений:
 
 * доступ из .NET к SQL Server;
@@ -61,16 +65,16 @@ ms.author: mandia
 * `ApplicationIntent=ReadOnly` в настоящее время не поддерживается.
 * Проверка подлинности SQL может понадобиться в том случае, если сквозная проверка подлинности поддерживается приложением Azure и локальным SQL Server.
 
-## Безопасность и порты
+## <a name="security-and-ports"></a>Безопасность и порты
 Гибридные подключения используют авторизацию с помощью подписанного URL-адреса (SAS), чтобы гарантировать безопасность подключений от приложений Azure и локального диспетчера гибридных подключений к гибридному подключению. Для приложения и локального диспетчера гибридных подключений создаются отдельные ключи подключения. Эти ключи можно выпускать и отзывать независимо друг от друга.
 
 Гибридные подключения обеспечивают простое и безопасное распределение ключей приложениям и локальному диспетчеру гибридных подключений.
 
-См. раздел [Создание и управление гибридными подключениями](integration-hybrid-connection-create-manage.md).
+См. статью [Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md).
 
 *Авторизация приложения осуществляется отдельно от гибридного подключения*. Можно использовать любой подходящий метод авторизации. Метод авторизации зависит от сочетания сквозных методов авторизации, поддерживаемых в облаке Azure и локальных компонентах. Например, приложение Azure осуществляет доступ к локальному SQL Server. В этом сценарии авторизация SQL может являться сквозным методом авторизации.
 
-#### Порты TCP
+#### <a name="tcp-ports"></a>Порты TCP
 Гибридные подключения требуют только исходящее подключение по протоколу TCP или HTTP из частной сети. Вам не нужно открывать какие-либо порты брандмауэра или изменять параметры конфигурации сети, чтобы разрешить исходящее подключение к своей сети.
 
 Гибридные подключения используют следующие TCP-порты:
@@ -81,15 +85,24 @@ ms.author: mandia
 | 5671 |Когда порт 9352 используется для обмена данными, порт 5671 употребляется в качестве канала управления. <br/><br/>Разрешите внешние подключения к этому порту. |
 | 80, 443 |Эти порты используются для запросов данных в Azure. Если порты 9352 и 5671 недоступны, *то* в качестве резервных портов для обмена данными и управления используются порты 80 и 443.<br/><br/>Разрешите внешние подключения к этим портам. <br/><br/>**Примечание.** Не рекомендуется использовать эти резервные порты вместо других TCP-портов. HTTP/WebSocket используется в качестве протокола вместо собственного TCP-протокола для каналов данных. Это может привести к снижению производительности. |
 
-## Дальнейшие действия
-[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)<br/> [Подключение веб-сайта Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Подключение локального SQL Server из веб-приложений Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Мобильные службы Azure и гибридные подключения](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)<br/>
+[Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Подключение к локальному SQL Server из веб-приложения, размещенного в службе приложений Azure с помощью гибридных подключений](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
-## См. также
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Службы BizTalk. Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+## <a name="see-also"></a>См. также
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+[Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md)<br/>
+[Создание служб BizTalk с помощью портала Azure](biztalk-provision-services.md)<br/>
+[Просмотр вкладок "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
