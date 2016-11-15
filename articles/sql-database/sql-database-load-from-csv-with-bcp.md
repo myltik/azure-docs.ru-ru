@@ -1,12 +1,12 @@
 ---
-title: Загрузка данных из CSV-файла в базу данных SQL Azure (с использованием bcp) | Microsoft Docs
-description: Для импорта небольших объемов данных в базу данных SQL Azure используйте программу bcp.
+title: "Загрузка данных из CSV-файла в базу данных SQL Azure (с использованием bcp) | Документация Майкрософт"
+description: "Для импорта небольших объемов данных в базу данных SQL Azure используйте программу bcp."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,25 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+
 
 ---
-# Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)
 Для импорта данных из CSV-файла в базу данных SQL Azure можно использовать программу командной строки bcp.
 
-## Перед началом работы
-### Предварительные требования
+## <a name="before-you-begin"></a>Перед началом работы
+### <a name="prerequisites"></a>Предварительные требования
 Для выполнения этих действий необходимо иметь следующее:
 
 * Логический сервер и база данных SQL Azure
 * установленная служебная программа командной строки bcp;
 * установленная служебная программа командной строки sqlcmd.
 
-Вы можете загрузить служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][Центре загрузки Майкрософт].
+Вы можете скачать служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][Центр загрузки Майкрософт].
 
-### Данные в формате ASCII или UTF-16
-Чтобы выполнить действия, описанные в этом руководстве, необходимо использовать данные в формате ASCII или UTF-16, так как bcp не поддерживает кодировку UTF-8.
+### <a name="data-in-ascii-or-utf16-format"></a>Данные в формате ASCII или UTF-16
+Чтобы выполнить действия, описанные в этом руководстве, необходимо использовать данные в формате ASCII или UTF-16, так как bcp не поддерживает кодировку UTF-8. 
 
-## 1\. Создание целевой таблицы
+## <a name="1-create-a-destination-table"></a>1. Создание целевой таблицы
 Определите таблицу в базе данных SQL как целевую таблицу. Столбцы в таблице должны соответствовать данным в каждой строке файла данных.
 
 Чтобы создать таблицу, откройте окно командной строки и используйте sqlcmd.exe для выполнения следующей команды:
@@ -50,8 +54,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2) Создание файла источника данных
-Откройте блокнот и скопируйте следующие строки данных в новый текстовый файл, а затем сохраните этот файл в локальный временный каталог (C:\\Temp\\DimDate2.txt). Эти данные имеют формат ASCII.
+## <a name="2-create-a-source-data-file"></a>2) Создание файла источника данных
+Откройте блокнот и скопируйте следующие строки данных в новый текстовый файл, а затем сохраните этот файл в локальный временный каталог (C:\Temp\DimDate2.txt). Эти данные имеют формат ASCII.
 
 ```
 20150301,1,3
@@ -74,7 +78,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3\. Загрузка данных
+## <a name="3-load-the-data"></a>3. Загрузка данных
 Чтобы загрузить данные, откройте окно командной строки и выполните следующую команду, подставив собственные значения имени сервера, базы данных, пользователя и пароль.
 
 ```sql
@@ -104,14 +108,18 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Миграция базы данных SQL Server описана в статье [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[Синтаксис CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,27 +1,32 @@
 ---
-title: Визуализация данных хранилища данных SQL с помощью Power BI | Microsoft Docs
-description: Визуализация данных хранилища данных SQL с помощью Power BI
+title: "Визуализация данных хранилища данных SQL с помощью Power BI | Microsoft Azure"
+description: "Визуализация данных хранилища данных SQL с помощью Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Визуализация данных с помощью Power BI
+# <a name="visualize-data-with-power-bi"></a>Визуализация данных с помощью Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ ms.author: lodipalm;barbkess;sonyama
 > 
 > 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для выполнения этих действий необходимо иметь следующее:
 
-* Хранилище данных SQL, в которое предварительно загружена база данных AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][загрузить их вручную].
+* Хранилище данных SQL, в которое предварительно загружена база данных AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][load sample data manually].
 
-## 1\. Подключение к базе данных
+## <a name="1-connect-to-your-database"></a>1. Подключение к базе данных
 Чтобы открыть Power BI и подключиться к базе данных AdventureWorksDW, выполните следующие действия.
 
-1. Войдите на [портал Azure][портал Azure].
+1. Войдите на [портал Azure][Azure portal].
 2. Щелкните **Базы данных SQL** и выберите базу данных хранилища данных SQL AdventureWorks.
    
     ![Поиск базы данных][1]
@@ -56,7 +61,7 @@ ms.author: lodipalm;barbkess;sonyama
    
     ![Power BI: открытие AdventureWorksDW][5]
 
-## 2\. Создание отчета
+## <a name="2-create-a-report"></a>2) Создание отчета
 Теперь вы готовы к использованию Power BI для анализа демонстрационных данных AdventureWorksDW. Для выполнения анализа в AdventureWorksDW предусмотрено представление с именем AggregateSales. Это представление содержит несколько основных метрик для анализа продаж компании.
 
 1. Чтобы создать карту суммы продаж по почтовому индексу, разверните представление AggregateSales, щелкнув его в области полей справа. Выберите столбцы PostalCode и SalesAmount.
@@ -73,7 +78,7 @@ ms.author: lodipalm;barbkess;sonyama
     Мы переместили линейчатую диаграмму влево.
    
     ![Гистограмма Power BI][9]
-3. На этом этапе создается график, на котором отображены продажи по дате заказа. Чтобы создать этот график, перейдите к развернутому представлению AggregateSales. Щелкните SalesAmount и OrderDate. В столбце «Визуализации» щелкните значок «График» (это первый значок во второй строке под заголовком «Визуализации»).
+3. На этом этапе создается график, на котором отображены продажи по дате заказа. Чтобы создать эту диаграмму, перейдите к развернутому представлению AggregateSales. Щелкните SalesAmount и OrderDate. В столбце «Визуализации» щелкните значок «График» (это первый значок во второй строке под заголовком «Визуализации»).
    
     ![Power BI: выбор графика][10]
    
@@ -83,8 +88,8 @@ ms.author: lodipalm;barbkess;sonyama
 
 Ход выполнения можно сохранить в любой момент, выбрав в меню **Файл** пункт **Сохранить**.
 
-## Дальнейшие действия
-Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][разрабатывать хранилища данных], [загружать данные][загружать данные] и [переносить готовые решения][переносить готовые решения]. Вы также можете ознакомиться с [веб-сайтом Power BI][веб-сайтом Power BI].
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][develop], [загружать данные][load] и [переносить готовые решения][migrate]. Вы также можете ознакомиться с [веб-сайтом Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -101,15 +106,19 @@ ms.author: lodipalm;barbkess;sonyama
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[переносить готовые решения]: sql-data-warehouse-overview-migrate.md
-[разрабатывать хранилища данных]: sql-data-warehouse-overview-develop.md
-[загружать данные]: sql-data-warehouse-overview-load.md
+[переноса]: sql-data-warehouse-overview-migrate.md
+[разработки]: sql-data-warehouse-overview-develop.md
+[загрузки]: sql-data-warehouse-overview-load.md
 [загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[подключение к хранилищу данных SQL]: sql-data-warehouse-integrate-power-bi.md
 [Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [портал Azure]: https://portal.azure.com/
 [веб-сайтом Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

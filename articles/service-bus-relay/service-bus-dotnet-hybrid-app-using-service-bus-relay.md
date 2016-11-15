@@ -1,12 +1,12 @@
 ---
-title: Гибридные локальные и облачные приложения (.NET) | Microsoft Docs
-description: Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора служебной шины Azure.
+title: "Гибридные локальные и облачные приложения (.NET) | Документация Майкрософт"
+description: "Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора служебной шины Azure."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Создание локального или облачного гибридного приложения .NET с использованием ретранслятора служебной шины Azure
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Создание локального или облачного гибридного приложения .NET с использованием ретранслятора WCF служебной шины Azure
 ## <a name="introduction"></a>Введение
 В этой статье описывается, как создать облачное гибридное приложение с помощью Microsoft Azure и Visual Studio. В этом учебнике предполагается, что у вас нет опыта использования платформы Azure. Менее чем за 30 минут вы получите приложение, которое использует несколько ресурсов Microsoft Azure и выполняется в облаке.
 
 Вы узнаете:
 
 * Как создать или адаптировать существующую веб-службу для использования веб-решением.
-* Как использовать службу ретранслятора служебной шины Azure для обмена данными между приложением Azure и веб-службой, которая размещается в другом месте.
+* Как использовать службу ретранслятора WCF служебной шины Azure для обмена данными между приложением Azure и веб-службой, которая размещается в другом месте.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -32,7 +36,7 @@ ms.author: sethm
 
 Архитекторы решений начинают использовать облако для упрощения реализации масштабирования и снижения эксплуатационных расходов. При этом они обнаруживают,что существующие активы служб, которые они хотели бы использовать в качестве стандартных блоков для своих решений, находятся за корпоративным брандмауэром, поэтому обращение к ним из облачного решения затруднено. Многие внутренние службы построены или размещены таким образом, который не позволяет легко предоставлять их на границе корпоративной сети.
 
-Ретранслятор служебной шины предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретранслятора служебной шины по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе Service Bus. Служебная шина также защищает эти службы от несанкционированного доступа с помощью проверки подлинности [подписанного URL-адреса](../service-bus/service-bus-sas-overview.md) (SAS).
+Ретранслятор служебной шины предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретранслятора служебной шины по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе Service Bus. Служебная шина также защищает эти службы от несанкционированного доступа с помощью проверки подлинности [подписанного URL-адреса](../service-bus-messaging/service-bus-sas-overview.md) (SAS).
 
 ## <a name="solution-scenario"></a>Сценарий решений
 В этом учебнике вы создадите веб-сайт ASP.NET, который позволит просматривать список продуктов на странице складских запасов.
@@ -48,7 +52,7 @@ ms.author: sethm
 ## <a name="set-up-the-development-environment"></a>Настройка среды разработки
 Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
 
-1. Установите пакет Azure SDK для .NET с [этой страницы][].
+1. Установите пакет Azure SDK для .NET с [этой страницы][Получить инструменты и пакет SDK].
 2. Щелкните **Install the SDK** (Установить пакет SDK) для используемой версии Visual Studio. На описанных в этом учебнике шагах используется Visual Studio 2015.
 3. При появлении запроса на выполнение или сохранение файла установки щелкните **Выполнить**.
 4. В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить.
@@ -59,7 +63,7 @@ ms.author: sethm
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Создание локального сервера
+## <a name="create-an-onpremises-server"></a>Создание локального сервера
 Во-первых, нужно создать (макетную) локальную систему каталогов продукции. Она будет довольно простой. Это выглядит как представление фактической локальной системы каталогов продукции в виде полнофункциональной службы, которую мы пытаемся интегрировать.
 
 Этот проект запускается как консольное приложение Visual Studio, используя [пакет NuGet служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) для включения библиотек и параметров конфигурации служебной шины.
@@ -197,14 +201,14 @@ ms.author: sethm
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Нажмите клавиши **CTRL+SHIFT+B** или в меню **Сборка** щелкните **Собрать решение**, чтобы создать приложение и проверить результат.
 
-## <a name="create-an-asp.net-application"></a>Создание приложения ASP.NET
+## <a name="create-an-aspnet-application"></a>Создание приложения ASP.NET
 В этом разделе будет выполнено построение простого приложения ASP.NET, которое будет отображать данные, полученные из службы продукции.
 
 ### <a name="create-the-project"></a>Создание проекта
@@ -234,7 +238,7 @@ ms.author: sethm
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ ms.author: sethm
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -469,6 +473,6 @@ ms.author: sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
