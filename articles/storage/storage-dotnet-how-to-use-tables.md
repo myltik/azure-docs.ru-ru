@@ -1,47 +1,51 @@
 ---
-title: Приступая к работе с хранилищем таблиц Azure с помощью .NET | Microsoft Docs
-description: Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL).
+title: "Приступая к работе с хранилищем таблиц Azure с помощью .NET | Документация Майкрософт"
+description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/20/2016
-ms.author: gusapost;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+
 
 ---
-# Приступая к работе с хранилищем таблиц Azure с помощью .NET
+# <a name="get-started-with-azure-table-storage-using-net"></a>Приступая к работе с хранилищем таблиц Azure с помощью .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## Обзор
-Хранилище таблиц Azure — это служба в облаке, в которой хранятся структурированные данные NoSQL. Хранилище таблиц — это хранилище ключей и атрибутов, реализованное в виде бессхемной конструкции. Такая конструкция хранилища таблиц позволяет легко адаптировать данные по мере расширения приложения. Быстрый и экономичный доступ к данным предоставляется приложениям всех видов. Табличное хранилище обычно значительно дешевле, чем традиционная база данных SQL для тех же объемов данных.
+## <a name="overview"></a>Обзор
+Хранилище таблиц Azure — это служба в облаке, в которой хранятся структурированные данные NoSQL. Хранилище таблиц — это хранилище ключей и атрибутов, реализованное в виде бессхемной конструкции. Такая конструкция хранилища таблиц позволяет легко адаптировать данные по мере расширения приложения. Быстрый и экономичный доступ к данным предоставляется приложениям всех видов. Табличное хранилище обычно значительно дешевле, чем традиционная база данных SQL для тех же объемов данных.
 
 Табличное хранилище можно использовать для хранения гибких наборов данных, например пользовательских данных для веб-приложений, адресных книг, сведений об устройстве, а также метаданных любого другого типа, которые требуются вашей службе. В таблице можно хранить любое количество сущностей, а учетная запись хранения может содержать любое количество таблиц в пределах емкости учетной записи.
 
-### О данном учебнике
+### <a name="about-this-tutorial"></a>О данном учебнике
 В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища таблиц Azure, включая создание и удаление таблиц, а также вставку, обновление, удаление и создание запросов к данным таблиц.
 
 **Предполагаемое время выполнения:** 45 минут.
 
 **Предварительные требования**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/ru-RU/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 * [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Диспетчер конфигураций Azure для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account).
+*  [учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-### Другие примеры
-Дополнительные примеры использования хранилища таблиц см. на странице [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
+### <a name="more-samples"></a>Другие примеры
+Дополнительные примеры использования хранилища таблиц см. в статье [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -49,27 +53,27 @@ ms.author: gusapost;tamram
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Добавление объявлений пространств имен
+### <a name="add-namespace-declarations"></a>Добавление объявлений пространств имен
 Добавьте в начало файла `program.cs` следующие инструкции `using`:
-
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
-
-### Анализ строки подключения
+```
+### <a name="parse-the-connection-string"></a>Анализ строки подключения
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Создание клиента службы таблиц
+### <a name="create-the-table-service-client"></a>Создание клиента службы таблиц
 Класс **CloudTableClient** позволяет получать таблицы и сущности, хранящиеся в хранилище таблиц. Вот один из способов создать клиента службы.
-
+```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
+```
 Теперь вы можете написать код, который считывает и записывает данные в хранилище таблиц.
 
-## Создание таблицы
+## <a name="create-a-table"></a>Создание таблицы
 В этом примере показано, как создать таблицу, если она не существует:
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -82,10 +86,11 @@ ms.author: gusapost;tamram
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
-
-## Добавление сущности в таблицу
-Сущности сопоставляются с объектами C# с помощью настраиваемого класса, производного от **TableEntity**. Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одинаковым ключом раздела можно запрашивать быстрее, чем с разными ключами раздела, но использование различных ключей разделов обеспечивает более высокую масштабируемость параллельных операций. Любое свойство, которое будет храниться в службе таблиц, должно быть открытым свойством поддерживаемого типа, предоставляющим методы `get` и `set`. Кроме того, тип сущности *должен* предоставлять конструктор без параметров.
-
+```
+## <a name="add-an-entity-to-a-table"></a>Добавление сущности в таблицу
+Сущности сопоставляются с объектами C\# с помощью настраиваемого класса, производного от **TableEntity**. Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одинаковым ключом раздела можно запрашивать быстрее, чем с разными ключами раздела, но использование различных ключей разделов обеспечивает более высокую масштабируемость параллельных операций.  Любое свойство, которое будет храниться в службе таблиц, должно быть открытым свойством поддерживаемого типа, предоставляющим методы `get` и `set`.
+Кроме того, тип сущности *должен* предоставлять конструктор без параметров.
+```csharp
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity(string lastName, string firstName)
@@ -100,9 +105,9 @@ ms.author: gusapost;tamram
 
         public string PhoneNumber { get; set; }
     }
-
-Табличные операции, включающие сущности, выполняются с использованием объекта **CloudTable**, созданного ранее в разделе "Создание таблицы". Выполняемая операция представляется объектом**TableOperation**. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается объект **TableOperation** для вставки сущности customer в таблицу. Наконец, операция выполняется путем вызова **CloudTable.Execute**.
-
+```
+Табличные операции, включающие сущности, выполняются с использованием объекта **CloudTable** , созданного ранее в разделе "Создание таблицы". Выполняемая операция представляется объектом **TableOperation** .  В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**.  Чтобы подготовить операцию, создается объект **TableOperation** для вставки сущности customer в таблицу.  Наконец, операция выполняется путем вызова **CloudTable.Execute**.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -123,8 +128,8 @@ ms.author: gusapost;tamram
 
     // Execute the insert operation.
     table.Execute(insertOperation);
-
-## Вставка пакета сущностей
+```
+## <a name="insert-a-batch-of-entities"></a>Вставка пакета сущностей
 Вы можете вставить пакет сущностей в таблицу в одной операции записи. Некоторые другие примечания к пакетным операциям:
 
 * Можно выполнять операции обновления, удаления и вставки в одной операции пакета.
@@ -134,7 +139,7 @@ ms.author: gusapost;tamram
 
 <!-- -->
 В следующем примере кода создается два объекта сущности, которые добавляются в **TableBatchOperation** с помощью метода **Insert**. Затем вызывается метод **CloudTable.Execute** для выполнения операции.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -164,10 +169,11 @@ ms.author: gusapost;tamram
 
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
-
-## Получение всех сущностей в разделе
-Чтобы запросить таблицу для всех сущностей в разделе, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела Smith. Этот пример выводит на консоль поля каждой сущности в результатах запроса.
-
+```
+## <a name="retrieve-all-entities-in-a-partition"></a>Получение всех сущностей в разделе
+Чтобы запросить таблицу для всех сущностей в разделе, используйте объект **TableQuery** .
+Следующий пример кода задает фильтр для сущностей с ключом раздела Smith. Этот пример выводит на консоль поля каждой сущности в результатах запроса.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -187,10 +193,10 @@ ms.author: gusapost;tamram
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
-## Получение диапазона сущностей в разделе
+```
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Получение диапазона сущностей в разделе
 Если вы не хотите запрашивать все сущности в разделе, можно указать диапазон, объединив фильтр ключа раздела с фильтром ключа строк. В следующем примере кода используются два фильтра для получения всех сущностей в разделе Smith, где ключ строки (имя) начинается с первой буквы алфавита до буквы E, после чего результаты запроса выводятся в консоль.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -214,10 +220,12 @@ ms.author: gusapost;tamram
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
-## Извлечение одной сущности
-Можно написать запрос для получения отдельной сущности. В следующем примере кода с помощью объекта **TableOperation** задается клиент Ben Smith. Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ извлечь одну сущность из службы таблиц.
-
+```
+## <a name="retrieve-a-single-entity"></a>Извлечение одной сущности
+Можно написать запрос для получения отдельной сущности. В следующем примере кода с помощью объекта **TableOperation** задается клиент Ben Smith.
+Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**.
+Указание ключа раздела и ключа строки в запросе — самый быстрый способ извлечь одну сущность из службы таблиц.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -239,10 +247,10 @@ ms.author: gusapost;tamram
        Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
     else
        Console.WriteLine("The phone number could not be retrieved.");
-
-## Замена сущности
-Чтобы обновить сущность, извлеките ее из службы таблиц, измените объект сущности и сохраните изменения в службе таблиц. Следующий код изменяет существующий номер телефона клиента. Вместо вызова метода **Insert** этот код использует **Replace**. Из-за этого сущность будет полностью заменена на сервере, если только сущность на сервере не была изменена с момента извлечения. В подобном случае операция не будет выполнена. Это необходимо, чтобы приложение случайно не перезаписало изменения, внесенные с момента извлечения до обновления другим компонентом приложения. Правильный алгоритм обработки этой ошибки заключается в том, чтобы снова получить сущность, внести необходимые изменения (если это еще возможно), а затем выполнить еще одну операцию **Replace**. Ниже показано, как изменить это поведение.
-
+```
+## <a name="replace-an-entity"></a>Замена сущности
+Чтобы обновить сущность, извлеките ее из службы таблиц, измените объект сущности и сохраните изменения в службе таблиц. Следующий код изменяет существующий номер телефона клиента. Вместо вызова метода **Insert** этот код использует **Replace**. Из-за этого сущность будет полностью заменена на сервере, если только сущность на сервере не была изменена с момента извлечения. В подобном случае операция не будет выполнена.  Это необходимо, чтобы приложение случайно не перезаписало изменения, внесенные с момента извлечения до обновления другим компонентом приложения.  Правильный алгоритм обработки этой ошибки заключается в том, чтобы снова получить сущность, внести необходимые изменения (если это еще возможно), а затем выполнить еще одну операцию **Replace**.  Ниже показано, как изменить это поведение.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -278,10 +286,11 @@ ms.author: gusapost;tamram
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
-## Вставка или замена сущности
-Операции **Replace** завершаются ошибкой, если сущность была изменена с момента получения с сервера. Более того, для успешного выполнения операции **Replace** сначала нужно получить сущность с сервера. Тем не менее иногда вы не знаете, существует ли сущность на сервере и являются ли текущие значения, хранящиеся на нем, актуальными. Обновление должно заменить их все. Для выполнения этой задачи необходимо использовать операцию **InsertOrReplace**. Эта операция вставляет сущность, если она не существует, или заменяет ее, если она существует, независимо от того, когда было выполнено последнее обновление. В следующем примере кода сущность клиента для Ben Smith все равно извлекается, но затем она сохраняется на сервере с помощью **InsertOrReplace**. Любые обновления сущности, внесенные между операциями извлечения и обновления, будут перезаписаны.
-
+```
+## <a name="insertorreplace-an-entity"></a>Вставка или замена сущности
+**Replace** завершаются ошибкой, если сущность была изменена с момента получения с сервера.  Более того, для успешного выполнения операции **Replace** сначала нужно получить сущность с сервера.
+Тем не менее иногда вы не знаете, существует ли сущность на сервере и являются ли текущие значения, хранящиеся на нем, актуальными. Обновление должно заменить их все.  Для выполнения этой задачи необходимо использовать операцию **InsertOrReplace** .  Эта операция вставляет сущность, если она не существует, или заменяет ее, если она существует, независимо от того, когда было выполнено последнее обновление.  В следующем примере кода сущность клиента для Ben Smith все равно извлекается, но затем она сохраняется на сервере с помощью **InsertOrReplace**.  Любые обновления сущности, внесенные между операциями извлечения и обновления, будут перезаписаны.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -317,10 +326,10 @@ ms.author: gusapost;tamram
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
-## Запрос подмножества свойств сущности
+```
+## <a name="query-a-subset-of-entity-properties"></a>Запрос подмножества свойств сущности
 Запрос к таблице может получить лишь несколько свойств сущности, а не все свойства. Этот метод, который называется "проекцией", снижает потребление пропускной способности и может повысить производительность запросов, особенно для крупных сущностей. Запрос в следующем коде возвращает только электронные адреса сущностей в таблице. Это делается с помощью запроса **DynamicTableEntity**, а также **EntityResolver**. Дополнительные сведения о проекции см. в записи блога [Введение в Upsert и проекции в запросах][Введение в Upsert и проекции в запросах]. Обратите внимание, что проекция не поддерживается в локальном эмуляторе хранения, поэтому этот код выполняется только при использовании учетной записи хранения в службе таблиц.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -341,10 +350,10 @@ ms.author: gusapost;tamram
     {
         Console.WriteLine(projectedEmail);
     }
-
-## Удаление сущности
-Сущность можно легко удалить после ее получения с использованием того же шаблона, что и для обновления сущностей. Следующий код извлекает и удаляет сущность клиента.
-
+```
+## <a name="delete-an-entity"></a>Удаление сущности
+Сущность можно легко удалить после ее получения с использованием того же шаблона, что и для обновления сущностей.  Следующий код извлекает и удаляет сущность клиента.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -377,10 +386,10 @@ ms.author: gusapost;tamram
 
     else
        Console.WriteLine("Could not retrieve the entity.");
-
-## Удаление таблицы
+```
+## <a name="delete-a-table"></a>Удаление таблицы
 Наконец, следующий пример кода удаляет таблицу из учетной записи хранения. Удаленную таблицу нельзя воссоздать в течение определенного времени после удаления.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -393,10 +402,10 @@ ms.author: gusapost;tamram
 
     // Delete the table it if exists.
     table.DeleteIfExists();
-
-## Асинхронное получение объектов со страниц
+```
+## <a name="retrieve-entities-in-pages-asynchronously"></a>Асинхронное получение объектов со страниц
 Если необходимо считать большое количество объектов, обрабатывая или отображая их по мере получения (до завершения всей операции), для их получения можно использовать сегментированный запрос. В этом примере объясняется, как расположить запрошенные результаты на странице с помощью алгоритма Async-Await для того, чтобы не блокировать выполнение задачи ожиданием большого объема возвращаемых данных. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
-
+```csharp
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
@@ -418,21 +427,21 @@ ms.author: gusapost;tamram
 
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
-
-## Дальнейшие действия
+```
+## <a name="next-steps"></a>Дальнейшие действия
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-* Дополнительные примеры использования хранилища таблиц см. на странице [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET).
+* Дополнительные примеры использования хранилища таблиц см. в статье [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET).
 * Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе таблиц:
   * [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
-* Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
+* Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-  * Хранение неструктурированных данных: [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
-  * Хранение реляционных данных: [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-dotnet-how-to-use.md).
+  * [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md) .
+  * Информацию о хранении реляционных данных см. в статье [Подключение к базе данных SQL с помощью .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).
 
-[Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+Скачайте и установите [пакет SDK для Azure для .NET]: /develop/net/.
+[Создание проекта Azure в Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
 [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -441,12 +450,16 @@ ms.author: gusapost;tamram
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
 [Введение в Upsert и проекции в запросах]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Справочник по клиентской библиотеке .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[Настройка строк подключения службы хранилища Azure]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[How to: Programmatically access Table storage]: #tablestorage
+[Программный доступ к хранилищу таблиц]: #tablestorage
 
-<!----HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

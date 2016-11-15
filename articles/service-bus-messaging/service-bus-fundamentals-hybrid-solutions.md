@@ -1,12 +1,12 @@
 ---
-title: Azure Service Bus | Microsoft Docs
-description: An introduction to using Service Bus to connect Azure applications to other software.
+title: "Служебная шина Azure | Документация Майкрософт"
+description: "Общие сведения об использовании служебной шины для подключения приложений Azure к другим программам."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,99 +14,103 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Microsoft Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+Независимо от того, работают ли приложение или служба в облаке или локально, они часто должны взаимодействовать с другими приложениями или службами. Для обеспечения этой возможности Microsoft Azure предлагает Service Bus. В данной статье приводится обзор, описание и сценарии использования этой технологии.
 
-## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. In some cases, all that's really needed is a connection between applications; queues aren't required. Service Bus provides all three options, enabling your applications to interact in several different ways.
+## <a name="service-bus-fundamentals"></a>Базовая информация о Service Bus
+В разных ситуациях требуются разные способы взаимодействия. Иногда лучшим решением является обмен сообщениями между приложениями через простую очередь. В других ситуациях обычной очереди недостаточно и лучше использовать очередь с механизмом публикации и подписки. В некоторых случаях необходимо лишь подключение между приложениями, а очередь не требуется. Служебная шина предлагает все три варианта, позволяя приложениям взаимодействовать несколькими разными способами.
 
-Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
+Service Bus — это мультитенантная облачная служба, т. е. служба, совместно используемая несколькими пользователями. Каждый пользователь, например разработчик приложений, создает *пространство имен* и определяет механизмы взаимодействия, которые должны использоваться в нем. Рисунок 1 демонстрирует, как это выглядит.
 
 ![][1]
 
-**Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
+**Рис. 1. Служебная шина предоставляет мультитенантную службу для связи приложений через облако**
 
-Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
+В рамках пространства имен можно использовать один или несколько экземпляров четырех механизмов взаимодействия, по-разному связывающих приложения. Возможны следующие варианты:
 
-* *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-* *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-* *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages; it's not a broker. Instead, it just passes them on to the destination application.
+* *Очереди*, которые поддерживают однонаправленное взаимодействие. Каждая очередь действует как посредник (иногда называемый *брокером*), который хранит отправленные сообщения, пока они не будут получены. Каждое сообщение получает один получатель.
+* *Разделы*, которые поддерживают однонаправленное взаимодействие с использованием *подписок*. В одном разделе может быть несколько подписок. Подобно очереди, раздел действует как брокер, но каждая подписка может при необходимости применить фильтр, чтобы получать только те сообщения, которые соответствуют определенным условиям.
+* *Ретрансляторы*, которые обеспечивают двунаправленное взаимодействие. В отличие от очередей и разделов ретранслятор не хранит передаваемые сообщения, так как не является брокером. Он просто передает сообщения целевым приложениям.
 
-When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with one another. 
+При создании очереди, раздела или ретранслятора задается имя. В комбинации с именем пространства имен это имя создает уникальный идентификатор объекта. Приложения могут передать это имя службе Service Bus, а затем использовать соответствующую очередь, раздел или ретранслятор для взаимодействия с другими приложениями. 
 
-To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using REST APIs over HTTP(s). 
+Приложения Windows могут использовать эти объекты в сценарии ретрансляции с помощью Windows Communication Foundation (WCF). Для очередей и разделов приложения Windows могут использовать API-интерфейсы для обмена сообщениями, определяемые служебной шиной. Чтобы упростить использование этих объектов из приложений сторонних разработчиков, Майкрософт предлагает пакеты SDK для Java, Node.js и других языков. К очередям и разделам можно получить доступ также с помощью интерфейсов REST API через HTTP (HTTPS). 
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+Важно понимать, что хотя служебная шина и работает в облаке (т. е. в центрах обработки данных Microsoft Azure), использующие ее приложения могут работать где угодно. С помощью служебной шины можно связать приложения, выполняемые, например, в Azure и в локальном центре обработки данных. Эту службу также можно использовать для связи приложения, работающего в Azure или на другой облачной платформе, с локальным приложением или с планшетами и телефонами. Можно даже связывать бытовые приборы, датчики и другие устройства с центральным приложением или друг с другом. Служебная шина — это механизм взаимодействия в облаке, доступный практически везде. Способ ее использования зависит от целей приложения.
 
-## <a name="queues"></a>Queues
-Suppose you decide to connect two applications using a Service Bus queue. Figure 2 illustrates this situation.
+## <a name="queues"></a>Очереди
+Предположим, вам необходимо связать два приложения с помощью очереди служебной шины. Эта ситуация показана на рисунке 2.
 
 ![][2]
 
-**Figure 2: Service Bus queues provide one-way asynchronous queuing.**
+**Рис. 2. Очереди служебной шины обеспечивают однонаправленное асинхронное взаимодействие**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as Figure 2 shows. Or, multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver. For a multi-cast service, you should use a topic instead.
+Процесс прост: отправитель отправляет сообщение в очередь Service Bus, а получатель извлекает это сообщение позднее. В очереди может быть только один получатель, как показано на рис. 2, или несколько приложений могут считывать данные одной очереди. В последнем случае каждое сообщение считывает только один получатель. А для службы многоадресной рассылки следует использовать раздел.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+Каждое сообщение состоит из двух частей: набора свойств (пар ключ/значение) и двоичного тела сообщения. Способ их использования зависит от целей приложения. Например, приложение, отправляющее сообщение о недавней продаже, может включить в него свойства *Seller="Ava"* и *Amount=10000*. Тело сообщения может содержать отсканированное изображение подписанного контракта или может остаться пустым.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *ReceiveAndDelete*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
+Получатель может считать сообщение из очереди Service Bus двумя способами. Первый способ, *ReceiveAndDelete*, извлекает сообщение из очереди и сразу удаляет его. Это простой способ, но если у получателя произойдет сбой до того как он завершит обработку сообщения, оно будет потеряно. Поскольку сообщение было удалено из очереди, другие получатели не смогут прочитать его. 
 
-The second option, *PeekLock*, is meant to help with this problem. Like **ReceiveAndDelete**, a **PeekLock** read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+Второй способ, *PeekLock*, направлен на решение этой проблемы. Как и **ReceiveAndDelete**, **PeekLock** извлекает сообщение из очереди. Однако он не удаляет сообщение. Вместо этого он блокирует сообщение, делая его невидимым для других получателей, а затем ожидает одно из трех событий:
 
-* If the receiver processes the message successfully, it calls **Complete**, and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls **Abandon**. The queue then removes the lock from the message and makes it available to other receivers.
-* If the receiver calls neither of these within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called **Abandon**, making the message available to other receivers.
+* если получатель успешно обрабатывает сообщение, вызывается функция **Complete**и очередь удаляет сообщение; 
+* если получатель не может обработать сообщение, вызывается функция **Abandon**. Тогда очередь разблокирует сообщение и делает его доступным для других получателей.
+* Если получатель не вызывает ни одну из этих функций в течение заданного периода времени (по умолчанию 60 секунд), очередь считает, что получателю не удалось обработать сообщение. В этом случае очередь делает сообщение доступным для других получателей, как при вызове функции **Abandon**.
 
-Notice what can happen here: the same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this. To make duplicate detection easier, each message has a unique **MessageID** property that by default stays the same no matter how many times the message is read from a queue. 
+Обратите внимание, что может произойти: одно и то же сообщение может быть доставлено дважды, возможно, двум разным получателям. Приложения, использующие очереди Service Bus, должны быть готовы к этому. Чтобы упростить поиск повторяющихся данных, каждому сообщению задается уникальное свойство **MessageID** , которое по умолчанию не изменяется, независимо от того, сколько раз сообщение считывается из очереди. 
 
-Queues are useful in quite a few situations. They enable applications to communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
+Очереди полезны во многих ситуациях. Они позволяют приложениям взаимодействовать, даже если эти приложения работают не одновременно. Это особенно удобно при использовании пакетных и мобильных приложений. Очередь с несколькими получателями обеспечивает автоматическую балансировку нагрузки, так как отправленные сообщения распределяются между получателями.
 
-## <a name="topics"></a>Topics
-Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
+## <a name="topics"></a>Разделы
+Хотя очереди удобны, они не всегда являются правильным выбором. Иногда лучше использовать разделы служебной шины. Рисунок 3 иллюстрирует принцип работы разделов.
 
 ![][3]
 
-**Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
+**Рис. 3. Подписанное приложение определяет фильтр, на основании которого оно может получать некоторые или все сообщения, отправленные в раздел служебной шины**
 
-A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
+*Разделы* во многом похожи на очереди. Отправители отправляют сообщения в раздел так же, как в очередь, и эти сообщения выглядят в разделе так же, как в очереди. Существенное отличие заключается в том, что разделы позволяют каждому принимающему приложению создавать собственную *подписку*, определив *фильтр*. Подписчик будет видеть только те сообщения, которые соответствуют фильтру. Например, на рисунке 3 показан отправитель и раздел с тремя подписчиками, у каждого из которых имеется собственный фильтр:
 
-* Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
-* Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, so she wants to see both her own sales and all big sales regardless of who makes them.
-* Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
+* Подписчик 1 получает только сообщения, содержащие свойство *Seller="Ava"*.
+* Подписчик 2 получает сообщения, содержащие свойства *Seller="Ruby"* и *Amount* со значением больше 100 000. Возможно, Ruby — это продавец, который хочет просматривать свои собственные продажи и крупные продажи независимо от того, кто их осуществил.
+* Подписчик 3 задал для фильтра значение *True*, которое означает, что он получает все сообщения. Это приложение может, к примеру, вести журнал аудита, и поэтому ему нужен доступ ко всем сообщениям.
 
-As with queues, subscribers to a topic can read messages using either **ReceiveAndDelete** or **PeekLock**. Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+Как и в случае очередей, подписчики раздела могут считывать сообщения с помощью методов **ReceiveAndDelete** или **PeekLock**. Однако отдельное сообщение, отправленное в раздел (в отличие от очереди), может быть получено несколькими подписками. Такой подход, обычно называемый *публикация и подписка* (или *pub/sub*), используется, когда несколько приложений ожидают одни и те же сообщения. Правильно определив фильтр, каждый подписчик может получить доступ лишь к той части потока сообщений, которая ему необходима.
 
-## <a name="relays"></a>Relays
-Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides *relays*, as Figure 4 shows.
+## <a name="relays"></a>Ретрансляторы
+Очереди и разделы обеспечивают однонаправленное асинхронное взаимодействие через брокер. Трафик протекает только в одном направлении, и между отправителями и получателями нет прямой связи. Но что делать, если требуется другой механизм? Предположим, что вашим приложениям нужно и отправлять, и получать сообщения или необходима прямая связь между приложениями, а посредник для хранения сообщений не требуется. Для таких случаев в служебной шине есть *ретрансляторы*, как показано на рисунке 4.
 
 ![][4]
 
-**Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
+**Рис. 4. Ретранслятор служебной шины обеспечивает синхронное двунаправленное взаимодействие между приложениями**
 
-The obvious question to ask about relays is this: why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
+В каких случаях используются ретрансляторы? Даже если очереди не нужны, почему бы приложениям взаимодействовать не через облачную службу, а напрямую? Дело в том, что организовать прямой обмен сообщениями сложнее, чем кажется.
 
-Suppose you want to connect two on-premises applications, both running inside corporate datacenters. Each of these applications sits behind a firewall, and each datacenter probably uses network address translation (NAT). The firewall blocks incoming data on all but a few ports, and NAT implies that the machine each application is running on doesn't have a fixed IP address that you can reach directly from outside the datacenter. Without some extra help, connecting these applications over the public internet is problematic.
+Предположим, нужно связать два локальных приложения, которые выполняются в корпоративных центрах обработки данных. Каждое из этих приложений находится за брандмауэром, а центры обработки данных могут использовать преобразование сетевых адресов (NAT). Брандмауэр блокирует входящие данные на всех портах кроме нескольких, а вследствие действия NAT компьютеры, на которых работают приложения, не имеют фиксированных IP-адресов, к которым можно получить непосредственный доступ за пределами центра обработки данных. Без дополнительных средств эти приложения непросто связать через общедоступный Интернет.
 
-A Service Bus relay can help. To communicate bi-directionally through a relay, each application establishes an outbound TCP connection with Service Bus, then keeps it open. All communication between the two applications travels over these connections. Because each connection was established from inside the datacenter, the firewall allows incoming traffic to each application without opening new ports. This approach also gets around the NAT problem, because each application has a consistent endpoint in the cloud throughout the communication. By exchanging data through the relay, the applications can avoid the problems that would otherwise make communication difficult. 
+Ретранслятор служебной шины Azure может помочь в этом. Для двунаправленного взаимодействия через ретранслятор каждое приложение устанавливает исходящее TCP-соединение с Service Bus и держит его открытым. Весь обмен данными между двумя приложениями проходит через эти соединения. Так как каждое соединение установлено из центра обработки данных, брандмауэр разрешает входящий трафик для каждого приложения без открытия новых портов. Этот подход также решает проблему NAT, так как каждое приложение имеет постоянную конечную точку в облаке на протяжении всего обмена данными. Обмениваясь данными через ретранслятор, приложения могут избежать проблем, которые в противном случае осложнили бы взаимодействие. 
 
-To use Service Bus relays, applications rely on the Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
+Приложения могут использовать ретрансляторы служебной шины с помощью Windows Communication Foundation (WCF). Service Bus предоставляет привязки WCF, которые упрощают взаимодействие приложений Windows через ретрансляторы. Приложения, которые уже используют WCF, могут просто указать одну из этих привязок и обмениваться данными через ретранслятор. В отличие от использования очередей и разделов, использование ретрансляторов из приложений, работающих не под управлением Windows, хотя и возможно, но требует дополнительных усилий программистов, так как стандартные библиотеки не предусмотрены.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To enable an application to find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
+В отличие от очередей и разделов, приложения не создают ретрансляторы явно. Когда приложение, которое собирается получать сообщения, устанавливает TCP-соединение с Service Bus, ретранслятор создается автоматически. Когда соединение разрывается, ретранслятор удаляется. Чтобы приложение могло найти ретранслятор, созданный конкретным прослушивателем, служебная шина предоставляет реестр, который позволяет приложениям найти конкретный ретранслятор по имени.
 
-Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
+Ретрансляторы являются оптимальным решением, когда требуется прямое взаимодействие между приложениями. Например, система бронирования авиабилетов, работающая в локальном центре обработки данных, к которой должен осуществляться доступ из киосков регистрации, с мобильных устройств и с других компьютеров. Приложения, работающие во всех этих системах, могут взаимодействовать через ретрансляторы Service Bus в облаке, где бы они ни находились.
 
-## <a name="summary"></a>Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, and relays, Service Bus aims to make this essential function easier to implement and more broadly available.
+## <a name="summary"></a>Сводка
+Подключение приложений всегда было частью создания полноценных решений. Диапазон сценариев, для которых требуется взаимодействие между приложениями и службами, будет расти по мере подключения все большего количества приложений и устройств к Интернету. При предоставлении облачных технологий с помощью очередей, разделов и ретрансляторов используется служебная шина, которая упрощает эту важную функцию и делает ее более доступной.
 
-## <a name="next-steps"></a>Next steps
-Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
+## <a name="next-steps"></a>Дальнейшие действия
+Вы познакомились с основами служебной шины Azure, используйте следующие ссылки для получения дополнительных сведений.
 
-* How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* How to use [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* How to use [Service Bus relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
-* [Service Bus samples](../service-bus/service-bus-samples.md)
+* Как использовать [очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
+* Как использовать [разделы служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* Как использовать [ретрансляторы служебной шины](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+* [Служебная шина: примеры](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

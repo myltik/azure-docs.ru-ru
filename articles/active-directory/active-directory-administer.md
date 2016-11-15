@@ -1,13 +1,13 @@
 ---
-title: Администрирование каталога Azure AD | Microsoft Docs
-description: В этом разделе объясняется, что такое клиент Azure AD и как управлять Azure с помощью Azure Active Directory.
+title: "Администрирование каталога Azure AD | Документация Майкрософт"
+description: "В этом разделе объясняется, что такое клиент Azure AD и как управлять Azure с помощью Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 writer: markvi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Администрирование каталога Azure AD
@@ -146,6 +150,6 @@ Azure AD предоставляет основные возможности уп
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

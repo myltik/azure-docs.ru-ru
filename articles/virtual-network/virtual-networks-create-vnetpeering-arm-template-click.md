@@ -1,13 +1,13 @@
 ---
-title: Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager | Microsoft Docs
-description: Сведения о настройке пиринга виртуальных сетей с использованием шаблонов Resource Manager.
+title: "Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager | Документация Майкрософт"
+description: "Сведения о настройке пиринга виртуальных сетей с использованием шаблонов Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: narayanannamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+
 
 ---
-# Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager
+# <a name="create-vnet-peering-using-resource-manager-templates"></a>Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -59,7 +63,7 @@ ms.author: narayanannamalai;annahar
             }
         ]
         }
-3. Ниже показано определение пирингового соединения между виртуальными сетями (от VNet2 к VNet1) на основе описанного выше сценария. Скопируйте приведенное ниже содержимое и вставьте его в файл VNetPeeringVNet2.json.
+3. Ниже показано определение пирингового соединения между виртуальными сетями (от VNet2 к VNet1) на основе описанного выше сценария.  Скопируйте приведенное ниже содержимое и вставьте его в файл VNetPeeringVNet2.json.
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -91,7 +95,7 @@ ms.author: narayanannamalai;annahar
    
    | Параметр | Описание | значение по умолчанию |
    |:--- |:--- |:--- |
-   | AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual\_network. |Да |
+   | AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual_network. |Да |
    | AllowForwardedTraffic |Определяет, будет ли приниматься трафик, поступающий не из пиринговой виртуальной сети. |Нет |
    | AllowGatewayTransit |Разрешает пиринговой виртуальной сети использовать шлюз вашей виртуальной сети. |Нет |
    | UseRemoteGateways |Необходимо использовать шлюз вашей пиринговой виртуальной сети. Этот шлюз должен быть настроен. Кроме того, должен быть выбран параметр AllowGatewayTransit. Этот параметр нельзя использовать, если вы уже настроили шлюз. |Нет |
@@ -157,7 +161,7 @@ ms.author: narayanannamalai;annahar
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
    
-    Когда в нашем примере пиринг будет настроен, вы сможете подключать между собой любые виртуальные машины, входящие в эти две виртуальные сети. По умолчанию свойство AllowVirtualNetworkAccess имеет значение True. Поэтому для пиринга виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивающие обмен данными между этими сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями. Дополнительные сведения о создании правил NSG см. в [этой статье](virtual-networks-create-nsg-arm-ps.md).
+    Когда в нашем примере пиринг будет настроен, вы сможете подключать между собой любые виртуальные машины, входящие в эти две виртуальные сети. По умолчанию свойство AllowVirtualNetworkAccess имеет значение True. Поэтому для пиринга виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивающие обмен данными между этими сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями.  Дополнительные сведения о создании правил NSG см. в [этой статье](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -175,7 +179,7 @@ ms.author: narayanannamalai;annahar
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
    
-    Вот как будет выглядеть файл JSON:
+    Вот как будет выглядеть файл JSON:  
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,7 +242,7 @@ ms.author: narayanannamalai;annahar
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. В этом сценарии можно развернуть представленный ниже шаблон, чтобы настроить пиринг виртуальных сетей. Необходимо присвоить свойству AllowForwardedTraffic значение True, чтобы разрешить виртуальному сетевому устройству в пиринговой сети отправлять и принимать трафик.
+1. В этом сценарии можно развернуть представленный ниже шаблон, чтобы настроить пиринг виртуальных сетей.  Необходимо присвоить свойству AllowForwardedTraffic значение True, чтобы разрешить виртуальному сетевому устройству в пиринговой сети отправлять и принимать трафик.
    
     Ниже приведен шаблон для настройки пирингового соединения от сети HubVNet к сети VNet1. Обратите внимание, что свойству AllowForwardedTraffic присвоено значение false.
    
@@ -305,7 +309,25 @@ ms.author: narayanannamalai;annahar
    
     Укажите идентификатор подписки классической виртуальной сети или VNET2 и измените MyResouceGroup на имя группы соответствующего ресурса.
    
-    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]" } } } ] }
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
+   
+        {
+        "apiVersion": "2016-06-01",
+        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "name": "VNET1/LinkToVNET2",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+            "remoteVirtualNetwork": {
+            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+    }
+   
+        }
+        }
+    ]  }
 2. Чтобы развернуть файл шаблона, выполните следующий командлет для создания или обновления развертывания.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -349,4 +371,9 @@ ms.author: narayanannamalai;annahar
 
 Когда пиринг будет настроен между классической виртуальной сетью и виртуальной сетью Resource Manager, вы сможете подключать любую виртуальную машину в VNET1 к виртуальной машине в VNET2 и наоборот.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,14 +1,14 @@
 ---
-title: Балансировка нагрузки контейнеров в кластере службы контейнеров Azure | Microsoft Docs
-description: Сведения о балансировке нагрузки нескольких контейнеров в кластере службы контейнеров Azure.
+title: "Балансировка нагрузки контейнеров в кластере службы контейнеров Azure | Документация Майкрософт"
+description: "Сведения о балансировке нагрузки нескольких контейнеров в кластере службы контейнеров Azure."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Контейнеры, микрослужбы, DC/OS, Azure
-
+keywords: "Контейнеры, микрослужбы, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Балансировка нагрузки контейнеров в кластере службы контейнеров Azure
@@ -35,14 +39,14 @@ ms.author: rogardle
 
 Установить балансировщик нагрузки Marathon можно с помощью веб-интерфейса DC/OS или командной строки.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Установка балансировщика нагрузки Marathon с помощью веб-интерфейса DC/OS
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Установка балансировщика нагрузки Marathon с помощью веб-интерфейса DC/OS
 1. Щелкните Universe (Вселенная).
 2. Выполните поиск по запросу "Marathon-LB".
 3. Щелкните Install (Установить).
 
 ![Установка marathon-lb через веб-интерфейс DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Установка балансировщика нагрузки Marathon с помощью интерфейса командной строки DC/OS
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Установка балансировщика нагрузки Marathon с помощью интерфейса командной строки DC/OS
 Когда вы установите интерфейс командной строки DC/OS и обеспечите возможность подключения к кластеру, выполните следующую команду на клиентском компьютере:
 
 ```bash
@@ -97,13 +101,13 @@ dcos package install marathon-lb
 
 Следует заметить, что подсистема балансировки нагрузки Marathon по умолчанию будет развернута в частном кластере. Это означает, что приведенное выше развертывание будет доступным только через подсистему балансировки нагрузки, что обычно соответствует нужному поведению.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Развертывание с помощью веб-интерфейса DC/OS
+### <a name="deploy-using-the-dcos-web-ui"></a>Развертывание с помощью веб-интерфейса DC/OS
 1. Посетите страницу Marathon по адресу http://localhost/marathon (после настройки [туннеля SSH](container-service-connect.md)) и щелкните `Create Appliction`.
 2. В диалоговом окне `New Application` в правом верхнем углу щелкните `JSON Mode`.
 3. Вставьте в редактор фрагмент JSON (см. выше).
 4. Щелкните `Create Appliction`.
 
-### <a name="deploy-using-the-dc/os-cli"></a>Развертывание с помощью интерфейса командной строки DC/OS
+### <a name="deploy-using-the-dcos-cli"></a>Развертывание с помощью интерфейса командной строки DC/OS
 Чтобы развернуть это приложение с помощью интерфейса командной строки DC/OS, просто скопируйте фрагмент JSON (см. выше) в файл с именем `hello-web.json` и выполните следующую команду:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) см. в документации по DC/OS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

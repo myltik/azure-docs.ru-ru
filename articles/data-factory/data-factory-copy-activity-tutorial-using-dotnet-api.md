@@ -1,22 +1,26 @@
 ---
-title: Руководство. Создание конвейера с действием копирования с помощью API .NET | Microsoft Docs
-description: В этом руководстве описано, как с помощью API .NET создать конвейер фабрики данных Azure с действием копирования.
+title: "Руководство. Создание конвейера с действием копирования с помощью API .NET | Документация Майкрософт"
+description: "В этом руководстве описано, как с помощью API .NET создать конвейер фабрики данных Azure с действием копирования."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-.net-api"></a>Руководство. Создание конвейера с действием копирования с помощью API .NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Руководство. Создание конвейера с действием копирования с помощью API .NET
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -105,25 +109,29 @@ ms.author: spelluru
    6. В качестве расположения укажите **C:\ADFGetStarted**.
    7. Нажмите кнопку **ОК** , чтобы создать проект.
 2. Щелкните **Инструменты**, наведите указатель мыши на элемент **Диспетчер пакетов NuGet** и щелкните **Консоль диспетчера пакетов**.
-3. В окне **Консоль диспетчера пакетов**последовательно выполните следующие команды. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. В **консоли диспетчера пакетов** выполните следующие действия. 
+   1. Выполните следующую команду, чтобы установить пакет фабрики данных: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Выполните следующую команду, чтобы установить пакет Azure Active Directory (используйте Active Directory API в коде): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Добавьте следующий раздел **appSetttings** в файл **App.config**. Эти параметры используются вспомогательным методом **GetAuthorizationHeader**. 
    
     Замените значения **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** и **&lt;tenant ID&gt;** собственными значениями. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
    
         using System.Threading;
@@ -345,7 +353,7 @@ ms.author: spelluru
                            },
                        }
                    }
-               }); 
+               });    
 2. Добавьте следующий код в метод **Main** , чтобы получить состояние среза данных выходного набора данных. Существует только срез, ожидаемый в этом образце.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ ms.author: spelluru
    * Связанная служба: **LinkedService_AzureStorage**. 
    * Набор данных: **DatasetBlobSource** и **DatasetBlobDestination**.
    * Конвейер: **PipelineBlobSample** 
-10. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
+10. Убедитесь, что в таблице **emp** в указанной базе данных Azure SQL созданы две записи сотрудников.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * В статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md) подробно описывается действие копирования, используемое в этом руководстве.
 * Подробные сведения о пакете SDK для .NET в фабрике данных см. в [справочнике по API-интерфейсам .NET фабрики данных](https://msdn.microsoft.com/library/mt415893.aspx). В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

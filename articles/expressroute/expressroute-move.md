@@ -1,12 +1,12 @@
 ---
-title: Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания с помощью Resource Manager | Microsoft Docs
-description: На этой странице содержатся необходимые сведения о связывании классический модели с моделью развертывания с помощью Resource Manager.
+title: "Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания Resource Manager | Документация Майкрософт"
+description: "На этой странице содержатся необходимые сведения о связывании классический модели с моделью развертывания с помощью Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания с помощью Resource Manager
@@ -74,7 +78,7 @@ ms.author: ganesr
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Доступ к ресурсам общедоступного пиринга Azure и пиринга Майкрософт
 Доступ к ресурсам, который обычно осуществляется при помощи общедоступного пиринга Azure и пиринга Майкрософт, не будет прерываться.  
 
-## <a name="what's-supported"></a>Поддерживаемые функции
+## <a name="whats-supported"></a>Поддерживаемые функции
 В этом разделе описаны функции, которые поддерживаются при использовании каналов ExpressRoute:
 
 * Вы можете использовать один канал ExpressRoute, чтобы получить доступ к виртуальным сетям, развернутым как в классической модели, так и в модели с использованием Resource Manager.
@@ -84,7 +88,7 @@ ms.author: ganesr
 * Канал ExpressRoute служит в качестве моста между классической моделью и моделью развертывания с помощью Resource Manager. Трафик между виртуальными машинами в виртуальных сетях в классической модели и в модели развертывания с помощью Resource Manager проходит через ExpressRoute, если виртуальные сети обеих моделей связаны с одним каналом ExpressRoute.
 * Подключение между подписками поддерживается в классической модели и модели развертывания с помощью Resource Manager.
 
-## <a name="what's-not-supported"></a>Что не поддерживается
+## <a name="whats-not-supported"></a>Что не поддерживается
 В этом разделе описаны функции, которые не поддерживаются при использовании каналов ExpressRoute:
 
 * Перемещение связей, шлюзов и виртуальных сетей канала из классической модели в модель развертывания с помощью Resource Manager.
@@ -102,6 +106,9 @@ ms.author: ganesr
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

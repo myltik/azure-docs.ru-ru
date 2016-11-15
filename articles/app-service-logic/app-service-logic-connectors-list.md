@@ -1,12 +1,12 @@
 ---
-title: Список доступных соединителей и приложений API | Microsoft Docs
-description: Информация о соединителях и приложениях API службы приложений Azure
+title: "Список доступных соединителей и приложений API | Документация Майкрософт"
+description: "Информация о соединителях и приложениях API службы приложений Azure"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
 # <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>Список соединителей и приложений API для использования в приложениях логики
@@ -72,6 +76,9 @@ ms.author: mandia
 [Использование диспетчера гибридных подключений в службе приложений Azure](app-service-logic-hybrid-connection-manager.md)  
 [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

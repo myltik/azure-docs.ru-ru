@@ -1,12 +1,12 @@
 ---
-title: 'Руководство: рабочие процессы DevOps на портале Azure | Microsoft Docs'
-description: Узнайте о различных рабочих процессах DevOps, доступных на портале Azure.
+title: "Руководство по рабочим процессам DevOps на портале Azure | Документация Майкрософт"
+description: "Узнайте о различных рабочих процессах DevOps, доступных на портале Azure."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Руководство: рабочие процессы DevOps на портале Azure
+# <a name="tutorial-devops-with-the-azure-portal"></a>Руководство: рабочие процессы DevOps на портале Azure
 Платформа Azure поддерживает множество гибких рабочих процессов разработки и операций (DevOps). В этом руководстве вы узнаете, как использовать возможности портала Azure для разработки, тестирования, развертывания, устранения неполадок и мониторинга приложения, а также управления им. Здесь рассматриваются следующие вопросы.
 
 1. Создание веб-приложения и включение непрерывного развертывания.
@@ -24,21 +28,21 @@ ms.author: mlearned
 3. Мониторинг и устранение неполадок приложений.
 4. Общие задачи управления приложениями.
 
-## Создание веб-приложения и включение непрерывного развертывания
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Создание веб-приложения и включение непрерывного развертывания.
 Чтобы выполнить действия, описанные в этом руководстве, необходимо создать веб-приложение с помощью [службы приложений Azure](https://azure.microsoft.com/services/app-service/). Кроме того, изначально потребуется включить непрерывное развертывание из репозитория исходного кода в выполняемую среду Azure.
 
 1. Войдите на портал Azure.
-2. Выберите элементы **Службы приложений** &gt; **Add icon** (Добавить значок), а затем введите имя, выберите нужную подписку и создайте группу ресурсов, которая будет использоваться в качестве контейнера службы.
+2. Выберите **Службы приложений** &gt; **Добавить значок**, а затем укажите имя, выберите подписку и создайте группу ресурсов для использования в качестве контейнера для службы.
    
-   Группы ресурсов позволяют одновременно управлять выставлением счетов, развертыванием, отслеживанием и другими заданиями для всех ресурсов с помощью [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+   Группы ресурсов позволяют одновременно управлять выставлением счетов, развертыванием, отслеживанием и другими заданиями для всех ресурсов с помощью [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![рисунок 1][image1]
 3. Через некоторое время будет создана служба приложений. Просмотрите доступные параметры меню для этой службы на портале.
    
-   ![рисунок 2][image2]
+   ![рисунок 2][image2]    
 4. Щелкните URL-адрес. Обратите внимание на инструменты и репозитории, доступные на портале Azure. Кроме того, вам предоставляется широкий выбор языков и платформ, включая .NET, Java и Ruby.
    
-   ![image3][image3]
+   ![image3][image3]    
 5. На портале Azure непрерывное развертывание можно включить всего за несколько простых шагов. Щелкните значок созданной службы приложений, чтобы просмотреть доступные для нее параметры.
    
    ![image4][image4]
@@ -67,7 +71,7 @@ ms.author: mlearned
 12. После применения изменений в репозитории на портале в области уведомлений отобразится новое уведомление о развертывании. Если изменения не отображаются, нажмите кнопку "Синхронизировать".
     
     ![image12][image12]
-13. На этом этапе при загрузке страницы для службы приложений может появиться ошибка 403. Это происходит из-за того, что для страницы не задан документ по умолчанию (например, index.htm или default.html). Используйте средства на портале Azure, чтобы быстро настроить для страницы документ по умолчанию. На портале Azure выберите "Параметры" &gt; "Параметры приложения".
+13. На этом этапе при загрузке страницы для службы приложений может появиться ошибка 403. Это происходит из-за того, что для страницы не задан документ по умолчанию (например, index.htm или default.html). Используйте средства на портале Azure, чтобы быстро настроить для страницы документ по умолчанию.  На портале Azure выберите "Параметры" &gt; "Параметры приложения".
     
      ![image13][image13]
 14. Откроется колонка "Параметры приложения". Укажите для страницы имя SamplePage.html и нажмите кнопку "Сохранить". Просмотрите также другие доступные параметры.
@@ -79,7 +83,7 @@ ms.author: mlearned
     
     Включить непрерывное развертывание с помощью портала Azure несложно. Вы также можете создать более сложные конвейеры выпуска и использовать другие методы с текущей системой управления версиями и системами непрерывной интеграции (например, использование автоматических систем управления сборкой и выпуском) для развертывания приложений в Azure.
 
-## Разработка и тестирование приложений
+## <a name="develop-and-test-an-app"></a>Разработка и тестирование приложений
 Теперь нам необходимо внести некоторые изменения в базу кода и быстро развернуть их, а также настроить тестирование производительности веб-приложения.
 
 1. В области навигации портала Azure щелкните "Службы приложений" и выберите вашу службу приложений.
@@ -145,7 +149,7 @@ ms.author: mlearned
     
     ![рисунок 36][image36]
 
-## Мониторинг и устранение неполадок приложений
+## <a name="monitoring-and-troubleshooting-an-app"></a>Мониторинг и устранение неполадок приложений.
 В Azure доступно множество средств для мониторинга и устранения неполадок приложений.
 
 1. На портале Azure для нашего веб-приложения щелкните "Инструменты".
@@ -208,7 +212,7 @@ ms.author: mlearned
     
     На портале Azure предоставляются эффективные привычные средства для мониторинга и устранения неполадок приложений. Кроме того, здесь можно быстро принимать меры по устранению неполадок, выполняя такие задачи, как перезапуск процессов, включение и отключение разных наборов данных и даже интеграцию со службой поддержки Microsoft.
 
-## Общие задачи управления приложениями
+## <a name="general-application-management"></a>Общие задачи управления приложениями
 Управление приложениями всегда сопряжено с выполнением самых разных задач, таких как настройка параметров резервного копирования, реализация поставщика удостоверений и управление им, а также настройка управления доступом на основе ролей. Как и другие задачи DevOps, эти задачи можно выполнять непосредственно на портале Azure.
 
 1. Чтобы защитить веб-приложение от потери данных, необходимо настроить резервное копирование. Перейдите в область "Параметры" для вашего веб-приложения.
@@ -254,12 +258,12 @@ ms.author: mlearned
     
      ![рисунок 69][image69]
 
-## Сводка
+## <a name="summary"></a>Сводка
 В этом руководстве содержатся сведения о некоторых возможностях платформы Azure, которые позволяют быстро включать непрерывное развертывание, выполнять разработку, тестирование, мониторинг и устранение неполадок приложений, а также управлять основными стратегиями, такими как аварийное восстановление, управление удостоверениями и доступом на основе ролей. Платформа Azure поддерживает рабочие процессы DevOps, что позволяет эффективно выполнять различные задачи непосредственно на портале.
 
-## Дальнейшие действия
-* Чтобы включить рабочие процессы DevOps на платформе Azure, требуется Azure Resource Manager. Дополнительные сведения см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
-* Дополнительные сведения о развертывании службы приложений Azure см. в статье [Развертывание приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md).
+## <a name="next-steps"></a>Дальнейшие действия
+* Чтобы включить рабочие процессы DevOps на платформе Azure, требуется Azure Resource Manager.  Дополнительные сведения см. в [обзоре Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* См. дополнительные сведения о [развертывании приложений в службе приложений Azure](../app-service-web/web-sites-deploy.md).
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
@@ -267,68 +271,72 @@ ms.author: mlearned
 [image4]: ./media/tutorial-azureportal-devops/image4.png
 [image5]: ./media/tutorial-azureportal-devops/image5.png
 [image6]: ./media/tutorial-azureportal-devops/image6.png
-[image7]: ./media/tutorial-azureportal-devops/image7.png
-[image8]: ./media/tutorial-azureportal-devops/image8.png
+[рисунок 7]: ./media/tutorial-azureportal-devops/image7.png
+[рисунок 8]: ./media/tutorial-azureportal-devops/image8.png
 [image9]: ./media/tutorial-azureportal-devops/image9.png
 [image10]: ./media/tutorial-azureportal-devops/image10.png
 [image11]: ./media/tutorial-azureportal-devops/image11.png
 [image12]: ./media/tutorial-azureportal-devops/image12.png
 [image13]: ./media/tutorial-azureportal-devops/image13.png
-[image14]: ./media/tutorial-azureportal-devops/image14.png
-[image15]: ./media/tutorial-azureportal-devops/image15.png
-[image16]: ./media/tutorial-azureportal-devops/image16.png
-[image17]: ./media/tutorial-azureportal-devops/image17.png
-[image18]: ./media/tutorial-azureportal-devops/image18.png
-[image19]: ./media/tutorial-azureportal-devops/image19.png
-[image20]: ./media/tutorial-azureportal-devops/image20.png
-[image21]: ./media/tutorial-azureportal-devops/image21.png
-[image22]: ./media/tutorial-azureportal-devops/image22.png
-[image23]: ./media/tutorial-azureportal-devops/image23.png
-[image24]: ./media/tutorial-azureportal-devops/image24.png
-[image25]: ./media/tutorial-azureportal-devops/image25.png
-[image26]: ./media/tutorial-azureportal-devops/image26.png
-[image27]: ./media/tutorial-azureportal-devops/image27.png
-[image28]: ./media/tutorial-azureportal-devops/image28.png
-[image29]: ./media/tutorial-azureportal-devops/image29.png
-[image30]: ./media/tutorial-azureportal-devops/image30.png
-[image31]: ./media/tutorial-azureportal-devops/image31.png
-[image32]: ./media/tutorial-azureportal-devops/image32.png
-[image33]: ./media/tutorial-azureportal-devops/image33.png
-[image34]: ./media/tutorial-azureportal-devops/image34.png
-[image35]: ./media/tutorial-azureportal-devops/image35.png
-[image36]: ./media/tutorial-azureportal-devops/image36.png
-[image37]: ./media/tutorial-azureportal-devops/image37.png
-[image38]: ./media/tutorial-azureportal-devops/image38.png
-[image39]: ./media/tutorial-azureportal-devops/image39.png
-[image40]: ./media/tutorial-azureportal-devops/image40.png
-[image41]: ./media/tutorial-azureportal-devops/image41.png
-[image42]: ./media/tutorial-azureportal-devops/image42.png
-[image43]: ./media/tutorial-azureportal-devops/image43.png
-[image44]: ./media/tutorial-azureportal-devops/image44.png
-[image45]: ./media/tutorial-azureportal-devops/image45.png
-[image46]: ./media/tutorial-azureportal-devops/image46.png
-[image47]: ./media/tutorial-azureportal-devops/image47.png
-[image48]: ./media/tutorial-azureportal-devops/image48.png
-[image49]: ./media/tutorial-azureportal-devops/image49.png
-[image50]: ./media/tutorial-azureportal-devops/image50.png
-[image51]: ./media/tutorial-azureportal-devops/image51.png
-[image52]: ./media/tutorial-azureportal-devops/image52.png
-[image53]: ./media/tutorial-azureportal-devops/image53.png
-[image54]: ./media/tutorial-azureportal-devops/image54.png
-[image55]: ./media/tutorial-azureportal-devops/image55.png
-[image56]: ./media/tutorial-azureportal-devops/image56.png
-[image57]: ./media/tutorial-azureportal-devops/image57.png
-[image58]: ./media/tutorial-azureportal-devops/image58.png
-[image59]: ./media/tutorial-azureportal-devops/image59.png
-[image60]: ./media/tutorial-azureportal-devops/image60.png
-[image61]: ./media/tutorial-azureportal-devops/image61.png
-[image62]: ./media/tutorial-azureportal-devops/image62.png
-[image63]: ./media/tutorial-azureportal-devops/image63.png
-[image64]: ./media/tutorial-azureportal-devops/image64.png
-[image65]: ./media/tutorial-azureportal-devops/image65.png
-[image66]: ./media/tutorial-azureportal-devops/image66.png
-[image67]: ./media/tutorial-azureportal-devops/image67.png
-[image68]: ./media/tutorial-azureportal-devops/image68.png
-[image69]: ./media/tutorial-azureportal-devops/image69.png
+[рисунок 14]: ./media/tutorial-azureportal-devops/image14.png
+[рисунок 15]: ./media/tutorial-azureportal-devops/image15.png
+[рисунок 16]: ./media/tutorial-azureportal-devops/image16.png
+[рисунок 17]: ./media/tutorial-azureportal-devops/image17.png
+[рисунок 18]: ./media/tutorial-azureportal-devops/image18.png
+[рисунок 19]: ./media/tutorial-azureportal-devops/image19.png
+[рисунок 20]: ./media/tutorial-azureportal-devops/image20.png
+[рисунок 21]: ./media/tutorial-azureportal-devops/image21.png
+[рисунок 22]: ./media/tutorial-azureportal-devops/image22.png
+[рисунок 23]: ./media/tutorial-azureportal-devops/image23.png
+[рисунок 24]: ./media/tutorial-azureportal-devops/image24.png
+[рисунок 25]: ./media/tutorial-azureportal-devops/image25.png
+[рисунок 26]: ./media/tutorial-azureportal-devops/image26.png
+[рисунок 27]: ./media/tutorial-azureportal-devops/image27.png
+[рисунок 28]: ./media/tutorial-azureportal-devops/image28.png
+[рисунок 29]: ./media/tutorial-azureportal-devops/image29.png
+[рисунок 30]: ./media/tutorial-azureportal-devops/image30.png
+[рисунок 31]: ./media/tutorial-azureportal-devops/image31.png
+[рисунок 32]: ./media/tutorial-azureportal-devops/image32.png
+[рисунок 33]: ./media/tutorial-azureportal-devops/image33.png
+[рисунок 34]: ./media/tutorial-azureportal-devops/image34.png
+[рисунок 35]: ./media/tutorial-azureportal-devops/image35.png
+[рисунок 36]: ./media/tutorial-azureportal-devops/image36.png
+[рисунок 37]: ./media/tutorial-azureportal-devops/image37.png
+[рисунок 38]: ./media/tutorial-azureportal-devops/image38.png
+[рисунок 39]: ./media/tutorial-azureportal-devops/image39.png
+[рисунок 40]: ./media/tutorial-azureportal-devops/image40.png
+[рисунок 41]: ./media/tutorial-azureportal-devops/image41.png
+[рисунок 42]: ./media/tutorial-azureportal-devops/image42.png
+[рисунок 43]: ./media/tutorial-azureportal-devops/image43.png
+[рисунок 44]: ./media/tutorial-azureportal-devops/image44.png
+[рисунок 45]: ./media/tutorial-azureportal-devops/image45.png
+[рисунок 46]: ./media/tutorial-azureportal-devops/image46.png
+[рисунок 47]: ./media/tutorial-azureportal-devops/image47.png
+[рисунок 48]: ./media/tutorial-azureportal-devops/image48.png
+[рисунок 49]: ./media/tutorial-azureportal-devops/image49.png
+[рисунок 50]: ./media/tutorial-azureportal-devops/image50.png
+[рисунок 51]: ./media/tutorial-azureportal-devops/image51.png
+[рисунок 52]: ./media/tutorial-azureportal-devops/image52.png
+[рисунок 53]: ./media/tutorial-azureportal-devops/image53.png
+[рисунок 54]: ./media/tutorial-azureportal-devops/image54.png
+[рисунок 55]: ./media/tutorial-azureportal-devops/image55.png
+[рисунок 56]: ./media/tutorial-azureportal-devops/image56.png
+[рисунок 57]: ./media/tutorial-azureportal-devops/image57.png
+[рисунок 58]: ./media/tutorial-azureportal-devops/image58.png
+[рисунок 59]: ./media/tutorial-azureportal-devops/image59.png
+[рисунок 60]: ./media/tutorial-azureportal-devops/image60.png
+[рисунок 61]: ./media/tutorial-azureportal-devops/image61.png
+[рисунок 62]: ./media/tutorial-azureportal-devops/image62.png
+[рисунок 63]: ./media/tutorial-azureportal-devops/image63.png
+[рисунок 64]: ./media/tutorial-azureportal-devops/image64.png
+[рисунок 65]: ./media/tutorial-azureportal-devops/image65.png
+[рисунок 66]: ./media/tutorial-azureportal-devops/image66.png
+[рисунок 67]: ./media/tutorial-azureportal-devops/image67.png
+[рисунок 68]: ./media/tutorial-azureportal-devops/image68.png
+[рисунок 69]: ./media/tutorial-azureportal-devops/image69.png
 
-<!---HONumber=AcomDC_0615_2016--->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

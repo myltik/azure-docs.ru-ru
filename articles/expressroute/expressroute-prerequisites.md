@@ -1,12 +1,12 @@
 ---
-title: Предварительные требования к использованию ExpressRoute | Microsoft Docs
-description: На этой странице приведен список требований, которые необходимо выполнить, прежде чем заказать канал ExpressRoute.
+title: "Предварительные требования к использованию ExpressRoute | Документация Майкрософт"
+description: "На этой странице приведен список требований, которые необходимо выполнить, прежде чем заказать канал ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a582941b06fa7f81d7db188f2a9feba837b9bfd8
+
 
 ---
-# <a name="expressroute-prerequisites-&-checklist"></a>Предварительные требования и контрольный список для ExpressRoute
+# <a name="expressroute-prerequisites-checklist"></a>Предварительные требования и контрольный список для ExpressRoute
 Чтобы подключиться к облачным службам (Майкрософт) через ExpressRoute, вам нужно выполнить следующие условия.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Учетная запись Azure
-* Наличие действительной и активной учетной записи Microsoft Azure. Она необходима для организации канала ExpressRoute. Каналы ExpressRoute являются ресурсами в подписках Azure. Подписка Azure обязательна, даже если будет выполняться только подключение к облачным службам (Майкрософт), отличным от Azure, например Office 365 и CRM Online.
+* Наличие действительной и активной учетной записи Microsoft Azure. Она необходима для организации канала ExpressRoute. Каналы ExpressRoute являются ресурсами в подписках Azure. Подписка Azure обязательна, даже если будет выполняться только подключение к облачным службам (Майкрософт), отличным от Azure, например Office 365 и CRM Online.
 * Активная подписка на Office 365 (при использовании служб Office 365). Дополнительные сведения об определенных требованиях к Office 365 см. в разделе [Office 365](#office-365-specific-requirements) этой статьи.
 
 ## <a name="connectivity-provider"></a>Поставщик услуг подключения
@@ -60,6 +64,9 @@ ms.author: cherylmc
   * [Настройка маршрутизации](expressroute-howto-routing-classic.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

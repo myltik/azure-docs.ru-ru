@@ -1,12 +1,12 @@
 ---
-title: 'Гибридная идентификация: сравнение инструментов интеграции каталогов | Microsoft Docs'
-description: На этой странице приведено исчерпывающее сравнение различных инструментов, которые можно использовать для интеграции каталогов.
+title: "Гибридная идентификация: сравнение инструментов интеграции каталогов | Документация Майкрософт"
+description: "На этой странице приведено исчерпывающее сравнение различных инструментов, которые можно использовать для интеграции каталогов."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,25 +14,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+
 
 ---
-# Сравнение инструментов интеграции каталогов гибридной идентификации
-На протяжении многих лет инструменты интеграции каталогов развивались и расширялись. Этот документ предназначен, чтобы помочь предоставить единое представление об этих инструментах и сравнение функций, доступных в каждом из них.
+# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Сравнение инструментов интеграции каталогов гибридной идентификации
+На протяжении многих лет инструменты интеграции каталогов развивались и расширялись.  Этот документ предназначен, чтобы помочь предоставить единое представление об этих инструментах и сравнение функций, доступных в каждом из них.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
 > Azure AD Connect применяет компоненты и функции, ранее выпущенные как Dirsync и служба синхронизации AAD. Они больше не выпускаются по отдельности. Все усовершенствования будут включаться в обновления для Azure AD Connect, поэтому вам всегда будут доступны самые последние функции.
 > 
-> Компоненты DirSync и Azure AD Sync являются устаревшими. Дополнительную информацию см. [здесь](active-directory-aadconnect-dirsync-deprecated.md).
+> Компоненты DirSync и Azure AD Sync являются устаревшими. Дополнительные сведения см. [здесь](active-directory-aadconnect-dirsync-deprecated.md).
 > 
 > 
 
 Воспользуйтесь следующей подсказкой для каждой таблицы.
 
-● — доступно сейчас; СВ — в следующем выпуске; ОПВ — общедоступная предварительная версия.
+● — доступно сейчас;  
+FR — в следующем выпуске;  
+PP — в общедоступной предварительной версии.  
 
-## Синхронизация из локальной среды в облако
+## <a name="onpremises-to-cloud-synchronization"></a>Синхронизация из локальной среды в облако
 | Функция | Подключение Azure Active Directory | Службы синхронизации Azure Active Directory (AAD Sync) | Средство синхронизации Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Подключение к одному локальному лесу AD |● |● |● |● |● |
@@ -46,7 +52,7 @@ ms.author: billmath
 | Подключение к локальной системе управления персоналом (SAP, Oracle eBusiness, PeopleSoft) |СВ | | |● |● |
 | Поддержка правил синхронизации FIM и соединителей для подготовки к локальным системам | | | |● |● |
 
-## Синхронизации из облака в локальную среду
+## <a name="cloud-to-onpremises-synchronization"></a>Синхронизации из облака в локальную среду
 | Функция | Подключение Azure Active Directory | Службы синхронизации Azure Active Directory | Средство синхронизации Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Обратная запись устройств |● | |● | | |
@@ -54,7 +60,7 @@ ms.author: billmath
 | Обратная запись объектов пользователей и групп |● | | | | |
 | Обратная запись паролей (от самостоятельного сброса пароля (SSPR) и смены пароля) |● |● | | | |
 
-## Поддержка функции аутентификации
+## <a name="authentication-feature-support"></a>Поддержка функции аутентификации
 | Функция | Подключение Azure Active Directory | Службы синхронизации Azure Active Directory | Средство синхронизации Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Синхронизация паролей для одного локального леса AD |● |● |● | | |
@@ -62,7 +68,7 @@ ms.author: billmath
 | Единый вход с помощью федерации |● |● |● |● |● |
 | Обратная запись паролей (от самостоятельного сброса пароля и смены пароля) |● |● | | | |
 
-## Установка и настройка
+## <a name="setup-and-installation"></a>Установка и настройка
 | Функция | Подключение Azure Active Directory | Службы синхронизации Azure Active Directory | Средство синхронизации Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Поддержка установки на контроллере домена |● |● |● | |
@@ -73,7 +79,7 @@ ms.author: billmath
 | Поддержка Windows Server 2008 и Windows Server 2008 R2 |● для синхронизации, не для федерации |● |● |● |
 | Поддержка Windows Server 2012 и Windows Server 2012 R2 |● |● |● |● |
 
-## Фильтрация и конфигурация
+## <a name="filtering-and-configuration"></a>Фильтрация и конфигурация
 | Функция | Подключение Azure Active Directory | Службы синхронизации Azure Active Directory | Средство синхронизации Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Фильтрация по доменам и подразделениям |● |● |● |● |● |
@@ -83,7 +89,12 @@ ms.author: billmath
 | Разрешение удаления атрибутов из потока из AD в Azure AD |● |● | | | |
 | Разрешение дополнительной настройки потоков атрибутов |● |● | |● |● |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

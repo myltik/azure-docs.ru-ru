@@ -8,16 +8,19 @@
 4. В колонке **Пространство имен служебной шины** выберите **Очереди**, а затем щелкните **Добавить очередь**.
    
     ![Выберите "Очереди"][createqueue2]
-5. Введите **имя очереди**, а другие значения оставьте в том виде, в котором они заданы по умолчанию.
+5. Введите **имя очереди** , а другие значения оставьте в том виде, в котором они заданы по умолчанию.
    
     ![Нажмите кнопку "Создать"][createqueue3]
-6. Щелкните кнопку **Создать** в нижней части колонки.
+6. Щелкните кнопку **Создать**в нижней части колонки.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
 [createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
-[namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
+[namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

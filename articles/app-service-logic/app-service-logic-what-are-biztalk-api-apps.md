@@ -1,12 +1,12 @@
 ---
-title: Что такое соединители и приложения API BizTalk
-description: Сведения о приложениях API, соединителях и приложениях API BizTalk
+title: "Что такое соединители и приложения API BizTalk"
+description: "Сведения о приложениях API, соединителях и приложениях API BizTalk"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
 # <a name="what-are-connectors-and-biztalk-api-apps"></a>Что такое соединители и приложения API BizTalk
@@ -45,6 +49,9 @@ ms.author: mandia
 ## <a name="connector-and-api-app-list"></a>Список соединителей и приложений API
 В разделе [Список соединителей и приложений API](app-service-logic-connectors-list.md) можно найти полный список соединителей и приложений API, содержащихся в каждой категории, включая стандартные соединители, BizTalk EAI, соединители Premium и так далее.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Настройка среды разработки для Mac OS X | Microsoft Docs
-description: Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После завершения установки вы сможете создавать приложения на базе Mac OS X.
+title: "Настройка среды разработки для Mac OS X | Документация Майкрософт"
+description: "Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После завершения установки вы сможете создавать приложения на базе Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Настройка среды разработки для Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Настройка среды разработки для Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Вы можете создать приложения Service Fabric на базе Mac OS X, работающие в кластерах Linux. Из этой статьи вы узнаете, как настроить систему Mac для разработки приложений.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Платформа Service Fabric изначально не предназначена для работы в OS X. Чтобы запустить локальный кластер Service Fabric, мы предоставляем предварительно настроенную виртуальную машину Ubuntu с использованием программ Vagrant и VirtualBox. Перед началом работы вам потребуются:
 
-* [Vagrant (1.8.4 или более поздней версии)](http://wwww.vagrantup.com/downloads);
-* [VirtualBox](http://www.virtualbox.org/wiki/Downloads).
+* [Vagrant (1.8.4 или более поздней версии)](http://wwww.vagrantup.com/downloads)
+* [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Создание локальной виртуальной машины Linux
+## <a name="create-the-local-vm"></a>Создание локальной виртуальной машины Linux
 Чтобы создать локальную виртуальную машину, содержащую кластер Service Fabric с пятью узлами, выполните следующие действия.
 
 1. Клонируйте репозиторий Vagrantfile.
@@ -63,24 +67,24 @@ ms.author: seanmck
     На этом этапе требуется скачать предварительно настроенный образ виртуальной машины, загрузить его на локальном устройстве, а затем установить в нем локальный кластер Service Fabric. Это займет несколько минут. Если установка выполнена успешно, в окне вывода появится сообщение о начале запуска кластера.
    
     ![Начало установки кластера после подготовки виртуальной машины][cluster-setup-script]
-5. Проверьте правильность установки кластера. Для этого перейдите в Service Fabric Explorer: http://192.168.50.50:19080/Explorer (при условии, что вы сохранили IP-адрес частной сети по умолчанию).
+5. Проверьте правильность установки кластера. Для этого перейдите в Service Fabric Explorer по адресу http://192.168.50.50:19080/Explorer (при условии, что вы сохранили IP-адрес частной сети по умолчанию).
    
     ![Вид Service Fabric Explorer с узла Mac][sfx-mac]
 
-## Установка подключаемого модуля Service Fabric для Eclipse Neon (необязательно)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Установка подключаемого модуля Service Fabric для Eclipse Neon (необязательно)
 Платформа Service Fabric предоставляет подключаемый модуль для интерфейса IDE Eclipse Neon, который упрощает процесс создания и развертывания служб Java.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена версия Buildship 1.0.17 или более поздняя. Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь [инструкциями][buildship-update].
-2. Чтобы установить подключаемый модуль Service Fabric, щелкните **Help > Install New Software** (Справка > Установка нового программного обеспечения).
-3. В поле Work with (Работа с) введите http://dl.windowsazure.com/eclipse/servicefabric.
+1. Откройте Eclipse и убедитесь, что у вас установлена версия Buildship 1.0.17 или более поздняя. Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь [инструкциями][buildship-update].
+2. Чтобы установить подключаемый модуль Service Fabric, щелкните **Help > Install New Software** (Справка > Установка нового программного обеспечения).
+3. В текстовом поле Work with (Работают с) введите: http://dl.windowsazure.com/eclipse/servicefabric.
 4. Нажмите Добавить.
    
     ![Подключаемый модуль Eclipse Neon для Service Fabric][sf-eclipse-plugin-install]
 5. Выберите подключаемый модуль Service Fabric и нажмите кнопку Next (Далее).
 6. Выполните необходимые шаги установки и примите условия лицензионного соглашения.
 
-## Дальнейшие действия
-* [Create your first Azure Service Fabric application](service-fabric-create-your-first-linux-application-with-java.md) (Создание первого приложения Azure Service Fabric)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Create your first Azure Service Fabric application](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
 
@@ -94,4 +98,8 @@ ms.author: seanmck
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

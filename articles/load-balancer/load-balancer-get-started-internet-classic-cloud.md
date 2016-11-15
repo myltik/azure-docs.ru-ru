@@ -1,23 +1,28 @@
 ---
-title: Приступая к работе по созданию балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб | Microsoft Docs
-description: Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб
+title: "Приступая к работе по созданию балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб | Документация Майкрософт"
+description: "Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 171d5cd41d900b83c22e1db4bc514471a3d4b556
 
 ---
-# Приступая к работе по созданию балансировщика нагрузки для Интернета для облачных служб
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Приступая к работе по созданию балансировщика нагрузки для Интернета для облачных служб
+
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -28,13 +33,15 @@ ms.author: sewhee
 
 Облачные службы автоматически настраиваются с помощью подсистемы балансировки нагрузки. Их также можно настроить, используя модель службы.
 
-## Создайте балансировщик нагрузки при помощи CSDEF-файла
-Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Параметры конечных точек для облачных служб создаются в файле [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Создайте балансировщик нагрузки при помощи CSDEF-файла
+
+Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Настройки конечных точек для облачных служб создаются в CSDEF-файле [определения службы](https://msdn.microsoft.com/library/azure/gg557553.aspx).
 
 В следующем примере показано, как настроить файл servicedefinition.csdef для облачного развертывания.
 
 В фрагменте CSDEF-файла, созданного путем облачного развертывания, можно увидеть внешнюю конечную точку, настроенную для использования портов HTTP через порты 10000, 10001 и 10002.
 
+```xml
     <ServiceDefinition name=“Tenant“>
        <WorkerRole name=“FERole” vmsize=“Small“>
     <Endpoints>
@@ -53,18 +60,19 @@ ms.author: sewhee
     </Endpoints>
       </WorkerRole>
     </ServiceDefinition>
+```
 
+## <a name="check-load-balancer-health-status-for-cloud-services"></a>Проверка состояния работоспособности подсистемы балансировки нагрузки для облачных служб
 
-
-
-## Проверка состояния работоспособности подсистемы балансировки нагрузки для облачных служб
 Пример зонда работоспособности:
 
-         <LoadBalancerProbes>
+```xml
+    <LoadBalancerProbes>
         <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
-          </LoadBalancerProbes>
+    </LoadBalancerProbes>
+```
 
-Балансировщик нагрузки объединяет информацию о конечной точке и информацию о зонде для создания URL-адреса в виде http://{DIP of VM}:80/Probe.aspx, который можно использовать для запроса на проверку работоспособности службы.
+Балансировщик нагрузки объединяет информацию о конечной точке и информацию о зонде для создания URL-адреса в формате http://{DIP of VM}:80/Probe.aspx, который можно использовать для запроса на проверку работоспособности службы.
 
 Служба обнаруживает периодические зонды с одного и того же IP-адреса. Это запрос зонда работоспособности, поступающий от узла, на котором запущена виртуальная машина. Служба должна отправить ответ с кодом состояния HTTP 200, что подтверждает для подсистемы балансировки нагрузки, что служба работоспособна. Любой другой код состояния HTTP (например, 503) непосредственно выводит виртуальную машину из ротации.
 
@@ -72,11 +80,17 @@ ms.author: sewhee
 
 Чтобы получить дополнительную информацию о [зонде работоспособности](https://msdn.microsoft.com/library/azure/jj151530.aspx), см. схему определения службы.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
+
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

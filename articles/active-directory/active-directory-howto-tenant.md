@@ -1,12 +1,12 @@
 ---
-title: Как получить клиент Azure AD | Microsoft Docs
-description: Как получить клиент Azure Active Directory для регистрации и создания приложений.
+title: "Как получить клиент Azure AD | Документация Майкрософт"
+description: "Как получить клиент Azure Active Directory для регистрации и создания приложений."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: terrylan
-editor: ''
-
+editor: 
+ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,23 +14,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b72271ca68df3b4b11c41f208fd1e3dd75b5e727
+
 
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Как получить клиент Azure Active Directory
-В Azure Active Directory (Azure AD) [клиент](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) представляет организацию.  Это выделенный экземпляр службы Azure AD, который она получает и которым владеет при подписке на облачные службы Майкрософт, такие как Azure, Office 365 или Microsoft Intune.  Каждый клиент Azure AD отделен от остальных клиентов Azure AD.  
+В Azure Active Directory (Azure AD) [клиент](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) представляет организацию.  Это выделенный экземпляр службы Azure AD, который она получает и которым владеет при подписке на облачные службы Майкрософт, такие как Azure, Office 365 или Microsoft Intune.  Каждый клиент Azure AD отделен от остальных клиентов Azure AD.  
 
-Клиент содержит пользователей в организации и информацию о них, такую как пароли, данные профилей пользователей, разрешения и т. д.  Кроме того, он содержит группы, приложения и другие данные, относящиеся к организации и ее системе безопасности.
+Клиент содержит пользователей в организации и информацию о них, такую как пароли, данные профилей пользователей, разрешения и т. д.  Кроме того, он содержит группы, приложения и другие данные, относящиеся к организации и ее системе безопасности.
 
 Чтобы разрешить пользователям Azure AD вход в ваше приложение, необходимо зарегистрировать его в своем клиенте.  Публикация приложения в клиенте Azure AD **абсолютно бесплатна**.  На самом деле, большинство разработчиков создают несколько клиентов и приложений для экспериментов, разработки, промежуточного хранения и тестирования.  Организации, которые подписались на ваше приложение и используют его, при необходимости могут приобрести лицензию, если они хотят воспользоваться преимуществами расширенных функций каталога.
 
 Как вы хотите получить клиент Azure AD?  Процесс может отличаться в зависимости от начальных условий:
 
-* [Наличие существующей подписки Office 365](#use-an-existing-office-365-subscription)
+* [Наличие существующей подписки Office 365](#use-an-existing-office-365-subscription)
 * [Наличие существующей подписки Azure, связанной с учетной записью Майкрософт](#use-an-msa-azure-subscription)
 * [Наличие существующей подписки Azure, связанной с учетной записью организации](#use-an-organizational-azure-subscription)
 * [Нет ничего из перечисленного выше, и нужно создать клиент с нуля](#start-from-scratch)
 
-## <a name="use-an-existing-office-365-subscription"></a>Использование существующей подписки Office 365
+## <a name="use-an-existing-office-365-subscription"></a>Использование существующей подписки Office 365
 Если у вас есть подписка Office 365, у вас также есть клиент Azure AD. Вы можете войти на [портал Azure](https://portal.azure.com), используя учетную запись O365, и приступить к работе с Azure AD.
 
 ## <a name="use-an-msa-azure-subscription"></a>Использование подписки Azure, связанной с учетной записью Майкрософт
@@ -60,6 +64,9 @@ ms.author: dastrock
 
 При регистрации для получения подписки Azure вам потребуется предоставить информацию о кредитной карте.  Не беспокойтесь, плата за публикацию приложений в Azure AD или создание новых клиентов не взимается.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

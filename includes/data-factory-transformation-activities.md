@@ -12,9 +12,13 @@
 | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md) |HDInsight [Hadoop] или пакетная служба Azure |
 
 > [!NOTE]
-> Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в статье [Вызов программ Spark из фабрики данных](../articles/data-factory/data-factory-spark.md). 
-> Можно создать настраиваемое действие для выполнения сценариев R в кластере HDInsight, где установлена среда R. См. пример в репозитории Github [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) (Запуск сценария R с помощью фабрики данных Azure).
+> Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в разделе [Вызов программ Spark из фабрики данных](../articles/data-factory/data-factory-spark.md).
+> Можно создать настраиваемое действие для выполнения сценариев R в кластере HDInsight, где установлена среда R. Ознакомьтесь с примером в репозитории GitHub [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) (Запуск сценария R с помощью фабрики данных Azure).
 > 
 > 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

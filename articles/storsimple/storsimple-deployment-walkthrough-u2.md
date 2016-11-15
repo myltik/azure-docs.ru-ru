@@ -1,25 +1,29 @@
 ---
-title: Развертывание локального устройства StorSimple (с обновлением 2) | Microsoft Docs
-description: В статье описываются действия и рекомендации по развертыванию устройства StorSimple с обновлением 2 и службы.
+title: "Развертывание локального устройства StorSimple (с обновлением 2) | Документация Майкрософт"
+description: "В статье описываются действия и рекомендации по развертыванию устройства StorSimple с обновлением 2 и службы."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Развертывание локального устройства StorSimple (с обновлением 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Развертывание локального устройства StorSimple (с обновлением 2)
 > [!div class="op_single_selector"]
-> * [Обновление 2](storsimple-deployment-walkthrough-u2.md)
-> * [Обновление 1](storsimple-deployment-walkthrough-u1.md)
+> * [Обновление 2 и более поздних версий ](storsimple-deployment-walkthrough-u2.md)
+> * [Обновление 1](storsimple-deployment-walkthrough-u1.md)
 > * [Выпуск общедоступной версии](storsimple-deployment-walkthrough.md)
 > 
 > 
@@ -29,13 +33,13 @@ ms.author: alkohli
 
 Сведения, изложенные в этих учебниках, предполагают, что вы ознакомились с мерами предосторожности и уже распаковали устройство, установили его в стойку и подключили к устройству StorSimple все необходимые кабели. Если эти задачи еще предстоит выполнить, начните с ознакомления с [мерами предосторожности](storsimple-safety.md). Следуйте инструкциям по распаковке, монтажу в стойке и кабельному подключению конкретного устройства.
 
-* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8100](storsimple-8100-hardware-installation.md)
-* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8600](storsimple-8600-hardware-installation.md)
+* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8100](storsimple-8100-hardware-installation.md)
+* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8600](storsimple-8600-hardware-installation.md)
 
 Чтобы завершить процесс установки и настройки, вам потребуются права администратора. Перед началом настройки рекомендуется изучить контрольный список конфигурации. Процессы развертывания и настройки могут занять некоторое время.
 
 > [!NOTE]
-> Сведения о развертывании StorSimple, опубликованные на веб-сайте Microsoft Azure, применяются только к устройствам серии StorSimple 8000. Полные сведения об устройствах серии 7000 см. по ссылке [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Сведения о развертывании устройств серии 7000 см. в [кратком руководстве по системе StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> Сведения о развертывании StorSimple, опубликованные на веб-сайте Microsoft Azure, применяются только к устройствам серии StorSimple 8000. Полные сведения об устройствах серии 7000 см. по ссылке [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Сведения о развертывании устройств серии 7000 см. в [кратком руководстве по системе StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 > 
 > 
 
@@ -83,18 +87,18 @@ ms.author: alkohli
 ### <a name="for-the-device-in-the-datacenter"></a>Для устройства в центре обработки данных
 Переда настройкой устройства убедитесь, что оно полностью распаковано и установлено в стойку. Кроме того, к нему должны быть подключены все кабели питания, сети и последовательного доступа, как описано в разделах:
 
-* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8100](storsimple-8100-hardware-installation.md)
-* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8600](storsimple-8600-hardware-installation.md)
+* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8100](storsimple-8100-hardware-installation.md)
+* [Распаковка, монтаж в стойку и подключение кабелей к устройству 8600](storsimple-8600-hardware-installation.md)
 
 ### <a name="for-the-network-in-the-datacenter"></a>Сеть в центре обработки данных
 Перед тем как начать, убедитесь в следующем.
 
 * Порты в брандмауэре центра данных открыты для трафика iSCSI и облака, как описано в разделе [Требования к сети для устройства StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="step-by-step-deployment"></a>ПОШАГОВОЕ РАЗВЕРТЫВАНИЕ
+## <a name="stepbystep-deployment"></a>ПОШАГОВОЕ РАЗВЕРТЫВАНИЕ
 Следующие пошаговые инструкции позволяют развернуть устройство StorSimple в центре обработки данных.
 
-## <a name="step-1:-create-a-new-service"></a>Шаг 1. Создание новой службы
+## <a name="step-1-create-a-new-service"></a>Шаг 1. Создание новой службы
 Служба Диспетчера StorSimple может управлять несколькими устройствами StorSimple. Для создания нового экземпляра службы Диспетчера StorSimple выполните следующие действия.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ ms.author: alkohli
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>шагу 2, "Получение ключа регистрации службы"
+## <a name="step-2-get-the-service-registration-key"></a>шагу 2, "Получение ключа регистрации службы"
 После запуска и настройки службы Диспетчера StorSimple вам необходимо будет получить ключ регистрации службы. Этот ключ используется для регистрации вашего устройства StorSimple в службе и подключения к ней.
 
 Выполните следующие шаги на портале управления.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple
 Используйте Windows PowerShell для StorSimple, чтобы завершить первоначальную настройку устройства StorSimple, как описано в следующей процедуре. Для выполнения этого действия вам необходимо будет использовать программное обеспечение для эмуляции терминала. Дополнительные сведения см. в разделе [Использование PuTTY для подключения к последовательной консоли устройства](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Шаг 4. Выполнение минимальной настройки устройства
+## <a name="step-4-complete-minimum-device-setup"></a>Шаг 4. Выполнение минимальной настройки устройства
 Для минимальной настройки устройства StorSimple выполните следующие действия. 
 
 * Настройте вторичный сервер DNS.
@@ -130,14 +134,14 @@ ms.author: alkohli
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Шаг 5. Создание контейнера томов
+## <a name="step-5-create-a-volume-container"></a>Шаг 5. Создание контейнера томов
 У контейнера томов имеется учетная запись хранения, пропускная способность и параметры шифрования для всех томов, которые в нем содержатся. Перед выделением томов на вашем устройстве StorSimple вам необходимо будет создать контейнер томов. 
 
 Чтобы создать контейнер томов, выполните следующие действия на портале управления.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Шаг 6. Создание тома
+## <a name="step-6-create-a-volume"></a>Шаг 6. Создание тома
 После того как вы создадите контейнер томов, вы сможете выделить на устройстве StorSimple том хранения для своих серверов. Чтобы создать том, выполните следующие шаги на портале управления.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ ms.author: alkohli
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Шаг 7. Подключение, инициализация и форматирование тома
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Шаг 7. Подключение, инициализация и форматирование тома
 На узле Windows Server выполняются описанные ниже действия. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ ms.author: alkohli
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Шаг 8. Создание резервной копии
+## <a name="step-8-take-a-backup"></a>Шаг 8. Создание резервной копии
 Резервные копии обеспечивают защиту состояния томов до определенной точки во времени и улучают возможности восстановления, одновременно снижая время восстановления. Устройство StorSimple позволяет создавать резервные копии двух типов: локальные и облачные моментальные снимки. Каждый из этих типов резервных копий может создаваться **по расписанию** или **вручную**. 
 
 Чтобы создать резервную копию по расписанию, выполните следующие шаги на портале управления.
@@ -196,10 +200,10 @@ ms.author: alkohli
 3. Будет создано задание обновления. Отслеживайте статус обновления в разделе **Задания**.
    
    > [!NOTE]
-   > При запуске задания обновления его статус сразу отображается на уровне 50 процентов. Статус изменяется на 100 процентов только после завершения задания обновления. Статус процесса обновления в реальном времени не отображается.
+   > При запуске задания обновления его статус сразу отображается на уровне 50 процентов. Статус изменяется на 100 процентов только после завершения задания обновления. Статус процесса обновления в реальном времени не отображается.
    > 
    > 
-4. После успешного обновления устройства включите сетевые интерфейсы Data 2 и Data 3, если они были отключены.
+4. После успешного обновления устройства включите сетевые интерфейсы Data 2 и Data 3, если они были отключены.
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
@@ -217,6 +221,9 @@ ms.author: alkohli
 * Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
 * Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

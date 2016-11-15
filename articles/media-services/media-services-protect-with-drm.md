@@ -1,12 +1,12 @@
 ---
-title: Использование общего динамического шифрования PlayReady и (или) Widevine DRM | Microsoft Docs
-description: Службы мультимедиа Microsoft Azure позволяют защищать потоковое содержимое, которое доставляется по протоколам MPEG-DASH, Smooth Streaming и Http Live Streaming (HLS), с помощью технологии Microsoft PlayReady DRM. Она позволяет также передавать DASH с шифрованием, выполненным с помощью Widevine DRM. Здесь описывается выполнение динамического шифрования с помощью PlayReady и Widevine DRM.
+title: "Использование общего динамического шифрования PlayReady и (или) Widevine DRM | Документация Майкрософт"
+description: "Службы мультимедиа Microsoft Azure позволяют защищать потоковое содержимое, которое доставляется по протоколам MPEG-DASH, Smooth Streaming и Http Live Streaming (HLS), с помощью технологии Microsoft PlayReady DRM. Она позволяет также передавать DASH с шифрованием, выполненным с помощью Widevine DRM. Здесь описывается выполнение динамического шифрования с помощью PlayReady и Widevine DRM."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 59c0b46015b3d112d17dd79a2a4bfd3b3165dfba
+
 
 ---
-# Использование общего динамического шифрования PlayReady и (или) Widevine DRM
+# <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Использование общего динамического шифрования PlayReady и (или) Widevine DRM
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -24,27 +28,27 @@ ms.author: juliako
 > 
 > 
 
-Службы мультимедиа Microsoft Azure позволяют защищать потоковое содержимое, которое доставляется по протоколам MPEG-DASH, Smooth Streaming и HTTP-Live-Streaming (HLS), с помощью технологии [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Они также позволяют передавать зашифрованное потоковое содержимое DASH с использованием лицензий Widevine DRM. PlayReady и Widewine шифруются согласно спецификации общего шифрования (ISO/IEC 23001-7 CENC). Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
+Службы мультимедиа Microsoft Azure позволяют защищать потоковое содержимое, которое доставляется по протоколам MPEG-DASH, Smooth Streaming и HTTP-Live-Streaming (HLS), с помощью технологии [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Они также позволяют передавать зашифрованное потоковое содержимое DASH с использованием лицензий Widevine DRM. PlayReady и Widewine шифруются согласно спецификации общего шифрования (ISO/IEC 23001-7 CENC). Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
 
 Службы мультимедиа обеспечивают доставку лицензий PlayReady и DRM Widevine. Они также предоставляют API-интерфейсы для настройки прав и ограничений, которые должны применяться в среде выполнения PlayReady или Widevine DRM, когда пользователь воспроизводит защищенное содержимое. Когда пользователь запрашивает защищенное содержимое DRM, приложение проигрывателя в свою очередь запрашивает лицензию из службы лицензий AMS. Служба AMS лицензий выдаст лицензию проигрывателю, который авторизован. Лицензия PlayReady или Widevine содержит ключ расшифровки, который может использоваться клиентским проигрывателем для расшифровки и потоковой передачи содержимого.
 
-Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в статьях, посвященных интеграции с [Axinom](media-services-axinom-integration.md) и [castLabs](media-services-castlabs-integration.md).
+Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в статьях, посвященных интеграции с [Axinom](media-services-axinom-integration.md) и [castLabs](media-services-castlabs-integration.md).
 
-Службы мультимедиа поддерживают несколько способов авторизации пользователей, которые запрашивают ключи. Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация или с ограничением по маркеру. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате [простого веб-маркера](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) и [веб-маркера JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Дополнительную информацию см. в разделе "Настройка политики авторизации для ключа содержимого".
+Службы мультимедиа поддерживают несколько способов авторизации пользователей, которые запрашивают ключи. Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация или с ограничением по маркеру. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают [простые веб-маркеры](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) и маркеры в формате [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Дополнительную информацию см. в разделе "Настройка политики авторизации для ключа содержимого".
 
 Чтобы воспользоваться преимуществами динамического шифрования, необходимо иметь ресурс-контейнер, содержащий набор многоскоростных MP4-файлов или многоскоростных исходных файлов Smooth Streaming. Вам также потребуется настроить политику доставки для ресурса (описывается далее в этой статье). В зависимости от формата, указанного в URL-адресе потоковой передачи, сервер потокового воспроизведения по запросу обеспечивает доставку содержимого по выбранному протоколу. В результате вы сможете хранить и оплачивать файлы в одном формате, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий HTTP-ответ на основе запросов клиента.
 
 Эта статья будет полезна для разработчиков приложений, предоставляющих мультимедийные файлы, защищенные с помощью нескольких лицензий DRM, например PlayReady и Widevine. Здесь показано, как настроить политики авторизации для службы доставки лицензий PlayReady, чтобы только авторизованные клиенты могли получать лицензии PlayReady или Widevine. Также показано, как использовать динамическое шифрование с помощью PlayReady или Widevine DRM через DASH.
 
 > [!NOTE]
-> Чтобы приступить к работе с динамическим шифрованием, необходимо сначала получить хотя бы одну единицу масштабирования (единицу потоковой передачи). Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+> Чтобы приступить к работе с динамическим шифрованием, необходимо сначала получить хотя бы одну единицу масштабирования (единицу потоковой передачи). Чтобы узнать больше, ознакомьтесь с [масштабированием службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 > 
 > 
 
-## Скачивание образца
+## <a name="download-sample"></a>Скачивание образца
 Пример, описанный в этой статье, можно скачать [по этой ссылке](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-## Настройка общего динамического шифрования и службы доставки лицензий DRM
+## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Настройка общего динамического шифрования и службы доставки лицензий DRM
 Ниже описаны общие действия, которые необходимо выполнить для защиты ресурсов-контейнеров с помощью PlayReady, используя службу доставки лицензий служб мультимедиа и динамическое шифрование.
 
 1. Создайте ресурс-контейнер и отправьте в него файлы.
@@ -68,41 +72,41 @@ ms.author: juliako
 
 Далее приводятся подробные объяснения, примеры кода и ссылки на статьи с инструкциями для выполнения описанных выше задач.
 
-## Текущие ограничения
+## <a name="current-limitations"></a>Текущие ограничения
 При добавлении или обновлении политики доставки ресурсов необходимо удалить связанный указатель (если он есть) и создать новый.
 
 Ограничение при шифровании с помощью Widevine в службах мультимедиа Azure: в настоящее время использование нескольких ключей содержимого не поддерживается.
 
-## Создание ресурса-контейнера и отправка в него файлов
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Создание ресурса-контейнера и отправка в него файлов
 Для кодирования и потоковой передачи видео, а также управления ими необходимо сначала отправить содержимое в службы мультимедиа Microsoft Azure. Оно будет сохранено в безопасном облачном хранилище для последующей обработки и потоковой передачи.
 
-Дополнительные сведения см. в статье [Отправка файлов в учетную запись служб мультимедиа](media-services-dotnet-upload-files.md).
+Дополнительные сведения см. в статье [Передача файлов в учетную запись служб мультимедиа с помощью .NET](media-services-dotnet-upload-files.md).
 
-## Кодирование ресурса-контейнера с файлами в набор MP4-файлов с переменной скоростью
+## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Кодирование ресурса-контейнера с файлами в набор MP4-файлов с переменной скоростью
 При использовании динамического шифрования вам достаточно создать ресурс-контейнер, содержащий набор многоскоростных MP4-файлов или многоскоростных исходных файлов Smooth Streaming. Затем с учетом формата, указанного в манифесте или запросе фрагмента, сервер потокового воспроизведения по запросу организует передачу содержимого по выбранному протоколу. В результате вы сможете хранить и оплачивать файлы только в одном формате, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента. Дополнительные сведения см. в статье [Динамическая упаковка](media-services-dynamic-packaging-overview.md).
 
 Инструкции по выполнению шифрования см. в статье [Порядок кодирования ресурса с использованием стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Создание ключа содержимого и связывание его с закодированным ресурсом-контейнером
+## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Создание ключа содержимого и связывание его с закодированным ресурсом-контейнером
 В службах мультимедиа ключ содержимого содержит ключ, который используется для шифрования ресурса-контейнера.
 
 Дополнительные сведения см. в статье [Создание ContentKey с использованием .NET](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Настройка политики авторизации ключа содержимого
+## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Настройка политики авторизации ключа содержимого
 Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Чтобы получить ключ содержимого, клиент (проигрыватель) должен соответствовать заданной для этого ключа политике авторизации. Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация или с ограничением по маркеру.
 
 Дополнительные сведения см. в разделе [Настройка политики авторизации ключа содержимого](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Настройка политики доставки для ресурса-контейнера
+## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Настройка политики доставки для ресурса-контейнера
 Настройте политику доставки для ресурса-контейнера. Вот некоторые элементы, входящие в конфигурацию политики доставки:
 
-* URL-адрес для приобретения лицензии DRM.
-* Протокол доставки ресурсов-контейнеров (например, MPEG-DASH, HLS, HDS, Smooth Streaming или все перечисленные).
-* Тип динамического шифрования (в данном случае — стандартное шифрование).
+* URL-адрес для приобретения лицензии DRM. 
+* Протокол доставки ресурсов-контейнеров (например, MPEG-DASH, HLS, HDS, Smooth Streaming или все перечисленные). 
+* Тип динамического шифрования (в данном случае — стандартное шифрование). 
 
 Дополнительные сведения см. в разделе [Настройка политик доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Создание указателя потоковой передачи по запросу для получения URL-адреса для потоковой передачи
+## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Создание указателя потоковой передачи по запросу для получения URL-адреса для потоковой передачи
 При использовании протоколов Smooth, DASH или HLS вам потребуется предоставить пользователю URL-адрес для потоковой передачи.
 
 > [!NOTE]
@@ -112,7 +116,7 @@ ms.author: juliako
 
 Указания по публикации ресурса и созданию URL-адреса потоковой передачи см. в статье [Создание URL-адреса потоковой передачи](media-services-deliver-streaming-content.md).
 
-## Получение маркера тестирования
+## <a name="get-a-test-token"></a>Получение маркера тестирования
 Получите маркер тестирования в зависимости от ограничения по маркеру, заданного в политике авторизации ключа.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -127,10 +131,10 @@ ms.author: juliako
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 
-Для проверки потоковой передачи можно использовать [проигрыватель AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Для проверки потоковой передачи можно использовать [проигрыватель AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) .
 
-## <a id="example"></a>Пример
-В следующем примере показаны функциональные возможности, появившиеся в версии 3.5.2 пакета SDK служб мультимедиа Azure для .NET (в частности, возможность указывать шаблон лицензии Widevine и отправлять запрос на лицензию Widevine из служб мультимедиа Azure). Для установки пакета использовалась следующая команда пакета NuGet:
+## <a name="a-idexampleaexample"></a><a id="example"></a>Пример
+В следующем примере показаны функциональные возможности, появившиеся в версии 3.5.2 пакета SDK служб мультимедиа Azure для .NET (в частности, возможность указывать шаблон лицензии Widevine и отправлять запрос на лицензию Widevine из служб мультимедиа Azure). Для установки пакета использовалась следующая команда пакета NuGet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
 
@@ -600,19 +604,24 @@ ms.author: juliako
         }
 
 
-## Дальнейшие действия
+## <a name="next-step"></a>Дальнейшие действия
 Просмотрите схемы обучения работе со службами мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 [CENC with Multi-DRM and Access Control (CENC с несколькими подсистемами DRM и контролем доступа)](media-services-cenc-with-multidrm-access-control.md)
 
 [Настройка упаковки Widevine с использованием AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Анонс служб доставки лицензий Google Widevine в службах мультимедиа Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Начало работы с Microsoft Power BI Embedded
-description: Power BI Embedded, добавление интерактивных отчетов Power BI в приложение бизнес-аналитики
+title: "Начало работы с Microsoft Power BI Embedded"
+description: "Power BI Embedded, добавление интерактивных отчетов Power BI в приложение бизнес-аналитики"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Начало работы с Microsoft Power BI Embedded
@@ -98,8 +102,11 @@ ms.author: asaxton
 ## <a name="see-also"></a>См. также
 * [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 * [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+* [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

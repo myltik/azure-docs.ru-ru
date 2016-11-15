@@ -1,12 +1,12 @@
 ---
-title: Решение для запуска и остановки виртуальных машин в нерабочее время [предварительная версия] | Microsoft Docs
-description: Решения по управлению запуском и остановкой виртуальных машин Azure Resource Manager по расписанию и упреждающему мониторингу с помощью Log Analytics.
+title: "Решение для запуска и остановки виртуальных машин в нерабочее время [предварительная версия] | Документация Майкрософт"
+description: "Решения по управлению запуском и остановкой виртуальных машин Azure Resource Manager по расписанию и упреждающему мониторингу с помощью Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Решение для запуска и остановки виртуальных машин в нерабочее время [предварительная версия] в службе автоматизации
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Решение для запуска и остановки виртуальных машин в нерабочее время [предварительная версия] в службе автоматизации
 Решение для запуска и остановки виртуальных машин в нерабочее время (предварительная версия) позволяет запускать и останавливать виртуальные машины Azure Resource Manager по определенному пользователем расписанию, а также предоставляет сведения о состоянии заданий службы автоматизации по запуску и остановке ВМ с помощью OMS Log Analytics.  
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -42,7 +46,7 @@ ms.author: magoedte
 | Переменная | Описание |
 | --- | --- |
 | Модуль Runbook **SendMailO365-MS-Mgmt** | |
-| SendMailO365-IsSendEmail-MS-Mgmt; |Определяет, могут ли модули Runbook StartByResourceGroup-MS-Mgmt-VM и StopByResourceGroup-MS-Mgmt-VM отправлять уведомления по электронной почте после завершения.  Чтобы включить отправление оповещений по электронной почте, выберите значение **True**, а чтобы отключить — **False**. Значение по умолчанию — **False**. |
+| SendMailO365-IsSendEmail-MS-Mgmt; |Определяет, могут ли модули Runbook StartByResourceGroup-MS-Mgmt-VM и StopByResourceGroup-MS-Mgmt-VM отправлять уведомления по электронной почте после завершения.  Чтобы включить отправление оповещений по электронной почте, выберите значение **True**, а чтобы отключить — **False**. Значение по умолчанию — **false**. |
 | Модуль Runbook **StartByResourceGroup-MS-Mgmt-VM** | |
 | StartByResourceGroup-ExcludeList-MS-Mgmt-VM |Введите имена виртуальных машин, которые нужно исключить из операции управления, используя в качестве разделителя точку с запятой (;). В значениях учитывается регистр и может использоваться подстановочный знак (звездочка). |
 | StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt |Текст, который можно добавить в начало сообщения электронной почты. |
@@ -121,7 +125,7 @@ ms.author: magoedte
 
 Здесь можно также открыть рабочую область OMS для дальнейшего анализа записей заданий.  Просто щелкните **Все параметры** и в колонке **Параметры** выберите **Быстрый запуск**, а затем в колонке **Быстрый запуск** выберите **OMS Portal** (Портал OMS).   Откроется новая вкладка или новый сеанс браузера и отобразится рабочая область OMS, связанная с вашей учетной записью службы автоматизации и подпиской.  
 
-### <a name="configuring-e-mail-notifications"></a>Настройка получения уведомлений по электронной почте
+### <a name="configuring-email-notifications"></a>Настройка получения уведомлений по электронной почте
 Чтобы включить получение электронных уведомлений о выполнении модулями Runbook заданий остановки и запуска виртуальной машины, необходимо изменить учетные данные **O365Credential** и задать по крайней мере следующие переменные:
 
 * SendMailO365-IsSendEmail-MS-Mgmt;
@@ -160,11 +164,11 @@ ms.author: magoedte
 | ResourceGroup |Указывает имя группы ресурсов задания Runbook. |
 | ResourceProvider |Указывает службу Azure, которая предоставляет ресурсы для развертывания и управления.  Для службы автоматизации значением будет Azure Automation. |
 | ResourceType |Указывает тип ресурса в Azure.  Для службы автоматизации значением является учетная запись службы автоматизации, связанная с Runbook. |
-| resultType |Состояние задания Runbook.  Возможные значения:<br>— Started;<br>- Остановлена<br>— Suspended;<br>— Failed;<br>- Succeeded. |
+| resultType |Состояние задания Runbook.  Возможные значения:<br>Started<br>- Остановлена<br>Приостановлено<br>Сбой<br>- Succeeded. |
 | resultDescription |Описывает состояние результата задания Runbook.  Возможные значения:<br>— Job is started;<br>— Job Failed;<br>- Job Completed. |
 | RunbookName |Указывает имя модуля Runbook. |
 | SourceSystem |Указывает исходную систему для отправленных данных.  Для службы автоматизации значением будет :OpsManager. |
-| StreamType |Задает тип события. Возможные значения:<br>- Verbose.<br>— Output;<br>— Error;<br>— Warning. |
+| StreamType |Задает тип события. Возможные значения:<br>- Verbose.<br>— Output;<br>error<br>Предупреждение |
 | SubscriptionId |Указывает идентификатор подписки задания. |
 | Время |Дата и время выполнения задания Runbook. |
 
@@ -183,7 +187,7 @@ ms.author: magoedte
 | resultDescription |Включает в себя выходной поток из Runbook. |
 | RunbookName |Имя Runbook. |
 | SourceSystem |Указывает исходную систему для отправленных данных.  Для службы автоматизации значением будет OpsManager. |
-| StreamType |Тип потока задания. Возможные значения:<br>— Progress;<br>— Output;<br>— Warning;<br>— Error;<br>— Debug;<br>- Verbose. |
+| StreamType |Тип потока задания. Возможные значения:<br>ход выполнения<br>Выходные данные<br>Предупреждение<br>error<br>debug<br>- Verbose. |
 | Время |Дата и время выполнения задания Runbook. |
 
 При выполнении поиска по журналу, в результате которого возвращаются записи категории **JobLogs** или **JobStreams**, можно выбрать представление **JobLogs** или **JobStreams**. Эти представления отображают набор плиток с перечнем обновлений, возвращенных в результатах поиска.
@@ -202,6 +206,9 @@ ms.author: magoedte
 * Чтобы узнать больше о выполнении модулей Runbook, отслеживании заданий Runbook и других технических деталях, ознакомьтесь с [отслеживанием задания Runbook](automation-runbook-execution.md)
 * Чтобы узнать больше о Log Analytics (OMS) и источниках сбора данных, ознакомьтесь с разделом [Подключение службы Azure к Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

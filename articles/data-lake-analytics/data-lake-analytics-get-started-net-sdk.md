@@ -1,39 +1,81 @@
 ---
-title: Начало работы с аналитикой озера данных Azure с помощью пакета SDK .NET | Microsoft Docs
-description: 'Узнайте, как использовать пакет SDK .NET для создания учетных записей хранения озера данных, создания заданий аналитики озера данных и отправки заданий на языке U-SQL. '
+title: "Начало работы с Azure Data Lake Analytics с помощью пакета SDK .NET | Документация Майкрософт"
+description: "Узнайте, как использовать пакет SDK .NET для создания учетных записей хранения озера данных, создания заданий аналитики озера данных и отправки заданий на языке U-SQL. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+
 
 ---
-# Учебник. Начало работы с аналитикой озера данных Azure с помощью пакета SDK .NET
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Учебник. Начало работы с аналитикой озера данных Azure с помощью пакета SDK .NET
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Узнайте, как использовать пакет Azure .NET SDK для отправки заданий на языке [U SQL](data-lake-analytics-u-sql-get-started.md) в Data Lake Analytics. Дополнительные сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+Узнайте, как использовать пакет Azure .NET SDK для отправки заданий на языке [U-SQL](data-lake-analytics-u-sql-get-started.md) в Data Lake Analytics. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 С помощью этого руководства вам предстоит разработать консольное приложение C# для отправки задания U-SQL, которое считывает файл значений с разделением знаками табуляции (TSV) и преобразует его в файл данных с разделителями-запятыми (CSV). Для навигации по руководству с помощью других поддерживаемых средств используйте вкладки в верхней части этой статьи.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++**
-* **Microsoft Azure SDK для .NET (версии 2.5 или выше)**. Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
-* **Учетная запись аналитики озера данных Azure**. См. статью об [управлении Data Lake Analytics с помощью пакета Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
+* **Microsoft Azure SDK для .NET (версии 2.5 или выше)**.  Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Учетная запись Azure Data Lake Analytics**. См. статью об [управлении Data Lake Analytics с помощью пакета Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
 
-## Создание консольного приложения
-В этом учебнике обрабатываются некоторые журналы поиска. Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure.
+## <a name="create-console-application"></a>Создание консольного приложения
+В этом руководстве обрабатываются некоторые журналы поиска.  Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure. 
 
 Пример журнала поиска можно найти в общедоступном контейнере больших двоичных объектов Azure. В приложении загрузите файл на свою рабочую станцию, а затем отправьте файл в учетную запись Data Lake Store по умолчанию своей учетной записи Data Lake Analytics.
+
+**Создания сценария U-SQL**
+
+Задания Data Lake Analytics пишутся на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье о [начале работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Создайте файл **SampleUSQLScript.txt** со следующим сценарием U SQL и поместите файл в папку **C:\temp\**.  Путь жестко закодирован в приложении .NET, которое вы создадите, выполнив следующую процедуру.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+Этот сценарий U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**. 
+
+В программе C# необходимо подготовить файл **/Samples/Data/SearchLog.tsv** и папку **/Output/**.    
+
+Проще использовать относительные пути для файлов, которые хранятся в учетных записях озера данных по умолчанию. Также можно использовать абсолютные пути.  Например: 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+Для доступа к файлам в связанных учетных записях хранения используйте абсолютные пути.  Для файлов, хранящихся в связанной учетной записи хранения Azure, используется следующий синтаксис:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> В настоящее время существует известная проблема со службой озера данных Azure.  Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием.  Если вы еще не работали с порталом Azure, вам поможет руководство по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).       
+> 
+> 
 
 **Создание приложения**
 
@@ -46,40 +88,7 @@ ms.author: edmaca
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. Добавьте в проект новый файл с именем **SampleUSQLScript.txt**, а затем вставьте в него следующий скрипт U-SQL. Задания аналитики озера данных пишутся на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье [Начало работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [Справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    Этот скрипт U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**.
-   
-    В программе C# необходимо подготовить файл **/Samples/Data/SearchLog.tsv** и папку **/Output/**.
-   
-    Проще использовать относительные пути для файлов, которые хранятся в учетных записях озера данных по умолчанию. Также можно использовать абсолютные пути. Например:
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    Необходимо использовать абсолютные пути для доступа к файлам в связанных учетных записях хранения. Для файлов, хранящихся в связанной учетной записи хранения Azure, используется следующий синтаксис:
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > В настоящее время существует известная проблема со службой озера данных Azure. Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием. Если вы еще не работали с порталом, вам поможет руководство по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
-   > 
-   > 
-5. Вставьте следующий код в Program.cs:
+4. Вставьте следующий код в Program.cs:
    
         using System;
         using System.IO;
@@ -110,7 +119,7 @@ ms.author: edmaca
    
             private static void Main(string[] args)
             {
-                string localFolderPath = @"c:\temp";
+                string localFolderPath = @"c:\temp\";
    
                 // Connect to Azure
                 var creds = AuthenticateAzure(DOMAINNAME, CLIENTID);
@@ -235,14 +244,19 @@ ms.author: edmaca
 1. Нажмите клавишу **F5** для запуска приложения. Результат выглядит так:
    
     ![Azure Data Lake Analytics: результат выполнения задания U-SQL, созданного с помощью .NET SDK](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Проверьте выходной файл. Путь по умолчанию и имя файла — C:\\Temp\\SearchLog-from-Data-Lake.csv.
+2. Проверьте выходной файл.  Путь по умолчанию и имя файла — C:\Temp\SearchLog-from-Data-Lake.csv.
 
-## См. также
+## <a name="see-also"></a>См. также
 * Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
 * Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 * Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Сведения о языке U-SQL см. в статье [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и [Cправочник по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+* Сведения о языке U-SQL см. в статье [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Задачи управления описываются в руководстве по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
-* Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+* Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Secure your key vault | Microsoft Docs
-description: Manage access permissions for key vault for managing vaults and keys and secrets. Authentication and authorization model for key vault and how to secure your key vault
+title: "Защита хранилища ключей | Документация Майкрософт"
+description: "Управление правами доступа к хранилищу ключей для управления хранилищами, ключами и секретами. Модель проверки подлинности и авторизации для хранилища ключей и обеспечение защиты этого хранилища"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,151 +14,155 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# <a name="secure-your-key-vault"></a>Secure your key vault
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access key vault. This article provides an overview of key vault access model, explains authentication and authorization, and describes how to secure access to key vault for your cloud applications with an example.
+# <a name="secure-your-key-vault"></a>Защита хранилища ключей
+Хранилище ключей Azure — это облачная служба, которая обеспечивает защиту ключей шифрования и секретов (например, сертификатов, строк подключения и паролей) для облачных приложений. Так как это критически важные для бизнеса конфиденциальные данные, необходимо обеспечить защиту доступа к хранилищу ключей, чтобы только авторизованные приложения и пользователи могли получить к нему доступ. В этой статье приводится обзор модели доступа к хранилищу ключей, объясняется процесс проверки подлинности и авторизации и описывается, как обеспечить защиту доступа к хранилищу ключей для облачных приложений, а также рассматривается соответствующий пример.
 
-## <a name="overview"></a>Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes proper authentication and authorization is required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines what operations the caller is allowed to perform.
+## <a name="overview"></a>Обзор
+Доступ к хранилищу ключей осуществляется с помощью двух отдельных интерфейсов: плоскость управления и плоскость данных. Прежде чем вызывающий объект (пользователь или приложение) сможет получить доступ к хранилищу ключей, для обеих плоскостей требуется выполнить надлежащую проверку подлинности и авторизацию. При проверке подлинности выполняется идентификация вызывающего объекта, а при авторизации определяется, какие операции ему разрешено выполнять.
 
-For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
+Для проверки подлинности в плоскости управления и плоскости данных используется Azure Active Directory. Для авторизации в плоскости управления используется управление доступом на основе ролей (RBAC), а в плоскости данных — политика доступа к хранилищу ключей.
 
-Here is a brief overview of the topics covered:
+Ниже приведен краткий обзор статьи.
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-direcrory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+[Проверка подлинности с помощью Azure Active Directory.](#authentication-using-azure-active-direcrory) В этом разделе объясняется, как вызывающий объект проходит проверку подлинности с помощью Azure Active Directory, чтобы получить доступ к хранилищу ключей через плоскость управления и плоскость данных. 
 
-[Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
+[Плоскость управления и плоскость данных.](#management-plane-and-data-plane) Плоскость управления и плоскость данных — это две плоскости доступа к хранилищу ключей. В каждой плоскости доступа поддерживаются определенные операции. В этом разделе описываются конечные точки доступа, поддерживаемые операции и метод контроля доступа, используемый в каждой плоскости. 
 
-[Management plane access control](#management-plane-access-control) - In this section we'll look at allowing access to management plane operations using role-based access control.
+[Управление доступом в плоскости управления.](#management-plane-access-control) В этом разделе рассматривается разрешение доступа к операциям плоскости управления с помощью управления доступом на основе ролей.
 
-[Data plane access control](#data-plane-access-control) - This section describes how to use key vault access policy to control data plane access.
+[Управление доступом в плоскости данных.](#data-plane-access-control) В этом разделе описывается, как использовать политику доступа к хранилищу ключей для управления доступом к плоскости данных.
 
-[Example](#example) - This example describes how to setup access control for your key vault to allow three different teams (security team, developers/operators, and auditors) to perform specific tasks to develop, manage and monitor an application in Azure.
+[Пример.](#example) В этом примере описывается настройка контроля доступа к хранилищу ключей, чтобы разрешить трем различным группам (группа безопасности, разработчики и операторы, а также аудиторы) выполнять определенные задачи разработки и мониторинга приложения, а также управления им в Azure.
 
-## <a name="authentication-using-azure-active-directory"></a>Authentication using Azure Active Directory
-When you create a key vault in an Azure subscription, it is automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application or a user must authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
+## <a name="authentication-using-azure-active-directory"></a>Проверка подлинности с помощью Azure Active Directory
+При создании хранилища ключей в подписке Azure оно автоматически связывается с клиентом Azure Active Directory этой подписки. Все вызывающие объекты (пользователи и приложения) должны быть зарегистрированы в этом клиенте, чтобы получить доступ к этому хранилищу ключей. Они также должны пройти проверку подлинности с помощью Azure Active Directory. Это относится к доступу к плоскости управления и плоскости данных. В обоих случаях приложение может получить доступ к хранилищу ключей двумя способами.
 
-* **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access. There are two ways to grant access to users: one way is to grant access to users so they can access key vault from any application and the other way is to grant a user access to key vault only when they use a specific application (referred to as compound identity). 
-* **app-only access** - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
+* **Доступ с помощью пользователя и приложения.** Обычно этот способ используется для приложений, которые получают доступ к хранилищу ключей от имени выполнившего вход пользователя. Такой доступ осуществляется через Azure PowerShell и портал Azure. Этот способ предусматривает два варианта: предоставление пользователям доступа, чтобы они могли получать доступ к хранилищу ключей из любого приложения, и предоставление пользователям доступа к хранилищу ключей только из определенного приложения (также называется составным удостоверением). 
+* **Доступ только с помощью приложения.** Этот способ применяется для приложений, в которых запущены службы управляющих программ, фоновые задания и т. д. Доступ к хранилищу ключей предоставляется по удостоверению приложения.
 
-In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
+Приложения обоих типов проходят проверку подлинности в Azure Active Directory с использованием любого из [поддерживаемых методов проверки подлинности](../active-directory/active-directory-authentication-scenarios.md) и получают маркер. Используемый метод проверки подлинности зависит от типа приложения. Затем приложение отправляет запрос REST API в хранилище ключей, используя этот маркер. При получении доступа к плоскости управления запросы направляются через конечную точку Azure Resource Manager. При получении доступа к плоскости данных приложение напрямую обменивается данными с конечной точкой хранилища ключей. Узнайте больше о [полном потоке проверки подлинности](../active-directory/active-directory-protocols-oauth-code.md). 
 
-The resource name for which the application requests a token is different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table in a later section, depending on the Azure environment.
+Имя ресурса, для которого приложение запрашивает маркер, отличается в зависимости от того, к какой плоскости приложение получает доступ: управления или данных. Таким образом, имя ресурса — это конечная точка плоскости управления или плоскости данных (описывается в таблице раздела ниже) в зависимости от среды Azure.
 
-Having one single mechanism for authentication to both management and data plane has its own benefits:
+Единый механизм проверки подлинности при получении доступа к плоскости управления и плоскости данных обеспечивает определенные преимущества:
 
-* Organizations can centrally control access to all key vaults in their organization
-* If a user leaves, they instantly lose access to all key vaults in the organization
-* Organizations can customize authentication via the options in Azure Active Directory (for example, enabling multi-factor authentication for added security)
+* организации могут централизованно управлять доступом ко всем принадлежащим им хранилищам ключей;
+* когда пользователь покидает организацию, он мгновенно теряет доступ ко всем этим хранилищам ключей;
+* организации могут настроить проверку подлинности с помощью параметров в Azure Active Directory (например, включение многофакторной идентификации для повышения безопасности).
 
-## <a name="management-plane-and-data-plane"></a>Management plane and data plane
-Azure Key Vault is an Azure service available via Azure Resource Manager deployment model. When you create a key vault, you get a virtual container inside which you can create other objects like keys, secrets, and certificates. Then you access your key vault using management plane and data plane to perform specific operations. Management plane interface is used to manage your key vault itself, such as creating, deleting, updating key vault attributes and setting access policies for data plane. Data plane interface is used to add, delete, modify, and use the keys, secrets, and certificates stored in your key vault.
+## <a name="management-plane-and-data-plane"></a>Плоскость управления и плоскость данных
+Хранилище ключей Azure — это служба Azure, доступная через модель развертывания с помощью Azure Resource Manager. При создании хранилища ключей вы получаете виртуальный контейнер, в котором можно создавать другие объекты, например ключи, секреты и сертификаты. Затем вы получаете доступ к хранилищу ключей через плоскость управления и плоскость данных, чтобы выполнить определенные операции. Интерфейс плоскости управления используется для управления самим хранилищем ключей, например для создания, удаления, обновления атрибутов хранилища ключей и настройки политик доступа для плоскости данных. Интерфейс плоскости данных, в свою очередь, предназначен для добавления, удаления, изменения и использования ключей, секретов и сертификатов, размещенных в хранилище ключей.
 
-The management plane and data plane interfaces are accessed through different endpoints (see table). The second column in the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can perform from each access plane. Each access plane also has its own access control mechanism: for management plane access control is set using Azure Resource Manager Role-Based Access Control (RBAC), while for data plane access control is set using key vault access policy.
+Доступ к интерфейсам плоскости управления и плоскости данных осуществляется через различные конечные точки (см. таблицу). Во втором столбце таблицы указаны DNS-имена для этих конечных точек в разных средах Azure. В третьем столбце перечислены операции, которые можно выполнять из каждой плоскости доступа. В каждой плоскости доступа также есть свой собственный механизм контроля доступа: в плоскости управления контроль доступа настраивается с помощью RBAC Azure Resource Manager, а в плоскости данных — с помощью политики доступа к хранилищу ключей.
 
-| Access plane | Access endpoints | Operations | Access control mechanism |
+| Плоскость доступа | Конечные точки доступа | Операции | Механизм контроля доступа |
 | --- | --- | --- | --- |
-| Management plane |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete key vault <br> Set access policies for key vault<br>Set tags for key vault |Azure Resource Manager Role-Based Access Control (RBAC) |
-| Data plane |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |For Keys: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> For secrets: Get, List, Set, Delete |Key vault access policy |
+| Плоскость управления |**Глобально:**<br> management.azure.com:443<br><br> **Azure для Китая:**<br> management.chinacloudapi.cn:443<br><br> **Azure для правительства США:**<br> management.usgovcloudapi.net:443<br><br> **Azure для Германии:**<br>  management.microsoftazure.de:443 |Создание, чтение, обновление и удаление хранилища ключей <br> Задание политик доступа к хранилищу ключей<br>Задание тегов для хранилища ключей |Управление доступом на основе ролей Azure Active Directory (RBAC) |
+| Плоскость данных |**Глобально:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure для Китая:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure для правительства США:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure для Германии:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Для ключей: расшифровка, шифрование, оборачивание, разворачивание, проверка, подписывание, получение, перечисление, обновление, создание, импорт, удаление, резервное копирование, восстановление<br><br> Для секретов: получение, перечисление, настройка, удаление |Политика доступа к хранилищу ключей |
 
-The management plane and data plane access controls work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions using key vault access policies and no management plane access is needed for this application. And conversely, if you want a user to be able to read vault properties and tags, but not have any access to keys, secrets, or certificates, you can grant this user, 'read' access using RBAC and no access to data plane is required.
+Контроль доступа к плоскости управления и к плоскости данных осуществляются независимо. Например, если вам требуется предоставить приложению доступ на использование ключей в хранилище ключей, необходимо предоставить права доступа к плоскости данных с помощью политик доступа к хранилищу ключей, в то время как доступ к плоскости управления для этого приложения не понадобится. И наоборот, если необходимо, чтобы пользователь имел возможность считывать свойства хранилища и теги, но не имел доступа к ключам, секретам или сертификатам, можно предоставить этому пользователю доступ на чтение, используя RBAC, в то время как доступ к плоскости данных не понадобится.
 
-## <a name="management-plane-access-control"></a>Management plane access control
-The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. You can get a list of vaults in a subscription. You can retrieve key vault properties (such as SKU, tags) and set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC. See the complete list of key vault operations that can be performed via management plane in the table in preceding section. 
+## <a name="management-plane-access-control"></a>Контроль доступа к плоскости управления
+Плоскость управления образуют операции, которые влияют на само хранилище ключей. Например, вы можете создать или удалить хранилище ключей. Можно также получить список хранилищ в подписке. Вы можете получать свойства хранилища ключей (например, SKU, теги) и задавать политики доступа к хранилищу ключей, контролирующие пользователей и приложения, которые могут получать доступ к ключам и секретам в этом хранилище. Контроль доступа к плоскости управления использует RBAC. Полный список операций хранилища ключей, которые можно выполнять с помощью плоскости управления, приведен в таблице предыдущего раздела. 
 
-### <a name="role-based-access-control-(rbac)"></a>Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="rolebased-access-control-rbac"></a>Управление доступом на основе ролей (RBAC)
+Каждая подписка Azure имеет каталог Azure Active Directory. Пользователям, группам и приложениям из этого каталога можно предоставить доступ к управлению ресурсами в подписке Azure, для которых используется модель развертывания с помощью Azure Resource Manager. Этот тип контроля доступа называется управлением доступом на основе ролей (RBAC). Для управления доступом можно использовать [портал Azure](https://portal.azure.com/), [инструменты интерфейса командной строки Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) или [REST API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can grant users or a group ability to manage key vaults in a specific resource group.
+При применении модели Azure Resource Manager в группе ресурсов создается хранилище ключей, а доступ к плоскости управления этого хранилища контролируется с помощью Azure Active Directory. Например, можно предоставить пользователям или группе возможность управлять хранилищами ключей в определенной группе ресурсов.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'key vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles.
-
-> [!IMPORTANT]
-> Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting key vault access policy, which controls access to data plane. Therefore, it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
-> 
-> 
-
-## <a name="data-plane-access-control"></a>Data plane access control
-The key vault data plane consists of operations that affect the objects in a key vault, such as keys, secrets, and certificates.  This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and set tags and other attributes for keys. Similarly, for secrets it includes, get, set, list, delete.
-
-Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
-
-### <a name="key-vault-access-policies"></a>key vault Access Policies
-key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
+Вы можете предоставить доступ пользователям, группам и приложениям в определенной области путем назначения соответствующей роли RBAC. Например, чтобы предоставить пользователю доступ к управлению хранилищами ключей, ему необходимо назначить предопределенную роль "Участник хранилища ключей" в определенной области. В этом случае область — это подписка, группа ресурсов или определенное хранилище ключей. Роль, назначенная на уровне подписки, применяется ко всем группам ресурсов и ресурсам в этой подписке. Роль, назначенная на уровне группы ресурсов, применяется ко всем ресурсам в этой группе ресурсов. Роль, назначенная для конкретного ресурса, применяется только к этому ресурсу. Есть несколько предопределенных ролей (см. статью [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md)), и если они не соответствуют вашим потребностям, вы можете определить собственные.
 
 > [!IMPORTANT]
-> Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
+> Обратите внимание, что если у пользователя есть разрешения участника (RBAC) в плоскости управления хранилища ключей, он может предоставить себе доступ к плоскости данных, настроив политику доступа к хранилищу ключей, которая контролирует доступ к плоскости данных. Поэтому рекомендуется тщательно следить за тем, у кого есть доступ участника к вашим хранилищам ключей, чтобы только авторизованные лица могли получать доступ к хранилищам ключей, ключам, секретам и сертификатам, а также управлять ими.
 > 
 > 
 
-## <a name="example"></a>Example
-Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use a key vault to store all the application secrets, and use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
+## <a name="data-plane-access-control"></a>Контроль доступа к плоскости данных
+Плоскость данных хранилища ключей образуют операции, которые влияют на объекты в хранилище ключей, например ключи, секреты и сертификаты.  Сюда относятся операции с ключами, такие как создание, импорт, обновление, перечисление, резервное копирование и восстановление ключей, криптографические операции, такие как подписывание, проверка, шифрование, расшифровка, оборачивание, разворачивание, задание тегов и других атрибутов для ключей. Аналогичным образом к операциям с секретами относятся получение, задание, перечисление и удаление.
 
-So, here's a summary of all the keys and secrets to be stored in a key vault.
+Доступ к плоскости данных предоставляется путем настройки политик доступа для хранилища ключей. У пользователя, группы или приложения должны быть разрешения участника (RBAC) для плоскости управления хранилища ключей, чтобы иметь возможность установить политики доступа для этого хранилища. Пользователю, группе или приложению можно предоставить доступ на выполнение определенных операций с ключами или секретами в хранилище ключей. Хранилище ключей поддерживает до 16 записей политики доступа. Создайте группу безопасности Azure Active Directory и добавьте пользователей в нее, чтобы предоставить нескольким пользователям доступ к плоскости данных в хранилище ключей.
 
-* **SSL Cert** - used for SSL
-* **Storage Key** - used to get access to Storage account
-* **RSA 2048-bit key** - used for sign operations
-* **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to key vault to fetch the storage key and use the RSA key for signing.
+### <a name="key-vault-access-policies"></a>Политики доступа к хранилищу ключей
+Политики доступа к хранилищу ключей предоставляют разрешения на ключи, сертификаты и секреты отдельно. Например, можно предоставить пользователю доступ только к ключам, но не предоставить разрешения на секреты. Тем не менее разрешения на доступ к ключам и секретам или сертификатам находятся на уровне хранилища. Другими словами, политика доступа к хранилищу ключей не поддерживает разрешения на уровне объектов. Чтобы задать политики доступа для хранилища ключей, можно использовать [портал Azure](https://portal.azure.com/), [инструменты интерфейса командной строки Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) или [REST API управления хранилища ключей](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
-Now let's meet the people who are managing, deploying and auditing this application. We'll use three roles in this example.
+> [!IMPORTANT]
+> Обратите внимание, что политики доступа к хранилищу ключей применяются на уровне хранилища. Например, если пользователю предоставлено разрешение на создание и удаление ключей, он может выполнять эти операции со всеми ключами в этом хранилище ключей.
+> 
+> 
 
-* **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing, connection strings for databases, storage account keys.
-* **Developers/operators** - These are the folks who develop this application and then deploy it in Azure. Typically, they are not part of the security team, and hence they should not have access to any sensitive data, such as SSL certificates, RSA keys, but the application they deploy should have access to those.
-* **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc. and ensure compliance with data security standards. 
+## <a name="example"></a>Пример
+Предположим, что разрабатывается приложение, в котором используется сертификат для SSL, служба хранилища Azure для хранения данных и 2048-разрядный ключ RSA для операций подписывания. Допустим, что это приложение выполняется в виртуальной машине (или масштабируемом наборе виртуальных машин). Вы можете использовать хранилище ключей для хранения секретов приложения и сертификата начальной загрузки, используемого приложением для проверки подлинности с помощью Azure Active Directory.
 
-There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the security team. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
+Вот краткий перечень всех ключей и секретов, которые должны храниться в хранилище ключей:
 
-Now let's see what actions each role performs in the context of this application.
+* **SSL-сертификат** — используется для SSL;
+* **ключ к хранилищу данных** — используется для получения доступа к учетной записи хранения;
+* **2048-разрядный ключ RSA** — используется для операций подписывания;
+* **сертификат начальной загрузки** — используется для проверки подлинности в Azure Active Directory, чтобы получить доступ к хранилищу ключей и ключ к хранилищу данных, а также использовать ключ RSA для подписывания.
 
-* **Security team**
-  * Create key vaults
-  * Turns on key vault logging
-  * Add keys/secrets
-  * Create backup of keys for disaster recovery
-  * Set key vault access policy to grant permissions to users and applications to perform specific operations
-  * Periodically roll keys/secrets
-* **Developers/operators**
-  * Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
-  * Develop and deploy application that accesses keys and secrets programmatically
-* **Auditors**
-  * Review usage logs to confirm proper key/secret use and compliance with data security standards
+Теперь давайте познакомимся с людьми, которые развертывают это приложение, управляют им и выполняют его аудит. В этом примере используются три роли.
 
-Now let's see what access permissions to key vault are needed by each role (and the application) to perform their assigned tasks. 
+* **Группа безопасности.** Как правило, это ИТ-специалисты из отдела руководителя службы безопасности или аналогичного ему, ответственные за надлежащее хранение секретов, таких как SSL-сертификаты, ключи RSA для подписывания, строки подключения для баз данных и ключи учетной записи хранения.
+* **Разработчики и операторы.** Это люди, которые разрабатывают и развертывают это приложение в Azure. Как правило, они не являются частью группы безопасности, и поэтому они не должны иметь доступ к конфиденциальным данным, например SSL-сертификатам, ключам RSA, но приложения, которые они развертывают, должны иметь доступ к этим данным.
+* **Аудиторы.** Как правило, это разные люди, изолированные от разработчиков и ИТ-специалистов. В их обязанности входит проверка надлежащего использования и обслуживания сертификатов, ключей и т. д., а также обеспечение соответствия стандартам безопасности данных. 
 
-| User Role | Management plane permissions | Data plane permissions |
+Есть еще одна роль, которая выходит за рамки этого приложения, но ее следует упомянуть здесь. Это администратор подписки (или группы ресурсов). Администратор подписки устанавливает начальные права доступа для группы безопасности. Здесь предполагается, что администратор подписки предоставил группе безопасности доступ к группе ресурсов, в которой расположены все ресурсы, необходимые для этого приложения.
+
+Теперь давайте посмотрим, какие действия предписаны каждой роли в контексте этого приложения.
+
+* **Группа безопасности:**
+  * создание хранилищ ключей;
+  * включение ведения журнала хранилища ключей;
+  * добавление ключей и секретов;
+  * создание резервной копии ключей для аварийного восстановления;
+  * задание политики доступа к хранилищу ключей для предоставления пользователям и приложениям разрешений на выполнение определенных операций;
+  * периодическое развертывание ключей и секретов.
+* **Разработчики и операторы:**
+  * получение ссылок на сертификаты начальной загрузки и SSL-сертификаты (отпечатки), ключ к хранилищу данных (универсальный код ресурса (URI) секрета) и ключ подписывания (URI ключа) из группы безопасности;
+  * разработка и развертывание приложения, которое получает доступ к ключам и секретам программным способом.
+* **Аудиторы:**
+  * просмотр журналов использования для подтверждения правильного использования ключей или секретов и соответствия стандартам безопасности данных.
+
+Теперь давайте рассмотрим, какие права доступа к хранилищу ключей необходимы каждой роли (и приложению) для выполнения поставленных задач. 
+
+| Роль пользователя | Разрешения плоскости управления | Разрешения плоскости данных |
 | --- | --- | --- |
-| Security Team |key vault Contributor |Keys: backup, create, delete, get, import, list, restore <br> Secrets: all |
-| Developers/Operator |key vault deploy permission so that the VMs they deploy can fetch secrets from the key vault |None |
-| Auditors |None |Keys: list<br>Secrets: list |
-| Application |None |Keys: sign<br>Secrets: get |
+| Группа безопасности |Участник хранилища ключей |Ключи: резервное копирование, создание, удаление, получение, импорт, перечисление, восстановление <br> Секреты: все |
+| Разработчики и операторы |Разрешения на развертывание хранилища ключей, чтобы развертываемые ими виртуальные машины могли получать секреты из хранилища ключей |None |
+| Аудиторы |None |Ключи: перечисление<br>Секреты: перечисление |
+| Приложение |None |Ключи: подписывание<br>Секреты: получение |
 
 > [!NOTE]
-> Auditors need list permission for keys and secrets so they can inspect attributes for keys and secrets that are not emitted in the logs, such as tags, activation and expiration dates.
+> Аудиторам требуются разрешения на перечисление ключей и секретов, чтобы они могли проверить их атрибуты, которые не отправляются в журналы, например теги, даты активации и окончания срока действия.
 > 
 > 
 
-Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are stored.
+Кроме прав доступа к хранилищу ключей, этим трем ролям также необходим доступ к другим ресурсам. Например, чтобы иметь возможность развертывать виртуальные машины (или веб-приложения и т. д.). Разработчикам и операторам также необходим доступ участника к этим типам ресурсов. Аудиторам требуется доступ на чтение к учетной записи хранения, где хранятся журналы хранилища ключей.
 
-Since the focus of this article is securing access to your key vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
+Так как в этой статье внимание уделяется защите доступа к хранилищу ключей, здесь рассматриваются только соответствующие аспекты, относящиеся к этой теме, и не указаны сведения о развертывании сертификатов, получении доступа к ключам и секретам программным способом и т. д. Эти сведения уже описаны в другой статье. Развертывание сертификатов, находящихся в хранилище ключей, для виртуальных машин описано в [записи блога](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/). Кроме того, доступен [пример кода](https://www.microsoft.com/download/details.aspx?id=45343), в котором показано, как с помощью сертификата начальной загрузки проверить подлинность в Azure AD и получить доступ к хранилищу ключей.
 
-Most of the access permissions can be granted using Azure portal, but to grant granular permissions you may need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+Большинство прав доступа можно предоставить с помощью портала Azure, но для предоставления детализированных разрешений может потребоваться использовать Azure PowerShell или интерфейс командной строки Azure, чтобы достичь нужного результата. 
 
-The following PowerShell snippets assume:
+В приведенных ниже фрагментах кода PowerShell предполагается следующее.
 
-* The Azure Active Directory administrator has created security groups that represent the three roles, namely Contoso Security Team, Contoso App Devops, Contoso App Auditors. The administrator has also added users to the groups they belong.
-* **ContosoAppRG** is the resource group where all the resources reside. **contosologstorage** is where the logs are stored. 
-* Key vault **ContosoKeyVault** and storage account used for key vault logs **contosologstorage** must be in the same Azure location
+* Администратор Azure Active Directory создал группы безопасности, представляющие собой три роли, а именно: группу безопасности Contoso, разработчиков приложения Contoso, аудиторов приложения Contoso. Администратор также добавил пользователей в группы, к которым они относятся.
+* **ContosoAppRG** — это группа ресурсов, где размещаются ресурсы. **contosologstorage** — место, где хранятся журналы. 
+* Хранилище ключей **ContosoKeyVault** и учетная запись хранения, используемая для журналов хранилища ключей **contosologstorage**, должны находиться в одном и том же расположении Azure.
 
-First the subscription administrator assigns 'key vault Contributor' and 'User Access Administrator' roles to the security team. This allows the security team to manage access to other resources and manage key vaults in the resource group ContosoAppRG.
+Сначала администратор подписки назначает группе безопасности роли "Участник хранилища ключей" и "Администратор доступа пользователей". Благодаря этому группа безопасности может управлять доступом к другим ресурсам и управлять хранилищем ключей в группе ресурсов ContosoAppRG.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-The following script illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
+В следующем сценарии представлено, как группа безопасности создает хранилище ключей, настраивает ведение журнала и права доступа для других ролей и приложения. 
 
 ```
 # Create key vault and enable logging
@@ -188,64 +192,67 @@ New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso A
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
 ```
 
-The custom role defined, is only assignable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
+Определенную пользовательскую роль можно назначить только подписке, где создана группа ресурсов ContosoAppRG. Если одни и те же пользовательские роли будут использоваться для других проектов в других подписках, в область могут быть добавлены несколько подписок.
 
-The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops team creates in other resource group will not be able to get these secrets even if they knew the secret URIs.
+Назначение пользовательской роли разработчикам и операторам для разрешения "развернуть/действие" ограничивается группой ресурсов. Таким образом, секреты (SSL-сертификат и сертификат начальной загрузки) получат только виртуальные машины, созданные в группе ресурсов ContosoAppRG. Любые другие виртуальные машины, созданные участником группы разработчиков и операторов в другой группе ресурсов, не смогут получить эти секреты, даже если им известны их URI.
 
-This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to your key vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence, they don't need to grant developers/operators any data plane access. Also, note that this example focuses on securing your key vault. Similar consideration should be given to secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/storage-security-guide.md) and other Azure resources too.
+В этом примере показан простой сценарий. Реальные сценарии могут быть более сложными, и вам может потребоваться настроить разрешения для хранилища ключей в соответствии со своими потребностями. В нашем примере предположим, что группа безопасности предоставляет ссылки на ключ и секрет (URI и отпечатки), которые нужны этой команде разработчиков и операторов, чтобы ссылаться на свои приложения. Таким образом, им не нужно предоставлять разработчикам и операторам доступ к плоскости данных. Кроме того, обратите внимание, что в этом примере уделяется внимание обеспечению защиты хранилища ключей. Похожие рекомендации следует также учитывать при обеспечении защиты [виртуальных машин](https://azure.microsoft.com/services/virtual-machines/security/), [учетных записей хранения](../storage/storage-security-guide.md) и других ресурсов Azure.
 
 > [!NOTE]
-> Note: This example shows how key vault access will be locked down in production. The developers should have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
+> Примечание. В этом примере показано как доступ к хранилищу ключей будет заблокирован в рабочей среде. У разработчиков должна быть своя подписка или группа ресурсов, где у них есть полный набор разрешений на управление своими хранилищами, виртуальными машинами, а также учетная запись хранения, в которой они разрабатывают приложения.
 > 
 > 
 
-## <a name="resources"></a>Resources
-* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Ресурсы
+* [Контроль доступа на основе ролей Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
-  This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
+  В этой статье описывается система управления доступом на основе ролей в Azure Active Directory и принципы ее работы.
+* [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md)
   
-  This article details all the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+  В этой статье подробно описываются встроенные роли RBAC.
+* [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md)
   
-  This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-* [Manage Role-Based Access Control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+  В этой статье рассматриваются модель развертывания на основе Resource Manager и классическая модель, а также описываются преимущества использования Resource Manager и групп ресурсов.
+* [Управление доступом на основе ролей с помощью Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   
-  This article explains how to manage role-based access control with Azure PowerShell
-* [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  В этой статье описывается управление доступом на основе ролей с помощью Azure PowerShell.
+* [Управление доступом на основе ролей с помощью интерфейса REST API](../active-directory/role-based-access-control-manage-access-rest.md)
   
-  This article shows how to use the REST API to manage RBAC.
-* [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+  В этой статье показано, как использовать REST API для управления RBAC.
+* [Конференция Ignite: управление доступом на основе ролей в Microsoft Azure](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
-  This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-* [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+  Это ссылка на видеоролик с конференции Microsoft Ignite 2015 на сайте Channel 9. На этой сессии обсуждались возможности управления доступом и ведения отчетов в Azure, а также давались рекомендации по защите доступа к подпискам Azure с помощью Azure Active Directory.
+* [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
   
-  This article describes complete OAuth 2.0 flow for authenticating with Azure Active Directory.
-* [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+  В этой статье описывается полный поток OAuth 2.0 для проверки подлинности с помощью Azure Active Directory.
+* [Key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) (REST API для управления хранилищем ключей)
   
-  This document is the reference for the REST APIs to manage your key vault programmatically, including setting key vault access policy.
-* [key vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+  Этот документ является справочником по REST API для управления хранилищем ключей программным способом, включая настройку политики доступа к хранилищу ключей.
+* [REST API хранилища ключей](https://msdn.microsoft.com/library/azure/dn903609.aspx)
   
-  Link to key vault REST API reference documentation.
-* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+  Ссылка на справочную документацию по REST API хранилища ключей.
+* [Контроль доступа к ключам](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Link to Key access control reference documentation.
-* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+  Ссылка на справочную документацию по контролю доступа к ключам.
+* [Контроль доступа к секретам](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-  Link to Key access control reference documentation.
-* [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) key vault access policy using PowerShell
+  Ссылка на справочную документацию по контролю доступа к ключам.
+* [Настройка](https://msdn.microsoft.com/library/mt603625.aspx) и [удаление](https://msdn.microsoft.com/library/mt619427.aspx) политики доступа к хранилищу ключей с помощью PowerShell
   
-  Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
+  Ссылки на справочную документацию по командлетам PowerShell для управления политикой доступа к хранилищу ключей.
 
-## <a name="next-steps"></a>Next Steps
-For a getting started tutorial for an administrator, see [Get Started with Azure key vault](key-vault-get-started.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Руководство по началу работы для администраторов см. в статье [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
 
-For more information about usage logging for key vault, see [Azure key vault Logging](key-vault-logging.md).
+Дополнительные сведения о ведении журнала использования для хранилища ключей см. в статье [Ведение журнала хранилища ключей Azure](key-vault-logging.md).
 
-For more information about using keys and secrets with Azure key vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Дополнительные сведения об использовании ключей и секретов с помощью хранилища ключей Azure см. в статье [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623.aspx) (О ключах, секретах и сертификатах).
 
-If you have questions about key vault, visit the [Azure key vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+Если у вас возникли вопросы о хранилище ключей, посетите [форумы хранилища ключей Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

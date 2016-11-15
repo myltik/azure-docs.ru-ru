@@ -1,4 +1,4 @@
-Если это еще не сделано, можно подключить [бесплатную пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/) и [Azure CLI](../articles/xplat-cli-install.md) [к вашей учетной записи Azure](../articles/xplat-cli-connect.md). После этого можно выполнить следующие команды, чтобы быстро создать набор масштабирования.
+Если это еще не сделано, можно получить [бесплатную пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/) и [Azure CLI](../articles/xplat-cli-install.md) с [подключением к учетной записи Azure](../articles/xplat-cli-connect.md). После этого можно выполнить следующие команды, чтобы быстро создать набор масштабирования.
 
 ```bash
 # make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
@@ -56,4 +56,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

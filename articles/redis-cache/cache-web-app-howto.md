@@ -1,12 +1,12 @@
 ---
-title: Как создать веб-приложение с использованием кэша Redis | Microsoft Docs
-description: Узнайте, как создать веб-приложение с использованием кэша Redis
+title: "Как создать веб-приложение с использованием кэша Redis | Документация Майкрософт"
+description: "Узнайте, как создать веб-приложение с использованием кэша Redis"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Как создать веб-приложение с использованием кэша Redis
@@ -47,9 +51,9 @@ ms.author: sdanie
 Для работы с этим руководством требуется учетная запись Azure. Вы можете:
 
 * [Открыть бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. После израсходования кредитов ваша учетная запись не исчезнет. Вы сможете использовать ее для работы с бесплатными службами и функциями Azure.
-* [Активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
+* [Активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-.net"></a>Visual Studio 2015 с пакетом Azure SDK для .NET.
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 с пакетом Azure SDK для .NET.
 Это руководство написано для Visual Studio 2015 с пакетом [Azure SDK для .NET](../dotnet-sdk.md) 2.8.2 или более поздней версии. [Скачайте последний пакет Azure SDK для Visual Studio 2015 отсюда](http://go.microsoft.com/fwlink/?linkid=518003). Будет автоматически установлена программа Visual Studio с пакетом SDK (если она еще не установлена).
 
 Если на вашем компьютере установлена версия Visual Studio 2013, можно [скачать последнюю версию пакета Azure SDK для Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Некоторые снимки экранов, приведенные в этом руководстве, могут отличаться от реальных.
@@ -69,7 +73,7 @@ ms.author: sdanie
     ![Выбор шаблона проекта][cache-select-template]
 4. Нажмите кнопку **ОК** , чтобы создать проект.
 
-## <a name="create-the-asp.net-mvc-application"></a>Создание приложения ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Создание приложения ASP.NET MVC
 В этом разделе руководства описывается создание базового приложения, которое выполняет чтение статистики команды из базы данных и отображает ее.
 
 * [Добавление модели](#add-the-model)
@@ -174,7 +178,7 @@ ms.author: sdanie
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
 ### <a name="add-the-controller"></a>Добавление контроллера
@@ -241,7 +245,7 @@ ms.author: sdanie
 * [Обновление методов создания, изменения и удаления для работы с кэшем](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Обновление представления индекса команд для работы с кэшем](#update-the-teams-index-view-to-work-with-the-cache)
 
-### <a name="configure-the-application-to-use-stackexchange.redis"></a>Настройка приложения для использования StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Настройка приложения для использования StackExchange.Redis
 1. Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**. 
    
     ![Управление пакетами NuGet][redis-cache-manage-nuget-menu]
@@ -513,7 +517,7 @@ ms.author: sdanie
         }
 
 
-### <a name="update-the-create,-edit,-and-delete-methods-to-work-with-the-cache"></a>Обновление методов создания, изменения и удаления для работы с кэшем
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Обновление методов создания, изменения и удаления для работы с кэшем
 Код для формирования шаблонов, созданный в этом примере, содержит методы для добавления, изменения и удаления команд. При каждом добавлении, изменении или удалении команды данные в кэше устаревают. В этом разделе приведенные метода будут изменены, чтобы очистить кэшированные команды. Это поможет синхронизировать кэш с базой данных.
 
 1. Перейдите к методу `Create(Team team)` в классе `TeamsController`. Добавьте вызов в метод `ClearCachedTeams` , как показано в следующем примере.
@@ -804,6 +808,6 @@ ms.author: sdanie
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
