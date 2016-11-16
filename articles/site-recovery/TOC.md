@@ -48,6 +48,10 @@
 ### [Восстановление размещения виртуальных машин VMware и физических серверов](site-recovery-failback-azure-to-vmware.md)
 ## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
 
+# Справочные материалы
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell — классическая модель](/powershell/servicemanagement/)
+
 # Сопутствующие материалы
 ## [Служба автоматизации Azure](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [Форум](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Блог](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Цены](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

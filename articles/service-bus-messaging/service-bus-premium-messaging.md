@@ -1,12 +1,12 @@
 ---
-title: Обзор ценовых категорий уровней обмена сообщениями через служебную шину Premium и Standard | Microsoft Docs
-description: Обмен сообщениями через служебную шину уровня Premium и Standard
+title: "Обзор ценовых категорий уровней обмена сообщениями через служебную шину Premium и Standard | Документация Майкрософт"
+description: "Обмен сообщениями через служебную шину уровня Premium и Standard"
 services: service-bus
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f4fccdafd9b47794bf625ac51dc650b6e8752f1
+
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Уровни обмена сообщениями через служебную шину Premium и Standard
@@ -52,6 +56,9 @@ ms.author: darosa;sethm
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 * [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

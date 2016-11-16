@@ -1,8 +1,9 @@
-# [Обзор](app-service-how-works-readme.md)
+# Обзор
 ## [Что такое служба приложений?](app-service-value-prop-what-is.md)
+## [Принцип работы](app-service-how-works-readme.md)
 ## [Планы службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-# Приступая к работе
+# Начало работы
 
 ## Создание приложения API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -149,15 +150,14 @@
 ## [Справочник службы приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Рекомендации по использованию хранилища данных SQL Azure](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Ресурсы веб-задания](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# Сопутствующие материалы
 ## [Пакет SDK для веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
-
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

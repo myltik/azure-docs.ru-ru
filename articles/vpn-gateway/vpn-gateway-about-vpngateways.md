@@ -1,20 +1,24 @@
 ---
-title: Основные сведения о VPN-шлюзах Azure| Microsoft Docs
-description: Сведения о подключениях через VPN-шлюз для виртуальных сетей Azure.
+title: "Основные сведения о VPN-шлюзах Azure | Документация Майкрософт"
+description: "Сведения о подключениях через VPN-шлюз для виртуальных сетей Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 10/18/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 909320f7f898a10ff58c50d276bbe9b2b2a92b48
+
 
 ---
 # <a name="about-vpn-gateway"></a>Основные сведения о VPN-шлюзах Azure
@@ -32,11 +36,9 @@ ms.author: cherylmc
 ## <a name="gateway-skus"></a>Артикулы шлюзов
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-Виртуальные частные сети PolicyBased можно создавать только для шлюзов, использующих SKU "Базовый".
-Дополнительные сведения о номерах SKU шлюзов см. в разделе [SKU шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+См. дополнительные сведения о [номерах SKU для VPN-шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
-
+### <a name="estimated-aggregate-throughput-by-sku"></a>Расчетная суммарная пропускная способность в зависимости от SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="configuring-a-vpn-gateway"></a>Настройка VPN-шлюза
@@ -52,21 +54,21 @@ ms.author: cherylmc
 
 Представленные здесь схемы и описания помогут вам выбрать топологию подключения в соответствии со своими требованиями. На схемах показаны основные базовые топологии; руководствуясь этими схемами, можно создавать и более сложные конфигурации.
 
-## <a name="site-to-site-and-multi-site"></a>Подключение типа "сеть — сеть" и многосайтовое подключение
-### <a name="site-to-site"></a>Сеть-сеть
+## <a name="sitetosite-and-multisite"></a>Подключение типа "сеть — сеть" и многосайтовое подключение
+### <a name="sitetosite"></a>Сеть-сеть
 Подключение типа "сеть — сеть" (S2S) через VPN-шлюз — это подключение через туннель VPN по протоколу IPsec/IKE (IKEv1 или IKEv2). Для этого типа подключения требуется локальное VPN-устройство, которому назначен общедоступный IP-адрес и которое не расположено за NAT. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.   
 
 ![Подключение типа "сеть — сеть"](./media/vpn-gateway-about-vpngateways/demos2s.png "site-to-site")
 
-### <a name="multi-site"></a>Несколько сайтов
+### <a name="multisite"></a>Несколько сайтов
 Можно создать и настроить подключение через VPN-шлюз между виртуальной сетью и несколькими локальными сетями. При работе с несколькими подключениями следует использовать тип VPN RouteBased (динамический шлюз для классических виртуальных сетей). Так как виртуальная сеть может иметь только один VPN-шлюз, доступную пропускную способность совместно используют все подключения через шлюз. Такое подключение часто называется многосайтовым.
 
 ![Многосайтовое подключение](./media/vpn-gateway-about-vpngateways/demomulti.png "multi-site")
 
-### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Модели и методы развертывания для подключений "сеть — сеть" и многосайтовых подключений
+### <a name="deployment-models-and-methods-for-sitetosite-and-multisite"></a>Модели и методы развертывания для подключений "сеть — сеть" и многосайтовых подключений
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="vnet-to-vnet"></a>Подключение типа "виртуальная сеть — виртуальная сеть"
+## <a name="vnettovnet"></a>Подключение типа "виртуальная сеть — виртуальная сеть"
 Подключение типа "виртуальная сеть — виртуальная сеть" похоже на подключение виртуальной сети к локальному сайту. В обоих типах подключений используется VPN-шлюз для создания защищенного туннеля, использующего IPsec/IKE. Можно даже комбинировать подключение между виртуальными сетями с конфигурациями многосайтовых подключений. Это позволяет настраивать топологии сети, совмещающие распределенные подключения с подключениями между виртуальными сетями.
 
 Подключаемые виртуальные сети могут относиться:
@@ -83,15 +85,15 @@ ms.author: cherylmc
 #### <a name="vnet-peering"></a>Пиринговая связь между виртуальными сетями
 Для создания подключения можно использовать пиринговую связь между виртуальными сетями, если виртуальная сеть соответствует определенным требованиям. При пиринговой связи между виртуальными сетями шлюз виртуальной сети не используется. Дополнительную информацию см. в статье [Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Модели и методы развертывания для подключения между виртуальными сетями
+### <a name="deployment-models-and-methods-for-vnettovnet"></a>Модели и методы развертывания для подключения между виртуальными сетями
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-## <a name="point-to-site"></a>Точка-сеть
+## <a name="pointtosite"></a>Точка-сеть
 Подключение через VPN-шлюз типа "точка — сеть" (P2S) позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. Подключение типа "точка — сеть" — это VPN-подключение по протоколу SSTP (Secure Socket Tunneling Protocol). Для подключения типа "точка — сеть" не требуется VPN-устройство или общедоступный IP-адрес. VPN-подключение устанавливается начиная с клиентского компьютера. Это решение эффективно при подключении к виртуальной сети из удаленного расположения, например, если вы находитесь дома или на конференции, либо если подключение к виртуальной сети требуется всего нескольким клиентам. Подключения "точка — сеть" можно использовать в сочетании с подключениями "сеть — сеть" через один и тот же VPN-шлюз при условии совместимости всех требований к конфигурации для обоих типов подключений.
 
 ![Подключение типа "точка — сеть"](./media/vpn-gateway-about-vpngateways/demop2s.png "point-to-site")
 
-### <a name="deployment-models-and-methods-for-point-to-site"></a>Модели и методы развертывания для подключения "точка — сеть"
+### <a name="deployment-models-and-methods-for-pointtosite"></a>Модели и методы развертывания для подключения "точка — сеть"
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -99,7 +101,7 @@ ms.author: cherylmc
 
 В подключении ExpressRoute для шлюза виртуальной сети задается тип шлюза ExpressRoute, а не Vpn. Дополнительные сведения об ExpressRoute см. в [техническом обзоре ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="site-to-site-and-expressroute-coexisting-connections"></a>Параллельные подключения "сеть — сеть" и ExpressRoute
+## <a name="sitetosite-and-expressroute-coexisting-connections"></a>Параллельные подключения "сеть — сеть" и ExpressRoute
 ExpressRoute — это прямое выделенное подключение из глобальной сети (а не через общедоступное подключение к Интернету) к службам Майкрософт, включая Azure. Трафик подключения VPN типа "сеть — сеть" проходит через общедоступный Интернет в зашифрованном виде. Возможность настраивать VPN-подключения типа "сеть — сеть" и ExpressRoute для одной виртуальной сети дает целый ряд преимуществ.
 
 VPN типа "сеть — сеть" можно настроить как защищенный путь отработки отказа для ExpressRoute или использовать для подключения к сайтам, которые не входят в вашу сеть, но подключены через ExpressRoute. Обратите внимание, что при этом для одной виртуальной сети требуются два шлюза виртуальной сети: типа Vpn и типа ExpressRoute.
@@ -112,6 +114,9 @@ VPN типа "сеть — сеть" можно настроить как защ
 ## <a name="next-steps"></a>Дальнейшие действия
 Составьте план конфигурации VPN-шлюза. См. статьи [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md) и [Connecting your on-premises network to Azure](../guidance/guidance-connecting-your-on-premises-network-to-azure.md) (Подключение локальной сети к Azure).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

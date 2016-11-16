@@ -1,42 +1,47 @@
 ---
-title: Запросы к хранилищу данных SQL Azure (sqlcmd) | Microsoft Docs
-description: Выполнение запросов к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd.
+title: "Запросы к хранилищу данных SQL Azure (sqlcmd) | Документация Майкрософт"
+description: "Выполнение запросов к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Запросы к хранилищу данных SQL Azure (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Запросы к хранилищу данных SQL Azure (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки [sqlcmd][sqlcmd].
+В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки [sqlcmd][sqlcmd].  
 
-## 1\. Подключение
+## <a name="1-connect"></a>1. Подключение
 Чтобы начать использовать [sqlcmd][sqlcmd], откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения обязательно укажите следующие параметры.
 
-* **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
-* **Database (-d)**. Имя базы данных.
+* **Server (-S)** — сервер в формате `<`имя_сервера`>`.database.windows.net
+* **Database (-D)** — имя базы данных.
 * **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
 
 Чтобы использовать проверку подлинности SQL Server, необходимо добавить параметры имени пользователя и пароля.
 
-* **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
+* **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
 * **Password (-P)** — пароль, связанный с пользователем.
 
 Например, строка подключения может выглядеть так:
@@ -56,12 +61,12 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> Необходимо [включить проверку подлинности Azure Active Directory](sql-data-warehouse-authentication.md), чтобы выполнять проверку подлинности с помощью Active Directory.
+> Необходимо [включить проверку подлинности Azure Active Directory](sql-data-warehouse-authentication.md) , чтобы выполнять проверку подлинности с помощью Active Directory.
 > 
 > 
 
-## 2) Запрос
-После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. В этом примере запросы отправляются в интерактивном режиме.
+## <a name="2-query"></a>2) Запрос
+После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра.  В этом примере запросы отправляются в интерактивном режиме.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о параметрах, доступных в sqlcmd, см. в [документации по sqlcmd][sqlcmd].
 
 <!--Image references-->
@@ -89,8 +94,12 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
+[Портал Azure]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

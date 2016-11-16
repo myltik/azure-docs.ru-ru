@@ -1,12 +1,12 @@
 ---
-title: Размещение нескольких сайтов в шлюзе приложений | Microsoft Docs
-description: На этой странице предоставлен обзор поддержки нескольких сайтов в шлюзе приложений.
+title: "Размещение нескольких сайтов в шлюзе приложений | Документация Майкрософт"
+description: "На этой странице предоставлен обзор поддержки нескольких сайтов в шлюзе приложений."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Размещение нескольких сайтов с помощью шлюза приложений
@@ -25,7 +29,7 @@ ms.author: amsriva
 
 Точно так же в одном развернутом шлюзе приложений можно разместить два поддомена одного родительского домена. К примерам использования поддоменов можно отнести http://blog.contoso.com и http://app.contoso.com, размещенные в одном развернутом шлюзе приложений.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Заголовки узлов и указание имени сервера (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>Заголовки узлов и указание имени сервера (SNI)
 Существует три распространенных механизма, обеспечивающих размещение нескольких сайтов в одной инфраструктуре:
 
 1. Размещение нескольких веб-приложений с уникальным IP-адресом у каждого из них.
@@ -117,6 +121,9 @@ ms.author: amsriva
 ## <a name="next-steps"></a>Дальнейшие действия
 Изучив размещение нескольких сайтов, перейдите к [созданию шлюза приложений с использованием размещения нескольких сайтов](application-gateway-create-multisite-azureresourcemanager-powershell.md) , чтобы создать шлюз приложений с возможностью поддержки нескольких веб-приложений.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

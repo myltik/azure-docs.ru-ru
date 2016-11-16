@@ -4,15 +4,19 @@
 2. Выберите пункт **Single View Application** (Приложение с одним представлением) и нажмите кнопку **Next** (Далее).
    
     ![](./media/mobile-engagement-create-new-ios-app/xcode-simple-view.png)
-3. Заполните поля **Product Name** (Имя продукта), **Organization Name** (Название организации) и **Organization Identifier** (Идентификатор организации). Выберите **Objective-C** или **Swift** из списка **Language** (Язык), в зависимости от вашего приложения.
+3. Заполните поля **Product Name** (Имя продукта), **Organization Name** (Название организации) и **Organization Identifier** (Идентификатор организации). Выберите **Objective-C** или **Swift** в списке **Language** (Язык) в зависимости от приложения.
    
     ![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
 
 > [!IMPORTANT]
-> Убедитесь, что идентификатор пакета соответствует идентификатору, который вы определили в консоли разработчика Apple для AppId, и у вас есть соответствующий сертификат для него.
+> Убедитесь, что идентификатор пакета соответствует идентификатору, который вы определили в консоли разработчика Apple для AppId, и у вас есть соответствующий сертификат для него. 
 > 
 > 
 
 Xcode создаст демоверсию приложения, в которую мы интегрируем Mobile Engagement.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

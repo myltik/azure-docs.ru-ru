@@ -1,12 +1,12 @@
 ---
-title: Создание пула эластичных баз данных с помощью C# | Microsoft Docs
-description: Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных.
+title: "Создание пула эластичных баз данных с помощью C# | Документация Майкрософт"
+description: "Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# <a name="create-an-elastic-database-pool-with-c&#x23;"></a>Создание пула эластичных баз данных с помощью C&#x23;
+# <a name="create-an-elastic-database-pool-with-cx23"></a>Создание пула эластичных баз данных с помощью C&#x23;
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,10 +30,10 @@ ms.author: sstein
 
 В этой статье показано, как создать пул эластичных баз данных SQL Azure с помощью C#, используя [библиотеку баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Дополнительные сведения см. в статье [Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET](sql-database-get-started-csharp.md).
 
-Библиотека базы данных SQL Azure для .NET предоставляет API на основе [Azure Resource Manager](../resource-group-overview.md), который создает оболочку для [REST API базы данных SQL на основе Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Библиотека базы данных SQL Azure для .NET предоставляет API на основе [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), который создает оболочку для [REST API базы данных SQL на основе Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
+> Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
 > 
 > 
 
@@ -55,7 +59,7 @@ ms.author: sstein
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c#-example"></a>Пример. Создание нового пула эластичных баз данных с помощью C
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>Пример. Создание нового пула эластичных баз данных с помощью C#
 В следующем примере создается группа ресурсов, сервер, правило брандмауэра, пул эластичных баз данных и входящая в него база данных SQL. Чтобы получить переменные `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, см. раздел [Создание субъекта-службы для доступа к ресурсам](#create-a-service-principal-to-access-resources).
 
 Замените содержимое файла **Program.cs** приведенным ниже кодом и обновите `{variables}`, используя значения для своего приложения (удалите `{}`).
@@ -307,6 +311,9 @@ namespace SqlElasticPoolConsoleApp
 * [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 * [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

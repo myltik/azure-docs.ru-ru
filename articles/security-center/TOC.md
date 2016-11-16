@@ -1,17 +1,14 @@
 # Обзор
 ## [Что такое центр безопасности Azure?](security-center-intro.md)
-## [Обзор службы](https://azure.microsoft.com/services/security-center/)
-## [Цены](security-center-pricing.md)
-## [Часто задаваемые вопросы](security-center-faq.md)
 ## [Получение аналитики с помощью Power BI](security-center-powerbi.md)
 ## [Защита данных](security-center-data-security.md)
-## Распространенные сценарии
+## Сценарии
 ### [Реагирование на инциденты](security-center-incident-response.md)
 
-# Приступая к работе
+# Начало работы
 ## [Краткое руководство](security-center-get-started.md)
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
-## [Центр безопасности и база данных SQL](security-center-sql-database.md)
+## [Часто задаваемые вопросы](security-center-faq.md)
 
 # Практическое руководство
 
@@ -59,10 +56,14 @@
 ## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Сопутствующие материалы
-## [Сведения о безопасности в Azure](../security/azure-security-getting-started.md)
+## [Безопасность в Azure](/azure/security/)
 
 # Ресурсы
 ## [Блог по безопасности, конфиденциальности и соответствию нормам Azure](http://blogs.msdn.com/b/azuresecurity/)
+## [Цены](security-center-pricing.md)
+## [Обзор службы](https://azure.microsoft.com/services/security-center/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=security-center)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

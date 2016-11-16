@@ -1,12 +1,12 @@
 ---
-title: Учебник по работе с PolyBase в хранилище данных SQL | Microsoft Docs
-description: Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных.
+title: "Руководство по работе с PolyBase в хранилище данных SQL | Документация Майкрософт"
+description: "Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Загрузка данных в хранилище данных SQL с помощью PolyBase
@@ -40,11 +44,11 @@ ms.author: cakarst;barbkess
 
 * База данных хранилища данных SQL.
 * Учетная запись хранилища Azure типа Standard-LRS (локально избыточное хранилище уровня «Стандартный»), Standard-GRS (геоизбыточное хранилище уровня «Стандартный») или Standard-RAGRS (геоизбыточное хранилище с доступом для чтения уровня «Стандартный»).
-* Служебная программа командной строки AzCopy. Загрузите и установите [последнюю версию AzCopy][последнюю версию AzCopy] , которая входит в состав средств хранилища Microsoft Azure.
+* Служебная программа командной строки AzCopy. Скачайте и установите [последнюю версию AzCopy][последняя версия AzCopy], входящую в состав средств службы хранилища Microsoft Azure.
   
     ![Средства хранилища Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
 Чтобы загрузить данные, нам нужно сначала поместить демонстрационные данные в хранилище BLOB-объектов Azure. На этом шаге мы заполним демонстрационными данными большой двоичный объект хранилища Azure. Затем с помощью PolyBase мы загрузим эти данные в базу данных хранилища данных SQL.
 
 ### <a name="a-prepare-a-sample-text-file"></a>О. Подготовка примера текстового файла
@@ -103,7 +107,7 @@ ms.author: cakarst;barbkess
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-См. также статью [Приступая к работе со служебной программой командной строки AzCopy][Приступая к работе со служебной программой командной строки AzCopy].
+Дополнительные сведения см. в статье [Приступая к работе со служебной программой командной строки AzCopy][Приступая к работе со служебной программой командной строки AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Просмотр содержимого контейнера хранилища BLOB-объектов
 Проверьте загрузку файла в хранилище BLOB-объектов следующим образом.
@@ -116,18 +120,18 @@ ms.author: cakarst;barbkess
    
     ![Просмотр хранилища BLOB-объектов Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Шаг 2. Создание внешней таблицы для демонстрационных данных
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Шаг 2. Создание внешней таблицы для демонстрационных данных
 В этом разделе мы создадим внешнюю таблицу, которая определяет демонстрационные данные.
 
 PolyBase использует внешние таблицы для доступа к данным в хранилище BLOB-объектов. Поскольку данные хранятся не в хранилище данных SQL, PolyBase выполняет проверку подлинности для доступа к внешним данным с помощью учетных данных, заданных для базы данных.
 
 На этом шаге нашего примера мы выполним несколько инструкций Transact-SQL для создания внешней таблицы.
 
-* [Создание главного ключа (Transact-SQL)][] для шифрования секрета учетных данных, которые заданы для базы данных.
-* [Создание учетных данных для базы данных (Transact-SQL)][] , которые нужны при проверке подлинности учетной записи хранения Azure.
-* [Создание внешнего источника данных (Transact-SQL)][] для указания расположения хранилища BLOB-объектов Azure.
-* [Создание формата внешнего файла (Transact-SQL)][] для указания формата данных.
-* [Создание внешней таблицы (Transact-SQL)][] , где определяется таблица и расположение нужных данных.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] — шифрования секрета учетных данных для базы данных.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] — указание сведений о проверке подлинности для учетной записи хранения Azure.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] — определение расположения хранилища BLOB-объектов Azure.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] — определение формата данных.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] — указание определения таблицы и расположения данных.
 
 Выполните этот запрос к вашей базе данных хранилища данных SQL. В схеме dbo будет создана внешняя таблица с именем DimDate2External, которая указывает на файл с демонстрационными данными DimDate2.txt в хранилище BLOB-объектов Azure.
 
@@ -207,8 +211,8 @@ SELECT count(*) FROM dbo.DimDate2External;
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Шаг 3. Загрузка данных в хранилище данных SQL
 После создания внешней таблицы вы можете загрузить данные в новую таблицу или вставить в уже существующую.
 
-* Чтобы загрузить данные в новую таблицу, выполните инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] . В новую таблицу будут включены столбцы с именами, указанными в запросе. Типы данных столбцов будут соответствовать типам данных в определении внешней таблицы.
-* Чтобы загрузить данные в существующую таблицу, выполните инструкцию [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] .
+* Чтобы загрузить данные в новую таблицу, выполните инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. В новую таблицу будут включены столбцы с именами, указанными в запросе. Типы данных столбцов будут соответствовать типам данных в определении внешней таблицы.
+* Чтобы загрузить данные в имеющуюся таблицу, выполните инструкцию [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -234,10 +238,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Дополнительные сведения см. в статье [Управление статистикой таблиц в хранилище данных SQL][].  
+Дополнительные сведения об управлении статистикой в хранилище данных SQL см. [здесь][здесь].  
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При разработке решений на основе PolyBase будет полезно изучить [Руководство по PolyBase][Руководство по PolyBase] .
+Дополнительные сведения о разработке решений на основе PolyBase см. в [руководстве по PolyBase][руководство по PolyBase].
 
 <!--Image references-->
 
@@ -274,6 +278,6 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -73,7 +73,7 @@
 ### [Учебник по машинному обучению](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Визуализация Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Анализ потока](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
 ## загрузить
 
@@ -136,6 +136,9 @@
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Партнеры
 ### [Бизнес-аналитика](sql-data-warehouse-partner-business-intelligence.md)

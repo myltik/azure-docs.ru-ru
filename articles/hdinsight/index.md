@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Azure HDInsight Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5f6156de634d3e32dd848518d4433a5d2e4b5c
+ms.openlocfilehash: 050d31a70a7dddff1f840235002f9b233dee9059
 
-Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HDInsight makes the Hadoop components from the Hortonworks Data Platform (HDP) distribution available in the cloud, and deploys and provisions managed clusters with reliability and availability.  Azure HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, and Storm.  You can also use custom clusters with script actions.  
+---
+#<a name="azure-hdinsight-documentation"></a>Документация по Azure HDInsight
+
+Azure HDInsight представляет собой расширение Apache Hadoop на основе облачных технологий.  С помощью Azure HDInsight можно сделать компоненты Hadoop из дистрибутива платформы Hortonworks Data Platform (HDP) доступными в облаке, а также развернуть и подготовить управляемые кластеры с высокой степенью надежности и доступности.  Azure HDInsight предоставляет конфигурации кластера для Apache Hadoop, Spark, HBase и Storm.  Кроме того, можно настроить кластеры с помощью действий сценария.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure HDInsight</h3>
+                        <h3>Дополнительные сведения об Azure HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure HDInsight Video Library</h3>
+                        <h3>Видеотека Azure HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Linux-based Hadoop cluster</h3>
+                        <h3>Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using a Spark cluster with R Server</h3>
+                        <h3>Приступая к работе с R Server в HDInsight (предварительная версия)</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an HBase cluster</h3>
+                        <h3>Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an Apache Storm cluster</h3>
+                        <h3>Учебник по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter</h3>
                     </div>
                 </div>
             </div>
@@ -119,23 +123,28 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
 
 ---
 
-##Reference
+##<a name="reference"></a>Справочные материалы
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+###<a name="powershell"></a>PowerShell
+[Справочник по Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###REST
-[HDInsight REST API Reference](/rest/api/hdinsight)
-[Spark for HDInsight REST API Reference](/rest/api/hdinsightspark)
+###<a name="rest"></a>REST
+[Сведения об API REST HDInsight](/rest/api/hdinsight)
+[Сведения о Spark для API REST HDInsight](/rest/api/hdinsightspark)
 
-###.NET
-[HDInsight Managed Reference](https://msdn.microsoft.com/library/azure/mt271028)
+###<a name="net"></a>.NET
+[Управляемый справочник по HDInsight](https://msdn.microsoft.com/library/azure/mt271028)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
         <div class="img"></div>
         <div class="text">
-            Download HDInsight Documentation
-        </div>
+Скачать документацию по HDInsight </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

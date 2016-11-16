@@ -1,13 +1,13 @@
 ---
-title: Настройка пиринговой связи между виртуальными сетями с помощью командлетов Powershell | Microsoft Docs
-description: Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager.
+title: "Настройка пиринговой связи между виртуальными сетями с помощью командлетов Powershell | Документация Майкрософт"
+description: "Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: dac579bd-7545-461a-bdac-301c87434c84
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai; annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
+
 
 ---
-# Создание пиринговой связи между виртуальными сетями с помощью командлетов Powershell
+# <a name="create-vnet-peering-using-powershell-cmdlets"></a>Создание пиринговой связи между виртуальными сетями с помощью командлетов Powershell
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -29,7 +33,7 @@ ms.author: narayanannamalai; annahar
 1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
 > [!NOTE]
-> Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
+> Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 > 
 > 
 
@@ -39,7 +43,7 @@ ms.author: narayanannamalai; annahar
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
 2. Чтобы настроить пиринг между двумя виртуальными сетями, необходимо создать два соединения, по одному для каждого направления. Сначала создадим пиринговое соединение от виртуальной сети VNet1 к сети VNet2.
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.Id
    
     Выходные данные:
    
@@ -61,7 +65,7 @@ ms.author: narayanannamalai; annahar
         RemoteVirtualNetworkAddressSpace : null
 3. Затем создадим пиринговое соединение от виртуальной сети VNet2 к сети VNet1.
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    
     Выходные данные:
    
@@ -108,7 +112,7 @@ ms.author: narayanannamalai; annahar
    
    | Параметр | Описание | значение по умолчанию |
    |:--- |:--- |:--- |
-   | AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual\_network. |Да |
+   | AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual_network. |Да |
    | AllowForwardedTraffic |Определяет, будет ли приниматься трафик, поступающий не из пиринговой виртуальной сети. |Нет |
    | AllowGatewayTransit |Разрешает пиринговой виртуальной сети использовать шлюз вашей виртуальной сети. |Нет |
    | UseRemoteGateways |Необходимо использовать шлюз вашей пиринговой виртуальной сети. Этот шлюз должен быть настроен. Кроме того, должен быть выбран параметр AllowGatewayTransit. Этот параметр нельзя использовать, если вы уже настроили шлюз. |Нет |
@@ -138,7 +142,7 @@ ms.author: narayanannamalai; annahar
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
    
-    Когда в нашем примере пиринговая связь будет настроена, вы сможете устанавливать соединение между любыми виртуальными машинами, входящими в эти две виртуальные сети. По умолчанию свойство AllowVirtualNetworkAccess имеет значение True. Поэтому для пиринга виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивающие обмен данными между этими сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями. Дополнительные сведения о создании правил NSG см. в [этой статье](virtual-networks-create-nsg-arm-ps.md).
+    Когда в нашем примере пиринговая связь будет настроена, вы сможете устанавливать соединение между любыми виртуальными машинами, входящими в эти две виртуальные сети. По умолчанию свойство AllowVirtualNetworkAccess имеет значение True. Поэтому для пиринга виртуальных сетей будут подготовлены соответствующие списки управления доступом, обеспечивающие обмен данными между этими сетями. Но вы также можете заблокировать возможность подключения (например, к определенной подсети или виртуальной машине) с помощью правил группы безопасности сети (NSG), реализуя более точное управление доступом между двумя виртуальными сетями.  Дополнительные сведения о создании правил NSG см. в [этой статье](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -156,24 +160,24 @@ ms.author: narayanannamalai; annahar
    
         $vnet3 = Get-AzureRmVirtualNetwork -ResourceGroupName hr-vnets -Name vnet3
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscription-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
 4. Затем в сеансе пользователя В выполните следующий командлет:
    
         $vnet5 = Get-AzureRmVirtualNetwork -ResourceGroupName vendor-vnets -Name vnet5
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
 5. После настройки пирингового соединения любая виртуальная машина из сети VNet3 сможет обмениваться данными с любой виртуальной машиной из сети VNet5.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. В этом сценарии можно запускать приведенные ниже командлеты PowerShell, чтобы настроить пиринг виртуальных сетей. Задайте свойству AllowForwardedTraffic значение True и создайте соединение между виртуальными сетями VNET1 и HubVnet, чтобы разрешить входящий трафик, поступающий не из адресного пространства пиринговой виртуальной сети.
+1. В этом сценарии можно запускать приведенные ниже командлеты PowerShell, чтобы настроить пиринг виртуальных сетей.  Задайте свойству AllowForwardedTraffic значение True и создайте соединение между виртуальными сетями VNET1 и HubVNet, чтобы разрешить входящий трафик, поступающий не из адресного пространства пиринговой виртуальной сети.
    
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToHub -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $HubVNet.id -AllowForwardedTraffic
+        Add-AzureRmVirtualNetworkPeering -Name LinkToHub -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $HubVNet.Id -AllowForwardedTraffic
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.Id
 2. Настроив пиринговую связь, ознакомьтесь с этой [статьей](virtual-network-create-udr-arm-ps.md). Из нее вы узнаете, как настроить пользовательский маршрут для перенаправления трафика VNet1 через виртуальное устройство. Указывая адрес следующего прыжка в маршруте, вы можете выбрать IP-адрес виртуального устройства в пиринговой виртуальной сети HubVNet. Пример приведен ниже.
    
         $route = New-AzureRmRouteConfig -Name TestNVA -AddressPrefix 10.3.0.0/16 -NextHopType VirtualAppliance -NextHopIpAddress 192.0.1.5
@@ -190,14 +194,18 @@ ms.author: narayanannamalai; annahar
 
 Чтобы создать пиринговую связь между классической виртуальной сетью и сетью Azure Resource Manager в PowerShell, сделайте следующее:
 
-1. Считайте объект виртуальной сети для **VNET1**, виртуальную сеть Azure Resource Manager, следующим образом: $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1.
-2. Чтобы настроить пиринг виртуальных сетей в этом сценарии, требуется только одно соединение, в частности соединение от **VNET1** к **VNET2**. Для этого необходимо знать идентификатор ресурса классической виртуальной сети. Формат идентификатора группы ресурсов выглядит следующим образом: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName.
+1. Прочтите объект **VNET1**, виртуальную сеть Azure Resource Manager, следующим образом:
    
-    Замените SubscriptionID, ResourceGroupName и VirtualNetworkName на соответствующие имена.
+        $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+2. Чтобы настроить пиринг виртуальных сетей в этом сценарии, требуется только одно соединение, в частности соединение от **VNET1** к **VNET2**. Для этого необходимо знать идентификатор ресурса классической виртуальной сети. Формат идентификатора группы ресурсов:
+   
+        /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
+   
+    Замените SubscriptionID, ResourceGroupName и VirtualNetworkName соответствующими именами.
    
     Это можно сделать следующим образом:
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
 3. Создав пиринговую связь, вы увидите состояние соединения, как показано в выходных данных ниже.
    
         Name                             : LinkToVNet2
@@ -217,15 +225,19 @@ ms.author: narayanannamalai; annahar
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-## Удаление пиринговой связи между виртуальными сетями
+## <a name="remove-vnet-peering"></a>Удаление пиринговой связи между виртуальными сетями
 1. Чтобы удалить пиринговое соединение между виртуальными сетями, выполните такой командлет:
    
      Remove-AzureRmVirtualNetworkPeering  
    
-     remove both links, as shown below:
+     Удалите обе ссылки с помощью следующих команд:
    
-     Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
-     Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+     Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2   Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 2. Когда вы удалите одно соединение в рамках пиринга виртуальных сетей, состояние пирингового соединения изменится на "Отключено". В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на "Инициировано". Перед повторной настройкой пиринга виртуальных сетей рекомендуется удалить оба соединения.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

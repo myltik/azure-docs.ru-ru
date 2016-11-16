@@ -2,7 +2,7 @@
 ## [Azure и Интернет вещей](iot-suite-what-is-azure-iot.md)
 ## [Что такое IoT Suite?](iot-suite-overview.md)
 ## [Что такое предварительно настроенные решения?](iot-suite-what-are-preconfigured-solutions.md)
-## [Схема обучения работе с IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+
 
 # Начало работы
 ## [Приступая к работе с предварительно настроенными решениями](iot-suite-getstarted-preconfigured-solutions.md)
@@ -28,13 +28,14 @@
 ## [Все аспекты безопасности](securing-iot-ground-up.md)
 
 # Сопутствующие материалы
-## [Анализ потока](https://azure.microsoft.com/services/stream-analytics/)
-## [Концентраторы событий](https://azure.microsoft.com/services/event-hubs/)
-## [Центр IoT](https://azure.microsoft.com/services/iot-hub/)
-## [Машинное обучение](https://azure.microsoft.com/services/machine-learning/)
+## [Анализ потока](/azure/stream-analytics/)
+## [Концентраторы событий](/azure/event-hubs/)
+## [Центр IoT](/azure/iot-hub/)
+## [Машинное обучение](/azure/machine-learning/)
 
 # Ресурсы
 ## [Часто задаваемые вопросы](iot-suite-faq.md)
+## [Схема обучения работе с IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

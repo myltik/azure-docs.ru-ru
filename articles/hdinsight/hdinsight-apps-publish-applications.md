@@ -1,41 +1,45 @@
 ---
-title: Публикация приложений HDInsight | Microsoft Docs
-description: Узнайте, как создавать и публиковать приложения HDInsight.
+title: "Публикация приложений HDInsight | Документация Майкрософт"
+description: "Узнайте, как создавать и публиковать приложения HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2016
+ms.date: 10/18/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ca18e2660d2e59f6dee12010abc9d1780f3a717a
+
 
 ---
-# Публикация приложений HDInsight в Azure Marketplace
-Пользователи могут устанавливать приложения HDInsight в кластере HDInsight под управлением Linux. Разработчиками этих приложений могут быть корпорация Майкрософт, независимые поставщики программного обеспечения или вы сами. Из этой статьи вы узнаете, как опубликовать приложение HDInsight в Azure Marketplace. Общие сведения о публикации в Azure Marketplace см. в статье [Как опубликовать предложение в Microsoft Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+# <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Публикация приложений HDInsight в Azure Marketplace
+Пользователи могут устанавливать приложения HDInsight в кластере HDInsight под управлением Linux. Разработчиками этих приложений могут быть корпорация Майкрософт, независимые поставщики программного обеспечения или вы сами. Из этой статьи вы узнаете, как опубликовать приложение HDInsight в Azure Marketplace.  Общие сведения о публикации в Azure Marketplace см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
 В приложениях HDInsight применяется модель *с использованием собственной лицензии (BYOL)*. В рамках этой модели поставщик приложения отвечает за лицензирование продукта для пользователей, а пользователи платят только за создаваемые ими ресурсы Azure, включая кластеры HDInsight, а также виртуальные машины и узлы. Сейчас счета за само приложение не выставляются в Azure.
 
 Другие связанные статьи о приложениях HDInsight:
 
-* [Установка приложений HDInsight](hdinsight-apps-install-applications.md) — узнайте, как устанавливать в кластер приложения HDInsight.
-* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как устанавливать и тестировать пользовательские приложения HDInsight.
+* [Установка приложений HDInsight](hdinsight-apps-install-applications.md)— узнайте, как устанавливать в кластер приложения HDInsight.
+* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md)— узнайте, как устанавливать и тестировать пользовательские приложения HDInsight.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Чтобы отправить пользовательское приложение в магазин, необходимо сначала создать и протестировать его. Ознакомьтесь со следующими статьями:
 
-* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как устанавливать и тестировать пользовательские приложения HDInsight.
+* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md)— узнайте, как устанавливать и тестировать пользовательские приложения HDInsight.
 
-Также необходимо зарегистрировать учетную запись разработчика. Дополнительные сведения см. в статье [Как опубликовать предложение в Microsoft Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) и [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Также необходимо зарегистрировать учетную запись разработчика. Дополнительные сведения см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) и [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
-## Определение приложения
-Публикация приложений в Azure Marketplace осуществляется в два этапа. Сначала необходимо определить файл **createUiDef.json**, чтобы указать кластеры, совместимые с приложением, а затем можно опубликовать шаблон с помощью портала Azure. Ниже приведен пример файла createUiDef.json.
+## <a name="define-application"></a>Определение приложения
+Публикация приложений в Azure Marketplace осуществляется в два этапа.  Сначала необходимо определить файл **createUiDef.json** , чтобы указать кластеры, совместимые с приложением, а затем можно опубликовать шаблон с помощью портала Azure. Ниже приведен пример файла createUiDef.json.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -52,9 +56,9 @@ ms.author: jgao
 | --- | --- | --- |
 | types |Типы кластеров, совместимые с приложением. |Hadoop, HBase, Storm, Spark (или любое их сочетание). |
 | tiers |Уровни кластеров, совместимые с приложением. |"Стандартный", "Премиум" (или оба). |
-| versions |Версии кластеров HDInsight, совместимые с приложением. |3\.4 |
+| versions |Версии кластеров HDInsight, совместимые с приложением. |3.4 |
 
-## Пакет приложения
+## <a name="package-application"></a>Пакет приложения
 Создайте ZIP-файл, который содержит все необходимые файлы для установки приложений HDInsight. Этот ZIP-файл вам понадобится при [публикации приложения](#publish-application).
 
 * [createUiDefinition.json](#define-application).
@@ -81,22 +85,29 @@ ms.author: jgao
 > 
 > 
 
-## Публикация приложения
+## <a name="publish-application"></a>публикации приложения
 Чтобы опубликовать приложение HDInsight:
 
 1. Войдите на [портал публикации Azure](https://publish.windowsazure.com/).
-2. Щелкните **Шаблоны решений**, чтобы создать шаблон решения.
-3. Щелкните **Create Dev Center account and join the Azure program** (Создать учетную запись центра разработчиков и присоединиться к программе Azure), чтобы зарегистрировать свою компанию, если вы еще этого не сделали. Дополнительные сведения см. в статье [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-4. Щелкните **Define some Topologies to get Started** (Определить некоторые топологии и начать работу). Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии.
-5. Добавьте новую версию.
-6. Отправьте ZIP-файл, подготовленный на этапе работы с [пакетом приложения](#package-application).
-7. Щелкните **Request Certification** (Запросить сертификацию). Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
+2. Щелкните **Шаблоны решений** слева, чтобы создать шаблон решения.
+3. Введите заголовок и нажмите кнопку **Создать шаблон решения**.
+4. Щелкните **Create Dev Center account and join the Azure program** (Создать учетную запись центра разработчиков и присоединиться к программе Azure), чтобы зарегистрировать свою компанию, если вы еще этого не сделали.  См. статью [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+5. Щелкните **Define some Topologies to get Started**(Определить некоторые топологии и начать работу). Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. 
+6. Введите имя топологии, а затем щелкните знак "плюс".
+7. Введите новую версию, а затем щелкните знак "плюс".
+8. Отправьте ZIP-файл, подготовленный на этапе работы с [пакетом приложения](#package-application).  
+9. Щелкните **Request Certification**(Запросить сертификацию). Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
 
-## Дальнейшие действия
-* [Установка приложений HDInsight](hdinsight-apps-install-applications.md) — узнайте, как устанавливать в кластер приложения HDInsight.
-* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
-* [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие скрипта для установки дополнительных приложений.
-* [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
-* [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md) — узнайте, как использовать пустой граничный узел для доступа к кластеру HDInsight, а также тестирования и размещения приложений HDInsight.
+## <a name="next-steps"></a>Дальнейшие действия
+* [Установка приложений HDInsight](hdinsight-apps-install-applications.md)— узнайте, как устанавливать в кластер приложения HDInsight.
+* [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md)— узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
+* [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md)— узнайте, как использовать действие скрипта для установки дополнительных приложений.
+* [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md)— узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
+* [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md)— узнайте, как использовать пустой граничный узел для доступа к кластеру HDInsight, а также тестирования и размещения приложений HDInsight.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,8 +1,8 @@
-## Развертывание шаблона ARM с помощью PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Развертывание шаблона ARM с помощью PowerShell
 Чтобы развернуть шаблон ARM, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
-2. При необходимости выполните командлет **`New-AzureRmResourceGroup`**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../articles/resource-group-overview.md).
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+2. При необходимости выполните командлет **`New-AzureRmResourceGroup`**, чтобы создать группу ресурсов. Следующая команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в разделе "Группы ресурсов" [обзора Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -17,7 +17,7 @@
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-3. Выполните командлет **`New-AzureRmResourceGroupDeployment`**, чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы загрузили и изменили раньше.
+3. Выполните командлет **`New-AzureRmResourceGroupDeployment`** , чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы загрузили и изменили раньше.
    
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -42,7 +42,7 @@
                             subnet2Name      String                     BackEnd
    
         Outputs           :
-4. Выполните командлет **`Get-AzureRmVirtualNetwork`**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
+4. Выполните командлет **`Get-AzureRmVirtualNetwork`** , как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
@@ -67,7 +67,7 @@
         Subnets           : [
                               {
                                 "Name": "FrontEnd",
-                                "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
                                 "AddressPrefix": "192.168.1.0/24",
                                 "IpConfigurations": [],
@@ -77,7 +77,7 @@
                               },
                               {
                                 "Name": "BackEnd",
-                                "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                                 "AddressPrefix": "192.168.2.0/24",
                                 "IpConfigurations": [],
@@ -87,4 +87,6 @@
                               }
                             ]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

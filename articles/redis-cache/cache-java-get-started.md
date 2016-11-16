@@ -1,12 +1,12 @@
 ---
-title: Использование кэша Redis для Azure с Java | Microsoft Docs
-description: Приступая к работе с кэшем Redis для Azure с использованием Java
+title: "Как использовать кэш Redis для Azure с Java | Документация Майкрософт"
+description: "Приступая к работе с кэшем Redis для Azure с использованием Java"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/24/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 907f75dc02bff7e25712a564410c1974e22f0d99
+
 
 ---
-# Использование кэша Redis для Azure с Java
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Использование кэша Redis для Azure с Java
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,23 +34,23 @@ ms.author: sdanie
 
 В этом разделе показано, как приступить к работе с кэшем Redis для Azure, используя Java.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 [Jedis](https://github.com/xetorthio/jedis) — Java-клиент для Redis
 
 В этом учебнике используется Jedis, но можно использовать любой клиент Java из перечисленных на сайте [http://redis.io/clients](http://redis.io/clients).
 
-## Создание кэша Redis в Azure
+## <a name="create-a-redis-cache-on-azure"></a>Создание кэша Redis в Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## Получение имени узла и ключей доступа
+## <a name="retrieve-the-host-name-and-access-keys"></a>Получение имени узла и ключей доступа
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## Включение конечной точки без SSL
-Некоторые клиенты Redis не поддерживают SSL. [Все порты, кроме SSL, отключены для новых экземпляров кэша Redis для Azure](cache-configure.md#access-ports) по умолчанию. На момент написания этой статьи клиент [Jedis](https://github.com/xetorthio/jedis) не поддерживает SSL.
+## <a name="enable-the-nonssl-endpoint"></a>Включение конечной точки без SSL
+Некоторые клиенты Redis не поддерживают SSL. [Все порты, кроме SSL, отключены для новых экземпляров кэша Redis для Azure](cache-configure.md#access-ports) по умолчанию. На момент написания этой статьи клиент [Jedis](https://github.com/xetorthio/jedis) не поддерживает SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## Добавление данных в кэш и их извлечение
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Добавление данных в кэш и их извлечение
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
@@ -66,8 +70,13 @@ ms.author: sdanie
     }
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Включите диагностику кэша](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics), чтобы можно было [наблюдать](https://msdn.microsoft.com/library/azure/dn763945.aspx) за работоспособностью кэша.
 * Прочитайте официальную [документацию Redis](http://redis.io/documentation).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

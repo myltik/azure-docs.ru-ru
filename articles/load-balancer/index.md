@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Load Balancer Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+---
+#<a name="load-balancer-documentation"></a>Документация по подсистемам балансировки нагрузки
+
+Azure Load Balancer обеспечивает высокую доступность и производительность сети для приложений.  Подсистему балансировки нагрузки можно настроить для регулирования входящего трафика Интернета для виртуальных машин, трафика между облачными ресурсами, трафика в виртуальной сети между организациями или внешнего трафика к определенной виртуальной машине.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Load Balancer</h3>
+                        <h3>См. дополнительные сведения о подсистемах балансировки нагрузки</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Load Balancer Video Library</h3>
+                        <h3>Видеотека материалов по подсистемах балансировки нагрузки</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an Internet-facing load balancer</h3>
+                        <h3>Создание подсистемы балансировки нагрузки для Интернета</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an internal-facing load balancer</h3>
+                        <h3>Создание подсистемы балансировки нагрузки для сети без доступа в Интернет</h3>
                     </div>
                 </div>
             </div>
@@ -82,29 +86,34 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-##Reference
+##<a name="reference"></a>Справочные материалы
 
-###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+###<a name="powershell"></a>PowerShell
+[Справочник по PowerShell для подсистемы балансировки нагрузки](/powershell/azureps-cmdlets-doc)
 
-###Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+###<a name="azure-cli"></a>Интерфейс командной строки Azure
+[Подсистема балансировки нагрузки: Azure CLI] (/cli/azure/network/lb)
 
-###.NET
-[.NET API Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Справочник по API .NET](/dotnet/api)
 
-###Java
-[Java API Reference](/java/api)
+###<a name="java"></a>Java
+[Справочник по API Java](/java/api)
 
-###REST
-[Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+###<a name="rest"></a>REST
+[Справочник по REST API подсистемы балансировки нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Load Balancer Documentation
-        </div>
+Скачать документацию по балансировщику нагрузки </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

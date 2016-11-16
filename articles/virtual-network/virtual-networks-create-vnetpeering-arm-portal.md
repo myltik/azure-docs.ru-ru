@@ -1,13 +1,13 @@
 ---
-title: Настройка пиринга виртуальных сетей с помощью портала Azure | Microsoft Docs
-description: Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager.
+title: "Настройка пиринговой связи между виртуальными сетями с помощью портала Azure | Документация Майкрософт"
+description: "Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Настройка пиринга виртуальных сетей с помощью портала Azure
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Настройка пиринга виртуальных сетей с помощью портала Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -26,8 +30,8 @@ ms.author: narayanannamalai;annahar
 
 Чтобы настроить пиринг виртуальных сетей по описанному выше сценарию с помощью портала Azure, сделайте следующее:
 
-1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
-2. Чтобы настроить пиринг между двумя виртуальными сетями, необходимо создать два соединения — по одному для каждого направления. Сначала мы создадим пиринговое соединение от виртуальной сети VNET1 к сети VNET2. На портале щелкните **Обзор**, введите **Виртуальные сети** и щелкните отобразившийся пункт.
+1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
+2. Чтобы настроить пиринг между двумя виртуальными сетями, необходимо создать два соединения — по одному для каждого направления. Сначала мы создадим пиринговое соединение от виртуальной сети VNET1 к сети VNET2. На портале щелкните **Обзор** > ** и выберите "Виртуальные сети"**.
    
     ![Настройка пиринга виртуальных сетей на портале Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 3. В колонке виртуальных сетей выберите VNET1, щелкните "Пиринги", а затем — "Добавить".
@@ -48,7 +52,7 @@ ms.author: narayanannamalai;annahar
 8. После создания связи между виртуальными сетями состояние соединения будет таким:
    
     ![Состояние результирующего соединения](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
-9. Состояние соединения LinkToVnet2 теперь также примет значение "Подключено".
+9. Состояние соединения LinkToVnet2 теперь также примет значение "Подключено".  
    
     ![Состояние результирующего соединения 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
    
@@ -61,7 +65,7 @@ ms.author: narayanannamalai;annahar
 
 | Параметр | Описание | значение по умолчанию |
 |:--- |:--- |:--- |
-| AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual\_network. |Да |
+| AllowVirtualNetworkAccess |Определяет, будет ли адресное пространство пиринговой виртуальной сети включено как часть тега Virtual_network. |Да |
 | AllowForwardedTraffic |Определяет, будет ли приниматься трафик, поступающий не из пиринговой виртуальной сети. |Нет |
 | AllowGatewayTransit |Разрешает пиринговой виртуальной сети использовать шлюз вашей виртуальной сети. |Нет |
 | UseRemoteGateways |Необходимо использовать шлюз вашей пиринговой виртуальной сети. Этот шлюз должен быть настроен. Кроме того, должен быть выбран параметр AllowGatewayTransit. Этот параметр нельзя использовать, если вы уже настроили шлюз. |Нет |
@@ -70,7 +74,7 @@ ms.author: narayanannamalai;annahar
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
+1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
 2. В этом примере мы используем две подписки, A и B, и два пользователя, A и B, которые имеют привилегии в соответствующих подписках.
 3. На портале щелкните "Обзор", введите "Виртуальные сети" и щелкните отобразившийся пункт. Выберите виртуальную сеть и щелкните "Добавить".
    
@@ -90,7 +94,7 @@ ms.author: narayanannamalai;annahar
    > 
 6. Войдите на портал в качестве пользователя A, перейдите к колонке VNET3, щелкните "Пиринги", установите флажок "Я знаю идентификатор ресурса" и введите идентификатор ресурса сети VNET5 в следующем формате:
    
-    /subscriptions/<ИД\_подписки>/resourceGroups/<имя\_группы\_ресурсов>/providers/Microsoft.Network/VirtualNetwork/<имя\_VNET>.
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![Идентификатор ресурса](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Войдите на портал в качестве пользователя B и выполните приведенные выше шаги, чтобы создать пиринговое соединение от VNET5 к VNet3.
@@ -110,9 +114,9 @@ ms.author: narayanannamalai;annahar
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
-2. Чтобы настроить пиринговую связь в этом сценарии, необходимо создать только одно соединение — от виртуальной сети Azure Resource Manager к классической сети. То есть от **VNET1** к **VNET2**. На портале щелкните **Обзор**, введите **Виртуальные сети** и щелкните отобразившийся пункт.
-3. В колонке "Виртуальные сети" выберите **VNET1**. Щелкните **Пиринги**, а затем — **Добавить**.
+1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
+2. Чтобы настроить пиринговую связь в этом сценарии, необходимо создать только одно соединение — от виртуальной сети Azure Resource Manager к классической сети. То есть от **VNET1** к **VNET2**. На портале, щелкните **Обзор** и выберите **Виртуальные сети**.
+3. В колонке "Виртуальные сети" выберите **VNET1**. Щелкните **Пиринги**, а затем нажмите кнопку **Добавить**.
 4. В колонке "Добавить пиринг" введите имя соединения. В этом примере соединение названо **LinkToVNet2**. В разделе сведений о пиринге выберите **Классический**.
 5. Выберите нужную подписку и укажите виртуальную сеть **VNET2**. Затем нажмите кнопку ОК.
    
@@ -121,8 +125,8 @@ ms.author: narayanannamalai;annahar
    
     ![Проверка пиринговой связи](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## Удаление пиринговой связи между виртуальными сетями
-1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
+## <a name="remove-vnet-peering"></a>Удаление пиринговой связи между виртуальными сетями
+1. В браузере откройте адрес http://portal.azure.com и войдите с помощью учетной записи Azure.
 2. Перейдите к колонке виртуальной сети, щелкните "Пиринги", выберите соединение, которое нужно удалить, и нажмите кнопку "Удалить".
    
    ![Удалить1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
@@ -131,4 +135,9 @@ ms.author: narayanannamalai;annahar
     ![Удалить2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на "Инициировано". Перед повторным созданием пиринговой связи между виртуальными сетями рекомендуем удалить оба соединения.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

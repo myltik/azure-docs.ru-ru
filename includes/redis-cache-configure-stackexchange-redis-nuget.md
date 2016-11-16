@@ -1,18 +1,18 @@
-Приложения .NET могут использовать клиент кэша **StackExchange.Redis**, который можно настроить в Visual Studio, используя пакет NuGet, упрощающий настройку клиентских приложений кэша.
+Приложения .NET могут использовать клиент кэша **StackExchange.Redis** , который можно настроить в Visual Studio, используя пакет NuGet, упрощающий настройку клиентских приложений кэша. 
 
 > [!NOTE]
-> Дополнительные сведения см. на странице [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) на github и в [документации по клиенту кэша StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
+> Дополнительные сведения см. на странице GitHub, посвященной [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis), и в [документации по клиенту кэша StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
 > 
 > 
 
-Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**.
+Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**. 
 
 ![Управление пакетами NuGet](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 Введите в поле поиска **StackExchange.Redis** или **StackExchange.Redis.StrongName**, выберите в результатах нужную версию и щелкните **Установить**.
 
 > [!NOTE]
-> При желании использовать версию клиентской библиотеки **StackExchange.Redis** со строгими именами выберите **StackExchange.Redis.StrongName**, в противном случае выберите **StackExchange.Redis**.
+> Если вы хотите использовать версию клиентской библиотеки **StackExchange.Redis** со строгими именами, выберите **StackExchange.Redis.StrongName**, в противном случае выберите **StackExchange.Redis**.
 > 
 > 
 
@@ -25,4 +25,8 @@
 > 
 > 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

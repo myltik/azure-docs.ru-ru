@@ -35,7 +35,7 @@
 ### [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 ### [Аутентификация между службами](data-lake-store-authenticate-using-active-directory.md)
 ### [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md)
- 
+
 ## Интеграция со службами Azure
 ### [Использование с Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Создание кластера HDInsight с Data Lake Store с помощью портала](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -51,14 +51,11 @@
 ### [Доступ к журналам диагностики](data-lake-store-diagnostic-logs.md)
 
 # Справочные материалы
-## [Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Пакет SDK для Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [Командлеты PowerShell](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-
-# Сопутствующие материалы
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
+## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
 # Ресурсы
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)

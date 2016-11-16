@@ -1,12 +1,12 @@
 ---
-title: Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
-description: В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor.
+title: "Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication"
+description: "В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
-Чтобы перейти с агента PhoneFactor (до версии 5.x включительно) на сервер Azure Multi-Factor Authentication, необходимо сначала удалить агент PhoneFactor и все его компоненты. После этого можно устанавливать сервер Multi-Factor Authentication Server со всеми необходимыми компонентами.
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
+Чтобы перейти с агента PhoneFactor (до версии 5.x включительно) на сервер Azure Multi-Factor Authentication, необходимо сначала удалить агент PhoneFactor и все его компоненты. После этого можно устанавливать сервер Multi-Factor Authentication Server со всеми необходимыми компонентами.
 
-## Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
 <ol>
-<li>Сначала создайте резервную копию файла данных PhoneFactor. По умолчанию файл хранится в расположении C:\\Program Files\\PhoneFactor\\Data\\Phonefactor.pfdata.
+<li>Сначала создайте резервную копию файла данных PhoneFactor. По умолчанию файл хранится в расположении C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
 
 <li>Если установлен пользовательский портал, сделайте вот что:</li>
@@ -47,11 +51,11 @@ ms.author: kgremban
 
 <li>Удалите агент PhoneFactor с помощью компонента «Программы и компоненты» в ОС Windows.
 
-<li>Установите сервер Multi-Factor Authentication. Обратите внимание, что путь установки берется из реестра предыдущей установки агента PhoneFactor, поэтому сервер должен установиться в то же расположение (например, C:\\Program Files\\PhoneFactor). В случае новой установки будет создан другой путь (например, C:\\Program Files\\Multi-Factor Authentication Server). Файл данных, оставшийся от агента PhoneFactor, будет обновлен во время установки, поэтому после установки нового сервера Multi-Factor Authentication ваши пользователи и параметры будут в сохранности.
+<li>Установите сервер Multi-Factor Authentication. Обратите внимание, что путь установки берется из реестра предыдущей установки агента PhoneFactor, поэтому сервер должен установиться в то же расположение (например, C:\Program Files\PhoneFactor). В случае новой установки будет создан другой путь (например, C:\Program Files\Multi-Factor Authentication Server). Файл данных, оставшийся от агента PhoneFactor, будет обновлен во время установки, поэтому после установки нового сервера Multi-Factor Authentication ваши пользователи и параметры будут в сохранности.
 
 <li>При появлении запроса активируйте сервер Multi-Factor Authentication и убедитесь, что он назначен правильной группе репликации.
 
-<li>Если ранее был установлен пакет SDK для веб-службы, установите новый пакет SDK через пользовательский интерфейс сервера Multi-Factor Authentication. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuthWebServiceSdk, а не PhoneFactorWebServiceSdk. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Если во время установки не изменять имя каталога по умолчанию, вам придется изменить URL-адрес во всех приложениях, которые ссылаются на пакет SDK для веб-службы (например, пользовательский портал и веб-служба мобильного приложения). Новый URL-адрес должен ссылаться на правильное расположение.
+<li>Если ранее был установлен пакет SDK для веб-службы, установите новый пакет SDK через пользовательский интерфейс сервера Многофакторной идентификации. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuthWebServiceSdk, а не PhoneFactorWebServiceSdk. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Если во время установки не изменять имя каталога по умолчанию, вам придется изменить URL-адрес во всех приложениях, которые ссылаются на пакет SDK для веб-службы (например, пользовательский портал и веб-служба мобильного приложения). Новый URL-адрес должен ссылаться на правильное расположение.
 
 <li>Если пользовательский портал был ранее установлен на сервере с агентом PhoneFactor, установите новый пользовательский портал Multi-Factor Authentication через пользовательский интерфейс сервера Multi-Factor Authentication. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuth, а не PhoneFactor. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Если во время установки не изменять имя каталога по умолчанию, щелкните значок пользовательского портала на сервере Multi-Factor Authentication и измените URL-адрес пользовательского портала на вкладке «Параметры».
 
@@ -64,4 +68,8 @@ ms.author: kgremban
 <li>Чтобы установить веб-службу мобильного приложения на веб-сервер, откройте командную строку от имени администратора и запустите файл MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuthMobileAppWebService, а не PhoneFactorPhoneAppWebService. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Вы можете выбрать более короткое имя. Так пользователям было проще вводить его на своих мобильных устройствах. Если во время установки вы не хотите изменять имя каталога по умолчанию, щелкните значок мобильного приложения на сервере Multi-Factor Authentication и измените URL-адрес веб-службы мобильного приложения.</li>
 <li>Перейдите в папку установки веб-службы мобильного приложения (например, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) и отредактируйте файл web.config. Скопируйте значения в разделах appSettings и applicationSettings из исходного файла web.config, резервная копия которого была создана до появления нового файла web.config. Если при установке пакета SDK для веб-службы вы оставили новое имя виртуального каталога по умолчанию, измените URL-адрес в разделе applicationSettings так, чтобы он указывал на правильное расположение. Если в предыдущем файле web.config были изменены еще какие-то значения по умолчанию, внесите такие же изменения в новый файл web.config.</li></ol>
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

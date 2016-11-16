@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
----
-#Virtual Machines Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: ca5d39641a251dcbc650907d08ce11c6c7124f66
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine&mdash;configuring, patching, and maintaining the software that runs on the virtual machine.
+---
+#<a name="virtual-machines-documentation"></a>Документация по виртуальным машинам
+
+Виртуальная машина Azure предоставляет гибкие возможности виртуализации без необходимости приобретать и обслуживать физическое оборудование, на котором выполняется виртуальная машина. Но вам по-прежнему потребуется обслуживать виртуальную машину &mdash;, настраивать ее, устанавливать исправления и обслуживать программное обеспечение, работающее на виртуальной машине.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Windows Virtual Machines</h3>
+                        <h3>Начало работы с виртуальными машинами Windows</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Linux Virtual Machines</h3>
+                        <h3>Начало работы с виртуальными машинами Linux</h3>
                     </div>
                 </div>
             </div>
@@ -47,25 +51,30 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 ---
 
-##Reference
+##<a name="reference"></a>Справочные материалы
 
-###.NET 
-[Virtual Machines Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[Управляемый справочник по API виртуальных машин](/dotnet/api/) 
 
-###REST 
-[Virtual Machine REST API Reference](/rest/api/) 
+###<a name="rest"></a>REST 
+[Справочник по REST API виртуальных машин](/rest/api/) 
 
-###Azure CLI 
-[Azure CLI for Virtual Machines](/cli/azure/)
+###<a name="azure-cli"></a>Интерфейс командной строки Azure 
+[Azure CLI для виртуальных машин](/cli/azure/)
 
-###Java 
-[Virtual Machines PowerShell Cmdlet](/java/api/)
+###<a name="java"></a>Java 
+[Командлеты PowerShell для виртуальных машин](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Virtual Machine Documentation
-        </div>
+Скачать документацию по виртуальным машинам </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

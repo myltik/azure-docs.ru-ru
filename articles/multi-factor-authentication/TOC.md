@@ -38,7 +38,7 @@
 ### [Веб-приложения IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Шлюз удаленных рабочих столов](multi-factor-authentication-get-started-server-rdg.md)
 
-## Разработка приложений
+## Разработка 
 ### [Создание пользовательских приложений (пакет SDK)](multi-factor-authentication-sdk.md)
 
 ## Устранение неполадок

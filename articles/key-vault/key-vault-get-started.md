@@ -1,19 +1,23 @@
 ---
-title: Приступая к работе с хранилищем ключей Azure | Microsoft Docs
-description: Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure.
+title: "Приступая к работе с хранилищем ключей Azure | Документация Майкрософт"
+description: "Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+
 
 ---
 # <a name="get-started-with-azure-key-vault"></a>Приступая к работе с хранилищем ключей Azure
@@ -55,7 +59,7 @@ ms.author: cabailey
 * [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 * [Использование Azure PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md)
 
-## <a name="<a-id="connect"></a>connect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
+## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
     Login-AzureRmAccount 
@@ -74,13 +78,13 @@ ms.author: cabailey
 
 Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="<a-id="resource"></a>create-a-new-resource-group"></a><a id="resource"></a>Создание новой группы ресурсов
+## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Создание новой группы ресурсов
 При использовании диспетчера ресурсов Azure все связанные ресурсы создаются внутри группы ресурсов. Для примера мы создадим новую группу ресурсов с именем **ContosoResourceGroup** :
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="<a-id="vault"></a>create-a-key-vault"></a><a id="vault"></a>Создание хранилища ключей
+## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Создание хранилища ключей
 Чтобы создать хранилище ключей, используйте командлет [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx). Этот командлет предусматривает три обязательных параметра: **имя группы ресурсов**, **имя хранилища ключей** и **географическое расположение**.
 
 Например, если вы используете хранилище с именем **ContosoKeyVault**, группу ресурсов с именем **ContosoResourceGroup** и расположение **Восточная Азия**, введите следующее.
@@ -99,7 +103,7 @@ ms.author: cabailey
 > 
 > 
 
-## <a name="<a-id="add"></a>add-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Добавление ключа или секрета в хранилище ключей
+## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Добавление ключа или секрета в хранилище ключей
 Чтобы создать ключ с программной защитой для собственного использования с помощью хранилища ключей Azure, используйте командлет [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) и введите следующее.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
@@ -140,7 +144,7 @@ ms.author: cabailey
 
 Теперь хранилище ключей и ключ или секрет готовы для использования в приложениях. Необходимо авторизовать приложения для их использования.  
 
-## <a name="<a-id="register"></a>register-an-application-with-azure-active-directory"></a><a id="register"></a>Регистрация приложения в Azure Active Directory
+## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Регистрация приложения в Azure Active Directory
 Обычно этот шаг выполняет разработчик на отдельном компьютере. Он не относится к хранилищу ключей Azure, но включен в этот учебник для полноты картины.
 
 > [!IMPORTANT]
@@ -165,10 +169,10 @@ ms.author: cabailey
 9. Прокрутите страницу до раздела **Ключи**, выберите длительность и щелкните **Сохранить**. Страница обновится и отобразится значение ключа. Необходимо настроить приложение, указав это значение ключа и **идентификатор клиента** (указания по этой конфигурации зависят от конкретного приложения).
 10. Скопируйте значение идентификатора клиента на этой странице. Вы будете использовать его на следующем шаге, чтобы задать разрешения в своем хранилище.
 
-## <a name="<a-id="authorize"></a>authorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Авторизация приложения для использования ключа или секрета
+## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Авторизация приложения для использования ключа или секрета
 Предоставить приложению доступ к ключу или секрету в хранилище можно с помощью командлета  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
 
-Например, если имя хранилища — **ContosoKeyVault** , идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed и вам нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующую команду:
+Например, если имя хранилища — **ContosoKeyVault** , идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed и вам нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующую команду:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 
@@ -176,18 +180,18 @@ ms.author: cabailey
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="<a-id="hsm"></a>if-you-want-to-use-a-hardware-security-module-(hsm)"></a><a id="HSM"></a>Использование аппаратного модуля безопасности
+## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Использование аппаратного модуля безопасности
 Чтобы обеспечить более высокий уровень защиты, можно импортировать ключи или создать их в аппаратных модулях безопасности (ключи никогда не покидают их пределов). В качестве аппаратных модулей безопасности используются модули FIPS 140-2 с проверкой уровня 2. Если это требование вас не касается, пропустите этот подраздел и перейдите к подразделу [Удаление хранилища ключей, а также связанных ключей и секретов](#delete).
 
-Для создания ключей, защищенных аппаратным модулем безопасности, у вас должна быть [подписка на хранилище, которая поддерживает ключи, защищенные аппаратным модулем безопасности](https://azure.microsoft.com/pricing/free-trial/).  Кроме того, эта функция недоступна для Китая.
+Чтобы создать ключи, защищенные аппаратным модулем, используйте [хранилище ключей Azure уровня "Премиум", которое поддерживает ключи, защищенные аппаратным модулем](https://azure.microsoft.com/pricing/free-trial/). Обратите внимание, эта функция недоступна для Китая.
 
-При создании хранилища добавьте параметр **-SKU** :
+При создании хранилища ключей добавьте параметр **-SKU**:
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
-В это хранилище можно добавлять ключи с программной защитой (как показано выше) и ключи, защищенные аппаратным модулем безопасности. Чтобы создать ключ, защищенный аппаратным модулем безопасности, задайте значение «HSM» для параметра **-Destination** :
+В это хранилище ключей можно добавлять ключи с программной защитой (как показано выше) и ключи, защищенные аппаратным модулем безопасности. Чтобы создать ключ, защищенный аппаратным модулем безопасности, задайте значение «HSM» для параметра **-Destination** :
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -202,7 +206,7 @@ ms.author: cabailey
 
 Более подробные инструкции по созданию пакета BYOK см. в статье [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="<a-id="delete"></a>delete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов
+## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов
 Если хранилище ключей (а также содержащийся в нем ключ или секрет) больше не нужно, его можно удалить с помощью командлета [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx).
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
@@ -212,7 +216,7 @@ ms.author: cabailey
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="<a-id="other"></a>other-azure-powershell-cmdlets"></a><a id="other"></a>Другие командлеты Azure PowerShell
+## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Другие командлеты Azure PowerShell
 Другие команды, которые могут быть полезны при управлении хранилищем ключей Azure.
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'` — эта команда отображает все ключи и выбранные свойства в виде таблицы;
@@ -221,7 +225,7 @@ ms.author: cabailey
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` — пример того, как удалить конкретный ключ;
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` — пример того, как удалить конкретный секрет.
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Дальнейшие действия
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
 Подробное руководство по использованию хранилища ключей Azure в веб-приложении см. в [этой статье](key-vault-use-from-web-application.md).
 
 Сведения об использовании хранилища ключей см. в статье [Ведение журнала хранилища ключей Azure](key-vault-logging.md).
@@ -230,6 +234,9 @@ ms.author: cabailey
 
 Справочные материалы по программированию см. в статье [Руководство разработчика хранилища ключей Azure](key-vault-developers-guide.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
-# [Обзор](functions-overview.md)
-
+# Обзор
+## [Что такое функции Azure?](functions-overview.md)
 # Начало работы
 ## [Создание первой функции](functions-create-first-azure-function.md)
 ## [Создание функции webhook](functions-create-a-web-hook-or-api-function.md)
 ## [Создание функции, исполняемой в Azure](functions-create-an-azure-connected-function.md)
 ## [Создание функции обработки события](functions-create-an-event-processing-function.md)
-# Практическое руководство:
-## планирование и разработка
+# Практическое руководство
+## Планирование и проектирование
 ### [Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure](functions-compare-logic-apps-ms-flow-webjobs.md)
 ### [Выбор между потреблением и планом службы приложений](functions-scale.md)
 
@@ -38,10 +38,14 @@
 ## Развернуть
 ### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
 
+# Справочные материалы
+## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
 # Ресурсы
-## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

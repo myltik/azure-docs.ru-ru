@@ -16,8 +16,7 @@
 ## [Контейнеры](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Часто задаваемые вопросы](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-# Приступая к работе
-## [Бесплатная учетная запись](https://azure.microsoft.com/pricing/free-trial/)
+# Начало работы
 ## [Создание виртуальной машины с помощью портала](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Создание ключей SSH в Linux и Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Различные способы создания виртуальной машины](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -48,7 +47,7 @@
 ### [Использование Docker Compose с Azure](../virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Развертывание частного реестра Docker в Azure](../virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## [Хранилище](../virtual-machines-linux-azure-vm-storage-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Использование хранилища
 ### [Диски и виртуальные жесткие диски](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Шифрование дисков](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Настройка программного RAID-массива](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -67,22 +66,21 @@
 ### [Подключение классических виртуальных сетей к виртуальным сетям Resource Manager](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Варианты разрешения DNS-имени](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Образы
-### [Образы, рекомендованные для Azure](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Пользовательские образы](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Передача образа виртуальной машины с помощью интерфейса командной строки](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Агент Linux для Azure](../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [CentOS](../virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Debian](../virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [RedHat](../virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Развертывание исполняющих сред на основе шаблона](../virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Подготовка виртуальной машины Oracle Linux для Azure](../virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-## Развернуть
+## Развертывание
 ### [Копирование виртуальной машины](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Запись виртуальной машины](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Использование шаблона для создания виртуальной машины](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Образы
+#### [Образы, рекомендованные для Azure](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Пользовательские образы](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Передача образа виртуальной машины с помощью интерфейса командной строки](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Агент Linux для Azure](../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [CentOS](../virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Debian](../virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [RedHat](../virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Развертывание исполняющих сред на основе шаблона](../virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Подготовка виртуальной машины Oracle Linux для Azure](../virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Настройка
 ### [Перемещение виртуальных машин между подписками](../virtual-machines-linux-move-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -95,7 +93,7 @@
 ### [Использование привилегий суперпользователя](../virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Добавление пользователя в виртуальную машину Azure](../virtual-machines-linux-add-user.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Выбор имен пользователей](../virtual-machines-linux-usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Создание рабочего или учебного удостоверения в Azure Active Directory](../virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Создание рабочего или учебного удостоверения в Azure AD](../virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Управление доступом](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Применение политик для виртуальных машин](../virtual-machines-linux-policy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Настройка хранилища ключей](../virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -122,10 +120,8 @@
 ### [Миграция с помощью интерфейса командной строки](../virtual-machines-linux-cli-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Распространенные ошибки миграции](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Рекомендации
-### [Запуск отдельных виртуальных машин](../../guidance/guidance-compute-single-vm-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## План
+### [Рекомендации по запуску виртуальных машин](../../guidance/guidance-compute-single-vm-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Рекомендации по инфраструктуре](../virtual-machines-linux-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Подписки и учетные записи](../virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Именование](../virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -137,7 +133,7 @@
 ### [Плановое обслуживание Azure](../virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Расписание](../virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Рабочие нагрузки
+## Управление рабочими нагрузками
 ### [Начало работы с SAP](../virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Планирование для SAP](../virtual-machines-linux-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Развертывание SAP](../virtual-machines-linux-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -152,33 +148,35 @@
 ### [Высокопроизводительные вычисления](../virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Запуск NAMD с помощью пакета Microsoft HPC](../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Приложения
+## Запуск приложений
 ### [Разработка приложения Node.js](../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Веб-приложение Django](../virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Записная книжка Jupyter](../virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Устранение неполадок
-### [Устранение неполадок подключений Secure Shell (SSH) к виртуальной машине на базе Linux](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Подробный процесс устранения неполадок с подключениями Secure Shell (SSH)](../virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Неполадки с подключениями Secure Shell](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Подробные инструкции по устранению неполадок](../virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Устранение неполадок доступа к приложениям](../virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Устранение неполадок выделения ресурсов](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Устранение неполадок развертывания](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Повторное развертывание виртуальной машины на новом узле Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Справочные материалы
+## [Интерфейс командной строки Azure](/cli/azure/vm)
+## [Java](/java/api/)
 ## [Создание шаблонов Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Интерфейс командной строки Azure](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Пакет SDK для Java](https://azure.microsoft.com/develop/java/)
-## [Пакет SDK для Node.js](https://azure.microsoft.com/develop/nodejs/)
-## [Пакет SDK для Python](https://azure.microsoft.com/develop/python/)
-## [Справочник по REST API для вычислений](https://msdn.microsoft.com/library/azure/mt163647)
-## [Справочник по REST API для сети](https://msdn.microsoft.com/library/azure/mt163658)
-## [Справочник по REST API для хранилища](https://msdn.microsoft.com/library/azure/dd179355)
 ## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates/)
+## [REST для вычислений](/rest/api/compute/)
+## [REST для сети](/rest/api/)
+## [REST для службы хранилища](/rest/api/storageservices/)
+
+
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/#Linux)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,20 +1,24 @@
 ---
-title: Создание набора масштабирования виртуальных машин с помощью PowerShell | Microsoft Docs
-description: Создание набора масштабирования виртуальных машин с помощью PowerShell
+title: "Создание масштабируемого набора виртуальных машин с помощью PowerShell | Документация Майкрософт"
+description: "Создание набора масштабирования виртуальных машин с помощью PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Создание набора масштабирования виртуальных машин Windows с помощью Azure PowerShell
@@ -22,41 +26,18 @@ ms.author: davidmu
 
 Процедура, описанная в этой статье, занимает около 30 минут.
 
-## <a name="step-1:-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
 Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Как установить и настроить службы Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="step-2:-create-resources"></a>Шаг 2. Создание ресурсов
+## <a name="step-2-create-resources"></a>Шаг 2. Создание ресурсов
 Создайте ресурсы, которые необходимы для вашего нового набора масштабирования.
 
 ### <a name="resource-group"></a>Группа ресурсов
 Набор масштабирования виртуальных машин должен содержаться в группе ресурсов.
 
-1. Получите список доступных расположений и поддерживаемых служб, выполнив следующую команду:
+1. Получите список доступных расположений, в которых можно размещать ресурсы.
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Вы увидите нечто вроде этого примера:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Выберите подходящее расположение, замените значение **$locName** именем этого расположения, а затем создайте переменную:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ ms.author: davidmu
 4. Создайте виртуальную сеть:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Общедоступный IP-адрес
-Перед тем как создавать сетевой интерфейс, необходимо создать общедоступный IP-адрес.
-
-1. Замените значение **$domName** именем домена, которое хотите использовать с общедоступным IP-адресом, а затем создайте переменную.  
-   
-        $domName = "domain name label"
-   
-    Доменное имя может содержать только буквы, цифры и дефисы. Последним символом должна быть буква или цифра.
-2. Проверьте, является ли имя уникальным:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Если команда возвращает значение **True**, предложенное имя является уникальным.
-3. Замените значение **$pipName** именем, которое вы хотите использовать для общедоступного IP-адреса, а затем создайте переменную. 
-   
-        $pipName = "public ip address name"
-4. Создайте общедоступный IP-адрес:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Сетевой интерфейс
-Теперь, когда есть общедоступный IP-адрес, вы можете создать сетевой интерфейс.
-
-1. Замените значение **$nicName** именем, которое вы хотите использовать для сетевого интерфейса, а затем создайте переменную. 
-   
-        $nicName = "network interface name"
-2. Создайте сетевой интерфейс:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Конфигурации набора масштабирования
 Теперь у нас есть все ресурсы, необходимые для конфигурации набора масштабирования, и мы можем приступить к ее созданию.  
@@ -253,11 +204,11 @@ ms.author: davidmu
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Шаг 3. Изучение ресурсов
+## <a name="step-3-explore-resources"></a>Шаг 3. Изучение ресурсов
 Для изучения созданного набора масштабирования виртуальных машин используйте указанные ниже ресурсы.
 
 * Портал Azure — с помощью портала можно получить ограниченный объем сведений.
-* [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучший инструмент для просмотра текущего состояния набора масштабирования.
+* [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучший инструмент для просмотра текущего состояния набора масштабирования.
 * Azure PowerShell — используйте следующую команду, чтобы получить сведения:
   
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
@@ -271,6 +222,9 @@ ms.author: davidmu
 * Вы можете настроить автоматическое масштабирование набора масштабирования с помощью сведений в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md)
 * Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование наборов масштабирования виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Начало работы с Azure Mobile Engagement для Xamarin.Android
-description: Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Xamarin.Android.
+title: "Начало работы с Azure Mobile Engagement для Xamarin.Android"
+description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Xamarin.Android."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
+
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-xamarin.android-apps"></a>Начало работы с Azure Mobile Engagement для приложений Xamarin.Android
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Начало работы с Azure Mobile Engagement для приложений Xamarin.Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этой статье показано, как применять Azure Mobile Engagement для анализа использования приложения и как отправлять push-уведомления сегментированным пользователям приложения Xamarin.Android.
@@ -32,15 +36,15 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. 
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. 
 
 Мы создадим базовое приложение в Xamarin Studio, чтобы продемонстрировать интеграцию.
 
-### <a name="create-a-new-xamarin.android-project"></a>Создание нового проекта Xamarin.Android
+### <a name="create-a-new-xamarinandroid-project"></a>Создание нового проекта Xamarin.Android
 1. Запустите **Xamarin Studio**. Щелкните **File** -> **New** -> **Solution** (Файл -> Создать -> Решение). 
    
     ![][1]
@@ -86,10 +90,10 @@ Xamarin Studio создаст приложение, в которое мы ин�
 3. Добавьте следующий код между тегами `<application>` и `</application>`, чтобы объявить службу агента:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 4. В только что вставленном коде замените `"<Your application name>"` в метке фактическим значением. Это имя появится в меню **Параметры** , где отображены службы, работающие на устройстве пользователя. Вы можете добавить в метку слово, например Service (служба).
 
 ### <a name="send-a-screen-to-mobile-engagement"></a>Отправка экрана в Mobile Engagement
@@ -111,10 +115,10 @@ Xamarin Studio создаст приложение, в которое мы ин�
                 base.OnPause();            
             }
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать и СВЯЗЫВАТЬСЯ с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 
@@ -134,6 +138,6 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

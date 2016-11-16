@@ -1,8 +1,8 @@
-## Создание виртуальной сети с помощью PowerShell
+## <a name="how-to-create-a-vnet-using-powershell"></a>Создание виртуальной сети с помощью PowerShell
 Чтобы создать виртуальную сеть с помощью PowerShell, выполните указанные ниже действия.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
-2. При необходимости создайте новую группу ресурсов, как показано ниже. В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../articles/resource-group-overview.md).
+2. При необходимости создайте новую группу ресурсов, как показано ниже. В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в разделе "Группы ресурсов" [обзора Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -98,7 +98,7 @@
         Subnets               : [
                                   {
                                     "Name": "FrontEnd",
-                                    "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                    "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
                                     "AddressPrefix": "192.168.1.0/24",
                                     "IpConfigurations": [],
@@ -106,7 +106,7 @@
                                   },
                                   {
                                     "Name": "BackEnd",
-                                    "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                    "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                                     "AddressPrefix": "192.168.2.0/24",
                                     "IpConfigurations": [],
@@ -115,4 +115,8 @@
                                 ]
         VirtualNetworkPeerings : []
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

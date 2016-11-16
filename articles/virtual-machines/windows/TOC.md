@@ -16,8 +16,7 @@
 ## [Контейнеры](../virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Часто задаваемые вопросы](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-# Приступая к работе
-## [Бесплатная учетная запись](https://azure.microsoft.com/free/)
+# Начало работы
 ## [Создание виртуальной машины с помощью портала](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Вход на виртуальную машину](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Установка роли и открытие портов](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,9 +31,9 @@
 ### [Развертывание приложения](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Практическое руководство
-## Хранилище
-### [Подключение диска данных с помощью портала](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Отключение диска данных с помощью портала](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## Использование хранилища
+### [Подключение диска данных](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Отключение диска данных](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Расширение диска операционной системы](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Использование диска D: в качестве диска данных](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Шифрование дисков](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -50,16 +49,7 @@
 ### [Создание статического общедоступного IP-адреса](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Подключение классических виртуальных сетей к виртуальным сетям Resource Manager](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Образы
-### [Подготовка виртуального жесткого диска к передаче](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Подготовка виртуальной машины к использованию с помощью Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Передача образа виртуальной машины](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Запись обобщенной виртуальной машины Azure](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Копирование специализированной виртуальной машины Azure](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Создание виртуальной машины на основе обобщенного образа VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Создание виртуальной машины на основе специализированного образа VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## Развернуть
+## Развертывание
 ### [Использование лицензирования по программе Software Assurance](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Поиск образов виртуальных машин с помощью PowerShell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Использование образов клиентских версий Windows](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -71,6 +61,14 @@
 ### [Развертывание с помощью C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Развертывание с использованием C# и шаблонов](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Развертывание исполняющих сред на основе шаблона](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Образы
+#### [Подготовка виртуального жесткого диска к передаче](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Подготовка виртуальной машины к использованию с помощью Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Передача образа виртуальной машины](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Запись обобщенной виртуальной машины Azure](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Копирование специализированной виртуальной машины Azure](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Создание виртуальной машины на основе обобщенного образа VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Создание виртуальной машины на основе специализированного образа VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Настройка
 ### [Создание группы доступности](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -84,7 +82,7 @@
 ### [Стандартные задачи для интерфейса командной строки](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Управление
-### [Создание рабочего или учебного удостоверения в Azure Active Directory](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Создание рабочего или учебного удостоверения в Azure AD](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Управление доступом](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Настройка хранилища ключей](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Настройка доступа через WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -107,7 +105,7 @@
 ### [Примеры конфигурации](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Устранение неполадок расширений](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Обзор службы автоматизации Azure](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Вертикальное масштабирование виртуальных машин с помощью службы автоматизации Azure](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Вертикальное масштабирование виртуальных машин](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Скачивание шаблона для виртуальной машины](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Автоматизация с помощью Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -117,10 +115,8 @@
 ### [Миграция с помощью PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Инструменты миграции, созданные сообществом](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Рекомендации
-### [Рекомендации по запуску виртуальной машины Windows в Azure](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## План
+### [Рекомендации по использованию виртуальной машины Windows](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Рекомендации по инфраструктуре](../virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Подписки и учетные записи](../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Именование](../virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -132,36 +128,36 @@
 ### [Плановое обслуживание Azure](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Расписание](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Рабочие нагрузки
+## Управление рабочими нагрузками
 ### [Высокопроизводительные вычислительные системы (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MATLAB](../virtual-machines-windows-matlab-mdcs-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MongoDB](../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [SQL](../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Подготовка виртуальной машины SQL Server на портале Azure](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Подготовка виртуальной машины SQL Server с помощью Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Подключение к виртуальной машине SQL Server в Azure](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Настройка группы доступности AlwaysOn на виртуальной машине Azure вручную](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Автоматическая настройка группы доступности AlwaysOn на виртуальной машине Azure](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Подготовка виртуальной машины на портале Azure](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Подготовка виртуальной машины с помощью Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Подключение к виртуальной машине](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Перенос базы данных SQL Server](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Настройка группы доступности AlwaysOn вручную](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Автоматическая настройка группы доступности AlwaysOn](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Настройка подсистемы балансировки нагрузки для группы доступности AlwaysOn](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Настройка одного или нескольких прослушивателей групп доступности Always On](../virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Автоматическая архивация SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Резервное копирование и восстановление SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Использование службы хранилища Azure для резервного копирования и восстановления SQL Server](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Рекомендации по оптимизации производительности SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Вопросы безопасности SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Расширение агента SQL Server для виртуальных машин SQL Server](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Настройка интеграции с хранилищем ключей Azure](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Высокий уровень доступности и аварийное восстановление](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Автоматическая архивация](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Резервное копирование и восстановление](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Использование службы хранилища Azure для резервного копирования и восстановления](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Автоматическое исправление](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Рекомендации по производительности](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Вопросы безопасности](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Расширение агента SQL Server](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Стратегии и шаблоны приложений](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Часто задаваемые вопросы об SQL Server на виртуальных машинах Azure](../virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Настройка хранилища для виртуальных машин SQL Server](../virtual-machines-windows-sql-server-storage-configuration.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Развертывание SAP IDES EHP7 SP3 для SAP ERP 6.0 в Microsoft Azure](../virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Руководство по планированию и реализации](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Руководство по обеспечению высокой доступности](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Руководство по развертыванию СУБД](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Руководство по развертыванию](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 ### [SAP](../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -172,7 +168,7 @@
 ## Устранение неполадок
 ### [Устранение неполадок подключений удаленного рабочего стола](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Сброс пароля удаленного рабочего стола](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Устранение некоторых ошибок подключения по протоколу RDP к виртуальной машине Windows в Azure](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Устранение некоторых ошибок подключения по протоколу RDP](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Устранение неполадок при создании виртуальной машины](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Устранение неполадок при перезапуске или изменении размера виртуальной машины](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Устранение неполадок доступа к приложению](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,21 +176,19 @@
 ### [Повторное развертывание виртуальной машины](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Справочные материалы
-## [Создание шаблонов Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Справочник по REST API для вычислений](https://msdn.microsoft.com/library/azure/mt163647)
-## [Справочник по REST API для сети](https://msdn.microsoft.com/library/azure/mt163658)
-## [Справочник по REST API для хранилища](https://msdn.microsoft.com/library/azure/dd179355)
-## [Справочник по REST API для масштабируемых наборов виртуальных машин](https://msdn.microsoft.com/library/azure/mt705635)
-## [Справочник по .NET API для виртуальных машин](https://msdn.microsoft.com/library/azure/mt131911)
-## [Справочник по .NET API для сети](https://msdn.microsoft.com/library/azure/dn973320)
-## [Справочник по .NET API для хранилища](https://msdn.microsoft.com/library/azure/mt131037)
-## [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt125979)
+## [Интерфейс командной строки Azure](/cli/azure/vm)
+## [Java](/java/api/)
+## [Создание шаблонов Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates/)
+## [REST для вычислений](/rest/api/compute/)
+## [REST для сети](/rest/api/)
+## [REST для службы хранилища](/rest/api/storageservices/)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
 <!--HONumber=Nov16_HO2-->

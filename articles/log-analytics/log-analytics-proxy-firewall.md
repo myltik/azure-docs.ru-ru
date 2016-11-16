@@ -1,19 +1,23 @@
 ---
-title: Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics | Microsoft Docs
-description: Настройка параметров прокси-сервера и брандмауэра требуется, если агенты или службы OMS должны использовать определенные порты.
+title: "Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics | Документация Майкрософт"
+description: "Настройка параметров прокси-сервера и брандмауэра требуется, если агенты или службы OMS должны использовать определенные порты."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: banders;magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics
@@ -78,8 +82,8 @@ ms.author: banders;magoedte
 
 > [!NOTE]
 > В некоторых из следующих ресурсов упоминаются Advisor и Operational Insights — предыдущие версии OMS. Тем не менее, в будущем перечисленные ресурсы будут изменены.
-> 
-> 
+>
+>
 
 Список ресурсов и портов агента:<br>
 
@@ -137,7 +141,7 @@ ms.author: banders;magoedte
  Учетные данные и параметры прокси-сервера необходимо распространить на управляемые компьютеры, которые будут отправлять отчеты в OMS. Эти серверы должны находиться в *группе серверов мониторинга Microsoft System Center Advisor*. Учетные данные зашифрованы в реестре каждого сервера в группе.
 
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование** .
-2. В разделе **RunAs Configuration** (Конфигурация запуска от имени) выберите **Профили**.
+2. В разделе **Конфигурация запуска от имени** выберите **Профили**.
 3. Откройте профиль **Запуск от имени прокси-сервера профиля System Center Advisor** .  
     ![Изображение запуска от имени прокси-сервера профиля System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
 4. В мастере профиля запуска от имени нажмите кнопку **Добавить** , чтобы использовать учетную запись запуска от имени. Можно создать новую учетную запись запуска от имени или использовать существующую учетную запись. Эта учетная запись должна иметь достаточные разрешения для передачи данных через прокси-сервер.  
@@ -171,6 +175,8 @@ ms.author: banders;magoedte
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * Подробная информация, которую собирают решения, описана в статье [о поиске по журналам](log-analytics-log-searches.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

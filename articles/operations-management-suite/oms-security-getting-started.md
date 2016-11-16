@@ -1,23 +1,12 @@
 ---
-title: 'Приступая к работе с решением '
-безопасность: ''
-и: ''
-аудит": ''
-operations: ''
-management: ''
-suite: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: 'Эта статья поможет вам приступить к работе с возможностями мониторинга гибридного облака, предоставленными в решении '
-набора: ''
-suite.": ''
+title: "Приступая к работе с решением &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
+description: "Эта статья поможет вам приступить к работе с возможностями мониторинга гибридного облака, предоставленными в решении &quot;Безопасность и аудит&quot; набора Operations Management Suite."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -25,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Приступая к работе с решением "Безопасность и аудит" Operations Management Suite
 В этой статье приводится описание всех возможностей, которые помогут вам быстро приступить к работе с функциями решения "Безопасность и аудит" Operations Management Suite (OMS).
 
-## <a name="what-is-oms?"></a>Что такое OMS?
+## <a name="what-is-oms"></a>Что такое OMS?
 Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Дополнительные сведения об OMS см. в статье [Общие сведения об Operations Management Suite (OMS)](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Панель мониторинга OMS "Безопасность и аудит"
@@ -150,7 +143,7 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 
 Вы можете заметить, что эти проблемы уже были описаны в различных разделах группы **Домены безопасности** , которая дополняет задачу этого представления: централизованную визуализацию наиболее важных проблем в вашей среде.
 
-## <a name="detections-(preview)"></a>Обнаружения (ознакомительная версия)
+## <a name="detections-preview"></a>Обнаружения (ознакомительная версия)
 Основное предназначение этого параметра — предоставить ИТ-отделу возможности быстрого обнаружения угроз в среде и определения уровня их серьезности.
 
 ![Анализ угроз](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -190,6 +183,9 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 * [Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

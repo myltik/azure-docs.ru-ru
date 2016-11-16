@@ -1,12 +1,12 @@
 ---
-title: Создание приложения Azure Mobile Engagement | Microsoft Docs
-description: В этой статье описано, как создать новую коллекцию приложений Mobile Engagement в Azure и приступить к управлению приложениями с помощью портала Mobile Engagement.
+title: "Создание приложения службы мобильного взаимодействия Azure | Документация Майкрософт"
+description: "В этой статье описано, как создать новую коллекцию приложений Mobile Engagement в Azure и приступить к управлению приложениями с помощью портала Mobile Engagement."
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ecffc5a867c1c69354a88a8b7ce29ab67ea29cc1
+
 
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Создание приложения Azure Mobile Engagement
 В этой статье показано, как с помощью метода **Быстрое создание** создать новое приложение **Azure Mobile Engagement**. В статье также показано, как перейти на портал **Mobile Engagement** , чтобы начать мониторинг приложений и управление ими. 
 
-Обратите внимание, что вам потребуется добавить минимальный набор базовой интеграции, чтобы иметь возможность собирать данные для приложения и отправлять push-уведомления. Полную документацию по интеграции можно найти в разделе [Интеграция Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
+Обратите внимание, что вам потребуется добавить минимальный набор базовой интеграции, чтобы иметь возможность собирать данные для приложения и отправлять push-уведомления. Полную документацию по интеграции можно найти в разделе [Интеграция Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
 
 > [!IMPORTANT]
 > Для работы с любым руководством по Azure Mobile Engagement необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
@@ -44,6 +48,9 @@ ms.author: piyushjo
 
 [Приступая к работе с Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (в верхней части страницы можно выбрать другие мобильные платформы).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

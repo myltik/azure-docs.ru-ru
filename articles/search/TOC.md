@@ -21,7 +21,7 @@
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Ограничения служб](search-limits-quotas-capacity.md)
 ### [Масштабируемость службы](search-capacity-planning.md)
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
@@ -55,14 +55,18 @@
 ### [Многоязычный поиск](search-language-support.md)
 
 # Справочные материалы
-## [Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/dn951165)
-## [API REST службы](https://msdn.microsoft.com/library/azure/dn798935)
-## [REST API службы (предварительная версия)](search-api-2015-02-28-preview.md)
-## [Интерфейс API REST для управления.](https://msdn.microsoft.com/library/azure/dn832684)
 ## [Версии API](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920)
+## [REST для службы](/rest/api/searchservice/)
+## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
+## [REST для управления](/rest/api/searchmanagement/)
+
 # Ресурсы
+## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
+## [Цены](https://azure.microsoft.com/pricing/details/search/)
 ## Сайты с демоверсиями
 ### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
 ### [Демонстрационные приложения, работающие в реальном времени](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## Партнеры и сообщество
 ### [Моделирование реляционных данных](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Многоуровневая фасетизация](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Форумы MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 

@@ -1,12 +1,12 @@
 ---
-title: Работа с шаблонами Resource Manager в VSCode | Microsoft Docs
-description: Здесь показано, как настроить Visual Studio Code для создания шаблонов Azure Resource Manager.
+title: "Работа с шаблонами Resource Manager в VSCode | Документация Майкрософт"
+description: "Здесь показано, как настроить Visual Studio Code для создания шаблонов Azure Resource Manager."
 services: azure-resource-manager
 documentationcenter: na
 author: cmatskas
 manager: timlt
 editor: tysonn
-
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,50 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: chmatsk;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+
 
 ---
-# Работа с шаблонами Azure Resource Manager в Visual Studio Code
+# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Работа с шаблонами Azure Resource Manager в Visual Studio Code
 Шаблоны Azure Resource Manager — это файлы JSON, в которых описаны ресурс и связанные с ним зависимости. Эти файлы иногда могут быть большими и сложными, поэтому специальные программные средства имеют большое значение. Visual Studio Code (VSCode) представляет собой новый упрощенный кроссплатформенный редактор кода с открытым исходным кодом. Он поддерживает создание и редактирование шаблонов Resource Manager благодаря [новому расширению](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VSCode можно запускать в любом месте. Для этого не нужно подключение к Интернету (если не требуется развертывание шаблонов Resource Manager).
 
 Если VSCode еще не установлен, его можно установить по этому адресу [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-## Установка расширения Resource Manager
+## <a name="install-the-resource-manager-extension"></a>Установка расширения Resource Manager
 Для работы с шаблонами JSON в VSCode необходимо установить расширение. Чтобы скачать и установить языковую поддержку для шаблонов JSON Resource Manager, сделайте следующее:
 
-1. Запустите VSCode.
-2. Воспользуйтесь быстрым открытием (CTRL+P).
-3. Выполните следующую команду:
+1. Запустите VSCode. 
+2. Воспользуйтесь быстрым открытием (CTRL+P). 
+3. Выполните следующую команду: 
    
         ext install azurerm-vscode-tools
-4. Перезапустите VSCode, когда будет предложено включить расширение.
+4. Перезапустите VSCode, когда будет предложено включить расширение. 
    
    Задание выполнено!
 
-## Настройка фрагментов шаблона Resource Manager
+## <a name="set-up-resource-manager-snippets"></a>Настройка фрагментов шаблона Resource Manager
 Теперь, когда мы установили набор средств, необходимо настроить VSCode для использования фрагментов шаблона JSON.
 
 1. Скопируйте содержимое файла из репозитория [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) в буфер обмена.
-2. Запустите VSCode.
-3. В VSCode откройте файл фрагментов JSON. Для этого щелкните **Файл** -> **Настройки** -> **User Snippets** (Пользовательские фрагменты) -> **JSON** либо нажмите клавишу **F1**, введите **настройки** и выберите **Preferences: Snippets** (Настройки: фрагменты).
+2. Запустите VSCode. 
+3. В VSCode откройте файл фрагментов JSON. Для этого щелкните **File** -> **Preferences** -> **User Snippets** -> **JSON** (Файл -> Настройки -> Пользовательские фрагменты -> JSON). Или нажмите клавишу **F1**, введите **preferences** и выберите **Preferences: Snippets** (Настройки: фрагменты).
    
     ![настройки: фрагменты](./media/resource-manager-vs-code/preferences-snippets.png)
    
     В списке доступных языков выберите **JSON**.
    
     ![выбор JSON](./media/resource-manager-vs-code/select-json.png)
-4. Вставьте содержимое файла на шаге 1 в файл пользовательских фрагментов перед последней закрывающей фигурной скобкой ("}").
-5. Убедитесь, что файл JSON выглядит нормально и никакие фрагменты или слова не подчеркнуты.
+4. Вставьте содержимое файла на шаге 1 в файл пользовательских фрагментов перед последней закрывающей фигурной скобкой ("}"). 
+5. Убедитесь, что файл JSON выглядит нормально и никакие фрагменты или слова не подчеркнуты. 
 6. Сохраните и закройте файл пользовательских фрагментов.
 
 Это все, что требуется сделать, чтобы начать использовать фрагменты Resource Manager. Далее мы протестируем их использование.
 
-## Работа с шаблоном в VSCode
-Самый простой способ начать работу с шаблоном — скачать один из шаблонов быстрого запуска, доступных на сайте [Github](https://github.com/Azure/azure-quickstart-templates), или использовать один из своих собственных. Вы можете с легкостью [экспортировать шаблон](resource-manager-export-template.md) для любой группы ресурсов с помощью портала.
+## <a name="work-with-template-in-vs-code"></a>Работа с шаблоном в VSCode
+Самый простой способ начать работу с шаблоном — скачать один из шаблонов быстрого запуска, доступных на сайте [Github](https://github.com/Azure/azure-quickstart-templates) , или использовать один из своих собственных. Вы можете с легкостью [экспортировать шаблон](resource-manager-export-template.md) для любой группы ресурсов с помощью портала. 
 
 1. Экспортировав шаблон из группы ресурсов, откройте извлеченные файлы в VSCode.
    
     ![отображение файлов](./media/resource-manager-vs-code/show-files.png)
-2. Откройте файл template.json и добавьте в него дополнительные ресурсы. После фрагмента **"resources": [** нажмите клавишу ВВОД, чтобы начать новую строку. Если ввести **arm**, откроется список параметров. Эти параметры являются фрагментами кода шаблона, которые вы установили. Результат будет выглядеть так:
+2. Откройте файл template.json и добавьте в него дополнительные ресурсы. После фрагмента **"resources": [** нажмите клавишу ВВОД, чтобы начать новую строку. Если ввести **arm**, откроется список параметров. Эти параметры являются фрагментами кода шаблона, которые вы установили. Результат будет выглядеть так: 
    
     ![отображение фрагментов](./media/resource-manager-vs-code/type-snippets.png)
 3. Выберите необходимый фрагмент. В этой статье мы выберем **arm ip** для создания общедоступного IP-адреса. Поставьте запятую после закрывающей скобки ("}"), идущей после параметров созданного ресурса, чтобы синтаксис шаблона был допустимым.
@@ -66,7 +70,7 @@ ms.author: chmatsk;tomfitz
 4. В VSCode встроена технология IntelliSense, благодаря которой при редактировании шаблонов VSCode предлагает доступные значения. Например, чтобы добавить раздел переменных в шаблон, добавьте **""** (пара двойных кавычек), установите между ними курсор и нажмите клавиши **CTRL+ПРОБЕЛ**. Отобразятся различные варианты, включая раздел **variables**.
    
     ![добавление переменных](./media/resource-manager-vs-code/add-variables.png)
-5. Механизм IntelliSense также может предлагать доступные значения или функции. Чтобы задать для свойства значение параметра, создайте выражение, вставив пару двойных кавычек **""** и нажав внутри клавиши **CTRL+ПРОБЕЛ**. После этого можно начать вводить имя функции. Увидев необходимую функцию, нажмите **клавишу табуляции**.
+5. Механизм IntelliSense также может предлагать доступные значения или функции. Чтобы задать для свойства значение параметра, создайте выражение, вставив пару двойных кавычек **"[]"** и нажав клавиши **CTRL+ПРОБЕЛ**. После этого можно начать вводить имя функции. Увидев необходимую функцию, нажмите **клавишу табуляции** .
    
     ![добавление параметра](./media/resource-manager-vs-code/select-parameters.png)
 6. Снова нажмите клавиши **CTRL+ПРОБЕЛ** внутри функции, чтобы просмотреть список доступных параметров в шаблоне.
@@ -80,12 +84,12 @@ ms.author: chmatsk;tomfitz
    
     ![сообщение об ошибке](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## Развертывание новых ресурсов
-Когда шаблон будет готов, можно развернуть новые ресурсы, выполнив приведенные ниже указания.
+## <a name="deploy-your-new-resources"></a>Развертывание новых ресурсов
+Когда шаблон будет готов, можно развернуть новые ресурсы, выполнив приведенные ниже указания. 
 
-### Windows
-1. Откройте командную строку PowerShell.
-2. Для входа введите следующий командлет:
+### <a name="windows"></a>Windows
+1. Откройте командную строку PowerShell. 
+2. Для входа введите следующий командлет: 
    
         Login-AzureRmAccount 
 3. Если у вас несколько подписок, получите их список с помощью следующего командлета:
@@ -98,8 +102,8 @@ ms.author: chmatsk;tomfitz
 4. Обновите параметры в файле parameters.json.
 5. Запустите файл Deploy.ps1, чтобы развернуть шаблон в Azure.
 
-### OSX и Linux
-1. Откройте окно терминала.
+### <a name="osxlinux"></a>OSX и Linux
+1. Откройте окно терминала. 
 2. Для входа введите следующий командлет:
    
         azure login 
@@ -111,9 +115,14 @@ ms.author: chmatsk;tomfitz
    
         azure group deployment create -f <PathToTemplate> 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о шаблонах см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
-* Дополнительные сведения о функциях шаблонов см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
-* Дополнительные примеры по работе с Visual Studio Code см. в статье [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Создание облачных приложений с помощью Visual Studio Code) из [демонстрационного проекта](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. на [этой странице](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* Дополнительные сведения о функциях шаблонов см. в статье о [функциях шаблонов Azure Resource Manager](resource-group-template-functions.md).
+* Дополнительные примеры по работе с Visual Studio Code см. в статье [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Создание облачных приложений с помощью Visual Studio Code) из [демонстрационного проекта](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

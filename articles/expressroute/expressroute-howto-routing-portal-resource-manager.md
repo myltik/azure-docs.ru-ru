@@ -1,13 +1,13 @@
 ---
-title: Настройка маршрутизации для канала ExpressRoute с помощью портала Azure | Microsoft Docs
-description: В этой статье описана процедура создания и подготовки частного пиринга, общедоступного пиринга и пиринга Microsoft для канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить пиринги для канала.
+title: "Как настроить маршрутизацию для канала ExpressRoute с помощью портала Azure | Документация Майкрософт"
+description: "В этой статье описана процедура создания и подготовки частного пиринга, общедоступного пиринга и пиринга Microsoft для канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить пиринги для канала."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Создание и изменение маршрутизации для канала ExpressRoute
 > [!div class="op_single_selector"]
-> [Портал Azure — Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell —Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell — классический портал](expressroute-howto-routing-classic.md)
+> [Портал Azure — Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+> [PowerShell —Resource Manager](expressroute-howto-routing-arm.md)
+> [PowerShell — классический портал](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -148,11 +152,11 @@ ms.author: cherylmc
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Указав все параметры, сохраните конфигурацию. 
    
-    Если для канала будет установлено состояние "Требуется проверка" (как показано ниже), следует создать запрос в службу поддержки и предоставить сотрудникам поддержки доказательство того, что вы владеете префиксами.  
+    Если для канала будет установлено состояние "Требуется проверка" (как показано ниже), следует создать запрос в службу поддержки и предоставить сотрудникам поддержки доказательство того, что вы владеете префиксами.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    Запрос в службу поддержки можно создать непосредственно на портале, как показано ниже.   
+    Запрос в службу поддержки можно создать непосредственно на портале, как показано ниже.     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -183,6 +187,9 @@ ms.author: cherylmc
 * Дополнительную информацию о пиринге канала см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
 * Подробнее о работе с виртуальными сетями см. в статье [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

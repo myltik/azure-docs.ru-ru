@@ -1,5 +1,5 @@
 # Обзор
-## [Общие сведения об ACS](container-service-intro.md)
+## [Что такое служба контейнеров Azure?](container-service-intro.md)
 # Начало работы
 
 ## [Развертывание кластера ACS](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Обзор Docker Swarm](container-service-docker-swarm.md)
 
 # Справочные материалы
-
-## [ИНТЕРФЕЙС REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Ресурсы
-
 ## [Доступность регионов](https://azure.microsoft.com/regions/services/)
+## [Цены](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

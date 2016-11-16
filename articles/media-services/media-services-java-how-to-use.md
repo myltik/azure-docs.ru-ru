@@ -1,38 +1,42 @@
 ---
-title: Приступая к работе с доставкой содержимого по запросу с помощью Java | Microsoft Docs
-description: Описание использования служб мультимедиа Azure для выполнения стандартных задач, включая кодирование, шифрование и потоковую передачу ресурсов.
+title: "Приступая к работе с доставкой содержимого по запросу с помощью Java | Документация Майкрософт"
+description: "Описание использования служб мультимедиа Azure для выполнения стандартных задач, включая кодирование, шифрование и потоковую передачу ресурсов."
 services: media-services
 documentationcenter: java
-author: rmcmurray
-manager: wpickett
-editor: jimbe
-
+author: juliako
+manager: erikre
+editor: 
+ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: robmcm
+ms.date: 10/19/2016
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+
 
 ---
-# Приступая к работе с доставкой содержимого по запросу с помощью Java
+# <a name="get-started-with-delivering-content-on-demand-using-java"></a>Приступая к работе с доставкой содержимого по запросу с помощью Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## Настройка учетной записи Azure для служб мультимедиа
-Чтобы настроить учетную запись служб мультимедиа, перейдите на классический портал Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure](media-services-create-account.md). Создав учетную запись на классическом портале, вы сможете приступить к настройке компьютера для разработки с использованием служб мультимедиа.
+## <a name="setting-up-an-azure-account-for-media-services"></a>Настройка учетной записи Azure для служб мультимедиа
+Чтобы настроить учетную запись служб мультимедиа, перейдите на классический портал Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md). Создав учетную запись на классическом портале, вы сможете приступить к настройке компьютера для разработки с использованием служб мультимедиа.
 
-## Настройка для разработки с использованием служб носителей
+## <a name="setting-up-for-media-services-development"></a>Настройка для разработки с использованием служб носителей
 В этом разделе содержатся общие предварительные требования, необходимые для разработки с использованием пакета SDK служб носителей для Java.
 
-### Предварительные требования
-* Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure](media-services-create-account.md).
-* Библиотеки Azure для Java, которые можно установить из [Центра разработчиков Azure Java][Центра разработчиков Azure Java].
+### <a name="prerequisites"></a>Предварительные требования
+* Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
+* Библиотеки Azure для Java, которые можно установить из [Центра разработчиков Azure Java][Центр разработчиков Azure Java].
 
-## Практическое руководство. Использование служб носителей с Java
+## <a name="how-to-use-media-services-with-java"></a>Практическое руководство. Использование служб носителей с Java
 В следующем коде демонстрируется создание ресурса-контейнера, передача файла мультимедиа в него, выполнение задания с задачей преобразования ресурса-контейнера и создание указателя для потоковой передачи вашего видео.
 
-Для использования этого кода необходимо настроить учетную запись служб мультимедиа. Сведения о настройке учетной записи см. в разделе [Создание учетной записи служб носителей](media-services-create-account.md)
+Для использования этого кода необходимо настроить учетную запись служб мультимедиа. Сведения о настройке учетной записи см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
 
 Подставьте нужные значения для переменных clientId и clientSecret. Этот код также использует локально хранимый файл. Необходимо предоставить собственный файл.
 
@@ -63,7 +67,6 @@ ms.author: robmcm
     import com.microsoft.windowsazure.services.media.models.MediaProcessor;
     import com.microsoft.windowsazure.services.media.models.MediaProcessorInfo;
     import com.microsoft.windowsazure.services.media.models.Task;
-
 
     public class HelloMediaServices
     {
@@ -178,8 +181,8 @@ ms.author: robmcm
             // Create a task with the specified Media Processor
             String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
             String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
-                    + "<outputAsset assetCreationOptions="0"" // AssetCreationOptions.None
-                    + " assetName="" + outputAssetName + "">JobOutputAsset(0)</outputAsset></taskBody>";
+                    + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
+                    + " assetName=\"" + outputAssetName + "\">JobOutputAsset(0)</outputAsset></taskBody>";
 
             Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                     .setConfiguration(encodingPreset).setName("Encoding");
@@ -250,21 +253,23 @@ ms.author: robmcm
     }
 
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## дополнительные ресурсы.
-Документацию Javadoc по службам мультимедиа см. в [документации по библиотекам Azure для Java][документации по библиотекам Azure для Java].
+## <a name="additional-resources"></a>Дополнительные ресурсы
+Документацию Javadoc по службам мультимедиа см. в [документации по библиотекам Azure для Java][документация по библиотекам Azure для Java].
 
 <!-- URLs. -->
 
-[Центра разработчиков Azure Java]: http://azure.microsoft.com/develop/java/
-[документации по библиотекам Azure для Java]: http://dl.windowsazure.com/javadoc/
-[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[центре разработчиков Java для Azure]: http://azure.microsoft.com/develop/java/
+[Документация по библиотекам Azure для Java]: http://dl.windowsazure.com/javadoc/
+[Разработка клиента для служб мультимедиа]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

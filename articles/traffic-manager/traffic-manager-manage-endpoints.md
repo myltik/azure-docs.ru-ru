@@ -1,12 +1,12 @@
 ---
-title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
-description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
+title: "Управление конечными точками в диспетчере трафика Azure | Документация Майкрософт"
+description: "В этой статье вы узнаете, как добавлять, удалять, включать и отключать конечные точки в диспетчере трафика Azure."
 services: traffic-manager
-documentationcenter: ''
+documentationcenter: 
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,64 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6af6652d39fad5812c15e19fa29c757595a78b6
 
 ---
-# <a name="add,-disable,-enable,-or-delete-endpoints"></a>Add, disable, enable, or delete endpoints
-The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
+
+# <a name="add-disable-enable-or-delete-endpoints"></a>Добавление, отключение, включение и удаление конечных точек
+
+Функция веб-приложений в службе приложений Azure уже обеспечивает отказоустойчивую и циклическую маршрутизацию трафика для веб-сайтов в центре обработки данных, независимо от режима работы веб-сайта. Диспетчер трафика Azure позволяет использовать отказоустойчивую и циклическую маршрутизацию трафика для веб-сайтов и облачных служб в разных центрах данных. Первое, что нужно сделать, чтобы обеспечить такую возможность, — это добавить конечную точку облачной службы или веб-сайта в диспетчер трафика.
 
 > [!NOTE]
-> This article explains how to use the classic portal. The Azure classic portal only supports the creation and assignment of cloud services and Web apps as endpoints. The new [Azure portal](https://portal.azure.com) is the preferred interface.
-> 
-> 
+> В этой статье описывается использование классического портала. Классический портал Azure поддерживает только создание и назначение облачных служб и веб-приложений в качестве конечных точек. Рекомендуется использовать новый [портал Azure](https://portal.azure.com).
 
-You can also disable individual endpoints that are part of a Traffic Manager profile. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled.
+Можно также отключить отдельные конечные точки, входящие в профиль диспетчера трафика. Отключенная конечная точка остается в профиле, но при этом профиль действует так, как если бы конечная точка не была в него включена. Это полезно, если нужно временно удалить конечную точку, которая находится в режиме обслуживания или повторно развертывается. После повторного запуска конечной точки ее можно включить.
 
 > [!NOTE]
-> Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint remains up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.
-> 
-> 
+> Отключение конечной точки никак не отражается на состоянии ее развертывания в Azure. Работоспособная конечная точка останется рабочей и сможет получать трафик, даже если она отключена в диспетчере трафика. Кроме того, отключение конечной точки в одном профиле не влияет на ее состояние в другом профиле.
 
-## <a name="to-add-a-cloud-service-or-website-endpoint"></a>To add a cloud service or website endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
-3. At the bottom of the page, click **Add** to access the **Add Service Endpoints** page. By default, the page lists the cloud services under **Service Endpoints**.
-4. For cloud services, select the cloud services in the list to add them as endpoints for this profile. Clearing the cloud service name removes it from the list of endpoints.
-5. For websites, click the **Service Type** drop-down list, and then select **Web app**.
-6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. You can select only one website per Azure datacenter (also known as a region). When you select the first website, the other websites in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
-7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
+## <a name="to-add-a-cloud-service-or-website-endpoint"></a>Добавление конечной точки облачной службы или веб-сайта
+
+1. На классическом портале Azure в области диспетчера трафика найдите профиль, содержащий параметры конечной точки, которые нужно изменить. Чтобы открыть страницу параметров, щелкните стрелку справа от имени профиля.
+2. В верхней части страницы щелкните **Конечные точки** , чтобы просмотреть конечные точки, которые уже включены в конфигурацию.
+3. В нижней части страницы нажмите кнопку **Добавить**, чтобы открыть страницу **Добавить конечные точки службы**. По умолчанию облачные службы перечислены на странице в разделе **Конечные точки службы**.
+4. В случае облачных служб выберите службы из списка, чтобы добавить их как конечные точки для этого профиля. Очистка имени облачной службы удаляет ее из списка конечных точек.
+5. В случае веб-сайтов щелкните раскрывающийся список **Тип службы**, а затем выберите **Веб-приложение**.
+6. Выберите веб-сайты в списке, чтобы добавить их как конечные точки для этого профиля. Очистка имени веб-сайта удаляет его из списка конечных точек. Можно выбрать только один веб-сайт в каждом центре обработки данных Azure (регионе). Как только вы выберите один веб-сайт, другие веб-сайты в том же центре обработки данных станут недоступными для выбора. Также обратите внимание, что отображаются только стандартные веб-сайты.
+7. После выбора конечных точек для профиля нажмите кнопку с галочкой в нижней правой части, чтобы сохранить изменения.
 
 > [!NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
-> 
-> 
+> После добавления или удаления конечной точки из профиля с использованием метода маршрутизации трафика с *отработкой отказа* порядок в списке приоритетов отработки отказа может отличаться от желаемого. Вы можете изменить порядок отработки отказа в этом списке на странице настройки. Дополнительные сведения см. в статье о [настройке маршрутизации трафика с отработкой отказа](traffic-manager-configure-failover-routing-method.md).
 
-## <a name="to-disable-an-endpoint"></a>To disable an endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
-3. Click the endpoint that you want to disable, and then click **Disable** at the bottom of the page.
-4. Clients continue to send traffic to the endpoint for the duration of Time-to-Live (TTL). You can change the TTL on the Configuration page of the Traffic Manager profile.
+## <a name="to-disable-an-endpoint"></a>Отключение конечной точки
 
-## <a name="to-enable-an-endpoint"></a>To enable an endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
-3. Click the endpoint that you want to enable, and then click **Enable** at the bottom of the page.
-4. Clients are directed to the enabled endpoint as dictated by the profile.
+1. На классическом портале Azure в области диспетчера трафика найдите профиль, содержащий параметры конечной точки, которые нужно изменить. Чтобы открыть страницу параметров, щелкните стрелку справа от имени профиля.
+2. В верхней части страницы щелкните **Конечные точки** , чтобы просмотреть конечные точки, включенные в конфигурацию.
+3. Щелкните конечную точку, которую нужно отключить, и нажмите кнопку **Отключить** в нижней части страницы.
+4. Клиенты будут продолжать отправлять трафик в конечную точку до истечения ее срока жизни. Изменить срок жизни можно на странице настройки профиля диспетчера трафика.
 
-## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>To delete a cloud service or website endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
-3. On the Endpoints page, click the name of the endpoint that you want to delete from the profile.
-4. At the bottom of the page, click **Delete**.
+## <a name="to-enable-an-endpoint"></a>Включение конечной точки
 
-## <a name="next-steps"></a>Next steps
-* [Traffic Manager - Disable, enable, or delete a profile](traffic-manager-manage-profiles.md)
-* [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-* [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-* [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
-* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
-* [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+1. На классическом портале Azure в области диспетчера трафика найдите профиль, содержащий параметры конечной точки, которые нужно изменить. Чтобы открыть страницу параметров, щелкните стрелку справа от имени профиля.
+2. В верхней части страницы щелкните **Конечные точки** , чтобы просмотреть конечные точки, включенные в конфигурацию.
+3. Щелкните конечную точку, которую нужно включить, и нажмите кнопку **Включить** в нижней части страницы.
+4. Клиенты направляются ко включенной конечной точке, как предписано профилем.
 
-<!--HONumber=Oct16_HO2-->
+## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>Удаление конечной точки облачной службы или веб-сайта
+
+1. На классическом портале Azure в области диспетчера трафика найдите профиль, содержащий параметры конечной точки, которые нужно изменить. Чтобы открыть страницу параметров, щелкните стрелку справа от имени профиля.
+2. В верхней части страницы щелкните **Конечные точки** , чтобы просмотреть конечные точки, которые уже включены в конфигурацию.
+3. На странице «Конечные точки» щелкните имя конечной точки, которую нужно удалить из профиля.
+4. В нижней части страницы нажмите кнопку **Удалить**.
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Управление профилями диспетчера трафика](traffic-manager-manage-profiles.md)
+* [Настройка методов маршрутизации](traffic-manager-configure-routing-method.md)
+* [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
+* [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
+* [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

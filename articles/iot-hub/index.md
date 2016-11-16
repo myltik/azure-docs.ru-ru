@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#IoT Hub Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
+ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+---
+#<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
+
+Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью решения.  Она также обеспечивает расширенные возможности наблюдения за подключением устройств и предлагает библиотеки устройств для самых популярных языков и платформ. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure IoT Hub</h3>
+                        <h3>См. дополнительные сведения о Центре Интернета вещей Azure</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure IoT Hub Video Library</h3>
+                        <h3>Видеотека материалов по Центру Интернета вещей Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Начало работы с Центром Интернета вещей с использованием .NET</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Начало работы с Центром Интернета вещей с использованием Java</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Начало работы с Центром Интернета вещей с использованием Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -100,26 +104,31 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##Reference
+##<a name="reference"></a>Справочные материалы
 
-###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+###<a name="azure-cli"></a>Интерфейс командной строки Azure 
+[Использование Центра Интернета вещей с Azure CLI](/cli/azure/iot)  
 
-###.NET 
-[.NET Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[Управляемый справочник по API .NET](/dotnet/api/) 
 
-###Java 
-[Java SDK Reference](/java/api/) 
+###<a name="java"></a>Java 
+[Справочник по пакету SDK для Java](/java/api/) 
 
-###REST 
-[IoT HUB REST API Reference](/rest/api/iothub) 
+###<a name="rest"></a>REST 
+[Справочник по REST API Центра Интернета вещей](/rest/api/iothub) 
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-            Download IoT Hub Documentation
-        </div>
+Скачать документацию по Центру Интернета вещей </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

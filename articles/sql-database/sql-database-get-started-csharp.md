@@ -1,13 +1,13 @@
 ---
-title: 'Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Docs'
-description: Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET.
-keywords: руководство sql, sql и c#
+title: "Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Документация Майкрософт"
+description: "Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET."
+keywords: "руководство sql, sql и c#"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# <a name="try-sql-database:-use-c#-to-create-a-sql-database-with-the-sql-database-library-for-.net"></a>Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -27,10 +31,10 @@ ms.author: sstein
 
 Узнайте, как использовать язык C# для создания базы данных SQL Azure с помощью [библиотеки управления базами данных SQL Microsoft Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). В этой статье описываются способы создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных на портале Azure](sql-database-elastic-pool-create-csharp.md).
 
-Библиотека управления базами данных SQL Azure для .NET предоставляет API на основе [Azure Resource Manager](../resource-group-overview.md), который служит оболочкой для [REST API базы данных SQL на основе Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Библиотека управления базами данных SQL Azure для .NET предоставляет API на основе [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), который служит оболочкой для [REST API базы данных SQL на основе Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
+> Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
 > 
 > 
 
@@ -61,7 +65,7 @@ ms.author: sstein
 > 
 > 
 
-## <a name="create-a-sql-database-server,-firewall-rule,-and-sql-database---c#-example"></a>Создание сервера базы данных SQL, правила брандмауэра и базы данных SQL — пример на языке C
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Создание сервера базы данных SQL, правила брандмауэра и базы данных SQL — пример на языке C#
 В следующем примере создается группа ресурсов, сервер, правило брандмауэра и база данных SQL. Чтобы получить переменные `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, см. раздел [Создание субъекта-службы для доступа к ресурсам](#create-a-service-principal-to-access-resources).
 
 Замените содержимое файла **Program.cs** приведенным ниже кодом и обновите `{variables}`, используя значения для своего приложения (удалите `{}`).
@@ -288,6 +292,6 @@ ms.author: sstein
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

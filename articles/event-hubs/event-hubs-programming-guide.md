@@ -1,12 +1,12 @@
 ---
-title: Руководство по программированию для концентраторов событий Azure | Microsoft Docs
-description: Сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK Azure .NET.
+title: "Руководство по программированию для концентраторов событий Azure | Документация Майкрософт"
+description: "Сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK Azure .NET."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
+
 
 ---
 # <a name="event-hubs-programming-guide"></a>Руководство по программированию концентраторов событий
@@ -25,7 +29,7 @@ ms.author: sethm
 Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) . При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) и [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) обеспечивает канал связи AMQP, по которому события отправляются в концентратор событий. Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) представляет собой событие и используется для публикации сообщений в концентратор событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере прохода объекта [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) через концентратор событий к объекту добавляются другие свойства.
 
 ## <a name="get-started"></a>Приступая к работе
-Классы .NET, которые поддерживают концентраторы событий, входят в сборку Microsoft.ServiceBus.dll. Самый простой способ получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины — это скачать [пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Кроме того, можно воспользоваться [консолью диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) в Visual Studio. Для этого выполните следующую команду в окне [консоли диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
+Классы .NET, которые поддерживают концентраторы событий, входят в сборку Microsoft.ServiceBus.dll. Самый простой способ получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины — это скачать [пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Кроме того, можно воспользоваться [консолью диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) в Visual Studio. Для этого выполните следующую команду в окне [консоли диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```
 Install-Package WindowsAzure.ServiceBus
@@ -95,7 +99,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Обратите внимание на то, что размер одного пакета не должен превышать 256 КБ для события. Кроме того, каждое сообщение в пакете использует один и тот же идентификатор издателя. Отправитель должен убедиться, что размер пакета не превышает максимальный размер события. Если же размер больше, генерируется ошибка **Send** клиента.
+Обратите внимание на то, что размер одного пакета не должен превышать 256 КБ для события. Кроме того, каждое сообщение в пакете использует один и тот же идентификатор издателя. Отправитель должен убедиться, что размер пакета не превышает максимальный размер события. Если же размер больше, генерируется ошибка **Send** клиента.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Асинхронная отправка и отправка в нужном масштабе
 События можно отправлять в концентратор событий асинхронно. Асинхронная отправка позволяет увеличить скорость, с которой клиент способен отправлять события. В асинхронной версии доступны оба метода, [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx) и [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx), которые возвращают объект [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Несмотря на то что этот способ позволяет увеличить пропускную способность, он также может привести к возникновению ситуации, когда клиент продолжает отправлять события, даже когда отправка регулируется службой концентраторов событий. В случае неправильной реализации это может привести к возникновению ошибок на стороне клиента или к потере сообщений. Кроме того, на стороне клиента можно использовать свойство [RetryPolicy](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.cliententity.retrypolicy.aspx) для управления параметрами повторного выполнения попыток клиентом.
@@ -113,7 +117,7 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 Концентраторы событий имеют две основных модели потребления событий: прямые получатели и абстракции более высокого уровня, такие как [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx). Прямые получатели сами отвечают за собственную координацию доступа к секциям в группе потребителей.
 
 ### <a name="direct-consumer"></a>Прямой потребитель
-Самый простой способ чтения из секции в группе потребителей — воспользоваться классом [EventHubReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.aspx) . Чтобы создать экземпляр этого класса, необходимо использовать экземпляр класса [EventHubConsumerGroup](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.aspx) . В следующем примере необходимо указать идентификатор секции при создании получателя для группы получателей.
+Самый простой способ чтения из секции в группе потребителей — воспользоваться классом [EventHubReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.aspx) . Чтобы создать экземпляр этого класса, необходимо использовать экземпляр класса [EventHubConsumerGroup](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.aspx) . В следующем примере необходимо указать идентификатор секции при создании получателя для группы получателей.
 
 ```
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -136,7 +140,7 @@ while(receive)
 
 В отношении к определенной секции сообщения получаются в том порядке, в котором они были отправлены в концентратор событий. Смещение представляет собой маркер строки, используемый для идентификации сообщения в секции.
 
-Обратите внимание на то, что одновременно к одной секции в группе потребителей можно подключить не более 5 параллельных модулей чтения. При подключении или отключении модулей чтения их сеансы могут оставаться активным на несколько минут, прежде чем служба определит, что они были отключены. В течение этого времени повторное подключение к секции может завершиться сбоем. Завершенный пример написания прямого получателя для концентраторов событий см. в примере, приведенном в статье [Service Bus Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) (Прямые приемники концентраторов событий служебной шины).
+Обратите внимание на то, что одновременно к одной секции в группе потребителей можно подключить не более 5 параллельных модулей чтения. При подключении или отключении модулей чтения их сеансы могут оставаться активным на несколько минут, прежде чем служба определит, что они были отключены. В течение этого времени повторное подключение к секции может завершиться сбоем. Завершенный пример написания прямого получателя для концентраторов событий см. в примере, приведенном в статье [Service Bus Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) (Прямые приемники концентраторов событий служебной шины).
 
 ### <a name="event-processor-host"></a>Узел обработчика событий
 Класс [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) обрабатывает данные из концентраторов событий. Эту реализацию следует использовать при создании модулей чтения событий на платформе .NET. [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) предоставляет потокобезопасную многопроцессную среду безопасного выполнения для реализаций обработчиков событий. Эта среда также предоставляет средства управления контрольными точками и аренды секций.
@@ -168,6 +172,9 @@ while(receive)
 * [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f\[0\].Value=event hub&f\[0\].Type=SearchText&ac=5)
 * [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

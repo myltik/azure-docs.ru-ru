@@ -1,7 +1,11 @@
-> [AZURE.NOTE (Для служб машинного обучения Azure доступна бесплатная пробная версия.)]
+> [AZURE.NOTE (Попробуйте машинное обучение Azure бесплатно)]
 > 
-> Ни кредитная карта, ни подписка на Azure не требуются. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Начните работу прямо сейчас >**</a>
+> Ни кредитная карта, ни подписка на Azure не требуются. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Начните работу уже сейчас**</a>
 > 
 > 
 
-<!----HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

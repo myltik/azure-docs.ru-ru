@@ -1,12 +1,12 @@
 ---
-title: Контроль доступа на основе ролей на портале Azure | Microsoft Docs
-description: Узнайте, как управлять доступом с помощью RBAC на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге.
+title: "Контроль доступа на основе ролей на портале Azure | Документация Майкрософт"
+description: "Узнайте, как управлять доступом с помощью RBAC на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Использование назначений ролей для управления доступом к ресурсам в подписке Azure
@@ -78,6 +82,9 @@ ms.author: kgremban
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
 * Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Create SQL Data Warehouse by using PowerShell | Microsoft Docs
-description: Create SQL Data Warehouse by using PowerShell
+title: "Создание хранилища данных SQL с помощью PowerShell | Документация Майкрософт"
+description: "Создание хранилища данных SQL с помощью PowerShell"
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,99 +14,103 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+
 
 ---
-# <a name="create-sql-data-warehouse-using-powershell"></a>Create SQL Data Warehouse using PowerShell
+# <a name="create-sql-data-warehouse-using-powershell"></a>Создание хранилища данных SQL с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [Портал Azure](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 > 
 > 
 
-This article shows you how to create a SQL Data Warehouse using PowerShell.
+В этой статье объясняется, как создать хранилище данных SQL с помощью PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
-To get started, you need:
+## <a name="prerequisites"></a>Предварительные требования
+Для начала работы необходимы перечисленные ниже компоненты и данные.
 
-* **Azure account**: Visit [Azure Free Trial][Azure Free Trial] or [MSDN Azure Credits][MSDN Azure Credits] to create an account.
-* **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] or [Create an Azure SQL Database logical server with PowerShell][Create an Azure SQL Database logical server with PowerShell] for more details.
-* **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][how to create a resource group].
-* **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
+* **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Бесплатная пробная версия Azure] или [кредитов Azure MSDN][Кредиты Azure MSDN].
+* **Azure SQL Server.** Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure] или [Создание базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell][Создание базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell].
+* **Группа ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте группу ресурсов][cоздание группы ресурсов].
+* **PowerShell версии 1.0.3 или более поздней.** Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][установщик веб-платформы Майкрософт].  Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 
 > [!NOTE]
-> Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details on pricing.
+> Создание хранилища данных SQL может привести к дополнительным расходам.  Дополнительные сведения о ценах см. на странице с [ценами на хранилище данных SQL][цены на хранилище данных SQL].
 > 
 > 
 
-## <a name="create-a-sql-data-warehouse"></a>Create a SQL Data Warehouse
-1. Open Windows PowerShell.
-2. Run this cmdlet to login to Azure Resource Manager.
+## <a name="create-a-sql-data-warehouse"></a>Создание хранилища данных SQL
+1. Откройте Windows PowerShell.
+2. Используйте этот командлет для входа в диспетчер ресурсов Azure.
    
     ```Powershell
     Login-AzureRmAccount
     ```
-3. Select the subscription you want to use for your current session.
+3. Выберите подписку, которую вы хотите использовать для текущего сеанса.
    
     ```Powershell
-    Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
-4. Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mywesteuroperesgp1".
+4. Создайте базу данных. В этом примере база данных с именем mynewsqldw и целевым уровнем обслуживания DW400 будет создана на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1.
    
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
 
-Required Parameters are:
+Ниже перечислены необходимые параметры.
 
-* **RequestedServiceObjectiveName**: The amount of [DWU][DWU] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000, and DW6000.
-* **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
-* **ServerName**: The name of the server that you are using for creation (must be V12).
-* **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
-* **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
+* **RequestedServiceObjectiveName** — количество запрашиваемых единиц [DWU][DWU].  Поддерживаемые значения: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 и DW6000.
+* **DatabaseName**: имя создаваемого хранилища данных SQL.
+* **ServerName**: имя сервера, который используется для создания (должен быть версии 12).
+* **ResourceGroupName**: используемая группа ресурсов.  Чтобы найти доступные группы ресурсов, входящие в вашу подписку, используйте командлет Get-AzureResource.
+* **Edition**: для создания хранилища данных необходим выпуск DataWarehouse.
 
-Optional Parameters are:
+Необязательные параметры.
 
-* **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS.  Collation cannot be changed on a database.
-* **MaxSizeBytes**: The default max size of a database is 10 GB.
+* **CollationName** — если параметры сортировки не указаны, по умолчанию используется SQL_Latin1_General_CP1_CI_AS.  Нельзя изменить параметры сортировки базы данных.
+* **MaxSizeBytes**: по умолчанию максимальный размер базы данных составляет 10 ГБ.
 
-For more details on the parameter options, see [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] and [Create Database (Azure SQL Data Warehouse)][Create Database (Azure SQL Data Warehouse)].
+Дополнительные сведения о параметрах см. в спецификации командлета [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] и в статье, посвященной [созданию базы данных (хранилище данных SQL Azure)][создание базы данных (хранилище данных SQL Azure)].
 
-## <a name="next-steps"></a>Next steps
-After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][loading sample data] or check out how to [develop][develop], [load][load], or [migrate][migrate].
+## <a name="next-steps"></a>Дальнейшие действия
+После завершения подготовки хранилища данных SQL попробуйте [загрузить в него демонстрационные данные][загрузка демонстрационных данных] или ознакомьтесь с возможностями [разработки][разработка], [загрузки][загрузка] или [миграции][миграция].
 
-If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][PowerShell cmdlets and REST APIs].
+Дополнительные сведения о программном управлении хранилищем данных SQL см. в статье [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL][Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-load-with-bcp.md
-[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
-[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database-configure-firewall-settings.md
+[переноса]: ./sql-data-warehouse-overview-migrate.md
+[разработки]: ./sql-data-warehouse-overview-develop.md
+[загрузки]: ./sql-data-warehouse-load-with-bcp.md
+[Загрузка демонстрационных данных]: ./sql-data-warehouse-load-sample-databases.md
+[Интерфейсы REST API и командлеты PowerShell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[Правила брандмауэра]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
-[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
+[Создание хранилища данных SQL на портале Azure]: ./sql-data-warehouse-get-started-provision.md
+[созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[Создание базы данных (хранилище данных SQL Azure)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Установщик веб-платформы Майкрософт]: https://aka.ms/webpi-azps
+[ценами на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[деньги на счете в Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

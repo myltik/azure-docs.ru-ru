@@ -1,16 +1,13 @@
 # [Обзор](cdn-overview.md)
-## [Рекомендации по работе с Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [Что такое Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Начало работы
-## [Использование Azure CDN](cdn-create-new-endpoint.md)
-## Приступая к разработке для Azure CDN
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
+## [Включение Azure CDN](cdn-create-new-endpoint.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Интеграция
-### [Интеграция с веб-приложениями](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Интеграция с облачными службами](cdn-cloud-service-with-cdn.md)
-### [Интеграция со службой хранилища](cdn-create-a-storage-account-with-cdn.md)
+### [Веб-приложения](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Облачные службы](cdn-cloud-service-with-cdn.md)
+### [Хранилище](cdn-create-a-storage-account-with-cdn.md)
 ### [Общий доступ к ресурсам независимо от источника](cdn-cors.md)
 
 ## Управление
@@ -29,9 +26,6 @@
 ### [Переопределение поведения с помощью правил](cdn-rules-engine.md)
 ### [Получение оповещений в реальном времени](cdn-real-time-alerts.md)
 
-## Автоматизация
-### [Управление с помощью PowerShell](cdn-manage-powershell.md)
-
 ## Анализ
 ### [Анализ шаблонов использования](cdn-analyze-usage-patterns.md)
 ### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
@@ -39,21 +33,25 @@
 ### [Анализ производительности граничного узла](cdn-edge-performance.md)
 
 ## Разработка
-### Приступая к разработке для Azure CDN
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.js](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
 
 ## Устранение неполадок
-### [Устранение неполадок при ошибке 404](cdn-troubleshoot-endpoint.md)
-### [Устранение неполадок со сжатием файлов](cdn-troubleshoot-compression.md)
+### [Состояние 404](cdn-troubleshoot-endpoint.md)
+### [Сжатие файлов](cdn-troubleshoot-compression.md)
 
 # Справочные материалы
-## [Справочник по REST API](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# Сопутствующие материалы
+## [Командлеты PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
+## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 # Ресурсы
-## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
+## [Цены](https://azure.microsoft.com/pricing/details/cdn/)
+## [Форум MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=cdn)
+
 
 
 <!--HONumber=Nov16_HO2-->

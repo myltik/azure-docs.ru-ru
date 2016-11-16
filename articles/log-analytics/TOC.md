@@ -1,14 +1,15 @@
 # Обзор
 ## [Что такое Log Analytics?](log-analytics-overview.md)
 ## [Защита данных](log-analytics-security.md)
-## [Часто задаваемые вопросы по Log Analytics](log-analytics-faq.md)
+
 # Начало работы
 ## [Регистрация в службе Log Analytics](log-analytics-get-started.md)
 ## [Управление доступом](log-analytics-manage-access.md)
 ## [Прокси-сервер и брандмауэр](log-analytics-proxy-firewall.md)
 ## [Данные об использовании](log-analytics-usage.md)
+## [Часто задаваемые вопросы по Log Analytics](log-analytics-faq.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Интеграция
 ### Подключенные источники
 #### [Агенты Windows](log-analytics-windows-agents.md)
@@ -48,7 +49,6 @@
 #### [Оценка SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [Оценка системных обновлений](log-analytics-system-update.md)
-#### [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
 ## Анализ
@@ -60,9 +60,9 @@
 ### [Командлеты PowerShell](log-analytics-powershell-workspace-configuration.md)
 ### [API поиска по журналам](log-analytics-log-search-api.md)
 ### [API оповещений](log-analytics-api-alerts.md)
-# Справочные материалы
-# Сопутствующие материалы
+
 # Ресурсы
+## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 
 
 

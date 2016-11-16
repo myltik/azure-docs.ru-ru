@@ -91,8 +91,12 @@
 ### [Устранение неполадок фабрики данных](data-factory-troubleshoot.md)
 ### [Устранение неполадок в работе шлюза управления данными](data-factory-troubleshoot-gateway-issues.md)
 ### [Развертывание с помощью шаблонов Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
-# Справочные материалы 
+
+# Справочные материалы
 ## [Справочник разработчика фабрики данных Azure](data-factory-sdks.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [REST](https://docs.microsoft.com/rest/api/datafactory/)
 
 # Ресурсы:
 ## [Примеры использования](data-factory-customer-case-studies.md)
@@ -103,13 +107,6 @@
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Заметки о выпуске шлюза управления данными](data-factory-gateway-release-notes.md)
-
-
-
-
-
-
-
 
 
 <!--HONumber=Nov16_HO2-->

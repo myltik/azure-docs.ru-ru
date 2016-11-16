@@ -1,12 +1,12 @@
 ---
-title: Начало работы со службой мобильного взаимодействия Azure для iOS в Objective C | Microsoft Docs
-description: Узнайте, как использовать Azure Mobile Engagement с данными аналитики и push-уведомлениями для приложений iOS.
+title: "Начало работы со службой мобильного взаимодействия Azure для iOS в Objective C | Документация Майкрософт"
+description: "Узнайте, как использовать Azure Mobile Engagement с данными аналитики и push-уведомлениями для приложений iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 117b5742-522b-41de-98c5-f432da2d98f8
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/05/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1dc9885e4cdbad1153ac476e3f0c0068ec391374
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Начало работы с Azure Mobile Engagement для приложений iOS в Objective C
@@ -34,11 +38,11 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции можно найти в статье [Интеграция пакета Android SDK с Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции можно найти в статье [Интеграция пакета Android SDK с Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
 
 Мы создадим базовое приложение при помощи XCode, чтобы продемонстрировать интеграцию.
 
@@ -46,7 +50,7 @@ ms.author: piyushjo
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
 ### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Подключение приложения к серверной части Mobile Engagement
-1. Скачайте пакет [Mobile Engagement iOS SDK].
+1. Скачайте пакет [Mobile Engagement iOS SDK].
 2. Извлеките файл .tar.gz в папку на компьютере.
 3. Щелкните правой кнопкой мыши проект и выберите пункт **Добавить файлы в**.
    
@@ -67,13 +71,13 @@ ms.author: piyushjo
    
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
-            [...]   
-            [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-            [...]
+              [...]   
+              [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+              [...]
         }
-9. `setTestLogEnabled` — это необязательный оператор, который включает журналы пакета SDK и позволяет выявить проблемы. 
+9. `setTestLogEnabled` — это необязательный оператор, который включает журналы пакета SDK и позволяет выявить проблемы. 
 
-## <a name="<a-id="monitor"></a>enable-real-time-monitoring"></a><a id="monitor"></a>Включение мониторинга в режиме реального времени
+## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Включение мониторинга в режиме реального времени
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
 
 1. Откройте файл **ViewController.h** и импортируйте **EngagementViewController.h**:
@@ -83,10 +87,10 @@ ms.author: piyushjo
    
     `@interface ViewController : EngagementViewController`
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 
@@ -101,7 +105,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 5. Щелкните **Добавить**.
 
 ### <a name="modify-your-application-delegate"></a>Изменение делегата приложения
-1. В файле **AppDeletegate.m** импортируйте модуль Engagement Reach.
+1. В файле **AppDeletegate.m** импортируйте модуль Engagement Reach.
    
         #import "AEReachModule.h"
         #import <UserNotifications/UserNotifications.h>
@@ -136,7 +140,7 @@ Mobile Engagement позволяет взаимодействовать и св�
    
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
         {
-            [[EngagementAgent shared] registerDeviceToken:deviceToken];
+             [[EngagementAgent shared] registerDeviceToken:deviceToken];
             NSLog(@"Registered Token: %@", deviceToken);
         }
 3. Добавьте метод `didFailToRegisterForRemoteNotificationsWithError` следующим образом:
@@ -167,6 +171,6 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

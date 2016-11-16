@@ -1,12 +1,12 @@
 ---
-title: Управление аналитикой озера данных Azure с помощью пакета SDK Azure для Node.js | Microsoft Docs
-description: Узнайте, как управлять учетными записями, источниками данных, заданиями и пользователями аналитики озера данных Azure с помощью пакета SDK Azure для Node.js.
+title: "Управление Azure Data Lake Analytics с помощью пакета SDK Azure для Node.js | Документация Майкрософт"
+description: "Узнайте, как управлять учетными записями, источниками данных, заданиями и пользователями аналитики озера данных Azure с помощью пакета SDK Azure для Node.js."
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 10ec0b63e1867f5f62d30d879a4497c0880d9494
+
 
 ---
-# Управление аналитикой озера данных Azure с помощью пакета SDK Azure для Node.js
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Управление аналитикой озера данных Azure с помощью пакета SDK Azure для Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Используя пакет SDK Azure для Node.js, можно управлять учетными записями, заданиями и каталогами аналитики озера данных Azure. Для просмотра статей, посвященных управлению с помощью других средств, щелкните средство выбора вкладок выше.
@@ -24,21 +28,21 @@ ms.author: edmaca
 Сейчас он поддерживает:
 
 * **Node.js версии 0.10.0 или выше;**
-* **версию REST API для учетной записи: 2015-10-01-preview**;
-* **версию REST API для каталога: 2015-10-01-preview**;
-* **версию REST API для задания: 2016-03-20-preview**.
+* **версию REST API для учетной записи: 2015-10-01-preview**
+* **версию REST API для каталога: 2015-10-01-preview**
+* **версию REST API для задания: 2016-03-20-preview**
 
-## Функции
+## <a name="features"></a>Функции
 * Управление учетными записями: создание, получение, получение списков, обновление и удаление.
 * Управление заданиями: отправка, получение, получение списков и отмена.
 * Управление каталогами: получение, получение списков, создание (секретов), обновление (секретов), удаление (секретов).
 
-## Установка
+## <a name="how-to-install"></a>Установка
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## Проверка подлинности с помощью Azure Active Directory
+## <a name="authenticate-using-azure-active-directory"></a>Проверка подлинности с помощью Azure Active Directory
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -47,7 +51,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Создание клиента аналитики озера данных
+## <a name="create-the-data-lake-analytics-client"></a>Создание клиента аналитики озера данных
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -55,7 +59,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## Создание учетной записи аналитики озера данных
+## <a name="create-a-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -104,7 +108,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## Получение списка заданий
+## <a name="get-a-list-of-jobs"></a>Получение списка заданий
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -117,7 +121,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## Получение списка баз данных в каталоге аналитики озера данных
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Получение списка баз данных в каталоге аналитики озера данных
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -130,8 +134,13 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Пакет Microsoft Azure SDK для Node.js — управление хранилищем озера данных](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

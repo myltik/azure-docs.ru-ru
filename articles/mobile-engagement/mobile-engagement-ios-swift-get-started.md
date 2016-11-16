@@ -1,12 +1,12 @@
 ---
-title: Начало работы со службой мобильного взаимодействия Azure для iOS в Swift | Microsoft Docs
-description: Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений iOS.
+title: "Начало работы со службой мобильного взаимодействия Azure для iOS в Swift | Документация Майкрософт"
+description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Начало работы с Azure Mobile Engagement для приложений iOS в Swift
@@ -40,11 +44,11 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции можно найти в статье [Интеграция пакета Android SDK с Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции можно найти в статье [Интеграция пакета Android SDK с Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md).
 
 Создадим базовое приложение при помощи XCode, чтобы продемонстрировать интеграцию.
 
@@ -87,22 +91,22 @@ ms.author: piyushjo
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
 
 1. Откройте файл **ViewController.swift** и замените базовый класс **ViewController** классом **EngagementViewController**:
    
     `class ViewController : EngagementViewController {`
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах описаны действия по настройке приложения для приема уведомлений и сообщений.
 
@@ -196,6 +200,6 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

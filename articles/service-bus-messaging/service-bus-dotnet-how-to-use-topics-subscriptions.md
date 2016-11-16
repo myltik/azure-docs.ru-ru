@@ -1,12 +1,12 @@
 ---
-title: Использование разделов служебной шины с .NET | Microsoft Docs
-description: Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET.
+title: "Использование разделов служебной шины с .NET | Документация Майкрософт"
+description: "Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Как использовать разделы и подписки служебной шины
@@ -47,7 +51,7 @@ ms.author: sethm
 В обоих случаях строку подключения можно получить с помощью метода `CloudConfigurationManager.GetSetting`, как показано далее в этой статье.
 
 ### <a name="configure-your-connection-string"></a>Настройка строки подключения
-Механизм настройки службы позволяет динамически изменять параметры конфигурации на [портале Azure][], не развертывая приложение повторно. Например, добавьте метку `Setting` в файл определения службы (**CSDEF-файл**), как показано в примере ниже.
+Механизм настройки службы позволяет динамически изменять параметры конфигурации на [портале Azure][портал Azure], не развертывая приложение повторно. Например, добавьте метку `Setting` в файл определения службы (**CSDEF-файл**), как показано в примере ниже.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -90,7 +94,7 @@ ms.author: sethm
 </configuration>
 ```
 
-Используйте имя и значения ключа SAS, полученные на [портале Azure][], как описано выше.
+Используйте имя и значения ключа SAS, полученные на [портале Azure][портал Azure], как описано выше.
 
 ## <a name="create-a-topic"></a>Создание раздела
 Операции управления для разделов и подписок служебной шины можно выполнять, используя класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс предоставляет методы для создания, перечисления и удаления разделов.
@@ -151,7 +155,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
 Если при создании новой подписки не указан фильтр, то по умолчанию используется фильтр **MatchAll**. Если используется фильтр **MatchAll**, все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
 
 ```
@@ -170,7 +174,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ### <a name="create-subscriptions-with-filters"></a>Создание подписок с фильтрами
 Кроме того, можно настраивать фильтры, позволяющие определять, какие посылаемые в раздел сообщения должны появляться в рамках конкретной подписки.
 
-Самый гибкий тип фильтра, который поддерживается подписками, — это класс [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Самый гибкий тип фильтра, который поддерживают подписки — это класс [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 В следующем примере создается подписка с именем **HighMessages**, содержащая объект [SqlFilter][SqlFilter]. Этот объект выбирает только сообщения со значением настраиваемого свойства **MessageNumber** больше 3.
 
@@ -184,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][SqlFilter], который выбирает только сообщения со значением свойства **MessageNumber** меньше или равно 3.
+Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][SqlFilter], который выбирает только сообщения со значением свойства **MessageNumber**, которое меньше или равно 3.
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -303,13 +307,13 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы узнали основные сведения о разделах и подписках служебной шины. Дополнительные сведения см. в следующих источниках.
 
-* [Очереди, разделы и подписки][Очереди, разделы и подписки]
-* [Пример фильтров раздела][Пример фильтров раздела]
+* [Очереди, разделы и подписки][Очереди, разделы и подписки].
+* [Пример фильтров раздела][Пример фильтров раздела].
 * Справочник API для [SqlFilter][SqlFilter].
 * Дополнительные сведения о создании работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее, см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине][Учебное пособие по обмену сообщениями .NET через посредника в служебной шине].
-* Примеры служебной шины: скачайте со страницы [примеров Azure][] или [просмотрите обзор](../service-bus/service-bus-samples.md).
+* Примеры служебной шины скачайте со страницы [примеров Azure][примеры Azure] или см. [обзор](service-bus-samples.md).
 
-[портал Azure]: https://portal.azure.com
+[Портал Azure]: https://portal.azure.com
 
 [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -322,6 +326,6 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

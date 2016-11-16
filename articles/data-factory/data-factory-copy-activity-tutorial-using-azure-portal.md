@@ -1,12 +1,12 @@
 ---
-title: Руководство. Создание конвейера с действием копирования с помощью портала Azure | Microsoft Docs
-description: В этом руководстве вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure.
+title: "Руководство. Создание конвейера с действием копирования с помощью портала Azure | Документация Майкрософт"
+description: "В этом руководстве вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Руководство. Создание конвейера с действием копирования с помощью портала Azure
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Руководство. Создание конвейера с действием копирования с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -49,12 +53,12 @@ ms.author: spelluru
 
 1. Войдите на [портал Azure](https://portal.azure.com/), нажмите кнопку **Создать**, откройте раздел **аналитики** и щелкните **Фабрика данных**. 
    
-   ![Создать -> Фабрика данных](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
+   ![Создать -> Фабрика данных](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. В колонке **Создать фабрику данных** выполните следующие действия.
    
    1. Введите **ADFTutorialDataFactory** в поле **Имя**. 
       
-       ![Создать колонку "Фабрика данных"](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
+         ![Создать колонку "Фабрика данных"](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
        Имя фабрики данных Azure должно быть **глобально уникальным**. При возникновении указанной ниже ошибки измените имя фабрики данных (например, на ваше_имя_ADFTutorialDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
       
@@ -67,7 +71,7 @@ ms.author: spelluru
       1. Выберите **Использовать существующую**и укажите существующую группу ресурсов в раскрывающемся списке. 
       2. Выберите **Создать новую**и укажите имя группы ресурсов.   
          
-          Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../resource-group-overview.md).  
+          Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Укажите **расположение** фабрики данных. В раскрывающемся списке отображаются только те регионы, которые поддерживаются службой фабрики данных.
    5. Выберите **Закрепить на начальной панели**.     
    6. Щелкните **Создать**.
@@ -75,7 +79,7 @@ ms.author: spelluru
       > [!IMPORTANT]
       > Создавать экземпляры фабрики данных может пользователь с ролью [Участник фабрики данных](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) на уровне подписки или группы ресурсов.
       > 
-      > В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.              
+      > В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.                
       > 
       > 
 3. Чтобы просмотреть сообщения о состоянии или сообщения уведомления, щелкните значок колокольчика на панели инструментов. 
@@ -99,7 +103,7 @@ ms.author: spelluru
     ![Кнопка "Создать хранилище данных" в редакторе](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Замените `<accountname>` и `<accountkey>` значениями имени и ключа учетной записи хранения Azure. 
    
-    ![Хранилище больших двоичных объектов JSON в редакторе](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+    ![Хранилище больших двоичных объектов JSON в редакторе](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 4. На панели инструментов щелкните **Развернуть** . Теперь в иерархическом представлении должен отобразиться развернутый экземпляр **AzureStorageLinkedService** . 
    
     ![Развертывание хранилища больших двоичных объектов в редакторе](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
@@ -168,7 +172,7 @@ ms.author: spelluru
    * Для **linkedServiceName** задано значение **AzureStorageLinkedService**. Эта связанная служба была создана на шаге 2.
    * В качестве значения **folderPath** установлен контейнер **adftutorial**. Вы также можете указать имя большого двоичного объекта в папке, используя свойство **fileName** . Так как вы не указываете имя большого двоичного объекта, данные из всех больших двоичных объектов в контейнере считаются входными данными.  
    * Для **type** формата установлено значение **TextFormat**.
-   * В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**). 
+   * В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**).    
    * Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**). Следовательно, служба фабрики данных будет искать входные данные в корневом каталоге указанного вами контейнера BLOB-объектов (**adftutorial**) каждый час. 
      
      Если параметр **fileName** для **входного** набора данных не задан, все файлы и большие двоичные объекты из входной папки (**folderPath**) считаются входными данными. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные.
@@ -369,7 +373,7 @@ ms.author: spelluru
     
     ![результаты SQL-запроса](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Мониторинг конвейера с использованием приложения по мониторингу и управлению
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Мониторинг конвейера с использованием приложения по мониторингу и управлению
 Для мониторинга конвейеров также можно использовать приложение по мониторингу и управлению. Дополнительные сведения об использовании этого приложения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md).
 
 1. Щелкните плитку **Monitor & Manage** (Мониторинг и управление) на домашней странице фабрики данных.
@@ -386,7 +390,7 @@ ms.author: spelluru
 
 1. Создание **фабрики данных Azure**.
 2. Создание **связанных служб**.
-   1. **Служба хранилища Azure** — связанная служба для связи с учетной записью хранения Azure, которая содержит входные данные.    
+   1. **Служба хранилища Azure** — связанная служба для связи с учетной записью хранения Azure, которая содержит входные данные.     
    2. **SQL Azure** — связанная служба для связи с базой данных SQL Azure, которая содержит выходные данные. 
 3. Создание **наборов данных** , которые описывают входные и выходные данные для конвейеров.
 4. Создание **конвейера** с **BlobSource** в качестве источника и **SqlSink** в качестве приемника с помощью **действия копирования**.  
@@ -400,6 +404,9 @@ ms.author: spelluru
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

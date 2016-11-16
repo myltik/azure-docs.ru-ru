@@ -1,7 +1,6 @@
 # [Обзор](mobile-engagement-overview.md)
 ## [Сравнение со связанными службами](mobile-engagement-comparison.md)
 ## [Обзор возможностей](mobile-engagement-key-features.md)
-## [Цены](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
 # Начало работы
 ## [Android](mobile-engagement-android-get-started.md)
@@ -117,28 +116,27 @@
 ### [Ограничения и регулирование службы](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Справочные материалы
-## [Пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [Справочник по REST API](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [Спецификации REST API Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 ## Содержимое пакета SDK
 ### [Пакет SDK для Android](mobile-engagement-android-sdk-content.md)
 ### [пакета SDK iOS](mobile-engagement-ios-sdk-content.md)
 ### [Пакет SDK для универсальных приложений для Windows](mobile-engagement-windows-store-sdk-content.md)
 ### [Пакет SDK для Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
-
-# Сопутствующие материалы
-
-# Ресурсы
-## [Примеры демонстрационных приложений](mobile-engagement-demo-apps.md)
-## [Пример API .NET](mobile-engagement-dotnet-sdk-service-api.md)
-## [Видео и обновления](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Соглашение об уровне обслуживания (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## Заметки о выпуске
 ### [Пакет SDK для Android](mobile-engagement-android-release-notes.md)
 ### [пакета SDK iOS](mobile-engagement-ios-release-notes.md)
 ### [Веб-пакет SDK](mobile-engagement-web-release-notes.md)
 ### [Пакет SDK для универсальных приложений для Windows](mobile-engagement-windows-store-release-notes.md)
 ### [Пакет SDK для Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
+
+
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Примеры демонстрационных приложений](mobile-engagement-demo-apps.md)
+## [Пример API .NET](mobile-engagement-dotnet-sdk-service-api.md)
+## [Видео и обновления](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Соглашение об уровне обслуживания (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+
 
 
 

@@ -1,4 +1,4 @@
-## Пиринг в разных подписках
+## <a name="peering-across-subscriptions"></a>Пиринг в разных подписках
 В этом сценарии вы создадите пиринг между двумя виртуальными сетями, принадлежащими к разным подпискам.
 
 ![Сценарий с несколькими подписками](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

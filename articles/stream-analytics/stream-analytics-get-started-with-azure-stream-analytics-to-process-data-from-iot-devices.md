@@ -1,20 +1,24 @@
 ---
-title: 'Начало работы с Azure Stream Analytics для обработки данных с устройств Интернета вещей Microsoft Azure:'
-description: 'Теги и потоки данных датчиков IoT: обработка данных с использованием Stream Analytics в режиме реального времени'
-keywords: решение IoT, начало работы с IoT
+title: "Начало работы с Azure Stream Analytics для обработки данных с устройств Интернета вещей | Документация Майкрософт"
+description: "Теги и потоки данных датчиков IoT: обработка данных с использованием Stream Analytics в режиме реального времени"
+keywords: "решение IoT, начало работы с IoT"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 10/19/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6b6910b4f1b408c4574b1632375764d51c4fab8a
+
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Начало работы с Azure Stream Analytics для обработки данных с устройств IoT
@@ -45,68 +49,79 @@ ms.author: jeffstok
 Для удобства в этом руководстве по началу работы приведен пример файла данных, полученных с реальных устройств SensorTag. На основе этого примера можно выполнять различные запросы и просматривать их результаты. В последующих руководствах вы узнаете, как подключить задание к источникам входных данных и местам назначения выходных данных, а также развернуть его в службе Azure.
 
 ## <a name="create-a-stream-analytics-job"></a>Создание задания Stream Analytics
-1. На [портале Azure](http://manage.windowsazure.com) щелкните **Stream Analytics** и в левом нижнем углу страницы нажмите кнопку **Создать**, чтобы создать задание аналитики.
+1. На [портале Azure](http://portal.azure.com) щелкните знак "плюс", а затем в текстовом поле справа введите **Stream Analytics** и в появившемся списке результатов выберите **Задание Stream Analytics**.
    
     ![Создание нового задания Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-2. Щелкните **Быстрое создание**.
-3. Для параметра **Учетная запись хранения регионального мониторинга** выберите **Создать новую учетную запись хранения** и присвойте ей уникальное имя. С помощью этой учетной записи Azure Stream Analytics будет хранить сведения о наблюдении за всеми последующими заданиями.
+2. Введите уникальное имя задания и убедитесь, что отображается правильная подписка. Затем создайте новую группу ресурсов или выберите существующую в вашей подписке.
+3. После этого выберите расположение для вашего задания. Для повышения скорости обработки данных и сокращения затрат при передаче данных мы советуем выбрать то же расположение, что и для группы ресурсов, а также предполагаемую учетную запись хранения.
+   
+    ![Создание нового задания Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
    
    > [!NOTE]
    > Для каждого региона необходимо создать только одну учетную запись хранения. Она будет совместно использоваться для всех заданий Stream Analytics, созданных в этом регионе.
    > 
    > 
-4. В нижней части страницы щелкните **Создать задание Stream Analytics** .
+4. Установите флажок, чтобы закрепить задание на панели мониторинга, и нажмите кнопку **Создать**.
    
-    ![Конфигурация учетной записи хранения Azure](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
+    ![выполняется создание задания](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+5. Вы увидите окно с текстом "Развертывание начато..." в правом верхнем углу окна браузера. Вскоре вместо него отобразится окно завершения, как показано ниже.
+   
+    ![выполняется создание задания](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-## <a name="azure-stream-analytics-query"></a>Запрос Azure Stream Analytics
-Чтобы перейти к редактору запросов, откройте вкладку **Запрос**. Вкладка **Запрос** содержит запрос T-SQL, который преобразует данные входящих событий.
+### <a name="create-an-azure-stream-analytics-query"></a>Создание запроса Azure Stream Analytics
+После создания задания нужно открыть его и создать запрос. Чтобы получить доступ к заданию, просто щелкните соответствующую плитку.
 
-## <a name="archive-your-raw-data"></a>Архивация необработанных данных
-Запрос к серверу — это самая простая форма запроса, который архивирует все входные данные в место назначения выходных данных.
+![Плитка задания](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-![Запрос задания архивации](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+В области **Топология задания** щелкните поле **Запрос**, чтобы перейти в редактор запросов. В **редакторе запросов** можно ввести запрос T-SQL, который преобразует данные входящих событий.
 
-Скачайте пример файла данных на портале [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) в папку на компьютере. Скопируйте и вставьте запрос из файла PassThrough.txt. Нажмите кнопку **Проверить** и выберите файл данных HelloWorldASA-InputStream.json в папке, где вы сохранили скачанный файл.
+![Поле запроса](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-![Кнопка "Проверить" в Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+### <a name="query-archive-your-raw-data"></a>Запрос: архивация необработанных данных
+Запрос к серверу — это самая простая форма запроса, который архивирует все входные данные в место назначения выходных данных. Скачайте пример файла данных на сайте [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) в расположение на компьютере. 
 
-![Проверка входного потока](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+1. Скопируйте и вставьте запрос из файла PassThrough.txt. 
+   
+    ![Проверка входного потока](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+2. Щелкните многоточие рядом с входными данными и выберите пункт **Отправить образец данных из файла**.
+   
+    ![Проверка входного потока](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+3. После этого справа откроется панель, где нужно выбрать файл данных HelloWorldASA-InputStream.json (из расположения, куда он был скачан) и нажать кнопку **ОК** в нижней части панели.
+   
+    ![Проверка входного потока](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+4. Щелкните **Проверить** (значок в виде шестеренки) в верхней левой области окна и проверьте запрос, используя пример набора данных. По завершении проверки под запросом появится окно результатов.
+   
+    ![Результаты проверки](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-Просмотреть результаты запроса можно в браузере, как показано на следующем снимке экрана.
-
-![Результаты проверки](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
-
-## <a name="filter-the-data-based-on-a-condition"></a>Фильтрация данных по условию
+### <a name="query-filter-the-data-based-on-a-condition"></a>Запрос: фильтрация данных по условию
 Давайте попробуем отфильтровать результаты по условию. Нам требуется отобразить результаты только тех событий, которые получены из датчика sensorA. Запрос находится в файле Filtering.txt.
 
 ![Фильтрация потока данных](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-Обратите внимание, что здесь сравнивается строковое значение, в котором учитывается регистр. Нажмите кнопку **Выполнить снова**, чтобы выполнить запрос. Из 1860 строк событий запрос должен вернуть 389 строк.
+Обратите внимание, что здесь сравнивается строковое значение, в котором учитывается регистр. Чтобы выполнить запрос снова, щелкните значок **Проверить** в виде шестеренки. Из 1860 строк событий запрос должен вернуть 389 строк.
 
 ![Результаты второго вывода при проверке запроса](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
-## <a name="alert-to-trigger-a-business-workflow"></a>Оповещение для активации рабочего бизнес-процесса
-Теперь давайте детализируем наш запрос. Если требуется отслеживать среднее значение температуры за 30-секундный промежуток времени и отображать результаты только в том случае, если это значение превышает 100 градусов, для каждого типа датчика нужно написать запрос, как показано ниже, и нажать кнопку **Выполнить снова**, чтобы просмотреть результаты. Запрос находится в файле ThresholdAlerting.txt.
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Запрос: оповещение для активации рабочего бизнес-процесса
+Теперь давайте детализируем наш запрос. Если требуется отслеживать среднее значение температуры за 30-секундный промежуток времени и отображать результаты только в том случае, если это значение превышает 100 градусов, Для каждого типа датчика нужно написать запрос, как показано ниже, и щелкнуть **Проверить**, чтобы просмотреть результаты. Запрос находится в файле ThresholdAlerting.txt.
 
 ![Запрос с 30-секундным фильтром](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Теперь результаты содержат всего 245 строк. В них указаны датчики, для которых среднее значение температуры превышает 100. В этом запросе поток событий сгруппирован по свойству **dspl**, представляющему собой имя датчика, в **"переворачивающемся" окне** длительностью 30 секунд. Во время создания таких временных запросов важно задать способ учета отметок времени. С помощью предложения **TIMESTAMP BY** мы настроили использование столбца **OUTPUTTIME**, чтобы связать время со всеми временными вычислениями. Дополнительные сведения см. в статьях MSDN об [управлении временем](https://msdn.microsoft.com/library/azure/mt582045.aspx) и [функциях для работы с окнами](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-![Температура выше 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
-
-## <a name="detect-absence-of-events"></a>Обнаружение отсутствия событий
+### <a name="query-detect-absence-of-events"></a>Запрос: обнаружение отсутствия событий
 Как написать запрос, чтобы обнаружить отсутствие входящих событий? Давайте выясним, когда последний раз отправка данных с датчика была приостановлена на минуту. Запрос находится в файле AbsenseOfEvent.txt.
 
-![Обнаружение отсутствия событий](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
+![Обнаружение отсутствия событий](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
 Здесь используется **LEFT OUTER JOIN** (левое внешнее соединение) для одного и того же потока данных (самосоединение). При **внутреннем соединении** результат возвращается, только если обнаружено совпадение.  Но если событие с левой стороны соединения не сопоставлено при использовании **левого внешнего соединения**, для всех столбцов справа возвращается строка со значением NULL. Этот метод очень удобно использовать для поиска отсутствия событий. Дополнительные сведения об условии [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) см. в документации MSDN.
-
-![Результаты соединения](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
 
 ## <a name="conclusion"></a>Заключение
 Цель этого руководства — показать, как писать различные запросы на языке запросов Stream Analytics и просматривать результаты в браузере. Тем не менее, это только начало работы. С помощью Stream Analytics можно сделать множество других действий. Обработчик Stream Analytics поддерживает разнообразные входные и выходные данные и может даже использовать функции машинного обучения Azure. Благодаря этому он является надежным средством для анализа потоков данных. Чтобы продолжить исследование возможностей Stream Analytics, воспользуйтесь [схемой обучения](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Дополнительные сведения о написании запросов см. в статье [Примеры запросов для распространенных шаблонов использования Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

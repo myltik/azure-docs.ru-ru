@@ -1,43 +1,47 @@
 ---
-title: Добавление кэширования для повышения производительности в службе управления API Azure | Microsoft Docs
-description: Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API.
+title: "Добавление кэширования для повышения производительности в службе управления API Azure | Документация Майкрософт"
+description: "Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+
 
 ---
-# Добавление кэширования для повышения производительности в службе управления API Azure
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Добавление кэширования для повышения производительности в службе управления API Azure
 Операции в управлении API можно настроить для кэширования ответов. Кэширование ответов может значительно уменьшить время задержки API, потребляемую пропускную способность, и нагрузку на веб-службу применительно к данным, которые изменяются редко.
 
 В этом руководстве показано, как добавить кэширование ответов для API и настроить политики для примеров операций Echo API. Затем можно вызвать операцию из портала разработчика, чтобы проверить кэширование в действии.
 
 > [!NOTE]
-> Сведения о кэшировании элементов по ключу с помощью выражений политики см. в разделе [Пользовательское кэширование в управлении Azure API](api-management-sample-cache-by-key.md).
+> Сведения о кэшировании элементов по ключу с помощью выражений политики см. в статье [Пользовательское кэширование в службе управления API Azure](api-management-sample-cache-by-key.md).
 > 
 > 
 
-## Предварительные требования
-Прежде чем выполнять действия из этого руководства, необходимо настроить экземпляр службы управления API с API и продуктом. Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
+## <a name="prerequisites"></a>Предварительные требования
+Прежде чем выполнять действия из этого руководства, необходимо настроить экземпляр службы управления API с API и продуктом. Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Create an API Management service instance] в статье [Начало работы со службой управления Azure API][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Настройка операции для кэширования
 На этом этапе необходимо проверить параметры кэширования операции **GET Resource (cached)** примера Echo API.
 
 > [!NOTE]
-> В каждом экземпляре службы управления API предварительно настроен Echo API, с которым можно экспериментировать при изучении службы управления API. Дополнительные сведения см. в разделе [Начало работы с Azure API Management][Начало работы с Azure API Management].
+> В каждом экземпляре службы управления API предварительно настроен Echo API, с которым можно экспериментировать при изучении службы управления API. Дополнительные сведения см. в статье [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
-Чтобы приступить к работе, на классическом портале Azure службы управления API щелкните **Управление**. Будет открыт портал издателя службы управления API.
+Для начала работы щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -49,11 +53,11 @@ ms.author: sdanie
 
 ![Операции интерфейса Echo API][api-management-echo-api-operations]
 
-Перейдите на вкладку **Кэширование**, чтобы просмотреть параметры кэширования для этой операции.
+Перейдите на вкладку **Кэширование** , чтобы просмотреть параметры кэширования для этой операции.
 
 ![Вкладка "Кэширование"][api-management-caching-tab]
 
-Чтобы включить кэширование для операции, установите флажок **Включить**. В этом примере кэширование включено.
+Чтобы включить кэширование для операции, установите флажок **Включить** . В этом примере кэширование включено.
 
 Каждый ответ операции содержит ключ на основе значений в полях **В зависимости от параметров строки запроса** и **В зависимости от заголовков**. Если вы хотите кэшировать несколько ответов на основании параметров строки запроса или заголовков, то такой режим можно настроить с помощью этих полей.
 
@@ -134,8 +138,8 @@ ms.author: sdanie
 Следует отметить, что значением **sampleheader** в ответе теперь является **value2**. Так как результаты операции определяются строкой запроса, то предыдущий кэшированный ответ не возвращается.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
-* Дополнительные сведения о политиках кэширования см. в разделе [Политики кэширования][Политики кэширования] [справочника по политикам управления API][справочника по политикам управления API].
-* Сведения о кэшировании элементов по ключу с помощью выражений политики см. в разделе [Пользовательское кэширование в управлении Azure API](api-management-sample-cache-by-key.md).
+* Дополнительные сведения о политиках кэширования см. в разделе [Политики кэширования][Caching policies] [справочника по политикам управления API][API Management policy reference].
+* Сведения о кэшировании элементов по ключу с помощью выражений политики см. в статье [Пользовательское кэширование в службе управления API Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -149,22 +153,25 @@ ms.author: sdanie
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Начало работы с Azure API Management]: api-management-get-started.md
-[Начинаем работу с API Management]: api-management-get-started.md
+[Как добавлять операции в API]: api-management-howto-add-operations.md
+[Как создать и опубликовать продукт]: api-management-howto-add-products.md
+[Мониторинг и аналитика]: api-management-monitoring.md
+[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
+[Публикация продукта]: api-management-howto-add-products.md#publish-product
+[Приступая к работе со службой управления API]: api-management-get-started.md
 
-[справочника по политикам управления API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Справочник по политикам службы управления API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Политики кэширования]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+[Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 
-[Configure an operation for caching]: #configure-caching
-[Review the caching policies]: #caching-policies
-[Call an operation and test the caching]: #test-operation
-[Next steps]: #next-steps
+[Настройка операции для кэширования]: #configure-caching
+[Анализ политик кэширования]: #caching-policies
+[Вызов операции и проверка кэширования]: #test-operation
+[Дальнейшие действия]: #next-steps
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

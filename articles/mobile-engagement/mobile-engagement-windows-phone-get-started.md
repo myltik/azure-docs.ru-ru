@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight
-description: Узнайте, как использовать Azure Mobile Engagement для аналитики и отправки push-уведомлений для приложений Windows Phone Silverlight.
+title: "Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight"
+description: "Узнайте, как использовать Azure Mobile Engagement для аналитики и отправки push-уведомлений для приложений Windows Phone Silverlight."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fc6f97db04ae9dc547beb5a1fa3ee0c8c61885a6
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight
@@ -37,16 +41,16 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для приложения Windows Phone
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для приложения Windows Phone
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md).
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md).
 
 Мы создадим базовое приложение в Visual Studio, чтобы продемонстрировать интеграцию.
 
 ### <a name="create-a-new-windows-phone-silverlight-project"></a>Создание проекта для Windows Phone Silverlight
-Указанные ниже действия предполагают использование Visual Studio 2015, хотя они и аналогичны действиям с использованием более ранних версий Visual Studio. 
+Указанные ниже действия предполагают использование Visual Studio 2015, хотя они и аналогичны действиям с использованием более ранних версий Visual Studio. 
 
 1. Запустите Visual Studio и на **начальном экране** выберите пункт **Создать проект**.
 2. Во всплывающем окне выберите **Windows 8** -> **Windows Phone** -> **Пустое приложение (Windows Phone Silverlight)**. Введите необходимые значения в поля **Имя** и **Имя решения**, а затем нажмите кнопку **ОК**.
@@ -64,7 +68,7 @@ ms.author: piyushjo
         <Capability Name="ID_CAP_IDENTITY_DEVICE" />
    
     ![][2]
-3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Mobile Engagement, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
+3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Mobile Engagement, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
    
     ![][3]
 4. В файле `App.xaml.cs`:
@@ -87,7 +91,7 @@ ms.author: piyushjo
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="<a-id="monitor"></a>enable-real-time-monitoring"></a><a id="monitor"></a>Включение мониторинга в режиме реального времени
+## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Включение мониторинга в режиме реального времени
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
 
 1. В файле MainPage.xaml.cs добавьте инструкцию `using`.
@@ -100,14 +104,14 @@ ms.author: piyushjo
    
     а. Добавьте в объявления пространств имен:
    
-         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+            xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
    
     b. В имени XML-тега замените `phone:PhoneApplicationPage` на `engagement:EngagementPage`.
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 
@@ -137,7 +141,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 Все готово. Теперь убедимся, что базовая интеграция выполнена правильно.
 
-## <a name="<a-id="send"></a>send-a-notification-to-your-app"></a><a id="send"></a>Отправка уведомления в приложение
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Отправка уведомления в приложение
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Если приложение открыто, на устройстве должно отобразиться уведомление в приложении. В противном случае оно будет отображено в виде всплывающего уведомления, как показано ниже. 
@@ -157,6 +161,6 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

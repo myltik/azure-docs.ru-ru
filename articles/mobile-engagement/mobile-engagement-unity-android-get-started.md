@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android
-description: Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS.
+title: "Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android"
+description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android
@@ -33,10 +37,10 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 ### <a name="import-the-unity-package"></a>Импорт пакета Unity
 1. Загрузите пакет [Mobile Engagement Unity](https://aka.ms/azmeunitysdk) и сохраните его на локальном компьютере. 
 2. Выберите **Ресурсы -> Импорт пакета -> Custom Package** (Пользовательский пакет) и выберите пакет, скачанный на предыдущем этапе. 
@@ -94,10 +98,10 @@ ms.author: piyushjo
 6. Возможно, вам потребуется указать имя папки для хранения пакета Android. 
 7. Если процесс пройдет успешно и пакет будет развернут на подключенном устройстве, вы увидите игру Unity у себя на телефоне. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>Обновление конфигурации EngagementConfiguration
@@ -133,6 +137,6 @@ ms.author: piyushjo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

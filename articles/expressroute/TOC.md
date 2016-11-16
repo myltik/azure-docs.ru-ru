@@ -43,27 +43,27 @@
 
 
 # Справочные материалы
-## [Интерфейсы API — Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [Интерфейсы API — управление службами](https://msdn.microsoft.com/library/azure/dn606310)
-## [Командлеты PowerShell — Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [Командлеты PowerShell — управление службами](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Примеры настройки конфигурации маршрутизатора](expressroute-config-samples-routing.md)
 ## [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [Классическая архитектура REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Сопутствующие материалы 
-## [Виртуальная сеть](../virtual-network/index.md)
-## [VPN-шлюз](../vpn-gateway/index.md)
-## [Виртуальные машины](../virtual-machines/index.md)
-## [Балансировщик нагрузки](../load-balancer/index.md)
-## [Диспетчер трафика](../traffic-manager/index.md)
+# Сопутствующие материалы
+## [Виртуальная сеть](/azure/virtual-network/)
+## [VPN-шлюз](/azure/vpn-gateway/)
+## [Виртуальные машины](/azure/virtual-machines/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Диспетчер трафика](/azure/traffic-manager/)
 
 # Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Блог о сетях](https://azure.microsoft.com/blog/topics/networking/)
 ## [Примеры использования](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Цены](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md)
-## Видеоролики
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
 ### [Создание канала ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Как настроить частный пиринг для канала](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Настройка общедоступного пиринга для канала](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [Подключение шлюза виртуальной сети к каналу](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Развитие сетевой инфраструктуры для повышения качества подключений](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Гибридные партнерства: реализация локальных сценариев](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

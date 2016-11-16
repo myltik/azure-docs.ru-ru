@@ -1,12 +1,12 @@
 ---
-title: Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных | Microsoft Docs
-description: С помощью этого учебника вы создадите конвейер фабрики данных Azure с действием копирования при помощи мастера копирования, поддерживаемого фабрикой данных.
+title: "Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных | Документация Майкрософт"
+description: "С помощью этого учебника вы создадите конвейер фабрики данных Azure с действием копирования при помощи мастера копирования, поддерживаемого фабрикой данных."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -51,23 +55,25 @@ ms.author: spelluru
       
       > [!NOTE]
       > В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
-      > 2) Выберите свою **подписку Azure**.
       > 
       > 
-3. Для группы ресурсов выполните одно из следующих действий: а) выберите **Использовать существующую** и укажите имеющуюся группу ресурсов;
-   2) выберите **Создать** и введите имя для группы ресурсов.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-   1. Укажите **расположение** фабрики данных.
-   2. Установите флажок **Закрепить на панели мониторинга** в нижней части колонки.  
-   3. Щелкните **Создать**.
+   2. Выберите свою **подписку Azure**.
+   3. Для группы ресурсов выполните одно из следующих действий. 
       
-       ![Создать колонку "Фабрика данных"](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-4. После создания вы увидите колонку **Фабрика данных**, как показано на рисунке ниже.
+      1. а) выберите **Использовать существующую** и укажите имеющуюся группу ресурсов;
+      2. выберите **Создать** и введите имя для группы ресурсов.
+         
+          Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../azure-resource-manager/resource-group-overview.md).
+   4. Укажите **расположение** фабрики данных.
+   5. Установите флажок **Закрепить на панели мониторинга** в нижней части колонки.  
+   6. Щелкните **Создать**.
+      
+       ![Создать колонку "Фабрика данных"](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. После создания вы увидите колонку **Фабрика данных**, как показано на рисунке ниже.
    
    ![Домашняя страница фабрики данных](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-and-use-copy-wizard"></a>Запуск и использование мастера копирования
+## <a name="launch-copy-wizard"></a>Запуск мастера копирования
 1. Чтобы запустить **мастер копирования**, на домашней странице фабрики данных щелкните **Копирование данных**. 
    
    > [!NOTE]
@@ -154,6 +160,9 @@ ms.author: spelluru
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

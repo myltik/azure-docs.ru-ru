@@ -9,7 +9,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Создание брандмауэра уровня сервера SQL Azure
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Создание брандмауэра уровня сервера SQL Azure
 Используйте следующие шаги на портале Azure, чтобы создать правило брандмауэра уровня сервера, разрешающее подключения с отдельного IP-адреса (клиентского компьютера) или всего диапазона IP-адресов логического сервера базы данных SQL.
 
 1. Если вы еще этого не сделали, подключитесь к [порталу Azure](http://portal.azure.com).
@@ -27,16 +27,16 @@ articles/sql-database/sql-database-configure-firewall-settings
      ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
-   > Также на панели инструментов колонки **База данных** можно открыть колонку уровня сервера **Параметры брандмауэра**.
+   > Также на панели инструментов колонки **База данных** можно открыть колонку серверного уровня **Параметры брандмауэра**.
    > 
    > 
-6. Щелкните **Добавить IP-адрес клиента**, чтобы система Azure создала правило для этого IP-адреса клиента.
+6. Щелкните **Добавить IP-адрес клиента** , чтобы система Azure создала правило для этого IP-адреса клиента.
    
       ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 7. При необходимости щелкните IP-адрес, который был добавлен, чтобы изменить адрес брандмауэра и разрешить доступ с диапазона IP-адресов.
    
       ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
-8. Нажмите кнопку **Сохранить**, чтобы создать правило в брандмауэре сервера.
+8. Нажмите кнопку **Сохранить** , чтобы создать правило в брандмауэре сервера.
    
      ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
    
@@ -45,4 +45,8 @@ articles/sql-database/sql-database-configure-firewall-settings
    > 
    > 
 
-<!----HONumber=AcomDC_0912_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

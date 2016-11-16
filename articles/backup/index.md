@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Backup Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 50a8865afe60b47b094e3fa64ab622c229a8a4a4
+ms.openlocfilehash: fc7e57b12158c34b2ee0de334f1b08469765f39d
 
-Azure Backup is cloud service you can use to back up (or protect) and restore your data in the Microsoft cloud.  Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.  
+---
+#<a name="backup-documentation"></a>Документация по службе архивации
+
+Служба архивации Azure — это облачная служба для резервного копирования (защиты) и восстановления данных в Microsoft Cloud.  Служба архивации Azure позволяет заменить существующее локальное или автономное решение для резервного копирования на надежное, безопасное и экономичное облачное решение.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Backup</h3>
+                        <h3>См. дополнительные сведения о службе архивации Azure</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Backup Video Library</h3>
+                        <h3>Видеотека материалов по службе архивации Azure</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started backing up files and folders with Azure Backup</h3>
+                        <h3>Резервное копирование файлов и папок с помощью службы архивации Azure</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started backing up Azure virtual machines with Azure Backup</h3>
+                        <h3>Резервное копирование виртуальных машин Azure с помощью службы архивации Azure</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started protecting Azure virtual machines with Azure Backup</h3>
+                        <h3>Защита виртуальных машин Azure с помощью службы архивации Azure</h3>
                     </div>
                 </div>
             </div>
@@ -100,19 +104,24 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 
 ---
 
-##Reference
+##<a name="reference"></a>Справочные материалы
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[Управляемый справочник по .NET](/dotnet/api)
 
-###REST
-[Backup REST API Reference](/rest/api/recoveryservices)
+###<a name="rest"></a>REST
+[Справочник по API REST службы архивации](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Backup Documentation
-        </div>
+Скачать документацию по службе архивации Azure </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
