@@ -64,6 +64,12 @@
 ### [Устранение неполадок в гибридной коллекции](remoteapp-hybridtrouble.md)
 ### [Устранение неполадок в облачной коллекции](remoteapp-cloudtrouble.md)
 
+# Ресурсы
+## [Обновления службы](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Цены](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

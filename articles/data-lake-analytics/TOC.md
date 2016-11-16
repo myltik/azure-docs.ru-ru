@@ -1,7 +1,7 @@
 # Обзор
 ## [Что такое Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Приступая к работе
+# Начало работы
 ## [Использование портала](data-lake-analytics-get-started-portal.md)
 ## [Использование PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Использование пакета SDK для .NET](data-lake-analytics-get-started-net-sdk.md)
@@ -37,11 +37,13 @@
 ### [Использования представления выполнения вершин](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Справочные материалы
-## [Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [Командлеты PowerShell](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [Справочник по языку U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [REST](/rest/api/datalakeanalytics/)
 
 # Ресурсы
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)

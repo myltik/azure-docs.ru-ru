@@ -55,6 +55,9 @@
 ## Разработка
 ### [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md)
 ### [Создание веб-приложения на платформе Linux](app-service-linux-how-to-create-a-web-app.md)
+### [Справочник службы приложений](app-service-changes-existing-services.md)
+### [Портал Azure](app-service-web-app-azure-portal.md)
+### [Пакет SDK для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Приложения ASP.NET
 #### [Развертывание первого веб-приложения .NET в Azure за пять минут](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [Устранение проблем с производительностью веб-приложений](app-service-web-troubleshoot-performance-degradation.md)
 
 # Справочные материалы
-## [Справочник службы приложений](app-service-changes-existing-services.md)
-## [Портал Azure](app-service-web-app-azure-portal.md)
-## [Пакет SDK для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
+## [Интерфейс командной строки Azure](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Сопутствующие материалы
 ## [Заметки о выпуске пакета Azure SDK для .NET](azure-sdk-dotnet-release-notes.md)

@@ -3,29 +3,33 @@
 # Обзор
 ## [Что такое планировщик?](scheduler-intro.md)
 
-# Приступая к работе
+# Начало работы
 ## [Создание заданий и управление ими](scheduler-get-started-portal.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 ### [Планы и выставление счетов](scheduler-plans-billing.md)
 ### [Квоты и ограничения](scheduler-limits-defaults-errors.md)
 ### [Высокий уровень доступности и надежность](scheduler-high-availability-reliability.md)
 
 ## Разработка
 ### [Сложные расписания с использованием REST API](scheduler-advanced-complexity.md)
+### [Понятия и терминология](scheduler-concepts-terms.md)
 
 ## Безопасность
 ### [Исходящая аутентификация](scheduler-outbound-authentication.md)
 
 # Справочные материалы
-## [Понятия и терминология](scheduler-concepts-terms.md)
-## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [Командлеты PowerShell](scheduler-powershell-reference.md)
+## [Командлеты PowerShell планировщика Azure](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/scheduler/)
 
 # Ресурсы
-## [Видео о планировщике](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=scheduler)
+## [Цены](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 
 <!--HONumber=Nov16_HO2-->

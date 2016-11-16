@@ -26,11 +26,12 @@
 ### [Устранение неполадок автомасштабирования](virtual-machine-scale-sets-troubleshoot.md)
 
 # Справочные материалы
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Интерфейс командной строки Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST API масштабируемого набора](/rest/api/compute/virtualmachinescalesets)
-## [REST API виртуальных машин масштабируемого набора](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Шаблоны Azure](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

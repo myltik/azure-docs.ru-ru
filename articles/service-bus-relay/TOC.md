@@ -15,9 +15,10 @@
 
 # Справочные материалы
 ## [Примеры](service-bus-relay-samples.md)
-## [Справочник по API .NET](https://msdn.microsoft.com/library/azure/jj933424)
 ## [Исключения](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Квоты](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
 # Ресурсы
 ## [Блог](https://blogs.msdn.microsoft.com/servicebus/)
@@ -25,6 +26,8 @@
 ## [Форумы MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Цены](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=service-bus)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

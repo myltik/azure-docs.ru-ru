@@ -1,10 +1,9 @@
 # Обзор
 ## [Что такое хранилище ключей?](key-vault-whatis.md)
-## [Цены](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Обзор службы](https://azure.microsoft.com/services/key-vault/)
 
-# Приступая к работе
-## [Приступая к работе с хранилищем ключей](key-vault-get-started.md)
+# Начало работы
+## [Начало работыс хранилищем ключей](key-vault-get-started.md)
 ## [Настройка смены ключей и аудита](key-vault-key-rotation-log-monitoring.md)
 ## [Использование хранилища ключей из веб-приложения](key-vault-use-from-web-application.md)
 
@@ -30,11 +29,14 @@
 # Справочные материалы
 ## [Сведения о ключах и секретах](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [Примеры кода](https://www.microsoft.com/download/details.aspx?id=45343)
-## [.NET для хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [REST для хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/dn903609)
+
+## [Хранилище ключей: командлеты PowerShell для Resource Manager](/powershell/resourcemanager/)
+## [Хранилище ключей: командлеты PowerShell для классического развертывания](/powershell/servicemanagement/)
+## [Хранилище ключей: использование интерфейса командной строки Azure](/cli/azure/)
+## [Хранилище ключей: справочник по Java](/java/api/)
+## [Хранилище ключей: управляемый справочник по API](/dotnet/api/) 
+## [Хранилище ключей: справочник по REST API](/rest/api/keyvault) 
 ## [Node.js для хранилища ключей](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Командлеты для хранилища ключей](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Установка Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
 
 # Сопутствующие материалы
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -43,6 +45,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Блог](http://blogs.technet.com/b/kv/)
 ## [Форумы](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 

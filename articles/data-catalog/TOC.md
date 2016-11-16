@@ -30,9 +30,11 @@
 ## [Сочетания клавиш для каталога данных Azure](data-catalog-keyboard-shortcuts.md)
 ## [Терминология](data-catalog-terminology.md)
 ## [Заметки о выпуске](data-catalog-release-notes.md)
+## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/data-catalog/)
+
 
 <!--HONumber=Nov16_HO2-->
 

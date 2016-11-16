@@ -1,41 +1,35 @@
 # Обзор
-## [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
+## [Выпуски](biztalk-editions-feature-chart.md)
+## [О гибридных подключениях](integration-hybrid-connection-overview.md)
 
 # Начало работы
-## [Создание служб BizTalk с помощью портала Azure](biztalk-provision-services.md)
-# Практическое руководство:
+## [Создание служб BizTalk](biztalk-provision-services.md)
 
-## планирование и разработка
-### [Диаграмма выпусков](biztalk-editions-feature-chart.md)
+# Практическое руководство
+## Планирование и проектирование
 ### [Список задач администраторов и разработчиков](biztalk-services-administration-and-development-task-list.md)
 
-## Архивация
-### [Архивация и восстановление](biztalk-backup-restore.md)
+## [Архивация и восстановление](biztalk-backup-restore.md)
 
 ## Настройка
-### [Службы BizTalk: регулирование](biztalk-throttling-thresholds.md)
-### [Просмотр вкладок "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](biztalk-dashboard-monitor-scale-tabs.md)
+### [Регулирование](biztalk-throttling-thresholds.md)
+### [Параметры службы и мониторинг](biztalk-dashboard-monitor-scale-tabs.md)
 
 ## Интеграция
-### [Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)
+### [Гибридные подключения](integration-hybrid-connection-create-manage.md)
 
 ## Миграция
 ### [Перенос решений EDI сервера BizTalk Server в службы BizTalk](biztalk-migrating-to-edi-guide.md)
 
 ## Монитор
-### [Службы BizTalk: диаграмма состояния службы](biztalk-service-state-chart.md)
+### [Задачи, которые зависят от состояния службы](biztalk-service-state-chart.md)
 
 ## Безопасность
-### [Имя и ключ поставщика](biztalk-issuer-name-issuer-key.md)
+### [Контроль доступа](biztalk-issuer-name-issuer-key.md)
 
-## Устранение неполадок
-### [Устранение неполадок с помощью журналов операций](biztalk-troubleshoot-using-ops-logs.md)
+## [Устранение неполадок](biztalk-troubleshoot-using-ops-logs.md)
 
 # Справочные материалы
-
-# Сопутствующие материалы
-
-# Ресурсы
 ## [Заметки о выпуске](biztalk-release-notes.md)
 
 

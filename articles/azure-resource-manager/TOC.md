@@ -1,5 +1,5 @@
 # Обзор
-## [Обзор Resource Manager](resource-group-overview.md)
+## [Что такое Resource Manager?](resource-group-overview.md)
 ## [Поддерживаемые службы, регионы и версии API](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Общие сведения о Resource Manager и классическом развертывании](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Рекомендуемая система управления подпиской](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -10,8 +10,8 @@
 ## [Использование Visual Studio с Resource Manager](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Использование VS Code с Resource Manager](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-# Практическое руководство:
-## Шаблоны
+# Практическое руководство
+## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Создание шаблонов](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Функции шаблонов](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -52,12 +52,21 @@
 ### [Просмотр операций развертывания с помощью интерфейса командной строки Azure](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Просмотр операций развертывания с помощью REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Справочные материалы
+## [Командлеты PowerShell](/powershell/azureps-cmdlets-docs/)
+## [Интерфейс командной строки Azure](/cli/azure)
+## [Java](/java/api)
+## [API .NET](/dotnet/api)
 ## [Схемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
-## [Командлеты PowerShell для Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [REST API для Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [Клиентская библиотека .NET для Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [Командлеты PowerShell для Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [REST API для Resource Manager](/rest/api/resources/)
+## [Клиентская библиотека .NET для Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Запросы на регулирование](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](/rest/api/resources/)
 
+# Ресурсы
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
 
 <!--HONumber=Nov16_HO2-->
 

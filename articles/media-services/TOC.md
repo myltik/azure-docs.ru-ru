@@ -1,16 +1,16 @@
 # [Обзор](media-services-overview.md)
 ## [Понятия](media-services-concepts.md)
-## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
-## [Заметки о выпуске](media-services-release-notes.md)
-# Приступая к работе
+
+
+# Начало работы
 ## [Создание учетной записи и управление ею](media-services-portal-create-account.md)
 ## [Настройка среды разработки](media-services-set-up-computer.md)
-## Видео по запросу
+## Предоставление видео по запросу
 ### [Портал](media-services-portal-vod-get-started.md)
 ### [Пакет SDK для .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Потоковая передача в реальном времени
+## Потоковая трансляция в реальном времени
 ### [Портал](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
@@ -166,12 +166,14 @@
 ###[Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
-## [Пакет SDK .NET для служб мультимедиа](media-services-dotnet-how-to-use.md)
-## [REST API служб мультимедиа](media-services-rest-how-to-use.md)
+## [Заметки о выпуске](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
 ## [Форматы и кодеки рабочего процесса Premium Media Encoder](media-services-premium-workflow-encoder-formats.md)
 ## [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 
-# Сопутствующие материалы
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
 
 

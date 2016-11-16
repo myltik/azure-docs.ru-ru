@@ -1,10 +1,11 @@
-# [Обзор](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+# Обзор
 ## [Что представляют собой мобильные приложения?](app-service-mobile-value-prop.md)
 ## [Что такое служба приложений?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Принцип работы](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Начало работы
-## Мобильные приложения
+## Создание мобильных приложений
 ### [Android](app-service-mobile-android-get-started.md)
 ### [Cordova](app-service-mobile-cordova-get-started.md)
 ### [iOS](app-service-mobile-ios-get-started.md)
@@ -13,13 +14,13 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## Приложения API
+## Создание приложений API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Веб-приложения
+## Создание веб-приложений
 ### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
 ### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
 ### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
@@ -206,14 +207,17 @@
 ### [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Справочные материалы
+## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 ## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Справочник службы приложений](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Пакет SDK для веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Сопутствующие материалы
-
 # Ресурсы
-## [Форум мобильных служб Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
+## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Рекомендации по работе со службой приложений](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Список ресурсов веб-задания](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

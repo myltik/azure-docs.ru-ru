@@ -15,26 +15,27 @@
 ### [Защита данных](oms-security-data-security.md)
 
 # Практическое руководство
-## Информация и аналитика
+## Анализ
 ### [Служба Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Сравнение продуктов для мониторинга](operations-management-suite-monitoring-product-comparison.md)
 ### [Управление оповещениями](operations-management-suite-monitoring-alerts.md)
-## Автоматизация и контроль
+## Управление
+### [Планирование и развертывание](operations-management-suite-solutions-creating.md)
+### [Automation resources](operations-management-suite-solutions-resources-automation.md) (Ресурсы службы автоматизации)
+### [Представления](operations-management-suite-solutions-resources-views.md)
+## Автоматизация
 ### [Обзор службы автоматизации Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Защита и восстановление
+## Архивация
 ### [Обзор службы архивации](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Обзор Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Безопасность и соответствие требованиям
+## Безопасность
 ### [Мониторинг ресурсов](oms-security-monitoring-resources.md)
 ### [Реагирование на оповещения системы безопасности](oms-security-responding-alerts.md)
 ### [Оценка базовых показателей](oms-security-baseline.md)
 ### [Оценка вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Оценка системных обновлений](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## [Интеграция с OMS](operations-management-suite-integration.md)
-## Решения для управления
-### [Планирование и развертывание](operations-management-suite-solutions-creating.md)
-### [Automation resources](operations-management-suite-solutions-resources-automation.md) (Ресурсы службы автоматизации)
-### [Представления](operations-management-suite-solutions-resources-views.md)
+
 
 # Справочные материалы
 ## [Пакет SDK](operations-management-suite-sdk.md)
@@ -60,6 +61,7 @@
 #### [Управление обновлениями](oms-solution-update-management.md)
 ### Безопасность и соответствие требованиям
 #### [Оценка защиты от вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 
 
 <!--HONumber=Nov16_HO2-->

@@ -96,8 +96,10 @@
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/documentdb/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Форумы MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [Как задать вопрос команде разработчиков DocumentDB](documentdb-community.md#contact-the-team)
 ## [Портал сообщества](documentdb-community.md)
 ## [События и записи](documentdb-community.md#events-and-recordings)

@@ -1,6 +1,6 @@
 # Обзор
 ## [Что такое управление API](api-management-key-concepts.md)
-# Приступая к работе
+# Начало работы
 ## [Управление вашим первым API](api-management-get-started.md)
 ## [Защита API с помощью ограничений скорости](api-management-howto-product-with-rules.md)
 ## [Добавление кэширования для повышения производительности](api-management-howto-cache.md)
@@ -40,11 +40,11 @@
 ### [Управление с помощью службы автоматизации](automation-manage-api-management.md)
 ### [Настройка с помощью Git](api-management-configuration-repository-git.md)
 #Справочные материалы
-## [Шаблоны](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Справочник по командлетам PowerShell для развертывания служб](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Командлеты PowerShell для управления ресурсами]/powershell/resourcemanager()
+## [Справочник по командлетам PowerShell для классической модели развертывания](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [ИНТЕРФЕЙС REST API](/rest/api/apimanagement/)
 ## [Политики](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Справочник по командлетам PowerShell для управления службами](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [Шаблоны](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Технический документ. Облачное управление API](http://j.mp/ms-apim-whitepaper)

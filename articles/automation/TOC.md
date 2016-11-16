@@ -2,7 +2,7 @@
 ## [Что такое служба автоматизации Azure?](automation-intro.md)
 ## [Безопасность в службе автоматизации Azure](automation-security-overview.md)
 
-# Приступая к работе
+# Начало работы
 ## [Создание модуля Runbook](automation-first-runbook-graphical.md)
 ## [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
@@ -73,6 +73,11 @@
 ## [REST классического развертывания](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/automation/)  
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=automation) 
 ## [Обучение работе со службой автоматизации Azure](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Вводный видеоролик о службе автоматизации](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

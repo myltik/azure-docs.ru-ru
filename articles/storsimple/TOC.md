@@ -5,7 +5,7 @@
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-ova-overview.md)
 
-## Приступая к работе
+## Начало работы
 ### План
 #### [Обзор требований](storsimple-ova-system-requirements.md)
 #### [Изучение ограничений](storsimple-ova-limits.md)
@@ -44,7 +44,7 @@
 ### [Карта обучения StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Вопросы безопасности](storsimple-security.md)
 
-## Приступая к работе
+## Начало работы
 ### План
 #### [Обзор требований](storsimple-system-requirements.md)
 #### [Обзор технических спецификаций](storsimple-technical-specifications-and-compliance.md)
@@ -57,7 +57,7 @@
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
 #### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Развернуть 
+### Развернуть
 #### [Служба диспетчера StorSimple](storsimple-manage-service.md)
 #### [Физическое устройство в Azure (текущая версия)](storsimple-deployment-walkthrough-u2.md)
 ##### [Физическое устройство в Azure (обновление 1)](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [Адаптер StorSimple для SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Практическое руководство
-### Управление 
+### Управление
 #### [Использование службы диспетчера StorSimple](storsimple-manager-service-administration.md)
 ##### [Восстановление из архива](storsimple-restore-from-backup-set-u2.md)
 ###### [Восстановление из архива](storsimple-restore-from-backup-set.md)
@@ -160,18 +160,20 @@
 ### [Выпуск общедоступной версии](storsimple-july-2014-release-notes.md)
 
 ## Справочные материалы
-### [Справочник по командлетам Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Справочник по командлетам Windows PowerShell для StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](/powershell/servicemanagement/)
 
-# [Хранилище StorSimple серии 5000–7000](http://onlinehelp.storsimple.com)
+# Сопутствующие материалы
+## [Хранилище StorSimple серии 5000–7000](http://onlinehelp.storsimple.com)
 
 # Ресурсы
-## [Блог Azure](https://azure.microsoft.com/blog/)
-## [Форумы](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Форум](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Блог по маркетингу](http://blogs.technet.com/b/cis/)
-## [Маркетинг](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Маркетинг](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Блог службы поддержки](http://blogs.msdn.com/b/storsimple/)
 ## [Уведомления сторонних производителей](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=storsimple)
+## [Цены](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->

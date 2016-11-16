@@ -5,8 +5,9 @@
 # Приступая к работе
 ## [Приступая к работе с Power BI Embedded](power-bi-embedded-get-started.md)
 ## [Приступая к работе с примером](power-bi-embedded-get-started-sample.md)
+## [Часто задаваемые вопросы](power-bi-embedded-faq.md)
 
-# Практическое руководство 
+# Практическое руководство
 ## планирование и разработка
 ### [Распространенные сценарии](power-bi-embedded-scenarios.md)
 
@@ -20,19 +21,17 @@
 ### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
 
 # Справочные материалы
-## [Справочник по API .NET](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [Пакет SDK для JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Справочник по REST API](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST](/rest/api/powerbiembedded/)
 
-# Сопутствующие материалы 
 
 # Ресурсы
-## [Часто задаваемые вопросы](power-bi-embedded-faq.md)
 ## [Примеры](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->

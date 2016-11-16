@@ -1,7 +1,7 @@
 # Обзор
-## [Основные сведения о пакетной службе](batch-technical-overview.md)
-## [Обзор функций пакетной службы](batch-api-basics.md)
-## [Квоты и ограничения пакетной службы](batch-quota-limit.md)
+## [Что такое пакетная служба Azure?](batch-technical-overview.md)
+## [Обзор возможностей](batch-api-basics.md)
+## [Квоты и ограничения](batch-quota-limit.md)
 # Начало работы
 ## [Создание учетной записи пакетной службы](batch-account-create-portal.md)
 ## [Учебник по .NET для пакетной службы](batch-dotnet-get-started.md)
@@ -20,26 +20,32 @@
 ### [Зависимости задач](batch-task-dependencies.md)
 ### [Шаблоны проектов Visual Studio для пакетной службы](batch-visual-studio-templates.md)
 ## Управление
-### [Интерфейс командной строки пакетной службы](batch-cli-get-started.md)
 ### [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
+### [Интерфейс командной строки Azure](batch-cli-get-started.md)
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
+
 # Справочные материалы
-## [Справочник по REST API пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Справочник по .NET пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Справочник по Python для пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Справочник по Node.js для пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Справочник по Java для пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Справочник по использованию .NET для управления пакетной службой](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Справочник по PowerShell для пакетной службы](https://go.microsoft.com/fwlink/p/?linkid=833500)
+## [Командлеты PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Java](https://docs.microsoft.com/java/api)
+## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [Пакет SDK для Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+
 # Сопутствующие материалы
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Решения для пакетной службы и высокопроизводительных вычислений в облаке Azure](batch-hpc-solutions.md)
 ## [Большие вычисления в Azure: технические ресурсы](big-compute-resources.md)
+
 # Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/batch/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 ## [Примеры кода C# для пакетной службы](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python для пакетной службы](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,11 +1,12 @@
 # Обзор
-## [Что такое Hadoop?](hdinsight-hadoop-introduction.md)
-## [Что такое R Server?](hdinsight-hadoop-r-server-overview.md)
-## [Что такое Spark?](hdinsight-apache-spark-overview.md)
-## [Что такое HBase?](hdinsight-hbase-overview.md)
-## [Что такое Storm?](hdinsight-storm-overview.md)
-## [Что такое присоединенная к домену предварительная версия HDInsight?](hdinsight-domain-joined-introduction.md)
+## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [Компоненты Hadoop в HDInsight](hdinsight-component-versioning.md)
+## [R Server](hdinsight-hadoop-r-server-overview.md)
+## [Apache Spark](hdinsight-apache-spark-overview.md)
+## [HBase](hdinsight-hbase-overview.md)
+## [Apache Storm](hdinsight-storm-overview.md)
+## [Присоединенная к домену предварительная версия HDInsight](hdinsight-domain-joined-introduction.md)
+
 # Начало работы
 ## [Начало работы с Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Начало работы с предварительной версией Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
@@ -13,14 +14,13 @@
 ## [Начало работы со Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Начало работы с HBase и NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Начало работы со Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Удаление кластера](hdinsight-delete-cluster.md)
 ## [Изолированная среда Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Использование инструментов Data Lake с изолированной средой Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Инструменты для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 ## [Использование хранилища BLOB-объектов](hdinsight-hadoop-use-blob-storage.md)
-## [Схема обучения](https://azure.microsoft.com/en-us/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-# Практическое руководство:
-## Hadoop: пакетный запрос
+
+# Практическое руководство
+## Использование Hadoop для пакетных запросов
 ### [Использование Hive с Hadoop](hdinsight-use-hive.md)
 #### [Использование представления Hive](hdinsight-hadoop-use-hive-ambari-view.md)
 #### [Использование протокола SSH](hdinsight-hadoop-use-hive-ssh.md)
@@ -37,7 +37,7 @@
 #### [Использование протокола SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [Использование cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Использование PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [Примеры MapReduce](hdinsight-hadoop-run-samples-linux.md)
+### [Выполнение примеров MapReduce](hdinsight-hadoop-run-samples-linux.md)
 ### [Использование Pig с Hadoop](hdinsight-use-pig.md)
 #### [Использование удаленного рабочего стола](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [Использование SSH c Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -47,11 +47,11 @@
 ### [Использование DataFu с Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Кластеры по запросу](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Отправка заданий Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server (предварительная версия)
+## Использование предварительной версии R Server
 ### [Варианты хранилищ](hdinsight-hadoop-r-server-storage.md)
 ### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
-## Spark: обработка в памяти
+## Использование Spark для обработки в памяти
 ### [С помощью инструментов бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 ### [Автономное приложение](hdinsight-apache-spark-create-standalone-application.md)
 ### [Обработка событий потоковой передачи](hdinsight-apache-spark-eventhub-streaming.md)
@@ -67,7 +67,7 @@
 ### [Управление ресурсами](hdinsight-apache-spark-resource-manager.md)
 ### [Отслеживание и отладка заданий](hdinsight-apache-spark-job-debugging.md)
 ### [Известные проблемы](hdinsight-apache-spark-known-issues.md)
-## HBase: NoSQL
+## Использование HBase
 ### [Использование Phoenix и SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Анализ твитов в реальном времени](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Создание кластеров в виртуальной сети](hdinsight-hbase-provision-vnet.md)
@@ -75,7 +75,7 @@
 ### [Настройка DNS-серверов](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [Настройка георепликации HBase](hdinsight-hbase-geo-replication.md)
 ### [Разработка приложения с помощью Java](hdinsight-hbase-build-java-maven-linux.md)
-## Storm: потоковый запрос
+## Использование Storm
 ### [Развертывание топологий и управление ими](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [Разработка приложений для обработки данных в SCP](hdinsight-storm-scp-programming-guide.md)
 ### [Примеры Storm](hdinsight-storm-example-topology.md)
@@ -90,7 +90,7 @@
 #### [Обработка данных, поступающих от датчиков автомобиля](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Сопоставление событий в динамике по времени](hdinsight-storm-correlation-topology.md)
 #### [Разработка топологий с помощью Python](hdinsight-storm-develop-python-topology.md)
-## Присоединенная к домену предварительная версия HDInsight
+## Использование присоединенной к домену предварительной версии HDInsight
 ### [Настройка](hdinsight-domain-joined-configure.md)
 ### [Управление](hdinsight-domain-joined-manage.md)
 ### [Настройка политик Hive](hdinsight-domain-joined-run-hive.md)
@@ -104,7 +104,7 @@
 ### [Сериализация данных с помощью библиотеки Avro](hdinsight-dotnet-avro-serialization.md)
 ### [Использование определяемых пользователем функций C#](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Использование Python с Hive и Pig](hdinsight-python.md)
-## Решения для больших данных
+## Анализ больших данных
 ### [Анализ с помощью Power Query](hdinsight-connect-excel-power-query.md)
 ### [Подключение Excel к Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Подключение с помощью драйвера Hive JDBC](hdinsight-connect-hive-jdbc-driver.md)
@@ -125,7 +125,7 @@
 ### [Использование Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Использование виртуальной сети](hdinsight-extend-hadoop-virtual-network.md)
 ### [Использование Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
-### Приложения HDInsight
+### Сборка приложений HDInsight
 #### [Установка приложений HDInsight](hdinsight-apps-install-applications.md)
 #### [Установка пользовательских приложений](hdinsight-apps-install-custom-applications.md)
 #### [Установка приложений с помощью REST](https://msdn.microsoft.com/library/mt706515.aspx)
@@ -142,7 +142,7 @@
 #### [Использование пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [Использование Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 #### [Использование портала Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
-#### [Использование шаблонов диспетчера ресурсов Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+#### [Использование шаблонов Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Управление кластерами Hadoop](hdinsight-administer-use-portal-linux.md)
 #### [Использование пакета SDK для .NET](hdinsight-administer-use-dotnet-sdk.md)
 #### [Использование Azure PowerShell](hdinsight-administer-use-powershell.md)
@@ -172,6 +172,7 @@
 #### [Исправление ошибки "нехватка памяти" с помощью параметров Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Оптимизация запросов Hive](hdinsight-hadoop-optimize-hive-query.md)
 #### [Производительность запросов Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # Справочные материалы
 ## [Справочник по REST API](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [Spark REST API для удаленных заданий](https://msdn.microsoft.com/library/mt613023.aspx)
@@ -179,8 +180,8 @@
 ## [.NET SDK для Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK для Hadoop](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Библиотеки .NET для Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-# Ресурсы
-## [Обращение за помощью на форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+
+# Сопутствующие материалы
 ## Кластеры Windows
 ### [Перенос кластеров Windows в кластеры Linux](hdinsight-migrate-from-windows-to-linux.md)
 ### [Начало работы с Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -210,6 +211,11 @@
 ### [Анализ данных Twitter](hdinsight-analyze-twitter-data.md)
 ### [Управление кластерами с помощью портала Azure](hdinsight-administer-use-management-portal.md)
 ### [Отслеживание кластеров с помощью Ambari API](hdinsight-monitor-use-ambari-api.md)
+
+# Ресурсы
+## [Обращение за помощью на форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 
 <!--HONumber=Nov16_HO2-->
 

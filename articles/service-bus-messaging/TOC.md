@@ -23,7 +23,7 @@
 ## [Создание подписанных URL-адресов](service-bus-sas-overview.md)
 
 # Практическое руководство:
-## планирование и разработка
+## Планирование и проектирование
 ### [Оптимизация производительности](service-bus-performance-improvements.md)
 ### [Асинхронный обмен сообщениями и высокий уровень доступности](service-bus-async-messaging.md)
 ### [Обработка сбоев и аварийных ситуаций](service-bus-outages-disasters.md)
@@ -53,10 +53,10 @@
 # Справочные материалы
 ## [Сведения о тарифах](service-bus-pricing-billing.md)
 ## [Примеры](service-bus-samples.md)
-## [Справочник по API .NET](https://msdn.microsoft.com/library/azure/jj933424)
-## [Справочник по REST API](https://msdn.microsoft.com/library/azure/hh780717)
 ## [Исключения](service-bus-messaging-exceptions.md)
 ## [Квоты](service-bus-quotas.md)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
 # Ресурсы
 ## [Блог](https://blogs.msdn.microsoft.com/servicebus/)
@@ -65,6 +65,8 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=service-bus)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

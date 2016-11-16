@@ -7,7 +7,7 @@
 ## [Сквозное шифрование SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md#application-gateway-limits.md)
-# Приступая к работе
+# Начало работы
 ## Создание шлюза приложений
 ### Для общего доступа
 #### [Портал](application-gateway-create-gateway-portal.md)
@@ -37,23 +37,27 @@
 ### [Портал](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
-### Управление
+## Управление
 ### [Диагностика](application-gateway-diagnostics.md)
 ### [Устранение неполадок](application-gateway-troubleshooting-502.md)
 # Справочные материалы
-## [Интерфейсы API Resource Manager](https://msdn.microsoft.com/library/azure/mt684941)
-## [Интерфейсы API управления службами](https://msdn.microsoft.com/library/azure/mt299393)
-## [Командлеты PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [Командлеты PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [Классическая архитектура REST](https://msdn.microsoft.com/library/azure/mt299393)
+
 # Сопутствующие материалы
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Виртуальная сеть](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN-шлюз](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Балансировщик нагрузки](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Диспетчер трафика](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [Виртуальная сеть](/azure/virtual-network/)
+## [VPN-шлюз](/azure/vpn-gateway/)
+## [Виртуальные машины](/azure/virtual-machines/)
+## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Диспетчер трафика](/azure/traffic-manager/)
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Обновления службы](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

@@ -2,7 +2,7 @@
 ## [Что такое Azure Application Insights?](app-insights-overview.md)
 ## [Принцип работы](app-insights-detect-triage-diagnose.md)
 
-# Приступая к работе
+# Начало работы
 ## Мониторинг Azure
 ### [Веб-приложения Azure](app-insights-azure-web-apps.md)
 ### [облачных служб Azure](app-insights-cloudservices.md)
@@ -29,7 +29,7 @@
 ## [Часто задаваемые вопросы об ASP.NET](app-insights-troubleshoot-faq.md)
 
 # Практическое руководство
-## планирование и разработка
+## Планирование и проектирование
 
 ### [Углубленная диагностика для веб-приложений и служб](app-insights-devops.md)
 ### [Аналитические средства для разработчиков в Application Insights и HockeyApp](app-insights-developer-analytics.md)
@@ -128,27 +128,31 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Справочные материалы
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Аналитика](app-insights-analytics-reference.md)
 ## [Выборка](app-insights-sampling.md)
 ## [IP-адреса](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [Экспорт модели данных](app-insights-export-data-model.md)
-## [ИНТЕРФЕЙС REST API](https://dev.applicationinsights.io/)
-## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [API пакета SDK для Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Переход от мониторинга конечных точек Azure к тестам доступности](app-insights-migrate-azure-endpoint-tests.md)
 ## [Аналитические средства для разработчиков: языки, платформы, интеграция](app-insights-platforms.md)
 ### [Примеры и пошаговые руководства](app-insights-code-samples.md)
-
 #### [Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Пошаговое руководство. Экспорт в SQL с использованием Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Пример кода. Анализ экспортированных данных](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Заметки о выпуске пакета SDK Application Insights для Windows Phone и Магазина Windows](app-insights-release-notes-windows.md)
 ## [Заметки о выпуске средств анализа для разработчиков](app-insights-release-notes-vsix.md)
 ## [Заметки о выпуске пакета SDK для Application Insights](app-insights-release-notes.md)
+## [ИНТЕРФЕЙС REST API](https://dev.applicationinsights.io/)
 
 # Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Поддержка](app-insights-get-dev-support.md)
 
 
