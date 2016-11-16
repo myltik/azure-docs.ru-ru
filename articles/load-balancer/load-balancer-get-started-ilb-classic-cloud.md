@@ -1,44 +1,48 @@
 ---
-title: Создание внутреннего балансировщика нагрузки для облачных служб в классической модели развертывания | Microsoft Docs
-description: Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell.
+title: "Создание подсистемы балансировки нагрузки для облачных служб в классической модели развертывания | Документация Майкрософт"
+description: "Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell."
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85e22954c19d7d51579029c7426f0ee79b780504
 
 ---
-# Начало работы по созданию внутреннего балансировщика нагрузки (классическая версия) для облачных служб
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
-<BR>
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Начало работы по созданию внутреннего балансировщика нагрузки (классическая версия) для облачных служб
+
+[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Узнайте, как [выполнить эти действия с помощью модели Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-## Настройка внутреннего балансировщика нагрузки для облачных служб
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Настройка внутреннего балансировщика нагрузки для облачных служб
+
 Внутренний балансировщик нагрузки поддерживается как для виртуальных машин, так и для облачных служб. Доступ к конечной точке внутреннего балансировщика, созданной в облачной службе за пределами региональной виртуальной сети, можно будет получить только из этой облачной службы.
 
 Конфигурацию внутреннего балансировщика нагрузки необходимо задавать во время создания первого развертывания в облачной службе, как показано в приведенном ниже примере.
 
 > [!IMPORTANT]
 > Для выполнения указанных ниже действий необходимо, чтобы виртуальная сеть была создана и готова к облачному развертыванию. Для создания внутренней балансировки нагрузки потребуется имя виртуальной сети и имя подсети.
-> 
-> 
 
-### Шаг 1
-Откройте файл конфигурации службы (с расширением CSCFG) для облачного развертывания в Visual Studio и добавьте под последним элементом `</Role>` в конфигурации сети приведенный ниже раздел, чтобы создать внутреннюю балансировку нагрузки.
+### <a name="step-1"></a>Шаг 1
 
+Откройте файл конфигурации службы (с расширением CSCFG) для облачного развертывания в Visual Studio и добавьте под последним элементом`</Role>`в конфигурации сети приведенный ниже раздел, чтобы создать внутреннюю балансировку нагрузки.
+
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="name of the load balancer">
@@ -46,10 +50,11 @@ ms.author: sewhee
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
+Добавим значения в файл конфигурации сети, чтобы показать, как он будет выглядеть. Для примера предположим, что вы создали подсеть с именем test_vnet и подсетью 10.0.0.0/24, имеющей имя test_subnet и статический IP-адрес 10.0.0.4. Подсистема балансировки нагрузки будет называться testLB.
 
-Добавим значения в файл конфигурации сети, чтобы показать, как он будет выглядеть. Для примера предположим, что вы создали подсеть с именем test\_vnet и подсетью 10.0.0.0/24, имеющей имя test\_subnet и статический IP-адрес 10.0.0.4. Подсистема балансировки нагрузки будет называться testLB.
-
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="testLB">
@@ -57,31 +62,43 @@ ms.author: sewhee
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
 Дополнительные сведения о схеме балансировщика нагрузки см. в статье [Добавление подсистемы балансировки нагрузки](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-### Шаг 2
+### <a name="step-2"></a>Шаг 2
+
 Добавьте в CSDEF-файл конечные точки для подсистемы внутренней балансировки нагрузки. При создании экземпляра роли CSDEF-файл добавляет его в подсистему внутренней балансировки нагрузки.
 
+```xml
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
       </Endpoints>
     </WorkerRole>
+```
 
 Добавим значения из приведенного выше примера в CSDEF-файл.
 
-    <WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+```xml
+    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
       </Endpoints>
     </WorkerRole>
+```
 
-Балансировка сетевого трафика будет осуществляться с использованием балансировщика нагрузки testLB. При этом порт 80 будет использоваться как для получения входящих запросов, так и для их отправки в экземпляры рабочих ролей.
+Балансировка сетевого трафика будет осуществляться с использованием балансировщика нагрузки testLB. При этом порт 80 будет использоваться как для получения входящих запросов, так и для их отправки в экземпляры рабочих ролей.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
+
 [Настройка режима распределения балансировщика нагрузки с помощью соответствия исходному IP-адресу](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

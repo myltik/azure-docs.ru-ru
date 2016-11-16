@@ -1,23 +1,27 @@
 ---
-title: Создание балансировщика нагрузки для Интернета в Resource Manager с помощью портала Azure | Microsoft Docs
-description: Узнайте, как создать балансировщик нагрузки для Интернета в Resource Manager с помощью портала Azure.
+title: "Создание подсистемы балансировки нагрузки для Интернета в Resource Manager с помощью портала Azure | Документация Майкрософт"
+description: "Узнайте, как создать балансировщик нагрузки для Интернета в Resource Manager с помощью портала Azure."
 services: load-balancer
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9e27ce132a837ec26a92de0c38b3e1c23b706c1
+
 
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Создание балансировщика нагрузки для Интернета на портале Azure
+# <a name="creating-an-internetfacing-load-balancer-using-the-azure-portal"></a>Создание балансировщика нагрузки для Интернета на портале Azure
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,7 +34,7 @@ ms.author: annahar
 
 В этой статье приводится порядок выполнения отдельных операций, которые требуется выполнить для создания балансировщика нагрузки, а также подробно объясняется, что необходимо сделать для решения этой задачи.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>Что необходимо для создания балансировщика нагрузки для Интернета?
+## <a name="what-is-required-to-create-an-internetfacing-load-balancer"></a>Что необходимо для создания балансировщика нагрузки для Интернета?
 Чтобы развернуть балансировщик нагрузки, необходимо создать и настроить следующие объекты.
 
 * Конфигурация интерфейсных IP-адресов. Содержит общедоступные IP-адреса для входящего сетевого трафика.
@@ -56,14 +60,14 @@ ms.author: annahar
 
 ![Обновление группы ресурсов балансировщика нагрузки](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## <a name="create-a-back-end-address-pool"></a>Создание серверного пула адресов
+## <a name="create-a-backend-address-pool"></a>Создание серверного пула адресов
 1. После успешного развертывания балансировщика нагрузки выберите его в списке ресурсов. В разделе "Параметры" выберите "Серверные пулы". Введите имя для серверного пула. Затем в верхней части появившейся колонки нажмите кнопку **Добавить** .
 2. В колонке **Добавление серверного пула** щелкните **Добавить виртуальную машину**.  В разделе **Группа доступности** щелкните **Выберите группу доступности**, а затем выберите **myAvailSet**. После этого в разделе "Виртуальные машины" колонки щелкните **Выберите виртуальные машины** и выберите **web1** и **web2** — две виртуальные машины, созданные для балансировки нагрузки. Убедитесь, что слева от каждой из них установлен синий флажок, как показано на рисунке ниже. В этой колонке щелкните **Выбрать**, затем нажмите кнопку "ОК" в колонке **Выбор виртуальных машин**, а затем — кнопку **ОК** в колонке **Добавление серверного пула**.
    
     ![Добавление в серверный пул адресов ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 3. Убедитесь, что в раскрывающемся списке уведомлений есть сообщение о сохранении серверного пула балансировщика нагрузки, а также об обновлении сетевого интерфейса для виртуальных машин **web1** и **web2**.
 
-## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Создание пробы, правила балансировщика нагрузки и правил NAT
+## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Создание пробы, правила балансировщика нагрузки и правил NAT
 1. Создайте пробу работоспособности.
    
     В параметрах балансировщика нагрузки выберите "Пробы". В верхней части колонки щелкните **Добавить** .
@@ -97,6 +101,9 @@ ms.author: annahar
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

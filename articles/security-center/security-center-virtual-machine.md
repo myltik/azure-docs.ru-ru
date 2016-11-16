@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center and Azure Virtual Machines | Microsoft Docs
-description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
+title: "Центр безопасности Azure и виртуальные машины Azure | Документация Майкрософт"
+description: "Этот документ содержит сведения о том, как с помощью центра безопасности Azure можно защитить виртуальные машины Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,91 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c5cebf365f99866058aec25da0564ee0854af9a
+
 
 ---
-# <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center and Azure Virtual Machines
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) helps you prevent, detect, and respond to threats. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+# <a name="azure-security-center-and-azure-virtual-machines"></a>Центр безопасности Azure и виртуальные машины Azure
+[Центр безопасности Azure](https://azure.microsoft.com/services/security-center/) позволяет предотвращать, обнаруживать угрозы и реагировать на них. Она включает встроенные функции мониторинга безопасности и управления политиками для подписок Azure, помогает выявлять угрозы, которые в противном случае могли бы оказаться незамеченными, и взаимодействует с широким комплексом решений по обеспечению безопасности.
 
-This article shows how Security Center can help you secure your Azure Virtual Machines (VM).
+В этой статье показано, как с помощью центра безопасности можно защитить виртуальные машины Azure.
 
-## <a name="why-use-security-center?"></a>Why use Security Center?
-Security Center helps you safeguard virtual machine data in Azure by providing visibility into your virtual machine’s security settings. When Security Center safeguards your VMs, the following capabilities will be available:
+## <a name="why-use-security-center"></a>Для чего используется центр безопасности?
+Центр безопасности помогает защитить данные виртуальных машин в Azure, обеспечивая представление параметров безопасности. Защита виртуальных машин с помощью центра безопасности предоставляет следующие возможности:
 
-* Operating System (OS) security settings with the recommended configuration rules
-* System security and critical updates that are missing
-* Endpoint protection recommendations
-* Disk encryption validation
-* Vulnerability assessment and remediation
-* Threat detection
+* Соответствие параметров безопасности операционной системы (ОС) рекомендуемым правилам конфигурации.
+* Своевременная установка отсутствующих обновлений системы безопасности и критических обновлений.
+* Рекомендации по защите конечных точек.
+* Проверка шифрования диска.
+* Оценка уязвимостей и их устранение.
+* Обнаружение угроз
 
-In addition to helping protect your Azure VMs, Security Center also provides security monitoring and management for Cloud Services, App Services, Virtual Networks, and more. 
-
-> [!NOTE]
-> See [Introduction to Azure Security Center](security-center-intro.md) to learn more about Azure Security Center.
-> 
-> 
-
-## <a name="prerequisites"></a>Prerequisites
-To get started with Azure Security Center, you’ll need to know and consider the following:
-
-* You must have a subscription to Microsoft Azure. See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on Security Center’s free and standard tiers.
-* Plan your Security Center adoption, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) to learn more about planning and operations considerations.
-* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md). 
-
-## <a name="set-security-policy"></a>Set security policy
-Data collection needs to be enabled so that Azure Security Center can gather the information it needs to provide recommendations and alerts that are generated based on the security policy you configure. In the figure below, you can see that **Data collection** has been turned **On**.
-
-A security policy defines the set of controls which are recommended for resources within the specified subscription or resource group. Before enabling security policy, you must have data collection enabled, Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. In Security Center, you define policies for your Azure subscriptions or resource groups according to your company’s security needs and the type of applications or sensitivity of the data in each subscription. 
-
-![Security policy](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
+Помимо защиты виртуальных машин Azure центр безопасности предоставляет средства мониторинга и управления безопасностью облачных служб, служб приложений, виртуальных сетей, а также многие другие возможности. 
 
 > [!NOTE]
-> To learn more about each **Prevention policy** available, see [Set security policies](security-center-policies.md) article.
+> Дополнительные сведения о центре безопасности Azure см. в статье [Введение в Центр безопасности Azure](security-center-intro.md).
 > 
 > 
 
-## <a name="manage-security-recommendations"></a>Manage security recommendations
-Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
+## <a name="prerequisites"></a>Предварительные требования
+Чтобы начать работу с центром безопасности Azure, необходимо принять во внимание следующее.
 
-After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The recommendations are shown in a table format where each line represents one particular recommendation. The table below provides some examples of recommendations for Azure VMs and what each one will do if you apply it. When you select a recommendation, you will be provided information that shows you how to implement the recommendation in Security Center.
+* Вам необходимо иметь подписку Microsoft Azure. Дополнительные сведения об уровнях "Бесплатный" и "Стандартный" центра безопасности на странице [цен на центр безопасности](https://azure.microsoft.com/pricing/details/security-center/).
+* Дополнительные сведения и рекомендации по планированию использования центра безопасности Azure и работе в нем см. в [этом руководстве](security-center-planning-and-operations-guide.md).
+* Сведения о поддержке операционных систем см. в статье [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). 
 
-| Recommendation | Description |
+## <a name="set-security-policy"></a>Установка политики безопасности
+Чтобы центр безопасности Azure мог собирать сведения, необходимые для предоставления рекомендаций и оповещений, которые создаются на основе настроек политики безопасности, нужно включить сбор данных. На рисунке ниже видно, что для параметра **Сбор данных** выбрано значение **Вкл.**.
+
+Политика безопасности определяет набор элементов управления, которые рекомендуются для ресурсов в указанной подписке или группе ресурсов. Сбор данных необходимо включить перед включением политики безопасности. Центр безопасности собирает с виртуальных машин данные, оценивает состояние их безопасности на основе этих данных, предоставляет рекомендации по обеспечению безопасности и предупреждает об угрозах. В центре безопасности можно настраивать политики для подписок Azure или групп ресурсов в соответствии с потребностями безопасности вашей компании, типом приложений или конфиденциальностью данных в каждой подписке. 
+
+![Политика безопасности](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
+
+> [!NOTE]
+> Дополнительные сведения о каждой доступной **политике предотвращения** см. в статье [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md).
+> 
+> 
+
+## <a name="manage-security-recommendations"></a>Управление рекомендациями по обеспечению безопасности
+Центр безопасности анализирует состояние безопасности ваших ресурсов Azure. Когда Центр безопасности выявляет потенциальные уязвимости системы безопасности, он создает рекомендации. Рекомендации помогают настраивать необходимые элементы управления.
+
+После настройки политики безопасности Центр безопасности анализирует состояние безопасности ресурсов, чтобы выявить потенциальные уязвимости. Рекомендации отображаются в табличном формате, где каждая строка представляет одну конкретную рекомендацию. В таблице ниже приведены некоторые рекомендации для виртуальных машин Azure и их описание. После выбора рекомендации отобразятся сведения о том, как реализовать эту рекомендацию в центре безопасности.
+
+| Рекомендации | Описание |
 | --- | --- |
-| [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
-| [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
-| [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md) |Recommends that you resolve endpoint protection failures. |
-| [Enable VM Agent](security-center-enable-vm-agent.md) |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
-| [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
-| [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
+| [Включение сбора данных для подписок](security-center-enable-data-collection.md) |Рекомендует включить в политике безопасности сбор данных для каждой вашей подписки и всех виртуальных машин (ВМ) в ваших подписках. |
+| [Исправление уязвимостей ОС](security-center-remediate-os-vulnerabilities.md) |Рекомендует обеспечить соответствие конфигураций ОС рекомендуемым правилам конфигурации, например запретить сохранение паролей. |
+| [Применение обновлений системы](security-center-apply-system-updates.md) |Рекомендует выполнить развертывание отсутствующих обновлений системы безопасности и критических обновлений на виртуальных машинах. |
+| [Перезагрузка после завершения обновлений системы](security-center-apply-system-updates.md#reboot-after-system-updates) |Рекомендует перезагрузить виртуальную машину, чтобы завершить применение обновлений системы. |
+| [Установка Endpoint Protection](security-center-install-endpoint-protection.md) |Рекомендует подготовить антивредоносные программы на виртуальных машинах (только для виртуальных машин Windows). |
+| [Разрешить оповещения работоспособности Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md) |Рекомендует устранить ошибки защиты конечных точек. |
+| [Включение агента виртуальной машины](security-center-enable-vm-agent.md) |Позволяет узнать, на какие виртуальные машины необходимо установить агент ВМ. На виртуальные машины необходимо установить агент виртуальной машины, чтобы проверить наличие необходимых исправлений, базовые показатели и подготовить антивредоносные программы. Агент виртуальной машины устанавливается по умолчанию на виртуальных машинах, развернутых из Azure Marketplace. В статье [Агент виртуальной машины и расширения. Часть 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) содержатся сведения об установке агента ВМ. |
+| [Применение шифрования дисков](security-center-apply-disk-encryption.md) |Рекомендует выполнить шифрование дисков виртуальной машины с помощью шифрования дисков Azure (виртуальных машин Windows и Linux). Шифровать рекомендуется как том операционной системы, так и том данных на виртуальной машине. |
+| [Оценка уязвимостей не установлена](security-center-vulnerability-assessment-recommendations.md) |Рекомендует установить решение для оценки уязвимостей на виртуальную машину. |
+| [Исправление уязвимостей](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Позволяет просматривать уязвимости системы и приложений, обнаруженные решением для оценки уязвимостей, установленным на виртуальной машине. |
 
 > [!NOTE]
-> To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md) article.
+> Дополнительные сведения о рекомендациях см. в статье [Управление рекомендациями по безопасности в центре безопасности Azure](security-center-recommendations.md).
 > 
 > 
 
-## <a name="monitor-security-health"></a>Monitor security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources, along with any issues in the **Resource security health** blade. When you click **Virtual machines** in the **Resource security** health tile, the **Virtual machines** blade will open with recommendations for your VMs. 
+## <a name="monitor-security-health"></a>Отслеживание состояния системы безопасности
+Когда вы включаете [политики безопасности](security-center-policies.md) для ресурсов в рамках подписки, центр безопасности проверяет состояние защиты ресурсов, чтобы определить потенциальные уязвимости.  Сведения о состоянии безопасности ваших ресурсов, а также возникшие проблемы можно просмотреть в колонке **Работоспособность безопасности ресурсов**. Если щелкнуть **Виртуальные машины** на плитке **Работоспособность безопасности ресурсов**, откроется колонка **Виртуальные машины** с рекомендациями для ваших виртуальных машин. 
 
-![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
+![Работоспособность системы безопасности](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## <a name="manage-and-respond-to-security-alerts"></a>Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-detection-capabilities.md), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
+## <a name="manage-and-respond-to-security-alerts"></a>Управление оповещениями системы безопасности и реагирование на них
+Центр безопасности автоматически собирает, анализирует и объединяет данные журналов, поступающие от ресурсов Azure, сети и подключенных решений партнеров, таких как брандмауэры и решения для защиты конечных точек, для выявления реальных угроз и сокращения ложных срабатываний. Благодаря использованию различных сочетаний [возможностей обнаружения](security-center-detection-capabilities.md) центр безопасности может создавать приоритетные оповещения системы безопасности, позволяющие быстро проанализировать проблему, а также предоставлять рекомендации по устранению атаки.
 
-![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
+![Оповещения безопасности](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by [type](security-center-alerts-type.md) and date.
+Выберите оповещение системы безопасности, чтобы получить дополнительные сведения о событиях, вызвавших оповещение, и (при необходимости) действиях, которые следует предпринять для устранения атаки. Оповещения системы безопасности группируются по [типу](security-center-alerts-type.md) и дате.
 
-## <a name="see-also"></a>See also
-To learn more about Security Center, see the following:
+## <a name="see-also"></a>Дополнительные материалы
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+* [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
+* [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+* [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

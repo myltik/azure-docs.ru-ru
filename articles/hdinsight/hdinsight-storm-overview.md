@@ -1,13 +1,13 @@
 ---
-title: Основные сведения об Apache Storm в службе HDInsight | Microsoft Docs
-description: Изучите общие сведения об Apache Storm и узнайте, как создавать облачные решения для анализа данных в реальном времени с помощью Storm в HDInsight.
+title: "Основные сведения об Apache Storm в службе HDInsight | Документация Майкрософт"
+description: "Изучите общие сведения об Apache Storm и узнайте, как создавать облачные решения для анализа данных в реальном времени с помощью Storm в HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,18 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight:-real-time-analytics-for-hadoop"></a>Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
 Apache Storm в службе HDInsight позволяет создавать в среде Azure распределенные решения для анализа данных в реальном времени. Для этих целей используется [Apache Hadoop](http://hadoop.apache.org).
 
-## <a name="what-is-apache-storm?"></a>Что такое Apache Storm
-Apache Storm — это распределенная отказоустойчивая вычислительная система с открытым исходным кодом, предназначенная для обработки данных в реальном времени с использованием Hadoop. Решения Storm могут также обеспечить гарантированную обработку данных и возможность воспроизвести те данные, которые не прошли удачную обработку в первый раз.
+## <a name="what-is-apache-storm"></a>Что такое Apache Storm
+Apache Storm — это распределенная отказоустойчивая вычислительная система с открытым исходным кодом, предназначенная для обработки данных в реальном времени с использованием Hadoop. Решения Storm могут также обеспечить гарантированную обработку данных и возможность воспроизвести те данные, которые не прошли удачную обработку в первый раз.
 
-## <a name="why-use-storm-on-hdinsight?"></a>Преимущества Apache Storm в HDInsight
+## <a name="why-use-storm-on-hdinsight"></a>Преимущества Apache Storm в HDInsight
 Apache Storm в HDInsight представляет собой управляемый кластер, интегрированный в среду Azure. Такое решение имеет ряд основных преимуществ.
 
-* Работа в виде управляемой службы, которая гарантировано доступна 99,9 % времени.
+* Работа в виде управляемой службы, которая гарантировано доступна 99,9 % времени.
 * Выбор языков программирования: поддерживаются компоненты Storm, написанные на языках **Java**, **C#** и **Python**.
   
   * Поддержка смешанных языков: можно считывать данные с помощью Java, а затем обрабатывать их с помощью C#.#
@@ -56,11 +60,11 @@ Apache Storm в HDInsight представляет собой управляем
 В течение 15 минут после отправки запроса у вас будет новый работающий кластер Storm, полностью готовый для первого конвейера аналитики в реальном времени.
 
 ### <a name="ease-of-use"></a>Простота использования
-**Для Storm под управлением Linux в кластерах HDInsight** можно подключиться к кластеру с помощью SSH и использовать команду `storm` для запуска топологий и управления ими. Кроме того, можно использовать Ambari для отслеживания службы Storm и пользовательский интерфейс Storm — для отслеживания запущенных топологий и управления ими.
+**Для Storm под управлением Linux в кластерах HDInsight** можно подключиться к кластеру с помощью SSH и использовать команду `storm` для запуска топологий и управления ими. Кроме того, можно использовать Ambari для отслеживания службы Storm и пользовательский интерфейс Storm — для отслеживания запущенных топологий и управления ими.
 
 Дополнительные сведения о работе с кластерами Storm под управлением Linux можно найти в разделе [Приступая к работе с Apache Storm в HDInsight под управлением Linux](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
-__Для Storm под управлением Windows в кластерах HDInsight__средства HDInsight для Visual Studio позволяют создавать однотипные (C#) и гибридные (C#/Java) топологии и отправлять их в кластер Storm в HDInsight.  
+**Для Storm под управлением Windows в кластерах HDInsight**средства HDInsight для Visual Studio позволяют создавать однотипные (C#) и гибридные (C#/Java) топологии и отправлять их в кластер Storm в HDInsight.  
 
 ![Создание проекта Storm](./media/hdinsight-storm-overview/createproject.png)
 
@@ -101,9 +105,9 @@ __Для Storm под управлением Windows в кластерах HDIns
 > 
 
 ### <a name="support"></a>Поддержка
-Для кластеров Storm в HDInsight круглосуточно действует полная поддержка корпоративного уровня. Коме того, для кластеров Storm в HDInsight заявлена гарантированная доступность в течение 99,9 % времени. Это означает, что мы гарантируем возможность подключения к кластеру извне в течение как минимум 99,9 % времени.
+Для кластеров Storm в HDInsight круглосуточно действует полная поддержка корпоративного уровня. Коме того, для кластеров Storm в HDInsight заявлена гарантированная доступность в течение 99,9 % времени. Это означает, что мы гарантируем возможность подключения к кластеру извне в течение как минимум 99,9 % времени.
 
-## <a name="common-use-cases-for-real-time-analytics"></a>Распространенные варианты использования аналитики в реальном времени
+## <a name="common-use-cases-for-realtime-analytics"></a>Распространенные варианты использования аналитики в реальном времени
 Ниже приведены несколько распространенных ситуаций, в которых вам может помочь кластер Apache Storm в HDInsight. Сценарии из реальной жизни см. в статье о том, [как компании используют Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Интернет вещей.
@@ -114,7 +118,7 @@ __Для Storm под управлением Windows в кластерах HDIns
 * Поиск
 * Взаимодействие через мобильные устройства.
 
-## <a name="how-is-data-in-hdinsight-storm-processed?"></a>Как происходит обработка данных в HDInsight Storm
+## <a name="how-is-data-in-hdinsight-storm-processed"></a>Как происходит обработка данных в HDInsight Storm
 Apache Storm работает с **топологиями** , а не задания MapReduce, с которыми вы, вероятно, знакомы по HDInsight или Hadoop. Кластер Storm в HDInsight имеет два типа узлов: головные узлы, на которых работает **Nimbus**, и рабочие узлы, на которых работает **контролер**.
 
 * **Nimbus.** Как и служба JobTracker в Hadoop, этот узел отвечает за распределение кода в кластере, назначение задач виртуальным машинам и отслеживание сбоев. Служба HDInsight имеет два узла Nimbus, поэтому в кластере Storm в HDInsight нет единой точки отказа.
@@ -136,10 +140,10 @@ Apache Storm работает с **топологиями** , а не задан
 
 Дополнительные сведения о компонентах Storm см. в [руководстве по Storm][apachetutorial] на сайте apache.org.
 
-## <a name="what-programming-languages-can-i-use?"></a>Какие языки программирования я могу использовать?
+## <a name="what-programming-languages-can-i-use"></a>Какие языки программирования я могу использовать?
 Кластер Storm в HDInsight поддерживает языки C#, Java и Python.
 
-### <a name="c&#35;"></a>C&#35;
+### <a name="c35"></a>C&#35;
 Средства HDInsight для Visual Studio позволяют разработчикам .NET проектировать и реализовывать топологии на языке C#. Вы также можете создавать гибридные топологии, в которых используются компоненты Java и C#.
 
 Дополнительные сведения см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
@@ -153,7 +157,7 @@ Apache Storm работает с **топологиями** , а не задан
 
 Примеры storm-starter расположены в каталоге ** /usr/hdp/current/storm-client/contrib/storm-starter** в кластерах под управлением Linux и в каталоге **%storm_home%\contrib\storm-starter** в кластерах под управлением Windows.
 
-## <a name="what-are-some-common-development-patterns?"></a>Некоторые типичные шаблоны разработки
+## <a name="what-are-some-common-development-patterns"></a>Некоторые типичные шаблоны разработки
 ### <a name="guaranteed-message-processing"></a>Гарантированная обработка сообщений
 Storm может обеспечить различные уровни гарантированной обработки сообщений. Например, простое приложение Storm гарантирует как минимум одну обработку, в то время как Trident может гарантировать ровно одну обработку.
 
@@ -180,11 +184,11 @@ Storm может обеспечить различные уровни гаран
 Для ускорения обработки часто используется кэширование в памяти, при котором в памяти сохраняются часто используемые ресурсы. Так как топология распределяется между несколькими узлами и несколькими процессами в пределах каждого узла, рекомендуем использовать [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) (группирование полей). Благодаря этому кортежи с полями, которые используются для поиска данных в кэше, будут всегда перенаправляться к одному и тому же процессу. Это избавит от дублирования записей кэша в процессах.
 
 ### <a name="streaming-top-n"></a>Максимальное количество потоков (top N)
-Когда ваша топология зависит от расчета значения «Топ Х», например топ 5 трендов в Twitter, это значение нужно рассчитывать параллельно, а затем объединять результат расчетов в глобальное значение. Это можно сделать с помощью [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) , направив отдельные поля в параллельные сита (таким образом данные будут разделены по значениям полей), а затем — в сито, которое определяет глобальное значение «Топ Х».
+Когда ваша топология зависит от расчета значения «Топ Х», например топ 5 трендов в Twitter, это значение нужно рассчитывать параллельно, а затем объединять результат расчетов в глобальное значение. Это можно сделать с помощью [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) , направив отдельные поля в параллельные сита (таким образом данные будут разделены по значениям полей), а затем — в сито, которое определяет глобальное значение «Топ Х».
 
 Смотрите следующий пример [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) .
 
-## <a name="what-type-of-logging-does-storm-use?"></a>Какой тип ведения журналов используется в Storm?
+## <a name="what-type-of-logging-does-storm-use"></a>Какой тип ведения журналов используется в Storm?
 Storm использует Apache Log4j для записи информации в журнал. По умолчанию в журнал записывается большой объем данных, и разобраться в этой информации может быть трудно. Чтобы управлять ведением журналов, включите файл конфигурации ведения журналов в топологию Storm.
 
 Пример топологии, в котором показано, как настроить ведение журнала, см. в примере Storm в HDInsight в статье [Разработка топологий на основе Java для базовых приложений подсчета слов с помощью Apache Storm и Maven в HDInsight](hdinsight-storm-develop-java-topology.md).
@@ -202,6 +206,6 @@ Storm использует Apache Log4j для записи информации
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Руководство. Создание конвейера с действием копирования с помощью REST API | Microsoft Docs
-description: С помощью этого руководства вы, используя REST API, создадите конвейер фабрики данных Azure с действием копирования.
+title: "Руководство. Создание конвейера с действием копирования с помощью REST API | Документация Майкрософт"
+description: "С помощью этого руководства вы, используя REST API, создадите конвейер фабрики данных Azure с действием копирования."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-rest-api"></a>Руководство. Создание конвейера с действием копирования с помощью REST API
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-rest-api"></a>Руководство. Создание конвейера с действием копирования с помощью REST API
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -67,7 +71,7 @@ ms.author: spelluru
 ## <a name="create-json-definitions"></a>Создание определений JSON
 В папке, где находится файл curl.exe, создайте следующие JSON-файлы. 
 
-### <a name="datafactory.json"></a>datafactory.json
+### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
 > Имя должно быть глобально уникальным, поэтому может потребоваться добавить к ADFCopyTutorialDF префикс или суффикс. 
 > 
@@ -78,7 +82,7 @@ ms.author: spelluru
         "location": "WestUS"
     }  
 
-### <a name="azurestoragelinkedservice.json"></a>azurestoragelinkedservice.json
+### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Замените значения **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 > 
@@ -94,7 +98,7 @@ ms.author: spelluru
         }
     }
 
-### <a name="azuersqllinkedservice.json"></a>azuersqllinkedservice.json
+### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > Замените **servername**, **databasename**, **username** и **password** на имя сервера SQL Azure, имя базы данных SQL, имя учетной записи пользователя и ее пароль.  
 > 
@@ -112,7 +116,7 @@ ms.author: spelluru
     }
 
 
-### <a name="inputdataset.json"></a>inputdataset.json
+### <a name="inputdatasetjson"></a>inputdataset.json
     {
       "name": "AzureBlobInput",
       "properties": {
@@ -152,16 +156,16 @@ ms.author: spelluru
 * Для **linkedServiceName** задано значение **AzureStorageLinkedService**. 
 * Для **folderPath** задано имя контейнера **adftutorial**, а для **fileName** — **emp.txt**.  
 * Для **type** формата установлено значение **TextFormat**.
-* В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**). 
+* В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**).    
 * Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1). Следовательно, служба фабрики данных будет искать входные данные в корневом каталоге указанного вами контейнера BLOB-объектов (**adftutorial**) каждый час. 
 
 Если параметр **fileName** для входного набора данных не задан, все файлы и большие двоичные объекты из входной папки (**folderPath**) считаются входными данными. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные.
 
 Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.&lt;Guid&gt;.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv. 
+Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv. 
 
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy": 
     [
@@ -172,7 +176,7 @@ ms.author: spelluru
     ],
 
 
-### <a name="outputdataset.json"></a>outputdataset.json
+### <a name="outputdatasetjson"></a>outputdataset.json
     {
       "name": "AzureSqlOutput",
       "properties": {
@@ -209,7 +213,7 @@ ms.author: spelluru
 * В таблице emp в базе данных есть три столбца: **ID**, **FirstName** и **LastName**. ID — это столбец для идентификаторов, поэтому здесь вам нужно указать только значения **FirstName** и **LastName**.
 * Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**).  Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
 
-### <a name="pipeline.json"></a>pipeline.json
+### <a name="pipelinejson"></a>pipeline.json
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -468,7 +472,7 @@ ms.author: spelluru
 
 1. Создание **фабрики данных Azure**.
 2. Создание **связанных служб**.
-   1. Служба хранилища Azure — связанная служба для связи с учетной записью хранения Azure, которая содержит входные данные.    
+   1. Служба хранилища Azure — связанная служба для связи с учетной записью хранения Azure, которая содержит входные данные.     
    2. SQL Azure — связанная служба для связи с базой данных SQL Azure, которая содержит выходные данные. 
 3. Создание **наборов данных**, описывающих входные и выходные данные для конвейеров.
 4. Создание **конвейера** с BlobSource в качестве источника и SqlSink в качестве приемника с помощью действия копирования. 
@@ -500,6 +504,6 @@ ms.author: spelluru
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

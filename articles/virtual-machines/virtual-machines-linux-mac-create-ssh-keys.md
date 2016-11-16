@@ -1,66 +1,90 @@
 ---
-title: Использование ключей SSH в Linux и Mac | Microsoft Docs
-description: Создание и использование SSH-ключей в Linux и Mac для развертывания с помощью диспетчера ресурсов и классической модели развертывания в Azure.
+title: "Использование ключей SSH в Linux и Mac | Документация Майкрософт"
+description: "Создание и использование SSH-ключей в Linux и Mac для развертывания с помощью диспетчера ресурсов и классической модели развертывания в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: vlivech
 manager: timlt
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2016
+ms.date: 10/25/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 689445bc656b5cdebc7689f7fec6e2ea2683576e
+
 
 ---
 # <a name="create-ssh-keys-on-linux-and-mac-for-linux-vms-in-azure"></a>Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure
 С помощью пары ключей SSH в Azure можно создавать виртуальные машины, по умолчанию использующие ключи SSH для проверки подлинности, что позволяет обойтись без паролей для входа.  Так как существует вероятность подбора пароля, ваши виртуальные машины могут подвергаться непрерывным попыткам взлома. При развертывании виртуальные машины, созданные с помощью шаблонов Azure или `azure-cli`, могут содержать открытый ключ SSH, что устраняет необходимость в настройке после развертывания.  Если вы подключаетесь к виртуальной машине Linux из Windows, см. [этот документ](virtual-machines-linux-ssh-from-windows.md).
 
-## <a name="quick-command-listing"></a>Краткий перечень команд
-В примерах команд ниже замените значения между &lt; и &gt; значениями, соответствующими вашей среде.  Сначала измените каталог (`cd ~/.ssh/`), чтобы все ключи SSH создавались в необходимом каталоге.
+Для работы с этой статьей потребуется:
+
+* Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
+* [Интерфейс командной строки Azure](../xplat-cli-install.md) с выполненным входом (с помощью команды `azure login`).
+* Интерфейс командной строки Azure *нужно* переключить в режим Azure Resource Manager `azure config mode arm`.
+
+## <a name="quick-commands"></a>Быстрые команды
+В следующих командах замените примеры собственными значениями.
+
+Ключи SSH по умолчанию хранятся в каталоге `.ssh`.  
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+cd ~/.ssh/
+```
+
+Если у вас нет каталога `~/.ssh`, создайте его с правильными разрешениями с помощью команды `ssh-keygen`.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 Введите имя файла, который необходимо сохранить в каталоге `~/.ssh/`:
 
 ```bash
-<azure_fedora_id_rsa>
+id_rsa
 ```
 
-Введите парольную фразу для azure_fedora_id_rsa.
+Введите парольную фразу для id_rsa.
 
 ```bash
-<correct horse battery staple>
+correct horse battery staple
+```
+
+Теперь у вас есть `id_rsa` и пара ключей SSH `id_rsa.pub` в каталоге `~/.ssh`.
+
+```bash
+ls -al ~/.ssh
 ```
 
 Добавьте созданный ключ к `ssh-agent` на компьютере Linux и Mac (также добавляется к цепочке ключей OS X):
 
 ```bash
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/azure_fedora_id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 Скопируйте открытый ключ SSH для сервера Linux.
 
 ```bash
-ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+ssh-copy-id -i ~/.ssh/id_rsa.pub myusername@myserver
 ```
 
 Протестируйте вход в систему с использованием ключей вместо пароля.
 
 ```bash
-ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/id_rsa myusername@myserver
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-## <a name="introduction"></a>Введение
+## <a name="detailed-walkthrough"></a>Подробное пошаговое руководство
 Использование открытого и закрытого ключей SSH — это самый простой способ войти на серверы Linux. [Шифрование с открытым ключом](https://en.wikipedia.org/wiki/Public-key_cryptography) обеспечивает большую безопасность при входе на виртуальные машины Linux или BSD в Azure, чем использование паролей, которые довольно легко получить методом подбора. Открытый ключ можно предоставить любому пользователю, тогда как закрытый ключ принадлежит только вам (или локальной инфраструктуре безопасности).  Закрытый ключ SSH должен быть защищен [очень надежным паролем](https://www.xkcd.com/936/) (источник: [xkcd.com](https://xkcd.com)).  Это пароль для доступа к закрытому ключу SSH, а **не** пароль к учетной записи пользователя.  Когда вы добавите к ключу SSH пароль, он зашифровывает закрытый ключ. После этого закрытый ключ бесполезен без пароля для разблокировки.  Если злоумышленник украдет ваш закрытый ключ, не защищенный паролем, он сможет воспользоваться этим ключом для входа на серверы, на которых установлен соответствующий открытый ключ.  Если закрытый ключ защищен паролем, злоумышленник не сможет использовать его. Такой подход обеспечивает дополнительный уровень безопасности инфраструктуры в Azure.
 
 В этой статье рассматривается создание файлов ключей в формате *ssh-rsa*. Мы рекомендуем использовать именно их при развертывании с помощью Resource Manager.  Кроме того, ключи *ssh-rsa* являются обязательными при развертываниях на [портале](https://portal.azure.com) (как в классической модели, так и в модели развертывания с помощью Resource Manager).
@@ -68,22 +92,30 @@ $
 ## <a name="create-the-ssh-keys"></a>Создание ключей SSH
 В Azure необходимо использовать по крайней 2048-разрядные открытые и закрытые ключи в формате ssh-rsa. Чтобы создать ключи, выполните команду `ssh-keygen`, которая задаст несколько вопросов, а затем запишет закрытый ключ и соответствующий открытый ключ. При создании виртуальной машины Azure открытый ключ копируется в `~/.ssh/authorized_keys`.  Ключи SSH в `~/.ssh/authorized_keys` используются для запросов к клиенту, который должен подобрать соответствующий закрытый ключ при SSH-подключении для входа.
 
-## <a name="using-ssh-keygen"></a>Использование команды ssh-keygen
-Эта команда создает пару защищенных паролем (зашифрованных) ключей SSH, используя 2048-разрядный RSA. К этой паре можно добавить комментарий, чтобы ее потом можно было легко определить.  Сначала измените каталог (`cd ~/.ssh/`), чтобы все ключи SSH создавались в необходимом каталоге.
+## <a name="using-sshkeygen"></a>Использование команды ssh-keygen
+Эта команда создает пару защищенных паролем (зашифрованных) ключей SSH, используя 2048-разрядный RSA. К этой паре можно добавить комментарий, чтобы ее потом можно было легко определить.  
+
+Сначала измените расположение, чтобы все ключи SSH создавались в необходимом каталоге.
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+cd ~/.ssh
+```
+
+Если у вас нет каталога `~/.ssh`, создайте его с правильными разрешениями с помощью команды `ssh-keygen`.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 *Описание команды*
 
 `ssh-keygen` — программа, с помощью которой создаются ключи.
 
-`-t rsa` — тип ключа, который нужно создать в [формате RSA](https://en.wikipedia.org/wiki/RSA_\(cryptosystem\)).
+`-t rsa` — тип ключа, который нужно создать в [формате RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
 
 `-b 2048` — число битов в ключе.
 
-`-C "ahmet@fedoraVMAzure"` — комментарий, который будет добавлен в конец файла открытого ключа для идентификации.  Обычно в качестве комментария используется адрес электронной почты, но вы можете выбрать для своей инфраструктуры любой удобный метод идентификации.
+`-C "myusername@myserver"` — комментарий, который будет добавлен в конец файла открытого ключа для идентификации.  Обычно в качестве комментария используется адрес электронной почты, но вы можете выбрать для своей инфраструктуры любой удобный метод идентификации.
 
 ### <a name="using-pem-keys"></a>С помощью ключей PEM
 При использовании классической модели развертывания (классический портал Azure или интерфейс командной строки `asm` управления службами Microsoft Azure) для доступа к виртуальным машинам Linux вам могут потребоваться ключи SSH в формате PEM.  Ключ PEM можно создать из существующего открытого ключа SSH и существующего сертификата x509.
@@ -94,19 +126,17 @@ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
-## <a name="walkthrough-of-ssh-keygen"></a>Пошаговое руководство по использованию ssh-keygen
-Каждый шаг подробно описан.  Сначала измените каталог на `~/.ssh` и выполните команду `ssh-keygen`.
-
+## <a name="example-of-sshkeygen"></a>Пример с ssh-keygen
 ```bash
-ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa
+Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in azure_fedora_id_rsa.
-Your public key has been saved in azure_fedora_id_rsa.pub.
+Your identification has been saved in id_rsa.
+Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@fedoraVMAzure
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 myusername@myserver
 The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
@@ -123,14 +153,14 @@ The key's randomart image is:
 
 Сохраненные файлы ключей:
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
+`Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa`
 
 Имя пары ключей, используемое в этой статье.  По умолчанию пара ключей называется **id_rsa**. Так как некоторые средства ожидаемо ищут закрытый ключ в файле с именем **id_rsa**, есть смысл создать такой файл. Пары ключей SSH и файл конфигурации SSH по умолчанию располагаются в каталоге `~/.ssh/`.
 
 ```bash
-ahmet@fedora$ ls -al ~/.ssh
--rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+ls -al ~/.ssh
+-rw------- 1 myusername staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 myusername staff   410 Aug 25 18:04 rsa.pub
 ```
 Описание каталога `~/.ssh`. `ssh-keygen` создает каталог `~/.ssh`, если его нет, определяя для него правильный файловый режим и режим владения.
 
@@ -140,7 +170,7 @@ ahmet@fedora$ ls -al ~/.ssh
 
 В `ssh-keygen` пароль называется парольной фразой (passphrase).  Мы *настоятельно* рекомендуем добавить пароль к своей паре ключей. Если не защитить пару ключей паролем, любой пользователь, у которого есть файл закрытого ключа, сможет использовать его, чтобы войти на любой из серверов, для которого предусмотрен соответствующий открытый ключ. Следовательно, добавив пароль, вы усилите защиту на случай, если другой пользователь получит доступ к файлу закрытого ключа. Это даст вам время, чтобы изменить ключи для проверки подлинности.
 
-## <a name="using-ssh-agent-to-store-your-private-key-password"></a>Использование ssh-agent для хранения пароля закрытого ключа
+## <a name="using-sshagent-to-store-your-private-key-password"></a>Использование ssh-agent для хранения пароля закрытого ключа
 Чтобы не вводить пароль файла закрытого ключа при каждом входе с использованием SSH, вы можете создать кэш пароля от файла закрытого ключа с помощью команды `ssh-agent` . Если вы используете компьютер Mac, при вызове `ssh-agent`пароли закрытых ключей будут надежно сохранены в цепочке ключей OS X.
 
 Сначала убедитесь, что `ssh-agent` выполняется.
@@ -152,7 +182,7 @@ eval "$(ssh-agent -s)"
 Затем добавьте закрытый ключ к `ssh-agent` с помощью команды `ssh-add`.
 
 ```bash
-ssh-add ~/.ssh/azure_fedora_id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 Теперь пароль закрытого ключа хранится в `ssh-agent`.
@@ -167,17 +197,17 @@ ssh-add ~/.ssh/azure_fedora_id_rsa
 touch ~/.ssh/config
 ```
 
-### <a name="edit-the-file-to-add-the-new-ssh-configuration:"></a>Изменение файла путем добавления новой конфигурации SSH
+### <a name="edit-the-file-to-add-the-new-ssh-configuration"></a>Изменение файла путем добавления новой конфигурации SSH
 ```bash
 vim ~/.ssh/config
 ```
 
-### <a name="example-`~/.ssh/config`-file:"></a>Пример файла `~/.ssh/config`:
+### <a name="example-sshconfig-file"></a>Пример файла `~/.ssh/config`:
 ```bash
 # Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User ahmet
+  User myusername
 # ./Azure Keys
 # Default Settings
 Host *
@@ -198,11 +228,11 @@ Host *
 
 `Hostname 102.160.203.241` — IP-адрес или DNS-имя сервера, к которому осуществляется доступ.
 
-`User git` — используемая учетная запись удаленного пользователя.
+`User myusername` — удаленная учетная запись пользователя, которую нужно использовать для входа на сервер.
 
 `PubKeyAuthentication yes` — таким образом SSH сообщается, что для входа используется ключ SSH.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` — закрытый ключ SSH и соответствующий открытый ключ для проверки подлинности.
+`IdentityFile /home/myusername/.ssh/id_id_rsa` — закрытый ключ SSH и соответствующий открытый ключ для проверки подлинности.
 
 ## <a name="ssh-into-linux-without-a-password"></a>Вход в Linux с использованием SSH без пароля
 Теперь, когда у вас есть пара ключей SSH и настроенный файл конфигурации SSH, вы можете быстро и безопасно входить на виртуальную машину Linux. При первом входе на сервер с использованием ключа SSH команда запрашивает парольную фразу для этого файла ключа.
@@ -221,6 +251,9 @@ ssh fedora22
 * [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md)
 * [Создание защищенной виртуальной машины Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

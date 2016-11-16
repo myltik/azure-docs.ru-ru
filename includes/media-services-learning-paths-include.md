@@ -3,4 +3,8 @@
 * [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [Рабочий процесс для потоковой передачи по запросу в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

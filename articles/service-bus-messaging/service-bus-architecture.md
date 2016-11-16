@@ -1,12 +1,12 @@
 ---
-title: Service Bus architecture | Microsoft Docs
-description: Describes the message and relay processing architecture of Azure Service Bus.
+title: "Архитектура служебной шины | Документация Майкрософт"
+description: "Здесь описывается архитектура обработки сообщений и запросов на ретрансляцию, которая используется служебной шиной Azure."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,43 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+
 
 ---
-# <a name="service-bus-architecture"></a>Service Bus architecture
-This article describes the message and relay processing architecture of Azure Service Bus.
+# <a name="service-bus-architecture"></a>Архитектура служебной шины
+В этой статье описывается архитектура обработки сообщений и запросов на ретрансляцию, которая используется служебной шиной Azure.
 
-## <a name="service-bus-scale-units"></a>Service Bus scale units
-Service Bus is organized by *scale units*. A scale unit is a unit of deployment and contains all components required run the service. Each region deploys one or more Service Bus scale units.
+## <a name="service-bus-scale-units"></a>Единицы масштабирования служебной шины
+Содержимое служебной шины упорядочено по *единицам масштабирования*. Единица масштабирования — это единица развертывания, которая содержит все компоненты, необходимые для запуска службы. Для каждой области развертывается одна или несколько единиц масштабирования служебной шины.
 
-A Service Bus namespace is mapped to a scale unit. The scale unit handles all types of Service Bus entities: relays and brokered messaging entities (queues, topics, subscriptions). A Service Bus scale unit consists of the following components:
+С единицей масштабирования сопоставляется пространство имен служебной шины. Единица масштабирования обрабатывает все типы сущностей служебной шины: ретрансляторы и элементы обмена сообщениями через брокер (очереди, разделы, подписки). Единица масштабирования служебной шины состоит из следующих компонентов.
 
-* **A set of gateway nodes.** Gateway nodes authenticate incoming requests and handle relay requests. Each gateway node has a public IP address.
-* **A set of messaging broker nodes.** Messaging broker nodes process requests concerning messaging entities.
-* **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
-* **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
+* **Набор узлов шлюза.**  Узлы шлюза проверяют подлинность входящих запросов и обрабатывают запросы на ретрансляцию. У каждого узла шлюза есть общедоступный IP-адрес.
+* **Набор узлов брокера сообщений.**  Узлы брокера сообщений обрабатывают запросы к сущностям обмена сообщениями.
+* **Единое хранилище шлюза.**  Хранилище шлюза содержит данные по каждой сущности, определенной в соответствующей единице масштабирования. Хранилище шлюза реализуется на основе базы данных SQL Azure.
+* **Несколько хранилищ сообщений.**  Хранилища сообщений содержат сообщения из всех очередей, разделов и подписок, определенных в соответствующей единице масштабирования. Здесь же хранятся все данные подписки. Если не включить [секционированные сущности обмена сообщениями](service-bus-partitioning.md), очередь или раздел будут сопоставлены с одним хранилищем сообщений. Подписки хранятся в том же хранилище сообщений, что и соответствующий родительский раздел. Хранилища сообщений реализуются поверх баз данных SQL Azure (это не касается [обмена сообщениями через служебную шину категории "Премиум"](service-bus-premium-messaging.md)).
 
-## <a name="containers"></a>Containers
-Each messaging entity is assigned a specific container. A container is a logical construct that uses exactly one messaging store to store all relevant data for this container. Each container is assigned to a messaging broker node. Typically, there are more containers than messaging broker nodes. Therefore, each messaging broker node loads multiple containers. The distribution of containers to a messaging broker node is organized such that all messaging broker nodes are equally loaded. If the load pattern changes (for example, one of the containers gets very busy), or if a messaging broker node becomes temporarily unavailable, the containers are redistributed among the messaging broker nodes.
+## <a name="containers"></a>Контейнеры
+Каждой сущности обмена сообщениями назначается определенный контейнер. Контейнер — это логическая конструкция, которая использует одно единственное хранилище сообщений для хранения всех соответствующих данных в этом контейнере. Каждый контейнер назначается узлу брокера сообщений. Обычно контейнеров больше, чем узлов брокера сообщений. Таким образом, каждый узел брокера сообщений загружает несколько контейнеров. Контейнеры назначаются узлу брокера сообщений таким образом, чтобы все узлы брокера сообщений были загружены в равной мере. Если шаблон нагрузки меняется (например, один из контейнеров загружается слишком сильно) или узел брокера сообщений становится временно недоступным, контейнеры перераспределяются между узлами брокера сообщений.
 
-## <a name="processing-of-incoming-messaging-requests"></a>Processing of incoming messaging requests
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. The gateway node authorizes the request. If the request concerns a messaging entity (queue, topic, subscription), the gateway node looks up the entity in the gateway store and determines in which messaging store the entity is located. It then looks up which messaging broker node is currently servicing this container, and sends the request to that messaging broker node. The messaging broker node processes the request and updates the entity state in the container store. The messaging broker node then sends the response back to the gateway node, which sends an appropriate response back to the client that issued the original request.
+## <a name="processing-of-incoming-messaging-requests"></a>Обработка входящих запросов обмена сообщениями
+Когда клиент отправляет запрос на служебную шину, подсистема балансировки нагрузки Azure передает его в один из узлов шлюза. Узел шлюза авторизует запрос. Если запрос относится к сущности обмена сообщениями (очереди, разделу или подписке), узел шлюза выполняет поиск этой сущности в хранилище шлюза и определяет, в каком хранилище сообщений она находится. Затем он определяет, какой узел брокера сообщений обслуживает данный контейнер в настоящий момент, и отправляет запрос на этот узел брокера сообщений. Узел брокера сообщений обрабатывает запрос и обновляет состояние сущности в хранилище контейнера. Узел брокера сообщений отправляет ответ обратно на узел шлюза, который пересылает соответствующий ответ клиенту, отправившему исходный запрос.
 
-![Processing of Incoming Messaging Requests](./media/service-bus-architecture/IC690644.png)
+![Обработка входящих запросов обмена сообщениями](./media/service-bus-architecture/IC690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Processing of incoming relay requests
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
+## <a name="processing-of-incoming-relay-requests"></a>Обработка входящих запросов на ретрансляцию
+Когда клиент отправляет запрос на служебную шину, подсистема балансировки нагрузки Azure передает его в один из узлов шлюза. Если запрос связан с прослушиванием, узел шлюза создает новую ретрансляцию. Если запрос связан с подключением к определенной ретрансляции, узел шлюза переадресовывает его на узел шлюза, которому принадлежит ретрансляция. Узел шлюза, которому принадлежит ретрансляция, отправляет запрос о подключении клиенту прослушивания, чтобы прослушиватель создал временный канал к узлу шлюза, получившему запрос на подключение.
 
-When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
+Как только подключение ретрансляции будет установлено, клиенты смогут обмениваться сообщениями через узел шлюза, используемый для связи.
 
-![Processing of Incoming Relay Requests](./media/service-bus-architecture/IC690645.png)
+![Обработка входящих запросов ретранслятора WCF](./media/service-bus-architecture/IC690645.png)
 
-## <a name="next-steps"></a>Next steps
-Now that you've read an overview of Service Bus architecture, to get started visit the following links:
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь, когда вы ознакомились с архитектурой служебной шины, изучите следующие статьи.
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [A queued messaging solution using Service Bus queues](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+* [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
+* [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Решение для обмена сообщениями в очередях с помощью очередей служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

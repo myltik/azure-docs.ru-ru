@@ -1,13 +1,13 @@
 ---
-title: 'Руководство по базам данных SQL: обеспечение безопасности'
-description: Узнайте, как создавать учетные записи пользователей для доступа к базе данных и управления ею.
-keywords: ''
+title: "Руководство по базам данных SQL: обеспечение безопасности"
+description: "Узнайте, как создавать учетные записи пользователей для доступа к базе данных и управления ею."
+keywords: 
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3bd8ac5466ae67df0a1865509c8fb897d1374ec
+
 
 ---
-# Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure
+# <a name="sql-database-tutorial-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Учебник по началу работы](sql-database-get-started-security.md)
 > * [Предоставление доступа](sql-database-manage-logins.md)
@@ -28,20 +32,25 @@ ms.author: carlrab
 
 * входить в базу данных SQL с использованием учетных данных субъекта на уровне сервера;
 * создавать учетную запись пользователя базы данных SQL;
-* предоставлять новому пользователю базы данных [разрешения db\_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0);
+* предоставлять новому пользователю базы данных [разрешения db_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0);
 * подключаться к базе данных SQL с помощью учетной записи, которая не является субъектом уровня сервера.
 
-[!INCLUDE [Вход](../../includes/azure-getting-started-portal-login.md)]
+[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
-[!INCLUDE [Создание логического сервера базы данных SQL](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[!INCLUDE [Create SQL Database logical server](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-[!INCLUDE [Создание базы данных SQL](../../includes/sql-database-create-new-database-user.md)]
+[!INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-user.md)]
 
-[!INCLUDE [Создание базы данных SQL](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
+[!INCLUDE [Create SQL Database database](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
-[!INCLUDE [Создание базы данных SQL](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+[!INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы завершили работу с этим руководством по базам данных SQL, создав учетную запись пользователя и предоставив разрешения dbo учетной записи пользователя, узнайте, как [защитить базу данных SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

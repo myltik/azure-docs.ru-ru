@@ -1,26 +1,30 @@
 ---
-title: Руководство разработчика по Azure Active Directory | Microsoft Docs
-description: Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory
+title: "Руководство разработчика по Azure Active Directory | Документация Майкрософт"
+description: "Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+
 
 ---
-# <a name="azure-active-directory-developer's-guide"></a>Руководство разработчика по Azure Active Directory
+# <a name="azure-active-directory-developers-guide"></a>Руководство разработчика по Azure Active Directory
 ## <a name="overview"></a>Обзор
 Azure Active Directory (AD) — это платформа для управления удостоверениями, которая доступна как служба (IDMaaS). Она позволяет разработчикам легко интегрировать в свои приложения функции управления удостоверениями. В следующих статьях содержатся основные сведения о реализации и основные функции платформы Azure AD. Мы советуем ознакомиться с ними по порядку или, если вы готовы приступить к работе, сразу перейти к разделу [Приступая к работе](#getting-started).
 
-1. [Интеграция с Azure Active Directory.](active-directory-how-to-integrate.md) Узнайте, почему интеграция с Azure AD является лучшим решением для обеспечения безопасного входа и авторизации.
+1. [Интеграция с Azure Active Directory.](develop/active-directory-how-to-integrate.md) Узнайте, почему интеграция с Azure AD является лучшим решением для обеспечения безопасного входа и авторизации.
 2. [Сценарии аутентификации в Azure Active Directory.](active-directory-authentication-scenarios.md) Обеспечьте вход в приложение, используя упрощенную проверку подлинности в Azure AD.
 3. [Интеграция приложений с Azure Active Directory.](active-directory-integrating-applications.md) Узнайте, как добавлять, обновлять и удалять приложения из Azure AD, а также изучите рекомендации по добавлению фирменной символики в интегрированные приложения.
 4. [API Graph Azure Active Directory.](active-directory-graph-api.md) Используйте API Graph в Azure AD для программного доступа к Azure AD через конечные точки REST API. Интерфейс API Graph в Azure AD доступен также через [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph — это унифицированный API-интерфейс, обеспечивающий доступ к нескольким API-интерфейсам облачной службы Майкрософт через одну конечную точку REST API и с использованием единого маркера доступа.
@@ -29,17 +33,17 @@ Azure Active Directory (AD) — это платформа для управле�
 ## <a name="getting-started"></a>Приступая к работе
 Эти учебники предназначены для нескольких платформ и помогут вам быстро приступить к разработке приложений с помощью Azure Active Directory. Вам необходим [клиент Azure Active Directory](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Руководства по быстрому запуску мобильных приложений и приложений для ПК
+### <a name="mobile-and-pc-application-quickstart-guides"></a>Руководства по быстрому запуску мобильных приложений и приложений для ПК
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Прямая интеграция с OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quick-start-guides"></a>Краткие руководства по началу работы с веб-приложениями
+### <a name="web-application-quickstart-guides"></a>Краткие руководства по началу работы с веб-приложениями
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Прямая интеграция с OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quick-start-guides"></a>Краткие руководства по началу работы с веб-интерфейсами API
+### <a name="web-api-quickstart-guides"></a>Краткие руководства по началу работы с веб-интерфейсами API
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -49,15 +53,15 @@ Azure Active Directory (AD) — это платформа для управле�
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="how-tos"></a>Инструкции
+## <a name="howtos"></a>Инструкции
 В этих статьях описываются способы выполнения конкретных задач с использованием Azure Active Directory.
 
 * [Получение клиента Azure AD](active-directory-howto-tenant.md)
-* [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md) 
+* [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
 * Включение единого входа для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md)
 * [How to get AppSource Certified for Azure Active Directory (AD)](active-directory-devhowto-appsource-certified.md)
 * [Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md)
-* [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 * [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 * [Изучите рекомендации по фирменной символике для кнопок входа и приобретения приложения в клиентском приложении](active-directory-branding-guidelines.md)
 * [Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении](active-directory-appmodel-v2-overview.md)
@@ -112,6 +116,15 @@ Azure Active Directory (AD) — это платформа для управле�
 * [Облачная идентификация.](http://www.cloudidentity.net) Соображения об управлении удостоверениями от главного руководителя программы Azure Active Directory.  
 * [Azure Active Directory в Twitter.](https://twitter.com/azuread) Объявления Azure Active Directory длиной не более 140 символов.
 
-<!--HONumber=Oct16_HO2-->
+## <a name="windows-server-onpremises-development"></a>Локальная разработка Windows Server
+Рекомендации по разработке Windows Server и служб федерации Active Directory (ADFS):
+
+* [Сценарии AD FS для разработчиков](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): обзор компонентов и функций служб федерации Active Directory, а также подробные сведения о поддерживаемых сценариях проверки подлинности и авторизации.
+* [Руководства по использованию AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): список руководств с пошаговыми инструкциями по реализации связанных последовательностей проверки подлинности и авторизации.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

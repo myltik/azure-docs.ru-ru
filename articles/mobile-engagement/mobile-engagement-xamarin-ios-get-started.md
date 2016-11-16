@@ -1,12 +1,12 @@
 ---
-title: Начало работы с Azure Mobile Engagement для Xamarin.iOS
-description: Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Xamarin.iOS.
+title: "Начало работы с Azure Mobile Engagement для Xamarin.iOS"
+description: "Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Xamarin.iOS."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-xamarin.ios-apps"></a>Начало работы с Azure Mobile Engagement для приложений Xamarin.iOS
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Начало работы с Azure Mobile Engagement для приложений Xamarin.iOS
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этой статье показано, как использовать Azure Mobile Engagement для получения общих сведений об использовании приложения и для отправки push-уведомлений сегментированным пользователям в приложении Xamarin.iOS.
@@ -32,15 +36,15 @@ ms.author: piyushjo
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
-В этом учебнике описаны действия по базовой интеграции, т. е. минимум, требуемый для сбора данных и отправки push-уведомлений.
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
+В этом учебнике описаны действия по базовой интеграции, т. е. минимум, требуемый для сбора данных и отправки push-уведомлений.
 
 Мы создадим базовое приложение при помощи Xamarin, чтобы продемонстрировать интеграцию.
 
-### <a name="create-a-new-xamarin.ios-project"></a>Создание нового проекта Xamarin.iOS
+### <a name="create-a-new-xamarinios-project"></a>Создание нового проекта Xamarin.iOS
 1. Запустите Xamarin Studio. Последовательно выберите элементы **File** -> **New** -> **Solution** (Файл — Создать — Решение). 
    
     ![][1]
@@ -79,7 +83,7 @@ Xamarin Studio создаст демоверсию приложения, в ко
                     };
         EngagementAgent.Init (config);
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Включение мониторинга в реальном времени
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран на внутренний сервер Mobile Engagement.
 
 1. В файле **ViewController.cs** добавьте следующую инструкцию using:
@@ -87,10 +91,10 @@ Xamarin Studio создаст демоверсию приложения, в ко
         using Microsoft.Azure.Engagement.Xamarin;
 2. Замените класс, от которого наследуется `ViewController`, указав `EngagementViewController` вместо `UIViewController`. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Подключение приложения с возможностью его отслеживания в режиме реального времени
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Включение push-уведомлений и обмена сообщениями в приложении
 Mobile Engagement позволяет взаимодействовать и связываться с пользователями с помощью push-уведомлений и сообщений в приложении в контексте кампаний. На портале Mobile Engagement этот модуль называется МОДУЛЕМ ОБРАБОТКИ РЕКЛАМНЫХ КАМПАНИЙ.
 В следующих разделах показано, как настроить приложение для приема уведомлений и сообщений.
 
@@ -140,7 +144,7 @@ Mobile Engagement позволяет взаимодействовать и св�
     ![][7]
 5. В том же файле **Info.plist** установите флажки **Enable Background Modes** (Разрешить фоновые режимы) и **Remote Notifications** (Удаленные уведомления). 
    
-    ![][8]
+     ![][8]
 6. Запустите приложение на устройстве, связанном с этим профилем публикации. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

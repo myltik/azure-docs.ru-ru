@@ -1,13 +1,13 @@
 ---
-title: Разные способы создания виртуальной машины Linux | Microsoft Docs
-description: Узнайте о различных способах создания виртуальных машин Linux в Azure, а также воспользуйтесь ссылками на инструменты и руководства по каждому из этих способов.
+title: "Разные способы создания виртуальной машины Linux | Документация Майкрософт"
+description: "Узнайте о различных способах создания виртуальных машин Linux в Azure, а также воспользуйтесь ссылками на инструменты и руководства по каждому из этих способов."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
+
 
 ---
-# Различные способы создания виртуальных машин Linux в Azure
+# <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Различные способы создания виртуальных машин Linux в Azure
 Платформа Azure предоставляет гибкие решения по созданию виртуальных машин Linux. Здесь каждый пользователь найдет удобные для себя инструменты и рабочие процессы. В этой статье описаны разные решения и примеры создания виртуальных машин Linux.
 
-## Инфраструктура CLI Azure
-Интерфейс командной строки Azure доступен на разных платформах с использованием пакета npm, пакетов, предоставленных для дистрибутивов, или контейнера Docker. Дополнительные сведения см. в статье [Установка Azure CLI](../xplat-cli-install.md). В приведенных ниже руководствах содержатся примеры использования интерфейса командной строки Azure. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
+## <a name="azure-cli"></a>Инфраструктура CLI Azure
+Интерфейс командной строки Azure доступен на разных платформах с использованием пакета npm, пакетов, предоставленных для дистрибутивов, или контейнера Docker. Дополнительные сведения об [установке и настройке интерфейса командной строки Azure](../xplat-cli-install.md). В приведенных ниже руководствах содержатся примеры использования интерфейса командной строки Azure. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
 
 * [Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки](virtual-machines-linux-quick-create-cli.md)
   
   * Следующий пример демонстрирует создание виртуальной машины CoreOS при помощи открытого ключа с именем `azure_id_rsa.pub`.
     
-    ```bash
+    ```azurecli
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
@@ -35,8 +39,8 @@ ms.author: iainfou
   
   * В следующем примере виртуальная машина создается на основе шаблона, который хранится на сайте GitHub.
     
-    ```bash
-    azure group create --name TestRG --location WestUS 
+    ```azurecli
+    azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
 * [Создание полной среды Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-create-cli-complete.md)
@@ -46,62 +50,62 @@ ms.author: iainfou
   
   * В следующем примере показано, как добавить диск объемом 5 ГБ к существующей виртуальной машине с именем `TestVM`.
     
-    ```bash
-    azure vm disk attach-new --resource-group TestRG --vm-name TestVM \
+    ```azurecli
+    azure vm disk attach-new --resource-group myResourceGroup  --vm-name myVM \
       --size-in-GB 5
     ```
 
-## Портал Azure
+## <a name="azure-portal"></a>Портал Azure
 С помощью [портала Azure](https://portal.azure.com) можно быстро создать виртуальную машину, так как установка компонентов в локальной системе не требуется. Для создания виртуальной машины используйте портал Azure:
 
-* [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md)
+* [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md) 
 * [Подключение диска данных к виртуальной машине Linux на портале Azure](virtual-machines-linux-attach-disk-portal.md)
 
-## Операционная система и варианты образов
+## <a name="operating-system-and-image-choices"></a>Операционная система и варианты образов
 При создании виртуальной машины можно выбрать образ для операционной системы, которую необходимо запустить. Azure и партнеры предлагают множество образов, некоторые из которых содержат предустановленные приложения и средства. Вы также можете передать один из созданных вами образов (см. [следующий раздел](#use-your-own-image)).
 
-### Образы Azure
-Чтобы просмотреть список доступных издателей, дистрибутивов и сборок, используйте команды интерфейса командной строки `azure vm image`.
+### <a name="azure-images"></a>Образы Azure
+Чтобы просмотреть список доступных издателей, дистрибутивов и сборок, используйте команды интерфейса командной строки `azure vm image` .
 
 Отображение списка доступных издателей:
 
-```bash
+```azurecli
 azure vm image list-publishers --location WestUS
 ```
 
 Отображение списка доступных продуктов (предложений) нужного издателя:
 
-```bash
+```azurecli
 azure vm image list-offers --location WestUS --publisher Canonical
 ```
 
 Отображение списка доступных номеров SKU (дистрибутивов) требуемого предложения:
 
-```bash
+```azurecli
 azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
 ```
 
 Отображение списка всех доступных образов для определенного выпуска:
 
-```bash
+```azurecli
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Дополнительные примеры просмотра и использования доступных образов см. статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-cli-ps-findimage.md).
+Дополнительные примеры просмотра и использования доступных образов см. в статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-cli-ps-findimage.md).
 
 С командами `azure vm quick-create` и `azure vm create` также можно использовать псевдонимы для быстрого доступа к самым распространенным дистрибутивам и их последним выпускам. Как правило, использовать псевдоним быстрее, чем указывать издателя, предложение, номер SKU и версию каждый раз при создании виртуальной машины.
 
-| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) |
+| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Версия |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |последних |
-| CoreOS |CoreOS |CoreOS |Stable |последних |
-| Debian |credativ |Debian |8 |последних |
-| openSUSE |SUSE |openSUSE |13\.2 |последних |
+| CoreOS |CoreOS |CoreOS |Stable |последняя |
+| Debian |credativ |Debian |8 |последняя |
+| openSUSE |SUSE |openSUSE |13.2 |последних |
 | RHEL |Redhat |RHEL |7,2 |последних |
 | SLES |SLES |SLES |12-SP1 |последних |
-| UbuntuLTS |Canonical |UbuntuServer |14\.04.4-LTS |последних |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |последних |
 
-### Использование своего образа
+### <a name="use-your-own-image"></a>Использование своего образа
 Если вам требуются особые настройки, используйте образ на основе имеющейся виртуальной машины Azure. Для этого *запишите* образ такой виртуальной машины. Вы также можете отправить собственный образ, созданный на локальном диске. Дополнительные сведения о поддерживаемых дистрибутивах и использовании собственных образов см. в следующих статьях.
 
 * [Linux on Azure-Endorsed Distributions (Linux на дистрибутивах, рекомендованных для Azure)](virtual-machines-linux-endorsed-distros.md)
@@ -110,15 +114,20 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
   
   * Примеры команд для быстрой записи существующей виртуальной машины.
     
-    ```bash
-    azure vm deallocate --resource-group TestRG --vm-name TestVM
-    azure vm generalize --resource-group TestRG --vm-name TestVM
-    azure vm capture --resource-group TestRG --vm-name TestVM --vhd-name-prefix CapturedVM
+    ```azurecli
+    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
+    azure vm generalize --resource-group myResourceGroup --vm-name myVM
+    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
     ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Создайте виртуальную машину Linux с помощью [портала](virtual-machines-linux-quick-create-portal.md), [интерфейса командной строки](virtual-machines-linux-quick-create-cli.md) или [шаблона Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md).
 * После создания виртуальной машины Linux [добавьте диск данных](virtual-machines-linux-add-disk.md).
-* Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md).
+* Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

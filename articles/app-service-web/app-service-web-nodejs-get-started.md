@@ -1,12 +1,12 @@
 ---
-title: Начало работы с веб-приложениями Node.js в службе приложений Azure
-description: Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure.
+title: "Начало работы с веб-приложениями Node.js в службе приложений Azure"
+description: "Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Начало работы с веб-приложениями Node.js в службе приложений Azure
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Начало работы с веб-приложениями Node.js в службе приложений Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 В этом руководстве показано, как создать простое приложение [Node.js] и развернуть его в [службе приложений Azure] из командной строки, например cmd.exe или Bash. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, в которой может работать Node.js.
@@ -35,7 +39,7 @@ ms.author: cephalin
 * [Интерфейс командной строки Azure]
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию] или [активируйте преимущества для подписчиков Visual Studio].
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>Создание и развертывание простого веб-приложения Node.js
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Создание и развертывание простого веб-приложения Node.js
 1. Откройте любой терминал командной строки и установите [генератор Express для Yeоman].
    
         npm install -g generator-express
@@ -99,10 +103,10 @@ ms.author: cephalin
    
     ![Пример перехода к развернутому приложению.][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Обновление веб-приложения Node.js
+## <a name="update-your-nodejs-web-app"></a>Обновление веб-приложения Node.js
 Чтобы обновить веб-приложение Node.js, запущенное в службе приложений, просто запустите `git add`, `git commit` и `git push` так же, как и при первом развертывании веб-приложения.
 
-## <a name="how-app-service-deploys-your-node.js-app"></a>Как служба приложений развертывает приложение Node.js
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Как служба приложений развертывает приложение Node.js
 Для запуска приложений Node.js служба приложений Azure использует [iisnode] . Совместное использование Azure CLI и ядра Kudu (развертывание Git) упрощает разработку и развертывание приложений Node.js из командной строки. 
 
 * Команда `azure site create --git` распознает общий шаблон Node.js (server.js или app.js) и создает файл iisnode.yml в корневом каталоге. Этот файл можно использовать для настройки iisnode.
@@ -112,7 +116,7 @@ ms.author: cephalin
   * Создайте файл Web.config для iisnode, который указывает на ваш сценарий запуска в файле package.json (например, server.js или app.js).
   * Настройте файл Web.config для подготовки приложения к отладке с помощью Node-Inspector.
 
-## <a name="use-a-node.js-framework"></a>Использование платформы Node.js
+## <a name="use-a-nodejs-framework"></a>Использование платформы Node.js
 Если для разработки приложений вы используете популярную платформу Node.js, например [Sails.js][SAILSJS] или [MEAN.js][MEANJS], вы можете развернуть их в службе приложений. Популярные платформы Node.js имеют свои особенности. Их связанные зависимости пакетов регулярно обновляются. Так как при этом служба приложений предоставляет доступ к журналам stdout и stderr, вы точно будете знать, что происходит с вашим приложением, чтобы вносить соответствующие изменения. Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](#iisnodelog).
 
 В следующих руководствах показано, как работать с конкретной платформой в службе приложений:
@@ -123,7 +127,7 @@ ms.author: cephalin
 
 <a name="version"></a>
 
-## <a name="use-a-specific-node.js-engine"></a>Использование определенного модуля Node.js
+## <a name="use-a-specific-nodejs-engine"></a>Использование определенного модуля Node.js
 В рамках обычного рабочего процесса вы настраиваете службу приложений для использования определенного модуля Node.js, как и в файле package.json.
 Например:
 
@@ -182,7 +186,7 @@ ms.author: cephalin
    
     ![Анализ файла журнала iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Отладка приложения с помощью Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Отладка приложения с помощью Node-Inspector
 Если вы выполняете отладку приложений Node.js с помощью Node-Inspector, это средство можно использовать также для живого приложения службы приложений. Средство Node-Inspector предустановлено в установке iisnode для службы приложений. Если развертывание выполняется через Git, автоматически созданный в Kudu файл Web.config уже содержит все настройки, необходимые для включения Node-Inspector.
 
 Включить Node-Inspector можно так.
@@ -218,7 +222,7 @@ ms.author: cephalin
 
 [Интерфейс командной строки Azure]: ../xplat-cli-install.md
 [службе приложений Azure]: ../app-service/app-service-value-prop-what-is.md
-[активировать преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[активируйте преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Развертывание веб-приложения Sails.js в службе приложений Azure]: ./app-service-web-nodejs-sails.md
@@ -230,7 +234,7 @@ ms.author: cephalin
 [MEANJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
-[подписаться на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
+[подпишитесь на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
 [веб-приложение]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
@@ -243,6 +247,6 @@ ms.author: cephalin
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 
