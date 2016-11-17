@@ -191,4 +191,4 @@ Azure развертывает агенты управления (MA) и аге�
 
 [Блог Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0525_2016--->
