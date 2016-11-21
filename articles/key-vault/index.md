@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
-ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: ac0840ad98cc34d190d69b4e317a2c446a3d64d1
 
 ---
 # <a name="key-vault-documentation"></a>Документация по хранилищу ключей
@@ -106,21 +106,82 @@ ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
 
 ## <a name="reference"></a>Справочные материалы
 
-### <a name="powershell"></a>PowerShell
-[Справочник по Azure PowerShell](/PowerShell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/PowerShell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="azure-cli"></a>Интерфейс командной строки Azure 
-[Хранилище ключей: использование интерфейса командной строки Azure](/cli/azure/keyvault)
+<li>
+        <a href="/cli/azure/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Хранилище ключей: использование интерфейса командной строки Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="java"></a>Java 
-[Хранилище ключей: справочник по Java](/java/api/)
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Хранилище ключей: справочник по Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="net"></a>.NET 
-[Хранилище ключей: управляемый справочник по API](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Хранилище ключей: управляемый справочник по API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### <a name="rest"></a>REST 
-[Хранилище ключей: справочник по REST API](/rest/api/keyvault) 
-
+<li>
+        <a href="/rest/api/keyvault">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API хранилища ключей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 ---
 
 <div class="downloadHolder">
@@ -133,6 +194,6 @@ ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

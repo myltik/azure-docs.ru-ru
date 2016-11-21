@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
-ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 
 ---
 #<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
@@ -104,20 +104,69 @@ ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="azure-cli"></a>Интерфейс командной строки Azure 
-[Использование Центра Интернета вещей с Azure CLI](/cli/azure/iot)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/iot">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Центр Интернета вещей с использованием Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET 
-[Управляемый справочник по API .NET](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java 
-[Справочник по пакету SDK для Java](/java/api/) 
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Справочник по пакету SDK для Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST 
-[Справочник по REST API Центра Интернета вещей](/rest/api/iothub) 
-
+<li>
+        <a href="/rest/api/iothub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API Центра Интернета вещей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
@@ -129,6 +178,6 @@ ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8125aca5030c869476499a07b17c8e21fcb76ef6
-ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
+ms.sourcegitcommit: 80f16aef21f41d7040342e5a3907e330efa5f90b
+ms.openlocfilehash: 46bbb80b76ff88d6c413f3329d19db663c2e3ea6
 
 ---
 #<a name="linux-virtual-machine-documentation"></a>Документация по виртуальным машинам Linux
@@ -11,7 +11,43 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/cli.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Создание виртуальной машины с помощью портала</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,18 +82,21 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
         </div>
         </a>
     </li>
+</ul>
+
+---
+
+##<a name="reference"></a>Справочные материалы
+
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Создание виртуальной машины с помощью портала</h3>
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Установка Azure CLI</p>
                     </div>
                 </div>
             </div>
@@ -65,17 +104,13 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
+        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure</h3>
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API .NET</p>
                     </div>
                 </div>
             </div>
@@ -83,17 +118,13 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
         </a>
     </li>
     <li>
-        <a href="/azure/xplat-cli-install">
+        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Установка Azure CLI</h3>
+                        <h3>Пакет SDK для Java</h3>
+                        <p>Справочник по API для Java</p>
                     </div>
                 </div>
             </div>
@@ -101,17 +132,41 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
+        <a href="/rest/api/compute">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки</h3>
+                        <h3>REST (вычисления)</h3>
+                        <p>Справочник по REST API для вычислений</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163658">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (сеть)</h3>
+                        <p>Справочник по REST API для сети</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (хранилище)</h3>
+                        <p>Справочник по REST API службы хранилища</p>
                     </div>
                 </div>
             </div>
@@ -119,28 +174,7 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
         </a>
     </li>
 </ul>
-
----
-
-##<a name="reference"></a>Справочные материалы
-
-###<a name="azure-cli"></a>Интерфейс командной строки Azure
-[Интерфейс командной строки Azure](/cli/azure/vm)
-
-###<a name="net"></a>.NET
-[Управляемый справочник по API](/dotnet/api/)
-
-###<a name="java-sdk"></a>Пакет SDK для Java
-[Java](/java/api/)
-
-###<a name="rest-compute"></a>REST (вычисления)
-[Справочник по REST API для вычислений](/rest/api/compute)
-
-###<a name="rest-network"></a>REST (сеть)
-[Справочник по REST API для сети](https://msdn.microsoft.com/library/mt163658.aspx)
-
-###<a name="rest-storage"></a>REST (хранилище)
-[Справочник по REST API службы хранилища](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
@@ -152,6 +186,6 @@ ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

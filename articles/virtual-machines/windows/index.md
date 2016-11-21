@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d737a8b14000e157d4f70c9e23cc9d40697d2b50
-ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
+ms.sourcegitcommit: 80f16aef21f41d7040342e5a3907e330efa5f90b
+ms.openlocfilehash: 2219ef9836edfb5356b2591293d9615dd87988b9
 
 ---
 #<a name="windows-virtual-machines-documentation"></a>Документация по виртуальным машинам Windows
@@ -11,7 +11,7 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview">
+        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,17 +47,17 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
+        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание первой виртуальной машины Windows на портале Azure</h3>
+                        <h3>Начало работы с виртуальными машинами Windows с помощью портала Azure</h3>
                     </div>
                 </div>
             </div>
@@ -65,17 +65,17 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create">
+        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание виртуальной машины с помощью PowerShell</h3>
+                        <h3>Начало работы с виртуальными машинами Windows с помощью PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -83,17 +83,17 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough">
+        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание виртуальной машины с помощью шаблона Resource Manager</h3>
+                        <h3>Начало работы с виртуальными машинами Windows с помощью шаблона Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -106,29 +106,92 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
 
 ##<a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/)
-
-###<a name="azure-cli"></a>Интерфейс командной строки Azure
-[Интерфейс командной строки Azure](/cli/azure/vm)
-
-###<a name="net"></a>.NET
-[Управляемый справочник по API](/dotnet/api/)
-
-###<a name="java-sdk"></a>Пакет SDK для Java
-[Справочник по Java](/java/api/)
-
-###<a name="rest-compute"></a>REST (вычисления)
-[Справочник по REST API для вычислений](/rest/api/compute)
-
-###<a name="rest-network"></a>REST (сеть)
-[Справочник по REST API для сети](https://msdn.microsoft.com/library/mt163658.aspx)
-
-###<a name="rest-storage"></a>REST (хранилище)
-[Справочник по REST API службы хранилища](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-
-###<a name="rest-vm-scale-sets"></a>REST (масштабируемые наборы виртуальных машин)
-[Справочник по REST API для масштабируемых наборов виртуальных машин](https://msdn.microsoft.com/library/azure/mt705635.aspx)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/install-az-cli2">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Установка Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Пакет SDK для Java</h3>
+                        <p>Справочник по API для Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/compute">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (вычисления)</h3>
+                        <p>Справочник по REST API для вычислений</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163658">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (сеть)</h3>
+                        <p>Справочник по REST API для сети</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (хранилище)</h3>
+                        <p>Справочник по REST API службы хранилища</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
@@ -140,6 +203,6 @@ ms.openlocfilehash: 0d9510cc32e4d3e0ed4b61f47cb4749180c1b830
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

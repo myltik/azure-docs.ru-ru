@@ -1,14 +1,18 @@
 ---
 layout: LandingPage
----
-#ExpressRoute Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: ffc70a3aa12afdf1796e2498bce156b13cd6f215
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+---
+#<a name="expressroute-documentation"></a>Документация по ExpressRoute
+
+Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по выделенному закрытому соединению, которое обеспечивается поставщиком услуг подключения. Это может быть подключение типа "любой к любому" (IP VPN), подключение Ethernet типа "точка-точка" или виртуальное кросс-подключение через поставщика услуг подключения на совместно используемом сервере.
 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/express-route-introduction">
+        <a href="/azure/expressroute/expressroute-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -18,7 +22,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn About Express Route</h3>
+                        <h3>Дополнительные сведения об ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Express Route Video Library</h3>
+                        <h3>Видеотека Azure ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with ExpressRoute</h3>
+                        <h3>Начало работы с ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -65,21 +69,50 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 ---
 
-##Reference
+## <a name="reference"></a>Справочные материалы
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[ExpressRoute REST API Reference](https://msdn.microsoft.com/library/mt586720)
-
-
+<li>
+        <a href="https://msdn.microsoft.com/library/mt586720">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API ExpressRoute</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
         <div class="img"></div>
         <div class="text">
-            Download ExpressRoute Documentation
-        </div>
+Скачать документацию по ExpressRoute </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
