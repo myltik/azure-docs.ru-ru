@@ -26,18 +26,22 @@
 ### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Устранение неполадок](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Начало работы с пакетом SDK для шлюза (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
-## [Начало работы с пакетом SDK для шлюза (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
-## Учебники
-### [Руководство по обработке сообщений, отправляемых с устройства в облако (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-### [Руководство по обработке сообщений, отправляемых с устройства в облако (Java)](iot-hub-java-java-process-d2c.md)
-### [Руководство по передаче файлов с устройств](iot-hub-csharp-csharp-file-upload.md)
-### [Отправка сообщений из облака на устройство (.NET)](iot-hub-csharp-csharp-c2d.md)
-### [Отправка сообщений из облака на устройство (Java)](iot-hub-java-java-c2d.md)
-### [Отправка сообщений из облака на устройство (Node)](iot-hub-node-node-c2d.md)
-### [Начало работы с двойниками устройств](iot-hub-node-node-twin-getstarted.md)
-### [Как использовать свойства двойников](iot-hub-node-node-twin-how-to-configure.md)
+## [Приступая к работе с пакетом SDK для шлюза (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
-# Практическое руководство
+# Практическое руководство:
+## [Руководство по обработке сообщений, отправляемых с устройства в облако (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+## [Руководство по обработке сообщений, отправляемых с устройства в облако (Java)](iot-hub-java-java-process-d2c.md)
+## [Руководство по передаче файлов с устройств](iot-hub-csharp-csharp-file-upload.md)
+## [Отправка сообщений из облака на устройство (.NET)](iot-hub-csharp-csharp-c2d.md)
+## [Отправка сообщений из облака на устройство (Java)](iot-hub-java-java-c2d.md)
+## [Отправка сообщений из облака на устройство (Node)](iot-hub-node-node-c2d.md)
+## [Начало работы с двойниками устройств](iot-hub-node-node-twin-getstarted.md)
+## [Как использовать свойства двойников](iot-hub-node-node-twin-how-to-configure.md)
+## [Использование прямых методов](iot-hub-c2d-methods.md)
+## [Управление устройством: начало работы](iot-hub-device-management-get-started.md)
+## [Использование заданий устройства для обновления встроенного ПО устройства](iot-hub-firmware-update.md)
+## [Планирование и трансляция заданий](iot-hub-schedule-jobs.md)
+
 ## Планирование развертывания
 ### [Сравнение Центра Интернета вещей с концентраторами событий](iot-hub-compare-event-hubs.md)
 ### [Масштабирование своего решения](iot-hub-scaling.md)
@@ -68,6 +72,10 @@
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Метрики использования](iot-hub-metrics.md)
 ### [Мониторинг операций](iot-hub-operations-monitoring.md)
+## Пакет SDK для шлюза
+### [Руководство по моделированию устройства с помощью пакета SDK для шлюза (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Руководство по моделированию устройства с помощью пакета SDK для шлюза (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Руководство по отправке сообщений с физического устройства с помощью пакета SDK для шлюза](iot-hub-gateway-sdk-physical-device.md)
 
 ## Безопасность
 ### [Все аспекты безопасности](iot-hub-security-ground-up.md)
@@ -80,16 +88,14 @@
 ## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
-## Пакет SDK для шлюза
-### [Руководство по моделированию устройства с помощью пакета SDK для шлюза (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Руководство по моделированию устройства с помощью пакета SDK для шлюза (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Руководство по отправке сообщений с физического устройства с помощью пакета SDK для шлюза](iot-hub-gateway-sdk-physical-device.md)
-## [API пакета SDK для устройств](http://azure.github.io/azure-iot-sdks/)
+## [Пакеты SDK для Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [API пакета SDK для шлюза](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST API поставщика ресурсов](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST API удостоверений устройств](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST API обмена сообщениями между устройствами](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [Общие сведения о пакете SDK для устройств Azure IoT для языка С](iot-hub-device-sdk-c-intro.md)
 ## [Пакет SDK для устройств IoT для C — дополнительные сведения о библиотеке IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [Пакет SDK для устройств IoT для C — дополнительные сведения о сериализаторе](iot-hub-device-sdk-c-serializer.md)
-## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Сопутствующие материалы
 ## [Набор Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -109,6 +115,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

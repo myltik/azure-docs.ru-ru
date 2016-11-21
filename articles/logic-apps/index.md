@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Logic Apps Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 4885c54a2bc592d0e6da8c1f39ec7360fa97d6fd
 
-Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+---
+# <a name="logic-apps-documentation"></a>Документация по приложениям логики
+
+Logic Apps — это средство разработки для моделирования и автоматизации операций в рабочих процессах. Для облачных и локальных сред доступно множество соединителей, которые позволяют быстро реализовать сценарии интеграции в службах и протоколах. Приложение логики запускается при срабатывании триггера (например, When an account is added to Dynamics CRM (При добавлении учетной записи в Dynamics CRM)), после чего могут выполняться разные комбинации действий, преобразования и условная логика.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Logic Apps</h3>
+                        <h3>Сведения о Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Librasry</h3>
+                        <h3>Видеотека по службе приложений</h3>
                     </div>
                 </div>
             </div>
@@ -49,11 +53,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a new Logic App connecting SaaS services</h3>
+                        <h3>Начало создания нового приложения логики, подключающего службы SaaS</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Logic App using a template</h3>
+                        <h3>Начало создания нового приложения логики с помощью шаблона</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +89,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a custom API to use with Logic Apps</h3>
+                        <h3>Начало создания пользовательского API для Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -100,22 +104,64 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
 
 ---
 
-## Reference
+## <a name="reference"></a>Справочные материалы
 
-### PowerShell
-[Logic Apps PowerShell Cmdlets](/powershell/resourcemanager/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Командлеты PowerShell для Logic Apps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### .NET
-[Logic Apps Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+<li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по приложениям логики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### REST
-[Logic Apps REST API Reference](/rest/api/logic/)
+    <li>
+        <a href="/rest/api/logic/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API приложений логики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Logic Apps Documentation
-        </div>
+Скачать документацию по приложениям логики </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO3-->
+
+

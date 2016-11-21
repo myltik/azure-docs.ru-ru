@@ -1,6 +1,5 @@
 # Обзор
-## [Что такое Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [Принцип работы](active-directory-b2c-overview.md)
+## [Обзор](active-directory-b2c-overview.md)
 ## [Типы приложений](active-directory-b2c-apps.md)
 ## [Сравнение предварительной и рабочей версии клиента B2C](active-directory-b2c-reference-tenant-type.md)
 
@@ -51,10 +50,12 @@
 ## [Многофакторная идентификация](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Ресурсы
-## [Поддержка](active-directory-b2c-support.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Форум отзывов и предложений по Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Поддержка](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

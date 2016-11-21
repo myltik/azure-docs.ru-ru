@@ -25,7 +25,7 @@
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
 
 # Справочные материалы
-## [Командлеты PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Командлеты PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
 ## [Пакет SDK для Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
@@ -43,11 +43,11 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Примеры кода C# для пакетной службы](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Примеры кода Python для пакетной службы](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

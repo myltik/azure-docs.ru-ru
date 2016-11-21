@@ -67,23 +67,24 @@
 ### [Задание Runbook приостановлено](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Справочные материалы
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Классическая модель: PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [Классическая архитектура REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Заметки о выпуске](https://azure.microsoft.com/updates/?product=automation)
-## [Командлеты PowerShell](https://msdn.microsoft.com/library/azure/dn690262)
-## [REST API Resource Manager](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [REST классического развертывания](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/automation/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Обновления службы](https://azure.microsoft.com/updates/?product=automation) 
-## [Обучение работе со службой автоматизации Azure](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=automation)
+## [Обучение работе со службой автоматизации Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Вводный видеоролик о службе автоматизации](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 # Обзор
-## [Что такое Azure для государственных организаций?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Что такое Azure для государственных организаций?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Министерство юстиции и общественной безопасности](documentation-government-overview-jps.md)
 ## [Министерство обороны](documentation-government-overview-dod.md)
 
 # Начало работы
-## [Руководство для разработчиков](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Руководство для разработчиков](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # Практическое руководство
 ## План
@@ -28,10 +28,12 @@
 ### [Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
 
 # Ресурсы
-## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Цены](https://azure.microsoft.com/pricing/)
+## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

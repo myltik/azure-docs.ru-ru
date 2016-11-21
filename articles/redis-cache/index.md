@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cd96f7ea32696ea920cd1622ae6d08692b4f8f4c
-ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 ---
 #<a name="redis-cache-documentation"></a>Документация по кэшу Redis
@@ -139,22 +139,80 @@ ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Справочник по Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Интерфейс командной строки Azure
-[Кэш Redis с использованием интерфейса командной строки Azure](/cli/azure/redis) 
-
-###<a name="net"></a>.NET 
-[Управляемый справочник по API кэша Redis](/dotnet/api/) 
-
-###<a name="java"></a>Java 
-[Пакет Azure SDK для Java](/java/api/)
-
-###<a name="rest"></a>REST 
-[Справочник по REST API кэша Redis](/rest/api/)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/redis">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Кэш Redis с использованием Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API кэша Redis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Пакет Azure SDK для Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API кэша Redis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 <div class="downloadHolder">
@@ -167,6 +225,6 @@ ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

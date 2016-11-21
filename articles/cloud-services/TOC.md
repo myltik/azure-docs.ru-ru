@@ -98,9 +98,9 @@
 ### [Часто задаваемые вопросы об облачных службах](cloud-services-faq.md)
 
 # Справочные материалы
-## [.NET](https://msdn.microsoft.com/library)
 ## [XMLSchema в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema в CSCFG-файле](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Исправления гостевой ОС](cloud-services-guestos-msrc-releases.md)
 ## Прекращение использования гостевой ОС
 ### [Политика прекращения использования ](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

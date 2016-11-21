@@ -4,6 +4,7 @@
 ## [Общие сведения о Resource Manager и классическом развертывании](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Рекомендуемая система управления подпиской](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Примеры систем управления для предприятий](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Начало работы
 ## [Экспорт шаблона](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Пошаговое руководство по шаблонам](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -51,23 +52,22 @@
 ### [Просмотр операций развертывания с помощью PowerShell](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Просмотр операций развертывания с помощью интерфейса командной строки Azure](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Просмотр операций развертывания с помощью REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Справочные материалы
-## [Командлеты PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
 ## [Интерфейс командной строки Azure](/cli/azure)
 ## [Java](/java/api)
-## [API .NET](/dotnet/api)
+## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Схемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
-## [Командлеты PowerShell для Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [REST API для Resource Manager](/rest/api/resources/)
-## [Клиентская библиотека .NET для Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Запросы на регулирование](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [REST](/rest/api/resources/)
 
 # Ресурсы
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

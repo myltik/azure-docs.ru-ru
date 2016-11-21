@@ -38,7 +38,6 @@
 #### [Управление оповещениями](log-analytics-solution-alert-management.md)
 #### [Управление емкостью](log-analytics-capacity.md)
 #### [Отслеживание изменений](log-analytics-change-tracking.md)
-#### [Оценка конфигурации](log-analytics-configuration-assessment.md)
 #### [Контейнеры](log-analytics-containers.md)
 #### [хранилище ключей;](log-analytics-azure-key-vault.md)
 #### [Оценка вредоносных программ](log-analytics-malware.md)
@@ -48,7 +47,6 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [Оценка SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Оценка системных обновлений](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
 ## Анализ
@@ -63,11 +61,10 @@
 
 # Ресурсы
 ## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

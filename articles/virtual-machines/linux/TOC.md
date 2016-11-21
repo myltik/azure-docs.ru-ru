@@ -21,7 +21,8 @@
 ## [Создание ключей SSH в Linux и Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Различные способы создания виртуальной машины](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Установка Azure CLI](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Создание виртуальной машины с помощью интерфейса командной строки](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Создание виртуальной машины с помощью Azure CLI 2.0 (предварительная версия)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Создание виртуальной машины с помощью Azure CLI](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Пошаговое руководство по шаблонам](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Создание и развертывание виртуальных машин при помощи сложных шаблонов](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Архитектура приложения](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -179,6 +180,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

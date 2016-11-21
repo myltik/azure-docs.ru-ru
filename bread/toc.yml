@@ -48,9 +48,12 @@
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "Автоматизация"
+  - name: "Служба автоматизации"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
+  - name: "Реестр контейнеров"
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-info
   - name: "Функции"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview

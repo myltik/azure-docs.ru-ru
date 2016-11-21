@@ -1,7 +1,4 @@
-# Обзор StorSimple
-
 # Виртуальный массив StorSimple
-
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-ova-overview.md)
 
@@ -54,8 +51,9 @@
 ### Install
 #### [Вопросы, связанные с безопасностью](storsimple-safety.md)
 #### [Распаковка, установка в стойку, подключение кабелей 8100](storsimple-8100-hardware-installation.md)
+
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
-#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Развернуть
 #### [Служба диспетчера StorSimple](storsimple-manage-service.md)
@@ -63,6 +61,7 @@
 ##### [Физическое устройство в Azure (обновление 1)](storsimple-deployment-walkthrough-u1.md)
 ##### [Физическое устройство в Azure (общая доступность)](storsimple-deployment-walkthrough.md)
 #### [Физическое устройство на портале для государственных организаций (текущая версия)](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Физическое устройство на портале для государственных организаций (текущая версия)](storsimple-deployment-walkthrough-gov.md)
 #### [Виртуальное устройство в Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [Адаптер StorSimple для SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -139,7 +138,7 @@
 ##### [Создание пакета поддержки](storsimple-create-manage-support-package.md)
 
 ### Миграция
-#### [С серий 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [С серий 5000–7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [С других запоминающих устройств](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Блокировка изменений
@@ -160,22 +159,26 @@
 ### [Выпуск общедоступной версии](storsimple-july-2014-release-notes.md)
 
 ## Справочные материалы
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Командлеты Windows PowerShell для StorSimple] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Сопутствующие материалы
 ## [Хранилище StorSimple серии 5000–7000](http://onlinehelp.storsimple.com)
 
 # Ресурсы
-## [Форум](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Цены](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Блог по маркетингу](http://blogs.technet.com/b/cis/)
 ## [Маркетинг](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Блог службы поддержки](http://blogs.msdn.com/b/storsimple/)
 ## [Уведомления сторонних производителей](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Обновления службы](https://azure.microsoft.com/updates/?product=storsimple)
-## [Цены](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

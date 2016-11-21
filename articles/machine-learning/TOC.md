@@ -1,26 +1,11 @@
 # Обзор
 ## [Что такое машинное обучение?](machine-learning-what-is-machine-learning.md)
-## [Новые возможности](machine-learning-whats-new.md)
-## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
-## Студия машинного обучения
-### [Что такое студия?](machine-learning-what-is-ml-studio.md)
-### [Возможности студии](machine-learning-studio-overview-diagram.md)
-### [Инфографика: основные сведения о машинном обучении](machine-learning-basics-infographic-with-algorithm-examples.md)
-## Процесс обработки и анализа данных группы
-### [Обзор](http://aka.ms/datascienceprocess)
-### [Жизненный цикл](data-science-process-overview.md)
-### [Средства и служебные программы](machine-learning-data-science-environment-setup.md)
-### [Пошаговые руководства](data-science-process-walkthroughs.md)
+## [Студия машинного обучения](machine-learning-what-is-ml-studio.md)
 ## [Определение сценариев](machine-learning-data-science-plan-your-environment.md)
-## [Просмотр примеров сценариев](machine-learning-data-science-plan-sample-scenarios.md)
 ## Примеры
 ### [Примеры экспериментов](machine-learning-sample-experiments.md)
 ### [Примеры наборов данных](machine-learning-use-sample-datasets.md)
 ### [Пример оттока клиентов](machine-learning-azure-ml-customer-churn-scenario.md)
-## Интерфейсы API
-### [Обнаружение аномалий](machine-learning-apps-anomaly-detection.md)
-### [Текстовая аналитика](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 ### Рекомендации
 #### [Обзор](machine-learning-recommendation-api-sample-application.md)
 #### [Быстрый запуск](machine-learning-recommendation-api-quick-start-guide.md)
@@ -28,19 +13,12 @@
 #### [Использование JavaScript](machine-learning-recommendation-api-javascript-integration.md)
 #### [Часто задаваемые вопросы](machine-learning-recommendation-api-faq.md)
 ## Cortana Analytics
-### Диагностическое обслуживание
-#### [Обзор](cortana-analytics-playbook-predictive-maintenance.md)
+### [Диагностическое обслуживание](cortana-analytics-playbook-predictive-maintenance.md)
 #### [Архитектура](cortana-analytics-architecture-predictive-maintenance.md)
 #### [Техническое руководство](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Телеметрические данные автомобиля
-#### [Обзор](cortana-analytics-playbook-vehicle-telemetry.md)
+### [Телеметрические данные автомобиля](cortana-analytics-playbook-vehicle-telemetry.md)
 #### [Сборник тренировочных заданий](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 #### [Настройка](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Процесс обработки и анализа данных
-### [Использование кластеров Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-### [Использование Hadoop с 1 ТБ данных](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-### [Использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
 ## ВЕБ-СЛУЖБЫ
 ### [Примеры с R](machine-learning-r-csharp-web-service-examples.md)
 ### [Бинарный классификатор](machine-learning-r-csharp-binary-classifier.md)
@@ -57,6 +35,7 @@
 ### [Часто задаваемые вопросы о Marketplace](machine-learning-marketplace-faq.md)
 
 # Начало работы
+## [Просмотр примеров сценариев](machine-learning-data-science-plan-sample-scenarios.md)
 ## [Создание первого эксперимента](machine-learning-create-experiment.md)
 ## [Создание прогнозного решения](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1. Создание рабочей области](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -72,9 +51,17 @@
 ### [4. Прогнозирование ответа](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5. Копирование работ других пользователей](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 ## [Часто задаваемые вопросы](machine-learning-faq.md)
+## Процесс обработки и анализа данных группы
+### [Жизненный цикл](data-science-process-overview.md)
+### [Средства и служебные программы](machine-learning-data-science-environment-setup.md)
+### [Пошаговые руководства](data-science-process-walkthroughs.md)
+#### [Использование кластеров Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+#### [Использование Hadoop с 1 ТБ данных](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [Использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+#### [Использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Практическое руководство
-## Средства установки 
+## Средства установки
 ### [Настройка сред](machine-learning-data-science-environment-setup.md)
 ### [Настройка виртуальных машин](machine-learning-data-science-virtual-machines.md)
 ### [Настройка Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
@@ -190,11 +177,13 @@
 #### [Использование шаблона веб-приложений](machine-learning-consume-web-service-with-web-app-template.md)
 
 #Справочные материалы
-## [Быстрый запуск R](machine-learning-r-quickstart.md)
+## [Заметки о выпуске](machine-learning-whats-new.md)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Обзор PowerShell](machine-learning-powershell-module.md)
 ## [Создание моделей с помощью PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [REST API веб-службы](https://msdn.microsoft.com/library/azure/dn950030.aspx)
+## [Быстрый запуск R](machine-learning-r-quickstart.md)
 ## [Язык нейронных сетей Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
+## [REST](/rest/api/machinelearning/)
 
 # Сопутствующие материалы
 ## Коллекция Cortana Intelligence
@@ -210,10 +199,23 @@
 ### [Пользовательские модули](machine-learning-gallery-custom-modules.md)
 
 # Ресурсы
+## [Схема обучения](http://aka.ms/datascienceprocess)
+## [Цены](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Блог](http://blogs.technet.com/b/machinelearning/)
-## [Форум](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
+## Загружаемые схемы
+### [Возможности студии](machine-learning-studio-overview-diagram.md)
+### [Инфографика: основные сведения о машинном обучении](machine-learning-basics-infographic-with-algorithm-examples.md)
+## Интерфейсы API
+### [Обнаружение аномалий](machine-learning-apps-anomaly-detection.md)
+### [Текстовая аналитика](machine-learning-apps-text-analytics.md)
+### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

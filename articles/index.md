@@ -1,8 +1,10 @@
---- 
+---
 layout: HubPage
+hide_bc: true
+title: "Документация по Microsoft Azure"
 translationtype: Human Translation
-ms.sourcegitcommit: ae13eb84d8a28259ba3c737abbac1181d5ebbe0b
-ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
+ms.sourcegitcommit: 7fe73925e887652b7f0831c8e2381edf05db9548
+ms.openlocfilehash: 4c5242f5dbd7c714ae5d5b4efcef5f3b39a9b414
 
 ---
 <div id="main" class="v2">
@@ -15,7 +17,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.svg" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -33,7 +35,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.svg" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -51,7 +53,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.svg" alt="" />
+                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -70,7 +72,573 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                 <a href="#services">Службы</a>
                 <ul id="services">
                     <li>
-                        <a href="#Compute">Среда выполнения приложений</a>
+                        <a href="#all">Все</a>
+                        <ul id="all" class="directory">
+                            <li>
+                                <div class="group">
+                                    <h3>Среда выполнения приложений</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/virtual-machines/linux/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>Виртуальные машины Linux</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>Виртуальные машины Windows</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machine-scale-sets/">
+                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
+                                                <p>Наборы для масштабирования виртуальных машин</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Служба приложений</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Служба контейнеров Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/container-registry.svg" alt="" />
+                                                <p>Реестр контейнеров Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-functions/">
+                                                <img src="media/index/AzureFunctions.svg" alt="" />
+                                                <p>Функции</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Пакетная служба</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cloud-services/">
+                                                <img src="media/index/CloudService.svg" alt="" />
+                                                <p>Облачные службы</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Базы данных</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/sql-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>База данных SQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-data-warehouse/">
+                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <p>Хранилище данных SQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-server-stretch-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>База данных SQL Server Stretch</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/documentdb/">
+                                                <img src="media/index/DocumentDB.svg" alt="" />
+                                                <p>DocumentDB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/redis-cache/">
+                                                <img src="media/index/RedisCache.svg" alt="" />
+                                                <p>Кэш Redis</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
+                                                <p>Фабрика данных</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Безопасность и идентификация </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/security-center">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Центр безопасности</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
+                                                <p>Хранилище ключей</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory-b2c">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory B2C</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory-domain-services">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Доменные службы Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/multi-factor-authentication/">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                <p>Multi-Factor Authentication</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Сведения о безопасности</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Сеть</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/virtual-network/">
+                                                <img src="media/index/VirtualNetwork.svg" alt="" />
+                                                <p>Виртуальная сеть</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/load-balancer/">
+                                                <img src="media/index/LoadBalancer.svg" alt="" />
+                                                <p>Балансировщик нагрузки</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                <p>Шлюз приложений</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
+                                                <p>VPN-шлюз</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>Azure DNS</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>CDN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
+                                                <p>Диспетчер трафика</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/expressroute/">
+                                                <img src="media/index/ExpressRoute.svg" alt="" />
+                                                <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Аналитика</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/hdinsight/">
+                                                <img src="media/index/HDInsight.svg" alt="" />
+                                                <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Машинное обучение</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>Stream Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Cognitive Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-analytics/">
+                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <p>Аналитика озера данных</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <p>Хранилище озера данных</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
+                                                <p>Фабрика данных</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/power-bi-embedded/">
+                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                <p>Power BI Embedded</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>службы Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Служба Bot Service</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Инструменты разработчика</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.visualstudio.com/docs/overview">
+                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                                <p>Visual Studio Team Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/devtest-lab/">
+                                                <img src="media/index/DevTestLabs.svg" alt="" />
+                                                <p>Azure DevTest Labs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
+                                                <p>Application Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Управление API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://support.hockeyapp.net/kb">
+                                                <img src="media/index/HockeyApp.svg" alt="" />
+                                                <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                             
+                             </li>
+                            <li>
+                                <div class="group">
+                                    <h3>Хранилище</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/storage/">
+                                                <img src="media/index/Storage.svg" alt="" />
+                                                <p>Хранилище</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <p>Хранилище озера данных</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storsimple/">
+                                                <img src="media/index/StorSimple.svg" alt="" />
+                                                <p>StorSimple</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/backup/">
+                                                <img src="media/index/Backup.svg" alt="" />
+                                                <p>Архивация</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>Site Recovery</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Интернет вещей</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                                <img src="media/index/IoTHub.svg" alt="" />
+                                                <p>Центр разработчиков для Интернета вещей</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-hub/">
+                                                <img src="media/index/IoTHub.svg" alt="" />
+                                                <p>Центр Интернета вещей Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-suite/">
+                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <p>Набор Azure IoT Suite</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-hubs/">
+                                                <img src="media/index/EventHubs.svg" alt="" />
+                                                <p>Концентраторы событий</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Центры уведомлений</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>Stream Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Машинное обучение</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Мониторинг и управление</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
+                                                <p>Application Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                <p>Служба Log Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/automation/">
+                                                <img src="media/index/Automation.svg" alt="" />
+                                                <p>Служба автоматизации</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/backup/">
+                                                <img src="media/index/Backup.svg" alt="" />
+                                                <p>Архивация</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>Site Recovery</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/scheduler/">
+                                                <img src="media/index/Scheduler.svg" alt="" />
+                                                <p>Планировщик</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
+                                                <p>Диспетчер трафика</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure Monitor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/billing/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Выставление счетов</p>
+                                            </a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="/azure/azure-advisor/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Azure Advisor</p>
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <a href="/azure/azure-resource-manager/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Azure Resource Manager</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Интернет + мобильные устройства </h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Служба приложений</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-web">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Веб-приложения</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-mobile">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>Мобильные приложения</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-api">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>Приложения API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Приложения логики</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>CDN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/">
+                                                <img src="media/index/MediaServices.svg" alt="" />
+                                                <p>Службы мультимедиа</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Поиск</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mobile-engagement/">
+                                                <img src="media/index/MobileEngagement.svg" alt="" />
+                                                <p>Службы мобильного взаимодействия</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Центры уведомлений</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Интеграция Enterprise</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Приложения логики</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Службы BizTalk</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
+                                                <p>Служебная шина</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Управление API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storsimple/">
+                                                <img src="media/index/StorSimple.svg" alt="" />
+                                                <p>StorSimple</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-server-stretch-database/">
+                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <p>База данных SQL Server Stretch</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
+                                                <p>Фабрика данных</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a data-default="true" href="#Compute">Среда выполнения приложений</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -103,7 +671,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Виртуальные машины Windows</h3>
-                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
+                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,7 +690,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Наборы для масштабирования виртуальных машин</h3>
-                                                    <p>Создание высокодоступных и автоматически масштабируемых виртуальных машин на базе Linux или Windows</p>
+                                                    <p>Масштабирование от десятков до тысяч виртуальных машин Linux и Windows и управление ими</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,6 +729,25 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 <div class="cardText">
                                                     <h3>Служба контейнеров Azure</h3>
                                                     <p>Развертывание контейнеров и управление ими с помощью средств Docker</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/container-registry.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Реестр контейнеров Azure</h3>
+                                                    <p>Хранение образов для всех типов развертываний контейнеров и управление ими</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -417,7 +1004,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Хранилище</h3>
-                                                    <p>Надежное облачное хранилище с высоким уровнем доступности и широким масштабированием</p>
+                                                    <p>Надежное облачное хранилище с высоким уровнем доступности и широким масштабированием.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -676,6 +1263,25 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/notification-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Центры уведомлений</h3>
+                                                    <p>Масштабируемая подсистема push-уведомлений для быстрой рассылки миллионов сообщений</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -831,7 +1437,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Машинное обучение</h3>
-                                                    <p>Мощные облачные средства прогнозируемой аналитики для диагностического обслуживания</p>
+                                                    <p>Мощные облачные средства прогнозной аналитики для диагностического обслуживания</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -952,6 +1558,44 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>службы Analysis Services</h3>
+                                                    <p>Моделирование данных корпоративного уровня в облаке</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Служба Bot Service</h3>
+                                                    <p>Интеллектуальная бессерверная служба программ-роботов с масштабированием по требованию</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -989,6 +1633,25 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 <div class="cardText">
                                                     <h3>Центр Интернета вещей Azure</h3>
                                                     <p>Подключение, отслеживание и контролирование миллиардов ресурсов Интернета ресурсов</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-suite/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Набор Azure IoT Suite</h3>
+                                                    <p>Сбор и анализ необработанных данных для улучшения бизнес-показателей</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1045,7 +1708,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Машинное обучение</h3>
-                                                    <p>Мощные облачные средства прогнозируемой аналитики для диагностического обслуживания</p>
+                                                    <p>Мощные облачные средства прогнозной аналитики для диагностического обслуживания</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1226,7 +1889,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Центр безопасности</h3>
-                                                    <p>Предотвращение, обнаружение и реагирование на угрозы благодаря более полной информации</p>
+                                                    <p>Предотвращение, обнаружение угроз и реагирование на них благодаря более полной информации</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1348,7 +2011,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
                         <a href="#devtools">Инструменты разработчика</a>
                         <ul id="devtools" class="cardsA">
@@ -1401,7 +2064,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Выявление, сортировка и диагностика неполадок в веб-приложениях и службах</p>
                                                 </div>
                                             </div>
@@ -1463,7 +2126,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Выявление, сортировка и диагностика неполадок в веб-приложениях и службах</p>
                                                 </div>
                                             </div>
@@ -1662,575 +2325,20 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#all">Все</a>
-                        <ul id="all" class="directory">
-                            <li>
-                                <div class="group">
-                                    <h3>Среда выполнения приложений</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/virtual-machines/linux/">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Виртуальные машины Linux</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Виртуальные машины Windows</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machine-scale-sets/">
-                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Наборы для масштабирования виртуальных машин</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Служба приложений</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-service/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Служба контейнеров Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-functions/">
-                                                <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Функции</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Пакетная служба</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cloud-services/">
-                                                <img src="media/index/CloudService.svg" alt="" />
-                                                <p>Облачные службы</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Сеть</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/virtual-network/">
-                                                <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                <p>Виртуальная сеть</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/load-balancer/">
-                                                <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Балансировщик нагрузки</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-gateway/">
-                                                <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Шлюз приложений</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vpn-gateway/">
-                                                <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>VPN-шлюз</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dns/">
-                                                <img src="media/index/DNS.svg" alt="" />
-                                                <p>Azure DNS</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                        <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Диспетчер трафика</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/expressroute/">
-                                                <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>ExpressRoute</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Хранилище</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/storage/">
-                                                <img src="media/index/Storage.svg" alt="" />
-                                                <p>Хранилище</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Хранилище озера данных</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storsimple/">
-                                                <img src="media/index/StorSimple.svg" alt="" />
-                                                <p>StorSimple</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/backup/">
-                                                <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/site-recovery/">
-                                                <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                             </li>
-                            <li>
-                                <div class="group">
-                                    <h3>Интернет + мобильные устройства </h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Служба приложений</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-web">
-                                                <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Веб-приложения</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-mobile">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Мобильные приложения</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-api">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>Приложения API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Приложения логики</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Службы мультимедиа</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/search/">
-                                                <img src="media/index/Search.svg" alt="" />
-                                                <p>Поиск</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Службы мобильного взаимодействия</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Базы данных</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/sql-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>База данных SQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>Хранилище данных SQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>База данных SQL Server Stretch</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/documentdb/">
-                                                <img src="media/index/DocumentDB.svg" alt="" />
-                                                <p>DocumentDB</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/redis-cache/">
-                                                <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Кэш Redis</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Фабрика данных</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Аналитика</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/hdinsight/">
-                                                <img src="media/index/HDInsight.svg" alt="" />
-                                                <p>HDInsight</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/machine-learning/">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Машинное обучение</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Cognitive Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-lake-analytics/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Аналитика озера данных</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Хранилище озера данных</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Фабрика данных</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/power-bi-embedded/">
-                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>PowerBI Embedded</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/analysis-services/">
-                                                <img src="media/index/AnalysisServices.svg" alt="" />
-                                                <p>Analysis Services</p>
-                                            </a>
-                                        </li> -->
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="group">
-                                    <h3>Интернет вещей</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
-                                                <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Центр разработчиков для Интернета вещей</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-hub/">
-                                                <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Центр Интернета вещей Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-hubs/">
-                                                <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Концентраторы событий</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Центры уведомлений</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/machine-learning/">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Машинное обучение</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Интеграция Enterprise</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Приложения логики</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Службы BizTalk</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-bus/">
-                                                <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Служебная шина</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Управление API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storsimple/">
-                                                <img src="media/index/StorSimple.svg" alt="" />
-                                                <p>StorSimple</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>База данных SQL Server Stretch</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Фабрика данных</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                 <div class="group">
-                                    <h3>Безопасность и идентификация </h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/security-center">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Центр безопасности</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/key-vault/">
-                                                <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Хранилище ключей</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory/">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory-b2c">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory B2C</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory-domain-services">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Доменные службы Azure Active Directory</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/multi-factor-authentication/">
-                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Multi-Factor Authentication</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Сведения о безопасности</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="group">
-                                    <h3>Инструменты разработчика</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
-                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/devtest-lab/">
-                                                <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-insights/">
-                                                <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Управление API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://support.hockeyapp.net/kb">
-                                                <img src="media/index/HockeyApp.svg" alt="" />
-                                                <p>HockeyApp</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Мониторинг и управление </h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/application-insights/">
-                                                <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/log-analytics/">
-                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                <p>Служба Log Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/automation/">
-                                                <img src="media/index/Automation.svg" alt="" />
-                                                <p>Служба автоматизации</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/backup/">
-                                                <img src="media/index/Backup.svg" alt="" />
-                                                <p>Архивация</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/site-recovery/">
-                                                <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/scheduler/">
-                                                <img src="media/index/Scheduler.svg" alt="" />
-                                                <p>Планировщик</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Диспетчер трафика</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/billing/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Выставление счетов</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/azure-advisor/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure Advisor</p>
-                                            </a>
-                                        </li> -->
-                                        <li>
-                                            <a href="/azure/azure-resource-manager/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure Resource Manager</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
+                    </li>                    
                 </ul>
             </li>
             <li>
                 <a href="#developer">Разработчик</a>
                 <ul id="developer">
                     <li>
-                        <a href="#languages">Языки &amp; Платформы</a>
-                        <ul id="languages" class="cardsF">
+                        <a href="#developer-all">Все</a>
+                        <ul id="developer-all" class="cardsF">
+                            <li>
+                                <div class="container">
+                                    <h1>Языки &amp; Платформы</h1>
+                                </div>
+                            </li>
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
@@ -2242,16 +2350,16 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Пакет SDK для .NET</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">Пакет SDK для .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Начало работы</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Начало работы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/rest/api">Справочник по API</a>
+                                                    <a href="/dotnet/api">Справочник по API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2269,16 +2377,16 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Пакет SDK для Python</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Пакет SDK для Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Начало работы</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Справочник по API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2296,16 +2404,16 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Пакет SDK для Nodejs</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Получить пакет SDK для Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Начало работы</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">Справочник по API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2323,16 +2431,16 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Пакет SDK для Java</a>
+                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Пакет SDK для Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Начало работы</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Справочник по API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2350,16 +2458,16 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Пакет Ruby SDK</a>
+                                                    <a href="https://azure.microsoft.com/downloads/">Пакет Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/ruby/">Начало работы</a>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Справочник по API</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2383,18 +2491,18 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                     <a href="/rest/api">Справочные материалы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Примеры</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Примеры</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#cli">Интерфейс командной строки</a>
-                        <ul id="cli" class="cardsF">
+                            <li>
+                                <div class="container">
+                                    <h1>Интерфейс командной строки</h1>
+                                </div>
+                            </li>
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
@@ -2407,7 +2515,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="cardText">
                                                 <h3>Предварительная версия Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">Начало работы</a>
+                                                    <a href="/cli/azure/get-started/">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-cli">Скачать Azure CLI 2.0</a>
@@ -2432,7 +2540,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Начало работы</a>
+                                                    <a href="/azure/powershell-install-configure">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Скачать PowerShell</a>
@@ -2457,7 +2565,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="cardText">
                                                 <h3>Интерфейс командной строки Azure </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Начало работы</a>
+                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Начало работы</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Скачать Azure CLI для Linux</a>
@@ -2469,18 +2577,18 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                     <a href="http://aka.ms/webpi-azure-cli">Скачать Azure CLI для Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Справочные материалы</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Справочные материалы</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#tools">Инструменты &amp; Расширения</a>
-                        <ul id="tools" class="cardsF">
+                            <li>
+                                <div class="container">
+                                    <h1>Инструменты &amp; Расширения</h1>
+                                </div>
+                            </li>
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
@@ -2519,13 +2627,13 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                                     <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Начало работы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680&clcid=0x409">Загрузка для Visual Studio</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Загрузка для Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681&clcid=0x409">Загрузка для Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Загрузка для Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682&clcid=0x409">Загрузка для Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Загрузка для Team Services</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2629,7 +2737,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-arch-1.svg" alt="" />
+                                                        <img data-scaleimage="media/index/azure-arch-1.svg" src="media/index/azure-arch-1.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2648,7 +2756,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-arch-2.svg" alt="" />
+                                                        <img data-scaleimage="media/index/azure-arch-2.svg" src="media/index/azure-arch-2.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2667,7 +2775,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-arch-3.svg" alt="" />
+                                                        <img data-scaleimage="media/index/azure-arch-3.svg" src="media/index/azure-arch-3.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2686,7 +2794,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-arch-4.svg" alt="" />
+                                                        <img data-scaleimage="media/index/azure-arch-4.svg" src="media/index/azure-arch-4.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2705,7 +2813,7 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-arch-5.svg" alt="" />
+                                                        <img data-scaleimage="media/index/azure-arch-5.svg" src="media/index/azure-arch-5.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2727,6 +2835,6 @@ ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

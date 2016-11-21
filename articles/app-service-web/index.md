@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 29794682e0258a6d30c9b2ac96b6e58272bc3f48
-ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
 
 ---
 # <a name="azure-web-apps-documentation"></a>Документация по веб-приложениям Azure
@@ -75,43 +75,25 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание веб-приложения ASP.NET с помощью Visual Studio</h3>
+                        <h3>Начало работы с веб-приложениями с помощью ASP.NET и Visual Studio</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+    </li> 
+     <li>
+        <a href="/azure/app-service-web/web-sites-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание веб-приложения ASP.NET с помощью Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Создание веб-приложения ASP.NET с помощью Visual Studio</h3>
+                        <h3>Начало работы с веб-приложениями с помощью Java</h3>
                     </div>
                 </div>
             </div>
@@ -129,7 +111,7 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы с веб-приложениями Node.js в службе приложений Azure</h3>
+                        <h3>Начало работы с веб-приложениями с помощью Node.js </h3>
                     </div>
                 </div>
             </div>
@@ -147,25 +129,26 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание веб-приложения с помощью Python Tools 2.2</h3>
+                        <h3>Начало работы с веб-приложениями с помощью Python Tools 2.2</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+   
+     <li>
+        <a href="/azure/app-service-web/app-service-web-php-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание веб-приложения Java в службе приложений Azure</h3>
+                        <h3>Начало работы с веб-приложениями с помощью PHP</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +166,29 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание веб-приложения WordPress в службе приложений Azure</h3>
+                        <h3>Начало работы с WordPress в службе приложений Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
+</ul>
+
+---
+
+## <a name="reference"></a>Справочные материалы
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/appservice/web">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Справочник по интерфейсу командной строки Azure для веб-приложений</p>
                     </div>
                 </div>
             </div>
@@ -191,40 +196,49 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Создание, настройка и развертывание веб-приложения PHP в Azure</h3>
+                        <h3>Java</h3>
+                        <p>Справочник по API для Java</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
-
----
-
-## <a name="reference"></a>Справочные материалы
-
-### <a name="azure-cli"></a>Интерфейс командной строки Azure
-[Справочник по интерфейсу командной строки Azure для веб-приложений](/cli/azure/)
-
-### <a name="java"></a>Java
-[Справочник по API Java для веб-приложений ](/java/api/)
-
-### <a name="net"></a>.NET
-[Управляемый справочник по веб-приложениям](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Справочник по REST API веб-приложений](/rest/api/appservice)
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/rest/api/appservice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API веб-приложений</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -235,6 +249,7 @@ ms.openlocfilehash: 97a0f22bf72b30e6adc92e9b8d7e58a25e67c14b
 </div>
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

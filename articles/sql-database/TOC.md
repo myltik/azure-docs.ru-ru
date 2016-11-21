@@ -1,6 +1,6 @@
 # Обзор
 ## [Что такое база данных SQL?](sql-database-technical-overview.md)
-## [Часто задаваемые вопросы о базе данных SQL](sql-database-faq.md)
+
 ## Функции
 ### [Уровни службы](sql-database-service-tiers.md)
 ### [Единицы транзакций базы данных](sql-database-what-is-a-dtu.md)
@@ -75,6 +75,7 @@
 ## [Управление доступом и разрешениями](sql-database-get-started-security.md)
 ## [Оптимизация в памяти](sql-database-in-memory.md)
 ## [Синхронизация данных](sql-database-get-started-sql-data-sync.md)
+## [Часто задаваемые вопросы о базе данных SQL](sql-database-faq.md)
 
 # Практическое руководство
 
@@ -264,12 +265,12 @@
 ### [Перемещение баз данных](sql-database-troubleshoot-moving-data.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell — классическая модель](/powershell/servicemanagement/)
 ## [Java](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Командлеты базы данных Azure SQL](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+## [Командлеты базы данных SQL Azure](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
 ## [Командлеты для SQL Server](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
@@ -287,6 +288,9 @@
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/sql-database/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [Обновления службы](https://azure.microsoft.com/updates/?service=sql-database)
 ## [Инструменты SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -294,10 +298,10 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted)
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

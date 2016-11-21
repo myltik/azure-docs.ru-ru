@@ -38,9 +38,6 @@
 ## Развернуть
 ### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
 
-# Справочные материалы
-## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -48,6 +45,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,12 +13,13 @@
 ### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-getstarted-create-recordset-cli.md)
 
 ## [Делегирование своего домена в Azure DNS](dns-domain-delegation.md)
+## [Создание пользовательских записей DNS для веб-приложения](dns-web-sites-custom-domain.md)
 
 # Практическое руководство
 
 ## Управление зонами DNS
 ### [PowerShell](dns-operations-dnszones.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-operations-dnszones.md)
+### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](dns-operations-dnszones-cli.md)
 
 ## [Управление зонами DNS](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Импорт и экспорт файла зоны DNS](dns-import-export.md)
-## [Использование Azure DNS с другими службами Azure](dns-for-azure-services.md)
+## [Интеграция с другими службами Azure](dns-for-azure-services.md)
 ## [Защита зон и записей DNS](dns-protect-zones-recordsets.md)
 ## [Автоматизация работы DNS с помощью пакета SDK для .NET](dns-sdk.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Интерфейсы REST API](/rest/api/dns/)
 
 # Сопутствующие материалы
@@ -46,11 +47,12 @@
 ## [Веб-приложения](/azure/app-service-web/)
 
 # Ресурсы
-## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
-## [Форум по сетям](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=dns)
 ## [Цены](https://azure.microsoft.com/pricing/details/dns/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

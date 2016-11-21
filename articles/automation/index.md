@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
-ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 ---
 # <a name="automation-documentation"></a>Документация по службе автоматизации
@@ -125,14 +125,50 @@ ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
 
 ## <a name="reference"></a>Справочные материалы
 
-### <a name="powershell"></a>PowerShell
-[Справочник по Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-### <a name="net"></a>.NET
-[Управляемый справочник по API Azure](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Справочник по REST API службы автоматизации](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API службы автоматизации</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 
 <div class="downloadHolder">
@@ -145,6 +181,6 @@ ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

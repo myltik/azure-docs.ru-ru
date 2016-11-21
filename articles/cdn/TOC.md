@@ -1,5 +1,6 @@
 # [Обзор](cdn-overview.md)
 ## [Что такое Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Начало работы
 ## [Включение Azure CDN](cdn-create-new-endpoint.md)
 
@@ -41,19 +42,19 @@
 ### [Сжатие файлов](cdn-troubleshoot-compression.md)
 
 # Справочные материалы
-## [Командлеты PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [API .NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [.NET](/dotnet/api/)
 ## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST](/rest/api/cdn/)
 
 # Ресурсы
-## [Цены](https://azure.microsoft.com/pricing/details/cdn/)
-## [Форум MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cdn)
+## [Цены](https://azure.microsoft.com/pricing/details/cdn/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
