@@ -5,7 +5,7 @@ ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
 ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
 
 ---
-# <a name="multifactor-authentication-documentation"></a>Документация по многофакторной идентификации
+# <a name="multi-factor-authentication-documentation"></a>Документация по многофакторной идентификации
 
 Многофакторная идентификация (MFA) Azure — решение Майкрософт для двухшаговой проверки. Azure MFA помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователей в систему. Служба обеспечивает строгую аутентификацию с помощью различных способов проверки — телефонного звонка, текстового сообщения или проверки в мобильном приложении.
 
@@ -113,6 +113,6 @@ ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
 </div>
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -193,6 +193,6 @@ Azure Stream Analytics — это полностью управляемый мо
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

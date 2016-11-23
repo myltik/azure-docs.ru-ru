@@ -97,6 +97,6 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
