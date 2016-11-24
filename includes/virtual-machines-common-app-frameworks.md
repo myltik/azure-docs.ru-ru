@@ -1,6 +1,6 @@
 
 
-## Приложения
+## <a name="applications"></a>Приложения
 В этой таблице вы сможете найти сведения о параметрах, используемых в шаблоне, проверить шаблон перед развертыванием или развернуть шаблон непосредственно с портала Azure.
 
 | Приложение | Подробнее | Просмотрите шаблон | Разверните его |
@@ -14,7 +14,7 @@
 | Elasticsearch |[Галерея](https://azure.microsoft.com/documentation/templates/elasticsearch/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Felasticsearch%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Jenkins |[Галерея](https://azure.microsoft.com/documentation/templates/jenkins-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/jenkins-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fjenkins-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Kafka |[Галерея](https://azure.microsoft.com/documentation/templates/kafka-ubuntu-multidisks/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/kafka-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%kafka-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| LAMP |[Галерея](https://azure.microsoft.com/ru-RU/documentation/templates/lamp-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| LAMP |[Коллекция](https://azure.microsoft.com/en-us/documentation/templates/lamp-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Flamp-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | MongoDB |[Галерея](https://azure.microsoft.com/documentation/templates/mongodb-on-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fmongodb-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Redis |[Галерея](https://azure.microsoft.com/documentation/templates/redis-high-availability/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/redis-high-availability) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fredis-high-availability%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | SharePoint |[Галерея](https://azure.microsoft.com/documentation/templates/sharepoint-three-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-three-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -25,7 +25,7 @@
 
 Наряду с этими шаблонами, можно также выполнять поиск по [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/).
 
-## Портал Azure
+## <a name="azure-portal"></a>Портал Azure
 Чтобы развернуть шаблон с помощью портала Azure, нужно просто отправить в него URL-адрес. Для развертывания шаблона необходимо указать имя файла, в котором он хранится. Имя можно найти на страницах в коллекции шаблонов либо в репозитории Github. Замените {имя шаблона} в URL-адресе на имя шаблона, который требуется развернуть, и вставьте результат в адресную строку браузера.
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
@@ -37,14 +37,14 @@
 1. В области **Шаблон** нажмите кнопку **Сохранить**.
 2. Щелкните **Параметры**. В области **Параметры** введите новые значения, выберите среди допустимых значений или примите значения по умолчанию, а затем нажмите кнопку **ОК**.
 3. При необходимости щелкните **Подписка** и выберите правильную подписку Azure.
-4. Щелкните **Группа ресурсов** и выберите существующую группу ресурсов. Либо щелкните **Или создать новую**, чтобы создать группу для этого развертывания.
+4. Щелкните **Группа ресурсов** и выберите существующую группу ресурсов. Либо щелкните **Или создать новую** , чтобы создать группу для этого развертывания.
 5. При необходимости щелкните элемент **Расположение** и укажите правильное расположение Azure.
-6. При необходимости выберите **Юридические условия**, чтобы ознакомиться с условиями и соглашением для использования шаблона.
+6. При необходимости выберите **Юридические условия** , чтобы ознакомиться с условиями и соглашением для использования шаблона.
 7. Щелкните **Создать**.
 
 В зависимости от шаблона для развертывания в Azure может потребоваться некоторое время.
 
-## Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 Выполните следующие команды, чтобы создать группу ресурсов и развертывание, заменив заключенный в скобки текст на имя группы ресурсов, расположение, имя развертывания и имя шаблона:
 
     New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
@@ -52,7 +52,7 @@
 
 При выполнении команды **New-AzureRMResourceGroupDeployment** появится запрос на ввод значений для параметров шаблона. В зависимости от шаблона для развертывания в Azure может потребоваться некоторое время.
 
-## Инфраструктура CLI Azure
+## <a name="azure-cli"></a>Интерфейс командной строки Azure
 [Установите интерфейс командной строки Azure](../articles/xplat-cli-install.md), выполните вход и убедитесь в том, что команды Resource Manager включены. Инструкции см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows с помощью Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Выполните следующие команды, чтобы создать группу ресурсов и развертывание, заменив заключенный в скобки текст на имя группы ресурсов, расположение, имя развертывания и имя шаблона:
@@ -62,9 +62,13 @@
 
 При выполнении команды **azure group deployment create** появится запрос на ввод значений параметров шаблона. В зависимости от шаблона для развертывания в Azure может потребоваться некоторое время.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со всеми шаблонами в вашем распоряжении на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Узнайте больше о [диспетчере ресурсов Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

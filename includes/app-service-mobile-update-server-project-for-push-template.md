@@ -1,15 +1,15 @@
-В этом разделе описывается обновление кода в существующем проекте серверной части мобильных приложений, которое позволит отправлять push-уведомления при каждом добавлении нового элемента. Так как клиенты регистрируются для получения push-уведомлений с помощью шаблонной регистрации, то на все клиентские платформы можно отправить одно push-уведомление. Каждый шаблон регистрации клиента содержит параметр *messageParam*. При отправке уведомления *messageParam* содержит строку, представляющую собой текст вставляемого элемента. Дополнительные сведения об использовании шаблонов с центрами уведомлений см. в статье [Шаблоны](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+В этом разделе описывается обновление кода в существующем проекте серверной части мобильных приложений, которое позволит отправлять push-уведомления при каждом добавлении нового элемента. Это реализуется с помощью [шаблона](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) Центров уведомлений, включая отправку push-уведомлений между разными платформами. Разные клиенты регистрируются для обмена push-уведомлениями с помощью шаблонов; одно такое универсальное push-уведомление можно получать на всех клиентских платформах.
 
-Выберите приведенную ниже процедуру, которая соответствует типу вашего серверного проекта — [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
+Выберите процедуру, которая соответствует типу вашего серверного проекта &mdash;: [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-### <a name="dotnet"></a>Серверный проект .NET
-1. В Visual Studio щелкните правой кнопкой мыши серверный проект и **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Она устанавливает библиотеку центров уведомлений для отправки уведомлений из серверной части.
+### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Серверный проект .NET
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект, выберите пункт **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Она устанавливает библиотеку центров уведомлений для отправки уведомлений из серверной части.
 2. В серверном проекте откройте **Контроллеры** > **TodoItemController.cs** и добавьте следующие операторы using:
    
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**:
+3. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**.  
    
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -46,10 +46,10 @@
         }
    
     При вставке нового элемента отправляется шаблонное уведомление, содержащее item.Text.
-4. Повторная публикация серверного проекта
+4. Повторная публикация серверного проекта 
 
-### <a name="nodejs"></a>Серверный проект Node.js
-1. [Загрузите серверный проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
+### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Серверный проект Node.js
+1. При необходимости [скачайте серверный проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Замените существующий код в файле todoitem.js следующим кодом:
    
         var azureMobileApps = require('azure-mobile-apps'),
@@ -91,7 +91,11 @@
    
         module.exports = table;  
    
-    При вставке нового элемента отправляется шаблонное уведомление, содержащее item.text.
+    При вставке нового элемента отправляется шаблонное уведомление, содержащее item.Text.
 3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

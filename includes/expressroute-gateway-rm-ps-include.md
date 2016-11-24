@@ -4,12 +4,12 @@
 
 * Имя виртуальной сети: TestVNet.
 * Адресное пространство виртуальной сети: 192.168.0.0/16.
-* Группа ресурсов — TestRG.
+* Группа ресурсов — TestRG.
 * Имя подсети Subnet1: FrontEnd. 
 * Адресное пространство Subnet1: 192.168.0.0/16.
 * Имя подсети шлюза: GatewaySubnet; подсеть шлюза всегда необходимо называть *GatewaySubnet*.
 * Адресное пространство шлюза подсети: 192.168.200.0/26.
-* Расположение — East US.
+* Расположение — East US.
 * Имя шлюза: GW.
 * IP-имя шлюза: GWIP.
 * Имя конфигурации IP-адресов шлюза: gwipconf.
@@ -44,7 +44,7 @@
         $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 7. Запросите общедоступный IP-адрес. IP-адрес запрашивается перед созданием шлюза. Указать необходимый IP-адрес нельзя, он выделяется динамически. Этот IP-адрес будет использоваться на следующем этапе конфигурации. Параметр AllocationMethod должен иметь значение Dynamic.
    
-        $pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 8. Создайте конфигурацию для шлюза. Конфигурация шлюза определяет используемые подсеть и общедоступный IP-адрес. На этом шаге вы задаете конфигурацию, которая будет использоваться при создании шлюза. Но пока объект шлюза не создается. Используйте следующий пример, чтобы создать конфигурацию шлюза. 
    
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
@@ -74,6 +74,6 @@
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -11,6 +11,9 @@
 2. Повторите предыдущие шаги для каждого поставщика, поддержку которого вы хотите включить в свое приложение.
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Портал Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+
+<!--HONumber=Nov16_HO3-->
+
+

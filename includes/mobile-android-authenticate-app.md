@@ -10,7 +10,7 @@
    
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. Добавьте в класс **ToDoActivity** следующий метод:
+2. Добавьте в класс **ToDoActivity** следующий метод: 
    
         private void authenticate() {
             // Login using the Google provider.
@@ -34,9 +34,9 @@
 
     При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
 
-    > [AZURE.NOTE]Если используется поставщик идентификаторов, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
+    > [AZURE.NOTE] Если вы используете поставщик удостоверений, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
 
-1. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`:
+1. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
    
         authenticate();
    
@@ -58,8 +58,12 @@
             // Load the items from Azure.
             refreshItemsFromTable();
         }
-3. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
+3. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений. 
    
-       После входа мобильное приложение должно работать без ошибок, а у вас должна быть возможность отправлять запросы в серверную службу и обновлять данные.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

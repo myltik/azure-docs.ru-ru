@@ -1,33 +1,32 @@
----
-title: Таблица ограничений для службы архивации Azure
-description: В таблице описаны системные ограничения для службы архивации Azure.
-services: backup
-documentationcenter: NA
-author: Jim-Parker
-manager: jwhit
-editor: ''
+ (backup vaults<properties
+   pageTitle="Azure Backup limits table"
+   description="Describes system limits for Azure Backup."
+   services="backup"
+   documentationCenter="NA"
+   authors="Jim-Parker"
+   manager="jwhit"
+   editor="" />
 
-ms.service: backup
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 10/05/2015
-ms.author: trinadhk
-;"jimpark";: ''
-"\"aashishr\"": ''
+---
+{}
+
+ms.service: backup ms.devlang: NA ms.topic: article ms.tgt_pltfrm: NA ms.workload: TBD ms.date: 10/05/2015 ms.author: trinadhk ;"jimpark";: '' "\"aashishr\"": ''
 
 ---
 Для службы архивации Azure применяются указанные ниже ограничения.
 
 | Идентификатор ограничения | Ограничение по умолчанию |
 | --- | --- |
-| Количество серверов и компьютеров, которые можно зарегистрировать для каждого хранилища |50 для Windows Server, Windows Client, SCDPM <br/> 200 для виртуальных машин IaaS |
-| Размер источника данных для данных, хранимых в службе хранилища Azure |Максимум 54 400 ГБ<sup>1</sup> |
-| Количество хранилищ архивации, которые можно создать для каждой подписки Azure |25 |
-| Количество операций архивации, которые можно запланировать на один день |3 операции в день для Windows Server или рабочей станции Windows <br/> 2 операции в день для SCDPM <br/> одна операция в день для виртуальных машин IaaS |
+| Количество серверов и компьютеров, которые можно зарегистрировать для каждого хранилища |50 для Windows Server, Windows Client, SCDPM  <br/>  200 для виртуальных машин IaaS |
+| Размер источника данных для данных, хранимых в службе хранилища Azure |Максимум 54 400 ГБ<sup>1</sup> |
+| Количество хранилищ архивации, которые можно создать для каждой подписки Azure |25 (хранилищ службы архивации) <br/> 25 хранилищ служб восстановления на регион |
+| Количество операций архивации, которые можно запланировать на один день |3 операции в день для Windows Server или рабочей станции Windows  <br/> 2 операции в день для SCDPM <br/>  одна операция в день для виртуальных машин IaaS |
 | Диски с данными, подключенные к виртуальной машине Azure для архивации |16 |
 
-* <sup>1</sup>Ограничение в 54 400 ГБ не применяется при архивации виртуальных машин IaaS.
+* <sup>1</sup>Ограничение в 54 400 ГБ не применяется при архивации виртуальных машин IaaS.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

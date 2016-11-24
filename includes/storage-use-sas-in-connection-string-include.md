@@ -1,40 +1,56 @@
-If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS includes on the URI the information required to authenticate the request, the SAS URI provides the protocol, the service endpoint, and the necessary credentials to access the resource.
+При наличии подписанного URL-адреса (SAS), предоставляющего доступ к ресурсам в учетной записи хранения, SAS можно использовать в строке подключения. Так как SAS содержит сведения URI, необходимые для проверки подлинности запроса, код URI SAS предоставляет протокол, конечную точку службы и необходимые учетные данные для доступа к ресурсу.
 
-To create a connection string that includes a shared access signature, specify the string in the following format:
+Чтобы создать строку подключения, содержащую подписанный URL-адрес, задайте ее в следующем формате:
 
-    BlobEndpoint=myBlobEndpoint;
-    QueueEndpoint=myQueueEndpoint;
-    TableEndpoint=myTableEndpoint;
-    FileEndpoint=myFileEndpoint;
-    SharedAccessSignature=sasToken
+```
+BlobEndpoint=myBlobEndpoint;
+QueueEndpoint=myQueueEndpoint;
+TableEndpoint=myTableEndpoint;
+FileEndpoint=myFileEndpoint;
+SharedAccessSignature=sasToken
+```
 
-Each service endpoint is optional, although the connection string must contain at least one.
+Несмотря на то что конечные точки службы необязательны, строка подключения должна содержать по крайней мере одну конечную точку.
 
 > [!NOTE]
-> Using HTTPS with a SAS is recommended as a best practice.
+> По соображениям безопасности с SAS рекомендуется использовать протокол HTTPS.
 > 
-> If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
+> При указании SAS в строке подключения в файле конфигурации может потребоваться закодировать специальные символы в URL-адресе.
 > 
 > 
 
-### Service SAS example
-Here's an example of a connection string that includes a service SAS for Blob storage:
+### <a name="service-sas-example"></a>Пример SAS службы
+Ниже приведен пример строки подключения, которая включает подписанный URL-адрес службы для хранилища BLOB-объектов:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
 
-And here's an example of the same connection string with encoding of special characters:
+Еще один пример той же строки подключения с кодированием специальных символов:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
 
-### Account SAS example
-Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
+### <a name="account-sas-example"></a>Пример SAS учетной записи
+Ниже приведен пример строки подключения, которая включает подписанный URL-адрес учетной записи для хранилища BLOB-объектов и файлового хранилища: Обратите внимание, что указаны конечные точки для обеих служб.
 
+```
     BlobEndpoint=https://storagesample.blob.core.windows.net;
     FileEndpoint=https://storagesample.file.core.windows.net;
     SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+```
 
-And here's an example of the same connection string with URL encoding:
+Еще один пример той же строки подключения с кодированием URL-адреса:
 
+```
     BlobEndpoint=https://storagesample.blob.core.windows.net;
     FileEndpoint=https://storagesample.file.core.windows.net;
     SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+```
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

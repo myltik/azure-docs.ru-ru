@@ -1,8 +1,8 @@
-### Предварительные требования
+### <a name="prerequisites"></a>Предварительные требования
 Набор средств Azure для IntelliJ требует установки следующих программных компонентов:
 
-* IntelliJ IDEA Ultimate Edition. Среду также можно загрузить с веб-страницы <https://www.jetbrains.com/idea/download/>.
-* Java Developer Kit (JDK), версия 1.8 или более поздняя.
+* IntelliJ IDEA Ultimate Edition. Его можно скачать по адресу <https://www.jetbrains.com/idea/download/>.
+* Java Developer Kit (JDK), версия 1.8 или более поздняя. 
 * Операционные системы — набор средств Azure для IntelliJ был протестирован в следующих операционных системах:
   
   * Windows 10, Windows 8 и 8.1, Windows 7
@@ -22,4 +22,8 @@
 > 
 > 
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

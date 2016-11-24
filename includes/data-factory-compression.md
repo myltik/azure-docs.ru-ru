@@ -10,28 +10,28 @@
 
     {  
         "name": "AzureBlobDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureBlob",  
             "linkedServiceName": "StorageLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 Раздел **compression** содержит два свойства:  
 
-* **Type** — кодек сжатия, который может иметь значение **GZIP**, **Deflate** или **BZIP2**.  
-* **Level:** — коэффициент сжатия, который может иметь значение **Optimal** или **Fastest**. 
+* **Type** — кодек сжатия; возможные значения: **GZIP**, **Deflate** и **BZIP2**.  
+* **Level** — коэффициент сжатия; возможные значения: **Optimal** и **Fastest**. 
   
   * **Fastest:** операция сжатия должна выполняться как можно быстрее, даже если итоговый файл сжимается не оптимально. 
   * **Optimal**: операция сжатия должна выполняться оптимально, даже если для ее завершения требуется больше времени. 
@@ -46,6 +46,8 @@
 * Считайте данные из обычного текстового файла в локальной файловой системе, сожмите их в формате GZip и запишите сжатые данные в BLOB-объект Azure. В этом случае вы определяете выходной набор данных BLOB-объекта Azure с помощью  свойства "compression" JSON.  
 * Считайте сжатые с помощью кодека GZIP данные из BLOB-объекта Azure, распакуйте их и сожмите с помощью BZIP2, а затем запишите результирующие данные в BLOB-объект Azure. В этом случае вы определяете входной набор данных BLOB-объекта Azure, установив для типа сжатия значение GZIP, и результирующий набор данных, установив для типа сжатия значение BZIP2.   
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -6,9 +6,16 @@
 > * [Мобильные приложения](../articles/azure-functions/functions-bindings-mobile-apps.md)
 > * [Центры уведомлений](../articles/azure-functions/functions-bindings-notification-hubs.md)
 > * [Служебная шина](../articles/azure-functions/functions-bindings-service-bus.md)
-> * [Хранилище](../articles/azure-functions/functions-bindings-storage.md)
+> * [Очередь хранилища](../articles/azure-functions/functions-bindings-storage-queue.md)
+> * [Большой двоичный объект хранилища](../articles/azure-functions/functions-bindings-storage-blob.md)
+> * [Таблица хранилища](../articles/azure-functions/functions-bindings-storage-table.md)
 > * [Таймер](../articles/azure-functions/functions-bindings-timer.md)
+> * [Twilio](../articles/azure-functions/functions-bindings-twilio.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

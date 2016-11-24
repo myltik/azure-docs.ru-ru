@@ -1,5 +1,5 @@
 * [Географически распределенное масштабирование с использованием сред службы приложений](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Реализация многоуровневой архитектуры безопасности со средами службы приложений](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
+* [Реализация многоуровневой архитектуры безопасности со средами службы приложений](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
 * [Настройка брандмауэра веб-приложения (WAF) для среды службы приложений](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 * [Создание среды службы приложений с включенным ILB, используя шаблоны Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Автоматическое масштабирование и среда службы приложений](../articles/app-service/app-service-environment-auto-scale.md)
@@ -9,4 +9,8 @@
 * [Настраиваемые параметры конфигурации для сред службы приложений, в том числе параметры соответствия требованиям PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Высокая плотность размещения в службе приложений Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

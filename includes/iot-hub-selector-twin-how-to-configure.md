@@ -4,22 +4,22 @@
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device meta-data from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+## <a name="introduction"></a>Введение
+Изучив руководство [Приступая к работе с двойниками устройств (предварительная версия)][lnk-twin-tutorial], вы узнали, как задать метаданные устройства в серверной части решения с помощью *тегов*, сообщить об условиях устройства из приложения устройства с помощью *сообщаемых свойств* и запросить эти сведения с помощью языка запросов, аналогичного SQL.
 
-In this tutorial, you will learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the visibility to the solution back end of the status of this operation across all devices.
+В этом руководстве представлены сведения об удаленной настройке приложений устройства с помощью *требуемых свойств* и *сообщаемых свойств* двойника устройства. В частности, здесь показано, как на основе требуемых и сообщаемых свойств двойника устройства реализовать многошаговую настройку параметров приложения устройства, а также обеспечить полную видимость состояния этой операции на всех устройствах в серверной части решения.
 
-At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. The desired state pattern is instrumental to the management of large sets of devices, as it enables the back end to have full visibility of the state of the configuration process across all devices.
-You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
+В общем управление устройством в этом руководстве осуществляется на основе *шаблона требуемого состояния*. Основная идея этого шаблона заключается в создании серверной части решения и определении требуемого состояния для управляемых устройств вместо отправки определенных команд. Таким образом, устройство может определять оптимальный способ достижения требуемого состояния (это особенно важно в сценариях Интернета вещей, где определенные условия устройства влияют на возможность мгновенно выполнять некоторые команды), а также постоянно отправлять отчеты о текущем состоянии и возможные условия возникновения ошибки в серверную часть. Шаблон требуемого состояния играет важную роль в управлении большими наборами устройств, так как он обеспечивает для серверной части полную видимость состояния процесса настройки на всех устройствах.
+Дополнительные сведения о роли шаблона требуемого состояния в управлении устройством см. в статье [Общие сведения об управлении устройствами с помощью Центра Интернета вещей (предварительная версия)][lnk-dm-overview].
 
 > [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> В сценариях, где управление устройствами осуществляется в интерактивном режиме (включение вентилятора с помощью пользовательского приложения), используйте [прямые методы][lnk-methods].
 > 
 > 
 
-In this tutorial, the application back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (e.g. requiring a software module restart), which this tutorial simulates with a simple delay).
+В этом руководстве серверная часть приложения изменяет конфигурацию телеметрии целевого устройства, в результате чего приложение устройства выполняет многошаговый процесс для применения обновлений конфигурации (например, принудительная перезагрузка модуля приложения, которая в этом руководстве выполняется с небольшой задержкой).
 
-The back-end stores the configuration in the device twin's desired properties in the following way:
+Серверная часть сохраняет конфигурацию в требуемых свойствах двойника устройства следующим образом.
 
         {
             ...
@@ -37,11 +37,11 @@ The back-end stores the configuration in the device twin's desired properties in
         }
 
 > [!NOTE]
-> Since configurations can be complex objects, they are usually assigned unique ids (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
+> Так как конфигурации могут быть сложными объектами, обычно им назначаются уникальные идентификаторы (хэши или [идентификаторы GUID][lnk-guid]). Это позволяет упростить их сравнение.
 > 
 > 
 
-The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
+Приложение устройства сообщает о своей текущей конфигурации, отображая требуемое свойство **telemetryConfig** в сообщаемых свойствах.
 
         {
             "properties": {
@@ -57,9 +57,9 @@ The device app reports its current configuration mirroring the desired property 
             }
         }
 
-Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
+Обратите внимание, что свойство **telemetryConfig** имеет дополнительное свойство **status**, используемое для сообщения состояния процесса обновления конфигурации.
 
-When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+Получив новую требуемую конфигурацию, приложение устройства сообщает об ожидающей конфигурации, изменяя определенные сведения.
 
         {
             "properties": {
@@ -79,13 +79,13 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app will report the success of failure of this operation by updating the above property.
-Note how the back end is able, at any time, to query the status of the configuration process across all the devices.
+Через некоторое время приложение устройства сообщит об успешном выполнении или сбое этой операции, обновив свойство выше.
+Обратите внимание, что серверная часть может в любое время запросить состояние процесса конфигурации на всех устройствах.
 
-This tutorial shows you how to:
+В этом учебнике описаны следующие процедуры.
 
-* Create a simulated device that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
-* Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
+* создание имитированного устройства, которое получает обновления конфигурации из серверной части и сообщает о нескольких обновлениях как о *сообщаемых свойствах* в процессе обновления конфигурации;
+* создание внутреннего приложения, которое обновляет требуемую конфигурацию устройства, а затем запрашивает процесс обновления конфигурации.
 
 <!-- links -->
 
@@ -94,6 +94,6 @@ This tutorial shows you how to:
 [lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

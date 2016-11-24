@@ -1,9 +1,9 @@
 
-## Аналитика
+## <a name="analytics"></a>Аналитика
 * [Обзор](../articles/application-insights/app-insights-analytics.md)
 * [Знакомство с аналитикой](../articles/application-insights/app-insights-analytics-tour.md)
   * Начните отсюда. Этот учебник охватывает основные функции.
-* [Запросы](../articles/application-insights/app-insights-analytics-reference.md#queries)
+* [Запросы](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
   * Использование операторов, таких как `where` и `count`, для создания запросов.
 * [Агрегирование](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
   * Используется для вычисления статистических данных по группам записей.
@@ -15,4 +15,8 @@
   * Справочник на одной странице.
 * [Устранение неполадок](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
