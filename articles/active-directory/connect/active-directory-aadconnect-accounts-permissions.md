@@ -1,12 +1,12 @@
 ---
-title: Учетные записи и разрешения Azure AD Connect | Microsoft Docs
-description: В этом разделе описаны используемые и созданные учетные записи, а также необходимые разрешения.
+title: "Учетные записи и разрешения Azure AD Connect | Документация Майкрософт"
+description: "В этом разделе описаны используемые и созданные учетные записи, а также необходимые разрешения."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+
 
 ---
-# <a name="azure-ad-connect:-accounts-and-permissions"></a>Azure AD Connect: учетные записи и разрешения
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: учетные записи и разрешения
 Мастер установки Azure AD Connect предлагает два разных варианта.
 
 * В случае выбора стандартных параметров мастеру требуется больше прав, чтобы быстро настроить конфигурацию вашей учетной записи. Вам не придется дополнительно создавать пользователей или настраивать разрешения.
@@ -127,6 +131,9 @@ ms.author: billmath
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
