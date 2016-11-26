@@ -66,22 +66,23 @@
 ### [Перезапуск или изменение размера виртуальной машины](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Справочные материалы
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
 ## [Создание шаблонов Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates/)
-## [REST для вычислений](/rest/api/compute/)
-## [REST для сети](/rest/api/)
-## [REST для службы хранилища](/rest/api/storageservices/)
+## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates)
+## [REST для вычислений](/rest/api/compute)
+## [REST для сети](/rest/api)
+## [REST для службы хранилища](/rest/api/storageservices)
 
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
-## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
+## [Доступность по регионам](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

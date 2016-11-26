@@ -5,12 +5,11 @@
 ## Сценарии
 ### [Распространенные варианты использования](documentdb-use-cases.md)
 ### [Использование социальных сетей с DocumentDB](documentdb-social-media-apps.md)
-### [Мультитенантность](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Начало работы
 ## Создание первого приложения
 ### [Консольное приложение .NET](documentdb-get-started.md)
+### [Консольное приложение .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Консольное приложение Node.js](documentdb-nodejs-get-started.md)
 ### [Консольное приложение C++](documentdb-cpp-get-started.md)
 ## Создание веб-приложения
@@ -18,7 +17,8 @@
 ### [Веб-приложение Node.js](documentdb-nodejs-application.md)
 ### [Веб-приложение Java](documentdb-java-application.md)
 ### [Веб-приложения Python Flask](documentdb-python-application.md)
-## [Часто задаваемые вопросы](documentdb-faq.md)
+## [Разработка в локальной среде](documentdb-nosql-local-emulator.md)
+## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](documentdb-faq.md)
 
 # Практическое руководство
 
@@ -85,6 +85,7 @@
 # Справочные материалы
 ## [Пакет SDK для Java](documentdb-sdk-java.md)
 ## [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
+## [Пакет SDK для .NET Core](documentdb-sdk-dotnet-core.md)
 ## [Примеры для .NET](documentdb-dotnet-samples.md)
 ## [Пакет SDK для Node.js](documentdb-sdk-node.md)
 ## [Примеры для Node.js](documentdb-nodejs-samples.md)
@@ -109,6 +110,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

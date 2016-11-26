@@ -1,17 +1,17 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
+ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
+ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
 
 ---
 #<a name="data-catalog-documentation"></a>Документация по каталогу данных
 
-Каталог данных — это платформа распределенных систем, упрощающая упаковку и развертывание масштабируемых и надежных микрослужб и управление ими. Она позволяет разрешить значительные трудности, связанные с разработкой облачных приложений и управлением ими.  Каталог данных — это принципиально новая платформа промежуточного слоя, позволяющая создавать облачные высококлассные приложения уровня 1 и управлять ими.
+Каталог данных Azure представляет собой полностью управляемую облачную службу, которая предоставляет пользователям возможности для поиска необходимых источников данных и их анализа, а также помогает организациям повысить окупаемость существующих инвестиций. Возможности каталога данных позволяют любому пользователю — от аналитика и специалиста по обработке и анализу данных до разработчика — обнаруживать, анализировать и использовать источники данных. Каталог данных включает в себя краудсорсинговую модель метаданных и аннотаций и позволяет всем пользователям делиться знаниями для формирования сообщества и культуры данных.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -21,7 +21,7 @@ ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Примеры для начала работы с каталогом данных</h3>
+                        <h3>Приступая к работе с каталогом данных Azure</h3>
                     </div>
                 </div>
             </div>
@@ -29,25 +29,7 @@ ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Общедоступный кластер для тестирования каталога данных Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/data-catalog/data-catalog-what-is-data-catalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +39,7 @@ ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы с каталогом данных с использованием .NET Core</h3>
+                        <h3>Информация о каталоге данных Azure</h3>
                     </div>
                 </div>
             </div>
@@ -72,28 +54,13 @@ ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/">
+        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
                         <p>Справочник по REST API каталога данных</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по каталогу данных</p>
                     </div>
                 </div>
             </div>
@@ -112,6 +79,6 @@ ms.openlocfilehash: f9c998b6d6431fe08a1b6e6332f992be1446f0c7
 </div>
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

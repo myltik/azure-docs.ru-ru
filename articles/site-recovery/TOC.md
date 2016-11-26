@@ -2,8 +2,8 @@
 ## [Что такое Site Recovery?](site-recovery-overview.md)
 ## [Как работает Site Recovery?](site-recovery-components.md)
 ## [Какие рабочие нагрузки можно защитить?](site-recovery-workload.md)
-## [Какие операционные системы поддерживаются?](site-recovery-support-matrix.md)
-## [Часто задаваемые вопросы](site-recovery-faq.md)
+## [Таблица поддержки Site Recovery](site-recovery-support-matrix.md)
+## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](site-recovery-faq.md)
 ## [Просмотр введения](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Начало работы
@@ -63,6 +63,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

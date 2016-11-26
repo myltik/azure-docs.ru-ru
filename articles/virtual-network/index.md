@@ -143,7 +143,7 @@ ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
                 <div class="card">
                     <div class="cardText">
                         <h3>.NET</h3>
-                        <p>Справочник по API .NET</p>
+                        <p>Справочник по API .NET</p>
                     </div>
                 </div>
             </div>

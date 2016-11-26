@@ -20,7 +20,7 @@
 ### [Автомасштабирование и масштабируемые наборы](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Вертикальное масштабирование в масштабируемом наборе](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Обновления для масштабируемых наборов](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Расширенное автомасштабирование](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Расширенное автомасштабирование](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Использование DSC и масштабируемых наборов](virtual-machine-scale-sets-dsc.md)
 
 ## Устранение неполадок
@@ -38,6 +38,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

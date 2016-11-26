@@ -9,7 +9,7 @@
 
 # Практическое руководство
 
-## [Создание субъекта-службы](../resource-group-create-service-principal-portal.md)
+## [Создание субъекта-службы](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Проверка подлинности с помощью реестра](container-registry-authentication.md)
 
 # Справочные материалы
@@ -27,6 +27,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

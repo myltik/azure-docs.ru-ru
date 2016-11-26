@@ -24,6 +24,8 @@
 #### [Уровень Premium](cdn-query-string-premium.md)
 ### [Удаление кэшированных ресурсов](cdn-purge-endpoint.md)
 ### [Предварительная загрузка кэшированных ресурсов](cdn-preload-endpoint.md)
+### [Проверка подлинности по маркерам](cdn-token-auth.md)
+### [Мониторинг ресурсов](cdn-resource-health.md)
 ### [Переопределение поведения с помощью правил](cdn-rules-engine.md)
 ### [Получение оповещений в реальном времени](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

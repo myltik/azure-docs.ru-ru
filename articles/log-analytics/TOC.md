@@ -18,6 +18,7 @@
 #### [Хранилище Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [Шлюз OMS](log-analytics-oms-gateway.md)
 ### Источники данных
 #### [Обзор источников данных](log-analytics-data-sources.md)
 #### [События Windows](log-analytics-data-sources-windows-events.md)
@@ -49,6 +50,7 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
+#### [Оценка SCOM](log-analytics-scom-assessment.md)
 ## Анализ
 ### [Панели мониторинга](log-analytics-dashboards.md)
 ### [Конструктор представлений](log-analytics-view-designer.md)

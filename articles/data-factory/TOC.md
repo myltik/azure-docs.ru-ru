@@ -9,14 +9,14 @@
 # Начало работы
 ## [Учебник. Создание конвейера для копирования данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
-### [портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 ### [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 ### [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [Учебник. Создание конвейера для преобразования данных](data-factory-build-your-first-pipeline.md)
-### [портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+### [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Шаблон Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -98,9 +98,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
-## [Индекс всех статей](data-factory-alltopcat.md)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

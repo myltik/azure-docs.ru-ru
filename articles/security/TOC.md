@@ -9,6 +9,7 @@
 ### [Рекомендации по шифрованию и обеспечению защиты данных](azure-security-data-encryption-best-practices.md)
 ### [Руководство по безопасности хранилища](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Защита вычислений](security-virtual-machines-overview.md)
+### [Рекомендации для рабочих нагрузок IaaS](azure-security-iaas.md)
 ### [Антивредоносная программа (Майкрософт)](azure-security-antimalware.md)
 ### [Шифрование дисков](azure-security-disk-encryption.md)
 ### [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
 ## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,6 +16,7 @@
 ### [Открытие общего доступа в DC/OS](container-service-enable-public-access.md)
 ### [Балансировка нагрузки контейнеров в DC/OS](container-service-load-balancing.md)
 ### [Оркестратор для пользователей или приложений в DC/OS](container-service-application-specific-marathon.md)
+### [Мониторинг с помощью OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Мониторинг с помощью Datadog (DC/OS)](container-service-monitoring.md)
 ### [Мониторинг с помощью Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ## [Управление с помощью Kubernetes](container-service-kubernetes-walkthrough.md)
@@ -30,6 +31,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

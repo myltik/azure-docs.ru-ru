@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
+ms.sourcegitcommit: 3273e748265fa23efadd010bb5f0bc9ce43223b6
+ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
 
 ---
 # <a name="azure-search-documentation"></a>Документация по поиску Azure
 
-Поиск Azure — это облачное решение (поиск как услуга), которое делегирует корпорации Майкрософт управление сервером и инфраструктурой. Вы получаете готовое к работе решение, которое можно заполнить своими данными и затем использовать для добавления поиска в свое веб-приложение или мобильное приложение. Поиск Azure позволяет добавлять в приложения функции надежной поисковой системы с использованием простого REST API или пакета SDK для .NET без необходимости управлять инфраструктурой поиска и иметь специальные знания.
+Поиск Azure — это управляемая облачная служба поиска, которая помогает реализовать мощные возможности поиска в пользовательских приложениях, и затем отслеживать операции с участием служб, индексов и запросов в представлениях на портале. Ключевые возможности включают в себя масштабируемый полнотекстовый поиск на нескольких языках, геопространственный поиск, фильтрацию и фасетную навигацию, опережающий ввод, выделение вхождений и пользовательские анализаторы.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +47,7 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
         </a>
     </li>
     <li>
-        <a href="/azure/search/search-create-service">
+        <a href="/azure/search/search-create-service-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы со службой поиска Azure на портале Azure</h3>
+                        <h3>Приступая к работе с Поиском Azure на портале Azure</h3>
                     </div>
                 </div>
             </div>
@@ -82,6 +82,42 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/search/search-query-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Запрос к индексу Поиска Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/search/search-howto-dotnet-sdk">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Использование Поиска Azure в .NET</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 
@@ -91,13 +127,41 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api/">
+        <a href="/dotnet/api/microsoft.azure.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>.NET</h3>
-                        <p>Управляемый справочник по API .NET</p>
+                        <p>API .NET службы</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/microsoft.azure.management.search">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET API управления</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/searchservice/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>API REST службы</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +175,7 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API поиска</p>
+                        <p>Интерфейс API REST для управления.</p>
                     </div>
                 </div>
             </div>
@@ -130,6 +194,6 @@ ms.openlocfilehash: 35919aa28a5c03aa04d0b6018dac5366f19d9794
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

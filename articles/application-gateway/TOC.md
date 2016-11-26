@@ -6,8 +6,8 @@
 ## [Несколько сайтов](application-gateway-multi-site-overview.md)
 ## [Сквозное шифрование SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Ограничения подписки и службы](../azure-subscription-service-limits.md#application-gateway-limits.md)
-# Начало работы
+## [Ограничения служб](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+# Приступая к работе
 ## Создание шлюза приложений
 ### Для общего доступа
 #### [Портал](application-gateway-create-gateway-portal.md)
@@ -19,21 +19,21 @@
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (классическая модель)](application-gateway-ilb.md)
 # Практическое руководство
-## Создание с использованием брандмауэра веб-приложения
+## Настройка брандмауэра веб-приложения
 ### [Портал](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Настройка для SSL
+## Настройка разгрузки SSL
 ### [Портал](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (классическая модель)](application-gateway-ssl.md)
 ### [Политика и сквозное шифрование](application-gateway-end-to-end-ssl-powershell.md)
-## Создание маршрутизации на основе URL-путей
+## Настройка маршрутизации на основе URL-путей
 ### [Портал](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## Настройка для размещения нескольких сайтов
+## Настройка размещения нескольких сайтов
 ### [Портал](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Создание проб работоспособности
+## Настройка проб работоспособности
 ### [Портал](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
@@ -61,6 +61,6 @@
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

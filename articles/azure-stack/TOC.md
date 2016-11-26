@@ -68,20 +68,17 @@
 ## [Управление обновлениями](azure-stack-updates.md)
 ## [Разработка для Azure Stack](azure-stack-developer.md)
 ## Развертывание поставщика ресурсов SQL или MySQL
-### [Использование баз данных MySQL как PaaS в Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Развертывание адаптера поставщика ресурсов SQL Server в Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Использование баз данных SQL в Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Использование баз данных MySQL как PaaS в Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Развертывание адаптера поставщика ресурсов SQL Server в Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Планирование и развертывание веб-приложений
-### [Обзор веб-приложений Azure Stack](azure-stack-webapps-overview.md)
-### [Прежде чем приступить к работе с веб-приложениями Azure Stack](azure-stack-webapps-before-you-get-started.md)
-### [Развертывание поставщика ресурсов MySQL в Azure Stack для использования с веб-приложениями](azure-stack-mysql-rp-deploy-long.md)
+## Планирование и развертывание службы приложений
+### [Обзор веб-приложений Azure Stack](azure-stack-app-service-overview.md)
+### [Прежде чем приступить к работе с веб-приложениями Azure Stack](azure-stack-app-service-before-you-get-started.md)
 ### [Веб-приложения: добавление веб-ролей или рабочих ролей](azure-stack-webapps-add-worker-roles.md)
-### [Добавление поставщика ресурсов веб-приложений в Azure Stack](azure-stack-webapps-deploy.md)
+### [Добавление поставщика ресурсов веб-приложений в Azure Stack](azure-stack-app-service-deploy.md)
 
 # Устранение неполадок
 ## [Устранение неполадок Azure Stack](azure-stack-troubleshooting.md)
-## [Повторный запуск развертывания с вызвавшего сбой шага](azure-stack-rerun-deploy.md)
 ## [Поставщик ресурсов веб-приложений](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Ресурсы
@@ -90,6 +87,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

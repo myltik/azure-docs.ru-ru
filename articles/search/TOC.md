@@ -27,6 +27,7 @@
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
 ## Разработка
 ### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
+### [Обновление REST API](search-api-migration.md)
 ### [Моделирование сложных типов данных](search-howto-complex-data-types.md)
 ## Управление
 ### Администрирование Поиска Azure
@@ -37,12 +38,14 @@
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
 ### [Производительность и оптимизация](search-performance-optimization.md)
 ## Загрузка данных
-### [Индексирование источников данных](search-indexer-overview.md)
-#### [Хранилище BLOB-объектов](search-howto-indexing-azure-blob-storage.md)
-#### [Таблицы Azure](search-howto-indexing-azure-tables.md)
-#### [База данных SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [Большие двоичные объекты с разделителями-запятыми](search-howto-index-csv-blobs.md)
-### [Конфигурация подключения к виртуальной машине SQL Server в Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Обзор индексатора](search-indexer-overview.md)
+### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
+### [Индексатор хранилища таблиц Azure](search-howto-indexing-azure-tables.md)
+### [Индексатор SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Индексатор Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Индексация больших двоичных объектов с разделителями-запятыми](search-howto-index-csv-blobs.md)
+### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
+### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Сопоставление полей в индексаторах](search-indexer-field-mappings.md)
 ##  Проектирование возможностей поиска
 ### [Примеры запросов с использованием синтаксиса Lucene](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # Справочные материалы
 ## [Версии API](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET для службы](/dotnet/api/microsoft.azure.search)
+## [.NET для управления](/dotnet/api/microsoft.azure.management.search)
 ## [REST для службы](/rest/api/searchservice/)
 ## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 ## [REST для управления](/rest/api/searchmanagement/)
+## [Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323)
+## [Простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Ресурсы
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

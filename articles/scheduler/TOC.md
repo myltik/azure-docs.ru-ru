@@ -5,6 +5,7 @@
 
 # Начало работы
 ## [Создание заданий и управление ими](scheduler-get-started-portal.md)
+## [Понятия и терминология](scheduler-concepts-terms.md)
 
 # Практическое руководство
 ## Планирование и проектирование
@@ -14,7 +15,7 @@
 
 ## Разработка
 ### [Сложные расписания с использованием REST API](scheduler-advanced-complexity.md)
-### [Понятия и терминология](scheduler-concepts-terms.md)
+
 
 ## Безопасность
 ### [Исходящая аутентификация](scheduler-outbound-authentication.md)
@@ -25,13 +26,16 @@
 ## [REST](/rest/api/scheduler/)
 
 # Ресурсы
-## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Обновления службы](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Цены](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=scheduler)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

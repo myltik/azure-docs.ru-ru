@@ -279,7 +279,7 @@
 # Справочные материалы
 ## [Командлеты PowerShell](/powershell/ )
 ## [Справочник по API Java](/java/api)
-## [API .NET](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)
 
 # Сопутствующие материалы
@@ -297,6 +297,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,6 +16,7 @@
 # Практическое руководство:
 ## Создание
 ### [Создание соединителя](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Использование соединителя файловой системы](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Инструменты Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Использование функций Azure](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Приложения логики как вызываемые конечные точки](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -26,6 +27,7 @@
 ### [Определение рабочего процесса](../app-service-logic/app-service-logic-author-definitions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Советы по устранению неполадок](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Ограничения и конфигурация](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 
 ## Использование пакета интеграции Enterprise (EIP)
 ### [Пакет интеграции Enterprise](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -49,10 +51,7 @@
 ### [Интеграция X12](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Кодирование X12](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Декодирование X12](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Отслеживание B2B](../app-service-logic/app-service-logic-track-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Схемы отслеживания AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Схемы отслеживания X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Настраиваемая схема отслеживания](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 
 ## Использование шлюза
 ### [Подключение к локальной среде](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -64,6 +63,12 @@
 
 ## Управление
 ### [Мониторинг приложений логики](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Мониторинг сообщений B2B](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Схема отслеживания AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Схема отслеживания X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Настраиваемая схема отслеживания](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Отслеживание сообщений B2B](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
 ### [Учетные записи интеграции](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Цены](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -88,6 +93,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
