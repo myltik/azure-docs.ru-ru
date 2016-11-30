@@ -7,7 +7,7 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
 ---
 # <a name="sql-data-warehouse-documentation"></a>Документация по хранилищу данных SQL
 
-Хранилище данных SQL Azure объединяет возможности реляционной базы данных SQL Server и возможности развертывания в облаке Azure.  Опираясь на архитектуру вычислений с массовым параллелизмом (MPP), хранилище данных SQL может обрабатывать рабочую нагрузку целого предприятия.
+Хранилище данных SQL Azure объединяет возможности реляционной базы данных SQL Server и возможности развертывания в облаке Azure.  Опираясь на архитектуру вычислений с массовым параллелизмом (MPP), хранилище данных SQL может обрабатывать рабочую нагрузку целого предприятия.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +47,7 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
         </a>
     </li>
      <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
