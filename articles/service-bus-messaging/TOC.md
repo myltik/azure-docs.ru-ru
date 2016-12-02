@@ -47,7 +47,7 @@
 ### [Сопряженные пространства имен](service-bus-paired-namespaces.md)
 ### [Объединение в цепочки сущностей с помощью автоматической пересылки](service-bus-auto-forwarding.md)
 ## Управление
-### [Использование шаблонов ARM](service-bus-resource-manager-overview.md)
+### [Использование шаблонов Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Подготовка сущностей с помощью PowerShell](service-bus-powershell-how-to-provision.md)
 
 # Справочные материалы
@@ -57,6 +57,10 @@
 ## [Квоты](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Синтаксис SQLFilter](service-bus-messaging-sql-filter.md)
+## [Синтаксис SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Руководство по использованию протокола AMQP 1.0](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0: операции c запросами и ответами](service-bus-amqp-request-response.md)
 
 # Ресурсы
 ## [Блог](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

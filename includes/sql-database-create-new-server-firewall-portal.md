@@ -2,35 +2,32 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-08-01 , rickbyh.
+Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Создание брандмауэра уровня сервера SQL Azure
+## <a name="create-a-new-azure-sql-server-level-firewall"></a>Создание брандмауэра уровня сервера SQL Azure
 Используйте следующие шаги на портале Azure, чтобы создать правило брандмауэра уровня сервера, разрешающее подключения с отдельного IP-адреса (клиентского компьютера) или всего диапазона IP-адресов логического сервера базы данных SQL.
 
 1. Если вы еще этого не сделали, подключитесь к [порталу Azure](http://portal.azure.com).
 2. В колонке по умолчанию щелкните **Серверы SQL**.
    
       ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. В колонке **Серверы SQL** выберите сервер, на котором необходимо создать правило брандмауэра.
+3. В колонке **Серверы SQL** выберите сервер, для которого нужно создать правило брандмауэра.
    
      ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Проверьте свойства сервера.
+4. Проверьте свойства сервера и щелкните **Брандмауэр**.
    
      ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-5. В колонке **Параметры** щелкните пункт **Брандмауэр**.
-   
-     ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > Также на панели инструментов колонки **База данных** можно открыть колонку серверного уровня **Параметры брандмауэра**.
-   > 
-   > 
-6. Щелкните **Добавить IP-адрес клиента** , чтобы система Azure создала правило для этого IP-адреса клиента.
+    
+    
+6. Щелкните **Добавить IP-адрес клиента**, чтобы система Azure подставила ваш IP-адрес в поля правила.
    
       ![Новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 7. При необходимости щелкните IP-адрес, который был добавлен, чтобы изменить адрес брандмауэра и разрешить доступ с диапазона IP-адресов.
@@ -47,6 +44,6 @@ articles/sql-database/sql-database-configure-firewall-settings
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

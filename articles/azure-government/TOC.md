@@ -16,6 +16,7 @@
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace для партнеров](documentation-government-manage-marketplace-partners.md)
 ### [Диспетчер ресурсов](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md).
 ### [Подписка](documentation-government-manage-subscriptions.md)
 
 # Справочные материалы

@@ -13,7 +13,7 @@
 ### [Импорт определения API](api-management-howto-import-api.md)
 ## Защита серверной части
 ### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
-### [Подключение через VPN или ExpressRoute](api-management-howto-setup-vpn.md)
+### [Подключение к виртуальной сети](api-management-using-with-vnet.md)
 ### [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md)
 ## Настройка политик
 ### [Настраиваемое кэширование](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

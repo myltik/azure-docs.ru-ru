@@ -4,8 +4,8 @@ hide_bc: true
 title: "Документация по Microsoft Azure | Microsoft Docs"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 translationtype: Human Translation
-ms.sourcegitcommit: 267a6facc9ed8e6f75c150d627545deafc589040
-ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
+ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
+ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 ---
 <div id="main" class="v2">
@@ -678,7 +678,7 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Виртуальные машины Windows</h3>
-                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
+                                                    <p>Подготовка виртуальных машин для SQL Server, SharePoint и др.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2355,11 +2355,11 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                 </ul>
             </li>
             <li>
-                <a href="#developer">Разработчик</a>
-                <ul id="developer">
+                <a href="#sdktools">Пакеты SDK и инструменты</a>
+                <ul id="sdktools">
                     <li>
-                        <a href="#developer-all">Все</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdktools-all">Все</a>
+                        <ul id="sdktools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Языки &amp; Платформы</h1>
@@ -2539,12 +2539,12 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Предварительная версия Azure CLI 2.0 </h3>
+                                                <h3>Предварительная версия Azure CLI 2.0 </h3>
                                                 <p>
                                                     <a href="/cli/azure/get-started/">Начало работы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Скачать Azure CLI 2.0</a>
+                                                    <a href="https://github.com/Azure/azure-cli">Скачать Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Справочные материалы</a>
@@ -2861,6 +2861,6 @@ ms.openlocfilehash: f4f45ff80a72fd39814ce715628259f2c7883915
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

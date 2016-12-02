@@ -12,7 +12,7 @@
 ### [Создание мультитенантных приложений](sql-database-build-multi-tenant-apps.md)
 ### [Защита и безопасность](sql-database-helps-secures-and-protects.md)
 ### [Работа в вашей среде](sql-database-works-in-your-environment.md)
-## Сравнения
+## Сравнение
 ### [Сравнение Базы данных SQL и SQL на виртуальной машине](sql-database-paas-vs-sql-server-iaas.md)
 ### [Отличия T-SQL](sql-database-transact-sql-information.md)
 ### [SQL и NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
@@ -106,12 +106,12 @@
 ##### Динамическое маскирование данных
 ###### [Портал Azure](sql-database-dynamic-data-masking-get-started.md)
 ### Рекомендации
-#### [Динамическое маскирование данных с помощью портала Azure](sql-database-dynamic-data-masking-get-started.md)
+#### [Динамическое маскирование данных с помощью портала Azure](sql-database-dynamic-data-masking-get-started.md)
 ## Непрерывность бизнес-процессов
 ### Изучение
 #### [Обзор](sql-database-business-continuity.md)
 #### [Резервные копии базы данных](sql-database-automated-backups.md)
-#### [Долгосрочное хранение](sql-database-long-term-retention.md) 
+#### [Длительное хранение](sql-database-long-term-retention.md)
 #### [Восстановление базы данных с использованием резервных копий](sql-database-recovery-using-backups.md)
 #### [Требования к аутентификации для аварийного восстановления](sql-database-geo-replication-security-config.md)
 #### [Сценарии проектирования непрерывности бизнес-процессов](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -210,17 +210,17 @@
 #### [Конфигурация безопасности при разбиении и слиянии](sql-database-elastic-scale-split-merge-security-configuration.md)
 #### [Работа с Dapper](sql-database-elastic-scale-working-with-dapper.md)
 #### [Использование Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Маршрутизация, зависящая от данных](sql-database-elastic-scale-data-dependent-routing.md)
+#### [Маршрутизация с зависимостью от данных](sql-database-elastic-scale-data-dependent-routing.md)
 #### [Безопасность уровня строк в мультитенантном режиме](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 #### [Управление учетными данными](sql-database-elastic-scale-manage-credentials.md)
 #### [Развертывание службы разбиения и объединения](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 #### [Добавление сегмента](sql-database-elastic-scale-add-a-shard.md)
 #### [Устранение проблем сопоставления сегментов с помощью класса RecoveryManager](sql-database-elastic-database-recovery-manager.md)
 ###  Аутентификация
-#### [Проверка подлинности Azure AD](sql-database-aad-authentication.md)
+#### [Проверка подлинности Azure AD](sql-database-aad-authentication.md)
 #### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Правила файрволла
-#### [портал Azure](sql-database-configure-firewall-settings.md)
+#### [Портал Azure](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

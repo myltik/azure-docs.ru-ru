@@ -40,7 +40,7 @@
 
 # Планирование сетей и управление ими
 ## [iDNS для Azure Stack](azure-stack-understanding-dns-in-tp2.md)
-## [Основные сведения о VPN-подключениях типа "сеть — сеть"](azure-stack-create-vpn-connection-one-node-tp2.md)
+## [Основные сведения о VPN-подключениях типа "сеть — сеть"](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## [Просмотр данных об использовании общедоступных IP-адресов](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 
 # Добавление содержимого в Azure Stack
@@ -79,7 +79,6 @@
 
 # Устранение неполадок
 ## [Устранение неполадок Azure Stack](azure-stack-troubleshooting.md)
-## [Поставщик ресурсов веб-приложений](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Ресурсы
 ## [Инструменты](azure-stack-tools-paas-services.md)

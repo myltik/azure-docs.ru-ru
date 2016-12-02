@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -31,10 +31,10 @@ ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
 Мы будем использовать в качестве примера образ Windows Server 2012 R2 Datacenter — один из многих образов, доступных в Azure. Доступность образов зависит от подписки. Например, [подписчикам MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)могут быть доступны некоторые образы для настольных компьютеров.
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. В главном меню последовательно выберите **Создать** > **Виртуальные машины** > **Windows Server 2012 R2 Datacenter**.
+2. В главном меню щелкните **Создать** > **Вычисления** > **Windows Server 2012 R2 Datacenter**.
    
     ![Снимок экрана с доступными на портале образами виртуальных машин Azure](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
-3. В колонке **Windows Server 2012 R2 Datacenter** в раскрывающемся списке **Выбор модели развертывания** выберите **Resource Manager**. Щелкните **Создать**.
+3. В колонке **Windows Server 2012 R2 Datacenter** в раскрывающемся списке **Выбор модели развертывания** выберите **Resource Manager**. Щелкните **Создать**.
    
     ![Снимок экрана: модель развертывания, доступная для выбора при создании виртуальной машины](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -49,7 +49,7 @@ ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
 4. После этого нажмите кнопку **ОК** , чтобы перейти к следующему разделу. 
    
     ![Снимок экрана: параметры в колонке основных сведений для настройки ВМ Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Выберите [размер](virtual-machines-windows-sizes.md)виртуальной машины и нажмите кнопку **Выбрать** , чтобы продолжить. 
+5. Выберите [размер](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)виртуальной машины и нажмите кнопку **Выбрать** , чтобы продолжить. 
    
     ![Снимок экрана: колонка выбора размера с доступными размерами виртуальной машины Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. В колонке **Параметры** можно изменить параметры сети и хранилища. Для работы с этим руководством можно принять значения по умолчанию. Если вы выбрали размер виртуальной машины, который поддерживает хранилище Azure класса Premium, можно опробовать его, выбрав значение **Premium (SSD)** для параметра **Тип диска**. После внесения изменений нажмите кнопку **ОК**.
@@ -76,7 +76,7 @@ ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
    
    ![Снимок экрана с сообщением о проверке удостоверения виртуальной машины](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-Если при попытке подключения возникает ошибка, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Если при попытке подключения возникает ошибка, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Теперь вы сможете работать с виртуальной машиной так же, как и с любым сервером.
 
@@ -88,13 +88,13 @@ ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
 Чтобы перезапустить виртуальную машину для повторного использования, нажмите кнопку **Запустить** .
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Вы можете поэкспериментировать с новой виртуальной машиной, [установив IIS](virtual-machines-windows-hero-role.md). В этом руководстве также показано, как открыть порт 80 для входящего веб-трафика с помощью группы безопасности сети (NSG). 
-* Вы также можете [создать ВМ Windows с помощью PowerShell](virtual-machines-windows-ps-create.md) или [ВМ Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
-* Если вас интересует автоматизация развертываний, см. статью [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
+* Вы можете поэкспериментировать с новой виртуальной машиной, [установив IIS](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этом руководстве также показано, как открыть порт 80 для входящего веб-трафика с помощью группы безопасности сети (NSG). 
+* Вы также можете [создать ВМ Windows с помощью PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [ВМ Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) с помощью интерфейса командной строки Azure.
+* Если вас интересует автоматизация развертываний, см. статью [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
