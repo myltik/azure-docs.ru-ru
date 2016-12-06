@@ -3,17 +3,21 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Добавление пакета ретранслятора NuGet
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
-2. Откройте вкладку **Обзор**, а затем выполните поиск по фразе "Ретранслятор Microsoft Azure" и выберите элемент **Ретранслятор Microsoft Azure**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
+2. Откройте вкладку **Обзор**, а затем выполните поиск по Microsoft.Azure.Relay и выберите элемент **Microsoft Azure Relay** (Ретранслятор Microsoft Azure). Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
 
 ### <a name="write-some-code-to-receive-messages"></a>Написание кода для получения сообщений
-1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
+1. Добавьте следующие операторы `using` в начало файла program.cs.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Добавьте константы в класс `Program`, чтобы получить сведения о подключении гибридного подключения. Замените заполнители в скобках соответствующими значениями, которые получены при создании гибридного подключения.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
@@ -21,7 +25,7 @@
     ```
 3. Добавьте новый метод с именем `ProcessMessagesOnConnection` в класс `Program`:
    
-    ```cs
+    ```csharp
     // Method is used to initiate connection
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
@@ -72,7 +76,7 @@
     ```
 4. Добавьте другой новый метод с именем `RunAsync` в класс `Program`:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         var cts = new CancellationTokenSource();
@@ -117,13 +121,13 @@
     ```
 5. В метод `Main` в классе `Program` добавьте следующую строку кода.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Вот как будет выглядеть файл Program.cs.
    
-    ```cs
+    ```csharp
     namespace Server
     {
         using System;
@@ -238,6 +242,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

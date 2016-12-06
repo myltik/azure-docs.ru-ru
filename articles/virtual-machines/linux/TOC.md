@@ -21,7 +21,8 @@
 ## [Создание ключей SSH в Linux и Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Различные способы создания виртуальной машины](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Установка Azure CLI](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Создание виртуальной машины с помощью интерфейса командной строки](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Создание виртуальной машины с помощью Azure CLI 2.0 (предварительная версия)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Создание виртуальной машины с помощью Azure CLI](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Пошаговое руководство по шаблонам](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Создание и развертывание виртуальных машин при помощи сложных шаблонов](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Архитектура приложения](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -107,7 +108,6 @@
 
 ## [Автоматизация](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Расширение пользовательских сценариев](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Расширение для доступа к виртуальной машине](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Мониторинг виртуальной машины](../virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Расширения в шаблонах](../virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Примеры конфигурации](../virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -160,15 +160,20 @@
 ### [Устранение неполадок выделения ресурсов](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Устранение неполадок развертывания](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Повторное развертывание виртуальной машины на новом узле Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Подключение виртуального жесткого диска для устранения неполадок виртуальной машины
+#### [интерфейс командной строки Azure](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Портал Azure](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Справочные материалы
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Создание шаблонов Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates/)
-## [REST для вычислений](/rest/api/compute/)
-## [REST для сети](/rest/api/)
-## [REST для службы хранилища](/rest/api/storageservices/)
+## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates)
+## [REST для вычислений](/rest/api/compute)
+## [REST для сети](/rest/api)
+## [REST для службы хранилища](/rest/api/storageservices)
 
 
 
@@ -179,6 +184,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -18,6 +18,7 @@
 #### [Хранилище Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [Шлюз OMS](log-analytics-oms-gateway.md)
 ### Источники данных
 #### [Обзор источников данных](log-analytics-data-sources.md)
 #### [События Windows](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Управление оповещениями](log-analytics-solution-alert-management.md)
 #### [Управление емкостью](log-analytics-capacity.md)
 #### [Отслеживание изменений](log-analytics-change-tracking.md)
-#### [Оценка конфигурации](log-analytics-configuration-assessment.md)
 #### [Контейнеры](log-analytics-containers.md)
 #### [хранилище ключей;](log-analytics-azure-key-vault.md)
 #### [Оценка вредоносных программ](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [Оценка SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Оценка системных обновлений](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
+#### [Оценка SCOM](log-analytics-scom-assessment.md)
 ## Анализ
 ### [Панели мониторинга](log-analytics-dashboards.md)
 ### [Конструктор представлений](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Ресурсы
 ## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

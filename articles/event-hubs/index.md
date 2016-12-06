@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 69ae7c09af46b933899692e81d60e040a1c02eb5
-ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
 
 ---
 #<a name="event-hubs-documentation"></a>Документация по концентраторам событий
@@ -86,18 +86,54 @@ ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="net"></a>.NET
-[Управляемый справочник по .NET](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="amqp"></a>AMQP 
-[Руководство по использованию протокола AMQP 1.0](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
+<li>
+        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>AMQP</h3>
+                        <p>Руководство по использованию протокола AMQP 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Справочник по REST API концентраторов событий](/rest/api/eventhub)
-
-
+<li>
+        <a href="/rest/api/eventhub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по API REST концентраторов событий</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
@@ -109,6 +145,6 @@ ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

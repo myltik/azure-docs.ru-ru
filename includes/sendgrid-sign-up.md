@@ -1,15 +1,15 @@
-Клиенты Azure могут разблокировать 25 000 бесплатных сообщений электронной почты каждый месяц. Эти 25 000 сообщений предоставят вам доступ к расширенным отчетам и функциям аналитики, а также [всем интерфейсам API][всем интерфейсам API] \(Web, SMTP, Event, Parse и многим другим). Сведения о дополнительных службах, предоставляемых SendGrid, см. на странице [Возможности SendGrid][Возможности SendGrid].
+Клиенты Azure могут разблокировать 25 000 бесплатных сообщений электронной почты каждый месяц. Благодаря этим 25 000 сообщениям у вас будет доступ к дополнительным возможностям отчетов и аналитики, а также [всем API][всем API] (Web, SMTP, Event, Parse и многим другим). Сведения о дополнительных службах, предоставляемых SendGrid, см. на странице, посвященной [возможностям SendGrid][SendGrid Features] (Возможности SendGrid).
 
-### Регистрация для получения учетной записи SendGrid
-1. Выполните вход на [портал управления Azure][портал управления Azure].
+### <a name="to-sign-up-for-a-sendgrid-account"></a>Регистрация для получения учетной записи SendGrid
+1. Войдите на [портал управления Azure][портал управления Azure].
 2. В нижней части портала управления щелкните **Создать**.
    
     ![command-bar-new][command-bar-new]
 3. Щелкните **Marketplace**.
    
     ![sendgrid-store][sendgrid-store]
-4. В диалоговом окне **Выбор приложения и службы** выберите пункт **SendGrid** и щелкните стрелку вправо.
-5. В диалоговом окне **Персонализация приложения и службы** выберите план **SendGrid**, на который вы хотите подписаться.
+4. В диалоговом окне **Choose an Application and Service** (Выбор приложения и службы) щелкните **SendGrid**, а затем стрелку вправо.
+5. В диалоговом окне **Настроить приложение и службу** выберите план **SendGrid**, на который вы хотите подписаться.
 6. Введите имя для идентификации своей службы **SendGrid** в параметрах Azure или используйте значение по умолчанию **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Имена должны иметь длину в диапазоне от 1 до 100 знаков и содержать только алфавитно-цифровые символы, дефисы, точки и подчеркивания. Имя должно быть уникальным в списке элементов Магазина Azure, на которые вы подписались.
    
     ![store-screen-2][store-screen-2]
@@ -22,15 +22,15 @@
     
     ![sendgrid-purchasing-message][sendgrid-purchasing-message]
     
-    Учетная запись SendGrid была создана немедленно. Вы увидите сообщение **Надстройка SendGrid успешно приобретена**. Теперь создаются учетная запись и учетные данные. После этого вы сможете отправлять сообщения электронной почты.
+    Учетная запись SendGrid будет создана сразу же. Вы увидите сообщение **Successfully purchased Add-On SendGrid** (Надстройка SendGrid успешно приобретена). Теперь создаются учетная запись и учетные данные. После этого вы сможете отправлять сообщения электронной почты. 
     
-    Для изменения плана подписки или просмотра параметров контактов SendGrid выберите имя службы SendGrid, чтобы открыть панель мониторинга SendGrid Marketplace.
+    Для изменения плана подписки или просмотра параметров контактов SendGrid выберите имя службы SendGrid, чтобы открыть панель мониторинга SendGrid Marketplace. 
     
     ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
     
-    Чтобы отправить сообщение электронной почты с помощью SendGrid, необходимо указать учетные данные учетной записи (имя пользователя и пароль).
+    Чтобы отправить сообщение электронной почты с помощью SendGrid, необходимо указать данные учетной записи (имя пользователя и пароль).
 
-### Поиск учетных данных SendGrid
+### <a name="to-find-your-sendgrid-credentials"></a>Поиск учетных данных SendGrid
 1. Нажмите кнопку **Сведения о подключении**
    
     ![sendgrid-connection-info-button][sendgrid-connection-info-button]
@@ -38,11 +38,11 @@
    
     ![sendgrid-connection-info][sendgrid-connection-info]
    
-    Чтобы задать параметры доставки электронной почты, нажмите кнопку **Управление**. Откроется панель управления SendGrid.
+    Чтобы задать параметры доставки электронной почты, нажмите кнопку **Управление** . Откроется панель управления SendGrid. 
    
     ![sendgrid-control-panel][sendgrid-control-panel]
    
-    Дополнительные сведения о начале работы с SendGrid см. в статье [Начало работы с SendGrid][Начало работы с SendGrid]
+    Дополнительные сведения о начале работы с SendGrid см. [здесь][SendGrid Getting Started] (Приступая к работе с SendGrid).
 
 <!--images-->
 
@@ -58,10 +58,14 @@
 
 <!--Links-->
 
-[Возможности SendGrid]: http://sendgrid.com/features
+[SendGrid Features]: http://sendgrid.com/features (Возможности SendGrid)
 [портал управления Azure]: https://manage.windowsazure.com
-[Начало работы с SendGrid]: http://sendgrid.com/docs
-[процесс подготовки SendGrid к работе]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
-[всем интерфейсам API]: https://sendgrid.com/docs/API_Reference/index.html
+[SendGrid Getting Started]: http://sendgrid.com/docs (Приступая к работе с SendGrid)
+[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[всем API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

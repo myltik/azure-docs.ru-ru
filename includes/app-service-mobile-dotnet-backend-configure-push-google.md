@@ -1,12 +1,12 @@
-Используйте процедуру, которая соответствует типу вашего серверного проекта — [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
+Используйте процедуру, которая соответствует типу вашего серверного проекта &mdash; [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-### <a name="dotnet"></a>Серверный проект .NET
-1. В Visual Studio щелкните правой кнопкой мыши серверный проект и **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
-2. Разверните папку "Контроллеры", откройте файл TodoItemController.cs и добавьте следующие операторы `using`:
+### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Серверный проект .NET
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект, выберите пункт **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
+2. Разверните папку "Контроллеры", откройте файл TodoItemController.cs и добавьте следующие операторы `using` :
    
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-3. Замените метод `PostTodoItem` следующим кодом:
+3. Замените метод `PostTodoItem` следующим кодом:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -27,7 +27,7 @@
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // Android payload
-            var androidNotificationPayload = "{ "data" : {"message":"" + item.Text + ""}}";
+            var androidNotificationPayload = "{ \"data\" : {\"message\":\"" + item.Text + "\"}}";
 
             try
             {
@@ -48,8 +48,8 @@
 
 1. Повторная публикация серверного проекта
 
-### <a name="nodejs"></a>Серверный проект Node.js
-1. [Загрузите проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
+### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Серверный проект Node.js
+1. [Скачайте проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
 2. Замените существующий код в файле todoitem.js следующим кодом:
    
         var azureMobileApps = require('azure-mobile-apps'),
@@ -95,7 +95,11 @@
    
         module.exports = table;  
    
-    При вставке нового элемента todo отправляется уведомление GCM, содержащее item.text.
-3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
+    При вставке нового элемента todo отправляется уведомление GCM, содержащее item.text. 
+3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект. 
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,17 +1,17 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
+ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
+ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
 
 ---
 #<a name="storage-documentation"></a>Документация по хранилищу
 
-Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов.  Хранилище очень масштабируемое, гибкое и доступное в глобальном масштабе. Кроме того, оно автоматически балансирует нагрузку с учетом трафика.  Служба хранилища Azure включает хранилище BLOB-объектов, таблиц, очередей и файлов, обеспечивая потребности приложений в ресурсах.
+Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов.  Хранилище очень масштабируемое, гибкое и доступное в глобальном масштабе. Кроме того, оно автоматически балансирует нагрузку с учетом трафика.  Служба хранилища Azure включает в себя хранилища BLOB-объектов, таблиц, очередей, дисков и файлов. Эти пять служб обеспечивают потребности приложений в ресурсах.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/storage/storage-introduction/ ">
+        <a href="/azure/storage/storage-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide/ ">
+        <a href="/azure/storage/storage-getting-started-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,27 +86,91 @@ ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Интерфейс командной строки Azure 
-[Справочник по использованию службы хранилища с Azure CLI](/cli/azure/storage)
-
-###<a name="java"></a>Java 
-[Справочник по использованию службы хранилища с Java](/java/api/)
-
-###<a name="net"></a>.NET 
-[Управляемый справочник по API службы хранилища](https://msdn.microsoft.com/library/azure/mt347887) 
-
-###<a name="rest"></a>REST 
-[Справочник по API REST для хранилища](/rest/api/storageservices) 
-[Справочник по API REST поставщика ресурсов хранилища](/rest/api/storagerp)  
-
-
-
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Справочник по службе хранилища с использованием Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Справочник по службе хранилища на Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt347887">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по API службы хранилища</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storageservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API службы хранилища</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="/rest/api/storagerp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Справочник API REST поставщика ресурсов хранилища</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
@@ -118,6 +182,6 @@ ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

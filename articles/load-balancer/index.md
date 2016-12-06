@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
+ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
+ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
 
 ---
 #<a name="load-balancer-documentation"></a>Документация по подсистемам балансировки нагрузки
@@ -86,23 +86,84 @@ Azure Load Balancer обеспечивает высокую доступност
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Справочник по PowerShell для подсистемы балансировки нагрузки](/powershell/azureps-cmdlets-doc)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по PowerShell для подсистемы балансировки нагрузки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="azure-cli"></a>Интерфейс командной строки Azure
-[Подсистема балансировки нагрузки: Azure CLI] (/cli/azure/network/lb)
+<li>
+        <a href="/cli/azure/network/lb">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Интерфейс командной строки Azure для подсистемы балансировки нагрузки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[Справочник по API .NET](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Справочник по API .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java
-[Справочник по API Java](/java/api)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Справочник по API для Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Справочник по REST API подсистемы балансировки нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx)
-
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API балансировщика нагрузки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
@@ -114,6 +175,6 @@ Azure Load Balancer обеспечивает высокую доступност
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

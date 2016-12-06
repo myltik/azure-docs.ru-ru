@@ -1,10 +1,10 @@
 # Обзор
 ## [Что такое служба архивации Azure?](backup-introduction-to-azure-backup.md)
 # Начало работы
-## [Часто задаваемые вопросы](backup-azure-backup-faq.md)
 ## [Резервное копирование файлов и папок](backup-try-azure-backup-in-10-mins.md)
 ## [Архивация виртуальных машин Azure](backup-azure-vms-first-look.md)
 ## [Защита виртуальных машин Azure](backup-azure-vms-first-look-arm.md)
+## [Часто задаваемые вопросы](backup-azure-backup-faq.md)
 # Практическое руководство
 ## Автоматизация резервного копирования с помощью PowerShell
 ### [Виртуальные машины Azure на портале Azure](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Медленное резервное копирование файлов и папок в службе архивации Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Ресурсы
+## [Цены](https://azure.microsoft.com/pricing/details/backup/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

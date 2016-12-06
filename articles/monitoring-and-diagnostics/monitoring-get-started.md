@@ -96,6 +96,6 @@ Azure Monitor — новая служба платформы, которая п�
 ## <a name="next-steps"></a>Дальнейшие действия
 * Прочитайте [обзор Azure Monitor](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

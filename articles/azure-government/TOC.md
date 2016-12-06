@@ -1,11 +1,11 @@
 # Обзор
-## [Что такое Azure для государственных организаций?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Что такое Azure для государственных организаций?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Министерство юстиции и общественной безопасности](documentation-government-overview-jps.md)
 ## [Министерство обороны](documentation-government-overview-dod.md)
 
 # Начало работы
-## [Руководство для разработчиков](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Руководство для разработчиков](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # Практическое руководство
 ## План
@@ -15,10 +15,11 @@
 ### [Образы](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace для партнеров](documentation-government-manage-marketplace-partners.md)
+### [Диспетчер ресурсов](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md).
 ### [Подписка](documentation-government-manage-subscriptions.md)
 
 # Справочные материалы
-## [Диспетчер ресурсов](documentation-government-manage-azure-resource-manager.md)
 ## [Службы](documentation-government-services.md)
 ### [Среда выполнения приложений](documentation-government-compute.md)
 ### [Хранилище](documentation-government-services-storage.md)
@@ -28,10 +29,10 @@
 ### [Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
 
 # Ресурсы
-## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Цены](https://azure.microsoft.com/pricing/)
+## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

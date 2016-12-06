@@ -87,7 +87,7 @@ ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
 ## <a name="upload-data-to-your-data-lake-store"></a>Передача данных в хранилище озера данных
 Данные можно передавать в хранилище озера данных Azure непосредственно на корневой уровень или в папку, созданную в учетной записи. Фрагменты кода ниже показывают, как передать некоторые примеры данных в папку (**mynewfolder**), которая была создана в предыдущем шаге.
 
-Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Скачайте файл и сохраните его в локальном каталоге на компьютере, например C:\sampledata.\.
+Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Скачайте файл и сохраните его в локальном каталоге на компьютере, например C:\sampledata\.
 
     azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 

@@ -1,15 +1,18 @@
 ---
 layout: LandingPage
----
-#Azure Government Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: f6a1d50752043e74cd5b8adadfcb5ff41d0716d0
+ms.openlocfilehash: e93f2197c677a7e64a18646ddece38c48a200056
 
-Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
+---
+#<a name="azure-government-documentation"></a>Документация по Azure для государственных организаций
+
+Microsoft Azure для государственных организаций предоставляет облачную платформу, основанную на фундаментальных принципах обеспечения безопасности, конфиденциальности и управления, соответствия требованиям и прозрачности. Субъекты государственного сектора получают физически изолированный экземпляр Microsoft Azure, который использует службы обеспечения соответствия требованиям и безопасности мирового уровня, которые критически важны для всех систем и приложений правительства США, построенных на основе данной архитектуры. 
 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-government/documentation-government-overview/">
-
+        <a href="../azure-government-overview?toc=%2fazure%2fazure-government%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -19,7 +22,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Government</h3>
+                        <h3>Информация об Azure для государственных организаций</h3>
                     </div>
                 </div>
             </div>
@@ -37,7 +40,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Government Video Library</h3>
+                        <h3>Видеотека по Azure для государственных организаций</h3>
                     </div>
                 </div>
             </div>
@@ -48,19 +51,50 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 ---
 
-##Reference
+## <a name="reference"></a>Справочные материалы
 
-###REST
-[Azure Government REST API Reference](/rest/api/)
-
-###.NET
-[Azure Government Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API Azure для государственных организаций</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по Azure для государственных организаций</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Government Documentation
-        </div>
+Скачать документацию по Azure для государственных организаций </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

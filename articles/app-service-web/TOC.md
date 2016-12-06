@@ -153,6 +153,7 @@
 ### [Локальные подключения](web-sites-hybrid-connection-get-started.md)
 ### [Виртуальная сеть Azure](web-sites-integrate-with-vnet.md)
 ### [Расширенная конфигурация](web-sites-transform-extend.md)
+### [Настройка контейнера для службы приложений на платформе Linux](app-service-linux-using-custom-docker-image.md)
 ### [Группы ресурсов](app-service-move-resources.md)
 ### [Преобразование веб-сайта WordPress в Мультисайт](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

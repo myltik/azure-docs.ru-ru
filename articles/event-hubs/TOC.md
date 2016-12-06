@@ -24,22 +24,22 @@
 ### [Активация архива концентраторов событий с помощью Python](event-hubs-archive-python.md)
 
 # Справочные материалы
-## [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Справочник по REST API концентраторов событий](https://msdn.microsoft.com/library/azure/dn790674)
-## [Справочник по API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/jj933424)
-## [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
 ## [Квоты и ограничения](event-hubs-quotas.md)
-## [Исключения обмена сообщениями концентраторов событий](event-hubs-messaging-exceptions.md)
+## [Исключения в обмене сообщениями](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
 # Ресурсы
+## [Цены](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [Форумы MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Управление ресурсами служебной шины и концентраторов событий с помощью Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Схема обучения работе с концентраторами событий](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

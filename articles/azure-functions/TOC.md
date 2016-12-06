@@ -8,7 +8,7 @@
 # Практическое руководство
 ## Планирование и проектирование
 ### [Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Выбор между потреблением и планом службы приложений](functions-scale.md)
+### [Выбор между планами размещения](functions-scale.md)
 
 ## Разработка
 ### [Разработка приложений-функций](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Привязки мобильных приложений](functions-bindings-mobile-apps.md)
 #### [Привязка к выходным данным концентратора уведомлений](functions-bindings-notification-hubs.md)
 #### [Триггеры и привязки служебной шины, используемые для очередей и разделов](functions-bindings-service-bus.md)
-#### Хранилище
+#### Привязки хранилища
 ##### [Привязки больших двоичных объектов](functions-bindings-storage-blob.md)
 ##### [Привязки очередей](functions-bindings-storage-queue.md)
 ##### [Привязки таблиц](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Создание функции на портале Azure](functions-create-first-azure-function-azure-portal.md)
 ### [Testing Azure Functions](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
+### [Рекомендации по Функциям Azure](functions-best-practices.md)
 ### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
 
 ## Управление
@@ -38,8 +39,8 @@
 ## Развернуть
 ### [Непрерывное развертывание для Функций Azure](functions-continuous-deployment.md)
 
-# Справочные материалы
-## [API .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## Монитор
+### [Мониторинг Функций Azure](functions-monitoring.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/functions/)  
@@ -48,6 +49,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

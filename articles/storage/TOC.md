@@ -102,7 +102,7 @@
 ### [Подписанные URL-адреса (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Учебник. Шифрование и расшифровка больших двоичных объектов с помощью хранилища ключей Azure](storage-encrypt-decrypt-blobs-key-vault.md)
 ### шифрования на стороне клиента
-#### [Хранилище ключей Azure](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -181,6 +181,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

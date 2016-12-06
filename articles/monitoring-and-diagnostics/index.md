@@ -1,10 +1,14 @@
 ---
-Layout: LandingPage
+layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 086574639b31ee82ab72efbc93d58af735524a1b
+ms.openlocfilehash: b03565feb98f18d2a90d72e154901baf0dd89df0
+
 ---
 
-#Monitoring and Diagnostics Documentation
+# <a name="monitoring-and-diagnostics-documentation"></a>Документация по мониторингу и диагностике
 
-Monitoring and Diagnostics is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Monitoring and Diagnostics represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Мониторинг и диагностика — это платформа распределенных систем, упрощающая упаковку и развертывание масштабируемых и надежных микрослужб и управление ими. Она позволяет разрешить значительные трудности, связанные с разработкой облачных приложений и управлением ими.  Мониторинг и диагностика — это принципиально новая платформа промежуточного слоя, позволяющая создавать облачные высококлассные приложения уровня 1 и управлять ими.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Monitoring and diagnostics</h3>
+                        <h3>Сведения о мониторинге и диагностике в Azure</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using Azure Portal</h3>
+                        <h3>Создание оповещений для служб Azure с помощью портала Azure</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using cross-platform CLI</h3>
+                        <h3>Создание оповещений для служб Azure с помощью кроссплатформенного интерфейса командной строки</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using PowerShell</h3>
+                        <h3>Создание оповещений для служб Azure с помощью PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a metric alert with a Resource Manager template</h3>
+                        <h3>Создание оповещения метрики с помощью шаблона Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -101,25 +105,76 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 
 ---
 
-##Reference
+## <a name="reference"></a>Справочные материалы
 
-###PowerShell
-[Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41)
-
-###Azure CLI
-[Monitoring and Diagnostics Azure CLI](/cli/azure)
-
-###.NET
-[Monitoring and Diagnostics Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-###REST
-[Monitoring and Diagnostics REST API Reference](/rest/api/monitor)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Команлеты PowerShell для мониторинга и диагностики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Интерфейс командной строки CLI для мониторинга и диагностики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по мониторингу и диагностике</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn931943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API мониторинга и диагностики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
+Скачать документацию по мониторингу и диагностике </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

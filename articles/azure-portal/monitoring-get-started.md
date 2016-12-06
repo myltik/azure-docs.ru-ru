@@ -96,4 +96,4 @@ Azure Monitor — новая служба платформы, которая п�
 ## Дальнейшие действия
 * Прочитайте [обзор Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_0928_2016--->

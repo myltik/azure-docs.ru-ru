@@ -2,8 +2,8 @@
   
   * Основные сведения об избыточности и надежности
   * Приложения со сведениями о состоянии и без них
-    * [Disabling ARR’s Instance Affinity in Microsoft Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Microsoft Azure)
-* Приложения службы приложений, предназначенные для нагрузочного тестирования
+    * [Disabling ARR’s Instance Affinity in Windows Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+* Приложения службы приложений, предназначенные для нагрузочного тестирования   
 * Рекомендации по масштабированию службы приложений
   
   * Нехватка портов и использование пулов соединений
@@ -14,4 +14,8 @@
   
   * [Что такое диспетчер трафика](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

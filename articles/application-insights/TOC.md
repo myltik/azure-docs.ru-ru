@@ -1,8 +1,8 @@
 # Обзор
 ## [Что такое Azure Application Insights?](app-insights-overview.md)
-## [Принцип работы](app-insights-detect-triage-diagnose.md)
+## [Мониторинг производительности в цикле DevOps](app-insights-detect-triage-diagnose.md)
 
-# Начало работы
+# Приступая к работе
 ## Мониторинг Azure
 ### [Веб-приложения Azure](app-insights-azure-web-apps.md)
 ### [облачных служб Azure](app-insights-cloudservices.md)
@@ -63,8 +63,8 @@
 #### [Оповещения метрик](app-insights-alerts.md)
 
 ### [Интеллектуальное обнаружение](app-insights-proactive-diagnostics.md)
-#### [Обнаружение сбоев](app-insights-proactive-failure-diagnostics.md)
-#### [Обнаружение аномалий](app-insights-proactive-performance-diagnostics.md)
+#### [Аномальные сбои](app-insights-proactive-failure-diagnostics.md)
+#### [Аномалии производительности](app-insights-proactive-performance-diagnostics.md)
 
 ## Анализ
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Справочные материалы
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [API .NET](https://docs.microsoft.com/dotnet/api)
 ## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Аналитика](app-insights-analytics-reference.md)
+## [Справочник по аналитике](app-insights-analytics-reference.md)
 ## [Выборка](app-insights-sampling.md)
 ## [IP-адреса](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,7 +145,7 @@
 ## [Заметки о выпуске пакета SDK Application Insights для Windows Phone и Магазина Windows](app-insights-release-notes-windows.md)
 ## [Заметки о выпуске средств анализа для разработчиков](app-insights-release-notes-vsix.md)
 ## [Заметки о выпуске пакета SDK для Application Insights](app-insights-release-notes.md)
-## [ИНТЕРФЕЙС REST API](https://dev.applicationinsights.io/)
+## [REST API доступа к данным](https://dev.applicationinsights.io/)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

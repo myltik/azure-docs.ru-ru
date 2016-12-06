@@ -1,7 +1,6 @@
 # [Обзор](media-services-overview.md)
 ## [Понятия](media-services-concepts.md)
 
-
 # Начало работы
 ## [Создание учетной записи и управление ею](media-services-portal-create-account.md)
 ## [Настройка среды разработки](media-services-set-up-computer.md)
@@ -16,71 +15,94 @@
 
 # Практическое руководство:
 ## Управление
-### [Управление конечными точками потоковой передачи на портале](media-services-portal-manage-streaming-endpoints.md)
+### Управление учетными записями
+#### [PowerShell](media-services-manage-with-powershell.md)
+#### [REST](/rest/api/media/mediaservice)
 ### Управление сущностями
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Управление учетными записями с помощью PowerShell](media-services-manage-with-powershell.md)
-### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
-### [Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
-### [Квоты и ограничения](media-services-quotas-and-limitations.md)
-### Фильтры
-#### [Создание фильтров с помощью пакета SDK .NET для служб мультимедиа Azure](media-services-dotnet-dynamic-manifest.md)
-#### [Кодирование ресурса-контейнера с помощью Media Encoder Standard](media-services-rest-encode-asset.md)
 ### Подключение программными средствами
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
+### [Управление конечными точками потоковой передачи на портале](media-services-portal-manage-streaming-endpoints.md)
+### [Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
+### [Квоты и ограничения](media-services-quotas-and-limitations.md)
 
-## Передача контента
+## Передача содержимого
 ### Отправка файлов в учетную запись
-#### [Портал ](media-services-portal-upload-files.md)
+#### [Портал](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Копирование существующих больших двоичных объектов](media-services-copying-existing-blob.md)
 
-## Кодирование
-### [Содержимое](media-services-encode-asset.md)
-#### Кодирование ресурса-контейнера с помощью Media Encoder Standard
+## [Кодирование содержимого](media-services-encode-asset.md)
+### [Сравнение кодировщиков](media-services-compare-encoders.md)
+### [Коды ошибок](media-services-encoding-error-codes.md)
+### Media Encoder Standard (MES)
+#### [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### Схемы MES
+##### [Схема Media Encoder Standard](media-services-mes-schema.md)
+##### [Входные метаданные](media-services-input-metadata-schema.md)
+##### [Выходные метаданные](media-services-output-metadata-schema.md)
+#### Предустановки стандартного кодировщика мультимедиа 
+##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
+##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 16x9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md)
+##### [H264 Multiple Bitrate 16x9 для iOS](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md)
+##### [H264 Multiple Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md)
+##### [H264 Multiple Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4x3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md)
+##### [H264 Multiple Bitrate 4x3 для iOS](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md)
+##### [H264 Multiple Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)
+##### [H264 Single Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Single Bitrate 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md)
+##### [H264 Single Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 16x9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md)
+##### [H264 Single Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md)
+##### [H264 Single Bitrate 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md)
+##### [H264 Single Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md)
+##### [H264 Single Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md)
+##### [H264 Single Bitrate 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md)
+##### [H264 Single Bitrate 720p для Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
+##### [H264 Single Bitrate High Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
+##### [H264 Single Bitrate Low Quality SD для Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+#### Кодирование с помощью Media Encoder Standard
 ##### [Портал](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-#### [Расширенное кодирование](media-services-advanced-encoding-with-mes.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
+##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
+### Расширенный рабочий процесс кодировщика мультимедиа
+#### [Форматы и кодеки рабочего процесса Premium Media Encoder](media-services-premium-workflow-encoder-formats.md)
+#### Кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа
 ##### [Рабочий процесс Media Encoder Premium](media-services-encode-with-premium-workflow.md)
 ##### [Учебники по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Создание рабочих процессов кодирования Advanced с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
 ##### [Рабочий процесс Premium с несколькими элементами входных данных](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
-
-#### Схемы 
-#####[Media Encoder Standard](media-services-mes-schema.md)
-#####[Входные метаданные](media-services-input-metadata-schema.md)
-#####[Выходные метаданные](media-services-output-metadata-schema.md)
-
-#### Устаревшие кодировщики
-##### [Использование Azure Media Packager](media-services-static-packaging.md)
-
-### [Потоковые трансляции](media-services-manage-channels-overview.md)
-#### [Локальные кодировщики](media-services-live-streaming-with-onprem-encoders.md)
-#### Учебники по локальным кодировщикам
-##### [Портал](media-services-portal-live-passthrough-get-started.md)
-##### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
-#### Учебники по облачным кодировщикам
-##### [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
-##### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-#### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
-#### [Обработка длительных операций](media-services-dotnet-long-operations.md)
-#### [Спецификация Fragmented MP4 Live Ingest](media-services-fmp4-live-ingest-overview.md)
-#### [Динамическая упаковка](media-services-dynamic-packaging-overview.md)
-
-### Обработка мультимедиа
+### Обработчики мультимедиа
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### Не рекомендуется
+#### [Статическая упаковка и шифрование](media-services-static-packaging.md)
 
-### Настройка кодировщиков для односкоростной потоковой трансляции
+## [Потоковая трансляция в реальном времени](media-services-manage-channels-overview.md)
+### [Локальные кодировщики](media-services-live-streaming-with-onprem-encoders.md)
+### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
+### Учебники по облачным кодировщикам
+#### [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+### [Настройка локальных кодировщиков для использования с облачными кодировщиками](media-services-live-encoders-overview.md)
 #### [Кодировщик Elemental Live](media-services-configure-elemental-live-encoder.md)
 #### [Кодировщик FMLE](media-services-configure-fmle-live-encoder.md)
 #### [Кодировщик NewTek TriCaster](media-services-configure-tricaster-live-encoder.md)
 #### [Кодировщик Wirecast](media-services-configure-wirecast-live-encoder.md)
+### [Обработка длительных операций](media-services-dotnet-long-operations.md)
+### [Спецификация Fragmented MP4 Live Ingest](media-services-fmp4-live-ingest-overview.md)
 
 ## [Защита](media-services-content-protection-overview.md)
 ### [Настройка системы защиты содержимого на портале](media-services-portal-protect-content.md)
@@ -106,14 +128,20 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Анализ](media-services-analytics-overview.md)
+### [Анализ мультимедиа с помощью портала](media-services-portal-analyze.md)
 ### [Обработка с помощью индексатора 2](media-services-process-content-with-indexer2.md)
 ### [Обработка с помощью индексатора](media-services-index-content.md)
 ### [Обработка с помощью Hyperlapse](media-services-hyperlapse-content.md)
 ### [Обработка с помощью Face Detector](media-services-face-and-emotion-detection.md)
 ### [Обработка с помощью Motion Detector](media-services-motion-detection.md)
 ### [Обработка с помощью скрытия лиц](media-services-face-redaction.md)
+#### [Пошаговое руководство по скрытию лиц](media-services-redactor-walkthrough.md)
 ### [Обработка с помощью эскизов видео](media-services-video-summarization.md)
 ### [Обработка с помощью распознавания текста](media-services-video-optical-character-recognition.md)
+
+## [Настройка телеметрии](media-services-telemetry-overview.md)
+###[.NET](media-services-dotnet-telemetry.md)
+###[REST](media-services-rest-telemetry.md)
 
 ## Масштаб
 ### [Обработка мультимедиа](media-services-scale-media-processing-overview.md)
@@ -124,11 +152,12 @@
 #### [Портал](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Доставка содержимого](media-services-deliver-content-overview.md)
+### [Динамическая упаковка](media-services-dynamic-packaging-overview.md)
 ### [Обзор фильтров и динамических манифестов](media-services-dynamic-manifest-overview.md)
 ### Создание фильтров
 #### [.NET](media-services-dotnet-dynamic-manifest.md)
 #### [REST](media-services-rest-dynamic-manifest.md)
-### Публикация контента
+### Публикация содержимого
 #### [Портал](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
@@ -162,30 +191,20 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](media-services-frequently-asked-questions.md)
 ### [Руководство по устранению неполадок потоковой трансляции](media-services-troubleshooting-live-streaming.md)
-###[Коды ошибок](media-services-error-codes.md)
-###[Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
+### [Коды ошибок](media-services-error-codes.md)
+### [Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
 ## [Заметки о выпуске](media-services-release-notes.md)
 ## [.NET](media-services-dotnet-how-to-use.md)
 ## [REST](media-services-rest-how-to-use.md)
-## [Форматы и кодеки рабочего процесса Premium Media Encoder](media-services-premium-workflow-encoder-formats.md)
-## [Форматы и кодеки Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
+## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

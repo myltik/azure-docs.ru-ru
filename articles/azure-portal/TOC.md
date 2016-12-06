@@ -22,7 +22,7 @@
 ### [Просмотр журналов событий и аудита](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Создание оповещений для служб Azure с помощью портала Azure](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Справочные материалы
+# Сопутствующие материалы
 ## [Функции шаблона Azure Resource Manager](../resource-group-template-functions.md)
 ## [Рекомендации по автомасштабированию](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Общие метрики автомасштабирования](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Примеры для быстрого начала работы с Azure Insights с использованием PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Примеры для быстрого начала работы с интерфейсом командной строки Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Ресурсы
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

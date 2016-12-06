@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: edfc23605c738fbe8aac99c0db89c6f588a09d60
-ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
 
 ---
 #<a name="sql-database-documentation"></a>Документация по базе данных SQL
@@ -104,23 +104,80 @@ ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Справочник по azure PowerShell] (/powershell/azureps-cmdlets-docs)
-
-###<a name="net"></a>.NET
-[Управляемый справочник по .NET](/dotnet/api)
-
-### <a name="java"></a>Java
-[Справочник по пакету SDK для Java](/java/api)
-
-###<a name="rest"></a>REST
-[Справочник по REST API базы данных SQL](/rest/api/sql)
-
-###<a name="tsql"></a>T-SQL
-[Справочник по T-SQL](https://msdn.microsoft.com/library/azure/bb510741)
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Справочник по пакету SDK для Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/sql">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API базы данных SQL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/bb510741">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>T-SQL</h3>
+                        <p>Справочник по T-SQL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
@@ -132,6 +189,6 @@ ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

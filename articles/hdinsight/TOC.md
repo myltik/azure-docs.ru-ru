@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Присоединенная к домену предварительная версия HDInsight](hdinsight-domain-joined-introduction.md)
+## [Предварительная версия Kafka](hdinsight-apache-kafka-introduction.md)
 
 # Начало работы
 ## [Начало работы с Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Начало работы с предварительной версией Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Начало работы с предварительной версией R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Приступая к работе с R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Начало работы со Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Начало работы с HBase и NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Начало работы со Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Начало работы с предварительной версией Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Изолированная среда Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Использование инструментов Data Lake с изолированной средой Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Инструменты для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [Использование DataFu с Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Кластеры по запросу](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Отправка заданий Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Использование предварительной версии R Server
+## Использование R Server
 ### [Варианты хранилищ](hdinsight-hadoop-r-server-storage.md)
 ### [Установка RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Контексты вычислений](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Использование Spark для обработки в памяти
+### [С помощью Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [С помощью инструментов бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 ### [Автономное приложение](hdinsight-apache-spark-create-standalone-application.md)
 ### [Обработка событий потоковой передачи](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Настройка](hdinsight-domain-joined-configure.md)
 ### [Управление](hdinsight-domain-joined-manage.md)
 ### [Настройка политик Hive](hdinsight-domain-joined-run-hive.md)
+## Использование предварительной версии Kafka
+### [Репликация данных Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Использование со Spark](hdinsight-apache-spark-with-kafka.md)
+### [Использование со Storm](hdinsight-apache-storm-with-kafka.md)
 ## Разработка
 ### [Разработка программ Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Разработка заданий Scalding MapReduce](hdinsight-hadoop-mapreduce-scalding.md)
@@ -174,12 +181,12 @@
 #### [Производительность запросов Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Справочные материалы
-## [Справочник по REST API](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Spark REST API для удаленных заданий](https://msdn.microsoft.com/library/mt613023.aspx)
-## [Командлеты PowerShell](https://msdn.microsoft.com/library/mt438705.aspx)
+## [Командлеты PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [.NET SDK для Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK для Hadoop](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Библиотеки .NET для Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [Справочник по REST API](/rest/api/hdinsight/)
+## [Spark REST API для удаленных заданий](/rest/api/hdinsightspark/)
 
 # Сопутствующие материалы
 ## Кластеры Windows
@@ -217,6 +224,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

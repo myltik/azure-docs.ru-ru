@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 JSON-файл также содержит ссылки между модулями, которые будут передаваться в брокер. Ссылка имеет два свойства:
 
 * **source** — имя модуля из раздела `modules` или "\*".
-* **sink** — имя модуля из раздела `modules`.
+* **sink** — имя модуля из раздела `modules`.
 
 Каждая ссылка определяет маршрут и направление сообщения. Сообщения из модуля `source` должны быть доставлены в модуль `sink`. Для свойства `source` может быть задано значение "\*", указывающее, что `sink` может получать сообщения из любого модуля.
 
@@ -216,6 +216,6 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

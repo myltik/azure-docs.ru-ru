@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
-ms.openlocfilehash: 8976abfecb246fa1f0d5183308f4d2cdf5d5f3dd
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Документация по Azure Resource Manager
 
-Azure Resource Manager позволяет быстро развертывать ваше приложение и быть уверенным, что ресурсы развертываются согласованно. Вы определяете инфраструктуру и зависимости для своего приложения в едином декларативном шаблоне. Обычно инфраструктура приложения состоит из ряда компонентов, например из виртуальной машины, учетной записи хранения и виртуальной сети или веб-приложения, базы данных, сервера базы данных и служб сторонних поставщиков. Эти компоненты не отображаются как отдельные сущности, вместо этого они воспринимаются как связанные и взаимозависимые части одной сущности. Их нужно развертывать, контролировать и отслеживать в виде группы. Azure Resource Manager позволяет работать с ресурсами решения как с группой. Вы можете развертывать, обновлять или удалять все ресурсы решения в рамках одной скоординированной операции. Развертывание осуществляется на основе шаблона, используемого для разных сред, в том числе для тестовой, промежуточной и рабочей. Диспетчер ресурсов предоставляет функции безопасности, аудита и добавления тегов, помогающие управлять ресурсами после развертывания. 
+Обычно инфраструктура приложения состоит из ряда компонентов, например из виртуальной машины, учетной записи хранения и виртуальной сети или веб-приложения, базы данных, сервера базы данных и служб сторонних поставщиков. Эти компоненты не отображаются как отдельные сущности, вместо этого они воспринимаются как связанные и взаимозависимые части одной сущности. Их нужно развертывать, контролировать и отслеживать в виде группы. Azure Resource Manager позволяет работать с ресурсами решения как с группой. Вы можете развертывать, обновлять или удалять все ресурсы решения в рамках одной скоординированной операции. Развертывание осуществляется на основе шаблона, используемого для разных сред, в том числе для тестовой, промежуточной и рабочей. Resource Manager предоставляет функции безопасности, аудита и добавления тегов, помогающие управлять ресурсами после развертывания
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,17 +47,17 @@ Azure Resource Manager позволяет быстро развертывать 
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough/">
+        <a href="/azure/resource-manager-template-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание шаблона Azure Resource Manager</h3>
+                        <h3>Начало работы с Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -65,17 +65,17 @@ Azure Resource Manager позволяет быстро развертывать 
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-define-dependencies/">
+        <a href="/azure/resource-group-define-dependencies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание зависимостей в шаблонах Azure Resource Manager</h3>
+                        <h3>Начало создания зависимостей в шаблонах Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -83,17 +83,17 @@ Azure Resource Manager позволяет быстро развертывать 
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-create-multiple/">
+        <a href="/azure/resource-group-create-multiple">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Создание нескольких экземпляров ресурсов в Azure Resource Manager</h3>
+                        <h3>Начало работы с несколькими экземплярами ресурсов в Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -104,28 +104,108 @@ Azure Resource Manager позволяет быстро развертывать 
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Командлеты PowerShell](/powershell/azureps-cmdlets-docs/)
-
-###<a name="azure-cli"></a>Интерфейс командной строки Azure
-[Интерфейс командной строки Azure](/cli/azure)
-
-###<a name="net"></a>.NET
-[Управление ресурсами и группами ресурсов Azure с помощью .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-###<a name="java"></a>Java
-[Управление ресурсами и группами ресурсов Azure на Java](https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/)
-
-###<a name="nodejs"></a>Node.js
-[Управление ресурсами и группами ресурсов Azure с помощью Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
-
-###<a name="python"></a>Python
-[Управление ресурсами и группами ресурсов Azure на Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
-
-###<a name="ruby"></a>Ruby
-[Управление ресурсами и группами ресурсов Azure на Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Командлеты PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/cli/azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Интерфейс командной строки Azure</h3>
+                        <p>Интерфейс командной строки Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управление ресурсами и группами ресурсов Azure с помощью .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Начало работы с ресурсами: управление ресурсами на Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Node.js</h3>
+                        <p>Управление ресурсами и группами ресурсов Azure с помощью Node.js</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Python</h3>
+                        <p>Управление ресурсами и группами ресурсов Azure на Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Ruby</h3>
+                        <p>Управление ресурсами и группами ресурсов Azure на Ruby</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 ---
 <div class="downloadHolder">
@@ -137,6 +217,6 @@ Azure Resource Manager позволяет быстро развертывать 
 </div>
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

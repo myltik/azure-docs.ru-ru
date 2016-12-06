@@ -1,19 +1,23 @@
 * [Использование Active Directory для проверки подлинности в службе приложений Azure](../articles/app-service-web/web-sites-authentication-authorization.md)
-  * [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/) \(Настройка проверки подлинности Azure Active Directory для приложения\)
+  * [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 * [Включение протокола HTTPS для приложения в службе приложений Azure](../articles/app-service-web/web-sites-configure-ssl-certificate.md)
   * [Принудительное использование HTTPS для всего входящего трафика](http://microsoftazurewebsitescheatsheet.info/#force-https)
-  * [Включение строгого режима безопасности транспорта \(HSTS\)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
+  * [Включение строгого режима безопасности транспорта (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 * [Ограничение доступа к приложению IP-адресом клиента](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
-* [Ограничение доступа к приложению поведением клиента — частотой запросов и параллелизмом](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
-* [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) \(Сканирование кода веб-приложения на предмет уязвимостей с помощью Tinfoil Security\)
+* [Ограничение доступа к приложению поведением клиента — частотой запросов и параллелизмом](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+* [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 * [Настройка взаимной проверки подлинности TLS для веб-приложения](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)
-* [Configure a client certificate for use from your app to securely connect to external resources](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/) \(Настройка использования сертификата клиента в приложении для безопасного подключения к внешним ресурсам\)
-* [Remove standard server headers to avoid tools from fingerprinting your app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) \(Удаление стандартных заголовков сервера во избежание использования отпечатка пальца различными инструментами в приложении\)
+* [Configure a client certificate for use from your app to securely connect to external resources](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
+* [Remove standard server headers to avoid tools from fingerprinting your app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 * [Интеграция приложения с виртуальной сетью Azure](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 * [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../articles/app-service-web/web-sites-hybrid-connection-get-started.md)
 * [Введение в среду службы приложения](../articles/app-service-web/app-service-app-service-environment-intro.md)
-  * [Настройка брандмауэра веб-приложения \(WAF\) для среды службы приложений](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
+  * [Настройка брандмауэра веб-приложения (WAF) для среды службы приложений ](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
   * [Как управлять входящим трафиком в среде службы приложений](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [Безопасное подключение к серверным ресурсам из среды службы приложений](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

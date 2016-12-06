@@ -13,7 +13,7 @@
 ### [Импорт определения API](api-management-howto-import-api.md)
 ## Защита серверной части
 ### [Защита серверной части веб-API с помощью AAD](api-management-howto-protect-backend-with-aad.md)
-### [Подключение через VPN или ExpressRoute](api-management-howto-setup-vpn.md)
+### [Подключение к виртуальной сети](api-management-using-with-vnet.md)
 ### [Взаимная аутентификация на основе сертификатов](api-management-howto-mutual-certificates.md)
 ## Настройка политик
 ### [Настраиваемое кэширование](api-management-sample-cache-by-key.md)
@@ -40,13 +40,17 @@
 ### [Управление с помощью службы автоматизации](automation-manage-api-management.md)
 ### [Настройка с помощью Git](api-management-configuration-repository-git.md)
 #Справочные материалы
-## [Командлеты PowerShell для управления ресурсами]/powershell/resourcemanager()
-## [Справочник по командлетам PowerShell для классической модели развертывания](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [ИНТЕРФЕЙС REST API](/rest/api/apimanagement/)
-## [Политики](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Шаблоны](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Классическая модель: PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Политики](https://msdn.microsoft.com/library/azure/dn894081)
+## [Шаблоны](https://msdn.microsoft.com/library/azure/mt697540)
 #Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/api-management/)
+## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Обновления службы](https://azure.microsoft.com/updates/?product=api-management)
 ## [Технический документ. Облачное управление API](http://j.mp/ms-apim-whitepaper)
 ## [Руководство по проектированию API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Руководство по реализации API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

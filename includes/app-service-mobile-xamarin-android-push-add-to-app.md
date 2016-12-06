@@ -1,10 +1,10 @@
-1. Create a new class in the project called `ToDoBroadcastReceiver`.
-2. Add the following using statements to **ToDoBroadcastReceiver** class:
+1. Создайте класс в проекте с именем `ToDoBroadcastReceiver`.
+2. Добавьте следующие инструкции using в класс **ToDoBroadcastReceiver** :
    
         using Gcm.Client;
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Add the following permission requests between the **using** statements and the **namespace** declaration:
+3. Добавьте следующие разрешения запросов между операторами **using** и объявлением **namespace**:
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -14,7 +14,7 @@
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-4. Replace the existing **ToDoBroadcastReceiver** class definition with the following:
+4. Замените существующее определение класса **ToDoBroadcastReceiver** следующим:
    
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -29,8 +29,8 @@
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    In the above code, you must replace *`<PROJECT_NUMBER>`* with the project number assigned by Google when you provisioned your app in the Google developer portal. 
-5. In the ToDoBroadcastReceiver.cs project file, add the following code that defines the **PushHandlerService** class:
+    В приведенном выше коде необходимо заменить *`<PROJECT_NUMBER>`* номером проекта, назначенным службой Google при подготовке приложения к работе на портале разработчика Google. 
+5. В файле проекта ToDoBroadcastReceiver.cs добавьте следующий код, который определяет класс **PushHandlerService** :
    
         // The ServiceAttribute must be applied to the class.
         [Service] 
@@ -41,13 +41,13 @@
             public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
         }
    
-    Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.
+    Обратите внимание, что этот класс является производным от **GcmServiceBase**, поэтому к нему необходимо применить атрибут **Service**.
    
    > [!NOTE]
-   > The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods. You must override these methods in the **PushHandlerService** class.
+   > Класс **GcmServiceBase** реализует методы **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** и **OnError()**. Эти методы необходимо переопределить в классе **PushHandlerService** .
    > 
    > 
-6. Add the following code to the **PushHandlerService** class that overrides the **OnRegistered** event handler. 
+6. Добавьте приведенный ниже код в класс **PushHandlerService**, который переопределяет обработчик событий **OnRegistered**. 
    
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -86,8 +86,8 @@
             }
         }
    
-    This method uses the returned GCM registration ID to register with Azure for push notifications. Tags can only be added to the registration after it is created. For more information, see [How to: Add tags to a device installation to enable push-to-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-7. Override the **OnMessage** method in **PushHandlerService** with the following code:
+    В этом методе возвращенный идентификатор регистрации GCM используется для регистрации push-уведомлений в службе Azure. Теги могут добавляться к регистрации только после ее создания. Дополнительные сведения см. в разделе [Практическое руководство. Включение принудительной отправки push-уведомлений с использованием тегов](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+7. Переопределите метод **OnMessage** в **PushHandlerService** с использованием следующего кода:
    
        protected override void OnMessage(Context context, Intent intent)
        {          
@@ -106,7 +106,7 @@
                // Create a new intent to show the notification in the UI. 
                PendingIntent contentIntent = 
                    PendingIntent.GetActivity(context, 0, 
-                   new Intent(this, typeof(ToDoActivity)), 0);           
+                   new Intent(this, typeof(ToDoActivity)), 0);              
    
                // Create the notification using the builder.
                var builder = new Notification.Builder(context);
@@ -122,7 +122,7 @@
    
            }
        }
-8. Override the **OnUnRegistered()** and **OnError()** methods with the following code.
+8. Переопределите методы **OnUnRegistered()** и **OnError()** с помощью следующего кода:
    
        protected override void OnUnRegistered(Context context, string registrationId)
        {
@@ -135,6 +135,8 @@
                string.Format("Error occurred in the notification: {0}.", errorId));
        }
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

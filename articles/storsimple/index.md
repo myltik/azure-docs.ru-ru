@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#StorSimple Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
 
-StorSimple and Microsoft Azure offer a unique and integrated primary storage archival and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple solution.
+---
+#<a name="storsimple-documentation"></a>Документация по StorSimple
+
+StorSimple и Microsoft Azure представляют собой уникальную и интегрированную систему архивации для основного хранилища и аварийного восстановления; Azure выступает в качестве продолжения локального хранилища. Сведения о развертывании решения StorSimple и управлении им.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple Virtual Array</h3>
+                        <h3>Сведения о виртуальном массиве StorSimple</h3>
                     </div>
                 </div>
             </div>
@@ -31,11 +35,11 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/storsimple.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about StorSimple 8000 series</h3>
+                        <h3>Сведения о StorSimple серии 8000</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>StorSimple Video Library</h3>
+                        <h3>Видеотека StorSimple</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with StorSimple Virtual Array</h3>
+                        <h3>Начало работы с виртуальным массивом StorSimple</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with StorSimple 8000 series</h3>
+                        <h3>Начало работы со StorSimple серии 8000</h3>
                     </div>
                 </div>
             </div>
@@ -100,17 +104,49 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
 
 ---
 
-##Other StorSimple Solutions
+##<a name="other-storsimple-solutions"></a>Другие решения StorSimple
 
-[StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com/)
-
-###[Release Notes](/azure/storsimple/storsimple-update3-release-notes)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="http://onlinehelp.storsimple.com/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Другие решения StorSimple</h3>
+                        <p>Хранилище StorSimple серии 5000–7000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/storsimple/storsimple-update3-release-notes">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Заметки о выпуске</h3>
+                        <p>Заметки о выпуске</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
         <div class="img"></div>
         <div class="text">
-            Download StorSimple Documentation
-        </div>
+Скачать документацию по StorSimple </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

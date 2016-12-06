@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5f6156de634d3e32dd848518d4433a5d2e4b5c
-ms.openlocfilehash: 050d31a70a7dddff1f840235002f9b233dee9059
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1513c4d2b658efff20095a293cec2a9687ebeabf
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Документация по Azure HDInsight
@@ -123,17 +123,65 @@ Azure HDInsight представляет собой расширение Apache 
 
 ---
 
-##<a name="reference"></a>Справочные материалы
+## <a name="reference"></a>Справочные материалы
 
-###<a name="powershell"></a>PowerShell
-[Справочник по Azure PowerShell](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Справочник по Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Сведения об API REST HDInsight](/rest/api/hdinsight)
-[Сведения о Spark для API REST HDInsight](/rest/api/hdinsightspark)
+ <li>
+        <a href="/rest/api/hdinsight">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Справочник по REST API HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+         <a href="/rest/api/hdinsightspark">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Справочник по Spark для REST API HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[Управляемый справочник по HDInsight](https://msdn.microsoft.com/library/azure/mt271028)
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt271028">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Управляемый справочник по HDInsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
@@ -145,6 +193,6 @@ Azure HDInsight представляет собой расширение Apache 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

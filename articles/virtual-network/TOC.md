@@ -13,7 +13,7 @@
 
 # Начало работы
 ## [Создание виртуальной сети](virtual-networks-create-vnet-arm-pportal.md)
-## [Развертывание виртуальной машины в виртуальной сети](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [Развертывание виртуальной машины в виртуальной сети](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # Практическое руководство:
 ## Планирование и проектирование
@@ -143,6 +143,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,6 +1,5 @@
 # Обзор
-## [Что такое доменные службы Azure AD?](https://azure.microsoft.com/services/active-directory-ds/)
-## [Принцип работы](active-directory-ds-overview.md)
+## [Что такое доменные службы Azure AD?](active-directory-ds-overview.md)
 ## [Подходит ли это вам?](active-directory-ds-comparison.md)
 ## [Функции](active-directory-ds-features.md)
 ## [Сценарии](active-directory-ds-scenarios.md)
@@ -36,9 +35,11 @@
 
 # Ресурсы 
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Свяжитесь с нами](active-directory-ds-contact-us.md)
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Свяжитесь с нами](active-directory-ds-contact-us.md)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 
