@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5557dbef45d8599010a909635eebf399a5bcd2c8
 
 
 ---
@@ -71,7 +71,7 @@ ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
 ## <a name="management-plane-access-control"></a>Контроль доступа к плоскости управления
 Плоскость управления образуют операции, которые влияют на само хранилище ключей. Например, вы можете создать или удалить хранилище ключей. Можно также получить список хранилищ в подписке. Вы можете получать свойства хранилища ключей (например, SKU, теги) и задавать политики доступа к хранилищу ключей, контролирующие пользователей и приложения, которые могут получать доступ к ключам и секретам в этом хранилище. Контроль доступа к плоскости управления использует RBAC. Полный список операций хранилища ключей, которые можно выполнять с помощью плоскости управления, приведен в таблице предыдущего раздела. 
 
-### <a name="rolebased-access-control-rbac"></a>Управление доступом на основе ролей (RBAC)
+### <a name="role-based-access-control-rbac"></a>Управление доступом на основе ролей (RBAC)
 Каждая подписка Azure имеет каталог Azure Active Directory. Пользователям, группам и приложениям из этого каталога можно предоставить доступ к управлению ресурсами в подписке Azure, для которых используется модель развертывания с помощью Azure Resource Manager. Этот тип контроля доступа называется управлением доступом на основе ролей (RBAC). Для управления доступом можно использовать [портал Azure](https://portal.azure.com/), [инструменты интерфейса командной строки Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) или [REST API Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 При применении модели Azure Resource Manager в группе ресурсов создается хранилище ключей, а доступ к плоскости управления этого хранилища контролируется с помощью Azure Active Directory. Например, можно предоставить пользователям или группе возможность управлять хранилищами ключей в определенной группе ресурсов.
@@ -210,7 +210,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md)
   
   В этой статье подробно описываются встроенные роли RBAC.
-* [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md)
+* [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../azure-resource-manager/resource-manager-deployment-model.md)
   
   В этой статье рассматриваются модель развертывания на основе Resource Manager и классическая модель, а также описываются преимущества использования Resource Manager и групп ресурсов.
 * [Управление доступом на основе ролей с помощью Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

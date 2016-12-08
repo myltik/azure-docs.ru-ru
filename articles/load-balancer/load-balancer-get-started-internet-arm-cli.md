@@ -3,8 +3,8 @@ title: "Создание подсистемы балансировки нагр�
 description: "Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,15 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: c8f29176c8566c94efeecadbc804f459d8f2a6c3
 
 ---
 # <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Создание внутреннего балансировщика нагрузки с помощью Azure CLI
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Портал](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Шаблон](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
 
 1. Создайте виртуальную сеть *NRPVnet* в регионе "Восток США" с помощью группы ресурсов *NRPRG*.
 
@@ -91,7 +95,7 @@ ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Создание пула интерфейсных IP-адресов и пула внутренних адресов
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Создание пула интерфейсных IP-адресов и пула внутренних адресов
 В этом примере показано, как создать пул интерфейсных IP-адресов, который будет принимать входящий сетевой трафик для балансировщика нагрузки, а также пул внутренних IP-адресов, который будет отправлять сетевой трафик с балансировкой нагрузки.
 
 1. Создайте пул интерфейсных IP-адресов, связывающий общедоступный IP-адрес, созданный на предыдущем этапе, и балансировщик нагрузки.
@@ -307,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

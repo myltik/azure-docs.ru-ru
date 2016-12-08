@@ -12,20 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Начало работы с облачными службами Azure и ASP.NET
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 ## <a name="overview"></a>Обзор
 Это руководство описывает, как создавать многоуровневое приложение .NET с внешним ASP.NET MVC и как развернуть его в [облачной службе Azure](cloud-services-choose-me.md). Приложение использует [базу данных Azure SQL](http://msdn.microsoft.com/library/azure/ee336279), [службу BLOB-объектов Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) и [службу очередей Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Можно [загрузить проект Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) из галереи кода MSDN.
@@ -415,7 +410,7 @@ ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
 * [Начало работы с EF 6 и MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Введение в асинхронное программирование в .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Файл Ad.cs определяет перечисляемый тип для класса Ad и класс сущностей POCO для информации в рекламе.
 
 ```csharp
@@ -459,7 +454,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 Класс ContosoAdsContext указывает, что класс Ad используется коллекцией DbSet, которую Entity Framework хранит в базе данных SQL.
 
 ```csharp
@@ -478,7 +473,7 @@ public class ContosoAdsContext : DbContext
 
 Класс имеет два конструктора. Первый из них используется веб-проектом и указывает имя строки подключения, которая сохранена в файле Web.config Второй конструктор дает возможность передачи действующей строки подключения. Это необходимо проекту рабочей роли, поскольку он не имеет файла Web.config. Ранее было показано, где хранится строка подключения, а потом будет показано, как код извлекает строку подключения, когда он создает экземпляр класса DbContext.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 Код, который вызывается из метода `Application_Start`, создает контейнер больших двоичных объектов *images* и очередь *images*, если они отсутствуют. Это гарантирует, что при начале использования новой учетной записи хранения или эмулятора хранилища на новом компьютере требуемый контейнер больших двоичных объектов и очередь создаются автоматически.
 
 Код получает доступ к учетной записи хранилища, используя строку подключения из файла *.cscfg* .
@@ -511,10 +506,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb — \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb — \_Layout.cshtml
 Файл *_Layout.cshtml* задает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
 Файл *Views\Home\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
 
 ```razor
@@ -524,7 +519,7 @@ imagesQueue.CreateIfNotExists();
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb - AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 В файле *AdController.cs* конструктор вызывает метод `InitializeStorage` для создания объектов клиентской библиотеки службы хранилища Azure, которые предоставляют API-интерфейс для работы с большими двоичными объектами и очередями.
 
 Затем код получает ссылку на контейнер больших двоичных объектов *images*, как показано ранее в *Global.asax.cs*. При этом он устанавливает [политику повторения](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) по умолчанию, подходящую для веб-приложения. Политика повторения с экспоненциальной задержкой по умолчанию может застопорить веб-приложение более чем на минуту при повторяющихся повторах во время кратковременного сбоя. Политика повторения здесь указывает ожидание в 3 секунды после каждой попытки, всего до 3 повторений.
@@ -621,7 +616,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
 Файл *Index.cshtml* выводит эскиз с другими данными рекламы.
 
 ```razor
@@ -634,7 +629,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
 Файлы *Create.cshtml* и *Edit.cshtml* указывают кодирование формы, которое дает возможность контроллеру получить объект `HttpPostedFileBase`.
 
 ```razor
@@ -647,7 +642,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - метод OnStart
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - метод OnStart
 Среда рабочей роли Azure вызывает метод `OnStart` в классе `WorkerRole`, когда рабочая роль начинает работу, и вызывает метод `Run`, когда метод `OnStart` завершает работу.
 
 Метод `OnStart` получает строку подключения к базе данных из *CSCFG-файла* и передает ее в класс Entity Framework DbContext. Поставщик SQLClient используется по умолчанию, поэтому поставщик не нужно указывать.
@@ -659,7 +654,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Затем метод получит ссылку на учетную запись хранилища и создаст контейнер больших двоичных объектов и очередь, если они не существуют. Этот код аналогичен тому, что показан в методе `Application_Start` веб-роли.
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker - WorkerRole.cs - метод Run
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - метод Run
 Метод `Run` вызывается, когда метод `OnStart` завершает свою начальную работу. Метод выполняет бесконечный цикл, в котором ждет новые сообщения в очереди и обрабатывает их, когда они прибывают.
 
 ```csharp
@@ -777,6 +772,6 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

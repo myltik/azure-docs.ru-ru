@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+ms.sourcegitcommit: 89239cf97da19a634e1eda516a6b43028cde96a0
+ms.openlocfilehash: 23b6e29b7e0c2da14cfa76e04e4e1fe9b6b71906
 
 
 ---
@@ -27,19 +27,26 @@ ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
 ## <a name="standard-connectors"></a>Стандартные соединители
 | Соединители |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][API/Web-Appicon]<br/>**API или веб-приложение**][API/Web-Appdoc] |[![API Icon][Azure-Blobicon]<br/>**Большой двоичный объект Azure**][Azure-Blobdoc] |[![API Icon][Azure~Functionsicon]<br/>**Функции<br/>Azure**][Azure~Functionsdoc] |[![API Icon][Boxicon]<br/>**Box**][Boxdoc] |
-| [![API Icon][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API Icon][DB2icon]<br/>**DB2**][db2doc] |[![API Icon][Delayicon]<br/>**Задержка**][Delaydoc] |[![API Icon][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
-| [![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![API Icon][FTPicon]<br/>**FTP**][FTPdoc] |[![API Icon][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![API Icon][Google-Driveicon]<br/>**Google Диск**][Google-Drivedoc] |
-| ![Значок API][Google-Sheetsicon]<br/>**Таблицы Google** |![Значок API][Google-Tasksicon]<br/>**Задачи Google** |![Значок API][Google~Calendaricon]<br/>**Google<br/>Календарь** |[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc] |
-| [![API Icon][HTTP-Swaggericon]<br/>**HTTP и Swagger**][HTTP-Swaggerdoc] |[![API Icon][HTTP~Requesticon]<br/>**Запрос<br/>HTTP**][HTTP~Requestdoc] |[![API Icon][HTTP~Responseicon]<br/>**Ответ<br/>HTTP**][HTTP~Responsedoc] |[![API Icon][Informixicon]<br/>**Informix**][informixdoc] |
-| ![Значок API][Instagramicon]<br/>**Instagram** |[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc] |![Значок API][Mandrillicon]<br/>**Mandrill** |[![API Icon][Nested~Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested~Logic-Appdoc] |
-| [![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc] |[![API Icon][Office-365~Usersicon]<br/>**Пользователи<br/>Office 365**][Office-365~Usersdoc] |[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Видео**][Office-365~Videodoc] |[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc] |
-| [![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for~Businessdoc] |[![API Icon][Outlookicon]<br/>**Outlook**][Outlookdoc] |[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc] |[![API Icon][Queryicon]<br/>**Запрос**][Querydoc] |
-| [![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc] |[![API Icon][RSSicon]<br/>**RSS**][RSSdoc] |[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc] |[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc] |
-| [![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc] |[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc] |[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc] |[![API Icon][Slackicon]<br/>**Slack**][Slackdoc] |
-| [![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc] |![Значок API][SparkPosticon]<br/>**SparkPost** |[![API Icon][SQLicon]<br/>**SQL**][SQLdoc] |[![API Icon][Translatoricon]<br/>**Переводчик**][Translatordoc] |
-| [![API Icon][Trelloicon]<br/>**Trello**][Trellodoc] |[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc] |[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] |[![API Icon][Webhookicon]<br/>**webhook**][Webhookdoc] |
-| [![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc] |[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc] |![Значок API][YouTubeicon]<br/>**YouTube** | |
+|[![API Icon][API/Web-Appicon]<br/>**API или веб-приложение**][API/Web-Appdoc]|![Значок API][appFiguresicon]<br/>**appFigures**|![Значок API][Asanaicon]<br/>**Asana**|![Значок API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
+|![Значок API][Azure-MLicon]<br/>**Машинное обучение Azure**|[![API Icon][Azure~Functionsicon]<br/>**Функции<br/>Azure**][Azure~Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![Значок API][Basecamp-3icon]<br/>**Basecamp 3**|
+|![Значок API][Bitlyicon]<br/>**Bitly**|![Значок API][BizTalk-Servericon]<br/>**BizTalk Server**|![Значок API][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
+|![Значок API][Campfireicon]<br/>**Campfire**|![Значок API][Cognitive-Services~Text-Analyticsicon]<br/>**Текстовая аналитика<br/>Cognitive Services**|![Значок API][Common-Data~Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
+|[![API Icon][Delayicon]<br/>**Задержка**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Значок API][Dynamics-365~for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
+|![Значок API][Dynamics-365~for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![Значок API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
+|![Значок API][GitHubicon]<br/>**GitHub**|![Значок API][Google-Calendaricon]<br/>**Google Календарь**|[![API Icon][Google-Driveicon]<br/>**Google Диск**][Google-Drivedoc]|![Значок API][Google-Sheetsicon]<br/>**Таблицы Google**|
+|![Значок API][Google-Tasksicon]<br/>**Задачи Google**|![Значок API][HideKeyicon]<br/>**HideKey**|![Значок API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP~Requesticon]<br/>**Запрос<br/>HTTP**][HTTP~Requestdoc]|[![API Icon][HTTP~Responseicon]<br/>**Ответ<br/>HTTP**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
+|![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|![Значок API][JIRAicon]<br/>**JIRA**|
+|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|![Значок API][MQicon]<br/>**MQ**|
+|[![API Icon][Nested~Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested~Logic-Appdoc]|[![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365~Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
+|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for~Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|
+|![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|
+|![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
+|![Значок API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Значок API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|![Значок API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
+|![Значок API][Vimeoicon]<br/>**Vimeo**|![Значок API][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**webhook**][Webhookdoc]|![Значок API][WordPressicon]<br/>**WordPress**|
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Значок API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
 
 > [!NOTE]
 > Если вы хотите опробовать приложения логики Azure, не регистрируя учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое приложение логики для кратковременного использования. Никаких кредитных карт и обязательств.
@@ -73,22 +80,22 @@ ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
 * [См. статью Мониторинг приложений логики.](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
-[azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к большому двоичному объекту Azure для управления файлами в контейнере больших двоичных объектов."
+[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Подключается к большому двоичному объекту Azure для управления файлами в контейнере больших двоичных объектов."
 [boxDoc]: ./connectors-create-api-box.md "Подключается к Box для отправки, получения, удаления, составления списков и выполнения других задач с файлами."
-[crm-onlinedoc]: ./connectors-create-api-crmonline.md "Подключается к Dynamics CRM Online и расширяет возможности работы с данными CRM Online."
+[Dynamics-365doc]: ./connectors-create-api-crmonline.md "Подключается к Dynamics CRM Online и расширяет возможности работы с данными CRM Online."
 [db2doc]: ./connectors-create-api-db2.md "Подключается к IBM DB2 в облаке или локально для обновления строки, получения таблицы и многого другого."
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Подключается к Dropbox для получения, удаления, составления списков и выполнения других задач с файлами."
 [facebookdoc]: ./connectors-create-api-facebook.md "Подключается к Facebook и позволяет оставлять сообщения на стене, получать канал страниц и выполнять другие действия."
 [ftpdoc]: ./connectors-create-api-ftp.md "Подключается к FTP и FTPS-серверу для выполнения разных FTP-задач, включая отправку, получение, удаление файлов и многое другое."
 [google-drivedoc]: ./connectors-create-api-googledrive.md "Подключается к GoogleDrive и взаимодействует с данными."
 [informixdoc]: ./connectors-create-api-informix.md "Подключается к Informix в облаке или локально для считывания строки, перечисления таблиц и многого другого."
-[translatordoc]: ./connectors-create-api-microsofttranslator.md
-[office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "Соединитель Office 365 может отправлять и получать сообщения электронной почты, управлять календарем, а также управлять контактами с помощью учетной записи Office 365."
-[office-365~usersdoc]: ./connectors-create-api-office365-users.md
-[office-365~videodoc]: ./connectors-create-api-office365-video.md
+[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md
+[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Соединитель Office 365 может отправлять и получать сообщения электронной почты, управлять календарем, а также управлять контактами с помощью учетной записи Office 365."
+[office365-usersdoc]: ./connectors-create-api-office365-users.md
+[office365-videodoc]: ./connectors-create-api-office365-video.md
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Подключается к вашей личной учетной записи Microsoft OneDrive для передачи, удаления, составления списка файлов и выполнения других задач."
 [onedrive-for~businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Подключается к корпоративной учетной записи Microsoft OneDrive для отправки, удаления и составления списка файлов, а также выполнения других задач."
-[outlookdoc]: ./connectors-create-api-outlook.md "Подключается к почтовому ящику Outlook для доступа к электронной почте и выполнения других задач."
+[outlook.comdoc]: ./connectors-create-api-outlook.md "Подключается к почтовому ящику Outlook для доступа к электронной почте и выполнения других задач."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Подключается к Microsoft Project Online."
 [rssdoc]: ./connectors-create-api-rss.md "Соединитель RSS позволяет пользователям публиковать и извлекать элементы веб-канала, а также активировать операции при публикации нового элемента в веб-канале."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Подключается к учетной записи Salesforce для управления учетными записями, потенциальными клиентами и сделками и выполнения других задач."
@@ -100,7 +107,7 @@ ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
 [githubdoc]: ./connectors-create-api-github.md "Подключается к GitHub для отслеживания проблем."
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Оптимизирует отправляемую электронную почту."
 [smtpdoc]: ./connectors-create-api-smtp.md "Подключается к SMTP-серверу и отправляет электронные сообщения с вложениями."
-[sqldoc]: ./connectors-create-api-sqlazure.md "Подключается к базе данных SQL Azure. Вы можете создавать, обновлять, получать и удалять записи в таблице базы данных SQL."
+[sql-serverdoc]: ./connectors-create-api-sqlazure.md "Подключается к базе данных SQL Azure. Вы можете создавать, обновлять, получать и удалять записи в таблице базы данных SQL."
 [trellodoc]: ./connectors-create-api-trello.md "Trello — это бесплатное универсальное и визуальное средство организации данных."
 [twiliodoc]: ./connectors-create-api-twilio.md "Подключается к Twilio для отправки и получения сообщений, получения доступных номеров, управления входящими телефонными номерами и выполнения других задач."
 [twitterdoc]: ./connectors-create-api-twitter.md "Подключается к Twitter для получения временных шкал, публикации твитов и выполнения других задач."
@@ -136,59 +143,92 @@ ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Подключается к Mandrill и может использоваться для обмена данными."
 [youtubedoc]: ./connectors-create-api-youtube.md "Подключается к YouTube и может взаимодействовать с видео и каналами."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключается к SparkPost и может использоваться для обмена данными."
+[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Использование соединителя файловой системы для подключения к локальной файловой системе."
 
 <!--Icon references-->
-[Azure-Blobicon]: ./media/apis-list/azureblob.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
+[appFiguresicon]: ./media/apis-list/appfigures.png
+[Asanaicon]: ./media/apis-list/asana.png
+[AzureBlobStorageicon]: ./media/apis-list/azureblob.png
+[Azure-MLicon]: ./media/apis-list/azureml.png
+[Basecamp-3icon]: ./media/apis-list/basecamp.png
+[Bitlyicon]: ./media/apis-list/bitly.png
+[BizTalk-Servericon]: ./media/apis-list/biztalk.png
+[Bloggericon]: ./media/apis-list/blogger.png
 [Boxicon]: ./media/apis-list/box.png
-[CRM-Onlineicon]: ./media/apis-list/dynamicscrmonline.png
+[Campfireicon]: ./media/apis-list/campfire.png
+[Cognitive-Services~Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
 [DB2icon]: ./media/apis-list/db2.png
+[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
+[Dynamics-365~for-Operationsicon]: ./media/apis-list/dynamicsax.png
+[Dynamics-365icon]: ./media/apis-list/dynamicscrmonline.png
+[Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png
+[Google-Calendaricon]: ./media/apis-list/googlecalendar.png
 [Google-Driveicon]: ./media/apis-list/googledrive.png
-[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
-[Google-Tasksicon]: ./media/apis-list/googletasks.png
 [Google-Sheetsicon]: ./media/apis-list/googlesheet.png
-[HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
+[Google-Tasksicon]: ./media/apis-list/googletasks.png
+[HideKeyicon]: ./media/apis-list/hidekey.png
+[HipChaticon]: ./media/apis-list/hipchat.png
 [Informixicon]: ./media/apis-list/informix.png
+[Insightlyicon]: ./media/apis-list/insightly.png
+[Instagramicon]: ./media/apis-list/instagram.png
+[Instapapericon]: ./media/apis-list/instapaper.png
+[JIRAicon]: ./media/apis-list/jira.png
+[Dynamics-365~for-Financialsicon]: ./media/apis-list/madeira.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
-[Translatoricon]: ./media/apis-list/microsofttranslator.png
+[Mandrillicon]: ./media/apis-list/mandrill.png
+[Microsoft-Translatoricon]: ./media/apis-list/microsofttranslator.png
+[MQicon]: ./media/apis-list/mq.png
 [Office-365~Outlookicon]: ./media/apis-list/office365.png
-[Office-365~Usersicon]: ./media/apis-list/office365.png
-[Office-365~Videoicon]: ./media/apis-list/sharepointonline.png
+[Office-365~Usersicon]: ./media/apis-list/office365users.png
+[Office-365~Videoicon]: ./media/apis-list/office365video.png
 [OneDriveicon]: ./media/apis-list/onedrive.png
 [OneDrive-for~Businessicon]: ./media/apis-list/onedriveforbusiness.png
-[Outlookicon]: ./media/apis-list/outlook.png
+[Outlook.comicon]: ./media/apis-list/outlook.png
+[PagerDutyicon]: ./media/apis-list/pagerduty.png
+[Pinteresticon]: ./media/apis-list/pinterest.png
 [Project-Onlineicon]: ./media/apis-list/projectonline.png
+[Redmineicon]: ./media/apis-list/redmine.png
 [RSSicon]: ./media/apis-list/rss.png
+[Common-Data~Serviceicon]: ./media/apis-list/runtimeservice.png
 [Salesforceicon]: ./media/apis-list/salesforce.png
 [SendGridicon]: ./media/apis-list/sendgrid.png
 [Service-Busicon]: ./media/apis-list/servicebus.png
 [SFTPicon]: ./media/apis-list/sftp.png
 [SharePointicon]: ./media/apis-list/sharepointonline.png
 [Slackicon]: ./media/apis-list/slack.png
+[Smartsheeticon]: ./media/apis-list/smartsheet.png
 [SMTPicon]: ./media/apis-list/smtp.png
-[SQLicon]: ./media/apis-list/sql.png
+[SparkPosticon]: ./media/apis-list/sparkpost.png
+[SQL-Servericon]: ./media/apis-list/sql.png
+[Todoisticon]: ./media/apis-list/todoist.png
 [Trelloicon]: ./media/apis-list/trello.png
 [Twilioicon]: ./media/apis-list/twilio.png
 [Twittericon]: ./media/apis-list/twitter.png
+[Vimeoicon]: ./media/apis-list/vimeo.png
+[Visual-Studio~Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
+[WordPressicon]: ./media/apis-list/wordpress.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
-[Mandrillicon]: ./media/apis-list/mandrill.png
-[SparkPosticon]: ./media/apis-list/sparkpost.png
-[Instagramicon]: ./media/apis-list/instagram.png
 [YouTubeicon]: ./media/apis-list/youtube.png
+
+
+<!-- Primitive Icons -->
+[HTTPicon]: ./media/apis-list/http.png
+[HTTP~Requesticon]: ./media/apis-list/request.png
+[HTTP~Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
+[Azure~Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
@@ -200,6 +240,6 @@ ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

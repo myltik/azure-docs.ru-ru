@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
+ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Пакет SDK для шлюза IoT (бета-версия): приступая к работе с Linux
+# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Пакет SDK для шлюза Интернета вещей: начало работы в ОС Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Сборка примера
@@ -38,45 +38,48 @@ ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
 ## <a name="how-to-run-the-sample"></a>Запуск примера
 1. Скрипт **build.sh** создает выходные данные в папке **build** локальной копии репозитория **azure-iot-gateway-sdk**. Он включает два модуля, которые используются в данном примере.
    
-    Скрипт сборки размещает **liblogger_hl.so** в папке **build/modules/logger/** и **libhello_world_hl.so** в папке **build/modules/hello_world/**. Используйте эти пути для настройки значения **module path** , как указано в приведенном ниже файле параметров JSON.
-2. Файл **hello_world_lin.json** в папке **samples/hello_world/src** — это пример файла параметров JSON, который можно использовать для запуска примера. В представленном ниже примере параметров JSON предполагается, что пример запускается из корневой папки локальной копии репозитория **azure-iot-gateway-sdk** .
-3. Для модуля **logger_hl** в разделе **args** укажите в качестве значения **filename** имя и путь файла, который будет содержать данные журнала.
-   
-    Вот пример параметров JSON для Linux, который записывается в файл **log.txt** в папке, из которой запускается этот пример.
+    Скрипт сборки размещает **liblogger.so** в папке **build/modules/logger/**, а **libhello_world.so** — в папке **build/modules/hello_world/**. Используйте эти пути для настройки значения **module path** , как указано в приведенном ниже файле параметров JSON.
+2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации как аргумент в командной строке. Пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** и скопирован ниже. Он будет работать как есть, если вы не измените скрипт сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях.
+
+   > [!NOTE]
+   > Пути к модулям зависят от текущего рабочего каталога, в котором запускается исполняемый файл hello_world_sample, а не от каталога, где находится исполняемый файл. По умолчанию пример JSON-файла конфигурации предусматривает запись файла log.txt в текущем рабочем каталоге.
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger_hl",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
-          },
-          "args" : 
-          {
-            "filename":"./log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger_hl"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-4. Перейдите к папке **azure-iot-gateway-sdk** в оболочке.
-5. Выполните следующую команду:
+3. Перейдите к папке **azure-iot-gateway-sdk**.
+4. Выполните следующую команду:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +92,6 @@ ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

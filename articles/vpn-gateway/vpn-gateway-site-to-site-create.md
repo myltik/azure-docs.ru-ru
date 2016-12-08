@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-classic-portal"></a>Создание виртуальной сети с подключением типа "сеть — сеть" с помощью классического портала Azure
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Создание виртуальной сети с подключением типа "сеть — сеть" с помощью классического портала Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
 
 ![Схема "сеть — сеть"](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Модели развертывания и способы настройки подключений типа "сеть — сеть"
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Модели развертывания и способы настройки подключений типа "сеть — сеть"
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Следующая таблица показывает модели развертывания, доступные в настоящее время, и методы для конфигурации "сеть — сеть". Когда появится статья с руководством по конфигурации, мы разместим прямую ссылку на нее в этой таблице.
@@ -48,7 +48,7 @@ ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
 
 * Совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md). Если вы не умеете настраивать VPN-устройство или не знаете диапазоны IP-адресов в своей локальной сети, вам следует найти того, кто сможет предоставить вам нужную информацию.
 * Внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
-* Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
+* Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
 
 ## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Создание виртуальной сети
 1. Перейдите на [классический портал Azure](https://manage.windowsazure.com/).
@@ -68,7 +68,7 @@ ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
 * **Настройка VPN-подключения "сеть —сеть"**: установите флажок **Настройка VPN-подключения "сеть —сеть"**.
 * **Локальная сеть**представляет ваше физическое локальное расположение. Вы можете выбрать созданную ранее локальную сеть или создать новую. Если вы выбрали локальную сеть, которую ранее создали сами, перейдите на страницу настроек **Локальные сети** и проверьте, правильно ли указан IP-адрес VPN-устройства (общедоступный IPv4-адрес).
 
-## <a name="a-nameconnectivityasitetosite-connectivity-page"></a><a name="Connectivity"></a>Страница со сведениями о подключении типа "сеть —сеть"
+## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Страница со сведениями о подключении типа "сеть —сеть"
 Если вы создаете новую локальную сеть, отобразится страница **Подключение "сеть —сеть"** . Если же вы захотите использовать уже существующую локальную сеть, эта страница не откроется в мастере, и вы сможете перейти к следующему разделу.
 
 Укажите следующие сведения и нажмите кнопку "Далее".
@@ -97,11 +97,11 @@ ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
 Настройте шлюз виртуальной сети для создания безопасного подключения типа "сеть — сеть". См. статью [Настройка VPN-шлюза для классической модели развертывания](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [документации по виртуальным машинам](https://azure.microsoft.com/documentation/services/virtual-machines/).
+ Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

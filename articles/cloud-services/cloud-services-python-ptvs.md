@@ -1,5 +1,5 @@
 ---
-title: "Использование веб-ролей и рабочих ролей Python с помощью средств Python для Visual Studio | Документация Майкрософт"
+title: "Начало работы с облачными службами Azure и Python | Документация Майкрософт"
 description: "Обзор использования Python Tools в Visual Studio для создания облачных служб Azure, включая веб-роли и рабочие роли."
 services: cloud-services
 documentationcenter: python
@@ -12,21 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Использование веб-ролей и рабочих ролей Python с помощью средств Python для Visual Studio
-В этой статье представлен обзор способов использования веб-ролей и рабочих ролей Python с помощью [инструментов Python для Visual Studio][инструменты Python для Visual Studio]. Вы узнаете, как использовать Visual Studio для создания и развертывания базовой облачной службы, которая использует Python.
+
+В этой статье представлен обзор способов использования веб-ролей и рабочих ролей Python с помощью [инструментов Python для Visual Studio][инструментов Python для Visual Studio]. Вы узнаете, как использовать Visual Studio для создания и развертывания базовой облачной службы, которая использует Python.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Visual Studio 2013 или 2015
-* [Инструменты Python для Visual Studio][Инструменты Python для Visual Studio] (PTVS).
-* [Инструменты пакета SDK для Azure для VS 2013][Инструменты пакета SDK для Azure для VS 2013] или [инструменты пакета SDK для Azure для Visual Studio 2015][инструменты пакета SDK для Azure для Visual Studio 2015].
+* [инструментов Python для Visual Studio][инструментов Python для Visual Studio] (PTVS).
+* [Инструменты пакета SDK для Azure для VS 2013][Инструменты пакета SDK для Azure для VS 2013] или [Инструменты пакета SDK для Azure для Visual Studio 2015][Инструменты пакета SDK для Azure для Visual Studio 2015].
 * [Python 2.7 (32-разрядная версия)][Python 2.7 (32-разрядная версия)] или [Python 3.5 (32-разрядная версия)][Python 3.5 (32-разрядная версия)].
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -332,9 +333,9 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 Для получения более подробной информации об использовании служб Azure из веб-ролей или рабочих ролей, например об использовании хранилища Azure или служебной шины, рекомендуется обратиться к следующим руководствам:
 
-* [Использование хранилища BLOB-объектов Azure из Python][Использование хранилища BLOB-объектов Azure из Python]
-* [Использование табличного хранилища из Python][Использование табличного хранилища из Python]
-* [Использование хранилища очередей из Python][Использование хранилища очередей из Python]
+* [Служба BLOB-объектов][Служба BLOB-объектов]
+* [Служба таблиц][Служба таблиц]
+* [Служба очередей][Служба очередей]
 * [Как использовать очереди служебной шины][Как использовать очереди служебной шины]
 * [Как использовать разделы и подписки служебной шины][Как использовать разделы и подписки служебной шины]
 
@@ -349,22 +350,22 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [Служба BLOB-объектов]: ../storage/storage-python-how-to-use-blob-storage.md
 [Служба очередей]: ../storage/storage-python-how-to-use-queue-storage.md
 [Служба таблиц]: ../storage/storage-python-how-to-use-table-storage.md
-[Очереди служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Разделы служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Как использовать очереди служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Как использовать разделы и подписки служебной шины]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Средства Python для Visual Studio]: http://aka.ms/ptvs
+[инструментов Python для Visual Studio]: http://aka.ms/ptvs
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Проекты для облачной службы]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Инструменты пакета Azure SDK для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Инструменты пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Инструменты пакета SDK для Azure для Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32-разрядная версия)]: https://www.python.org/downloads/
 [Python 3.5 (32-разрядная версия)]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

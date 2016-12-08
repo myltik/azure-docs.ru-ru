@@ -17,12 +17,52 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
+ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Подключение к кластеру службы контейнеров Azure
+Кластеры DC/OS, Kubernetes и Docker Swarm, развернутые с помощью службы контейнеров Azure, предоставляют конечные точки REST.  При использовании Kubernetes к этой конечной точке предоставляется безопасный доступ через Интернет, и к ней можно напрямую обратиться с любого компьютера, подключенного к Интернету. Для безопасного подключения к конечной точке REST кластеров DC/OS и Docker Swarm следует создать SSH-туннель. Все эти подключения описаны ниже.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Подключение к кластеру Kubernetes.
+Чтобы подключиться к кластеру Kubernetes, вам потребуется установленное средство командной строки `kubectl`.  Чтобы установить его, проще всего использовать средство командной строки Azure `az` версии 2.0.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+Кроме того, клиент можно загрузить со страницы [списка выпусков](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+
+Когда средство `kubectl` будет установлено, скопируйте на локальный компьютер учетные данные кластера.  Это тоже можно легко сделать с помощью средства командной строки `az`.
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+Эта операция загрузит учетные данные кластера в папку `$HOME/.kube/config`, где `kubectl` ожидает их найти.
+
+Кроме того, можно с помощью `scp` безопасно скопировать файл на локальный компьютер из папки `$HOME/.kube/config` на главной виртуальной машине.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+При работе в Windows следует использовать Bash на Ubuntu в Windows или средство Putty "pscp".
+
+Когда настройка `kubectl` завершится, проверьте ее с помощью следующей команды.
+
+```console
+kubectl get nodes
+```
+
+Должен отобразиться список узлов в кластере.
+
+Дальнейшие инструкции см. в [кратком руководстве по началу работы с Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Подключение к кластеру DC/OS или Swarm
+
 Кластеры DC/OS и Docker Swarm, развернутые с помощью службы контейнеров Azure, предоставляют конечные точки REST. Но эти конечные точки не открыты для внешнего использования. Чтобы управлять этими конечными точками, необходимо создать туннель Secure Shell (SSH). После создания туннеля SSH можно выполнить команды к конечным точкам кластера и просмотреть пользовательский интерфейс кластера через браузер на вашем компьютере. В этом документе приводятся инструкции по созданию туннеля SSH в ОС Linux, OS X и Windows.
 
 > [!NOTE]
@@ -126,6 +166,6 @@ export DOCKER_HOST=:2375
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

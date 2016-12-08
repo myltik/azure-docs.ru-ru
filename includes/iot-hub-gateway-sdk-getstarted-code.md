@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-Файл параметров JSON содержит список модулей для загрузки. Каждый модуль должен содержать:
+Файл параметров JSON содержит список модулей для загрузки модулей и связи между ними.
+Каждый модуль должен содержать:
 
-* **module_name** — уникальное имя модуля.
-* **module_path** — путь к библиотеке, содержащей модуль. Для Linux это файл SO, для Windows — файл DLL.
+* **name** — уникальное имя модуля;
+* **loader** — загрузчик, который знает, как загрузить нужный модуль.  Загрузчики являются точкой расширения для загрузки разных типов модулей. Мы предоставляем загрузчики для модулей, написанных на машинном коде C, Node.js, Java и .Net. Пример Hello World использует только загрузчик для машинного кода, так как в качестве модулей здесь используются только динамические библиотеки на языке C. Сведения об использовании модулей на других языках вы найдете в описании примеров для [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) и [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
+    * **name** — имя загрузчика, используемого для загрузки модуля;  
+    * **entrypoint** — путь к библиотеке, содержащей модуль. Для Linux это файл SO, для Windows — файл DLL. Обратите внимание, что точка входа зависит от типа используемого загрузчика. Например, загрузчик Node.js использует в качестве точки входа JS-файл, загрузчик Java — сочетание пути и имени класса, а загрузчик .Net — сочетание имени сборки и имени класса.
+
 * **args**: необходимые модулю данные конфигурации.
+
+Далее представлен код JSON, который используется для объявления всех модулей для примера Hello World в Linux. Необходимость аргумента для модуля зависит от структуры этого модуля. В этом примере модуль ведения журнала принимает в качестве аргумента путь к выходному файлу, а модуль Hello World не принимает никакие аргументы.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 JSON-файл также содержит ссылки между модулями, которые будут передаваться в брокер. Ссылка имеет два свойства:
 
@@ -69,35 +101,16 @@ JSON-файл также содержит ссылки между модулям
 
 Каждая ссылка определяет маршрут и направление сообщения. Сообщения из модуля `source` должны быть доставлены в модуль `sink`. Для свойства `source` может быть задано значение "\*", указывающее, что `sink` может получать сообщения из любого модуля.
 
-Приведенный ниже пример демонстрирует файл параметров JSON, который использовался для настройки примера Hello World в Linux. Каждое сообщение, созданное модулем `hello_world`, будет использоваться модулем `logger`. Необходимость аргумента для модуля зависит от структуры этого модуля. В этом примере модуль ведения журнала принимает в качестве аргумента путь к выходному файлу, а модуль Hello World не принимает никакие аргументы:
+Далее представлен код JSON, который используется для настройки связей между модулями для примера Hello World в ОС Linux. Каждое сообщение, созданное модулем `hello_world`, будет использоваться модулем `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Публикация сообщений модуля Hello World
@@ -216,6 +229,6 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

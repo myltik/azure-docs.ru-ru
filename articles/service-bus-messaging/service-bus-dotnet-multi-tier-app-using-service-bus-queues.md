@@ -1,13 +1,13 @@
 ---
 title: "Многоуровневое приложение .NET | Документация Майкрософт"
 description: "Руководство для .NET, посвященное разработке многоуровневого приложения в Azure, в котором для взаимодействия между уровнями используются очереди служебной шины."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 
 ---
-# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Многоуровневое приложение .NET, использующее очереди служебной шины Azure
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Многоуровневое приложение .NET, использующее очереди служебной шины Azure
 ## <a name="introduction"></a>Введение
 С Visual Studio и бесплатным пакетом Azure SDK для .NET разрабатывать решения для Microsoft Azure очень просто. В этом руководстве рассматриваются действия по созданию приложения, в котором используется несколько ресурсов Azure, работающих в локальной среде. Предполагается, что у вас нет опыта использования Azure.
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
 
 ![][0]
 
-## <a name="scenario-overview-interrole-communication"></a>Обзор сценария: обмен данными между ролями
+## <a name="scenario-overview-inter-role-communication"></a>Обзор сценария: обмен данными между ролями
 Чтобы отправить заказ на обработку, компоненту внешнего пользовательского интерфейса, выполняющемуся в веб-роли, необходимо взаимодействовать с логикой среднего уровня в рабочей роли. В этом примере в качестве посредника при обмене данными между уровнями выступает служба Service Bus.
 
 Обмен сообщениями между веб-уровнем и средним уровнем через посредника позволяет разделить два компонента. В отличие от прямого обмена сообщениями (TCP или HTTP), веб-уровень не связан непосредственно со средним уровнем. Вместо этого он передает рабочие единицы в виде сообщений в служебную шину, где они хранятся до тех пор, пока не будут востребованы для обработки средним уровнем.
@@ -372,7 +372,7 @@ ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+[Получить инструменты и пакет SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 
 
 [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -410,6 +410,6 @@ ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

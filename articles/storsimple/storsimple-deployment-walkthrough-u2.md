@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Развертывание локального устройства StorSimple (с обновлением 2)
+# <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Развертывание локального устройства StorSimple (с обновлением 2)
 > [!div class="op_single_selector"]
 > * [Обновление 2 и более поздних версий ](storsimple-deployment-walkthrough-u2.md)
 > * [Обновление 1](storsimple-deployment-walkthrough-u1.md)
@@ -56,7 +56,7 @@ ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
 | [Шаг 1. Создание новой службы](#step-1-create-a-new-service) |Настройте облачное управление и хранение для устройства StorSimple. *При наличии существующей службы для других устройств StorSimple пропустите этот шаг*. |
 | [Шаг 2. Получение ключа регистрации службы](#step-2-get-the-service-registration-key) |С помощью этого ключа зарегистрируйте и подключите устройство StorSimple к службе управления. |
 | [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Подключите устройство к сети и зарегистрируйте его в Azure, чтобы завершить установку с помощью службы управления. |
-| [Шаг 4. Выполнение минимальной настройки устройства](#step-4-complete-minimum-device-setupd)</br>[Необязательно: обновление устройства StorSimple](#scan-for-and-apply-updates) |С помощью службы управления завершите настройку устройства и включите на нем возможность хранения данных. |
+| [Шаг 4. Выполнение минимальной настройки устройства](#step-4-complete-minimum-device-setup)</br>[Необязательно: обновление устройства StorSimple](#scan-for-and-apply-updates) |С помощью службы управления завершите настройку устройства и включите на нем возможность хранения данных. |
 | [Шаг 5. Создание контейнера томов](#step-5-create-a-volume-container) |Создайте контейнер для подготовки томов. У контейнера томов есть учетная запись хранения, пропускная способность и параметры шифрования для всех томов, которые в нем содержатся. |
 | [Шаг 6. Создание тома](#step-6-create-a-volume) |Подготовьте один или несколько томов хранения данных на устройстве StorSimple для ваших серверов. |
 | [Шаг 7. Подключение, инициализация и форматирование тома](#step-7-mount-initialize-and-format-a-volume)</br>[Необязательно: настройка MPIO](storsimple-configure-mpio-windows-server.md) |Подключите серверы к хранилищу iSCSI, предоставляемому устройством. При необходимости настройте MPIO, чтобы обеспечить устойчивость серверов к сбоям канала связи, сети и интерфейса. |
@@ -95,7 +95,7 @@ ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
 
 * Порты в брандмауэре центра данных открыты для трафика iSCSI и облака, как описано в разделе [Требования к сети для устройства StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>ПОШАГОВОЕ РАЗВЕРТЫВАНИЕ
+## <a name="step-by-step-deployment"></a>ПОШАГОВОЕ РАЗВЕРТЫВАНИЕ
 Следующие пошаговые инструкции позволяют развернуть устройство StorSimple в центре обработки данных.
 
 ## <a name="step-1-create-a-new-service"></a>Шаг 1. Создание новой службы
@@ -224,6 +224,6 @@ ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

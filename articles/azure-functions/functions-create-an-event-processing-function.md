@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
 ## <a name="prerequisites"></a>Предварительные требования
 Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Создание активируемой по таймеру функции на основе шаблона
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Создание активируемой по таймеру функции на основе шаблона
 Выполнение функций в Azure происходит с помощью приложения функций. Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/). 
 
 1. Перейдите на [портал функций Azure](https://functions.azure.com/signin) и войдите, используя свою учетную запись Azure.
@@ -72,13 +72,13 @@ ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
 * [Testing Azure Functions](functions-test-a-function.md)  
    Описание различных средств и методов тестирования функций.
 * [Масштабирование функций Azure](functions-scale.md)  
-   Обсуждение планов обслуживания, доступных для использования с Функциями Azure (включая динамический план обслуживания), а также выбор подходящего плана.  
+  Обсуждение планов обслуживания, доступных для использования с функциями Azure (включая план потребления), а также выбор подходящего плана.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

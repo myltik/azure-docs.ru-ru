@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Построение и развертывание приложения Node.js в облачной службе Azure
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 В этом учебнике показано, как создать простое приложение Node.js, запускаемое в облачной службе Azure. Облачные службы являются основой для построения масштабируемых облачных приложений в Azure. Они обеспечивают разделение, независимое управление и масштабирование компонентов внешнего и внутреннего интерфейса приложения.  Облачные службы предоставляют надежную выделенную виртуальную машину для надежного размещения каждой роли.
 
@@ -175,14 +170,14 @@ ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
 
 <!-- URL List -->
 
-[Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[Использование упрощенного веб-приложения]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[веб-сайтами Azure, облачными службами и виртуальными машинами]: ../app-service-web/choose-web-site-cloud-service-vm.md
+[использовать упрощенное веб-приложение]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Azure PowerShell]: ../powershell-install-configure.md
-[Пакет Azure SDK для .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[пакет SDK для Azure для .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Подключите PowerShell]: ../powershell-install-configure.md#step-3-connect
 [nodejs.org]: http://nodejs.org/
-[Общие сведения о создании размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Центр разработчиков Node.js.]: https://azure.microsoft.com/develop/nodejs/
+[общие сведения о создании размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
+[центре разработчиков Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
@@ -196,6 +191,6 @@ ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
