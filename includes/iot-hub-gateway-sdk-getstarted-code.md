@@ -60,9 +60,9 @@ int main(int argc, char** argv)
 Каждый модуль должен содержать:
 
 * **name** — уникальное имя модуля;
-* **loader** — загрузчик, который знает, как загрузить нужный модуль.  Загрузчики являются точкой расширения для загрузки разных типов модулей. Мы предоставляем загрузчики для модулей, написанных на машинном коде C, Node.js, Java и .Net. Пример Hello World использует только загрузчик для машинного кода, так как в качестве модулей здесь используются только динамические библиотеки на языке C. Сведения об использовании модулей на других языках вы найдете в описании примеров для [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) и [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
+* **loader** — загрузчик, который знает, как загрузить нужный модуль.  Загрузчики являются точкой расширения для загрузки разных типов модулей. Мы предоставляем загрузчики для модулей, написанных на машинном коде C, Node.js, Java и .Net. Пример Hello World использует только загрузчик для машинного кода, так как в качестве модулей здесь используются только динамические библиотеки на языке C. Сведения об использовании модулей на других языках вы найдете в описании примеров для [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) и [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample).
     * **name** — имя загрузчика, используемого для загрузки модуля;  
-    * **entrypoint** — путь к библиотеке, содержащей модуль. Для Linux это файл SO, для Windows — файл DLL. Обратите внимание, что точка входа зависит от типа используемого загрузчика. Например, загрузчик Node.js использует в качестве точки входа JS-файл, загрузчик Java — сочетание пути и имени класса, а загрузчик .Net — сочетание имени сборки и имени класса.
+    * **entrypoint** — путь к библиотеке, содержащей модуль. Для Linux это файл SO, для Windows — файл DLL. Обратите внимание, что точка входа зависит от типа используемого загрузчика. Например, загрузчик Node.js использует в качестве точки входа JS-файл, загрузчик Java — путь и имя класса, а загрузчик .Net — имя сборки и имя класса.
 
 * **args**: необходимые модулю данные конфигурации.
 
@@ -114,7 +114,7 @@ JSON-файл также содержит ссылки между модулям
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Публикация сообщений модуля Hello World
-Код, который использовался модулем Hello World для публикации сообщений, можно найти в файле ['hello_world.c'][lnk-helloworld-c]. В следующем фрагменте показана измененная версия — в целях удобочитаемости добавлены комментарии и удалена часть кода для обработки ошибок:
+Код, использованный модулем Hello World для публикации сообщений, можно найти в файле [hello_world.c][lnk-helloworld-c]. В следующем фрагменте показана измененная версия — в целях удобочитаемости добавлены комментарии и удалена часть кода для обработки ошибок:
 
 ```
 int helloWorldThread(void *param)
@@ -175,7 +175,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ### <a name="logger-module-message-publishing-and-processing"></a>Публикация и обработка сообщений модуля ведения журнала
 Модуль ведения журнала получает сообщения из брокера и записывает их в файл. Он никогда не публикует сообщения. Это значит, что код модуля ведения журнала никогда не вызывает функцию **Broker_Publish**.
 
-Функция **Logger_Recieve** в файле [logger.c][lnk-logger-c] представляет собой обратный вызов, который брокер вызывает для доставки сообщений в модуль ведения журнала. В следующем фрагменте показана измененная версия — в целях удобочитаемости добавлены комментарии и удалена часть кода для обработки ошибок:
+Функция **Logger_Receive** в файле [logger.c][lnk-logger-c] представляет собой обратный вызов, который брокер вызывает для доставки сообщений в модуль ведения журнала. В следующем фрагменте показана измененная версия — в целях удобочитаемости добавлены комментарии и удалена часть кода для обработки ошибок:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -219,8 +219,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ## <a name="next-steps"></a>Дальнейшие действия
 Информацию об использовании пакета SDK для шлюза IoT см. по следующим ссылкам.
 
-* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway-simulated].
-* [Пакет SDK для шлюза Интернета вещей Azure][lnk-gateway-sdk] в GitHub.
+* [Пакет SDK для шлюза Интернета вещей: отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway-simulated].
+* [Пакет SDK для шлюза Интернета вещей Azure][lnk-gateway-sdk] на GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -229,6 +229,6 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

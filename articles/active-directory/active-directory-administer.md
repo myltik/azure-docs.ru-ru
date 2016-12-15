@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Azure AD предоставляет основные возможности уп
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Управление каталогом по умолчанию, предоставленным Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Управление каталогом по умолчанию, предоставленным Azure
 В настоящее время каталог создается автоматически при регистрации в Azure, а ваша подписка связывается с этим каталогом. Но если вы изначально зарегистрировались в Azure до октября 2013 г., каталог не был создан автоматически. В этом случае служба Azure могла дополнить вашу учетную запись, настроив для нее каталог по умолчанию. Затем подписка была связана с этим каталогом по умолчанию.
 
 Этот процесс проводился в октябре 2013 г. как часть общего улучшения модели безопасности Azure. Он позволяет предоставлять организационные возможности удостоверений всем пользователям Azure и гарантирует, что все ресурсы Azure доступны в контексте пользователя в каталоге. Использовать Azure без каталога нельзя. Для этого любому пользователю, который был зарегистрирован до 7 июля 2013 г., но не получил каталог, пришлось его создать. Если вы ранее создавали каталог, ваша подписка связана с ним.
@@ -150,6 +150,6 @@ Azure AD предоставляет основные возможности уп
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

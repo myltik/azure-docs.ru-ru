@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b8ec2b5df0ae4656630364c5930029e46ee62dbd
 
 
 ---
-# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication
+# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication
 Раздел проверки подлинности RADIUS позволяет включить и настроить проверку подлинности RADIUS для сервера Azure Multi-Factor Authentication Server. RADIUS — это стандартный протокол принятия и обработки запросов проверки подлинности. Сервер Azure Multi-Factor Authentication работает как сервер RADIUS и устанавливается между клиентом RADIUS (например, устройством VPN) и целевым объектом проверки подлинности, которым может быть Active Directory (AD), каталог LDAP или другой сервер RADIUS, для добавления службы Azure Multi-Factor Authentication. Для нормального функционирования службы Azure Multi-Factor Authentication необходимо настроить сервер Azure Multi-Factor Authentication так, чтобы он мог взаимодействовать как с клиентскими серверами, таки и с целевым объектом проверки подлинности. Сервер Azure Multi-Factor Authentication принимает запросы от клиента RADIUS, проверяет учетные данные с целевым объектом проверки подлинности, добавляет службу Azure Multi-Factor Authentication и отправляет ответ обратно клиенту RADIUS. Полная проверка подлинности будет успешной только в случае успешной проверки основного процесса подлинности и службы Azure Multi-Factor Authentication.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
 11. Если сервер Azure Multi-Factor Authentication установлен на сервере, присоединенном к домену в среде Active Directory, выберите домен Windows.
 12. Если пользователи должны проходить проверку подлинности в отношении каталога LDAP, выберите привязку LDAP. При использовании привязки LDAP необходимо щелкнуть значок интеграции каталогов и изменить конфигурацию LDAP на вкладке "Параметры", чтобы можно было привязать сервер к каталогу. Инструкции по настройке LDAP можно найти в руководстве по настройке прокси-сервера LDAP.
 13. Если пользователи должны проходить проверку подлинности в отношении другого сервера RADIUS, выберите сервер (серверы) RADIUS.
-14. Чтобы настроить сервер, на который сервер будет передавать запросы RADIUS, нажмите кнопку "Добавить". .
+14. Для настройки сервера, на который сервер будет передавать запросы RADIUS, нажмите кнопку "Добавить".
 15. В диалоговом окне добавления сервера RADIUS введите IP-адрес сервера RADIUS и общий секретный ключ. Общий секретный ключ должен быть одинаковым как на сервере Azure Multi-Factor Authentication, так и на сервере RADIUS. Измените порт проверки подлинности и порт учета, если сервер RADIUS используют другие порты.
 16. Нажмите кнопку "ОК".
 17. Добавьте сервер Azure Multi-Factor Authentication в качестве клиента RADIUS на другом сервере RADIUS, чтобы он обрабатывал запросы на доступ, отправляемые на него с сервера Azure Multi-Factor Authentication. Необходимо использовать тот же общий секретный ключ, который настроен на сервере Azure Multi-Factor Authentication.
@@ -64,6 +64,6 @@ ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

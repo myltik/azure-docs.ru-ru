@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Анализ данных с помощью машинного обучения Azure
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -39,12 +39,12 @@ ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
 ## <a name="prerequisites"></a>Предварительные требования
 Для выполнения этих действий необходимо иметь следующее:
 
-* Хранилище данных SQL, в которое предварительно загружены демонстрационные данные AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][загрузить демонстрационные данные вручную].
+* Хранилище данных SQL, в которое предварительно загружены демонстрационные данные AdventureWorksDW. Для подготовки см. статью [Создание хранилища данных SQL Azure][Create a SQL Data Warehouse] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но в нем нет демонстрационных данных, вы можете [загрузить их вручную][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Получение данных
 Данные содержатся в представлении dbo.vTargetMail базы данных AdventureWorksDW. Чтобы считать эти данные, сделайте следующее.
 
-1. Войдите в [Студию машинного обучения Azure][Студия машинного обучения Azure] и щелкните "Мои эксперименты".
+1. Войдите в [Студию машинного обучения Azure][Azure Machine Learning studio] и щелкните My experiments (Мои эксперименты).
 2. Щелкните **+ Создать** и выберите **Blank Experiment** (Пустой эксперимент).
 3. Введите для своего эксперимента имя «Целевой маркетинг».
 4. Перетащите модуль **чтения** из области модулей на холст.
@@ -124,7 +124,7 @@ FROM [dbo].[vTargetMail]
 Сравнение столбца BikeBuyer (фактическое значение) и столбца «Метка оценки» (прогнозное значение) позволяет оценить эффективность выполнения модели. В дальнейшем эту модель можно использовать для прогнозирования количества новых клиентов. Вы можете затем опубликовать эту модель как веб-службу или записать результаты в хранилище данных SQL.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о создании прогнозных моделей машинного обучения см. в статье [Введение в машинное обучение в облаке][Введение в машинное обучение в облаке].
+Дополнительные сведения о создании прогнозных моделей машинного обучения см. в статье [Введение в машинное обучение в Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ FROM [dbo].[vTargetMail]
 
 
 <!--Article references-->
-[Студия машинного обучения Azure]:https://studio.azureml.net/
-[Введение в машинное обучение в Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
-[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

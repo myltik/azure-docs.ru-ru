@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
 
 ![Списки управления доступом в Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Затем в колонке **Доступ** выберите **Простое представление** для просмотра списка в упрощенном виде.
+В верхней части этой колонки указаны имеющиеся разрешения (на снимке экрана в качестве пользователя указан Bob). Ниже показаны разрешения на доступ.
 
 ![Списки управления доступом в Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Щелкните **Расширенное представление** для более подробного представления списка.
+Щелкните **Дополнительно**, чтобы просмотреть расширенное представление, в котором содержатся списки управления доступом по умолчанию, маска и суперпользователь.
 
 ![Списки управления доступом в Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
 * и т. д.
 
 Каждому пользователю с ролью **Владелец** учетной записи Data Lake Store автоматически присваивается статус суперпользователя этой учетной записи. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+
+Если вам нужно создать пользовательскую роль RBAC с разрешениями суперпользователя, назначьте ей следующие разрешения:
+* Microsoft.DataLakeStore/accounts/Superuser/action;
+* Microsoft.Authorization/roleAssignments/write.
 
 ## <a name="the-owning-user"></a>Владелец
 Пользователь, создавший элемент, автоматически становится владельцем элемента. Владелец может:
@@ -244,7 +248,11 @@ ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Какие разрешения требуются для рекурсивного удаления папки и ее содержимого?
 * Для доступа к родительской папке требуются разрешения на **запись и выполнение**.
 * Чтобы удалить папку и все ее подпапки, требуются разрешения на **чтение, запись и выполнение**.
-  >[AZURE.NOTE] Для удаления файлов в папках не требуется разрешение на запись в эти файлы. Обратите внимание, что корневую папку "/" удалить **невозможно** .
+
+> [!NOTE] 
+> Для удаления файлов в папках не требуется разрешение на запись в эти файлы. Обратите внимание, что корневую папку "/" удалить **невозможно** .
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Кто назначается владельцем файла или папки?
 Создатель файла или папки становится их владельцем.
@@ -254,6 +262,12 @@ ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Я являюсь владельцем файла, но у меня нет необходимых разрешений RWX. Что делать?
 Владелец может просто изменить разрешения на доступ к файлу на любое из требуемых RWX-разрешений.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>При просмотре списков управления доступом на портале Azure я вижу имена пользователей, а при просмотре в интерфейсе API — идентификаторы GUID. Почему так происходит?
+Записи в списках управления доступом хранятся в качестве идентификаторов GUID, соответствующих пользователям в Azure Active Directory (AAD). Интерфейсы API возвращают идентификаторы GUID без изменений. Портал Azure пытается упростить использование списков управления доступом, по возможности преобразовывая идентификаторы GUID в понятные имена. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Почему при просмотре на портале для списков управления доступом иногда отображаются идентификаторы GUID?
+GUID отображается, если пользователь не существует в AAD. Обычно это происходит, если пользователь уволился или его учетная запись удалена из AAD.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Поддерживает ли Data Lake Store наследование списков ACL?
 Нет.
@@ -282,6 +296,6 @@ ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

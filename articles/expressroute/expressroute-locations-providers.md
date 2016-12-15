@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
-ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -76,7 +76,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Нью-Йорк** |Equinix, Megaport, Zayo Group |
-| **Newport(Wales)+** |Next Generation Data+ |
+| **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Монреаль** |Cologix + |
 | **Мумбай** |Tata Communications |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
@@ -154,10 +154,10 @@ ExpressRoute поддерживается во всех регионах и ра
 * Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
-[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположений"
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

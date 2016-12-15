@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
@@ -51,13 +51,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 При работе в Windows следует использовать Bash на Ubuntu в Windows или средство Putty "pscp".
 
-Когда настройка `kubectl` завершится, проверьте ее с помощью следующей команды.
+Настроив `kubectl`, можно проверить это, указав узлы в кластере:
 
 ```console
 kubectl get nodes
 ```
 
-Должен отобразиться список узлов в кластере.
+Теперь вы можете просмотреть панель мониторинга Kubernetes. Сначала выполните следующую команду:
+
+```console
+kubectl proxy
+```
+
+Теперь пользовательский интерфейс Kubernetes доступен по адресу http://localhost:8001/ui.
 
 Дальнейшие инструкции см. в [кратком руководстве по началу работы с Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
 
@@ -166,6 +172,6 @@ export DOCKER_HOST=:2375
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

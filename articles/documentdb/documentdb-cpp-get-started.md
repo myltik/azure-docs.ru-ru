@@ -15,14 +15,15 @@ ms.topic: hero-article
 ms.date: 11/02/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8770e89cd54dae23ba05fb53382f7d89d19b029a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 
 
 ---
 # <a name="nosql-c-tutorial-documentdb-c-console-application"></a>Руководство по NoSQL C++. Консольное приложение DocumentDB на языке C++
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 > 
@@ -42,7 +43,7 @@ ms.openlocfilehash: 8770e89cd54dae23ba05fb53382f7d89d19b029a
 * удаление документа;
 * удаление базы данных DocumentDB C++;
 
-У вас нет времени? Не беспокойтесь! Полное решение доступно на [GitHub](https://github.com/stalker314314/DocumentDBCpp). Краткие инструкции см. в разделе [Получение полного решения](#GetSolution).
+У вас нет времени? Не беспокойтесь! Полное решение доступно на [GitHub](https://github.com/stalker314314/DocumentDBCpp). Краткие инструкции см. в разделе [Получение полного решения для руководства по Node.js](#GetSolution).
 
 Ознакомившись с руководством по C++, воспользуйтесь кнопками голосования в нижней части этой страницы, чтобы отправить нам отзыв. 
 
@@ -277,12 +278,12 @@ DocumentDB поддерживает удаление JSON-документов. 
 Чтобы собрать решение GetStarted, содержащее все примеры из этой статьи, вам понадобится следующее:
 
 * [учетная запись DocumentDB][documentdb-create-account];
-* решение [GetStarted](https://github.com/stalker314314/DocumentDBCpp), доступное в GitHub.
+* решение [GetStarted](https://github.com/stalker314314/DocumentDBCpp) , доступное в GitHub.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 * Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
-* Дополнительные сведения о модели программирования см. в разделе разработки [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
@@ -292,6 +293,6 @@ DocumentDB поддерживает удаление JSON-документов. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

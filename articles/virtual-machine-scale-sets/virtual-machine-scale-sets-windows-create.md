@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
 Процедура, описанная в этой статье, занимает около 30 минут.
 
 ## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Как установить и настроить службы Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Как установить и настроить службы Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-resources"></a>Шаг 2. Создание ресурсов
 Создайте ресурсы, которые необходимы для вашего нового набора масштабирования.
@@ -130,7 +130,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    В этом примере показано создание набора масштабирования с тремя виртуальными машинами. Дополнительные сведения о возможностях наборов масштабирования см. в [обзоре наборов масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md). Этот шаг также включает задание размера (параметр SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md).
+    В этом примере показано создание набора масштабирования с тремя виртуальными машинами. Дополнительные сведения о возможностях наборов масштабирования см. в [обзоре наборов масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md). Этот шаг также включает задание размера (параметр SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Добавьте конфигурацию сетевого интерфейса в конфигурацию набора масштабирования:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Сведения о других образах см. в разделе [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Сведения о других образах см. в разделе [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Замените значение **$vhdContainer** списком путей к расположениям, в которых хранятся виртуальные жесткие диски, например https://mystorage.blob.core.windows.net/vhds, а затем создайте переменную.
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей | Документация Майкрософт"
-description: "В этом руководстве по работе с пакетом SDK для шлюза Центра Интернета вещей Azure под управлением Linux рассматриваются основные понятия, которые нужно знать при работе с этим пакетом SDK."
+title: "Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей Azure (Linux) | Документация Майкрософт"
+description: "Узнайте, как создать шлюз на компьютере Linux, а также ознакомьтесь с основными понятиями пакета SDK для шлюза Интернета вещей Azure, такими как модули и JSON-файлы конфигурации."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
-ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
+ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
+ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Пакет SDK для шлюза Интернета вещей: начало работы в ОС Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей Azure (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Сборка примера
@@ -28,7 +28,7 @@ ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 1. Откройте оболочку.
 2. Перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
-3. Запустите сценарий **tools/build.sh** . В этом сценарии используется служебная программа **cmake**, которая создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk** и генерирует файл makefile. Затем сценарий собирает решение и проводит тесты.
+3. Запустите скрипт **tools/build.sh--skip unittests**. В этом сценарии используется служебная программа **cmake**, которая создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk** и генерирует файл makefile. Затем скрипт создает решение, пропуская модульные тесты. Удалите параметр **--skip-unittests**, если требуется создавать и выполнять модульные тесты.
 
 > [!NOTE]
 > При каждом запуске сценарий **build.sh** удаляет и заново создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk**.
@@ -39,7 +39,7 @@ ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 1. Скрипт **build.sh** создает выходные данные в папке **build** локальной копии репозитория **azure-iot-gateway-sdk**. Он включает два модуля, которые используются в данном примере.
    
     Скрипт сборки размещает **liblogger.so** в папке **build/modules/logger/**, а **libhello_world.so** — в папке **build/modules/hello_world/**. Используйте эти пути для настройки значения **module path** , как указано в приведенном ниже файле параметров JSON.
-2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации как аргумент в командной строке. Пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** и скопирован ниже. Он будет работать как есть, если вы не измените скрипт сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях.
+2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации в качестве аргумента в командной строке. Пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** и скопирован ниже. Он будет работать как есть, если вы не измените скрипт сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях.
 
    > [!NOTE]
    > Пути к модулям зависят от текущего рабочего каталога, в котором запускается исполняемый файл hello_world_sample, а не от каталога, где находится исполняемый файл. По умолчанию пример JSON-файла конфигурации предусматривает запись файла log.txt в текущем рабочем каталоге.
@@ -78,11 +78,11 @@ ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
         ]
     }
     ```
-3. Перейдите к папке **azure-iot-gateway-sdk**.
+3. Перейдите к папке **azure-iot-gateway-sdksdk/build**.
 4. Выполните следующую команду:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -92,6 +92,6 @@ ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

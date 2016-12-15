@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Установка и настройка Azure PowerShell
-На компьютере необходимо установить Azure PowerShell 1.2.1 или более поздней версии. В статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) описаны все действия, необходимые для подготовки компьютера для работы с Azure PowerShell. Самый простой способ — использовать установщик веб-платформы, который упоминается в этой статье. Даже если у вас уже установлен модуль Azure PowerShell, с помощью установщика веб-платформы выполните повторную установку, чтобы получить последнюю версию Azure PowerShell.
+На компьютере необходимо установить Azure PowerShell 1.2.1 или более поздней версии. В статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) описаны все действия, необходимые для подготовки компьютера для работы с Azure PowerShell. Самый простой способ — использовать установщик веб-платформы, который упоминается в этой статье. Даже если у вас уже установлен модуль Azure PowerShell, с помощью установщика веб-платформы выполните повторную установку, чтобы получить последнюю версию Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Получение и выполнение скрипта для установки компонентов, необходимых при шифровании дисков Azure
 Скрипт для установки компонентов, необходимых при шифрования дисков Azure, устанавливает все соответствующие компоненты.
@@ -182,6 +182,6 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

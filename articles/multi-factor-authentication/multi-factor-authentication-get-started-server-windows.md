@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84b6df0b45548d3797528c3723f02bd1a124454f
 
 
 ---
-# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
+# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
 В разделе проверки подлинности Windows администратор может включить и настроить проверку подлинности Windows для одного или нескольких приложений.  Ниже приведен список факторов, которые необходимо учитывать до настройки проверки подлинности Windows.
 
 * Прежде чем будет выполняться служба Azure Multi-Factor Authentication для служб терминалов, необходимо перезагрузить компьютер.
@@ -49,6 +49,6 @@ ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

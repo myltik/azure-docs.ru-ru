@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
 Для работы с этим учебником требуется:
 
 * Существующее хранилище ключей, которое вы используете.  
-* Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.  
 * Достаточный объем хранилища в Azure для журналов хранилищ ключей.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
@@ -66,7 +66,7 @@ ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Создание учетной записи хранения для журналов
 Хотя вы можете использовать и существующую учетную запись хранения для журналов, мы создадим новую учетную запись, которая будет использоваться для сбора данных хранилища ключей. Эти сведения нам нужно будет указать позже. Сейчас же для удобства работы мы сохраним их в переменной с именем **sa**.
@@ -266,6 +266,6 @@ ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

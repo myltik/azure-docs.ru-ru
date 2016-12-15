@@ -1,7 +1,7 @@
-## Отправка сообщений в центры событий
-В этом разделе мы напишем приложение на языке C для отправки событий в концентратор событий. Мы воспользуемся библиотекой Proton AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке C, как показано [здесь](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Дополнительную информацию см. в [документации по Qpid Proton](http://qpid.apache.org/proton/index.html).
+## <a name="send-messages-to-event-hubs"></a>Отправка сообщений в центры событий
+В этом разделе мы напишем приложение на языке C для отправки событий в концентратор событий. Мы воспользуемся библиотекой Proton AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на C, как показано [здесь](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Дополнительную информацию см. в [документации по Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) с Ubuntu 14.04.
+1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html)щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) с Ubuntu 14.04.
 2. Для компиляции библиотеки Proton установите следующие пакеты.
    
     ```
@@ -10,7 +10,7 @@
 3. Скачайте [библиотеку Qpid Proton](http://qpid.apache.org/proton/index.html) и извлеките ее, например:
    
     ```
-    wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. Создайте каталог построения, скомпилируйте и установите:
@@ -22,9 +22,9 @@
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. В рабочем каталоге создайте новый файл с именем **sender.c** со следующим содержимым. Не забудьте заменить значение для имени концентратора событий и пространства имен \(последнее обычно представляется как `{event hub name}-ns`\). Также необходимо заменить версию ключа **SendRule**, закодированную как URL-адрес, созданную ранее. Выполнить кодировку как URL-адрес можно [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. В рабочем каталоге создайте новый файл с именем **sender.c** со следующим содержимым. Не забудьте заменить значение для имени концентратора событий и пространства имен (последнее обычно представляется как `{event hub name}-ns`). Также необходимо заменить версию ключа **SendRule** , закодированную как URL-адрес, созданную ранее. Выполнить кодировку как URL-адрес можно [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
    
-    ```
+    ```c
     #include "proton/message.h"
     #include "proton/messenger.h"
    
@@ -109,9 +109,11 @@
     gcc sender.c -o sender -lqpid-proton
     ```
 
-> [!NOTE]
-> В приведенном выше коде окно отправки, равное 1, используется для скорейшей принудительной отправки сообщений. Обычно приложение предпримет попытку сгруппировать сообщения для увеличения пропускной способности. Дополнительную информацию о том, как использовать библиотеку Qpid Proton в этой и других средах, а также из платформ, для которых предоставляются привязки \(в настоящее время Perl, PHP, Python и Ruby\), см. на странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html).
-> 
-> 
+    > [!NOTE]
+    > В приведенном выше коде окно отправки, равное 1, используется для скорейшей принудительной отправки сообщений. Обычно приложение предпримет попытку сгруппировать сообщения для увеличения пропускной способности. Дополнительную информацию о том, как использовать библиотеку Qpid Proton в этой и других средах, а также на платформах, для которых предоставляются привязки (сейчас это Perl, PHP, Python и Ruby), см. на [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

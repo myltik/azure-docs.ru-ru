@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
 
 Если вы хотите использовать ExpressRoute для проверки подлинности, убедитесь в том, что общедоступные IP-адреса AD FS объявляются через ExpressRoute без NAT. Таким образом, трафик от Майкрософт к локальному серверу AD FS будет проходить через ExpressRoute. Обратный трафик от клиента к Майкрософт также будет проходить через ExpressRoute, так как этот путь предпочтительнее в сравнении с Интернетом.
 
-### <a name="sourcebased-nat"></a>NAT на основе источника
+### <a name="source-based-nat"></a>NAT на основе источника
 Еще один способ решения проблемы асимметричной маршрутизации — SNAT. Например, вы не объявили общедоступный IP-адрес локального SMTP-сервера через ExpressRoute, намереваясь использовать для этого подключения Интернет. Запрос от Майкрософт на ваш локальный SMTP-сервер проходит через Интернет. С помощью SNAT входящий запрос перенаправляется на внутренний IP-адрес. Обратный трафик с SMTP-сервера направляется на пограничный межсетевой экран (используется для выполнения NAT) вместо ExpressRoute. Обратный трафик возвращается через Интернет.
 
 ![Конфигурация сети во время SNAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

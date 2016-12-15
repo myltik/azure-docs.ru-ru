@@ -17,13 +17,13 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 
 ---
 # <a name="get-started-using-azure-data-lake-hdinsight-tools-for-visual-studio-to-run-a-hive-query"></a>Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive
-Узнайте, как использовать инструменты Data Lake (в HDInsight) для Visual Studio, чтобы подключаться к кластерам HDInsight и отправлять запросы Hive. Дополнительные сведения об использовании HDInsight см. в статьях с [общими сведениями об HDInsight][hdinsight.introduction] и о [начале работы с HDInsight][hdinsight.get.started]. Дополнительные сведения о подключении к кластеру Storm см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio][hdinsight.storm.visual.studio.tools].
+Узнайте, как использовать инструменты Data Lake (в HDInsight) для Visual Studio, чтобы подключаться к кластерам HDInsight и отправлять запросы Hive. Дополнительные сведения об использовании HDInsight см. в статьях [Введение в HDInsight][hdinsight.introduction] и [Приступая к работе с HDInsight][hdinsight.get.started]. Дополнительные сведения о подключении к кластеру Storm см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio][hdinsight.storm.visual.studio.tools].
 
 Инструменты Data Lake для Visual Studio можно использовать как для доступа к Data Lake Analytics, так и к HDInsight.  Дополнительные сведения см. в статье [Разработка скриптов U-SQL с помощью средств Data Lake для Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -72,7 +72,7 @@ ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
    > 
    > 
 4. Введите учетные данные подписки Azure и нажмите кнопку **Войти**. Это необходимо, только если подключение к подписке Azure из Visual Studio на данной рабочей станции ранее не выполнялось.
-5. В обозревателе сервера отобразится список существующих кластеров HDInsight. Если кластеров нет в наличии, их можно создать с помощью портала Azure, оболочки Azure PowerShell или пакета SDK для HDInsight. Дополнительные сведения см. в статье о [создании кластеров HDInsight][Создание кластеров hdinsight].
+5. В обозревателе сервера отобразится список существующих кластеров HDInsight. Если кластеров нет в наличии, их можно создать с помощью портала Azure, оболочки Azure PowerShell или пакета SDK для HDInsight. Дополнительные сведения см. в статье о [создании кластеров HDInsight][hdinsight-create-clusters].
    
    ![Список кластеров в обозревателе сервера для инструментов Data Lake для Visual Studio][5]
 6. Разверните кластер HDInsight. Отобразятся **базы данных Hive**, учетная запись хранения по умолчанию, связанные учетные записи хранения и **журнал службы Hadoop**. Развертывание объектов можно продолжить.
@@ -97,7 +97,7 @@ ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
 ![Операции с большими двоичными объектами в обозревателе сервера для инструментов Data Lake для Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
 
 ## <a name="run-a-hive-query"></a>Выполнение запроса Hive
-[Apache Hive][apache.hive] — это инфраструктура хранилища данных, созданная на основе Hadoop и обеспечивающая формирование сводных данных, запросов и анализа. Инструменты Data Lake для Visual Studio поддерживают выполнение запросов Hive из Visual Studio. Дополнительные сведения о Hive см. в статье об [использовании Hive с HDInsight][hdinsight.hive].
+[Apache Hive][apache.hive] — это инфраструктура хранилища данных, созданная на основе Hadoop и обеспечивающая формирование сводных данных, запросов и анализа. Инструменты Data Lake для Visual Studio поддерживают выполнение запросов Hive из Visual Studio. Дополнительные сведения о Hive см. в статье [Использование Hive с HDInsight][hdinsight.hive].
 
 Тестирование сценария Hive для кластера HDInsight занимает много времени. Оно может длиться несколько минут или более. Инструменты Data Lake для Visual Studio могут проверить скрипт Hive локально без подключения к кластеру в оперативном режиме.
 
@@ -173,7 +173,7 @@ ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
 ### <a name="view-hive-jobs"></a>Просмотр заданий Hive
 Для заданий Hive можно просмотреть запросы задания, выходные данные задания, журнал задания и журналы YARN. Дополнительную информацию см. на предыдущем снимке экрана.
 
-Самая последняя версия средств позволяет увидеть, что находится внутри заданий Hive, собирая и отображая журналы YARN. Журнал YARN может помочь исследовать проблемы производительности. Дополнительные сведения о том, как HDInsight собирает журналы YARN, см. в статье [Доступ к журналам приложений YARN в HDInsight под управлением Windows][hdinsight.access.application.logs].
+Самая последняя версия средств позволяет увидеть, что находится внутри заданий Hive, собирая и отображая журналы YARN. Журнал YARN может помочь исследовать проблемы производительности. Дополнительные сведения о том, как HDInsight собирает журналы YARN, см. в статье [Программный доступ к журналам приложений HDInsight][hdinsight.access.application.logs].
 
 **Просмотр заданий Hive**
 
@@ -240,17 +240,17 @@ ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этой статьи вы узнали, как подключаться к кластерам HDInsight из Visual Studio, используя инструменты Data Lake (в HDInsight) и выполнять запросы Hive. Дополнительные сведения можно найти в разделе 
 
-* [Использование Hive с Hadoop в HDInsight][hdinsight.hive]
+* [Использование Hive в HDInsight][hdinsight.hive]
 * [Приступая к работе с Hadoop в HDInsight][hdinsight.get.started]
-* [Отправка заданий Hadoop в HDInsight][hdinsight-submit-jobs]
+* [Отправка заданий Hadoop в HDInsight][hdinsight.submit.jobs]
 * [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight.analyze.twitter.data]
 
 <!--Anchors-->
-[Установка]: #installation
-[Подключение к подписке Azure]: #connect-to-your-azure-subscription
-[Переход на связанные ресурсы]: #navigate-the-linked-resources
-[Выполнение запросов Hive]: #run-hive-queries
-[Дальнейшие действия]: #next-steps
+[Installation]: #installation
+[Connect to your Azure subscription]: #connect-to-your-azure-subscription
+[Navigate the linked resources]: #navigate-the-linked-resources
+[Run Hive queries]: #run-hive-queries
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
@@ -281,6 +281,6 @@ ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

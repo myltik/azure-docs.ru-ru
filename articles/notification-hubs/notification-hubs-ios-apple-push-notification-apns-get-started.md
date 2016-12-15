@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -42,7 +42,7 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с данным учебником требуется следующее:
 
-* [Пакет SDK для мобильных служб для iOS версии 1.2.4]
+* [пакет SDK для мобильных служб для iOS версии 1.2.4]
 * последняя версия [Xcode]
 * устройство с iOS 8 (или более поздней версии);
 * [программе для разработчиков на платформе Apple](https://developer.apple.com/programs/) .
@@ -70,32 +70,34 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 <p>Выберите режим <b>песочницы</b>, так как это необходимо для разработки. Используйте <b>рабочую среду</b>, только если push-уведомления нужно отправлять пользователям, выполнившим покупку приложения в магазине.</p>
 </li>
 </ol>
-&emsp;&emsp;![Настройка APNS на портале Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Настройка APNS на портале Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Настройка сертификации APNS на портале Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Настройка сертификации APNS на портале Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Центр уведомлений теперь подключен к службе APNS, и у вас есть строки подключения, с помощью которых вы сможете зарегистрировать свое приложение и отправлять push-уведомления.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Подключение приложения iOS к центрам уведомлений
 1. В XCode создайте новый проект iOS и выберите шаблон **Single View Application** (Приложение с одним представлением).
    
-       ![Xcode - Single View Application][8]
+    ![Xcode — приложение с одним представлением][8]
+    
 2. Во время настройки параметров нового проекта используйте те же **имя продукта** и **идентификатор организации**, используемые при указании идентификатора пакета на портале разработчиков Apple.
    
     ![Xcode — параметры проекта][11]
+    
 3. В разделе **Targets** (Цели) щелкните имя проекта, выберите вкладку **Build Settings** (Параметры сборки) и разверните элемент **Code Signing Identity** (Идентификатор подписи кода), а затем в разделе **Debug** (Отладка) укажите идентификатор подписи кода. Переключите параметр **Levels** (Уровни) со значения **Basic** (Базовые) на значение **All** (Все), а для параметра **Provisioning Profile** (Профиль подготовки) укажите ранее созданный профиль подготовки.
    
     Если новый профиль подготовки, созданный в Xcode, не отображается, обновите профили для идентификатора подписи. В строке меню щелкните **Xcode** выберите **Preferences** (Настройки), откройте вкладку **Account** (Учетная запись), нажмите кнопку **View Details** (Просмотреть сведения), щелкните свой идентификатор подписи, а затем нажмите кнопку Refresh (Обновить) в нижнем правом углу.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode — профиль подготовки][9]
 4. Загрузите [пакет SDK для мобильных служб для iOS версии 1.2.4] и распакуйте архив. В XCode щелкните проект правой кнопкой мыши и выберите параметр **Add Files to** (Добавить файлы в), чтобы добавить папку **WindowsAzureMessaging.framework** в проект XCode. Выберите **Copy items if needed** (Копировать элементы при необходимости), а затем щелкните **Add** (Добавить).
    
    > [!NOTE]
-   > Пакет SDK для концентраторов уведомлений в настоящее время не поддерживает Bitcode в Xcode 7.  В разделе **Build Options** (Параметры построения) вашего проекта необходимо задать для параметра **Enable Bitcode** (Включить Bitcode) значение **No** (Нет).
+   > Пакет SDK для концентраторов уведомлений в настоящее время не поддерживает Bitcode в Xcode 7.  В разделе **Build Options** (Параметры сборки) вашего проекта необходимо задать для параметра **Enable Bitcode** (Включить Bitcode) значение **No** (Нет).
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Распаковка пакета SDK Azure][10]
 5. Добавьте новый файл заголовка в проект с именем `HubInfo.h`. Этот файл будет содержать константы для центра уведомлений.  Добавьте следующие определения и замените буквенные заполнители строк *именем центра* и значением *DefaultListenSharedAccessSignature*, записанным ранее.
    
         #ifndef HubInfo_h
@@ -154,7 +156,7 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 1. Выполните сборку приложения и запустите его на устройстве, чтобы убедиться в отсутствии сбоев.
 
 ## <a name="send-test-push-notifications"></a>Отправка тестовых push-уведомлений
-Чтобы проверить получение push-уведомлений в приложении, отправьте push-уведомление на [портале Azure] с помощью раздела **Устранение неполадок** в колонке центра (используйте параметр *Тестовая отправка* ).
+Чтобы проверить получение push-уведомлений в приложении, отправьте push-уведомление на [портала Azure] с помощью раздела **Устранение неполадок** в колонке центра (используйте параметр *Тестовая отправка* ).
 
 ![Портал Azure — тестовая отправка][30]
 
@@ -417,7 +419,7 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 5. Выполните сборку проекта и убедитесь в отсутствии ошибок.
 
 > [!NOTE]
-> Если в XCode7 возникла ошибка сборки, связанная с поддержкой Bitcode, выберите в XCode **Build Settings** (Параметры построения) > **Enable Bitcode (ENABLE_BITCODE)** (Включить Bitcode (ENABLE_BITCODE) и установите значение **No** (Нет). Пакет SDK для центров уведомлений в настоящее время не поддерживает bitcode. 
+> Если в XCode7 возникла ошибка сборки, связанная с поддержкой Bitcode, выберите в XCode **Build Settings** (Параметры сборки) > **Enable Bitcode (ENABLE_BITCODE)** (Включить Bitcode (ENABLE_BITCODE) и установите значение **No** (Нет). Пакет SDK для центров уведомлений в настоящее время не поддерживает bitcode. 
 > 
 > 
 
@@ -462,27 +464,27 @@ ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
 
 
 <!-- URLs. -->
-[Пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
-[Пакет SDK для мобильных служб iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-ios
-[Классический портал Azure]: https://manage.windowsazure.com/
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
+[здесь]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Уведомление пользователей iOS через Центры уведомлений Azure с помощью серверной части .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
-[руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[портале Azure]: https://portal.azure.com
+[руководстве по программированию локальных уведомлений и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[портала Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Отчеты в Azure Active Directory — предварительная версия
+# <a name="azure-active-directory-reporting---preview"></a>Отчеты в Azure Active Directory — предварительная версия
 > [!div class="op_single_selector"]
 > * [портал Azure](active-directory-reporting-azure-portal.md)
 > * [Классический портал Azure](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
 
 В зависимости от области нужных данных вы можете получить доступ к этим отчетам, щелкнув **Пользователи и группы** или **Корпоративные приложения** в списке служб на [портале Azure](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Действия входа
-### <a name="user-signin-activities"></a>Действия входа пользователя
+## <a name="sign-in-activities"></a>Действия входа
+### <a name="user-sign-in-activities"></a>Действия входа пользователя
 Информация, доступная в отчете о входе пользователя, поможет вам ответить на такие вопросы:
 
 * Что такое шаблон входа пользователя?
@@ -97,7 +97,7 @@ ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
 
 ![Отчеты](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Фильтрация входов
+### <a name="filtering-sign-ins"></a>Фильтрация входов
 Чтобы ограничить отображаемые данные, вы можете отфильтровать сведения о входах с помощью следующих полей:
 
 * Дата и время 
@@ -203,6 +203,6 @@ ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

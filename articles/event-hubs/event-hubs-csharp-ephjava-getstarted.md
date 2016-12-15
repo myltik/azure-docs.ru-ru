@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
+ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
 ## <a name="introduction"></a>Введение
 Концентраторы событий — это служба, которая обрабатывает большие объемы данных телеметрии о событиях, поступающих от подключенных устройств и приложений. После сбора дынных в концентраторах событий их можно сохранить с помощью кластера хранилища или преобразовать с помощью поставщика аналитики в реальном времени. Эта возможность сбора и обработки большого объема данных о событиях является ключевым компонентом в современных архитектурах приложений, включая "Интернет вещей".
 
-В этом руководстве показано, как использовать классический портал Azure для создания концентратора событий. В нем также показано, как собирать сообщения в концентратор событий, используя консольное приложение на C#, и как параллельно извлекать их, используя библиотеку Event Processor Host для Java.
+В этом учебнике показано, как использовать портал Azure для создания концентратора событий. В нем также показано, как собирать сообщения в концентратор событий, используя консольное приложение на C#, и как параллельно извлекать их, используя библиотеку Event Processor Host для Java.
 
 Для работы с этим учебником требуется:
 
@@ -52,22 +52,22 @@ ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали рабочее приложение, которое создает концентратор событий и отправляет и получает данные, можно перейти к следующим сценариям:
 
-* Полный [пример приложения с использованием концентраторов событий][пример приложения с использованием концентраторов событий].
-* Пример [масштабирования обработки событий с помощью концентраторов событий][пример масштабирования обработки событий с помощью концентраторов событий].
-* [Обзор концентраторов событий][Обзор концентраторов событий]
+* полный [пример приложения, использующего концентраторы событий][sample application that uses Event Hubs];
+* пример [развертывания обработки событий с помощью концентраторов событий][Scale out Event Processing with Event Hubs];
+* [Обзор концентраторов событий Azure][Event Hubs overview].
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
 [22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
-[классический портал Azure]: https://manage.windowsazure.com/
-[Обзор концентраторов событий]: event-hubs-overview.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 
 ---
@@ -68,8 +68,8 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
    2. Выберите свою **подписку Azure**.
    3. Для группы ресурсов выполните одно из следующих действий.
       
-      1. Выберите **Использовать существующую**и укажите существующую группу ресурсов в раскрывающемся списке. 
-      2. Выберите **Создать новую**и укажите имя группы ресурсов.   
+      - Выберите **Использовать существующую**и укажите существующую группу ресурсов в раскрывающемся списке. 
+      - Выберите **Создать новую**и укажите имя группы ресурсов.   
          
           Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Укажите **расположение** фабрики данных. В раскрывающемся списке отображаются только те регионы, которые поддерживаются службой фабрики данных.
@@ -90,7 +90,7 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
    ![Домашняя страница фабрики данных](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Создание связанных служб
-Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md##supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
+Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
 
 На этом шаге создаются две связанные службы: **AzureStorageLinkedService** и **AzureSqlLinkedService**. Связанная служба AzureStorageLinkedService связывает учетную запись хранения Azure, а AzureSqlLinkedService связывает базу данных SQL Azure с **ADFTutorialDataFactory**. Далее в этом руководстве будет создан конвейер, который копирует данные из контейнера больших двоичных объектов в AzureStorageLinkedService в таблицу SQL в AzureSqlLinkedService.
 
@@ -407,6 +407,6 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

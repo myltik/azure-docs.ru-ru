@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
 
 <li>Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, с которой была установлена веб-служба мобильного приложения (например, https://www.publicwebsite.com/PA). Убедитесь, что не отображаются предупреждения или ошибки сертификата.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Настроить параметры мобильного приложения на сервере Azure Multi-Factor Authentication.
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Настроить параметры мобильного приложения на сервере Azure Multi-Factor Authentication.
 Теперь, когда веб-служба мобильного приложения установлена, необходимо настроить сервер Azure Multi-Factor Authentication для работы с порталом.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Настройка параметров мобильного приложения на сервере Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Настройка параметров мобильного приложения на сервере Azure Multi-Factor Authentication
 1. На сервере Azure Multi-Factor Authentication щелкните значок пользовательского портала. Если пользователям разрешено управлять своими методами проверки подлинности, на вкладке «Параметры» в группе «Разрешить пользователям выбирать метод» установите флажок «Мобильное приложение». Если не включить эту функцию, конечным пользователям придется обращаться в вашу службу поддержки для завершения активации мобильного приложения.
 2. Установите флажок «Разрешить пользователям активировать мобильное приложение».
 3. Установите флажок «Разрешить регистрацию пользователей».
@@ -89,6 +89,6 @@ ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

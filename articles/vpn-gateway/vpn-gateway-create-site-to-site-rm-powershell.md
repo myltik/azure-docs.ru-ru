@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: 1312babe3317f33c204379f3080c62ecb6297e27
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: e2c1a99a23f8d2d8ceb1fd8a9fe3c0e86abc0b02
 
 
 ---
@@ -49,7 +49,7 @@ ms.openlocfilehash: 1312babe3317f33c204379f3080c62ecb6297e27
 * Совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md). Если вы не умеете настраивать VPN-устройство или не знаете диапазоны IP-адресов в своей локальной сети, вам следует найти того, кто сможет предоставить вам нужную информацию.
 * Внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 * Подписка Azure. Если у вас нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или зарегистрировать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
-* Последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
+* Последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Подключение к подписке
 Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
@@ -205,6 +205,6 @@ VPN-шлюз Azure для модели развертывания, в котор
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

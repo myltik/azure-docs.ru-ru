@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-powershell"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -68,10 +68,10 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
 * **Тип VPN: RouteBased.**
 
 ## <a name="before-beginning"></a>Подготовка
-* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если вы работаете с этой конфигурацией в PowerShell, убедитесь, что вы запустили ее от имени администратора. 
+* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
+* Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). Если вы работаете с этой конфигурацией в PowerShell, убедитесь, что вы запустили ее от имени администратора. 
 
-## <a name="a-namedeclareapart-1-log-in-and-set-variables"></a><a name="declare"></a>Часть 1. Вход и настройка переменных
+## <a name="a-namedeclareapart-1---log-in-and-set-variables"></a><a name="declare"></a>Часть 1. Вход и настройка переменных
 В этом разделе мы выполним вход и объявим значения для этой конфигурации. Объявленные значения используются в примерах скриптов. Измените значения в соответствии со своей средой. Также можно использовать объявленные значения и выполнить эти шаги в качестве упражнения.
 
 1. В консоли PowerShell войдите в свою учетную запись Azure. Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он скачивает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
@@ -102,7 +102,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $GWIPName = "VNet1GWPIP"
         $GWIPconfName = "gwipconf"
 
-## <a name="a-nameconfigurevnetapart-2-configure-a-vnet"></a><a name="ConfigureVNet"></a>Часть 2. Настройка виртуальной сети
+## <a name="a-nameconfigurevnetapart-2---configure-a-vnet"></a><a name="ConfigureVNet"></a>Часть 2. Настройка виртуальной сети
 1. Создайте группу ресурсов.
    
         New-AzureRmResourceGroup -Name $RG -Location $Location
@@ -123,7 +123,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-## <a name="a-namecertificatesapart-3-certificates"></a><a name="Certificates"></a>Часть 3. Сертификаты
+## <a name="a-namecertificatesapart-3---certificates"></a><a name="Certificates"></a>Часть 3. Сертификаты
 Сертификаты используются в Azure для проверки подлинности VPN-клиентов в VPN-подключениях типа "точка — сеть". Данные общедоступного сертификата (а не закрытый ключ) экспортируются в виде CER-файла X.509 в кодировке Base-64 из корневого сертификата, созданного с помощью корпоративного решения, или самозаверяющего корневого сертификата. Затем данные общедоступного сертификата импортируются из корневого сертификата в Azure. Кроме того, нужно создать сертификат клиента из корневого сертификата для клиентов. Для каждого клиента, которому нужно подключаться к виртуальной сети с помощью подключения типа "точка — сеть", требуется установить сертификат клиента, созданный из корневого сертификата.
 
 ### <a name="a-namecera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Получение CER-файла для корневого сертификата
@@ -164,7 +164,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
         $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 
-## <a name="a-namecreategatewayapart-4-create-the-vpn-gateway"></a><a name="creategateway"></a>Часть 4. Создание VPN-шлюза
+## <a name="a-namecreategatewayapart-4---create-the-vpn-gateway"></a><a name="creategateway"></a>Часть 4. Создание VPN-шлюза
 Настройте и создайте шлюз для своей виртуальной сети. У параметра *-GatewayType* должно быть значение **Vpn**, а у параметра *-VpnType* — **RouteBased**. Это может занять до 45 минут.
 
         New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -172,7 +172,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         -VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
         -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
-## <a name="a-nameclientconfigapart-5-download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Часть 5. Скачивание пакета конфигурации VPN-клиента
+## <a name="a-nameclientconfigapart-5---download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Часть 5. Скачивание пакета конфигурации VPN-клиента
 На клиентах с подключением к Azure типа "точка — сеть" должны быть установлены сертификат клиента и пакет конфигурации VPN-клиента. Для клиентов Windows доступны пакеты конфигурации VPN-клиента. Пакет VPN-клиента содержит сведения о настройке программного обеспечения VPN-клиента. Такое ПО встроено в ОС Windows и зависит от сети VPN, к которой необходимо подключиться. Пакет не устанавливает никакого дополнительного программного обеспечения. Дополнительные сведения см. в статье [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. После создания шлюза можно скачать пакет конфигурации клиента. В этом примере будет скачан пакет для 64-разрядных клиентов. Чтобы скачать 32-разрядный клиент, замените Amd64 на x86. Пакет для VPN-клиента также можно скачать на портале Azure.
@@ -187,13 +187,13 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
    
     ![VPN-клиент](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="a-nameclientcertificateapart-6-install-the-client-certificate"></a><a name="clientcertificate"></a>Часть 6. Установка сертификата клиента
+## <a name="a-nameclientcertificateapart-6---install-the-client-certificate"></a><a name="clientcertificate"></a>Часть 6. Установка сертификата клиента
 Для прохождения проверки подлинности каждому клиентскому компьютеру требуется сертификат клиента. При установке сертификата клиента потребуется пароль, созданный при экспорте сертификата клиента.
 
 1. Скопируйте PFX-файл на клиентский компьютер.
 2. Дважды щелкните PFX-файл, чтобы установить его. Не меняйте место установки.
 
-## <a name="a-nameconnectapart-7-connect-to-azure"></a><a name="connect"></a>Часть 7. Подключение к Azure
+## <a name="a-nameconnectapart-7---connect-to-azure"></a><a name="connect"></a>Часть 7. Подключение к Azure
 1. Чтобы подключиться к виртуальной сети, откройте VPN-подключения на клиентском компьютере и найдите созданное VPN-подключение. Его имя совпадает с названием вашей виртуальной сети. Щелкните **Подключить**. Может появиться всплывающее сообщение об использовании сертификата. В таком случае щелкните **Продолжить** , чтобы использовать более высокий уровень привилегий. 
 2. На странице состояния **подключения** щелкните **Подключить**. Если появится окно **Выбор сертификата** , убедитесь в том, что отображается сертификат клиента, с помощью которого вы хотите подключиться к сети. Если окно не появится, выберите нужный сертификат в раскрывающемся списке и нажмите кнопку **ОК**.
    
@@ -202,7 +202,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
    
     ![Подключение установлено](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connection established")
 
-## <a name="a-nameverifyapart-8-verify-your-connection"></a><a name="verify"></a>Часть 8. Проверка подключения
+## <a name="a-nameverifyapart-8---verify-your-connection"></a><a name="verify"></a>Часть 8. Проверка подключения
 1. Чтобы проверить, активно ли VPN-подключение, откройте окно командной строки от имени администратора и выполните команду *ipconfig/all*.
 2. Просмотрите результаты. Обратите внимание, что полученный вами IP-адрес — это один из адресов в пуле адресов VPN-клиента подключения "точка–cеть", указанном в конфигурации. Результаты должны выглядеть примерно так:
    
@@ -268,7 +268,7 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
 1. Получите отпечаток сертификата клиента, который нужно отозвать.
    
         $RevokedClientCert1 = "ClientCert1"
-        $RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+        $RevokedThumbprint1 = "?ef2af033d0686820f5a3c74804d167b88b69982f"
 2. Добавьте отпечаток в список отозванных отпечатков.
    
         Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -289,11 +289,11 @@ ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы можете добавить виртуальную машину в виртуальную сеть. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

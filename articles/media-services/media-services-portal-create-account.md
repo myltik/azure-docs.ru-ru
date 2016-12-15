@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
+ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
+ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -100,6 +100,6 @@ ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

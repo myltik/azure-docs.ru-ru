@@ -22,11 +22,11 @@
 
    Согласованность учетной записи DocumentDB по умолчанию настроена на уровне **сеанса**.  Для настройки уровня согласованности по умолчанию выберите пункт **Согласованность по умолчанию** в меню ресурсов. Дополнительные сведения об уровнях согласованности в DocumentDB см. в статье [Уровни согласованности в DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
-[Создание учетной записи DocumentDB]: #Howto
-[Дальнейшие действия]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

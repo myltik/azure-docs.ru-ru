@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
 
 ![Снимок экрана приложения "Мой список дел", созданного с помощью этого учебника](./media/documentdb-nodejs-application/image1.png)
 
-Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, вы можете получить полный пример решения на сайте [GitHub][GitHub].
+Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, получите полный пример решения на сайте [GitHub][GitHub].
 
 ## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Предварительные требования
 > [!TIP]
@@ -57,13 +57,17 @@ ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-* [Node.js][Node.js] версии v0.10.29 или более поздней.
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+
+   ИЛИ
+
+   Локальная установка [эмулятора Azure DocumentDB](documentdb-nosql-local-emulator.md).
+* [Node.js][Node.js] версии 0.10.29 или более поздней.
 * [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`).
 * [Git][Git].
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
-Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, можно перейти сразу на [Шаг 2. Создание нового приложения Node.js](#_Toc395783178).
+Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание приложения Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -542,6 +546,6 @@ ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

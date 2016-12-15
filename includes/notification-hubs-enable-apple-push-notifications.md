@@ -25,34 +25,36 @@
 
 1. Если ваше приложение еще не зарегистрировано, перейдите на <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портал подготовки iOS</a> в центре разработчиков Apple, выполните вход с использованием вашего идентификатора Apple, щелкните **Identifiers** (Идентификаторы), а затем — **App IDs** (Идентификаторы приложений) и, наконец, нажмите кнопку **+**, чтобы зарегистрировать новое приложение.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      
 2. Обновите для нового приложения следующие три поля и нажмите кнопку **Продолжить**.
    
    * **Name** (Имя). В разделе **App ID Description** (Описание идентификатора приложения) в поле **Name** (Имя) введите описательное имя своего приложения.
    * **Bundle Identifier** (Идентификатор набора). В разделе **Explicit App ID** (Явный идентификатор приложения) введите в форму `<Organization Identifier>.<Product Name>` **идентификатор набора**, как упоминалось в [руководстве по распространению приложения](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Используемые значения *Organization Identifier* (Идентификатор организации) и *Product Name* (Имя продукта) должны соответствовать идентификатору организации и имени продукта, которые вы укажете при создании проекта XCode. На следующем снимке экрана *NotificationHubs* используется как идентификатор организации, а *GetStarted* — как имя продукта. Соответствие значениям, которые будут использоваться в проекте XCode, позволит вам использовать правильный профиль публикации в XCode. 
    * **Push Notifications** (push-уведомления). В разделе **App Services** (Службы приложений) установите флажок **Push Notifications** (push-уведомления).
      
-     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
       Будет создан идентификатор вашего приложения и запрошено подтверждение информации. Нажмите кнопку **Register** (Зарегистрировать), чтобы подтвердить новый идентификатор приложения.
      
       Нажав кнопку **Register** (Зарегистрировать), вы увидите экран **Registration complete** (Регистрация завершена), показанный ниже. Нажмите кнопку **Done**(Готово).
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+      
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
 1. В центре разработчиков в разделе App IDs (Идентификаторы приложений) найдите только что созданный идентификатор и щелкните его строку.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-       Clicking on the app ID will display the app details. Click the **Edit** button at the bottom.
+      Если щелкнуть идентификатор приложения, отобразятся сведения о приложении. В нижней части экрана нажмите кнопку **Изменить** .
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      
 2. Прокрутите до нижней части экрана и нажмите кнопку **Create Certificate...** (Создать сертификат...) в разделе **Development Push SSL Certificate** (SSL-сертификат разработки push-уведомлений).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-       This displays the "Add iOS Certificate" assistant.
+      Откроется помощник "Add iOS Certificate" (Добавление сертификата iOS).
    
    > [!NOTE]
    > В этом учебнике используется сертификат разработки. Тот же процесс используется при регистрации сертификата производства. Только убедитесь, что при отправке уведомлений используется тот же тип сертификата.
@@ -65,7 +67,7 @@
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-       This downloads the certificate and saves it to your computer in your Downloads folder.
+      При этом сертификат загружается и сохраняется на вашем компьютере в папке "Загрузки".
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
@@ -75,9 +77,9 @@
    > 
 5. Дважды щелкните скачанный сертификат push-уведомлений **aps_development.cer**.
    
-       This installs the new certificate in the Keychain, as shown below:
+      При этом новый сертификат устанавливается в Keychain, как показано ниже:
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
    > Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
@@ -97,26 +99,25 @@
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Создание профиля подготовки для приложения
 1. На <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портале подготовки iOS</a> выберите **Provisioning Profiles** (Профили подготовки), а затем щелкните **All** (Все) и нажмите кнопку **+**, чтобы создать новый профиль. Запустится мастер **Add iOS Provisiong Profile** (Добавление профиля подготовки для iOS).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 2. В разделе **Development** (Разработка) выберите пункт **iOS App Development** (Разработка приложений для iOS) в качестве типа профиля подготовки и нажмите кнопку **Continue** (Продолжить). 
 3. Далее выберите идентификатор приложения, который вы только что создали, из раскрывающегося списка **App ID** (Идентификатор приложения) и нажмите кнопку **Continue** (Продолжить).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 4. На экране **Select certificates** (Выбор сертификатов) выберите обычный сертификат для разработки, используемый для подписывания кода, и нажмите кнопку **Continue** (Продолжить). Это не только что созданный сертификат push-уведомлений.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 5. Затем выберите **Devices** (Устройства) для тестирования и нажмите кнопку **Continue** (Продолжить).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 6. Наконец, укажите имя профиля в поле **Profile Name** (Имя профиля) и нажмите кнопку **Generate** (Создать).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 7. Когда новый профиль подготовки будет создан, загрузите и установите его на компьютер с Xcode. Затем нажмите кнопку **Done**(Готово).
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

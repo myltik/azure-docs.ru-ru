@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 
 
 ---
@@ -74,7 +74,7 @@ ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
 ![Схема подключения между виртуальными сетями](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Перед началом работы
-Сначала вам потребуется установить командлеты PowerShell Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сначала вам потребуется установить командлеты PowerShell Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Шаг 1. Планирование диапазонов IP-адресов
 Далее мы создадим две виртуальные сети с соответствующими шлюзами и конфигурациями подсетей. Затем мы создадим VPN-подключение между двумя виртуальными сетями. В конфигурации сети важно задать диапазоны IP-адресов. Имейте в виду, необходимо убедиться в том, что ни один из диапазонов виртуальных сетей или диапазонов локальных сетей никак не перекрываются.
@@ -434,6 +434,6 @@ ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

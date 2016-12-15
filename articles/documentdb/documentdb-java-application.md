@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -47,7 +47,11 @@ ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
 ## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
 Для работы с этим учебником необходимы:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+
+    ИЛИ
+
+    Локальная установка [эмулятора Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Комплект разработчика Java (JDK 7 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Интегрированная среда разработки Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](../app-service-web/web-sites-java-get-started.md)
@@ -55,7 +59,7 @@ ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
 При первой установке этих средств воспользуйтесь пошаговым руководством по установке, представленным на сайте coreservlets.com в разделе «Быстрый запуск» статьи [Учебник по установке TomCat7 и его использованию с Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
 ## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
-Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, переходите сразу к [шагу 2 (создание приложения Java JSP)](#CreateJSP).
+Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание приложения Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -88,7 +92,7 @@ ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
 
 Для этого необходимо преобразовать проект в проект Maven, выполнив следующие действия.
 
-1. Щелкните правой кнопкой проект в обозревателе проектов, выберите **Configure** (Настроить) и щелкните **Convert to Maven Project** (Преобразовать в проект Maven).
+1. Щелкните правой кнопкой мыши проект в обозревателе проектов, выберите **Configure** (Настроить) и щелкните **Convert to Maven Project** (Преобразовать в проект Maven).
 2. В окне **Create new POM** (Создать новый POM) примите параметры по умолчанию и нажмите кнопку **Finish** (Готово).
 3. В **обозревателе проектов**откройте файл pom.xml.
 4. На вкладке **Dependencies** (Зависимости) в **соответствующей** колонке щелкните **Add** (Добавить).
@@ -743,15 +747,15 @@ ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
 9. Проверьте, установлен ли на экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) флажок **Import existing projects** (Импортировать существующие проекты), и нажмите кнопку **Next** (Далее).
 10. На экране **Import Projects** (Импорт проектов) снимите флажок возле проекта **DocumentDB** и нажмите кнопку **Finish** (Готово). В проекте DocumentDB содержится пакет DocumentDB Java SDK, который будет добавлен в качестве зависимости.
 11. В **обозревателе проектов** перейдите в расположение azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java и замените значения в полях host и master_key значениями URI и первичного ключа для вашей учетной записи DocumentDB, а затем сохраните файл. Дополнительные сведения см. в инструкции [Шаг 1. Создание учетной записи базы данных DocumentDB](#CreateDB).
-12. В **обозревателе проектов** правой кнопкой щелкните элемент **azure-documentdb-java-sample**, а затем выберите **Build Path** (Путь сборки) и щелкните **Configure Build Path** (Настройка пути сборки).
-13. На экране **Java Build Path** (Путь построения Java) в правой области откройте вкладку **Libraries** (Библиотеки) и щелкните **Add External JAR** (Добавить внешние JAR-файлы). Перейдите в расположение файла lombok.jar, щелкните **Open** (Открыть), а затем нажмите кнопку **ОК**.
+12. В **обозревателе проектов** щелкните правой кнопкой правой кнопкой элемент **azure-documentdb-java-sample**, а затем выберите **Build Path** (Путь сборки) и щелкните **Configure Build Path** (Настройка пути сборки).
+13. На экране **Java Build Path** (Путь сборки Java) в правой области откройте вкладку **Libraries** (Библиотеки) и щелкните **Add External JAR** (Добавить внешние JAR-файлы). Перейдите в расположение файла lombok.jar, щелкните **Open** (Открыть), а затем нажмите кнопку **ОК**.
 14. Используйте инструкцию из шага 12, то есть снова откройте окно **Properties** (Свойства), а затем в левой области щелкните **Targeted Runtimes** (Целевые среды выполнения).
 15. На экране **Targeted Runtimes** (Целевые среды выполнения) щелкните **New** (Создать), выберите **Apache Tomcat v7.0** и нажмите кнопку **ОК**.
 16. Используйте инструкцию из шага 12, то есть снова откройте окно **Properties** (Свойства), а затем в левой области щелкните **Project Facets** (Аспекты проекта).
 17. На экране **Project Facets** (Аспекты проекта) выберите **Dynamic Web Module** (Динамический веб-модуль) и **Java**, а затем нажмите кнопку **ОК**.
 18. На вкладке **Servers** (Серверы) в нижней части экрана щелкните правой кнопкой мыши **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server на localhost), а затем нажмите кнопку **Add and Remove** (Добавить или удалить).
 19. В окне **Add and Remove** (Добавить или удалить) переместите элемент **azure-documentdb-java-sample** в поле **Configured** (Настроено), а затем нажмите кнопку **Finish** (Готово).
-20. На вкладке **Server** (Сервер) правой кнопкой щелкните **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server на localhost), а затем нажмите кнопку **Restart** (Перезапуск).
+20. На вкладке **Server** (Сервер) щелкните правой кнопкой мыши **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server на localhost), а затем нажмите кнопку **Restart** (Перезапуск).
 21. В браузере перейдите по адресу http://localhost:8080/azure-documentdb-java-sample/ и начните добавлять задачи в список задач. Обратите внимание, что в случае изменения заданных по умолчанию значений портов необходимо изменить значение 8080 выбранным вами значением.
 22. Инструкции по развертыванию проекта на веб-сайтах Azure см. в пункте [Шаг 6. Развертывание приложений на веб-сайтах Azure](#Deploy).
 
@@ -759,6 +763,6 @@ ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

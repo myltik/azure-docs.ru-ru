@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
   2. Получите **идентификатор клиента** и **секретный ключ**. 
   3. Получите значение для **tenant_id**. 
   4. Назначьте приложение **ADFCopyTutorialApp** роли **участника фабрики данных**.  
-* Установите [Azure PowerShell](../powershell-install-configure.md).  
+* Установите [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Откройте **PowerShell** и выполните приведенные ниже команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
   
   1. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
@@ -84,7 +84,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Замените значения **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> Замените значения **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 > 
 > 
 
@@ -272,7 +272,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
 В этом примере получено 24 среза данных, так как они создаются каждый час.
 
 > [!NOTE]
-> Дополнительные сведения о свойствах JSON, используемых в приведенном выше примере, см. в статье, объясняющей [принцип работы конвейера](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+> Дополнительные сведения о свойствах JSON, используемых в приведенном выше примере, см. в статье, объясняющей [принцип работы конвейера](data-factory-create-pipelines.md).
 > 
 > 
 
@@ -402,7 +402,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    Если на вашем компьютере установлен SQL Server 2014, следуйте инструкциям в статье [Управление базой данных SQL Azure с помощью SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL.
+    Если на вашем компьютере установлен SQL Server 2014, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL.
 
     Если клиенту не разрешен доступ к серверу Azure SQL Server, то следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). В [этой статье](../sql-database/sql-database-configure-firewall-settings.md) описано, как настроить брандмауэр для сервера Azure SQL Server.
 
@@ -495,7 +495,7 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
@@ -504,6 +504,6 @@ ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

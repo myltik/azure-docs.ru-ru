@@ -4,12 +4,20 @@
 azure config mode arm
 ```
 
-Теперь создайте масштабируемый набор с помощью команды `azure vmss quick-create`. В следующем примере создается масштабируемый набор с именем `myVMSS` с 5 экземплярами виртуальных машин в группе ресурсов с именем `myResourceGroup`:
+Теперь создайте масштабируемый набор с помощью команды `azure vmss quick-create`. В следующем примере создается масштабируемый набор Linux с именем `myVMSS` с 5 экземплярами виртуальных машин в группе ресурсов с именем `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+В следующем примере создается масштабируемый набор Windows с такой же конфигурацией:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Если вы хотите настроить расположение или URN образа, ознакомьтесь с командами `azure location list` и `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

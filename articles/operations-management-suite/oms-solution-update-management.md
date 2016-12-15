@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Решение для управления обновлениями в OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Решение для управления обновлениями в OMS
+# <a name="update-management-solution-in-oms"></a>Решение для управления обновлениями в OMS
 Решение для управления обновлениями в OMS позволяет управлять обновлениями для компьютеров Windows и Linux.  Благодаря ему вы сможете быстро оценить состояние доступных обновлений на всех компьютерах агентов и запустить установку необходимых обновлений на серверах. 
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -33,7 +33,10 @@ ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
 * У агентов Linux должен быть доступ к репозиторию обновлений.  Агент OMS для Linux можно скачать с сайта [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## <a name="configuration"></a>Конфигурация
-Выполните следующие шаги, чтобы добавить решение для управления обновлениями в свою рабочую область OMS, а также добавить агенты Linux.  Агенты Windows добавляются автоматически. Для этого не нужны дополнительные настройки.
+Выполните следующие шаги, чтобы добавить решение для управления обновлениями в свою рабочую область OMS, а также добавить агенты Linux. Агенты Windows добавляются автоматически. Для этого не нужны дополнительные настройки.
+
+> [!NOTE]
+> В настоящее время при включении этого решения любой компьютер Windows, подключенный к рабочей области OMS, будет автоматически настроен в качестве гибридной рабочей роли Runbook для поддержки модулей Runbook, которые входят в это решение.  Однако оно не зарегистрировано в группах гибридных рабочих ролей, созданных в учетной записи автоматизации, и его невозможно добавить в группу гибридных рабочих ролей для выполнения собственных модулей Runbook.  Если компьютер Windows уже выделен в качестве гибридной рабочей роли Runbook и подключен к рабочей области OMS, прежде чем добавлять решение, его понадобится удалить из рабочей области OMS во избежание сбоя в работе модулей Runbook.  
 
 1. Добавьте решение для управления обновлениями в рабочую область OMS, как описано в статье о [добавлении решений OMS](../log-analytics/log-analytics-add-solutions.md) в коллекции решений.  
 2. На портале OMS щелкните **Параметры**, а затем **Подключенные источники**.  Запишите значение, указанное в поле **Идентификатор рабочей области** и **Первичный ключ** или **Вторичный ключ**.
@@ -41,11 +44,13 @@ ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
    
    а.    Установите последнюю версию агента OMS для Linux, выполнив следующие команды.  Замените <Workspace ID> на идентификатор рабочей области, а <Key> — на первичный или вторичный ключ.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Чтобы удалить агент, выполните следующую команду.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Пакеты управления
 Если группа управления System Center Operations Manager подключена к рабочей области OMS, при добавлении этого решения в Operations Manager будут установлены следующие пакеты. Никакая настройка или обслуживание для этих пакетов управления не требуются. 
@@ -242,6 +247,6 @@ ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

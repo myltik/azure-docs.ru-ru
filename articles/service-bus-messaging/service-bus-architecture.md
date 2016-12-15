@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Архитектура служебной шины
-В этой статье описывается архитектура обработки сообщений и запросов на ретрансляцию, которая используется служебной шиной Azure.
+В этой статье описывается архитектура обработки сообщений, которая используется служебной шиной Azure.
 
 ## <a name="service-bus-scale-units"></a>Единицы масштабирования служебной шины
 Содержимое служебной шины упорядочено по *единицам масштабирования*. Единица масштабирования — это единица развертывания, которая содержит все компоненты, необходимые для запуска службы. Для каждой области развертывается одна или несколько единиц масштабирования служебной шины.
@@ -49,7 +49,7 @@ ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
 ![Обработка входящих запросов ретранслятора WCF](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы ознакомились с архитектурой служебной шины, изучите следующие статьи.
+Теперь, когда вы прочитали общие сведения об архитектуре служебной шины, воспользуйтесь следующими ссылками, чтобы получить дополнительные сведения:
 
 * [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 * [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

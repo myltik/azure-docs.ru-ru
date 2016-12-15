@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
@@ -69,6 +69,7 @@ ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
+
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Настройка кроссплатформенного интерфейса командной строки Azure
 [Кроссплатформенный интерфейс командной строки Azure][azure-xplat-cli-github] содержит команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс работает на базе Node.js, поэтому [убедитесь, что у вас установлена платформа Node][install-node], прежде чем перейти к дальнейшим действиям.
@@ -127,7 +128,7 @@ ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
 
 Подключаемый модуль Eclipse для Service Fabric можно установить из интегрированной среды разработки Eclipse Neon.
 
-1. Откройте Eclipse и убедитесь, что у вас установлена версия Buildship 1.0.17 или более поздняя. Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь [инструкциями][buildship-update].
+1. Откройте Eclipse и убедитесь, что у вас установлена версия Buildship 1.0.17 или более поздняя. Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями [здесь][buildship-update].
 2. Чтобы установить подключаемый модуль Service Fabric, щелкните **Help > Install New Software** (Справка > Установка нового программного обеспечения).
 3. В текстовом поле Work with (Работают с) введите: http://dl.windowsazure.com/eclipse/servicefabric
 4. Нажмите Добавить.
@@ -149,6 +150,16 @@ ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>Обновление пакета SDK и среды выполнения
+
+Для обновления до последней версии пакета SDK и среды выполнения сделайте следующее (удалите из списка пакеты SDK, которые не требуется обновлять или устанавливать):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Create your first Azure Service Fabric application](service-fabric-create-your-first-linux-application-with-java.md)
@@ -167,6 +178,6 @@ ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

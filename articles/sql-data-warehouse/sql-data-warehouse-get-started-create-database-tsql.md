@@ -16,36 +16,36 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 443e74834a7181560e812ce31db460ef2c4ff911
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
 
 
 ---
-# <a name="create-a-sql-data-warehouse-database-by-using-transactsql-tsql"></a>Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
+# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-data-warehouse-get-started-provision.md)
+> * [портале Azure](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 В этой статье объясняется, как создать хранилище данных SQL с помощью T-SQL.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для начала работы необходимы перечисленные ниже компоненты и данные. 
+Для начала работы необходимы перечисленные ниже компоненты и данные.
 
-* **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Бесплатная пробная версия Azure] или [кредитов Azure MSDN][Кредиты Azure MSDN].
-* **Azure SQL Server.** Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure] или в разделе [Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра][Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра].
-* **Группа ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте группу ресурсов][cоздание группы ресурсов].
-* **Среда выполнения T-SQL**. Для выполнения T-SQL можно использовать [Visual Studio][Установка Visual Studio и SSDT], [sqlcmd][sqlcmd] или [SSMS][SSMS].
+* **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][Azure Free Trial] или [денег на счете в Azure][MSDN Azure Credits] MSDN.
+* **Сервер Azure SQL Server.** Сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][Create an Azure SQL Database logical server with the Azure Portal] или [Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра][Create an Azure SQL Database logical server with PowerShell].
+* **Группа ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте группу ресурсов][how to create a resource group].
+* **Среда выполнения T-SQL.** Для выполнения T-SQL можно использовать [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] или [SSMS][SSMS].
 
 > [!NOTE]
-> Создание хранилища данных SQL может привести к дополнительным расходам.  Дополнительные сведения о ценах см. на странице с [ценами на хранилище данных SQL][Цены на хранилище данных SQL].
-> 
-> 
+> Создание хранилища данных SQL может привести к дополнительным расходам.  Дополнительные сведения о ценах на хранилище данных SQL см. на [этой странице][SQL Data Warehouse pricing].
+>
+>
 
 ## <a name="create-a-database-with-visual-studio"></a>Создание базы данных с помощью Visual Studio
-Если вы не знакомы с Visual Studio, см. статью [Запросы к хранилищу данных SQL Azure (Visual Studio)][Запросы к хранилищу данных SQL Azure (Visual Studio)].  Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, на котором будет размещена база данных хранилища данных SQL.  После подключения можно создать хранилище данных SQL. Для этого выполните следующую команду для базы данных **master**.  Эта команда создаст базу данных MySqlDwDb с целевой службой DW400 и позволит ей достичь максимального размера 10 ТБ.
+Если вы не знакомы с Visual Studio, см. статью [Запросы к хранилищу данных SQL Azure (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)].  Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, на котором будет размещена база данных хранилища данных SQL.  После подключения можно создать хранилище данных SQL. Для этого выполните следующую команду для базы данных **master**.  Эта команда создаст базу данных MySqlDwDb с целевой службой DW400 и позволит ей достичь максимального размера 10 ТБ.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
@@ -58,37 +58,37 @@ CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawar
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Если параметры сортировки не указаны, по умолчанию используется COLLATE SQL_Latin1_General_CP1_CI_AS.  Значение параметра `MAXSIZE` может составлять от 250 ГБ до 240 ТБ.  Значение параметра `SERVICE_OBJECTIVE` задается в диапазоне от DW100 до DW2000 единиц [DWU][DWU].  Список всех допустимых значений см. в документации MSDN [CREATE DATABASE (Azure SQL Data Warehouse)][CREATE DATABASE (Azure SQL Data Warehouse)] (Инструкция CREATE DATABASE (Хранилище данных SQL Azure).  Параметры MAXSIZE и SERVICE_OBJECTIVE можно изменить с помощью команды T-SQL [ALTER DATABASE][ALTER DATABASE].  Параметры сортировки базы данных нельзя изменить после создания.   При изменении параметра SERVICE_OBJECTIVE следует соблюдать осторожность, так как изменение DWU приводит к перезапуску служб, который отменяет все текущие запросы.  При изменении параметра MAXSIZE службы не перезапускаются, так как это всего лишь простая операция с метаданными.
+Если параметры сортировки не указаны, по умолчанию используется COLLATE SQL_Latin1_General_CP1_CI_AS.  Значение параметра `MAXSIZE` может составлять от 250 ГБ до 240 ТБ.  Значение параметра `SERVICE_OBJECTIVE` задается в диапазоне от DW100 до DW2000 единиц [DWU][DWU].  Список всех допустимых значений см. в документации MSDN об инструкции [CREATE DATABASE][CREATE DATABASE].  Параметры MAXSIZE и SERVICE_OBJECTIVE можно изменить с помощью команды T-SQL [ALTER DATABASE][ALTER DATABASE].  Параметры сортировки базы данных нельзя изменить после создания.   При изменении параметра SERVICE_OBJECTIVE следует соблюдать осторожность, так как изменение DWU приводит к перезапуску служб, который отменяет все текущие запросы.  При изменении параметра MAXSIZE службы не перезапускаются, так как это всего лишь простая операция с метаданными.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После завершения подготовки хранилища данных SQL можно [загрузить в него демонстрационные данные][загрузка демонстрационных данных] или ознакомьтесь с возможностями [разработки][разработка], [загрузки][загрузка] или [миграции][миграция].
+После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][load sample data] или ознакомиться с возможностями [разработки][develop], [загрузки][load] или [переноса][migrate].
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[Создание хранилища данных SQL на портале Azure]: sql-data-warehouse-get-started-provision.md
-[Запросы к хранилищу данных SQL Azure (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
-[переноса]: sql-data-warehouse-overview-migrate.md
-[разработки]: sql-data-warehouse-overview-develop.md
-[загрузки]: sql-data-warehouse-overview-load.md
-[загрузить демонстрационные данные]: sql-data-warehouse-load-sample-databases.md
-[созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
-[Установка Visual Studio и SSDT]: sql-data-warehouse-install-visual-studio.md
+[how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
+[Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data]: sql-data-warehouse-load-sample-databases.md
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!--MSDN references--> 
-[Создание базы данных]: https://msdn.microsoft.com/library/mt204021.aspx
+<!--MSDN references-->
+[CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
-[ценами на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[деньги на счете в Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

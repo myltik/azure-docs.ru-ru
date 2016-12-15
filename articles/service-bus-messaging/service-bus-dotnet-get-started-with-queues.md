@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
 Для отправки сообщений в очередь мы создадим консольное приложение C# с помощью Visual Studio.
 
 ### <a name="create-a-console-application"></a>Создание консольного приложение
-1. Откройте Visual Studio и создайте консольное приложение.
+
+- Откройте Visual Studio и создайте консольное приложение.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
@@ -62,12 +63,12 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Написание кода для отправки сообщения в очередь
 1. Добавьте следующую инструкцию using в начало файла Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Добавьте в метод `Main` следующий код и укажите в качестве переменной **connectionString** строку подключения, полученную при создании пространства имен, а в качестве переменной **queueName** — имя очереди, использованное при создании очереди.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
    
     Вот как будет выглядеть файл Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
 1. Создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения-отправителя.
 2. Добавьте следующую инструкцию `using` в начало файла Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Добавьте в метод `Main` следующий код и укажите в качестве переменной **connectionString** строку подключения, полученную при создании пространства имен, а в качестве переменной **queueName** — имя очереди, использованное при создании очереди.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
    
     Вот как будет выглядеть файл Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

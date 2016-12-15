@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
-ms.openlocfilehash: 3149797c078764fa54c488e8498790ea91d1a1b1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
 
 
 ---
@@ -200,7 +200,7 @@ SAS учетной записи делегирует доступ к ресур�
 * [Клиентские инструменты службы хранилища Azure](storage-explorers.md)
 * [Пакеты SDK для Azure и инструменты](https://azure.microsoft.com/tools/)
 * [Эмулятор хранения Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Служебная программа командной строки AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -252,6 +252,6 @@ SAS учетной записи делегирует доступ к ресур�
 * [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

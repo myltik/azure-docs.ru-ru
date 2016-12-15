@@ -1,9 +1,9 @@
 ## <a name="receive-messages-with-eventprocessorhost"></a>Прием сообщений через EventProcessorHost
-[EventProcessorHost][EventProcessorHost] представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса [EventProcessorHost][EventProcessorHost] можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать [EventProcessorHost][EventProcessorHost] для одного получателя. В примере [обработки масштабируемого события][обработки масштабируемого события] показано, как использовать [EventProcessorHost][EventProcessorHost] для нескольких получателей.
+[EventProcessorHost][EventProcessorHost] представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. Используя класс [EventProcessorHost][EventProcessorHost], можно разделить события между несколькими получателями, даже если они размещены на разных узлах. В этом примере показано, как использовать [EventProcessorHost][EventProcessorHost] для одного получателя. В примере [обработки развернутого события][Scaled out event processing] показано, как использовать [EventProcessorHost][EventProcessorHost] для нескольких получателей.
 
-Для использования [EventProcessorHost][EventProcessorHost] необходимо иметь [учетная запись хранения Azure][учетная запись хранения Azure].
+Для использования класса [EventProcessorHost][EventProcessorHost] необходимо настроить [учетную запись хранения Azure][Azure Storage account]:
 
-1. Войдите на [портал Azure][портал Azure] и щелкните **Создать** в левой верхней части экрана.
+1. Войдите на [портал Azure][Azure portal] и щелкните **Создать** в левой верхней части экрана.
 2. Щелкните **Данные+хранилище**, а затем — **Учетная запись хранения**.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -109,18 +109,18 @@
      ```
 
 > [!NOTE]
-> В этом руководстве используется один экземпляр [EventProcessorHost][EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost][EventProcessorHost], как показано в примере [обработки масштабируемого события][обработки масштабируемого события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup** . При получении событий от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost][EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения по этим темам см. в статьях [Общие сведения о концентраторах событий Azure][Общие сведения о концентраторах событий Azure] и [Руководство по программированию концентраторов событий][Руководство по программированию концентраторов событий].
+> В данном руководстве используется один экземпляр [EventProcessorHost][EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost][EventProcessorHost], как показано в примере [обработки развернутого события][Scaled out event processing]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup** . При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost][EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этом см. в статьях [Общие сведения о концентраторах событий Azure][Event Hubs Overview] и [Руководство по программированию концентраторов событий][Event Hubs Programming Guide].
 > 
 > 
 
 <!-- Links -->
-[Общие сведения о концентраторах событий Azure]: ../articles/event-hubs/event-hubs-overview.md
-[Руководство по программированию концентраторов событий]: ../articles/event-hubs/event-hubs-programming-guide.md
-[обработки масштабируемого события]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[учетная запись хранения Azure]: ../articles/storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[портал Azure]: https://portal.azure.com
+[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
+[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

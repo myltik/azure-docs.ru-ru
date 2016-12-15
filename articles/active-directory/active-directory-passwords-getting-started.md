@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Шаг 3. Сброс пароля AD от имени пользователя
 Теперь, когда вы настроили пользовательскую политику сброса и указали контактные сведения для пользователя, этот пользователь может выполнить самостоятельный сброс пароля.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Сброс пароля в режиме самообслуживания
+#### <a name="to-perform-a-self-service-password-reset"></a>Сброс пароля в режиме самообслуживания
 1. Если перейти на сайт типа [**portal.microsoftonline.com**](http://portal.microsoftonline.com), отобразится экран входа, подобный изображенному ниже.  Откройте ссылку **Не можете получить доступ к своей учетной записи?** , чтобы протестировать пользовательский интерфейс для сброса пароля.
    
    ![][011]
@@ -365,6 +365,6 @@ ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

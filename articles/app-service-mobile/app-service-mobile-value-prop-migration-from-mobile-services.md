@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
 * (Для .NET.) Использование любой функции ASP.NET, включая MVC.
 * Используйте любую чистую библиотеку JavaScript экосистемы Node, включая общие библиотеки MVC (для Node.js).
 
-## <a name="access-onpremises-data-using-vnet"></a>Доступ к локальным данным с помощью виртуальной сети
+## <a name="access-on-premises-data-using-vnet"></a>Доступ к локальным данным с помощью виртуальной сети
 Сегодня мобильные службы позволяют использовать гибридные подключения для доступа к локальным ресурсам. Однако бывают ситуации, в которых предпочтительнее решение VPN. С помощью *службы приложений Azure* вы можете использовать виртуальную сеть Azure для серверного кода мобильного приложения.
 
 ## <a name="use-your-favorite-backend-language"></a>Возможность использовать ваш любимый серверный язык
@@ -67,6 +67,6 @@ ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

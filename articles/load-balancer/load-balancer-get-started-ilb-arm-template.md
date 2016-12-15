@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
 
 ---
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
 
 Чтобы развернуть шаблон, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до этапа входа в Azure и выбора подписки.
 2. Скачайте файл параметров на локальный диск.
 3. Измените и сохраните файл.
 4. Выполните командлет **New-AzureRmResourceGroupDeployment** , чтобы создать группу ресурсов с помощью шаблона.
@@ -85,6 +85,6 @@ ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

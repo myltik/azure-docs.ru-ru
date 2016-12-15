@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
+ms.date: 12/05/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5081c38bae56cf6f2ed260eabb895453d7603cfd
-ms.openlocfilehash: b982274cc7dcf1ffbe1dd4c3d7f833f97704d931
+ms.sourcegitcommit: e4aa6b13e3f1060d97cfea70761ad2f1c109b0c0
+ms.openlocfilehash: 5a197d1444c75d9f6f8d7540ca3117d894d5836f
 
 
 ---
@@ -85,12 +85,12 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Поддерживаются |Поддерживаются |Амстердам, Чикаго, Даллас, Лас-Вегас+, Лондон, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия) |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Поддерживаются |Поддерживаются |Даллас, Гонконг, Лас-Вегас, Лос-Анджелес, Мельбурн, Нью-Йорк, Сиэтл, Сингапур, Сидней, Торонто, Вашингтон (округ Колумбия) |
 | **MTN** |Поддерживаются |Поддерживаются |Лондон |
-| **Next Generation Data** |Скоро |Скоро |Newport(Wales)+ |
+| **Next Generation Data** |Поддерживаются |Скоро |Ньюпорт (Уэльс) |
 | **NEXTDC** |Поддерживаются |Поддерживаются |Мельбурн, Сидней |
 | **NTT Communications** |Поддерживаются |Поддерживаются |Лондон, Лос-Анджелес, Осака, Сингапур, Токио, Вашингтон (округ Колумбия) |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Поддерживаются |Поддерживаются |Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Сидней, Вашингтон (округ Колумбия) |
 | **PCCW Global Limited** |Поддерживаются |Поддерживаются |Гонконг |
-| **SIFY** |Поддерживаются |Поддерживаются |Ченнай |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Поддерживаются |Поддерживаются |Ченнай |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Поддерживаются |Поддерживаются |Сингапур |
 | **Softbank** |Поддерживаются |Поддерживаются |Осака, Токио |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Поддерживаются |Поддерживаются |Амстердам, Ченнаи, Гонконг, Лондон, Мумбаи, Кремниевая долина, Сингапур, Вашингтон (округ Колумбия) |
@@ -169,10 +169,10 @@ ExpressRoute поддерживается во всех регионах и ра
 * Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
-[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположений"
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

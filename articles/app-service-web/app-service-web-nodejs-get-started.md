@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
 8. Сохраните изменения, а затем разверните приложение в Azure с помощью команды git:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -117,7 +118,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
   * Настройте файл Web.config для подготовки приложения к отладке с помощью Node-Inspector.
 
 ## <a name="use-a-nodejs-framework"></a>Использование платформы Node.js
-Если для разработки приложений вы используете популярную платформу Node.js, например [Sails.js][SAILSJS] или [MEAN.js][MEANJS], вы можете развернуть их в службе приложений. Популярные платформы Node.js имеют свои особенности. Их связанные зависимости пакетов регулярно обновляются. Так как при этом служба приложений предоставляет доступ к журналам stdout и stderr, вы точно будете знать, что происходит с вашим приложением, чтобы вносить соответствующие изменения. Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](#iisnodelog).
+Если для разработки приложений вы используете популярную платформу Node.js (например, [Sails.js][SAILSJS] или [MEAN.js][MEANJS]), вы можете развернуть их в службе приложений. Популярные платформы Node.js имеют свои особенности. Их связанные зависимости пакетов регулярно обновляются. Так как при этом служба приложений предоставляет доступ к журналам stdout и stderr, вы точно будете знать, что происходит с вашим приложением, чтобы вносить соответствующие изменения. Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](#iisnodelog).
 
 В следующих руководствах показано, как работать с конкретной платформой в службе приложений:
 
@@ -186,7 +187,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
    
     ![Анализ файла журнала iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Отладка приложения с помощью Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Отладка приложения с помощью Node-Inspector
 Если вы выполняете отладку приложений Node.js с помощью Node-Inspector, это средство можно использовать также для живого приложения службы приложений. Средство Node-Inspector предустановлено в установке iisnode для службы приложений. Если развертывание выполняется через Git, автоматически созданный в Kudu файл Web.config уже содержит все настройки, необходимые для включения Node-Inspector.
 
 Включить Node-Inspector можно так.
@@ -235,7 +236,7 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [подпишитесь на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
-[веб-приложение]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

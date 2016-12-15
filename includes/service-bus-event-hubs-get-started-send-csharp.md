@@ -12,19 +12,19 @@
     Visual Studio скачает, установит и добавит ссылку на [пакет NuGet библиотеки служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Добавьте в класс **Program** приведенные ниже поля и укажите в качестве значений имя концентратора событий, созданного в предыдущем разделе, и сохраненную ранее строку подключения уровня пространства имен.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Добавьте следующий метод в класс **Program** .
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@
     Этот метод постоянно отправляет события в концентратор событий с задержкой 200 мс.
 7. Наконец, добавьте следующие строки в метод **Main** :
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 В этой статье показано, как создать функцию на C#, которая добавляет сообщения в очередь хранилища, срабатывая по таймеру событий. 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
+Выполнение функций в Azure происходит с помощью приложения функций. Если у вас нет учетной записи Azure, [попробуйте использовать Функции](https://functions.azure.com/try) или [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-timer-triggered-function-from-the-template"></a>Создание активируемой по таймеру функции на основе шаблона
 Выполнение функций в Azure происходит с помощью приложения функций. Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/). 
@@ -79,6 +79,6 @@ ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

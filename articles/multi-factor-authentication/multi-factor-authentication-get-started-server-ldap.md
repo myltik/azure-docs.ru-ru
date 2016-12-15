@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c57047f9a7eefcc0c4dbf08e705c3193e89f9a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cafcd1d21e12a3e8dfd020d1e59ee99d8c4d370
 
 
 ---
-# <a name="ldap-authentication-and-azure-multifactor-authentication-server"></a>Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication
+# <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication
 По умолчанию в сервере Azure Multi-Factor Authentication настроен импорт или синхронизация пользователей из Active Directory. Однако его можно настроить на привязку к другим каталогам LDAP, например к каталогу ADAM или конкретному контроллеру домена Active Directory. При настройке подключения к каталогу через LDAP сервер Azure Multi-Factor Authentication можно настроить так, чтобы он функционировал в качестве прокси-сервера LDAP для и выполнял проверку подлинности. Он также позволяет использовать привязку LDAP в качестве целевого объекта RADIUS для предварительной проверки подлинности пользователей в случае применения проверки подлинности IIS или для основной проверки подлинности на пользовательском портале Azure Multi-Factor Authentication.
 
 При использовании Azure Multi-Factor Authentication в качестве прокси-сервера LDAP, сервер Azure Multi-Factor Authentication вставляется между клиентом LDAP (например, устройством VPN или приложением) и сервером каталогов LDAP для добавления многофакторной проверки подлинности. Для нормального функционирования службы Azure Multi-Factor Authentication Azure сервер Azure Multi-Factor Authentication необходимо настроить так, чтобы он мог взаимодействовать с клиентскими серверами и с каталогом LDAP. В такой конфигурации сервер Azure Multi-Factor Authentication принимает запросы LDAP от клиентских серверов и приложений и перенаправляет их на целевой сервер каталога LDAP для проверки основных учетных данных. Если ответ из каталога LDAP показывает, что основные учетные данные являются действительными, служба Azure Multi-Factor Authentication выполняет двухфакторную проверку подлинности и отправляет ответ обратно клиенту LDAP. Полная проверка подлинности будет успешной только в случае успешной проверки подлинности на сервере LDAP и многофакторной проверки подлинности.
@@ -61,6 +61,6 @@ ms.openlocfilehash: 1c57047f9a7eefcc0c4dbf08e705c3193e89f9a7
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
