@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 9bff89b6bb049e4a5ca1fa54950f67a7cb2eb150
-ms.openlocfilehash: a1b3dd4445ea1dd3ccecc2fd7cfc2d74bdfb0d4d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
 
 
 ---
@@ -180,7 +180,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Проверка][12] | ![Проверка][12] | |
+| &nbsp; |![Проверка][12] | ![Проверка][12] | &nbsp; |
 
 **Дополнительные сведения:**
 
@@ -193,7 +193,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
+| &nbsp; |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
 
 **Дополнительные сведения:**
 
@@ -206,7 +206,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
+| &nbsp; |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
 
 **Дополнительные сведения:**
 
@@ -219,7 +219,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Проверка][12] | ![Проверка][12] | |
+| &nbsp; |![Проверка][12] | ![Проверка][12] | &nbsp; |
 
 **Дополнительные сведения:**
 
@@ -232,7 +232,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
+| &nbsp; |![Проверка][12] |![Проверка][12] | ![Проверка][12] |
 
 **Дополнительные сведения:**
 
@@ -248,7 +248,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12]|  |
+| &nbsp; | &nbsp; | ![Проверка][12]| &nbsp; |
 
 #### <a name="self-service-password-resetchangeunlock-with-on-premises-write-back"></a>Самостоятельный сброс пароля, изменение, разблокировка при помощи локальной обратной записи
 **Тип:** функции уровня "Премиум"
@@ -257,7 +257,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 #### <a name="multi-factor-authentication-cloud-and-on-premises-mfa-server"></a>Многопользовательская проверка подлинности в облачной среде и на локальных ресурсах (сервер многофакторной проверки подлинности)
 **Тип:** функции уровня "Премиум"
@@ -266,7 +266,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Проверка][12] |Ограничено облачной средой для приложений Office 365 |
+| &nbsp; | &nbsp; |![Проверка][12] |Ограничено облачной средой для приложений Office 365 |
 
 **Дополнительные сведения:**
 
@@ -282,7 +282,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Проверка][12] | |
+| &nbsp; | &nbsp; |![Проверка][12] | &nbsp; |
 
 #### <a name="cloud-app-discovery"></a>Обнаружение облачных приложений
 **Тип:** функции уровня "Премиум"
@@ -291,7 +291,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 **Дополнительные сведения:**
 
@@ -304,7 +304,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 **Дополнительные сведения:**
 
@@ -317,21 +317,21 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 #### <a name="identity-protection"></a>Защита идентификации
 **Тип:** функции уровня "Премиум"
 
 | Free Edition | Basic Edition | Выпуск Premium P2 | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 #### <a name="privileged-identity-management"></a>управление привилегированными пользователями;
 **Тип:** функции уровня "Премиум"
 
 | Free Edition | Basic Edition | Выпуск Premium P2 | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 ## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Присоединение к Azure Active Directory — только функции Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Подключите устройство к службам Azure AD, Desktop SSO, Microsoft Passport для Azure AD и службе восстановления Administrator Bitlocker
@@ -351,7 +351,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 #### <a name="enterprise-state-roaming"></a>Enterprise State Roaming.
 **Тип:** присоединение к Azure Active Directory — только функции Windows 10
@@ -360,7 +360,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 | Free Edition | Basic Edition | Выпуски Premium (P1 и P2) | Только приложения Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Проверка][12] | |
+| &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
 **Дополнительные сведения:**
 
@@ -387,6 +387,6 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
