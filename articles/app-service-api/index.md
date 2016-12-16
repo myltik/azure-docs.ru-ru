@@ -6,9 +6,9 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
 
 
 ---
-# <a name="app-service---api-apps-documentation"></a>Служба приложений. Документация по приложениям API
+# <a name="app-service---api-apps-documentation"></a>Служба приложений. Документация по приложениям API
 
-Приложения API являются одним из четырех типов приложений, предлагаемых службой приложений Azure. Приложения API в службе приложений Azure предоставляют широкий набор возможностей по разработке, размещению и использованию интерфейсов API в облачной и локальной среде. Служба приложений Azure — это полностью управляемая платформа для сценариев веб-приложений и мобильных приложений, а также сценариев интеграции.
+Приложения API являются одним из четырех типов приложений, предлагаемых службой приложений Azure. Приложения API в службе приложений Azure предоставляют широкий набор возможностей по разработке, размещению и использованию интерфейсов API в облачной и локальной среде. Служба приложений Azure — это полностью управляемая платформа для сценариев веб-приложений и мобильных приложений, а также сценариев интеграции.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +76,7 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к созданию приложения API Java в службе приложений Azure</h3>
+                        <h3>Приступая к созданию приложения API Java в службе приложений Azure</h3>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к созданию API Node.js</h3>
+                        <h3>Приступая к созданию API Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -120,8 +120,6 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
         </a>
     </li>     
 </ul>
-
----
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
