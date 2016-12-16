@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с CA PPM | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и CA PPM.
+title: "Руководство. Интеграция Azure Active Directory с CA PPM | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и CA PPM."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5bccef79845fc16c0154ec774817156f5be95884
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ca-ppm"></a>Учебник. Интеграция Azure Active Directory с CA PPM
+# <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Учебник. Интеграция Azure Active Directory с CA PPM
 В этом учебнике описано, как интегрировать CA PPM с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением CA PPM обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к CA PPM.
 * Вы можете включить автоматический вход пользователей в CA PPM (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с CA PPM, вам потребуется:
@@ -125,10 +129,10 @@ ms.author: jeedes
     • **идентификатор сущности**
 6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -229,6 +233,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

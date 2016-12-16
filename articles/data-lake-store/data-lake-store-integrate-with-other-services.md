@@ -1,74 +1,83 @@
 ---
-title: Интеграция хранилища озера данных с другими службами Azure | Microsoft Docs
-description: Принципы интеграции хранилища озера данных с другими службами Azure
-documentationcenter: ''
+title: "Интеграция Data Lake Store с другими службами Azure | Документация Майкрософт"
+description: "Принципы интеграции хранилища озера данных с другими службами Azure"
+documentationcenter: 
 services: data-lake-store
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ce6a611db7be7f1ae5f5027a77727e54e5e538ae
+
 
 ---
-# Интеграция хранилища озера данных с другими службами Azure
+# <a name="integrating-data-lake-store-with-other-azure-services"></a>Интеграция хранилища озера данных с другими службами Azure
 Хранилище озера данных Azure можно использовать вместе с другими службами Azure для охвата более широкого диапазона сценариев. В следующей статье перечислены службы, с которыми может интегрироваться хранилище озера данных.
 
-## Использование хранилища озера данных с Azure HDInsight
-Можно подготовить кластер [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/), который использует хранилище озера данных в качестве хранилища, соответствующего требованиям HDFS. В этом выпуске для кластеров Hadoop и Storm в Windows и Linux можно использовать хранилище озера данных только в качестве дополнительного. В этих кластерах по-прежнему используется хранилище Azure (WASB) в качестве хранилища по умолчанию. Тем не менее для кластеров HBase в Windows и Linux можно использовать хранилище озера данных как хранилище по умолчанию, дополнительное хранилище или и то и другое.
+## <a name="use-data-lake-store-with-azure-hdinsight"></a>Использование хранилища озера данных с Azure HDInsight
+Можно подготовить кластер [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) , который использует хранилище озера данных в качестве хранилища, соответствующего требованиям HDFS. В этом выпуске для кластеров Hadoop и Storm в Windows и Linux можно использовать хранилище озера данных только в качестве дополнительного. В этих кластерах по-прежнему используется хранилище Azure (WASB) в качестве хранилища по умолчанию. Тем не менее для кластеров HBase в Windows и Linux можно использовать хранилище озера данных как хранилище по умолчанию, дополнительное хранилище или и то и другое.
 
 Инструкции по подготовке кластера HDInsight с хранилищем озера данных см. в следующих разделах.
 
 * [Подготовка кластера HDInsight и хранилища озера данных с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Подготовка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-**Предпочитаете видео?** Перейдите по ссылкам ниже, чтобы просмотреть видео с инструкциями по использованию хранилища озера данных с кластерами HDInsight.
+**Предпочитаете видео?**  Перейдите по ссылкам ниже, чтобы просмотреть видео с инструкциями по использованию хранилища озера данных с кластерами HDInsight.
 
-* [Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure](https://mix.office.com/watch/l93xri2yhtp2).
-* После настройки кластера просмотрите видео [Access data in Data Lake Store using Hive and Pig scripts](https://mix.office.com/watch/1n9g5w0fiqv1q) (Доступ к данным в хранилище озера данных с помощью сценариев Hive и Pig).
+* [Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure](https://mix.office.com/watch/l93xri2yhtp2)
+* После настройки кластера просмотрите видео [Access data in Data Lake Store using Hive and Pig scripts](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
-## Использование хранилища озера данных с аналитикой озера данных Azure
+## <a name="use-data-lake-store-with-azure-data-lake-analytics"></a>Использование хранилища озера данных с аналитикой озера данных Azure
 [Аналитика озера данных Azure](../data-lake-analytics/data-lake-analytics-overview.md) позволяет работать с большими данными в облачных масштабах. Она динамически подготавливает ресурсы и позволяет выполнять аналитические операции с терабайтами и даже эксабайтами данных, которые могут храниться в разных поддерживаемых источниках данных, одним из которых является хранилище озера данных. Аналитика озера данных оптимизирована для работы с хранилищем озера данных Azure, благодаря чему обеспечивается наивысший уровень производительности, пропускной способности и параллелизации для рабочих нагрузок больших данных.
 
-Инструкции по использованию аналитики озера данных с хранилищем озера данных см. в разделе [Начало работы с аналитикой озера данных с использованием хранилища озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Инструкции по использованию Data Lake Analytics с Data Lake Store см. в разделе [Начало работы с аналитикой озера данных с использованием хранилища озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-**Предпочитаете видео?** Перейдите по ссылкам ниже, чтобы просмотреть видео с инструкциями по использованию хранилища озера данных с кластерами HDInsight.
+**Предпочитаете видео?**  Перейдите по ссылкам ниже, чтобы просмотреть видео с инструкциями по использованию хранилища озера данных с кластерами HDInsight.
 
-* [Connect Azure Data Lake Analytics to Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k) (Подключение Аналитики озера данных Azure с хранилищем озера данных).
-* [Access Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8) (Доступ к хранилищу озера данных Azure с помощью Аналитики озера данных).
+* [Connect Azure Data Lake Analytics to Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k)
+* [Access Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8)
 
-## Использование хранилища озера данных с фабрикой данных Azure
+## <a name="use-data-lake-store-with-azure-data-factory"></a>Использование хранилища озера данных с фабрикой данных Azure
 Можно использовать [фабрику данных Azure](https://azure.microsoft.com/services/data-factory/) для приема данных из таблиц Azure, Базы данных SQL Azure, хранилища данных SQL Azure, больших двоичных объектов хранилища Azure и локальных баз данных. Фабрика данных Azure является ведущим компонентом экосистемы Azure, ее можно использовать для координации приема данных из этих источников в хранилище озера данных Azure.
 
-Инструкции по использованию фабрики данных Azure с хранилищем озера данных см. в разделе [Перемещение данных из хранилища озера данных и обратно с использованием фабрики данных](../data-factory/data-factory-azure-datalake-connector.md).
+Инструкции по использованию фабрики данных Azure c Data Lake Store см. в разделе [Перемещение данных из хранилища озера данных и обратно с использованием фабрики данных](../data-factory/data-factory-azure-datalake-connector.md).
 
-**И снова видео!** Просмотрите видео [Data Orchestration using Azure Data Factory for Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka) (Оркестрация данных с помощью фабрики данных Azure для хранилища озера данных Azure).
+**И снова видео!** Просмотрите видео [Data Orchestration using Azure Data Factory for Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)(Оркестрация данных с помощью фабрики данных Azure для хранилища озера данных Azure). 
 
-## Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных
-Хранилище озера данных Azure предоставляет средство командной строки AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в учетную запись хранилища озера данных. Дополнительные сведения см. в статье [Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных](data-lake-store-copy-data-azure-storage-blob.md).
+## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных
+Хранилище озера данных Azure предоставляет средство командной строки AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в учетную запись хранилища озера данных. Дополнительные сведения см. в статье [Копирование данных из больших двоичных объектов службы хранилища Azure в Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).
 
-## Копирования данных между базой данных SQL Azure и хранилищем озера данных
+## <a name="copy-data-between-azure-sql-database-and-data-lake-store"></a>Копирования данных между базой данных SQL Azure и хранилищем озера данных
 Можно использовать Apache Sqoop для импорта и экспорта данных между базой данных SQL Azure и хранилищем озера данных. Дополнительные сведения см. в статье [Копирование данных между хранилищем озера данных и базой данных SQL Azure с помощью Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
-**Просмотрите видео** [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114) (Использование Apache Sqoop для перемещения данных между реляционными источниками и хранилищем озера данных Azure).
+**Просмотрите видео**[Use Apache Sqoop to move data between relational sources and Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)(Использование Apache Sqoop для перемещения данных между реляционными источниками и хранилищем озера данных Azure).
 
-## Использование хранилища озера данных со Stream Analytics
+## <a name="use-data-lake-store-with-stream-analytics"></a>Использование хранилища озера данных со Stream Analytics
 Хранилище озера данных можно использовать для сохранения потока выходных данных с помощью Azure Stream Analytics. Дополнительные сведения см. в разделе [Потоковая передача данных из большого двоичного объекта службы хранилища Azure в хранилище озера данных с помощью Azure Stream Analytics](data-lake-store-stream-analytics.md).
 
-## Использование хранилища озера данных с Power BI
+## <a name="use-data-lake-store-with-power-bi"></a>Использование хранилища озера данных с Power BI
 Power BI можно использовать, чтобы импортировать данные из учетной записи хранилища озера данных для анализа и визуализации. Дополнительные сведения см. в разделе [Анализ данных в хранилище озера данных с помощью Power BI](data-lake-store-power-bi.md).
 
-## Использование хранилища озера данных с каталогом данных
+## <a name="use-data-lake-store-with-data-catalog"></a>Использование хранилища озера данных с каталогом данных
 Данные из хранилища озера данных можно зарегистрировать в каталоге данных Azure, чтобы упростить их обнаружение в организации. Дополнительные сведения см. в разделе [Регистрация данных из хранилища озера данных в каталоге данных Azure](data-lake-store-with-data-catalog.md).
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных с помощью портала](data-lake-store-get-started-portal.md)
-* [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
+* [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
