@@ -23,7 +23,7 @@ ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
 # <a name="vpn-gateway-faq"></a>VPN-шлюз: вопросы и ответы
 ## <a name="connecting-to-virtual-networks"></a>Подключение к виртуальным сетям
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Можно ли подключать виртуальные сети в разных регионах Azure?
-Да. Ограничений по регионам нет. Одна виртуальная сеть может подключаться к другой в том же или другом регионе Azure.
+Да. Ограничений по регионам нет. Одна виртуальная сеть может подключаться к другой в том же или другом регионе Azure. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Можно ли подключать виртуальные сети в разных подписках?
 Да.

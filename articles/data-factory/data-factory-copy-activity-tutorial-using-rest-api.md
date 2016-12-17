@@ -52,17 +52,25 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 * Откройте **PowerShell** и выполните приведенные ниже команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
   
   1. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
-     
-          Login-AzureRmAccount   
+    
+    ```PowerShell 
+    Login-AzureRmAccount
+    ```   
   2. Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
-     
-          Get-AzureRmSubscription 
+
+    ```PowerShell     
+    Get-AzureRmSubscription
+    ``` 
   3. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **&lt;NameOfAzureSubscription**&gt; именем своей подписки Azure. 
      
-          Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
   4. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell.  
-     
-          New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+    ```PowerShell     
+      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
      
       Если группа ресурсов уже есть, укажите, требуется или не требуется ее обновить (Y или N соответственно). 
      
@@ -77,10 +85,12 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 > 
 > 
 
-    {  
-        "name": "ADFCopyTutorialDF",  
-        "location": "WestUS"
-    }  
+```JSON
+{  
+    "name": "ADFCopyTutorialDF",  
+    "location": "WestUS"
+}  
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -88,15 +98,17 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 > 
 > 
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
@@ -104,49 +116,53 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 > 
 > 
 
-    {
-        "name": "AzureSqlLinkedService",
-        "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-            }
+```JSON
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
         }
     }
-
+}
+```
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService",
-        "typeProperties": {
-          "folderPath": "adftutorial/",
-          "fileName": "emp.txt",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
+
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
       }
+    ],
+    "type": "AzureBlob",
+    "linkedServiceName": "AzureStorageLinkedService",
+    "typeProperties": {
+      "folderPath": "adftutorial/",
+      "fileName": "emp.txt",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ","
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Определение JSON определяет набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, он указывает, что входные данные размещаются в файле **emp.txt**, который находится в контейнере больших двоичных объектов **adftutorial**. 
 
@@ -165,43 +181,46 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv. 
 
-      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
-
+```JSON
+  "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy": 
+[
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+],
+```
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-      "name": "AzureSqlOutput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-          "tableName": "emp"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
-    }
 
+```JSON
+{
+  "name": "AzureSqlOutput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
+      }
+    ],
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "emp"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
 
 Определение JSON определяет набор данных с именем **AzureSqlOutput**, представляющий выходные данные для действия в конвейере. Кроме того, он указывает, что результаты сохраняются в таблице **emp** , которая содержится в базе данных, представленной AzureSqlLinkedService. В разделе **availability** указывается, что выходной набор данных будет создаваться ежечасно (frequency — hour, interval — 1).
 
@@ -214,48 +233,50 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 * Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**).  Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
 
 ### <a name="pipelinejson"></a>pipeline.json
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+
+```JSON
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureSqlOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureBlobInput"
           }
         ],
-        "start": "2016-08-12T00:00:00Z",
-        "end": "2016-08-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-08-12T00:00:00Z",
+    "end": "2016-08-13T00:00:00Z"
+  }
+}
+```
 
 Обратите внимание на следующие моменты.
 
@@ -284,22 +305,26 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 > 
 > 
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```JSON
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "ADFCopyTutorialDF"
+$rg = "ADFTutorialResourceGroup"
+$adf = "ADFCopyTutorialDF"
+```
 
 ## <a name="authenticate-with-aad"></a>Проверка подлинности с помощью AAD
 Выполните следующую команду для проверки подлинности с помощью Azure Active Directory (AAD). 
 
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken) 
+(ConvertFrom-Json $responseToken) 
+```
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
 На этом шаге создается фабрика данных Azure с именем **ADFCopyTutorialDF**. Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Например, действие копирования, копирующее данные из исходного хранилища данных в целевое. Или действие HDInsight Hive, запускающее скрипт Hive для преобразования входных данных в выходные данные продукта. Чтобы создать фабрику данных, выполните следующие команды: 
@@ -308,13 +333,19 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
    
     Указываемое здесь имя фабрики данных (ADFCopyTutorialDF) должно соответствовать имени, указанному в **datafactory.json**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания фабрики данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.  
    
-        Write-Host $results
+    ```
+    Write-Host $results
+    ```
 
 Обратите внимание на следующие моменты.
 
@@ -330,12 +361,15 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 * Если появится сообщение об ошибке**Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации. 
   
   * В Azure PowerShell выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure: 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    Чтобы убедиться, что поставщик фабрики данных зарегистрирован, выполните следующую команду: 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      Чтобы убедиться, что поставщик фабрики данных зарегистрирован, выполните следующую команду: 
-    
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Войдите на [портал Azure](https://portal.azure.com) с использованием подписки Azure и откройте колонку фабрики данных или создайте на портале фабрику данных. Поставщик будет зарегистрирован автоматически.
 
 Прежде чем создавать конвейер, необходимо создать несколько сущностей фабрики данных. Сначала вам нужно создать связанные службы, чтобы подключить исходное и целевое хранилища данных к своему хранилищу данных. Затем следует определить входные и выходные наборы данных для представления данных в связанных хранилищах. После этого создается конвейер с действием, которое использует эти наборы данных.
@@ -349,27 +383,38 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 На этом шаге вы свяжете учетную запись хранения Azure с фабрикой данных. В целях данного руководства используйте учетную запись хранения Azure для хранения входных данных. 
 
 1. Назначьте команду переменной с именем **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания связанной службы в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-sql-linked-service"></a>Создание связанной службы SQL Azure
 На этом шаге вы свяжете базу данных SQL Azure с фабрикой данных. В рамках этого руководства используйте ту же самую базу данных SQL Azure для хранения выходных данных.
 
 1. Назначьте команду переменной с именем **cmd**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания связанной службы в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Создание наборов данных
 На предыдущем шаге были созданы связанные службы **AzureStorageLinkedService** и **AzureSqlLinkedService** для связи учетной записи хранения Azure и базы данных SQL Azure с фабрикой данных **ADFCopyTutorialDF**. На этом шаге создаются наборы данных, представляющие входные и выходные данные для действия копирования в конвейере, который будет создан на следующем шаге. 
@@ -384,23 +429,27 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 * Создайте таблицу с именем **emp** в базе данных SQL Azure, на которую указывает **AzureSqlLinkedService**.
 
 1. Запустите Блокнот, вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске. 
-   
-        John, Doe
-        Jane, Doe
+
+    ```   
+    John, Doe
+    Jane, Doe
+    ```
 2. При помощи таких средств, как [обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
    
     ![Обозреватель хранилищ Azure](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
 
-        CREATE TABLE dbo.emp 
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp 
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    ```
 
     Если на вашем компьютере установлен SQL Server 2014, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL.
 
@@ -410,58 +459,83 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 На этом шаге создается набор данных с именем **AzureBlobInput**, указывающий на контейнер больших двоичных объектов в службе хранилища Azure, которая представлена связанной службой **AzureStorageLinkedService**. Этот контейнер больших двоичных объектов (**adftutorial**) содержит входные данные в файле **emp.txt**. 
 
 1. Назначьте команду переменной с именем **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+
+    ```PowerSHell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-output-dataset"></a>Создание выходного набора данных
 На этом этапе вы создадите выходную таблицу с именем **AzureSqlOutput**. Этот набор данных указывает на таблицу SQL (**emp**) в базе данных SQL Azure (представлена значением **AzureSqlLinkedService**). Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp** . 
 
 1. Назначьте команду переменной с именем **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
    
-        Write-Host $results 
+    ```PowerShell
+    Write-Host $results
+    ``` 
 
 ## <a name="create-pipeline"></a>Создание конвейера
 На этом шаге создается конвейер с **действием копирования**, которое использует **AzureBlobInput** в качестве входных данных и **AzureSqlOutput** в качестве выходных.
 
 1. Назначьте команду переменной с именем **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.  
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 **Поздравляем!**  Фабрика данных Azure с конвейером, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure, успешно создана.
 
 ## <a name="monitor-pipeline"></a>Отслеживание конвейера
 На этом шаге используется REST API фабрики данных, чтобы отслеживать срезы, созданные конвейером.
 
-    $ds ="AzureSqlOutput"
+```PowerShell
+$ds ="AzureSqlOutput"
+```
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```PowerShell
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+```PowerShell
+$results2 = Invoke-Command -scriptblock $cmd;
+```
 
-
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
+```PowerShell
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 Выполняйте следующие команды, пока не отобразится срез в состоянии **Готово** или **Сбой**. Когда срез будет в состоянии "Готово", проверьте выходные данные в таблице **emp** в базе данных SQL Azure. 
 
