@@ -1,12 +1,12 @@
 ---
-title: Get started with Service Fabric Reliable Actors | Microsoft Docs
-description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
+title: "Приступая к работе с Service Fabric Reliable Actors | Документация Майкрософт"
+description: "В этом учебнике последовательно описаны этапы создания, отладки и развертывания простой службы на основе субъекта с использованием Service Fabric Reliable Actors."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -14,46 +14,50 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e349d0c76078889b6e41340ee8bb2f599819ba3
+
 
 ---
-# <a name="getting-started-with-reliable-actors"></a>Getting started with Reliable Actors
+# <a name="getting-started-with-reliable-actors"></a>Приступая к работе с Reliable Actors
 > [!div class="op_single_selector"]
-> * [C# on Windows](service-fabric-reliable-actors-get-started.md)
-> * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
+> * [C# в Windows](service-fabric-reliable-actors-get-started.md)
+> * [Java в Linux](service-fabric-reliable-actors-get-started-java.md)
 > 
 > 
 
-This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating and deploying a simple Reliable Actor application in Java.
+В этой статье представлены общие сведения о Reliable Actors в Azure Service Fabric, а также описывается процесс создания и развертывания простого приложения Reliable Actors в Java.
 
-## <a name="installation-and-setup"></a>Installation and setup
-Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
+## <a name="installation-and-setup"></a>Установка и настройка
+Перед началом установите и настройте на своем компьютере среду разработки Service Fabric.
+Дополнительные сведения см. в статье [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md) и [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md).
 
-## <a name="basic-concepts"></a>Basic concepts
-To get started with Reliable Actors, you only need to understand a few basic concepts:
+## <a name="basic-concepts"></a>Основные понятия
+Чтобы приступить к работе с субъектами Reliable Actors, необходимо ознакомиться только с несколькими основными понятиями.
 
-* **Actor service**. Reliable Actors are packaged in Reliable Services that can be deployed in the Service Fabric infrastructure. Actor instances are activated in a named service instance.
-* **Actor registration**. As with Reliable Services, a Reliable Actor service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
-* **Actor interface**. The actor interface is used to define a strongly typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
-* **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface. The ActorProxy class provides two important functionalities:
+* **Служба субъекта**. Субъекты Reliable Actors упаковываются в службы Reliable Services, которые могут быть развернуты в инфраструктуре Service Fabric. Экземпляры субъектов активируются в именованном экземпляре службы.
+* **Регистрация субъекта**. Как и в случае Reliable Services, служба Reliable Actor должна быть зарегистрирована в среде выполнения Service Fabric. Кроме того, тип субъекта должен быть зарегистрирован в среде выполнения субъектов.
+* **Интерфейс субъекта**. Интерфейс субъекта используется для определения строго типизированного общедоступного интерфейса субъекта. В терминах модели Reliable Actors интерфейс субъекта определяет типы сообщений, которые субъект может понять и обработать. Интерфейс субъекта используется другими субъектами или клиентскими приложениями для отправки (асинхронной) сообщений субъекту. Субъекты Reliable Actors могут реализовывать несколько интерфейсов.
+* **Класс ActorProxy**. Класс ActorProxy используется клиентскими приложениями для вызова методов, предоставляемых через интерфейсы субъекта. Класс ActorProxy предоставляет две важные функциональные возможности:
   
-  * Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
-  * Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
+  * Разрешение имен. Класс позволяет найти субъект в кластере (определить, на каком узле кластера размещается субъект).
+  * Обработка сбоев. Класс может повторно вызывать методы и повторно сопоставить расположение субъекта, например после сбоя, в результате которого субъект перемещается на другой узел в кластере.
 
-The following rules that pertain to actor interfaces are worth mentioning:
+Следует упомянуть правила, которые относятся к интерфейсу субъекта:
 
-* Actor interface methods cannot be overloaded.
-* Actor interface methods must not have out, ref, or optional parameters.
-* Generic interfaces are not supported.
+* методы интерфейса субъекта не могут быть перегружены;
+* методы интерфейса субъекта не должны иметь выходных, ссылочных или необязательных параметров.
+* универсальные интерфейсы не поддерживаются.
 
-## <a name="create-an-actor-service"></a>Create an actor service
-Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
+## <a name="create-an-actor-service"></a>Создание службы субъекта
+Сначала создайте приложение Service Fabric. В пакет SDK для Service Fabric для Linux входит генератор Yeoman, который позволяет формировать шаблоны для приложения Service Fabric с помощью службы без отслеживания состояния. Сначала выполните следующую команду Yeoman:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Actor Service**. For this tutorial, name the application "HelloWorldActorApplication" and the actor "HelloWorldActor." The following scaffolding will be created:
+Следуйте инструкциям по созданию **службы Reliable Actor**. В этом руководстве в качестве имени приложения используется HelloWorldActorApplication, а в качестве имени субъекта — HelloWorldActor. Мы получим следующее формирование шаблонов:
 
 ```bash
 HelloWorldActorApplication/
@@ -95,11 +99,11 @@ HelloWorldActorApplication/
 └── uninstall.sh
 ```
 
-## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors basic building blocks
-The basic concepts described earlier translate into the basic building blocks of a Reliable Actor service.
+## <a name="reliable-actors-basic-building-blocks"></a>Простые стандартные блоки в решении на базе надежных субъектов
+Основные понятия, описанные выше, формируют базовые стандартные блоки службы Reliable Actor.
 
-### <a name="actor-interface"></a>Actor interface
-This contains the interface definition for the actor. This interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in a place that is separate from the actor implementation and can be shared by multiple other services or client applications.
+### <a name="actor-interface"></a>Интерфейс субъекта
+Он содержит определение интерфейса субъекта. Этот интерфейс определяет контракт субъекта, который совместно используется реализацией субъекта и клиентами, вызывающими субъект. Поэтому обычно имеет смысл определить его в расположении, которое отличается от реализации субъекта и может совместно использоваться несколькими службами и клиентскими приложениями.
 
 `HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
 
@@ -112,8 +116,8 @@ public interface HelloWorldActor extends Actor {
 }
 ```
 
-### <a name="actor-service"></a>Actor service
-This contains your actor implementation and actor registration code. The actor class implements the actor interface. This is where your actor does its work.
+### <a name="actor-service"></a>Служба субъекта
+Служба субъекта содержит реализацию и код регистрации субъекта. Класс субъекта реализует интерфейс субъекта. Здесь субъект выполняет свою работу.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
@@ -143,8 +147,8 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 }
 ```
 
-### <a name="actor-registration"></a>Actor registration
-The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
+### <a name="actor-registration"></a>Регистрация субъекта
+Служба субъекта должна быть зарегистрирована в среде выполнения Service Fabric с указанием типа службы. Чтобы служба субъекта выполняла экземпляры вашего субъекта, его тип также нужно зарегистрировать в службе субъекта. Метод регистрации `ActorRuntime` выполняет это действие для субъектов.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
 
@@ -166,20 +170,20 @@ public class HelloWorldActorHost {
 }
 ```
 
-### <a name="test-client"></a>Test client
-This is a simple test client application you can run separately from the Service Fabric application to test your actor service. This is an example of where the ActorProxy can be used to activate and communicate with actor instances. It does not get deployed with your service.
+### <a name="test-client"></a>Тестовый клиент
+Тестовый клиент — это простое тестовое клиентское приложение, которое можно запустить отдельно от приложения Service Fabric для проверки службы субъекта. В нем ActorProxy можно использовать, чтобы активировать экземпляры субъекта и установить между ними связь. Он не развертывается с вашей службой.
 
-### <a name="the-application"></a>The application
-Finally, the application packages the actor service and any other services you might add in the future together for deployment. It contains the *ApplicationManifest.xml* and place holders for the actor service package.
+### <a name="the-application"></a>Приложение
+Приложение упаковывает службу субъекта и другие службы в пакет для последующего развертывания. Оно содержит файл *ApplicationManifest.xml* и заполнители для пакета службы субъекта.
 
-## <a name="run-the-application"></a>Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
+## <a name="run-the-application"></a>Выполнение приложения
+Формирование шаблонов Yeoman содержит скрипт Gradle, используемый для создания приложения, и bash-скрипты, используемые для развертывания и отмены развертывания приложения. Чтобы запустить приложение, сначала его нужно создать с помощью следующего скрипта Gradle:
 
 ```bash
 $ gradle
 ```
 
-This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+Этот скрипт создаст пакет приложения Service Fabric, который можно развернуть с помощью интерфейса командной строки Azure Service Fabric. Скрипт install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть пакет, просто выполните скрипт install.sh.
 
 ```bask
 $ ./install.sh
@@ -187,6 +191,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

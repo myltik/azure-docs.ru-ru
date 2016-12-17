@@ -1,32 +1,36 @@
 ---
-title: Учебник по REST в служебной шине с использованием обмена сообщениями с ретрансляцией | Microsoft Docs
-description: Создание простого хост-приложения ретранслятора служебной шины, которое предоставляет интерфейс на основе REST.
-services: service-bus
+title: "Руководство по REST в служебной шине с использованием обмена сообщениями с ретрансляцией | Документация Майкрософт"
+description: "Создание простого хост-приложения ретранслятора служебной шины, которое предоставляет интерфейс на основе REST."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ba69a1a5f363fe5034e3fc7946b1584c9d77b50
+
 
 ---
-# <a name="service-bus-relay-rest-tutorial"></a>Руководство по использованию ретранслятора служебной шины на основе REST
+# <a name="service-bus-wcf-relay-rest-tutorial"></a>Руководство по использованию ретранслятора WCF служебной шины на основе REST
 В этом учебнике описано, как создать простое хост-приложение служебной шины, предоставляющее интерфейс на основе REST. REST позволяет веб-клиенту, например веб-браузеру, получить доступ к интерфейсам API служебной шины с помощью HTTP-запросов.
 
 В этом учебнике для создания службы REST в служебной шине используется модель программирования REST Windows Communication Foundation (WCF). Дополнительные сведения см. в разделах [Модель программирования REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) и [Разработка и реализация служб](https://msdn.microsoft.com/library/ms729746.aspx) в документации по WCF.
 
-## <a name="step-1:-create-a-service-namespace"></a>Этап 1. Создание пространства имен службы
+## <a name="step-1-create-a-service-namespace"></a>Этап 1. Создание пространства имен службы
 Сначала необходимо создать пространство имен и получить ключ подписанного URL-адреса (SAS). Пространство имен определяет границы каждого приложения, предоставляемого через служебную шину. Ключ SAS автоматически создается системой при создании пространства имен службы. Сочетание пространства имен и ключа совместного доступа к подписи предоставляет учетные данные, на основе которых служебная шина осуществляет проверку подлинности и дает доступ к приложению.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Шаг 2. Определите контракт службы WCF на основе REST, используемого в служебной шине
+## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Шаг 2. Определите контракт службы WCF на основе REST, используемого в служебной шине
 Как и в случае с другими службами служебной шины, при создании службы на основе REST необходимо определить контракт. Контракт определяет, какие операции поддерживает узел. Операцию службы можно рассматривать как метод веб-службы. Контракты создаются путем определения интерфейса C++, C# или Visual Basic. Каждый метод в интерфейсе соответствует определенной операции службы. К каждому интерфейсу должен быть применен атрибут [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx), а к каждой операции — атрибут [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx). Если у метода в интерфейсе с атрибутом [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) нет атрибута [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), такой метод не предоставляется. Код для выполнения этих задач показан в примере, приведенном после описания последовательности выполнения действий.
 
 Основное различие между базовым контрактом служебной шины и контрактом REST заключается в добавлении свойства к атрибуту [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Это свойство позволяет сопоставить метод в интерфейсе с методом на другой стороне интерфейса. В нашем примере атрибут [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) используется для связывания метода с HTTP GET. Это позволяет служебной шине точно извлекать и интерпретировать команды, отправляемые в интерфейс.
@@ -53,7 +57,7 @@ ms.author: sethm
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) — это пространство имен, которое предоставляет программный доступ к основным функциям WCF. Служебная шина использует множество объектов и атрибутов WCF для определения контрактов службы. Это пространство имен будет использоваться в большинстве приложений ретранслятора служебной шины. Аналогичным образом [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) помогает определить канал, т. е. объект, посредством которого служебная шина взаимодействует с веб-браузером клиента. Наконец, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) содержит типы, позволяющие создавать веб-приложения.
 7. Переименуйте пространство имен `ImageListener` в **Microsoft.ServiceBus.Samples**.
    
-    ```
+     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -129,7 +133,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Шаг 3. Реализуйте контракт службы WCF на основе REST, используемого в служебной шине
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Шаг 3. Реализуйте контракт службы WCF на основе REST, используемого в служебной шине
 Перед созданием службы служебной шины на основе REST необходимо сначала создать контракт, который определяется с помощью интерфейса. Следующим шагом является реализация интерфейса. Она предполагает создание класса с именем **ImageService**, который реализует пользовательский интерфейс **IImageContract**. После реализации контракта необходимо настроить интерфейс с помощью файла App.config. Файл конфигурации содержит сведения, необходимые для приложения, такие как имя службы, имя контракта и тип протокола, используемого для взаимодействия со служебной шиной. Код для выполнения этих задач приведен в примере после описания последовательности выполнения действий.
 
 Как и на предыдущих шагах, разница между реализацией контракта REST и базовым контрактом служебной шины небольшая.
@@ -236,7 +240,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
    
     На этом этапе выполняется настройка службы, которая использует заданную ранее привязку по умолчанию **webHttpRelayBinding**. Здесь также используется значение по умолчанию **sbTokenProvider**, которое будет определено на следующем этапе.
-4. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержимым, заменив SAS_KEY ключом *подписанного URL-адреса* (SAS), полученным ранее [на портале Azure][].
+4. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержимым, заменив SAS_KEY ключом *подписанного URL-адреса* (SAS), полученным ранее [на портале Azure][портал Azure].
    
     ```
     <behaviors>
@@ -260,8 +264,8 @@ namespace Microsoft.ServiceBus.Samples
    
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
@@ -423,7 +427,7 @@ namespace Microsoft.ServiceBus.Samples
 </configuration>
 ```
 
-## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>Шаг 4. Разместите службы WCF на основе REST, используемой в служебной шине
+## <a name="step-4-host-the-rest-based-wcf-service-to-use-service-bus"></a>Шаг 4. Разместите службы WCF на основе REST, используемой в служебной шине
 В этом шаге описан запуск веб-службы в служебной шине с помощью консольного приложения. Полный код этого шага представлен в примере после описания последовательности выполнения действий.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Создание базового адреса для службы
@@ -554,12 +558,13 @@ namespace Microsoft.ServiceBus.Samples
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы научились создавать приложение, которое использует службу ретранслятора служебной шины. Дополнительные сведения об обмене сообщениями с ретрансляцией можно найти в следующих статьях:
 
-* [Обзор архитектуры служебной шины Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
+* [Обзор архитектуры служебной шины Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Использование службы ретранслятора служебной шины Azure](service-bus-dotnet-how-to-use-relay.md)
 
 [портал Azure]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Создание моста между iOS WebView и собственным пакетом SDK iOS Mobile Engagement
-description: Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK iOS Mobile Engagement
+title: "Создание моста между iOS WebView и собственным пакетом SDK iOS Mobile Engagement"
+description: "Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK iOS Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e1d6ff6f-cd67-4131-96eb-c3d6318de752
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,33 +14,37 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f68e0578afe31cdd5b1c27222d31b646f201fc32
+
 
 ---
-# Создание моста между iOS WebView и собственным пакетом SDK iOS Mobile Engagement
+# <a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Создание моста между iOS WebView и собственным пакетом SDK iOS Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Мост Android](mobile-engagement-bridge-webview-native-android.md)
 > * [Мост iOS](mobile-engagement-bridge-webview-native-ios.md)
 > 
 > 
 
-Некоторые мобильные приложения представляют собой гибридные приложения. В этом случае само приложение разрабатывается на основе собственного языка Objective-C iOS, но некоторые или даже все окна отображаются с помощью iOS WebView. Тем не менее, пакет SDK iOS Mobile Engagement можно использовать в таких приложениях, и в этом учебнике описывается, как это сделать.
+Некоторые мобильные приложения представляют собой гибридные приложения. В этом случае само приложение разрабатывается на основе собственного языка Objective-C iOS, но некоторые или даже все окна отображаются с помощью iOS WebView. Тем не менее, пакет SDK iOS Mobile Engagement можно использовать в таких приложениях, и в этом учебнике описывается, как это сделать. 
 
 Сделать это можно двумя способами (оба способа не документированы):
 
-* Первый способ, который описан по следующей [ссылке](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip), включает регистрацию `UIWebViewDelegate` в вашем веб-представлении и перехват и немедленную отмену изменения расположения в JavaScript.
-* Второй способ основан на следующем [сеансе WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615). Это более "чистый" подход по сравнению с первым, и именно им мы будем пользоваться в этом руководстве. Обратите внимание, что этот подход работает только на iOS7 и более поздних версиях.
+* Первый способ, который описан по следующей [ссылке](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip), включает регистрацию `UIWebViewDelegate` в вашем веб-представлении и перехват и немедленную отмену изменения расположения в JavaScript. 
+* Второй способ основан на следующем [сеансе WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615). Это более "чистый" подход по сравнению с первым, и именно им мы будем пользоваться в этом руководстве. Обратите внимание, что этот подход работает только на iOS7 и более поздних версиях. 
 
 Для моста iOS выполните следующие действия:
 
-1. Во-первых, полностью изучите наш [Учебник "Приступая к работе"](mobile-engagement-ios-get-started.md) для интеграции пакета SDK iOS Mobile Engagement в свое гибридное приложение. При необходимости также можно включить тестовое ведение журнала, чтобы видеть методы пакета SDK во время из вызова из веб-представления.
+1. Во-первых, полностью изучите наш [Учебник "Приступая к работе"](mobile-engagement-ios-get-started.md) для интеграции пакета SDK iOS Mobile Engagement в свое гибридное приложение. При необходимости также можно включить тестовое ведение журнала, чтобы видеть методы пакета SDK во время из вызова из веб-представления. 
    
-        - (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
            ....
              [EngagementAgent setTestLogEnabled:YES];
            ....
         }
-2. Теперь убедитесь, что в гибридном приложении есть окно с веб-представлением. Его можно добавить в `Main.storyboard` приложения.
-3. Свяжите это веб-представление с вашим контроллером **ViewController**, щелкнув и перетащив веб-представления из сцены контроллера представления в окно изменения `ViewController.h` и поместив его непосредственно под строкой `@interface`.
+2. Теперь убедитесь, что в гибридном приложении есть окно с веб-представлением. Его можно добавить в `Main.storyboard` приложения. 
+3. Свяжите это веб-представление с вашим контроллером **ViewController**, щелкнув и перетащив веб-представления из сцены контроллера представления в окно изменения `ViewController.h` и поместив его непосредственно под строкой `@interface`. 
 4. После этого откроется диалоговое окно с запросом имени. Укажите имя **webView**. Файл `ViewController.h` должен выглядеть примерно так:
    
         #import <UIKit/UIKit.h>
@@ -50,7 +54,7 @@ ms.author: piyushjo
         @property (strong, nonatomic) IBOutlet UIWebView *webView;
    
         @end
-5. Мы обновим файл `ViewController.m` позже, но сначала создадим файл моста. Этот файл создает обертку для некоторых часто используемых методов пакета SDK iOS Mobile Engagement. Создайте новый заголовочный файл **EngagementJsExports.h**, который использует механизм `JSExport`, описанный в вышеупомянутом [сеансе](https://developer.apple.com/videos/play/wwdc2013/615), для предоставления доступа к собственным методам iOS.
+5. Мы обновим файл `ViewController.m` позже, но сначала создадим файл моста. Этот файл создает обертку для некоторых часто используемых методов пакета SDK iOS Mobile Engagement. Создайте новый заголовочный файл **EngagementJsExports.h**, который использует механизм `JSExport`, описанный в вышеупомянутом [сеансе](https://developer.apple.com/videos/play/wwdc2013/615), для предоставления доступа к собственным методам iOS. 
    
         #import <Foundation/Foundation.h>
         #import <JavaScriptCore/JavascriptCore.h>
@@ -68,7 +72,7 @@ ms.author: piyushjo
         @interface EngagementJs : NSObject <EngagementJsExports>
    
         @end
-6. Затем мы создадим вторую часть файла моста. Создайте файл с именем **EngagementJsExports.m**, который будет содержать реализацию, создающую сами оболочки путем вызова методов пакета SDK iOS Mobile Engagement. Также обратите внимание, что мы разбираем `extras`, передаваемый из кода JavaScript веб-представления, и помещаем его в объект `NSMutableDictionary`, передаваемый с помощью вызовов метода пакета SDK Engagement.
+6. Затем мы создадим вторую часть файла моста. Создайте файл с именем **EngagementJsExports.m** , который будет содержать реализацию, создающую сами оболочки путем вызова методов пакета SDK iOS Mobile Engagement. Также обратите внимание, что мы разбираем `extras`, передаваемый из кода JavaScript веб-представления, и помещаем его в объект `NSMutableDictionary`, передаваемый с помощью вызовов метода пакета SDK Engagement.  
    
         #import <UIKit/UIKit.h>
         #import "EngagementAgent.h"
@@ -76,7 +80,7 @@ ms.author: piyushjo
    
         @implementation EngagementJs
    
-        +(void) sendEngagementEvent:(NSString​*)name :(NSString*​)extras {
+        +(void) sendEngagementEvent:(NSString*)name :(NSString*)extras {
            NSMutableDictionary* extrasInput = [self ParseExtras:extras];
            [[EngagementAgent shared] sendEvent:name extras:extrasInput];
         }
@@ -109,7 +113,7 @@ ms.author: piyushjo
         }
    
         @end
-7. Теперь вернемся к файлу **ViewController.m** и добавим в него следующий код:
+7. Теперь вернемся к файлу **ViewController.m** и добавим в него следующий код: 
    
         #import <JavaScriptCore/JavaScriptCore.h>
         #import "ViewController.h"
@@ -143,7 +147,7 @@ ms.author: piyushjo
            context[@"EngagementJs"] = [EngagementJs class];
         }
    
-        - (void)webView:(UIWebView​*)wv didFailLoadWithError:(NSError*​)error
+        - (void)webView:(UIWebView*)wv didFailLoadWithError:(NSError*)error
         {
            NSLog(@"Error for WEBVIEW: %@", [error description]);
         }
@@ -154,11 +158,11 @@ ms.author: piyushjo
         }
    
         @end
-8. Обратите внимание на следующие моменты, касающиеся файла **ViewController.m**:
+8. Обратите внимание на следующие моменты, касающиеся файла **ViewController.m** :
    
-   * В методе `loadWebView` мы загружаем локальный HTML-файл **LocalPage.html**, код которого будет рассмотрен далее.
-   * В методе `webViewDidFinishLoad` мы получаем `JsContext` и связываем с ним наш класс-оболочку. Это позволит вызывать наши методы SDK оболочки с помощью дескриптора **EngagementJs** из веб-представления.
-9. Создайте файл с именем **LocalPage.html**, содержащий следующий код:
+   * В методе `loadWebView` мы загружаем локальный HTML-файл **LocalPage.html** , код которого будет рассмотрен далее. 
+   * В методе `webViewDidFinishLoad` мы получаем `JsContext` и связываем с ним наш класс-оболочку. Это позволит вызывать наши методы SDK оболочки с помощью дескриптора **EngagementJs** из веб-представления. 
+9. Создайте файл с именем **LocalPage.html** , содержащий следующий код:
    
         <!doctype html>
         <html>
@@ -246,14 +250,14 @@ ms.author: piyushjo
         </html>
 10. Обратите внимание на следующие моменты, касающиеся файла HTML выше:
     
-    * Он содержит набор полей ввода, в которые можно ввести данные для использования в качестве имен для событий, заданий, ошибок и информации о приложении. При нажатии на кнопку рядом с ним выполняется вызов Javascript, который в конечном итоге вызывает методы из файла моста, чтобы передать этот вызов пакету SDK iOS Mobile Engagement.
-    * Мы добавляем теги для указания дополнительной статической информации для событий, заданий и даже ошибок, чтобы показать, как это можно сделать. Эти дополнительные сведения отправляются в виде строки JSON, которая, если заглянуть в файл `EngagementJsExports.m`, анализируется и передается вместе с отправкой событий, заданий и ошибок.
-    * Задание Mobile Engagement запускается под именем, указанным в поле ввода, работает в течение 10 секунд и завершается.
-    * Информация о приложении Mobile Engagement или тег передаются с "customer\_name" в виде статического ключа и значения, введенных в поле ввода в качестве значения тега.
-11. Запустите приложение и вы увидите следующее. Теперь укажите какое-нибудь имя для тестового события (например такое, как указано ниже) и щелкните **Отправить** рядом с ним.
+    * Он содержит набор полей ввода, в которые можно ввести данные для использования в качестве имен для событий, заданий, ошибок и информации о приложении. При нажатии на кнопку рядом с ним выполняется вызов Javascript, который в конечном итоге вызывает методы из файла моста, чтобы передать этот вызов пакету SDK iOS Mobile Engagement. 
+    * Мы добавляем теги для указания дополнительной статической информации для событий, заданий и даже ошибок, чтобы показать, как это можно сделать. Эти дополнительные сведения отправляются в виде строки JSON, которая, если заглянуть в файл `EngagementJsExports.m` , анализируется и передается вместе с отправкой событий, заданий и ошибок. 
+    * Задание Mobile Engagement запускается под именем, указанным в поле ввода, работает в течение 10 секунд и завершается. 
+    * Информация о приложении Mobile Engagement или тег передаются с "customer_name" в виде статического ключа и значения, введенных в поле ввода в качестве значения тега. 
+11. Запустите приложение и вы увидите следующее. Теперь укажите какое-нибудь имя для тестового события (например такое, как указано ниже) и щелкните **Отправить** рядом с ним. 
     
      ![][1]
-12. Если теперь перейти на вкладку **Мониторинг** своего приложения и раскрыть категорию **События -> Сведения**, вы увидите, что это событие отображается вместе со статическими сведениями о приложении, которые мы отправляем.
+12. Если теперь перейти на вкладку **Мониторинг** своего приложения и раскрыть категорию **События -> Сведения**, вы увидите, что это событие отображается вместе со статическими сведениями о приложении, которые мы отправляем. 
     
     ![][2]
 
@@ -261,4 +265,8 @@ ms.author: piyushjo
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

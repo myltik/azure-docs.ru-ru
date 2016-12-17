@@ -1,21 +1,25 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Cherwell | Microsoft Docs
-description: Узнайте, как использовать Cherwell вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Учебник. Интеграция Azure Active Directory с Cherwell | Документация Майкрософт"
+description: "Узнайте, как использовать Cherwell вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2016
+ms.date: 10/14/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70a46193b66142e6be55f4e5fdbe25888c7adfd6
+
 
 ---
-# Руководство. Интеграция Azure Active Directory с Cherwell
+# <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Руководство. Интеграция Azure Active Directory с Cherwell
 Цель данного руководства — показать интеграцию Azure и Cherwell. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
@@ -30,60 +34,60 @@ ms.author: jeedes
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Сценарий")
+![Сценарий](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Scenario")
 
-## Включение интеграции приложений для Cherwell
+## <a name="enabling-the-application-integration-for-cherwell"></a>Включение интеграции приложений для Cherwell
 В этом разделе показано, как включить интеграцию приложений для Cherwell.
 
-### Чтобы включить интеграцию приложений для Cherwell, выполните следующие действия.
+### <a name="to-enable-the-application-integration-for-cherwell-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Cherwell, выполните следующие действия.
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить**.
+   ![Приложения](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Applications")
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+   ![Добавить приложение](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Add application")
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Добавить приложение из коллекции")
+   ![Добавить приложение из коллекции](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Add an application from gallerry")
 6. В **поле поиска** введите **Cherwell**.
    
    ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798989.png "Cherwell")
 7. В области результатов выберите **Cherwell** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-   ## Настройка единого входа
+   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
    ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
 
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Cherwell со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### Чтобы настроить единый вход, выполните следующие действия.
-1. На классическом портале Azure на странице интеграции с приложением **Cherwell** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+1. На классическом портале Azure на странице интеграции с приложением **Cherwell** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configure Single Sign-On")
 2. На странице **Как пользователи должны входить в Cherwell?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Configure Single Sign-On")
 3. На странице **Настройка URL-адреса приложения** выполните следующие действия.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Настройка URL-адреса приложения")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configure App URL")
    
-   а. В текстовое поле **URL-адрес единого входа** введите URL-адрес, используемый для входа в **Cherwell** (например: *https://\<имя\_компании>.cherwellondemand.com/cherwellclient*).
+   а.  В текстовое поле **URL-адрес единого входа** введите URL-адрес, используемый для входа в **Cherwell** (например, *https://\<company name\>.cherwellondemand.com/cherwellclient*).
    
-   b. Нажмите кнопку **Далее**.
+   b.  В нижней части страницы нажмите кнопку **Далее**
 4. На странице **Настройка единого входа в Cherwell** выполните следующие действия.
    
-   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configure Single Sign-On")
    
-   а. Нажмите **Загрузить сертификат** и сохраните сертификат локально на свой компьютер.
+   а.  Нажмите **Загрузить сертификат**и сохраните сертификат локально на свой компьютер.
    
-   b. Скопируйте **URL-адрес поставщика удостоверений**.
+   b.  Скопируйте **URL-адрес поставщика удостоверений**.
    
-   c. Скопируйте **URL-адрес службы единого входа**.
+   c.  Скопируйте **URL-адрес службы единого входа**.
    
-   г) Нажмите кнопку **Далее**.
+   d.  Нажмите кнопку **Далее**.
 5. Отправьте загруженный сертификат, **URL-адрес поставщика удостоверений** и **URL-адрес службы единого входа** в службу поддержки Cherwell.
    
    > [!NOTE]
@@ -93,10 +97,10 @@ ms.author: jeedes
    > 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configure Single Sign-On")
 
-## Настройка подготовки учетных записей пользователей
-Чтобы пользователи Azure AD могли выполнить вход в Cherwell, они должны быть подготовлены для Cherwell.
+## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+Чтобы пользователи Azure AD могли выполнить вход в Cherwell, они должны быть подготовлены для Cherwell.  
 В случае Cherwell учетные записи пользователей должны быть созданы службой поддержки Cherwell.
 
 > [!NOTE]
@@ -104,18 +108,23 @@ ms.author: jeedes
 > 
 > 
 
-## Назначение пользователей
+## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### Чтобы назначить пользователей Cherwell, выполните следующие действия.
+### <a name="to-assign-users-to-cherwell-perform-the-following-steps"></a>Чтобы назначить пользователей Cherwell, выполните следующие действия.
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Cherwell** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Назначить пользователей")
+   ![Назначить пользователей](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Assign Users")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Да")
+   ![Да](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

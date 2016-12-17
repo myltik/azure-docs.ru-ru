@@ -1,13 +1,13 @@
 ---
-title: Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Docs
-description: Как изменить параметры DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети в классической модели развертывания.
+title: "Задание параметров DNS в файле конфигурации виртуальной сети | Документация Майкрософт"
+description: "Как изменить параметры DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети в классической модели развертывания."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
+
 
 ---
-# Задание параметров DNS в файле конфигурации виртуальной сети
-Файл конфигурации сети содержит два элемента, позволяющих задавать параметры службы доменных имен (DNS): **DnsServers** и **DnsServerRef**. Список DNS-серверов можно добавить, задав их IP-адреса и ссылочные имена в элементе **DnsServers**. После этого в элементе **DnsServerRef** можно указать записи DNS-серверов из элемента DnsServers, которые будут применяться для различных сетевых сайтов в виртуальной сети.
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Задание параметров DNS в файле конфигурации виртуальной сети
+Файл конфигурации сети содержит два элемента, позволяющих задавать параметры службы доменных имен (DNS): **DnsServers** и **DnsServerRef**. Список DNS-серверов можно добавить, задав их IP-адреса и ссылочные имена в элементе **DnsServers** . После этого в элементе **DnsServerRef** можно указать записи DNS-серверов из элемента DnsServers, которые будут применяться для различных сетевых сайтов в виртуальной сети.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -27,7 +31,7 @@ ms.author: jdial
 Файл конфигурации сети может содержать следующие элементы. Заголовок каждого элемента связан со страницей, содержащей дополнительную информацию о параметрах значений элемента.
 
 > [!IMPORTANT]
-> Дополнительную информацию о том, как настроить файл конфигурации сети, см. в разделе [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md). Информацию о каждом элементе, содержащемся в файле конфигурации сети, см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+> Дополнительные сведения о настройке файла конфигурации сети см. в статье [Настройка виртуальной сети с помощью файла конфигурации сети](virtual-networks-using-network-configuration-file.md). Сведения о каждом элементе, содержащемся в файле конфигурации сети, см. в статье [Схема настройки виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 > 
 > 
 
@@ -42,7 +46,7 @@ ms.author: jdial
     </Dns>
 
 > [!WARNING]
-> Атрибут **name** в элементе **DnsServer** используется только в качестве ссылки для элемента **DnsServerRef**. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
+> Атрибут **name** в элементе **DnsServer** используется только в качестве ссылки на элемент **DnsServerRef**. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
 > 
 > 
 
@@ -59,9 +63,14 @@ ms.author: jdial
 > 
 > 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь со [схемой конфигурации виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 * Ознакомьтесь со [схемой конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

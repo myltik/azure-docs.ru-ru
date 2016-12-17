@@ -1,12 +1,12 @@
 ---
-title: Решение основных проблем технической поддержки издателей | Microsoft Docs
-description: Узнайте, как устранять основные проблемы технической поддержки издателей и обращаться за помощью
+title: "Решение основных проблем технической поддержки издателей | Документация Майкрософт"
+description: "Узнайте, как устранять основные проблемы технической поддержки издателей и обращаться за помощью"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+
 
 ---
-# Решение основных проблем, возникающих у издателей Azure Marketplace
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Решение основных проблем, возникающих у издателей Azure Marketplace
 В этой статье рассказывается, как решать некоторые распространенные проблемы с использованием Marketplace и обращаться за поддержкой.
 
-## Кредиты и возвраты
-В некоторых случаях вы можете запрашивать кредит или возврат от имени клиента. Служба технической поддержки Майкрософт поможет вам обеспечить рассмотрение таких запросов и своевременное получение ответа.
+## <a name="credits-and-refunds"></a>Кредиты и возвраты
+В некоторых случаях вы можете запрашивать кредит или возврат от имени клиента.  Служба технической поддержки Майкрософт поможет вам обеспечить рассмотрение таких запросов и своевременное получение ответа.
 
 Ниже показано, как запросить кредит или возврат от имени клиента.
 
@@ -29,14 +33,14 @@ ms.author: v-jeana; hascipio; v-dabosl
 > 
 > 
 
-  ![1\_RequestRefund][1]
+  ![1_RequestRefund][1]
 
-1. Откройте страницу службы поддержки: [https://support.microsoft.com/ru-RU/getsupport?tenant=ClassicCommercial&locale=ru-RU&supportregion=ru-RU&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/ru-RU/getsupport?tenant=ClassicCommercial&locale=ru-RU&supportregion=ru-RU&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
-2. В поле **Тип проблемы** выберите параметр **Управление клиентами**.
-3. В поле **Категория** выберите параметр **Утвердить или запросить возврат клиенту**.
+1. Откройте страницу службы поддержки: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+2. В поле **Тип проблемы** выберите **Managing Customers** (Управление клиентами).
+3. В поле **Категория** выберите **Approve or request a customer refund** (Утвердить или запросить возврат клиенту).
 4. Нажмите кнопку **Отправить запрос**.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
 1. Введите контактные данные.
 2. В поле **В чем состоит проблема** введите следующие данные:
@@ -50,7 +54,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 
 В течение 24 часов после отправки запроса вы получите по электронной почте сообщение, подтверждающее, что мы получили указанные вами данные. Как только решение по вашему запросу будет принято, мы вам его сообщим.
 
-## Проверка подписки клиента
+## <a name="customer-subscription-validation"></a>Проверка подписки клиента
 В некоторых случаях вам может потребоваться проверка сведений о подписке одного из клиентов. Для этого вы можете обратиться в службу поддержки Майкрософт. Служба поддержки Майкрософт поможет вам проверить, принадлежат ли указанные данные идентификатора подписки и адреса для выставления счетов известному клиенту.
 
   ![subscriptionvalidation][3]
@@ -61,7 +65,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 * При этом необходимо указать идентификатор подписки клиента и адрес для выставления счетов.
 * Корпорация Майкрософт сообщит вам, известны ли ей указанные данные идентификатора подписки и адреса для выставления счетов.
 
-## Обновление профиля издателя
+## <a name="how-do-i-update-my-publisher-profile"></a>Обновление профиля издателя
 Обновить профиль издателя можно в центре разработки Майкрософт:
 
 **1. Войдите в центр разработки для Windows**.
@@ -71,7 +75,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 
 ![inprivate][4]
 
-**2. Войдите в систему, указав рабочую или учебную учетную запись своей компании** (т. е. AzureStore@yourcompany.com).
+**2. Войдите в систему, используя рабочую или учебную учетную запись своей компании** (т. е. AzureStore@yourcompany.com).).
 
 ![signin][5]
 
@@ -88,7 +92,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 
 ![acctdetails][7]
 
-## Добавление и удаление администратора из учетной записи на портале публикации
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>Добавление и удаление администратора из учетной записи на портале публикации
 ![manageadmins][8]
 
 1. Откройте портал публикации.
@@ -97,7 +101,7 @@ ms.author: v-jeana; hascipio; v-dabosl
 4. Добавьте адрес электронной почты соадминистратора, которого нужно добавить или удалить.
 5. Щелкните **Сохранить**.
 
-## Дальнейшие действия: другие запросы в службу поддержки
+## <a name="next-steps-other-support-queries"></a>Дальнейшие действия: другие запросы в службу поддержки
 Для устранения указанных проблем отправьте заявку на сайт [https://portal.azure.com](https://portal.azure.com):
 
 * Сообщение об ошибке при выставлении счетов
@@ -118,4 +122,8 @@ ms.author: v-jeana; hascipio; v-dabosl
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

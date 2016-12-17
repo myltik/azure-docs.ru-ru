@@ -1,13 +1,13 @@
 ---
-title: Код файла событий XEvent для Базы данных SQL | Microsoft Docs
-description: Содержит сценарии PowerShell и Transact-SQL для примера двухэтапного кода, демонстрирующего целевой файл событий в расширенном событии в Базе данных SQL Azure. Обязательной частью данного сценария является хранилище Azure.
+title: "Код файла событий XEvent для базы данных SQL | Документация Майкрософт"
+description: "Содержит сценарии PowerShell и Transact-SQL для примера двухэтапного кода, демонстрирующего целевой файл событий в расширенном событии в Базе данных SQL Azure. Обязательной частью данного сценария является хранилище Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
+
 
 ---
-# Код целевого файла событий для расширенных событий в Базе данных SQL
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Код целевого файла событий для расширенных событий в Базе данных SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Вам нужен полный образец надежного кода для регистрации и сообщения сведений о расширенных событиях.
@@ -30,22 +34,23 @@ ms.author: genemi
 * Transact-SQL:
   
   * назначение контейнера хранилища Azure для целевого файла событий;
-  * создание и запуск сеанса событий и т. д.
+  * создание и запуск сеанса событий и т. д.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 * Любая база данных, позволяющая создать таблицу.
   
   * При необходимости вы можете быстро [создать демонстрационную базу данных **AdventureWorksLT**](sql-database-get-started.md).
-* SQL Server Management Studio (ssms.exe), в идеале — последняя ежемесячная версия обновления. Ресурсы для загрузки последней версии файла ssms.exe:
+* SQL Server Management Studio (ssms.exe), в идеале — последняя ежемесячная версия обновления. 
+  Ресурсы для загрузки последней версии файла ssms.exe:
   
   * Статья [Скачивание SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
   * [Прямая ссылка на загрузку.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Установленные [модули Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
+* Установленные [модули Azure PowerShell](http://go.microsoft.com/?linkid=9811175) .
   
   * Модули предоставляют такие команды, как **New-AzureStorageAccount**.
 
-## Этап 1. Код PowerShell для контейнера хранилища Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Этап 1. Код PowerShell для контейнера хранилища Azure
 На первом этапе примера двухэтапного кода используется PowerShell.
 
 Сценарий начинается с команд, предназначенных для очистки данных после его предыдущего выполнения, и является многоразовым.
@@ -53,10 +58,10 @@ ms.author: genemi
 1. Вставьте сценарий PowerShell в простой текстовый редактор, например Notepad.exe, и сохраните его в виде файла с расширением **PS1**.
 2. Запустите PowerShell ISE от имени администратора.
 3. В командной строке введите<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>и нажмите клавишу ВВОД.
-4. В PowerShell ISE откройте свой файл **PS1**. Выполните скрипт.
+4. В PowerShell ISE откройте свой файл **PS1** . Выполните скрипт.
 5. Сначала сценарий запускает новое окно, в котором необходимо войти в Azure.
    
-   * При повторном выполнении сценария без прерывания работы сеанса появляется удобная функция комментирования команды **Add-AzureAccount**.
+   * При повторном выполнении сценария без прерывания работы сеанса появляется удобная функция комментирования команды **Add-AzureAccount** .
 
 ![PowerShell ISE с установленным модулем Azure, готовый к выполнению сценария.][30_powershell_ise]
 
@@ -237,13 +242,13 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 
 Обратите внимание на ряд именованных значений, которые выводятся на экран по завершении сценария PowerShell. Эти значения нужно будет внести в сценарий Transact-SQL, работа с которым составляет второй этап.
 
-## Этап 2. Код Transact-SQL, использующий контейнер хранилища Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Этап 2. Код Transact-SQL, использующий контейнер хранилища Azure
 * На первом этапе работы с примером кода вы выполнили сценарий PowerShell, создающий контейнер службы хранилища Azure.
 * На втором этапе этот контейнер используется в сценарии Transact-SQL.
 
 Сценарий начинается с команд, предназначенных для очистки данных после его предыдущего выполнения, и является многоразовым.
 
-После выполнения сценария PowerShell на экран выводится ряд именованных значений. Эти значения необходимо включить в сценарий Transact-SQL. Чтобы определить места, в которые нужно внести изменения, найдите в сценарии Transact-SQL параметр **TODO**.
+После выполнения сценария PowerShell на экран выводится ряд именованных значений. Эти значения необходимо включить в сценарий Transact-SQL. Чтобы определить места, в которые нужно внести изменения, найдите в сценарии Transact-SQL параметр **TODO** .
 
 1. Откройте SQL Server Management Studio (ssms.exe).
 2. Подключитесь к Базе данных SQL Azure.
@@ -469,10 +474,10 @@ GO
 
 &nbsp;
 
-## Выходные данные
-После того как сценарий Transact-SQL будет выполнен, щелкните ячейку под заголовком столбца **event\_data\_XML**. Один из отображенных элементов **<event>** содержит инструкцию UPDATE.
+## <a name="output"></a>Выходные данные
+После того как сценарий Transact-SQL будет выполнен, щелкните ячейку под заголовком столбца **event_data_XML**. Один из отображенных элементов **<event>** содержит инструкцию UPDATE.
 
-Ниже приведен один из элементов **<event>**, сформированных в процессе тестирования.
+Ниже приведен один из элементов **<event>** , сформированных в процессе тестирования.
 
 &nbsp;
 
@@ -517,9 +522,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-В приведенном выше сценарии Transact-SQL для чтения event\_file была использована следующая системная функция.
+В приведенном выше сценарии Transact-SQL для чтения event_file была использована следующая системная функция.
 
-* [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 Описание дополнительных параметров для просмотра данных из расширенных событий доступно в следующей статье.
 
@@ -527,16 +532,16 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-## Преобразование примера кода для выполнения на SQL Server
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Преобразование примера кода для выполнения на SQL Server
 Предположим, что приведенный выше пример сценария Transact-SQL нужно выполнить на Microsoft SQL Server.
 
-* Проще всего будет полностью заменить контейнер службы хранилища Azure простым файлом, например **C:\\myeventdata.xel**. Этот файл будет записан на локальный жесткий диск компьютера, где находится SQL Server.
+* Проще всего будет полностью заменить контейнер службы хранилища Azure простым файлом, например **C:\myeventdata.xel**. Этот файл будет записан на локальный жесткий диск компьютера, где находится SQL Server.
 * Инструкции Transact-SQL **CREATE MASTER KEY** и **CREATE CREDENTIAL** в этом случае не понадобятся.
-* В части **ADD TARGET** оператора **CREATE EVENT SESSION** измените значение Http, заменив **filename=** на полную строку пути, например **C:\\myfile.xel**.
+* В предложении **ADD TARGET** оператора **CREATE EVENT SESSION** измените значение Http, заменив **filename=** на полную строку пути, например **C:\myfile.xel**.
   
   * Учетная запись хранения Azure при этом не нужна.
 
-## Дополнительные сведения
+## <a name="more-information"></a>Дополнительные сведения
 Дополнительные сведения об учетных записях и контейнерах в службе хранилища Azure см. в следующих статьях:
 
 * [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -551,4 +556,9 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
