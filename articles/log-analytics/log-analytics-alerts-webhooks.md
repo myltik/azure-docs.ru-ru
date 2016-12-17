@@ -1,12 +1,12 @@
 ---
-title: Пример webhook для оповещения в Log Analytics
-description: Одно из действий, которое можно выполнить в ответ на оповещение Log Analytics, — это *webhook*. Оно позволяет вызвать внешний процесс посредством одного HTTP-запроса. В этой статье рассматривается пример создания действия webhook в оповещении Log Analytics с использованием Slack.
+title: "Пример webhook для оповещения в Log Analytics"
+description: "Одно из действий, которое можно выполнить в ответ на оповещение Log Analytics, — это webhook. Оно позволяет вызвать внешний процесс посредством одного HTTP-запроса. В этой статье рассматривается пример создания действия webhook в оповещении Log Analytics с использованием Slack."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 13c39f0f-fd3c-472d-8324-ddf7538be45e
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+
 
 ---
 # <a name="webhooks-in-log-analytics-alerts"></a>Действия webhook в оповещениях Log Analytics
@@ -108,6 +112,9 @@ Slack позволяет настроить входные сообщения в
 * Дополнительные сведения, включая другие действия, см. в статье [Оповещения в Log Analytics](log-analytics-alerts.md).
 * [В службе автоматизации Azure можно создать модули Runbook](../automation/automation-webhooks.md) , вызываемые из действия webhook.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

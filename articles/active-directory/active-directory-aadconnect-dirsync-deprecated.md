@@ -1,12 +1,12 @@
 ---
-title: Обновление DirSync и Azure AD Sync | Microsoft Docs
-description: Узнайте, как обновить DirSync и Azure AD Sync до Azure AD Connect.
+title: "Обновление с DirSync и Azure AD Sync | Документация Майкрософт"
+description: "Узнайте, как обновить DirSync и Azure AD Sync до Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d1339b36275b30438d92c9bbe94734644cc9aefe
+
 
 ---
-# <a name="upgrade-windows-azure-active-directory-sync-(“dirsync”)-and-azure-active-directory-sync-(“azure-ad-sync”)"></a>Обновление Windows Azure Active Directory Sync (DirSync) и Azure Active Directory Sync (Azure AD Sync)
+# <a name="upgrade-windows-azure-active-directory-sync-dirsync-and-azure-active-directory-sync-azure-ad-sync"></a>Обновление Windows Azure Active Directory Sync (DirSync) и Azure Active Directory Sync (Azure AD Sync)
 Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы пользуетесь Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, поскольку эти продукты уже устарели, и с 13 апреля 2017 года их поддержка будет прекращена.
 
 Одно из устаревших средств проверки подлинности удостоверений было предназначено работы с одним лесом (DirSync), а другое — для работы с несколькими лесами и для продвинутых пользователей (Azure AD Sync). На смену этим средствам пришло единое решение, подходящее для любой ситуации: Azure AD Connect. Оно включает новые возможности, усовершенствования функций и поддержку новых сценариев. Чтобы сохранить возможность синхронизации локальных данных удостоверений между Azure AD и Office 365, настоятельно рекомендуем перейти на Azure AD Connect.
@@ -39,12 +43,12 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 
 | Решение | Сценарий |
 | --- | --- |
-| [Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Если есть уже работающий сервер DirSync.</li> |
+| [Обновление из DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Если есть уже работающий сервер DirSync.</li> |
 | [Обновление из Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md) |<li>При переходе с Azure AD Sync.</li> |
 
 Обновление на месте для перехода с DirSync на Azure AD Connect демонстрируется в следующем видеоролике Channel 9:
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
+> [!ВИДЕО https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
 > 
 > 
 
@@ -64,6 +68,9 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

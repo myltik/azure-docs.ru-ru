@@ -1,12 +1,12 @@
 ---
-title: Создание пользовательской панели мониторинга в Log Analytics | Microsoft Docs
-description: Это руководство поможет вам понять, как панели мониторинга в службе Log Analytics помогают следить за состоянием вашей среды с помощью визуализации всех ваших сохраненных запросов поиска по журналам.
+title: "Создание пользовательской панели мониторинга в Log Analytics | Документация Майкрософт"
+description: "Это руководство поможет вам понять, как панели мониторинга в службе Log Analytics помогают следить за состоянием вашей среды с помощью визуализации всех ваших сохраненных запросов поиска по журналам."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+
 
 ---
 # <a name="create-a-custom-dashboard-in-log-analytics"></a>Создание пользовательской панели мониторинга в Log Analytics
@@ -28,7 +32,7 @@ ms.author: banders
 
 ![панель мониторинга на мобильном устройстве](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard?"></a>Создание панели мониторинга
+## <a name="how-do-i-create-my-dashboard"></a>Создание панели мониторинга
 Чтобы начать, перейдите на страницу обзора OMS. Слева вы увидите плитку **My Dashboard** (Моя панель мониторинга). Щелкните ее, чтобы открыть свою панель мониторинга.
 
 ![Обзор](./media/log-analytics-dashboards/oms-dashboards-overview.png)
@@ -55,7 +59,7 @@ ms.author: banders
 
 ![Изменение плитки](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations#"></a>Визуализация плиток
+### <a name="tile-visualizations"></a>Визуализация плиток
 Для плиток на выбор предлагаются три варианта визуализации:
 
 | тип диаграммы | назначение |
@@ -80,6 +84,9 @@ ms.author: banders
 ## <a name="next-steps"></a>Дальнейшие действия
 * Создайте [оповещения](log-analytics-alerts.md) в службе Log Analytics для создания уведомлений и устранения проблем.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
