@@ -1,12 +1,12 @@
 ---
-title: Администрирование кэша Redis для Azure | Microsoft Docs
-description: Узнайте, как выполнять задачи администрирования, такие как перезагрузка и планирование обновлений кэша Redis для Azure.
+title: "Администрирование кэша Redis для Azure | Документация Майкрософт"
+description: "Узнайте, как выполнять задачи администрирования, такие как перезагрузка и планирование обновлений кэша Redis для Azure."
 services: redis-cache
 documentationcenter: na
 author: steved0x
 manager: douge
 editor: tysonn
-
+ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 09/27/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
+
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Администрирование кэша Redis для Azure
@@ -62,10 +66,10 @@ ms.author: sdanie
 * [Можно ли перезагрузить кэш с помощью PowerShell, интерфейса командной строки или других средств управления?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 * [Для каких ценовых категорий доступна функция перезагрузки?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
-### <a name="which-node-should-i-reboot-to-test-my-application?"></a>Какой узел следует перезагрузить, чтобы протестировать приложение?
+### <a name="which-node-should-i-reboot-to-test-my-application"></a>Какой узел следует перезагрузить, чтобы протестировать приложение?
 Чтобы протестировать приложение на устойчивость в случае сбоя основного узла кэша, перезагрузите **главный** узел. Чтобы протестировать приложение на устойчивость в случае сбоя вторичного узла, перезагрузите **подчиненный** узел. Чтобы протестировать приложение на устойчивость в случае общего сбоя кэша, перезагрузите **оба** узла.
 
-### <a name="can-i-reboot-the-cache-to-clear-client-connections?"></a>Можно ли перезагрузить кэш, чтобы очистить подключения клиентов?
+### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>Можно ли перезагрузить кэш, чтобы очистить подключения клиентов?
 Да, при перезагрузке кэша все клиентские подключения очищаются. Это может оказаться полезным, когда все подключения клиентов уже использованы, например, из-за логической ошибки или ошибки в клиентском приложении. В каждой ценовой категории существуют [ограничения на подключение клиентов](cache-configure.md#default-redis-server-configuration) для различных размеров, и когда эти ограничения достигаются, последующие подключения не принимаются. Перезагрузка кэша позволяет очистить все подключения клиентов.
 
 > [!IMPORTANT]
@@ -73,15 +77,15 @@ ms.author: sdanie
 > 
 > 
 
-### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot?"></a>Сохранятся ли данные кэша после перезагрузки?
+### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Сохранятся ли данные кэша после перезагрузки?
 Если перезагрузить и **главный**, и **подчиненный** узлы, то все данные в кэше (или в отдельном сегменте при использовании кэша уровня "Премиум" с включенной кластеризацией) будут утеряны. Если вы настроили [сохраняемость данных](cache-how-to-premium-persistence.md), последняя резервная копия будет восстановлена, когда кэш снова станет доступным. Обратите внимание, что все записи в кэше, выполненные после сохранения последней резервной копии, будут утеряны.
 
 Если перезагрузить только один из узлов, то, как правило, данные не теряются, но это все же может произойти. Например, если перезагрузить главный узел в то время, когда выполняется запись в кэш, то данные кэша будут потеряны. Данные также могут быть утеряны, если вы перезагрузите один узел, а другой узел случайно выйдет из строя в то же время. Дополнительные сведения о возможных причинах потери данных см. в разделе [Что произошло с моими данными в Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md).
 
-### <a name="can-i-reboot-my-cache-using-powershell,-cli,-or-other-management-tools?"></a>Можно ли перезагрузить кэш с помощью PowerShell, интерфейса командной строки или других средств управления?
+### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Можно ли перезагрузить кэш с помощью PowerShell, интерфейса командной строки или других средств управления?
 Да, инструкции по использованию PowerShell см. в разделе, посвященном [перезагрузке кэша Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality?"></a>Для каких ценовых категорий доступна функция перезагрузки?
+### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Для каких ценовых категорий доступна функция перезагрузки?
 Функция перезагрузки доступна только в ценовой категории "Премиум".
 
 ## <a name="schedule-updates"></a>Планирование обновлений
@@ -102,13 +106,13 @@ ms.author: sdanie
 * [Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других средств управления?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 * [Для каких ценовых категорий доступна функция планирования обновлений?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
-### <a name="when-do-updates-occur-if-i-don't-use-the-schedule-updates-feature?"></a>Когда происходят обновления, если функция планирования обновлений не используется?
+### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>Когда происходят обновления, если функция планирования обновлений не используется?
 Если период обслуживания не указан, то обновления могут выполняться в любое время.
 
-### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window?"></a>Какие типы обновлений выполняются в запланированный период обслуживания?
+### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>Какие типы обновлений выполняются в запланированный период обслуживания?
 В запланированный период обслуживания выполняются только обновления сервера Redis. Этот период обслуживания не распространяется на обновления Azure или обновления операционной системы виртуальной машины.
 
-### <a name="can-i-managed-scheduled-updates-using-powershell,-cli,-or-other-management-tools?"></a>Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других средств управления?
+### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Можно ли управлять запланированными обновлениями с помощью PowerShell, интерфейса командной строки или других средств управления?
 Да, управлять запланированными обновлениями можно с помощью следующих командлетов PowerShell:
 
 * [Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
@@ -116,12 +120,15 @@ ms.author: sdanie
 * [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
 * [Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
 
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality?"></a>Для каких ценовых категорий доступна функция планирования обновлений?
+### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Для каких ценовых категорий доступна функция планирования обновлений?
 Функция планирования обновлений доступна только в ценовой категории "Премиум".
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [кэше Redis для Azure уровня "Премиум"](cache-premium-tier-intro.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

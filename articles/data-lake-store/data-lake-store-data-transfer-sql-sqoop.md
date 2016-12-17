@@ -1,12 +1,12 @@
 ---
-title: Copy data between Data Lake Store and Azure SQL database using Sqoop | Microsoft Docs
-description: Use Sqoop to copy data between Azure SQL Database and Data Lake Store
+title: "Копирование данных между Data Lake Store и базой данных SQL Azure с помощью Sqoop | Документация Майкрософт"
+description: "Использование Sqoop для копирования данных между базой данных SQL Azure и хранилищем озера данных"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3f914b2a-83cc-4950-b3f7-69c921851683
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -14,88 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
+ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
+
 
 ---
-# <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Copy data between Data Lake Store and Azure SQL database using Sqoop
-Learn how to use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Store.
+# <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Копирование данных между хранилищем озера данных и базой данных SQL Azure с помощью Sqoop
+Узнайте, как использовать Apache Sqoop для импорта и экспорта данных между базой данных SQL Azure и хранилищем озера данных.
 
-## <a name="what-is-sqoop?"></a>What is Sqoop?
-Big data applications are a natural choice for processing unstructured and semi-structured data, such as logs and files. However, there may also be a need to process structured data that is stored in relational databases.
+## <a name="what-is-sqoop"></a>Что такое Sqoop?
+Приложения для работы с большими объемами данных являются естественным выбором для обработки неструктурированных и частично структурированных данных, таких как журналы и файлы. Однако может существовать необходимость обработки структурированных данных, хранимых в реляционных базах данных.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) is a tool designed to transfer data between  relational databases and a big data repository, such as Data Lake Store. You can use it to import data from a relational database management system (RDBMS) such as Azure SQL Database into Data Lake Store. You can then transform and analyze the data using big data workloads and then export the data back into an RDBMS. In this tutorial, you use an Azure SQL Database as your relational database to import/export from.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) — это средство, предназначенное для передачи данных между реляционными базами данных и репозиторием больших данных, например Data Lake Store. Его можно использовать для импорта данных из системы управления реляционными базами данных (RDBMS), такой как база данных SQL Azure, в хранилище озера данных. Затем данные можно преобразовать и проанализировать с помощью рабочих нагрузок больших данных, а после этого экспортировать их обратно в RDBMS. В этом учебнике в качестве реляционной базы данных для импорта и экспорта используется база данных SQL Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin this article, you must have the following:
+## <a name="prerequisites"></a>Предварительные требования
+Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup). 
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Store access.
-* **Azure SQL Database**. For instructions on how to create one, see [Create an Azure SQL database](../sql-database/sql-database-get-started.md)
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. Ознакомьтесь с [инструкциями](data-lake-store-get-started-portal.md). 
+* **Кластер Azure HDInsight** с доступом к учетной записи Data Lake Store. См. статью [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md). В этой статье предполагается, что у вас есть кластер HDInsight на платформе Linux с доступом к хранилищу озера данных.
+* **База данных SQL Azure**. Инструкции по созданию базы данных см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md).
 
-## <a name="do-you-learn-fast-with-videos?"></a>Do you learn fast with videos?
-[Watch this video](https://mix.office.com/watch/1butcdjxmu114) on how to copy data between Azure Storage Blobs and Data Lake Store using DistCp.
+## <a name="do-you-learn-fast-with-videos"></a>Учитесь быстрее с помощью видео?
+[Просмотрите это видно](https://mix.office.com/watch/1butcdjxmu114) об использовании Distcp для копирования данных между большими двоичными объектами службы хранилища Azure и хранилищем озера данных Azure.
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Create sample tables in the Azure SQL Database
-1. To start with, create two sample tables in the Azure SQL Database. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following queries.
-   
-    **Create Table1**
-   
-        CREATE TABLE [dbo].[Table1]( 
-        [ID] [int] NOT NULL, 
-        [FName] [nvarchar](50) NOT NULL, 
-        [LName] [nvarchar](50) NOT NULL, 
-        CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED 
-            ( 
-                [ID] ASC 
-            ) 
-        ) ON [PRIMARY] 
+## <a name="create-sample-tables-in-the-azure-sql-database"></a>Создание образцов таблиц в базе данных SQL Azure
+1. Для начала создайте два образца таблиц в базе данных SQL Azure. Используйте [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) или Visual Studio для подключения к базе данных SQL Azure и выполните приведенные ниже запросы.
+
+    **Создание Table1**
+
+        CREATE TABLE [dbo].[Table1](
+        [ID] [int] NOT NULL,
+        [FName] [nvarchar](50) NOT NULL,
+        [LName] [nvarchar](50) NOT NULL,
+         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+            (
+                   [ID] ASC
+            )
+        ) ON [PRIMARY]
         GO
-   
-    **Create Table2**
-   
-        CREATE TABLE [dbo].[Table2]( 
-        [ID] [int] NOT NULL, 
-        [FName] [nvarchar](50) NOT NULL, 
-        [LName] [nvarchar](50) NOT NULL, 
-        CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED 
-            ( 
-                [ID] ASC 
-            ) 
-        ) ON [PRIMARY] 
+
+    **Создание Table2**
+
+        CREATE TABLE [dbo].[Table2](
+        [ID] [int] NOT NULL,
+        [FName] [nvarchar](50) NOT NULL,
+        [LName] [nvarchar](50) NOT NULL,
+         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+            (
+                   [ID] ASC
+            )
+        ) ON [PRIMARY]
         GO
-2. In **Table1**, add some sample data. Leave **Table2** empty. We will import data from **Table1** into Data Lake Store. Then, we will export data from Data Lake Store into **Table2**. Run the following snippet.
+2. В таблицу **Table1**добавьте несколько примеров данных. Оставьте таблицу **Table2** пустой. Мы будем импортировать данные из таблицы **Table1** в хранилище озера данных. Затем мы будем экспортировать данные из хранилища озера данных в таблицу **Table2**. Выполните следующий фрагмент кода.
 
-        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson'); 
+        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
 
 
-## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Use Sqoop from an HDInsight cluster with access to Data Lake Store
-An HDInsight cluster already has the Sqoop packages available. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, you can use Sqoop (without any configuration changes) to import/export data between a relational database (in this example, Azure SQL Database) and a Data Lake Store account. 
+## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Использование Sqoop из кластера Azure HDInsight с доступом к хранилищу озера данных
+В кластере HDInsight уже имеются доступные пакеты Sqoop. Если кластер HDInsight настроен для использования хранилища озера данных в качестве дополнительного хранилища, можно использовать Sqoop (без изменения конфигурации) для импорта и экспорта данных между реляционной базой данных (в данном примере это база данных SQL Azure) и учетной записью хранилища озера данных.
 
-1. For this tutorial, we assume you created a Linux cluster so you should use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
-2. Verify whether you can access the Data Lake Store account from the cluster. Run the following command from the SSH prompt:
+1. В этом учебнике предполагается, что вы создали кластер Linux, поэтому для подключения к нему следует использовать SSH. См. раздел [Подключение к кластеру HDInsight на основе Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+2. Проверьте, доступна ли учетная запись хранилища озера данных из кластера. Выполните следующую команду из командной строки SSH:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
 
-    This should provide a list of files/folders in the Data Lake Store account.
+    Она должна вывести список файлов и папок в учетной записи хранилища озера данных.
 
-### <a name="import-data-from-azure-sql-database-into-data-lake-store"></a>Import data from Azure SQL Database into Data Lake Store
-1. Navigate to the directory where Sqoop packages are available. Typically, this will be at `/usr/hdp/<version>/sqoop/bin`. 
-2. Import the data from **Table1** into the Data Lake Store account. Use the following syntax:
+### <a name="import-data-from-azure-sql-database-into-data-lake-store"></a>Импорт данных из базы данных SQL Azure в хранилище озера данных
+1. Перейдите в каталог, где доступны пакеты Sqoop. Как правило, это будет каталог `/usr/hdp/<version>/sqoop/bin`.
+2. Импортируйте данные из таблицы **Table1** в учетную запись хранилища озера данных. Используйте следующий синтаксис:
 
         sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-    Note that **sql-database-server-name** placeholder represents the name of the server where the Azure SQL database is running. **sql-database-name** placeholder represents the actual database name.
+    Обратите внимание, что заполнитель **sql-database-server-name** представляет имя сервера, на котором запущена база данных SQL Azure. **sql-database-name** представляет реальное имя базы данных.
 
-    For example,
+    Например,
 
 
         sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-1. Verify that the data has been transferred to the Data Lake Store account. Run the following command:
+1. Убедитесь, что данные были переданы в учетную запись хранилища озера данных. Выполните следующую команду:
 
         hdfs dfs -ls adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/
 
-    You should see the following output.
+    Вы должны увидеть следующие выходные данные.
 
 
         -rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
@@ -104,38 +108,40 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Each **part-m-*** file corresponds to a row in the source table, **Table1**. You can view the contents of the part-m-* files to verify.
+    Каждый файл **part-m-*** соответствует строке в исходной таблице **Table1**. Чтобы проверить это, просмотрите содержимое файлов part-m-*.
 
 
-### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Export data from Data Lake Store into Azure SQL Database
-1. Export the data from Data Lake Store account to the empty table, **Table2**, in the Azure SQL Database. Use the following syntax.
+### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Экспорт данных из хранилища озера данных в базу данных SQL Azure
+1. Экспортируйте данные из учетной записи Data Lake Store в пустую таблицу **Table2**в базе данных SQL Azure. Используйте приведенный ниже синтаксис.
 
         sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-    For example,
+    Например,
 
 
         sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
+1. Убедитесь, что данные были отправлены в таблицу базы данных SQL. С помощью [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) или Visual Studio подключитесь к базе данных SQL Azure, а затем выполните следующий запрос.
 
         SELECT * FROM TABLE2
 
-    This should have the following output.
+    Вы должны увидеть следующие выходные данные.
 
-        ID  FName   LName
+         ID  FName   LName
         ------------------
-        1   Neal    Kell
-        2   Lila    Fulton
-        3   Erna    Myers
-        4   Annette Simpson
+        1    Neal    Kell
+        2    Lila    Fulton
+        3    Erna    Myers
+        4    Annette    Simpson
 
-## <a name="see-also"></a>See also
+## <a name="see-also"></a>Дополнительные материалы
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-* [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
+* [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

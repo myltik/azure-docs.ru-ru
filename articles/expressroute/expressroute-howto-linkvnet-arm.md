@@ -1,13 +1,13 @@
 ---
-title: Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell | Microsoft Docs
-description: В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания Resource Manager и PowerShell.
+title: "Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell | Документация Майкрософт"
+description: "В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания Resource Manager и PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Связывание виртуальной сети с каналом ExpressRoute
@@ -54,7 +58,7 @@ ms.author: ganesr
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Подключение к каналу виртуальной сети в другой подписке
 Канал ExpressRoute может совместно использоваться несколькими подписками. На рисунке ниже схематично показан способ совместного использования каналов ExpressRoute несколькими подписками.
 
-Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
+Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
 
 > [!NOTE]
 > Плата за подключение выделенного канала ExpressRoute и использование полосы пропускания будет взиматься с владельца выделенного канала. Полоса пропускания распределяется между всеми виртуальными сетями.
@@ -69,7 +73,9 @@ ms.author: ganesr
 *Владелец канала* имеет право изменить или отменить разрешение в любое время. Отмена разрешения приводит к удалению всех связывающих подключений из подписки, доступ к которой был отменен.
 
 ### <a name="circuit-owner-operations"></a>Действия владельца канала
-#### <a name="creating-an-authorization"></a>Создание разрешения
+
+**Создание разрешения**
+
 Владелец канала создает разрешение. Это приводит к созданию ключа разрешения, который может использоваться пользователем канала для подключения шлюзов виртуальной сети к каналу ExpressRoute. Разрешение действительно только для одного подключения.
 
 В следующем фрагменте показано создание разрешения с помощью командлета.
@@ -93,14 +99,16 @@ ms.author: ganesr
 
 
 
-#### <a name="reviewing-authorizations"></a>Просмотр разрешений
+**Просмотр разрешений**
+
 Владелец канала может просмотреть все разрешения, выданные для определенного канала, выполнив следующий командлет.
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="adding-authorizations"></a>Добавление разрешений
+**Добавление разрешений**
+
 Владелец канала может добавлять разрешения с помощью следующего командлета.
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -111,32 +119,39 @@ ms.author: ganesr
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="deleting-authorizations"></a>Удаление разрешений
+**Удаление разрешений**
+
 Владелец канала может отзывать (удалять) разрешения, выданные пользователю, с помощью следующего командлета.
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### <a name="circuit-user-operations"></a>Действия пользователя канала
+**Действия пользователя канала**
+
 Пользователь канала должен получить от владельца канала идентификатор однорангового узла и ключ разрешения. Ключ разрешения представляет собой идентификатор GUID.
 
 Код узла можно проверить с помощью следующей команды.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### <a name="redeeming-connection-authorizations"></a>Активация разрешений на подключение
+**Активация разрешений на подключение**
+
 Пользователь канала может активировать разрешение на связь, выполнив следующий командлет.
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"  
+    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### <a name="releasing-connection-authorizations"></a>Освобождение разрешений на подключение
+**Освобождение разрешений на подключение**
+
 Разрешение можно освободить, удалив подключение, связывающее канал ExpressRoute и виртуальную сеть.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

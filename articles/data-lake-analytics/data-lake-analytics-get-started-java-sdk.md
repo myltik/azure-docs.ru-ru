@@ -1,12 +1,12 @@
 ---
-title: Разработка приложений с использованием пакета SDK для Java для аналитики озера данных | Microsoft Docs
-description: Разработка приложений с использованием пакета SDK для Java для аналитики озера данных Azure
+title: "Разработка приложений с использованием пакета Java SDK для Data Lake Analytics | Документация Майкрософт"
+description: "Разработка приложений с использованием пакета SDK для Java для аналитики озера данных Azure"
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,34 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
+ms.openlocfilehash: 7ab51f4834f3112d4f3379acbaa16a386276cdb8
+
 
 ---
-# Учебник. Приступая к работе с аналитикой озера данных Azure с помощью пакета SDK для Java
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Учебник. Приступая к работе с аналитикой озера данных Azure с помощью пакета SDK для Java
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Узнайте, как с помощью пакета SDK для Java для аналитики озера данных Azure создать учетную запись озера данных Azure и выполнить такие базовые операции, как создание папок, передача и скачивание файлов данных, удаление учетной записи, а также как работать с заданиями. Дополнительные сведения об озере данных см. в разделе [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md).
+Узнайте, как с помощью пакета SDK для Java для аналитики озера данных Azure создать учетную запись озера данных Azure и выполнить такие базовые операции, как создание папок, передача и скачивание файлов данных, удаление учетной записи, а также как работать с заданиями. Дополнительные сведения о Data Lake см. в статье [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md).
 
-В этом учебнике вам предстоит разработать консольное приложение Java, которое содержит примеры общих задач администрирования, а также создает тестовые данные и отправляет задание. Для навигации по учебнику с помощью других поддерживаемых средств используйте вкладки в верхней части этого раздела.
+В этом учебнике вам предстоит разработать консольное приложение Java, которое содержит примеры общих задач администрирования, а также создает тестовые данные и отправляет задание.  Для навигации по учебнику с помощью других поддерживаемых средств используйте вкладки в верхней части этого раздела.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Пакет средств разработки для Java (JDK) 8 (с использованием Java версии 1.8).
 * IntelliJ или другая подходящая среда разработки Java. Это необязательный пункт, но мы рекомендуем его выполнить. В инструкциях ниже используется IntelliJ.
-* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Включите свою подписку Azure** для общедоступной предварительной версии Data Lake Analytics. См. [инструкции](data-lake-analytics-get-started-portal.md#signup).
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Включите свою подписку Azure** для общедоступной предварительной версии Data Lake Analytics. Ознакомьтесь с [инструкциями](data-lake-analytics-get-started-portal.md).
 * Создайте приложение Azure Active Directory (AAD) и получите его **идентификатор клиента**, **код клиента** и **ключ**. Дополнительные сведения о приложениях AAD и указания о том, как получить идентификатор клиента, см. в статье [Создание приложения Active Directory и субъекта-службы с помощью портала](../resource-group-create-service-principal-portal.md). Когда будут созданы приложение и ключ, URI ответа и ключ также будут доступны на портале.
 
-## Как выполнить аутентификацию с помощью Azure Active Directory?
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Как выполнить аутентификацию с помощью Azure Active Directory?
 Ниже приведен фрагмент кода для **неинтерактивной** аутентификации, в ходе которой приложение указывает собственные учетные данные.
 
 Для работы с этим руководством вам потребуется предоставить приложению разрешение на создание ресурсов в Azure. Для целей этого руководства **настоятельно рекомендуем** предоставить приложению только разрешения участника приложения в новой неиспользованной пустой группе ресурсов в подписке Azure.
 
-## Создание приложения Java
-1. Откройте IntelliJ и создайте новый проект Java с помощью шаблона **приложения командной строки**.
-2. Щелкните правой кнопкой мыши проект в левой части экрана и выберите пункт **Add Framework Support** (Добавить поддержку платформы). Выберите **Maven** и нажмите кнопку **ОК**.
-3. Откройте только что созданный файл **pom.xml** и добавьте следующий фрагмент текста между тегами **</version>** и **</project>**.
-   
+## <a name="create-a-java-application"></a>Создание приложения Java
+1. Откройте IntelliJ и создайте новый проект Java с помощью шаблона **приложения командной строки** .
+2. Щелкните правой кнопкой мыши проект в левой части экрана и выберите пункт **Add Framework Support**(Добавить поддержку платформы). Выберите **Maven** и нажмите кнопку **ОК**.
+3. Откройте только что созданный файл **pom.xml** и добавьте следующий фрагмент текста между тегами **\<version>** и **\<project>**:
+
     ПРИМЕЧАНИЕ. Этот шаг выполняется временно, пока пакет SDK для аналитики озера данных Azure не станет доступным в Maven. Как только пакет SDK появится в Maven, эта статья будет обновлена. Все будущие обновления этого пакета SDK будут доступны в Maven.
-   
+
         <repositories>
             <repository>
                 <id>adx-snapshots</id>
@@ -90,15 +94,15 @@ ms.author: edmaca
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
-4. Последовательно выберите **File** (Файл), **Settings** (Параметры), **Build** (Сборка), **Execution** (Выполнение), **Deployment** (Развертывание). Выберите **Build Tools** (Средства сборки), **Maven**, **Importing** (Импорт). Затем установите флажок **Import Maven projects automatically** (Импортировать проекты Maven автоматически).
-5. Откройте файл **Main.java** и замените существующий блок кода следующим кодом. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName** и **\_resourceGroupName**, а затем замените заполнители **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** и **SUBSCRIPTION-ID** соответствующими значениями.
-   
+4. Последовательно выберите **File** (Файл), **Settings** (Параметры), **Build** (Сборка), **Execution** (Выполнение), **Deployment** (Развертывание). Выберите **Build Tools** (Средства сборки), **Maven**, **Importing** (Импорт). Затем установите флажок **Import Maven projects automatically**(Импортировать проекты Maven автоматически).
+5. Откройте файл **Main.java** и замените существующий блок кода следующим кодом. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **localFolderPath**, **_adlaAccountName**, **_adlsAccountName** и **_resourceGroupName**, а затем замените заполнители **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** и **SUBSCRIPTION-ID** соответствующими значениями.
+
     Этот код обрабатывает создание учетных записей хранилища озера данных и аналитики озера данных, создание файлов в хранилище, выполнение задания, получения состояния задания, скачивание выходных данных задания и, наконец, удаление учетной записи.
-   
+
    > [!NOTE]
-   > В настоящее время существует известная проблема со службой озера данных Azure. Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием. Если вы еще не работали с порталом, приступить к работе вам поможет руководство [по управлению аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
-   > 
-   > 
+   > В настоящее время существует известная проблема со службой озера данных Azure.  Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием.  Если вы еще не работали с порталом, приступить к работе вам поможет руководство [по управлению аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md) .
+   >
+   >
 
         package com.company;
 
@@ -146,7 +150,7 @@ ms.author: edmaca
 
                 _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
 
-                String localFolderPath = "C:\\local_path\"; // TODO: Change this to any unused, new, empty folder on your local machine.
+                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
 
                 // Authenticate
                 ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
@@ -178,7 +182,7 @@ ms.author: edmaca
                 WaitForNewline("File created.", "Submitting a job.");
 
                 // Submit a job to Data Lake Analytics
-                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM "/input1.csv" USING Extractors.Csv(); OUTPUT @input TO @"/output1.csv" USING Outputters.Csv();", "testJob");
+                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob");
                 WaitForNewline("Job submitted.", "Getting job status.");
 
                 // Wait for job completion and output job status
@@ -337,12 +341,16 @@ ms.author: edmaca
 
 1. Следуйте инструкциям на экране для запуска и завершения приложения.
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
 * Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 * Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Сведения о языке U-SQL см. в статье [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и [Cправочник по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+* Сведения о языке U-SQL см. в статье [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
-* Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+* Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
