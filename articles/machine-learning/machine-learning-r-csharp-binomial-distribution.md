@@ -1,23 +1,27 @@
 ---
-title: Набор веб-служб биномиального распределения | Microsoft Docs
-description: Набор биномиального распределения
+title: "Набор веб-служб биномиального распределения | Документация Майкрософт"
+description: "Набор биномиального распределения"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ireiter
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6d102d57-8f20-4ab3-be31-02fcfe4d15ed
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2016
+ms.date: 10/04/2016
 ms.author: ireiter
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 82e679e1565bfb18c09ffd30c8b49a69b67e0aeb
+
 
 ---
-# Набор биномиального распределения
-Набор веб-служб биномиального распределения состоит из трех веб-служб ([Биномиальный генератор](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Калькулятор вероятностей](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Калькулятор квантилей](https://datamarket.azure.com/dataset/aml_labs/bdq5)), предназначенных для создания биномиальных распределений и работы с ними. С их помощью можно создать биномиальное распределение любой длины, рассчитать квантили для любой заданной вероятности, а также вероятность — для заданного квантиля. Каждая служба выдает собственный набор выходных данных (см. описание ниже). В основе набора веб-служб биномиального распределения лежит использование функций qbinom, rbinom и pbinom, которые входят в пакет статистических функций языка R.
+# <a name="binomial-distribution-suite"></a>Набор биномиального распределения
+Набор веб-служб биномиального распределения состоит из трех веб-служб ([Биномиальный генератор](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Калькулятор вероятностей](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Калькулятор квантилей](https://datamarket.azure.com/dataset/aml_labs/bdq5)), предназначенных для создания биномиальных распределений и работы с ними. С их помощью можно создать биномиальное распределение любой длины, рассчитать квантили для любой заданной вероятности, а также вероятность — для заданного квантиля. Каждая служба выдает собственный набор выходных данных (см. описание ниже). В основе набора веб-служб биномиального распределения лежит использование функций qbinom, rbinom и pbinom, которые входят в пакет статистических функций языка R. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -25,46 +29,48 @@ ms.author: ireiter
 > 
 > 
 
-## Использование веб-службы
+## <a name="consumption-of-web-service"></a>Использование веб-службы
 В состав набора веб-служб биномиального распределения входят перечисленные ниже 3 службы.
 
-### Калькулятор квантилей биномиального распределения
-Эта служба принимает четыре аргумента нормального распределения и рассчитывает соответствующий квантиль. Входные аргументы:
+### <a name="binomial-distribution-quantile-calculator"></a>Калькулятор квантилей биномиального распределения
+Эта служба принимает четыре аргумента нормального распределения и рассчитывает соответствующий квантиль.
+Входные аргументы:
 
-* p — единое обобщенное значение вероятности для набора испытаний.
-* size — количество испытаний
-* prob — вероятность успешного испытания.
-* Side — L для нижней или U для верхней части распределения.
+* p — единое обобщенное значение вероятности для набора испытаний.  
+* size — количество испытаний
+* prob — вероятность успешного испытания.
+* Side — L для нижней или U для верхней части распределения. 
 
 На выходе служба выдает рассчитанный квантиль, связанный с заданной вероятностью.
 
-### Калькулятор вероятности биномиального распределения
-Эта служба принимает четыре аргумента биномиального распределения и рассчитывает соответствующую вероятность. Входные аргументы:
+### <a name="binomial-distribution-probability-calculator"></a>Калькулятор вероятности биномиального распределения
+Эта служба принимает четыре аргумента биномиального распределения и рассчитывает соответствующую вероятность.
+Входные аргументы:
 
-* q — один квантиль события с биномиальным распределением.
-* size — количество испытаний
-* prob — вероятность успешного испытания.
-* side — L для нижней или U для верхней части распределения либо E (одно значение количества успешных испытаний).
+* q — один квантиль события с биномиальным распределением. 
+* size — количество испытаний
+* prob — вероятность успешного испытания.
+* side — L для нижней или U для верхней части распределения либо E (одно значение количества успешных испытаний).
 
 На выходе служба выдает рассчитанную вероятность, связанную с заданным квантилем.
 
-### Генератор биномиального распределения
+### <a name="binomial-distribution-generator"></a>Генератор биномиального распределения
 Эта служба принимает три аргумента биномиального распределения и создает случайную последовательность биномиально распределенных чисел. Ниже описаны аргументы, передаваемые этой службе в запросе.
 
-* n — количество наблюдений.
-* size — количество испытаний.
-* prob — вероятность успеха.
+* n — количество наблюдений. 
+* size — количество испытаний.
+* prob — вероятность успеха.
 
 На выходе служба выдает последовательность чисел длины n с биномиальным распределением на основе аргументов size и prob.
 
-> Эта служба, размещенная в Azure Marketplace, является службой OData. Вызвать ее можно методами POST и GET.
+> Эта служба, размещенная в Azure Marketplace, является службой на основе OData. Вызвать ее можно методами POST и GET. 
 > 
 > 
 
-Автоматизировать использование этой службы можно несколькими способами (примеры приложений: [Генератор](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Калькулятор вероятности](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Калькулятор квантилей](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)).
+Автоматизировать использование этой службы можно несколькими способами (примеры приложений: [Генератор](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Калькулятор вероятности](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Калькулятор квантилей](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
-### Начало кода C# для использования веб-службы:
-### Калькулятор квантилей биномиального распределения
+### <a name="starting-c-code-for-web-service-consumption"></a>Начало кода C# для использования веб-службы:
+### <a name="binomial-distribution-quantile-calculator"></a>Калькулятор квантилей биномиального распределения
     public class Input
     {
             public string p;
@@ -94,7 +100,7 @@ ms.author: ireiter
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### Калькулятор вероятности биномиального распределения
+### <a name="binomial-distribution-probability-calculator"></a>Калькулятор вероятности биномиального распределения
     public class Input
     {
             public string q;
@@ -125,7 +131,7 @@ ms.author: ireiter
     }
 
 
-### Генератор биномиального распределения
+### <a name="binomial-distribution-generator"></a>Генератор биномиального распределения
     public class Input
     {
             public string n;
@@ -158,19 +164,19 @@ ms.author: ireiter
 
 
 
-## Создание веб-службы
+## <a name="creation-of-web-service"></a>Создание веб-службы
 > Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 > 
 > 
 
-### Калькулятор квантилей биномиального распределения
+### <a name="binomial-distribution-quantile-calculator"></a>Калькулятор квантилей биномиального распределения
 ![Создание рабочей области][4]
 
-#### Модуль 1:
+#### <a name="module-1"></a>Модуль 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
-#### Модуль 2:
+#### <a name="module-2"></a>Модуль 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     if (param$p < 0 ) {
@@ -209,16 +215,16 @@ ms.author: ireiter
     maml.mapOutputPort("output");
 
 
-### Калькулятор вероятности биномиального распределения
+### <a name="binomial-distribution-probability-calculator"></a>Калькулятор вероятности биномиального распределения
 ![Создание рабочей области][5]
 
-#### Модуль 1:
+#### <a name="module-1"></a>Модуль 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
     maml.mapOutputPort("data.set"); #send data to output port
 
 
-#### Модуль 2:
+#### <a name="module-2"></a>Модуль 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     prob = pbinom(param$q,size=param$size,prob=param$prob)
@@ -244,15 +250,15 @@ ms.author: ireiter
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Генератор биномиального распределения
+### <a name="binomial-distribution-generator"></a>Генератор биномиального распределения
 ![Создание рабочей области][6]
 
-#### Модуль 1:
+#### <a name="module-1"></a>Модуль 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
     maml.mapOutputPort("data.set"); #send data to output port
 
-#### Модуль 2:
+#### <a name="module-2"></a>Модуль 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     dist = rbinom(param$n,param$size,param$p)
@@ -262,10 +268,10 @@ ms.author: ireiter
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-## Ограничения
+## <a name="limitations"></a>Ограничения
 Это очень простой пример, выполняющий операции с биномиальными распределениями. Как видно из приведенного выше образца кода, в нем практически не отслеживаются ошибки.
 
-## Часто задаваемые вопросы
+## <a name="faq"></a>Часто задаваемые вопросы
 Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Azure Marketplace можно [здесь](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
@@ -281,4 +287,8 @@ ms.author: ireiter
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

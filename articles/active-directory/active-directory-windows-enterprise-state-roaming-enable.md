@@ -1,13 +1,13 @@
 ---
-title: Включение службы Enterprise State Roaming в Azure Active Directory | Microsoft Docs
-description: Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства.
+title: "Включение службы Enterprise State Roaming в Azure Active Directory | Документация Майкрософт"
+description: "Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства."
 services: active-directory
-keywords: Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming
-documentationcenter: ''
+keywords: "Enterprise State Roaming, облака Windows, включение службы Enterprise State Roaming"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
+
 
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Включение службы Enterprise State Roaming в Azure Active Directory
@@ -32,7 +36,7 @@ ms.author: femila
 4. Прокрутите страницу вниз и выберите параметр **ПОЛЬЗОВАТЕЛИ МОГУТ ВЫПОЛНЯТЬ СИНХРОНИЗАЦИЮ ПАРАМЕТРОВ И ДАННЫХ ПРИЛОЖЕНИЙ ОРГАНИЗАЦИИ**, а затем нажмите кнопку **СОХРАНИТЬ**.
    ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-select-all-sync-settings.png)
 
-Чтобы перемещать параметры с помощью службы Enterprise State Roaming для устройств Windows 10, необходимо пройти проверку подлинности, используя удостоверение Azure AD. В качестве основного имени для входа устройств, присоединенных к Azure AD, изначально используется удостоверение Azure AD, поэтому дополнительная настройка не требуется. При использовании устройств с классической локальной версией службы Active Directory ИТ-администратору необходимо [подключить присоединенные к домену устройства к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md).
+Чтобы перемещать параметры с помощью службы Enterprise State Roaming для устройств Windows 10, необходимо пройти проверку подлинности, используя удостоверение Azure AD. В качестве основного имени для входа устройств, присоединенных к Azure AD, изначально используется удостоверение Azure AD, поэтому дополнительная настройка не требуется. При использовании устройств с классической локальной версией службы Active Directory ИТ-администратору необходимо [подключить присоединенные к домену устройства к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="sync-data-storage"></a>Хранилище данных синхронизации
 Данные Enterprise State Roaming размещаются в одном или нескольких [регионах Azure](https://azure.microsoft.com/regions/) в соответствии с региональными стандартами, настроенными в экземпляре Azure Active Directory. Данные Enterprise State Roaming разделяются на три основных географических региона: Северная Америка, EMEA (Европа, Ближний Восток и Африка) и APAC (Азия, Тихоокеанский регион и Австралия). Данные Enterprise State Roaming для клиента находятся локально в географическом регионе и не реплицируются между регионами.  Например, если у пользователей в региональных настройках указана одна из стран региона EMEA, например Франция или Замбия, то их данные будут размещены в одном из регионов Azure в Европе.  Если у пользователей в региональных настройках Azure AD указана одна из стран Северной Америки, например США или Канада, то их данные будут размещены в одном из регионов Azure в США.  Если у пользователей в региональных настройках Azure AD указана одна из стран региона APAC, например Австралия или Новая Зеландия, то их данные будут размещены в одном из регионов Azure в Азии.  Данные из стран Южной Америки и Антарктиды будут размещаться в одном или нескольких регионах Azure в США.  Региональные настройки (страна или регион) задаются в процессе создания каталога Azure AD и не могут быть изменены в дальнейшем. 
@@ -59,7 +63,7 @@ ms.author: femila
 
 **Удаление устаревших данных**. Устаревшими считаются данные, доступ к которым не осуществлялся в течение года ("срок хранения"). Они могут быть удалены из Azure. Срок хранения может измениться, но не будет меньше, чем 90 дней. Такими данными могут выступать параметры Windows или приложений либо все параметры пользователя. Например:
 
-* Если к коллекции определенных параметров не осуществляется доступ (приложение удалено с устройства, группа параметров, например темы, отключена для всех устройств пользователя и т. п.), по истечении периода хранения эта коллекция становится устаревшей и может быть удалена. 
+* Если к коллекции определенных параметров не осуществляется доступ (приложение удалено с устройства, группа параметров, например темы, отключена для всех устройств пользователя и т. п.), по истечении периода хранения эта коллекция становится устаревшей и может быть удалена. 
 * Если пользователь отключил синхронизацию параметров на всех устройствах, доступ к ним не будет осуществляться. Таким образом, как только период хранения истечет, все данные параметров пользователя станут устаревшими и могут быть удалены. 
 * Если администратор каталога Azure AD отключит службу Enterprise State Roaming для всего каталога, синхронизация параметров всех пользователей в этом каталоге будет остановлена. По истечении периода хранения все данные параметров этих пользователей станут устаревшими и могут быть удалены. 
 
@@ -69,8 +73,11 @@ ms.author: femila
 * [Обзор службы Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Group Policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

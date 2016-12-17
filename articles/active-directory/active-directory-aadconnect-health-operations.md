@@ -1,12 +1,12 @@
 ---
-title: Операции Azure AD Connect Health.
-description: В этой статье описаны дополнительные операции, которые можно выполнить после развертывания Azure AD Connect Health.
+title: "Операции Azure AD Connect Health."
+description: "В этой статье описаны дополнительные операции, которые можно выполнить после развертывания Azure AD Connect Health."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: karavar
 manager: samueld
 editor: curtand
-
+ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cc78c6059ff96608c181c8d3d9f8dc2df6a5cd8e
+
 
 ---
 # <a name="azure-ad-connect-health-operations"></a>Операции Azure AD Connect Health
@@ -106,10 +110,10 @@ Azure AD Connect поддерживает управление доступом 
 Разрешение предоставляется, если конечный пользователь имеет доступ к уровню каталога либо к уровню экземпляра службы.
 
 ### <a name="how-to-allow-users-or-groups-access-to-azure-ad-connect-health"></a>Порядок предоставления пользователям или группам доступа к Azure AD Connect Health
-#### <a name="steps-1:-select-the-appropriate-access-scope"></a>Шаг 1. Выбор подходящей области доступа
+#### <a name="steps-1-select-the-appropriate-access-scope"></a>Шаг 1. Выбор подходящей области доступа
 Чтобы разрешить пользователю доступ на уровне *всех экземпляров служб* в Azure AD Connect Health, откройте главную колонку в Azure AD Connect Health.<br>
 
-#### <a name="step-2:-add-users,-groups-and-assign-roles"></a>Шаг 2. Добавление пользователей, групп и назначение ролей
+#### <a name="step-2-add-users-groups-and-assign-roles"></a>Шаг 2. Добавление пользователей, групп и назначение ролей
 1. Щелкните элемент «Пользователи» в разделе «Настройка».<br>
    ![Контроль доступа на основе ролей для Azure AD Connect Health. Главная колонка](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Выберите "Добавить".
@@ -118,7 +122,7 @@ Azure AD Connect поддерживает управление доступом 
 4. Введите имя или идентификатор целевого пользователя или целевой группы. Одновременно можно выбрать сразу несколько пользователей или групп. Нажмите «Выбрать».
    ![Контроль доступа на основе ролей для Azure AD Connect Health. Выбрать пользователя](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Нажмите «ОК».<br>
-6. После завершения назначения ролей пользователи и (или) группы отображаются в списке.<br>
+6. После завершения назначения ролей пользователи и (или) группы отображаются в списке.<br>
    ![Контроль доступа на основе ролей для Azure AD Connect Health. Список пользователей](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Эти действия позволяют разрешить доступ для указанных пользователей и групп в соответствии с назначенным им ролями.
@@ -129,7 +133,7 @@ Azure AD Connect поддерживает управление доступом 
 > 
 > 
 
-#### <a name="step-3:-share-the-blade-location-with-users-or-groups"></a>Шаг 3. Общий доступ к расположению колонки для пользователей или групп
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Шаг 3. Общий доступ к расположению колонки для пользователей или групп
 1. После назначения разрешений пользователь может получить доступ к Azure AD Connect Health, перейдя по адресу [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Перейдя к колонке, пользователь может закрепить ее или различные элементы на панели мониторинга, просто нажав кнопку «Закрепить на панели мониторинга».<br>
    ![Контроль доступа на основе ролей для Azure AD Connect Health. Закрепленная колонка](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
@@ -139,7 +143,7 @@ Azure AD Connect поддерживает управление доступом 
 > 
 > 
 
-### <a name="remove-users-and/or-groups"></a>Удаление пользователей и (или) групп
+### <a name="remove-users-andor-groups"></a>Удаление пользователей и (или) групп
 Вы можете удалить пользователя или группу, добавленных в компонент контроля доступа на основе ролей Azure AD Connect Health, щелкнув правой кнопкой мыши и выбрав команду удаления.<br>
 ![Контроль доступа на основе ролей для Azure AD Connect Health. Удалить пользователя](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
@@ -154,6 +158,9 @@ Azure AD Connect поддерживает управление доступом 
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory | Microsoft Docs
-description: Пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2.
+title: "Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory | Документация Майкрософт"
+description: "Пошаговое руководство по включению условного доступа к локальным приложениям с помощью служб федерации Active Directory (AD FS) в Windows Server 2012 R2."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+
 
 ---
 # <a name="setting-up-on-premises-conditional-access-using-azure-active-directory-device-registration"></a>Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory
@@ -52,7 +56,7 @@ ms.author: femila
 ## <a name="scenario-assumptions"></a>Принятые в сценарии допущения
 Данный сценарий предполагает, что у вас есть гибридная среда, состоящая из клиента Azure AD и локальной службы Active Directory. Эти клиенты должны быть подключены с использованием Azure AD Connect, а также проверенного домена и AD FS для единого входа. Приведенный ниже контрольный список поможет вам настроить среду для описанного выше этапа.
 
-## <a name="checklist:-prerequisites-for-conditional-access-scenario"></a>Контрольный список: предварительные условия для сценария условного доступа
+## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Контрольный список: предварительные условия для сценария условного доступа
 Подключите клиент Azure AD к локальной службе Active Directory.
 
 ## <a name="configure-azure-active-directory-device-registration-service"></a>Настройка службы регистрации устройств Azure Active Directory
@@ -62,7 +66,7 @@ ms.author: femila
 
 Чтобы развернуть службу регистрации устройств Azure Active Directory со своим именем клиента Azure Active Directory, по порядку выполните задачи из приведенного ниже контрольного списка. Если ссылка приведет вас на концептуальную статью, вернитесь к этому контрольному списку после ее просмотра, чтобы вы могли продолжить выполнять оставшиеся задачи контрольного списка. В некоторые задачи входит проверка сценария, которая поможет подтвердить успешность выполнения шага.
 
-## <a name="part-1:-enable-azure-active-directory-device-registration"></a>Часть 1. Включение регистрации устройств в Azure Active Directory
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>Часть 1. Включение регистрации устройств в Azure Active Directory
 Чтобы включить и настроить службу регистрации устройств Azure Active Directory, следуйте приведенному ниже контрольному списку.
 
 | Задача | Справочные материалы |
@@ -70,21 +74,21 @@ ms.author: femila
 | Чтобы позволить устройствам присоединяться к рабочей области, включите регистрацию устройств в своем клиенте Azure Active Directory. По умолчанию многофакторная проверка подлинности для службы не включена. Однако ее рекомендуется использовать при регистрации устройства. Перед включением многофакторной проверки подлинности в ADRS убедитесь в том, что для служб федерации Active Directory настроен поставщик Multi-Factor Authentication. |[Включение регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 | Устройства будут обнаруживать вашу службу регистрации устройств в Azure Active Directory, просматривая хорошо известные записи DNS. Вы должны настроить DNS своей организации таким образом, чтобы устройства могли обнаруживать вашу службу регистрации устройств Azure Active Directory. |[Настройка обнаружения службы регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 
-## <a name="part-2:-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Часть 2. Развертывание и настройка служб федерации Windows Server 2012 R2 Active Directory и настройка отношений федерации с Azure AD
+## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Часть 2. Развертывание и настройка служб федерации Windows Server 2012 R2 Active Directory и настройка отношений федерации с Azure AD
 | Задача | Справочные материалы |
 | --- | --- |
 | Разверните домен доменных служб Active Directory с помощью расширений схемы Windows Server 2012 R2. Обновлять контроллеры домена до Windows Server 2012 R2 не требуется. Единственное требование — это обновление схемы. |[Обновление схемы доменных служб Active Directory](#upgrade-your-active-directory-domain-services-schema) |
 | Устройства будут обнаруживать вашу службу регистрации устройств в Azure Active Directory, просматривая хорошо известные записи DNS. Вы должны настроить DNS своей организации таким образом, чтобы устройства могли обнаруживать вашу службу регистрации устройств Azure Active Directory. |[Подготовка Active Directory к поддержке устройств](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3:-enable-device-writeback-in-azure-ad"></a>Часть 3. Включение обратной записи устройств в Azure AD
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Часть 3. Включение обратной записи устройств в Azure AD
 | Задача | Справочные материалы |
 | --- | --- |
-| Выполните часть 2 включения обратной записи устройств в службе Azure AD Connect. Закончив, вернитесь к данному руководству. |[Включение обратной записи устройств в службе Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Выполните часть 2 включения обратной записи устройств в службе Azure AD Connect. Закончив, вернитесь к данному руководству. |[Включение обратной записи устройств в службе Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
-## <a name="[optional]-part-4:-enable-multi-factor-authentication"></a>[Необязательно] Часть 4. Включение многофакторной проверки подлинности
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Необязательно] Часть 4. Включение многофакторной проверки подлинности
 Настоятельно рекомендуется настроить один из нескольких вариантов многофакторной проверки подлинности. Инструкции по включению Многофакторной идентификации (MFA) см. в статье [Выбор решения многофакторной безопасности](../multi-factor-authentication/multi-factor-authentication-get-started.md). Она содержит описание каждого решения, а также ссылки, которые помогут вам настроить выбранное решение.
 
-## <a name="part-5:-verification"></a>Часть 5. Проверка
+## <a name="part-5-verification"></a>Часть 5. Проверка
 Развертывание завершено. Теперь можно опробовать некоторые сценарии. Воспользуйтесь приведенными ниже ссылками, чтобы поэкспериментировать со службой и ознакомиться с ее функциональными возможностями.
 
 | Задача | Справочные материалы |
@@ -104,7 +108,7 @@ ms.author: femila
 5. В разделе **Развертывание и управление** повторите шаги 1–3, чтобы интегрировать Azure Active Directory в локальный каталог.
    
    1. Добавьте домены.
-   2. Установите и запустите Azure AD Connect. Для установки Azure AD Connect выполните следующие инструкции: [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+   2. Установите и запустите Azure AD Connect. Для установки Azure AD Connect выполните следующие инструкции: [Выборочная установка Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Выполните проверку и управление синхронизацией каталогов. Инструкции по единому входу доступны на этом шаге.
    
    > [!NOTE]
@@ -149,7 +153,7 @@ ms.author: femila
 1. На своем сервере федерации откройте командное окно Windows PowerShell и введите следующую команду: Set-AdfsDeviceRegistration -MaximumInactiveDays 0
 
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Подготовка Azure AD Connect к обратной записи устройства
-1. Завершите часть 1 — подготовьте Azure AD Connect.
+1. Завершите часть 1 — подготовьте Azure AD Connect.
 
 ## <a name="join-devices-to-your-workplace-using-azure-active-directory-device-registration"></a>Присоединение устройств к рабочей области с помощью регистрации устройств в Active Directory Azure
 ### <a name="join-an-ios-device-using-azure-active-directory-device-registration"></a>Присоединение устройства iOS с помощью регистрации устройств в Active Directory Azure
@@ -163,13 +167,13 @@ ms.author: femila
 
 Есть много различных способов сообщить этот URL-адрес своим пользователям. Один из рекомендуемых способов — опубликовать этот URL-адрес в пользовательском сообщении об отказе в доступе в AD FS. Об этом говорится в следующем разделе: [Создание политики доступа к приложениям и пользовательского сообщения об отказе в доступе](#create-an-application-access-policy-and-custom-access-denied-message).
 
-### <a name="join-a-windows-8.1-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 8.1 с помощью регистрации устройств в Active Directory Azure
+### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 8.1 с помощью регистрации устройств в Active Directory Azure
 1. На устройстве Windows 8.1 последовательно выберите **Параметры компьютера** > **Сеть** > **Рабочая область**.
 2. Введите свое имя пользователя в формате имени участника-пользователя. Например, dan@contoso.com.
 3. Выберите **Присоединиться**.
 4. При появлении запроса введите свои учетные данные и выполните вход. Теперь устройство присоединено.
 
-### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 7 с помощью регистрации устройств в Active Directory Azure
+### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 7 с помощью регистрации устройств в Active Directory Azure
 Чтобы зарегистрировать устройства Windows 7, присоединенные к домену, разверните программный пакет регистрации устройств. Программный пакет называется "Присоединение к рабочей области для Windows 7". Его можно скачать с [веб-сайта Microsoft Connect](https://connect.microsoft.com/site1164). Инструкции по использованию пакета см. в статье [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Android с помощью регистрации устройств в Active Directory Azure
@@ -231,6 +235,9 @@ ms.author: femila
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

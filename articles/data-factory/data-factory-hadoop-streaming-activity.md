@@ -1,28 +1,42 @@
 ---
-title: Потоковая активность Hadoop
-description: Узнайте, как с помощью действия потоковой передачи Hadoop в фабрике данных Azure выполнять программы потоковой передачи Hadoop в собственном кластере HDInsight или кластере по требованию.
+title: "Потоковая активность Hadoop"
+description: "Узнайте, как с помощью действия потоковой передачи Hadoop в фабрике данных Azure выполнять программы потоковой передачи Hadoop в собственном кластере HDInsight или кластере по требованию."
 services: data-factory
-documentationcenter: ''
-author: spelluru
+documentationcenter: 
+author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
-ms.author: spelluru
+ms.date: 12/05/2016
+ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
+ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
+
 
 ---
-# Потоковая активность Hadoop
-Можно использовать действие HDInsightStreamingActivity для вызова задания потоковой передачи Hadoop из конвейера фабрики данных Azure. В следующем фрагменте JSON показан синтаксис для использования действия HDInsightStreamingActivity в JSON-файле конвейера.
+# <a name="hadoop-streaming-activity"></a>Потоковая активность Hadoop
+> [!div class="op_single_selector"]
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Хранимая процедура](data-factory-stored-proc-activity.md)
+> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
+> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
 
-Действие потоковой передачи HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы потоковой передачи Hadoop [самостоятельно](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или в кластере HDInsight на базе Windows/Linux [по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md), в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+Можно использовать действие HDInsightStreamingActivity для вызова задания потоковой передачи Hadoop из конвейера фабрики данных Azure. В следующем фрагменте JSON показан синтаксис для использования действия HDInsightStreamingActivity в JSON-файле конвейера. 
 
-## Образец JSON
-Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster.
+Действие потоковой передачи HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы потоковой передачи Hadoop для [вашего собственного](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластера HDInsight или кластера HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+
+## <a name="json-sample"></a>Образец JSON
+Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster. 
 
     {
         "name": "HadoopStreamingPipeline",
@@ -74,7 +88,7 @@ ms.author: spelluru
 2. Задайте в качестве типа действия значение **HDInsightStreaming**.
 3. Для свойства **mapper** укажите имя исполняемого файла mapper. В этом примере таким файлом является cat.exe.
 4. Для свойства **reducer** укажите имя исполняемого файла reducer. В этом примере таким файлом является wc.exe.
-5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере wasb://adfsample@<учетная\_запись>.blob.core.windows.net/example/data/gutenberg/davinci.txt фрагмент adfsample — это контейнер больших двоичных объектов, example/data/Gutenberg — папка, а davinci.txt — большой двоичный объект.
+5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" adfsample — это контейнер больших двоичных объектов, example/data/Gutenberg — это папка, а davinci.txt — это большой двоичный объект.
 6. Для свойства типа **output** укажите выходной файл (включая местоположение) для reducer. Результат задания потоковой передачи Hadoop записывается в расположение, заданное для этого свойства.
 7. В разделе **filePaths** укажите пути для исполняемых файлов mapper и reducer. В примере adfsample/example/apps/wc.exe adfsample — это контейнер больших двоичных объектов, example/apps — это папка, а wc.exe — это исполняемый файл.
 8. Для свойства **fileLinkedService** укажите связанную службу хранилища Azure, которая представляет хранилище Azure, где хранятся указанные в разделе filePaths файлы.
@@ -82,16 +96,16 @@ ms.author: spelluru
 10. Свойство **GetDebugInfo** является необязательным элементом. Если для него установлено значение Failure, журналы скачиваются только при сбое. Если для него установлено значение All, журналы скачиваются всегда, независимо от состояния выполнения.
 
 > [!NOTE]
-> Как показано в примере, вам нужно указать выходной набор данных для действия потоковой передачи Hadoop для свойства **outputs**. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера. Указывать входной набор данных для действия для свойства **inputs** не требуется.
+> Как показано в примере, вам нужно указать выходной набор данных для действия потоковой передачи Hadoop для свойства **outputs** . Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера. Указывать входной набор данных для действия для свойства **inputs** не требуется.  
 > 
 > 
 
-## Пример
-Конвейер в этом пошаговом руководстве запускает в кластере Azure HDInsight программу потоковой передачи Map/Reduce для подсчета слов.
+## <a name="example"></a>Пример
+Конвейер в этом пошаговом руководстве запускает в кластере Azure HDInsight программу потоковой передачи Map/Reduce для подсчета слов. 
 
-### Связанные службы
-#### Связанная служба хранения Azure
-Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя и ключ учетной записи на имя и ключ хранилища Azure.
+### <a name="linked-services"></a>Связанные службы
+#### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
+Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя и ключ учетной записи на имя и ключ хранилища Azure. 
 
     {
         "name": "StorageLinkedService",
@@ -103,8 +117,8 @@ ms.author: spelluru
         }
     }
 
-#### Связанная служба Azure HDInsight
-Далее необходимо создать связанную службу для связи кластера Azure HDInsight с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя кластера HDInsight на имя вашего кластера HDInsight и изменить значения имени пользователя и пароля.
+#### <a name="azure-hdinsight-linked-service"></a>Связанная служба Azure HDInsight
+Далее необходимо создать связанную службу для связи кластера Azure HDInsight с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя кластера HDInsight на имя вашего кластера HDInsight и изменить значения имени пользователя и пароля. 
 
     {
         "name": "HDInsightLinkedService",
@@ -119,9 +133,9 @@ ms.author: spelluru
         }
     }
 
-### Наборы данных
-#### Выходной набор данных
-Конвейер в этом примере не принимает никаких входных данных. Вам нужно указать выходной набор данных для действия потоковой передачи HDInsight. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера.
+### <a name="datasets"></a>Наборы данных
+#### <a name="output-dataset"></a>Выходной набор данных
+Конвейер в этом примере не принимает никаких входных данных. Вам нужно указать выходной набор данных для действия потоковой передачи HDInsight. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера. 
 
     {
         "name": "StreamingOutputDataset",
@@ -143,10 +157,10 @@ ms.author: spelluru
         }
     }
 
-### Конвейер
-В этом примере конвейер имеет только одно действие с типом **HDInsightStreaming**.
+### <a name="pipeline"></a>Конвейер
+В этом примере конвейер имеет только одно действие с типом **HDInsightStreaming**. 
 
-Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster.
+Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster.  
 
     {
         "name": "HadoopStreamingPipeline",
@@ -191,11 +205,16 @@ ms.author: spelluru
         }
     }
 
-## См. также
+## <a name="see-also"></a>См. также
 * [Действие Hive](data-factory-hive-activity.md)
 * [Действие Pig](data-factory-pig-activity.md)
 * [Действие MapReduce](data-factory-map-reduce.md)
 * [Вызов программ Spark](data-factory-spark.md)
 * [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

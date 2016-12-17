@@ -1,12 +1,12 @@
 ---
-title: Настройка защищенного протокола LDAP (LDAPS) в доменных службах Azure AD | Microsoft Docs
-description: Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
+title: "Настройка защищенного протокола LDAP (LDAPS) в доменных службах Azure AD | Документация Майкрософт"
+description: "Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53cf596d1c1df77872696f2a55363cf3a83d5efe
+
 
 ---
-# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Настройка защищенного протокола LDAP (LDAPS) для управляемого домена доменных служб Azure AD
 В этой статье показано, как включить протокол LDAPS для управляемого домена доменных служб Azure AD. Защищенный протокол LDAP также называется "LDAP через SSL или TLS".
 
 ## <a name="before-you-begin"></a>Перед началом работы
@@ -49,7 +53,7 @@ ms.author: maheshu
 * Получите сертификат в центре сертификации. Это может быть ваш центр сертификации предприятия или общедоступный центр сертификации.
 * Создать самозаверяющий сертификат.
 
-### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Вариант А (рекомендуется). Получение сертификата защищенного протокола LDAP из центра сертификации
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Вариант А (рекомендуется). Получение сертификата защищенного протокола LDAP из центра сертификации
 Если ваша организация развертывает корпоративную инфраструктуру открытых ключей, вам потребуется получить сертификат из вашего центра сертификации предприятия. Если ваша организация получает свои сертификаты из общедоступного центра сертификации, то необходимо получить сертификат защищенного протокола LDAP из этого ЦС.
 
 При запросе сертификата должны быть выполнены требования, описанные в разделе [требований к сертификату защищенного протокола LDAP](#requirements-for-the-secure-ldap-certificate).
@@ -79,7 +83,7 @@ ms.author: maheshu
 
 Созданный самозаверяющий сертификат помещается в хранилище сертификатов на локальном компьютере.
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>Задача 2. Экспорт сертификата защищенного протокола LDAP в PFX-файл
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Задача 2. Экспорт сертификата защищенного протокола LDAP в PFX-файл
 К выполнению этой задачи следует приступать только после получения сертификата защищенного протокола LDAP из центра сертификации предприятия или общедоступного центра сертификации либо создания самозаверяющего сертификата.
 
 Чтобы экспортировать сертификат LDAPS в PFX-файл, сделайте следующее.
@@ -225,6 +229,9 @@ ms.author: maheshu
 ## <a name="related-content"></a>Похожий контент
 * [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

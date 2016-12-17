@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с облачной платформой SAP HANA | Microsoft Docs
-description: Узнайте, как использовать SAP HANA Cloud Platform вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с облачной платформой SAP HANA | Документация Майкрософт"
+description: "Узнайте, как использовать SAP HANA Cloud Platform вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Учебник. Интеграция Azure Active Directory с облачной платформой SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Учебник. Интеграция Azure Active Directory с облачной платформой SAP HANA
 Цель данного учебника — показать интеграцию Azure и облачной платформы SAP HANA.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -41,7 +45,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Включение интеграции приложений для облачной платформы SAP HANA
 В этом разделе показано, как включить интеграцию приложений для облачной платформы SAP HANA.
 
-### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для облачной платформы SAP HANA, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для облачной платформы SAP HANA, выполните следующие действия:
 1. На портале управления Azure в левой области навигации нажмите **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
@@ -68,7 +72,7 @@ ms.author: jeedes
 В рамках этой процедуры потребуется отправить сертификат в кодировке Base-64 в клиент облачной платформы SAP HANA.  
 Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **SAP HANA Cloud Platform** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
@@ -164,7 +168,7 @@ ms.author: jeedes
 ## <a name="assigning-a-role-to-a-user"></a>Назначение роли пользователю
 Чтобы разрешить пользователям Azure AD входить в облачную платформу SAP HANA, им необходимо назначить роли в облачной платформе SAP HANA.
 
-### <a name="to-assign-a-role-to-a-user,-perform-the-following-steps:"></a>Чтобы назначить роль пользователю, выполните следующие действия:
+### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Чтобы назначить роль пользователю, выполните следующие действия:
 1. Войдите в пульт управления **SAP HANA Cloud Platform** .
 2. Выполните следующие действия:
    
@@ -179,7 +183,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Чтобы назначить пользователей облачной платформы SAP HANA, выполните следующие действия.
+### <a name="to-assign-users-to-sap-hana-cloud-platform-perform-the-following-steps"></a>Чтобы назначить пользователей облачной платформы SAP HANA, выполните следующие действия.
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **SAP HANA Cloud Platform** щелкните **Назначить пользователей**.
    
@@ -190,6 +194,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
