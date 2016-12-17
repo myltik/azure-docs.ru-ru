@@ -1,12 +1,12 @@
 ---
-title: Удаление серверов и отключение защиты | Microsoft Docs
-description: В этой статье описывается, как отменить регистрацию серверов в хранилище Site Recovery, а также отключить защиту для виртуальных машин и физических серверов.
+title: "Удаление серверов и отключение защиты | Документация Майкрософт"
+description: "В этой статье описывается, как отменить регистрацию серверов в хранилище Site Recovery, а также отключить защиту для виртуальных машин и физических серверов."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08dcf342c122dd1ca119bcfec405bbef2171a0e1
+
 
 ---
 # <a name="remove-servers-and-disable-protection"></a>Удаление серверов и отключение защиты
@@ -96,7 +100,7 @@ ms.author: raynew
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."  
+                    "Removing registration related registry keys."    
                     Remove-Item -Recurse -Path $registrationPath
                 }
    
@@ -127,7 +131,7 @@ ms.author: raynew
                 $store.Remove($cert)
             }
         }catch
-        {   
+        {    
             [system.exception]
             Write-Host "Error occured" -ForegroundColor "Red"
             $error[0] 
@@ -147,7 +151,7 @@ ms.author: raynew
 
 Если выбрать удаление виртуальной машины и ее жестких дисков, они будут удалены из целевого расположения.
 
-### <a name="clean-up-protection-settings-manually-(between-vmm-sites)"></a>Удаление параметров защиты вручную (между сайтами VMM)
+### <a name="clean-up-protection-settings-manually-between-vmm-sites"></a>Удаление параметров защиты вручную (между сайтами VMM)
 Если выбран параметр **Прекратить управление виртуальной машиной**, необходимо удалить параметры вручную:
 
 1. На основном сервере запустите сценарий из консоли VMM, чтобы очистить параметры для основной виртуальной машины. В консоли VMM нажмите кнопку PowerShell, чтобы открыть консоль VMM PowerShell. Замените SQLVM1 именем виртуальной машины.
@@ -163,7 +167,7 @@ ms.author: raynew
    
         Remove-VMReplication –VMName “SQLVM1”
 
-### <a name="clean-up-protection-settings-manually-(between-on-premises-vmm-sites-and-azure)"></a>Удаление параметров защиты вручную (между локальными сайтами VMM и Azure)
+### <a name="clean-up-protection-settings-manually-between-on-premises-vmm-sites-and-azure"></a>Удаление параметров защиты вручную (между локальными сайтами VMM и Azure)
 1. На исходном сервере VMM выполните следующий сценарий, чтобы удалить параметры основной виртуальной машины:
    
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -176,7 +180,7 @@ ms.author: raynew
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-### <a name="clean-up-protection-settings-manually-(between-hyper-v-sites-and-azure)"></a>Удаление параметров защиты вручную (между сайтами Hyper-V и Azure)
+### <a name="clean-up-protection-settings-manually-between-hyper-v-sites-and-azure"></a>Удаление параметров защиты вручную (между сайтами Hyper-V и Azure)
 1. Удалите репликацию для виртуальной машины, работающей на исходном сервере узла Hyper-V, с помощью следующего скрипта. Замените SQLVM1 именем виртуальной машины.
    
         $vmName = "SQLVM1"
@@ -202,6 +206,9 @@ ms.author: raynew
      
        ![Удаление параметров](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

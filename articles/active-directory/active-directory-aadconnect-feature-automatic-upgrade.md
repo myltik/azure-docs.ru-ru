@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: автоматическое обновление | Microsoft Docs'
-description: В этом разделе описывается встроенная функция автоматического обновления в Azure AD Connect.
+title: "Azure AD Connect: автоматическое обновление | Документация Майкрософт"
+description: "В этом разделе описывается встроенная функция автоматического обновления в Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcf0d318f747d359229d1dc8161a952ad3e8ff47
+
 
 ---
-# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
 
 ## <a name="overview"></a>Обзор
@@ -89,13 +93,16 @@ ms.author: billmath
 | UpgradeNotSupportedMetaverseSizeExceeeded |В метавселенной больше 100 000 объектов. |
 | UpgradeNotSupportedMultiForestSetup |Выполняется подключение к нескольким лесам. Экспресс-установка подключается только к одному лесу. |
 | UpgradeNotSupportedNonLocalDbInstall |Вы не используете базу данных SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |[Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию. |
+| UpgradeNotSupportedNonMsolAccount |[Учетная запись соединителя AD](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL_ по умолчанию. |
 | UpgradeNotSupportedStagingModeEnabled |Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

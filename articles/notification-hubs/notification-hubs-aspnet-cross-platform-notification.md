@@ -1,12 +1,12 @@
 ---
-title: Send cross-platform notifications to users with Notification Hubs (ASP.NET)
-description: Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms.
+title: "Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений (ASP.NET)"
+description: "Узнайте, как использовать шаблоны центров уведомлений для отправки в одном запросе независимых от платформы уведомлений, предназначенных для всех платформ."
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
@@ -14,20 +14,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0cc620324c75ed6ffee26fe442014d61673ba1e6
+
 
 ---
-# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Send cross-platform notifications to users with Notification Hubs
-In the previous tutorial [Notify users with Notification Hubs], you learned how to push notifications to all devices registered by a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, which let you specify how a specific device wants to receive notifications. This simplifies sending cross-platform notifications. This topic demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
+# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений
+В предыдущем руководстве под названием [Уведомление пользователей с помощью Центров уведомлений] вы научились отправлять push-уведомления на все устройства, зарегистрированные конкретным пользователем, прошедшим проверку. В этом учебнике для отправки уведомления на каждую поддерживаемую платформу клиента требовалось несколько запросов. Концентраторы уведомлений поддерживают шаблоны, которые позволяют указать, каким образом конкретное устройство должно получать уведомления. Это упрощает отправку кроссплатформенных уведомлений. В этой статье рассказывается, как воспользоваться преимуществами шаблонов для отправки в одном запросе независимых от платформы уведомлений, предназначенных для всех платформ. Дополнительные сведения о шаблонах см. в статье [Общие сведения о Центрах уведомлений][Шаблоны].
 
 > [!NOTE]
-> Notification Hubs allows a device to register multiple templates with the same tag. In this case, an incoming message targeting that tag results in multiple notifications delivered to the device, one for each template. This enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.
+> Центры уведомлений позволяют устройству зарегистрировать несколько шаблонов с одним и тем же тегом. В этом случае входящее сообщение, предназначенное для этого тега, приводит к отправке на устройство нескольких уведомлений, по одному для каждого шаблона. Это дает возможность отображения одного сообщения в нескольких визуальных уведомлениях, например в виде значка и в виде всплывающего уведомления в Магазине Windows.
 > 
 > 
 
-Complete the following steps to send cross-platform notifications using templates:
+Выполните следующие действия для отправки кроссплатформенных уведомлений с использованием шаблонов:
 
-1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, then open the RegisterController.cs file.
-2. Locate the block of code in the **Post** method that creates a new registration replace the `switch` content with the following code:
+1. В обозревателе решений в Visual Studio разверните папку **Контроллеры** , затем откройте файл RegisterController.cs.
+2. Найдите в методе **Post** блок кода, создающий регистрацию, и замените содержимое `switch` следующим кодом:
    
         switch (deviceUpdate.Platform)
         {
@@ -56,8 +60,8 @@ Complete the following steps to send cross-platform notifications using template
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
    
-    This code calls the platform-specific method to create a template registration instead of a native registration. Existing registrations need not be modified because template registrations derive from native registrations.
-3. In the **Notifications** controller, replace the **sendNotification** method with the following code:
+    Этот код вызывает метод, используемый на конкретной платформе для регистрации шаблонов вместо собственной регистрации. Уже имеющиеся регистрации изменять не нужно, поскольку регистрация шаблонов является производной от собственной регистрации.
+3. В контроллере **Уведомления** замените метод **sendNotification** следующим кодом:
    
         public async Task<HttpResponseMessage> Post()
         {
@@ -70,18 +74,18 @@ Complete the following steps to send cross-platform notifications using template
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    This code sends a notification to all platforms at the same time and without having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided *tag* value, as specified in the registered templates.
-4. Re-publish your WebApi back-end project.
-5. Run the client app again and verify that registration succeeds.
-6. (Optional) Deploy the client app to a second device, then run the app.
+    Этот код отправляет уведомление одновременно для всех платформ без необходимости указания собственных полезных данных. Центры уведомлений создают и доставляют правильные полезные данные для каждого устройства с указанным значением *тега* в соответствии с зарегистрированными шаблонами.
+4. Повторно опубликуйте серверный проект WebApi.
+5. Снова запустите клиентское приложение и убедитесь, что регистрация прошла успешно.
+6. (Необязательно) Разверните клиентское приложение на втором устройстве, а затем запустите это приложение.
    
-    Note that a notification is displayed on each device.
+    Обратите внимание, что на каждом из устройств отображается уведомление.
 
-## <a name="next-steps"></a>Next Steps
-Now that you have completed this tutorial, find out more about Notification Hubs and templates in these topics:
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь, когда вы завершили работу с данным учебником, вы можете узнать больше о центрах уведомлений и шаблонах в следующих разделах:
 
-* **[Use Notification Hubs to send breaking news]** <br/>Demonstrates another scenario for using templates
-* **[Azure Notification Hubs Overview][Templates]**<br/>Overview topic has more detailed information on templates.
+* **[Использование Центров уведомлений для передачи экстренных новостей]** <br/>Демонстрация другого сценария для использования шаблонов.
+* **[Общие сведения о Центрах уведомлений][Шаблоны]**<br/>содержится более подробная информация о шаблонах.
 
 <!-- Anchors. -->
 
@@ -91,18 +95,18 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 
 
 <!-- URLs. -->
-[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
-[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Push-уведомления для пользователей ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Push-уведомления для пользователей мобильных служб]: /manage/services/notification-hubs/notify-users/
+[Visual Studio 2012 Express для Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
-[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Использование Центров уведомлений для передачи экстренных новостей]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[центры уведомлений Azure]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Уведомление пользователей с помощью Центров уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Шаблоны]: http://go.microsoft.com/fwlink/p/?LinkId=317339
+[Инструкции по использованию Центров уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Приложение Android версии 2.0 для Azure Active Directory | Microsoft Docs
-description: Узнайте, как создать приложение Android, которое обеспечивает вход пользователей с помощью личной и рабочей или учебной учетной записи Майкрософт, а также использует вызовы API Graph на основе сторонних библиотек.
+title: "Приложение Android версии 2.0 для Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как создать приложение Android, которое обеспечивает вход пользователей с помощью личной и рабочей или учебной учетной записи Майкрософт, а также использует вызовы API Graph на основе сторонних библиотек."
 services: active-directory
-documentationcenter: ''
-author: brandwe
+documentationcenter: 
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 143d72953e84f9ffead2e3c4b0c88b350b824572
+
 
 ---
-# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v2.0-endpoint"></a>Добавление функции входа в приложение Android, использующее стороннюю библиотеку и API Graph, с помощью конечной точки версии 2.0
+# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Добавление функции входа в приложение Android, использующее стороннюю библиотеку и API Graph, с помощью конечной точки версии 2.0
 Платформа Microsoft Identity использует открытые стандарты, такие как OAuth2 и OpenID Connect. Разработчики могут использовать любую библиотеку на свой выбор для интеграции с нашими службами. Чтобы помочь разработчикам с использованием нашей платформы с другими библиотеками, мы написали несколько подобных этому пошаговых руководств по настройке сторонних библиотеки для подключения к платформе Microsoft Identity. Большинство библиотек, в которых реализована [спецификация RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) , могут подключаться к платформе Microsoft Identity.
 
 Используя приложение, создаваемое в этом пошаговом руководстве, пользователи смогут войти в инфраструктуру своей организации и найти там себя с помощью API Graph.
@@ -49,7 +53,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 ```
 
 ## <a name="register-an-app"></a>регистрация приложения;
-Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md).  Не забудьте:
+Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md).  Не забудьте:
 
 * Скопируйте назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
 * Добавьте для приложения **мобильную** платформу.
@@ -116,7 +120,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ## <a name="configure-the-endpoints-of-the-sample"></a>Настройка конечных точек примера
 После успешного запуска `oidlib-sample` можно приступить к изменению некоторых конечных точек для их подключения к Azure Active Directory.
 
-### <a name="configure-your-client-by-editing-the-oidc_clientconf.xml-file"></a>Настройка клиента посредством редактирования файла oidc_clientconf.xml
+### <a name="configure-your-client-by-editing-the-oidcclientconfxml-file"></a>Настройка клиента посредством редактирования файла oidc_clientconf.xml
 1. Так как для получения токена и вызова API Graph используются потоки OAuth2, настроим для клиента только протокол OAuth2. В примере, который станет доступен позже, мы будем использовать OIDC.
    
     ```xml
@@ -148,7 +152,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 Пояснения об использовании `openid` или `offline_access` в качестве областей действия в OpenID Connect см. в разделе [Протоколы версии 2.0 — поток кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-### <a name="configure-your-client-endpoints-by-editing-the-oidc_endpoints.xml-file"></a>Настройка конечных точек клиента посредством редактирования файла oidc_endpoints.xml
+### <a name="configure-your-client-endpoints-by-editing-the-oidcendpointsxml-file"></a>Настройка конечных точек клиента посредством редактирования файла oidc_endpoints.xml
 * Откройте файл `oidc_endpoints.xml` и внесите в него следующие изменения.
   
     ```xml
@@ -185,6 +189,9 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ## <a name="get-security-updates-for-our-product"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам получать уведомления об инцидентах безопасности. Для этого посетите [Технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

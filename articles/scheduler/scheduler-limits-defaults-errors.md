@@ -1,31 +1,35 @@
 ---
-title: Ограничения и значения по умолчанию планировщика
-description: Ограничения и значения по умолчанию планировщика
+title: "Ограничения и значения по умолчанию планировщика"
+description: "Ограничения и значения по умолчанию планировщика"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
+
 
 ---
-# Ограничения и значения по умолчанию планировщика
-## Квоты планировщика, ограничения, значения по умолчанию и регулирования
+# <a name="scheduler-limits-and-defaults"></a>Ограничения и значения по умолчанию планировщика
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Квоты планировщика, ограничения, значения по умолчанию и регулирования
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## Заголовок x-ms-идентификатор-запроса
-Каждый запрос к службе планировщика возвращает заголовок ответа с именем **x-ms-идентификатор-запроса**. Этот заголовок содержит непрозрачное значение, которое однозначно определяет запрос.
+## <a name="the-x-ms-request-id-header"></a>Заголовок x-ms-идентификатор-запроса
+Каждый запрос к службе планировщика возвращает заголовок ответа с именем**x-ms-идентификатор-запроса**. Этот заголовок содержит непрозрачное значение, которое однозначно определяет запрос.
 
 Если запрос постоянно завершается неудачей, но однозначно составлен правильно, используйте это значение, чтобы сообщить об ошибке в корпорацию Майкрософт. Укажите в отчете значение ofx-x-ms-request-id, примерное время создания запроса, идентификатор подписки, коллекцию заданий и (или) задание и тип операции, которую пытался выполнить запрос.
 
-## См. также
+## <a name="see-also"></a>См. также
  [Что такое планировщик?](scheduler-intro.md)
 
  [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
@@ -42,4 +46,9 @@ ms.author: krisragh
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

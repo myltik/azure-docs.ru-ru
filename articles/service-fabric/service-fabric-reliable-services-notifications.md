@@ -1,22 +1,26 @@
 ---
-title: Уведомления Reliable Services | Microsoft Docs
-description: Содержательная документация по уведомлениям Reliable Services в Service Fabric
+title: "Уведомления Reliable Services | Документация Майкрософт"
+description: "Содержательная документация по уведомлениям Reliable Services в Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
 editor: masnider,vturecek
-
+ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/24/2016
+ms.date: 10/18/2016
 ms.author: mcoskun
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
+
 
 ---
-# Уведомления Reliable Services
+# <a name="reliable-services-notifications"></a>Уведомления Reliable Services
 Уведомления позволяют клиентам отслеживать изменения, которые вносятся в интересующий их объект. Существует два типа объектов, поддерживающих уведомления: *диспетчер надежных состояний* и *надежный словарь*.
 
 Распространенные причины для использования уведомлений:
@@ -26,7 +30,7 @@ ms.author: mcoskun
 
 Уведомления активируются в ходе применения операций. В связи с этим обработка уведомлений должна быть максимально быстрой и в синхронных событиях не должно быть ресурсоемких операций.
 
-## Уведомления диспетчера надежных состояний
+## <a name="reliable-state-manager-notifications"></a>Уведомления диспетчера надежных состояний
 Диспетчер надежных состояний предоставляет уведомления для следующих событий:
 
 * транзакция:
@@ -38,13 +42,14 @@ ms.author: mcoskun
 
 Диспетчер надежных состояний отслеживает текущие обрабатываемые транзакции. Как только состояние транзакции меняется, при фиксации этой транзакции срабатывает уведомление.
 
-Диспетчер надежных состояний поддерживает коллекцию надежных состояний, таких как надежный словарь и надежная очередь. При изменении этой коллекции он активирует уведомления. Это может быть добавление или удаление надежного состояния, а также перестроение всей коллекции. Перестроение коллекции диспетчера надежных состояний происходит в трех случаях.
+Диспетчер надежных состояний поддерживает коллекцию надежных состояний, таких как надежный словарь и надежная очередь. При изменении этой коллекции он активирует уведомления. Это может быть добавление или удаление надежного состояния, а также перестроение всей коллекции.
+Перестроение коллекции диспетчера надежных состояний происходит в трех случаях.
 
 * Восстановление. При запуске реплики ее предыдущее состояние будет восстановлено с диска. По завершении восстановления активируется событие с экземпляром **NotifyStateManagerChangedEventArgs**, содержащим набор восстановленных надежных состояний.
 * Полная копия. Прежде чем реплику можно будет присоединить к набору конфигурации, нужно выполнить ее сборку. В некоторых случаях может потребоваться применить к неактивной вторичной реплике полную копию состояния диспетчера надежных состояний из первичной реплики. Диспетчер надежных состояний для вторичной реплики использует экземпляр **NotifyStateManagerChangedEventArgs**, чтобы активировать событие, содержащее набор надежных состояний, полученный из первичной реплики.
 * Восстановление. В сценариях аварийного восстановления состояние реплики можно восстановить из резервной копии с помощью **RestoreAsync**. В таких случаях диспетчер надежных состояний для первичной реплики использует экземпляр **NotifyStateManagerChangedEventArgs**, чтобы активировать событие, содержащее набор надежных состояний, восстановленный из резервной копии.
 
-Для получения уведомлений о транзакциях и/или уведомлений диспетчера состояний необходимо выполнить регистрацию в диспетчере надежных состояний, используя событие **TransactionChanged** или **StateManagerChanged**. Чаще всего для регистрации в этих обработчиках событий используется конструктор службы с отслеживанием состояния. Если выполнить регистрацию в конструкторе, вы будете получать все уведомления в связи с изменениями в течение всего времени существования **IReliableStateManager**.
+Для получения уведомлений о транзакциях и (или) уведомлений диспетчера состояний необходимо выполнить регистрацию в диспетчере надежных состояний, используя событие **TransactionChanged** или **StateManagerChanged**. Чаще всего для регистрации в этих обработчиках событий используется конструктор службы с отслеживанием состояния. Если выполнить регистрацию в конструкторе, вы будете получать все уведомления в связи с изменениями в течение всего времени существования **IReliableStateManager**.
 
 ```C#
 public MyService(StatefulServiceContext context)
@@ -62,7 +67,7 @@ public MyService(StatefulServiceContext context)
 > 
 > 
 
-Ниже приведен пример обработчика событий **TransactionChanged**.
+Ниже приведен пример обработчика событий **TransactionChanged** .
 
 ```C#
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -77,12 +82,14 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-Обработчик событий **StateManagerChanged** использует **NotifyStateManagerChangedEventArgs** для предоставления сведений о событии. Существует два подкласса экземпляра **NotifyStateManagerChangedEventArgs**: **NotifyStateManagerRebuildEventArgs** и **NotifyStateManagerSingleEntityChangedEventArgs**. Свойство Action в **NotifyStateManagerChangedEventArgs** используется для приведения **NotifyStateManagerChangedEventArgs** к правильному подклассу:
+Обработчик событий **StateManagerChanged** использует **NotifyStateManagerChangedEventArgs** для предоставления сведений о событии.
+Существуют два подкласса экземпляра **NotifyStateManagerChangedEventArgs**: **NotifyStateManagerRebuildEventArgs** и **NotifyStateManagerSingleEntityChangedEventArgs**.
+Свойство Action в **NotifyStateManagerChangedEventArgs** используется для приведения **NotifyStateManagerChangedEventArgs** к правильному подклассу:
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**;
 * **NotifyStateManagerChangedAction.Add** и **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**.
 
-Ниже приведен пример обработчика уведомлений **StateManagerChanged**.
+Ниже приведен пример обработчика уведомлений **StateManagerChanged** .
 
 ```C#
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
@@ -98,7 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## Уведомления надежного словаря
+## <a name="reliable-dictionary-notifications"></a>Уведомления надежного словаря
 Надежный словарь предоставляет уведомления для следующих событий:
 
 * Перестроение. Вызывается при восстановлении состояния **ReliableDictionary** из восстановленного или скопированного локального состояния либо из резервной копии.
@@ -107,7 +114,8 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 * Обновление. Вызывается при обновлении элемента в **IReliableDictionary**.
 * Удаление. Вызывается при удалении элемента из **IReliableDictionary**.
 
-Для получения уведомлений надежного словаря нужно выполнить регистрацию обработчика событий **DictionaryChanged** для **IReliableDictionary**. Чаще всего для регистрации этих обработчиков событий используется уведомление о добавлении **ReliableStateManager.StateManagerChanged**. Если вы выполните регистрацию во время добавления **IReliableDictionary** для **IReliableStateManager**, то не пропустите ни одно уведомление.
+Для получения уведомлений надежного словаря нужно выполнить регистрацию обработчика событий **DictionaryChanged** для **IReliableDictionary**. Чаще всего для регистрации этих обработчиков событий используется уведомление о добавлении **ReliableStateManager.StateManagerChanged** .
+Если вы выполните регистрацию во время добавления **IReliableDictionary** для **IReliableStateManager**, то не пропустите ни одно уведомление.
 
 ```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -132,7 +140,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 > 
 > 
 
-Указанный выше код задает интерфейс **IReliableNotificationAsyncCallback**, а также **DictionaryChanged**. Так как **NotifyDictionaryRebuildEventArgs** содержит интерфейс **IAsyncEnumerable**, для которого требуется асинхронное перечисление, уведомления о перестроении срабатывают посредством **RebuildNotificationAsyncCallback** вместо **OnDictionaryChangedHandler**.
+Указанный выше код задает интерфейс **IReliableNotificationAsyncCallback**, а также **DictionaryChanged**. Так как **NotifyDictionaryRebuildEventArgs** содержит интерфейс **IAsyncEnumerable**, для которого требуется асинхронное перечисление, уведомления о перестроении активируются посредством **RebuildNotificationAsyncCallback** вместо **OnDictionaryChangedHandler**.
 
 ```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -154,7 +162,8 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 > 
 > 
 
-Обработчик событий **DictionaryChanged** использует **NotifyDictionaryChangedEventArgs** для предоставления сведений о событии. Существует пять подклассов экземпляра **NotifyDictionaryChangedEventArgs**. Свойство Action в **NotifyDictionaryChangedEventArgs** используется для приведения **NotifyDictionaryChangedEventArgs** к правильному подклассу:
+Обработчик событий **DictionaryChanged** использует **NotifyDictionaryChangedEventArgs** для предоставления сведений о событии.
+**NotifyDictionaryChangedEventArgs** . Свойство Action в **NotifyDictionaryChangedEventArgs** используется для приведения **NotifyDictionaryChangedEventArgs** к правильному подклассу:
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**;
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**;
@@ -193,7 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## Рекомендации
+## <a name="recommendations"></a>Рекомендации
 * *Завершайте* события уведомлений максимально быстро.
 * *Не* выполняйте какие-либо ресурсоемкие операции (например, операции ввода-вывода) в составе синхронных событий.
 * *Проверяйте* тип действия перед обработкой события. Новые типы действий могут быть добавлены в будущем.
@@ -206,9 +215,15 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * Для транзакций, которые содержат несколько операций, эти операции будут применены в порядке, в котором они были получены от пользователя в первичной реплике.
 * При обработке хода выполнения с результатом false некоторые операции могут быть отменены. Для таких операций отмены будут создаваться уведомления и выполнен откат состояния реплики до стабильный точки. Одно важное отличие уведомлений об отмене — события с повторяющимися ключами агрегируются. Например, если упомянутая выше транзакция T1 отменяется, то пользователь увидит одно уведомление для операции Delete(X).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
+* [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Архивация и восстановление (аварийное восстановление) надежных служб](service-fabric-reliable-services-backup-restore.md)
 * [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

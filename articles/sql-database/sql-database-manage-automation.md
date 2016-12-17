@@ -1,33 +1,38 @@
 ---
-title: Управление базами данных SQL Azure с помощью службы автоматизации Azure | Microsoft Docs
-description: Способы использования службы автоматизации Azure для управления базами данных SQL Azure при масштабировании.
+title: "Управление базами данных SQL Azure с помощью службы автоматизации Azure | Документация Майкрософт"
+description: "Способы использования службы автоматизации Azure для управления базами данных SQL Azure при масштабировании."
 services: sql-database, automation
-documentationcenter: ''
+documentationcenter: 
 author: jodoglevy
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2016
-ms.author: jolevy
+ms.author: jhubbard
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4dd54c4febb8242d59fd3d7170d5e7da14dfb548
+
 
 ---
-# Управление базами данных SQL Azure с помощью службы автоматизации Azure
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Управление базами данных SQL Azure с помощью службы автоматизации Azure
 В этом руководстве будет представлена служба автоматизации Azure и способы ее использования для упрощения управления базами данных SQL Azure.
 
-## Что такое служба автоматизации Azure
+## <a name="what-is-azure-automation"></a>Что такое служба автоматизации Azure
 [Служба автоматизации Azure](https://azure.microsoft.com/services/automation/) — это служба Azure для упрощения управления облаком путем автоматизации процессов. С помощью службы автоматизации Azure можно автоматизировать длительные, выполняемые вручную, ненадежные и часто повторяющиеся задачи для повышения надежности, эффективности и ускорения вывода продукта на рынок.
 
 Служба автоматизации Azure предоставляет высоконадежную и высокодоступную подсистему выполнения рабочих процессов с масштабированием в соответствии с требованиями организации по мере ее роста. В службе автоматизации Azure процессы можно запустить вручную, в сторонних системах или по расписанию, чтобы все задачи выполнялись в нужное время.
 
 Уменьшите операционные затраты и освободите ИТ-сотрудников и специалистов по разработке и операциям для работы над повышением бизнес-ценности ПО и автоматизации задач управления облаком в службе автоматизации Azure.
 
-## Как служба автоматизации Azure может помочь управлять базами данных SQL Azure?
-Базой данных SQL Azure можно управлять в службе автоматизации Azure, используя [командлеты Azure SQL Database PowerShell](https://msdn.microsoft.com/library/dn546723.aspx), доступные в разделе [Инструменты Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Служба автоматизации Azure предоставляет командлеты PowerShell базы данных SQL Azure в готовом виде, чтобы вы могли выполнять все задачи управления базами данных SQL, не выходя из службы. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
+## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Как служба автоматизации Azure может помочь управлять базами данных SQL Azure?
+Базой данных SQL Azure можно управлять в службе автоматизации Azure, используя [командлеты PowerShell для базы данных SQL Azure](https://msdn.microsoft.com/library/dn546723.aspx), доступные в разделе со [средствами Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Служба автоматизации Azure предоставляет командлеты PowerShell базы данных SQL Azure в готовом виде, чтобы вы могли выполнять все задачи управления базами данных SQL, не выходя из службы. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
 
 Служба автоматизации Azure также может взаимодействовать непосредственно с серверами SQL Server, выполняя команды SQL с помощью PowerShell.
 
@@ -38,12 +43,17 @@ ms.author: jolevy
 * [Усечение таблицы SQL, когда база данных достигает максимального размера](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
 * [Индексирование таблиц в базе данных SQL Azure при их высокой фрагментации](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы познакомились с основами службы автоматизации Azure и способах ее использования для управления базами данных SQL Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
 
 * [Обзор службы автоматизации Azure](../automation/automation-intro.md)
 * [Мой первый Runbook](../automation/automation-first-runbook-graphical.md)
 * [План обучения работе со службой автоматизации Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
-* [Служба автоматизации Azure: ваш агент SQL в облаке](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
+* [Служба автоматизации Azure: ваш агент SQL в облаке](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

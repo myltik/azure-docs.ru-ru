@@ -1,23 +1,27 @@
 ---
-title: Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure | Microsoft Docs
-description: Из этой статьи вы узнаете, как индексировать BLOB-объекты в формате CSV с помощью службы поиска Azure.
+title: "Индексирование больших двоичных объектов в формате CSV с помощью индексатора больших двоичных объектов службы поиска Azure | Документация Майкрософт"
+description: "Из этой статьи вы узнаете, как индексировать BLOB-объекты в формате CSV с помощью службы поиска Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: chaosrealm
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/12/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+
 
 ---
-# Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure
-По умолчанию [индексатор BLOB-объектов службы поиска Azure](search-howto-indexing-azure-blob-storage.md) анализирует текстовые BLOB-объекты (с разделителями) как один блок текста. Однако в больших двоичных объектах, содержащих CSV-данные, часто возникает необходимость обрабатывать каждую строку объекта как отдельный документ. Например, такой текст с разделителями —
+# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure
+По умолчанию [индексатор BLOB-объектов службы поиска Azure](search-howto-indexing-azure-blob-storage.md) анализирует текстовые BLOB-объекты (с разделителями) как один блок текста. Однако в больших двоичных объектах, содержащих CSV-данные, часто возникает необходимость обрабатывать каждую строку объекта как отдельный документ. Например, такой текст с разделителями — 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
@@ -25,15 +29,15 @@ ms.author: eugenesh
 
 — может понадобиться проанализировать так, чтобы получить два документа, каждый с полями "id", "datePublished" и "tags".
 
-Из этой статьи вы узнаете, как анализировать большие двоичные объекты в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure.
+Из этой статьи вы узнаете, как анализировать большие двоичные объекты в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure. 
 
 > [!IMPORTANT]
-> Сейчас эта функциональность доступна в режиме предварительной версии. Она доступна при использовании REST API версии **2015-02-28-Preview**. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> Сейчас эта функциональность доступна в режиме предварительной версии. Она доступна при использовании REST API версии **2015-02-28-Preview**. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде. 
 > 
 > 
 
-## Настройка индексирования CSV
-Чтобы индексировать BLOB-объекты в формате CSV, создайте или обновите определение индексатора с помощью режима анализа `delimitedText`.
+## <a name="setting-up-csv-indexing"></a>Настройка индексирования CSV
+Чтобы индексировать BLOB-объекты в формате CSV, создайте или обновите определение индексатора с помощью режима анализа `delimitedText` .  
 
     {
       "name" : "my-csv-indexer",
@@ -41,23 +45,24 @@ ms.author: eugenesh
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-Дополнительные сведения об API для создания индексатора см. в разделе [Создание индексатора](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Дополнительные сведения об API создания индексатора см. в разделе [Создание индексатора](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-`firstLineContainsHeaders` указывает, что первая (непустая) строка каждого BLOB-объекта содержит заголовки. Если большие двоичные объекты не содержат строку заголовка, заголовки следует указать в конфигурации индексатора.
+`firstLineContainsHeaders` указывает, что первая (непустая) строка каждого BLOB-объекта содержит заголовки.
+Если большие двоичные объекты не содержат строку заголовка, заголовки следует указать в конфигурации индексатора. 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Сейчас поддерживается только кодирование UTF-8. Кроме того, в качестве разделителя поддерживается только запятая (`','`). Если вам нужна поддержка других форматов кодирования или разделителей, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Сейчас поддерживается только кодирование UTF-8. Кроме того, в качестве разделителя поддерживается только запятая ( `','` ). Если вам нужна поддержка других форматов кодирования или разделителей, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Когда вы используете режим анализа текста с разделителями, служба поиска Azure предполагает, что все BLOB-объекты в источнике данных являются CSV-объектами. Если необходима поддержка как CSV-объектов, так и других больших двоичных объектов в одном источнике данных, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
-## Примеры запросов
-Чтобы свести все описанное выше вместе, ознакомьтесь с приведенными далее примерами данных.
+## <a name="request-examples"></a>Примеры запросов
+Чтобы свести все описанное выше вместе, ознакомьтесь с приведенными далее примерами данных. 
 
-Источник данных:
+Источник данных: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
     Content-Type: application/json
@@ -66,7 +71,7 @@ ms.author: eugenesh
     {
         "name" : "my-blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
@@ -83,7 +88,12 @@ ms.author: eugenesh
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
 
-## Помогите нам усовершенствовать службу поиска Azure
+## <a name="help-us-make-azure-search-better"></a>Помогите нам усовершенствовать службу поиска Azure
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
