@@ -1,19 +1,23 @@
 ---
-title: Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure | Microsoft Docs
-description: Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure
-services: service-bus
+title: "Создание пространства имен и очереди служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
+
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure
@@ -21,7 +25,7 @@ ms.author: sethm;shvija
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
 
-Полный шаблон приведен в разделе [Шаблон пространства имен служебной шины и очереди][Шаблон пространства имен служебной шины и очереди] в GitHub.
+Полный шаблон пространства имен и очередей служебной шины приведен [здесь][Шаблон пространства имен служебной шины и очереди] в GitHub.
 
 > [!NOTE]
 > Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
@@ -29,13 +33,13 @@ ms.author: sethm;shvija
 > * [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
 > * [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
-> * [Создание пространства имен концентратора событий с концентратором событий и группой потребителей](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "служебная шина".
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>Что вы развернете?
+## <a name="what-will-you-deploy"></a>Что вы развернете?
 С помощью этого шаблона вы развернете пространство имен служебной шины с очередью.
 
 [Очереди служебной шины](service-bus-queues-topics-subscriptions.md#queues) доставляют сообщения конкурирующим получателям по типу FIFO (в порядке очереди).
@@ -125,7 +129,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
-* [Управление служебной шиной с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
 * [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
 [Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
@@ -137,6 +141,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

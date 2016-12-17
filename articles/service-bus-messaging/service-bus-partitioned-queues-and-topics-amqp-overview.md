@@ -1,22 +1,26 @@
 ---
-title: Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины | Microsoft Docs
-description: Узнайте об использовании расширенного протокола управления очередью сообщений (AMQP) версии 1.0 для секционированных очередей и разделов служебной шины.
-services: service-bus
+title: "Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины | Документация Майкрософт"
+description: "Узнайте об использовании расширенного протокола управления очередью сообщений (AMQP) версии 1.0 для секционированных очередей и разделов служебной шины."
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 10/14/2016
 ms.author: hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f343c1f087b516c35eb75fc9a1e61c5cf6d1e93
+
 
 ---
-# <a name="amqp-1.0-support-for-service-bus-partitioned-queues-and-topics"></a>Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины
+# <a name="amqp-10-support-for-service-bus-partitioned-queues-and-topics"></a>Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины
 Служебная шина Azure теперь поддерживает расширенный протокол управления очередью сообщений (**AMQP**) версии 1.0 для **секционированных очередей и разделов** служебной шины.
 
 **AMQP** — это открытый стандарт протокола очередей сообщений, который позволяет разрабатывать кроссплатформенные приложения с использованием различных языков программирования. Общие сведения о поддержке AMQP в служебной шине см. в статье [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md).
@@ -33,7 +37,7 @@ ms.author: hillaryc;sethm
 Секционированная очередь может дополнительно повысить доступность, надежность и производительность для приложений, так как такая очередь секционируется между несколькими посредниками сообщений и хранилищами сообщений.     
 
 ### <a name="create-partitioned-queues"></a>Создание секционированных очередей
-Секционированную очередь можно создать с помощью [классического портала Azure][] и пакета SDK служебной шины. Чтобы создать секционированную очередь, необходимо установить для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) экземпляра **QueueDescription** значение [true](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем коде показано, как создать секционированную очередь с помощью пакета SDK служебной шины. 
+Секционированную очередь можно создать с помощью [классического портала Azure][классическом портале Azure] и пакета SDK служебной шины. Чтобы создать секционированную очередь, необходимо установить для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) экземпляра **QueueDescription** значение [true](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем коде показано, как создать секционированную очередь с помощью пакета SDK служебной шины. 
 
 ```
 // Create partitioned queue
@@ -68,7 +72,7 @@ receivedMessage.Complete();
 Секционированный раздел (как и при использовании очередей) может дополнительно повысить доступность, надежность и пропускную способность для приложений, так как такие разделы и их подписки секционируются между несколькими брокерами сообщений и хранилищами сообщений. 
 
 ### <a name="create-partitioned-topics"></a>Создание секционированных разделов
-Секционированный раздел можно создать с помощью [классического портала Azure][] и пакета SDK служебной шины. Чтобы создать секционированный раздел, необходимо задать для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) экземпляра **TopicDescription** значение [true](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). В следующем коде показано, как создать секционированный раздел с помощью пакета SDK служебной шины.
+Секционированный раздел можно создать с помощью [классического портала Azure][классическом портале Azure] и пакета SDK служебной шины. Чтобы создать секционированный раздел, необходимо задать для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) экземпляра **TopicDescription** значение [true](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). В следующем коде показано, как создать секционированный раздел с помощью пакета SDK служебной шины.
 
 ```
 // Create partitioned topic
@@ -115,6 +119,6 @@ receivedMessage.Complete();
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

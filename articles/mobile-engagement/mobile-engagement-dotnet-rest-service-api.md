@@ -1,34 +1,38 @@
 ---
-title: Использование интерфейса API REST для доступа к интерфейсам API службы Azure Mobile Engagement
-description: В этой статье описывается, как использовать интерфейсы API REST Mobile Engagement для доступа к интерфейсам API службы Azure Mobile Engagement
+title: "Использование интерфейса API REST для доступа к интерфейсам API службы Azure Mobile Engagement"
+description: "В этой статье описывается, как использовать интерфейсы API REST Mobile Engagement для доступа к интерфейсам API службы Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e8df4897-55ee-45df-b41e-ff187e3d9d12
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/05/2016
 ms.author: wesmc;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: 512276d151833ab5c65b663d8f2af43153e1d55b
+
 
 ---
-# Использование REST для доступа к интерфейсам API службы Azure Mobile Engagement
-Служба Azure Mobile Engagement предоставляет [интерфейс API REST для Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx), который позволяет управлять устройствами, кампаниями охвата/продвижения и т. д. В этом примере для создания кампании типа "Объявление" и последующей ее активации и отправки в набор устройств используются непосредственно интерфейсы API REST.
+# <a name="using-rest-to-access-azure-mobile-engagement-service-apis"></a>Использование REST для доступа к интерфейсам API службы Azure Mobile Engagement
+Служба Azure Mobile Engagement предоставляет [интерфейс REST API для Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx), который позволяет управлять устройствами, кампаниями охвата/продвижения и т. д. В этом примере для создания кампании типа "Объявление" и последующей ее активации и отправки в набор устройств используются непосредственно интерфейсы API REST. 
 
-Если вы не хотите использовать интерфейсы API REST, мы предлагаем [файл Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json), который можно использовать со средствами создания пакетов SDK для предпочитаемого языка. Для создания пакета SDK из файла Swagger мы рекомендуем использовать средство [AutoRest](https://github.com/Azure/AutoRest). Аналогичным образом мы создали пакет SDK для .NET, который позволяет взаимодействовать с этими интерфейсами API с помощью оболочки C# без самостоятельного согласования маркера проверки подлинности и обновления. Разбор аналогичного примера в этой оболочке см. в статье [Пример интерфейса API службы в пакете SDK для .NET](mobile-engagement-dotnet-sdk-service-api.md)
+Если вы не хотите использовать интерфейсы REST API, мы предлагаем [файл Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json), который можно использовать со средствами создания пакетов SDK для предпочитаемого языка. Мы рекомендуем использовать средство [AutoRest](https://github.com/Azure/AutoRest) для создания пакета SDK из нашего файла Swagger. Аналогичным образом мы создали пакет SDK для .NET, который позволяет взаимодействовать с этими интерфейсами API с помощью оболочки C# без самостоятельного согласования маркера проверки подлинности и обновления. Разбор аналогичного примера в этой оболочке см. в статье [Использование пакета SDK для .NET для доступа к интерфейсам API службы Azure Mobile Engagement](mobile-engagement-dotnet-sdk-service-api.md).
 
-В этом примере для создания и активации кампании типа "Объявление" используются непосредственно интерфейсы API REST.
+В этом примере для создания и активации кампании типа "Объявление" используются непосредственно интерфейсы API REST. 
 
-## Добавление тега appInfo user\_name в приложение Mobile Engagement
-В этом примере нужно добавить тег app-info в приложение Mobile Engagement. На портале мобильного охвата для приложения этот тег можно добавить, выбрав **Параметры** > **Тег (app-info)** > **Новый тег (app-info)**. Добавьте новый тег с именем **user\_name** типа **String**.
+## <a name="adding-a-username-appinfo-to-the-mobile-engagement-app"></a>Добавление тега appInfo user_name в приложение Mobile Engagement
+В этом примере нужно добавить тег app-info в приложение Mobile Engagement. На портале мобильного охвата для приложения этот тег можно добавить, выбрав **Параметры** > **Tag (app-info)** > **Создать tag (app-info)**. Добавьте новый тег с именем **user_name** типа **String**.
 
 ![](./media/mobile-engagement-dotnet-rest-service-api/user-name-app-info.png)
 
-Если вы выполнили инструкции из раздела [Приступая к работе со службой Azure Mobile Engagement для универсальных приложений Windows](mobile-engagement-windows-store-dotnet-get-started.md), можно проверить отправку тега **user\_name**, просто переопределив метод `OnNavigatedTo()` в классе `MainPage` для отправки тега app-info аналогично следующему коду:
+Если вы выполнили инструкции из статьи [Приступая к работе с Azure Mobile Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-dotnet-get-started.md), можно проверить отправку тега **user_name**, просто переопределив метод `OnNavigatedTo()` в классе `MainPage` для отправки тега app-info аналогично следующему коду:
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
@@ -43,17 +47,17 @@ ms.author: wesmc;ricksal
 
 
 
-## Создание приложения API службы
-1. Во-первых, в этом примере потребуется использовать четыре параметра проверки подлинности. Это **SubscriptionId**, **TenantId**, **ApplicationId** и **Secret**. Для получения этих параметров проверки подлинности рекомендуется использовать сценарий PowerShell, как описывается в разделе *Однократная настройка (с использованием сценария)* в учебнике [Проверка подлинности](mobile-engagement-api-authentication.md#authentication).
-2. Для демонстрации работы с интерфейсами API службы REST с целью создания и активации новой кампании типа "Объявление" мы будем использовать простое консольное приложение Windows. Откройте Visual Studio и создайте **Консольное приложение**.
-3. Затем добавьте в проект пакет NuGet **Newtonsoft.Json**.
+## <a name="creating-the-service-api-app"></a>Создание приложения API службы
+1. Во-первых, в этом примере потребуется использовать четыре параметра проверки подлинности. Это **SubscriptionId**, **TenantId**, **ApplicationId** и **Secret**. Для получения этих параметров проверки подлинности рекомендуется использовать сценарий PowerShell, как описывается в разделе *Однократная настройка (с использованием сценария)* в учебнике [Проверка подлинности](mobile-engagement-api-authentication.md#authentication) . 
+2. Для демонстрации работы с интерфейсами API службы REST с целью создания и активации новой кампании типа "Объявление" мы будем использовать простое консольное приложение Windows. Откройте Visual Studio и создайте **Консольное приложение**.   
+3. Затем добавьте в проект пакет NuGet **Newtonsoft.Json** .
 4. В файле `Program.cs` добавьте следующие инструкции `using` для следующих пространств имен:
    
         using System.IO;
         using System.Net;
         using Newtonsoft.Json.Linq;
         using Newtonsoft.Json;
-5. Далее необходимо определить следующие константы в классе `Program`. Они будут использоваться для проверки подлинности и взаимодействия с приложением Mobile Engagement, в котором создается кампания типа "Объявление":
+5. Далее необходимо определить следующие константы в классе `Program` . Они будут использоваться для проверки подлинности и взаимодействия с приложением Mobile Engagement, в котором создается кампания типа "Объявление":
 
         // Parameters needed for authentication of API calls.
         // These are returned from the PowerShell script in the authentication tutorial. 
@@ -67,7 +71,7 @@ ms.author: wesmc;ricksal
         static String Token = null;
 
         // This is the Azure Resource group concept for grouping together resources 
-        // See: https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-portal/
+        // See: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
         static String ResourceGroup = "MobileEngagement";
 
         // For Mobile Engagement operations
@@ -152,7 +156,7 @@ ms.author: wesmc;ricksal
 
     }
 
-1. Добавьте следующий код в свой метод `Main`, чтобы создать маркер проверки подлинности с полученными параметрами проверки подлинности:
+1. Добавьте следующий код в свой метод `Main` , чтобы создать маркер проверки подлинности с полученными параметрами проверки подлинности:
    
         //***************************************************************************
         //*** Get a valid authorization token with your authentication parameters ***
@@ -182,11 +186,11 @@ ms.author: wesmc;ricksal
             Console.WriteLine("*** Failed to get authorization token. Check your parameters for API calls.\n");
             return;
         }
-2. Теперь, когда у нас есть действительный маркер проверки подлинности, можно создать новую рекламную кампанию с помощью интерфейса API REST [создания кампании](https://msdn.microsoft.com/library/azure/mt683742.aspx). Будет создана простая кампания типа "Объявление" с атрибутами **Всегда** и **Только уведомления** с заголовком и сообщением. Это будет кампания push-уведомлений с ручным управлением, как показано на следующем снимке экрана. Это означает, что уведомления будут отправляться только с помощью интерфейсов API.
+2. Теперь, когда у нас есть действительный маркер проверки подлинности, можно создать новую рекламную кампанию с помощью интерфейса API REST [создания кампании](https://msdn.microsoft.com/library/azure/mt683742.aspx) . Будет создана простая кампания типа "Объявление" с атрибутами **Всегда** & **Только уведомления** с заголовком и сообщением. Это будет кампания push-уведомлений с ручным управлением, как показано на следующем снимке экрана. Это означает, что уведомления будут отправляться только с помощью интерфейсов API.
 
     ![](./media/mobile-engagement-dotnet-rest-service-api/manual-push.png)
 
-    Добавьте следующий код в свой метод `Main`, чтобы создать кампанию типа "Объявление":
+    Добавьте следующий код в свой метод `Main` , чтобы создать кампанию типа "Объявление": 
 
         //*****************************************************************************
         //*** Create a campaign to send a notification using the user-name app-info ***
@@ -196,13 +200,13 @@ ms.author: wesmc;ricksal
                "resourcegroups/" + ResourceGroup + "/providers/Microsoft.MobileEngagement/appcollections/" +
                Collection + "/apps/" + AppName + "/campaigns/announcements?api-version=2014-12-01";
 
-        String campaignRequestBody = "{ "name": "BirthdayCoupon", " +
-                                        ""type": "only_notif", " +
-                                        ""deliveryTime": "any", " +
-                                        ""notificationType": "popup", " +
-                                        ""pushMode":"manual", " +
-                                        ""notificationTitle": "Happy Birthday ${user_name}", " +
-                                        ""notificationMessage": "Take extra 10% off on your orders today!"}";
+        String campaignRequestBody = "{ \"name\": \"BirthdayCoupon\", " +
+                                        "\"type\": \"only_notif\", " +
+                                        "\"deliveryTime\": \"any\", " +
+                                        "\"notificationType\": \"popup\", " +
+                                        "\"pushMode\":\"manual\", " +
+                                        "\"notificationTitle\": \"Happy Birthday ${user_name}\", " +
+                                        "\"notificationMessage\": \"Take extra 10% off on your orders today!\"}";
 
         Console.WriteLine("Creating new campaign...\n");
         HttpWebResponse newCampaignResponse = ExecuteREST("POST", newCampaignMethodUrl, Token, null, campaignRequestBody).Result;
@@ -226,9 +230,9 @@ ms.author: wesmc;ricksal
         }
 
 
-1. Кампанию нужно активировать, прежде чем ее можно будет передать на устройства. Идентификатор новой кампании сохраняется в переменной `NewCampaignID`. Мы будем использовать ее в качестве параметра пути URI для активации кампании с помощью интерфейса API REST [активации кампании](https://msdn.microsoft.com/library/azure/mt683745.aspx). В результате состояние кампании должно измениться на **scheduled**, несмотря на то, что она будет отправляться на устройства только вручную с помощью интерфейсов API.
+1. Кампанию нужно активировать, прежде чем ее можно будет передать на устройства. Идентификатор новой кампании сохраняется в переменной `NewCampaignID` . Мы будем использовать ее в качестве параметра пути URI для активации кампании с помощью интерфейса API REST [активации кампании](https://msdn.microsoft.com/library/azure/mt683745.aspx) . В результате состояние кампании должно измениться на **scheduled** , несмотря на то, что она будет отправляться на устройства только вручную с помощью интерфейсов API.
    
-    Добавьте следующий код в свой метод `Main`, чтобы активировать кампанию типа "Объявление":
+    Добавьте следующий код в свой метод `Main` , чтобы активировать кампанию типа "Объявление": 
    
         //******************************************
         //*** Activate the new birthday campaign ***
@@ -258,9 +262,9 @@ ms.author: wesmc;ricksal
             Console.WriteLine("*** Failed to activate birthday campaign.\n");
             return;
         }
-2. Для отправки кампании необходимо предоставить идентификаторы устройств для пользователей, которые должны получать уведомления. Чтобы получить все идентификаторы устройств, мы воспользуемся интерфейсом API REST [опроса устройств](https://msdn.microsoft.com/library/azure/mt683826.aspx). Идентификатор устройства будет добавляться в список, если у него есть связанный тег appInfo **user\_name**.
+2. Для отправки кампании необходимо предоставить идентификаторы устройств для пользователей, которые должны получать уведомления. Чтобы получить все идентификаторы устройств, мы воспользуемся интерфейсом API REST [опроса устройств](https://msdn.microsoft.com/library/azure/mt683826.aspx) . Идентификатор устройства будет добавляться в список, если у него есть связанный тег appInfo **user_name**.
    
-   Добавьте следующий код в свой метод `Main`, чтобы получить все идентификаторы устройств и заполнить список deviceList:
+   Добавьте следующий код в свой метод `Main` , чтобы получить все идентификаторы устройств и заполнить список deviceList:
    
        //************************************************************************
        //*** Now that the manualPush campaign is activated, get the deviceIds ***
@@ -301,9 +305,9 @@ ms.author: wesmc;ricksal
            Console.WriteLine("*** Failed to get devices.\n");
            return;
        }
-3. Наконец, мы отправим кампанию на все устройства с идентификаторами из списка с помощью интерфейса API REST [отправки кампании](https://msdn.microsoft.com/library/azure/mt683734.aspx). Это уведомление **в приложении**. Поэтому, чтобы пользователь мог получить уведомление, приложение должно быть запущено на устройстве.
+3. Наконец, мы отправим кампанию на все устройства с идентификаторами из списка с помощью интерфейса API REST [отправки кампании](https://msdn.microsoft.com/library/azure/mt683734.aspx) . Это уведомление **в приложении** . Поэтому, чтобы пользователь мог получить уведомление, приложение должно быть запущено на устройстве.
    
-   Добавьте следующий код в свой метод `Main`, чтобы отправить кампанию на устройства из списка deviceList:
+   Добавьте следующий код в свой метод `Main` , чтобы отправить кампанию на устройства из списка deviceList:
    
        //**************************************************************
        //*** Trigger the manualPush campaign on the desired devices ***
@@ -315,7 +319,7 @@ ms.author: wesmc;ricksal
                   "/push?api-version=2014-12-01";
    
        Console.WriteLine("Triggering push for new campaign (ID : " + NewCampaignID + ")...\n");
-       String deviceIds = "{"deviceIds":" + JsonConvert.SerializeObject(deviceList) + "}";
+       String deviceIds = "{\"deviceIds\":" + JsonConvert.SerializeObject(deviceList) + "}";
        Console.WriteLine("\n" + deviceIds + "\n");
        HttpWebResponse pushDevicesResponse = ExecuteREST("POST", pushCampaignUrl, Token, null, deviceIds).Result;
        Stream pushDevicesStream = pushDevicesResponse.GetResponseStream();
@@ -425,8 +429,7 @@ ms.author: wesmc;ricksal
         user_name    : Wesley
 
         Triggering push for new campaign (ID : 24)...
-
-
+        
         {"deviceIds":["1d6208b8f281203ecb49431e2e5ce6b3","302486644890e26045884ee5aa0619ec"]}
 
         HTTP Status 200 : OK
@@ -442,4 +445,8 @@ ms.author: wesmc;ricksal
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

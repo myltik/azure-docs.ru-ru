@@ -1,27 +1,35 @@
 ---
-title: Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement | Microsoft Docs
-description: Последние обновления и процедуры для веб-пакета SDK для Azure Mobile Engagement.
+title: "Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement | Документация Майкрософт"
+description: "Последние обновления и процедуры для веб-пакета SDK для Azure Mobile Engagement."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: cb4cda8b-df15-473a-81ee-f7c722f6397b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: web
 ms.devlang: js
 ms.topic: article
-ms.date: 06/07/2016
+ms.date: 10/18/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
+
 
 ---
-# Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement
-## Выпуск 2.0.1 (10.06.2016)
+# <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement
+## <a name="202-10182016"></a>2.0.2 (10/18/2016)
+* Фиксированный сбой в режиме закрытого просмотра (Safari).
+* Фиксированный сбой в браузерах с отключенными файлами cookie.
+
+## <a name="201-6102016"></a>2.0.1 (10.06.2016)
 * Пакет SDK отключен в Internet Explorer 8 и Internet Explorer 9.
 * Исправлено обнаружение веб-браузера Opera.
 
-## Выпуск 2.0.0 (07.06.2016)
+## <a name="200-672016"></a>2.0.0 (6/7/2016)
 * Выпущена служба Azure Mobile Engagement.
 * Выполнено обновление: конфигурация `appId` заменена конфигурацией строки подключения.
 * Добавлены API-интерфейсы для включения и отключения агента.
@@ -31,4 +39,9 @@ ms.author: piyushjo
 * Удалены обратные вызовы, связанные с нерекомендованным соединением XMPP.
 * Удалена поддержка рекламных кампаний.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Параллельный массовый импорт данных с использованием таблиц секционирования SQL | Microsoft Docs
-description: Параллельный массовый импорт данных с использованием таблиц секционирования SQL
+title: "Параллельный массовый импорт данных с использованием таблиц секционирования SQL | Документация Майкрософт"
+description: "Параллельный массовый импорт данных с использованием таблиц секционирования SQL"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+
 
 ---
-# Параллельный массовый импорт данных с использованием таблиц секционирования SQL
-В этом документе описывается создание секционированных таблиц для быстрого параллельного массового импорта данных в Базу данных SQL Server. При загрузке и передаче массивов "больших данных" в базу данных SQL с помощью *секционированных таблиц и представлений* можно оптимизировать импорт информации в эту базу, а также выполнение последующих запросов.
+# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Параллельный массовый импорт данных с использованием таблиц секционирования SQL
+В этом документе описывается создание секционированных таблиц для быстрого параллельного массового импорта данных в Базу данных SQL Server. При загрузке и передаче больших данных в базу данных SQL с помощью *секционированных таблиц и представлений* можно оптимизировать импорт информации в эту базу, а также выполнение последующих запросов. 
 
-## Создание новой базы данных и набора групп файлов
+## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Создание новой базы данных и набора групп файлов
 * [Создайте базу данных](https://technet.microsoft.com/library/ms176061.aspx) (если она еще не существует).
 * Добавьте группы файлов базы данных в базу данных, которая будет содержать секционированные физические файлы.
   
@@ -31,7 +35,7 @@ ms.author: bradsev
   > 
   > 
 
-В следующем примере создается новая база данных с тремя группами файлов в отличие от основных групп и групп журналов, содержащих по одному физическому файлу. Файлы базы данных создаются в папке данных SQL Server по умолчанию, настроенной в экземпляре SQL Server. Дополнительную информацию о расположении файлов по умолчанию см. в статье [Расположение файлов для экземпляра по умолчанию и именованных экземпляров SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+В следующем примере создается новая база данных с тремя группами файлов в отличие от основных групп и групп журналов, содержащих по одному физическому файлу. Файлы базы данных создаются в папке данных SQL Server по умолчанию, настроенной в экземпляре SQL Server. Дополнительные сведения о расположении файлов по умолчанию см. в статье [Расположение файлов для экземпляра по умолчанию и именованных экземпляров SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -52,19 +56,19 @@ ms.author: bradsev
         ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
 
-## Создание секционированной таблицы
+## <a name="create-a-partitioned-table"></a>Создание секционированной таблицы
 Создайте секционированные таблицы в соответствии со схемой данных, сопоставленной с группами файлов базы данных, созданных на предыдущем шаге. При массовом импорте данных в секционированные таблицы записи будут распределены между группами файлов в соответствии со схемой секционирования, как описано ниже.
 
 **Чтобы создать таблицу секционирования:**
 
-* [Создайте функцию секционирования](https://msdn.microsoft.com/library/ms187802.aspx), которая определяет диапазон значений или границ для каждой отдельной таблицы секционирования, чтобы, например, ограничить секции по месяцам (поле\_даты\_и\_времени) в 2013 году:
+* [Создайте функцию секционирования](https://msdn.microsoft.com/library/ms187802.aspx), которая определяет диапазон значений или границ для каждой отдельной таблицы секционирования, чтобы, например, ограничить секции по месяцам (поле\_даты_и\_времени) в 2013 году.
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Создайте схему секционирования](https://msdn.microsoft.com/library/ms179854.aspx), в которой каждый диапазон секционирования в функции секционирования сопоставляется с физической группой файлов, например:
+* [Создайте схему секционирования](https://msdn.microsoft.com/library/ms179854.aspx) , в которой каждый диапазон секционирования в функции секционирования сопоставляется с физической группой файлов, например:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -81,19 +85,19 @@ ms.author: bradsev
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Создайте секционированные таблицы](https://msdn.microsoft.com/library/ms174979.aspx) в соответствии со схемой данных и укажите схему секционирования и поле ограничений, используемые для секционирования таблицы, например:
+* [Создайте секционированные таблицы](https://msdn.microsoft.com/library/ms174979.aspx)в соответствии со схемой данных и укажите схему секционирования и поле ограничений, используемые для секционирования таблицы, например:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 
-Дополнительную информацию см. в статье [Создание секционированных таблиц и индексов](https://msdn.microsoft.com/library/ms188730.aspx).
+Дополнительные сведения см. в статье [Создание секционированных таблиц и индексов](https://msdn.microsoft.com/library/ms188730.aspx).
 
-## Массовый импорт данных для каждой отдельной таблицы секционирования
+## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Массовый импорт данных для каждой отдельной таблицы секционирования
 * Можно использовать BCP, BULK INSERT или другие средства, например [мастер миграции SQL Server](http://sqlazuremw.codeplex.com/). В приведенном ниже примере используется метод BCP.
-* [Измените базу данных](https://msdn.microsoft.com/library/bb522682.aspx), заменив схему ведения журнала транзакций на BULK\_LOGGED, что позволит свести к минимуму нагрузку ведения журнала, например:
+* [Измените базу данных](https://msdn.microsoft.com/library/bb522682.aspx), заменив схему ведения журнала транзакций на BULK_LOGGED, что позволит свести к минимуму нагрузку ведения журнала, например:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Чтобы ускорить загрузку данных, запустите параллельные операции массового импорта. Советы по ускорению импорта массивов «больших данных» в базы SQL Server см. в статье [Загрузка данных емкостью 1 ТБ менее чем за час](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Чтобы ускорить загрузку данных, запустите параллельные операции массового импорта. Советы по ускорению импорта больших данных в базы SQL Server см. в статье [Загрузка данных емкостью 1 ТБ менее чем за час](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 В следующем сценарии PowerShell приведен пример параллельной загрузки данных с использованием BCP.
 
@@ -128,13 +132,13 @@ ms.author: bradsev
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
 
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
 
     # Background processing of all partitions
@@ -159,7 +163,7 @@ ms.author: bradsev
     date
 
 
-## Создание индексов для оптимизации производительности запросов и объединений
+## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Создание индексов для оптимизации производительности запросов и объединений
 * В случае извлечения данных для моделирования из нескольких таблиц создайте индексы для ключей объединений, чтобы повысить производительность объединений.
 * [Создайте индексы](https://technet.microsoft.com/library/ms188783.aspx) (кластеризованные или некластеризованные) для одной и той же целевой группы файлов каждой секции, например:
   
@@ -175,7 +179,12 @@ ms.author: bradsev
   > 
   > 
 
-## Расширенный процесс аналитики и технологии в действии: пример
-Полноценный пошаговый пример применения процесса аналитики Кортаны с использованием общедоступного набора данных см. в разделе [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Расширенный процесс аналитики и технологии в действии: пример
+Полноценный пошаговый пример применения процесса Cortana Analytics с использованием общедоступного набора данных см. в статье [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

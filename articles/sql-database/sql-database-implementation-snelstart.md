@@ -1,22 +1,27 @@
 ---
-title: 'База данных SQL Azure: пример использования Azure — Snelstart | Microsoft Docs'
-description: Узнайте, как с помощью Базы данных Azure компания SnelStart быстро расширила свои бизнес-службы со скоростью 1000 новых баз данных SQL Azure в месяц.
+title: "Пример использования базы данных SQL Azure: Snelstart | Документация Майкрософт"
+description: "Узнайте, как с помощью Базы данных Azure компания SnelStart быстро расширила свои бизнес-службы со скоростью 1000 новых баз данных SQL Azure в месяц."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 66360bc0a8618d250cc07e3e806af6c9a157afaf
+
 
 ---
-# <a name="with-azure,-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1,000-new-azure-sql-databases-per-month"></a>С помощью Azure компания SnelStart быстро расширила свои бизнес-службы со скоростью 1000 новых баз данных SQL Azure в месяц
+# <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>С помощью Azure компания SnelStart быстро расширила свои бизнес-службы со скоростью 1000 новых баз данных SQL Azure в месяц
 ![Эмблема SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 Компания SnelStart из Нидерландов — создатель популярного ПО для управления финансами и предприятием для малого и среднего бизнеса. Ее 55 000 клиентов обслуживаются персоналом из 110 сотрудников, включая 35 ИТ-специалистов. Перейдя с классического ПО на программное обеспечение как услугу (SaaS) на платформе Azure, SnelStart максимально эффективно использовала встроенные службы, автоматизировав управление с помощью привычной среды на языке C#. При этом удалось оптимизировать производительность и масштабируемость, избегая выделения чрезмерных или недостаточных ресурсов для организаций благодаря использованию пулов эластичных баз данных. Использование Azure позволяет SnelStart плавно перемещать клиентов между локальными и облачными ресурсами.
@@ -99,10 +104,13 @@ SnelStart также разрабатывает API, который действ
 
 ## <a name="more-information"></a>Дополнительные сведения
 * Дополнительные сведения о пулах эластичных баз данных см. в статье [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md).
-* Чтобы узнать больше о веб-ролях и рабочих ролях, ознакомьтесь с [рабочими ролями](../fundamentals-introduction-to-azure.md#compute). 
+* Чтобы узнать больше о веб-ролях и рабочих ролях, ознакомьтесь с [рабочими ролями](../fundamentals-introduction-to-azure.md#compute).    
 * Дополнительные сведения о хранилище данных SQL Azure см. в статье [Хранилище данных SQL](https://azure.microsoft.com/documentation/services/sql-data-warehouse/).
 * Дополнительные сведения о SnelStart см. в статье [SnelStart](http://www.snelstart.nl).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

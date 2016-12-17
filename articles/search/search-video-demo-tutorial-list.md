@@ -1,13 +1,13 @@
 ---
-title: Видео, примеры и руководства, в которых описывается использование поиска Azure | Microsoft Docs
-description: Центральный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure.
+title: "Видео, примеры и руководства, в которых описывается использование службы поиска Azure | Документация Майкрософт"
+description: "Центральный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/22/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011a19ae7ffae0fedee1d6202d1b00d35d948f9
+
 
 ---
-# <a name="azure-search:-code-samples,-demos,-videos-and-tutorials"></a>Поиск Azure: примеры кода, демоверсии, видео и учебники
+# <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Поиск Azure: примеры кода, демоверсии, видео и учебники
 Видео, демоверсии, учебники и примеры приложений для быстрого начала работы.
 
 ## <a name="code-samples"></a>Примеры кода
@@ -31,14 +35,14 @@ ms.author: heidist
 ## <a name="online-demo-sites"></a>Демонстрационные веб-сайты
 Эти сайты являются полнофункциональными веб-приложениями, использующими службу поиска Azure для реализации возможностей поиска. 
 
-[**Демоверсия портала поиска работы в г. Нью-Йорк с использованием службы поиска Azure**](http://aka.ms/azjobsdemo) — это работающий веб-сайт ASP.NET, иллюстрирующий возможности службы поиска Azure на основе данных, полученных в рамках инициативы по открытым данным г. Нью-Йорк. Это приложение использует [синтаксис простых запросов](https://msdn.microsoft.com/library/azure/dn798920.aspx). Можно изменить код, чтобы опробовать [синтаксис Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
+[**Демоверсия портала поиска работы в г. Нью-Йорк с использованием службы поиска Azure**](http://aka.ms/azjobsdemo) — это работающий веб-сайт ASP.NET, иллюстрирующий возможности службы поиска Azure на основе данных, полученных в рамках инициативы по открытым данным г. Нью-Йорк. Это приложение использует [синтаксис простых запросов](https://msdn.microsoft.com/library/azure/dn798920.aspx). Можно изменить код, чтобы опробовать [синтаксис Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
 
-[**Демонстрационный сайт Поиска Azure**](https://searchsamples.azurewebsites.net/#/) — это коллекция демонстрационных приложений для Поиска Azure. Оцените поиск мультимедиа, геопространственный поиск и приложения инвентаризации продуктов с помощью Поиска Azure.
+[**Демонстрационный сайт Поиска Azure**](https://searchsamples.azurewebsites.net/#/) — это коллекция демонстрационных приложений для Поиска Azure. Оцените поиск мультимедиа, геопространственный поиск и приложения инвентаризации продуктов с помощью Поиска Azure.
 
 ## <a name="top-five"></a>Первая пятерка
 Вот некоторые учебники и видео по службе поиска Azure, получившие самые высокие оценки.
 
-* [Видео. Сведения Microsoft Virtual Academy о службе поиска Azure](https://mva.microsoft.com/en-us/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) — отличный ресурс для изучения службы поиска Azure.
+* [Видео. Сведения Microsoft Virtual Academy о службе поиска Azure](https://mva.microsoft.com/en-us/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) — отличный ресурс для изучения службы поиска Azure.
 * [Видео. AzureCon 2015: практические советы по использованию службы поиска Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) — практические советы по масштабированию, оптимизации производительности, а также обеспечению эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств. 
 * [Пример кода для клиентской библиотеки .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
 * [Учебник. Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md)|Настройка и запуск примера веб-приложения Visual Studio, интегрированного со службой поиска Azure.
@@ -52,12 +56,12 @@ ms.author: heidist
 | [Данные Channel9 раскрыты: "Пользовательские анализаторы, аналитика поиска и запросы к порталу в поиске Azure"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) |Январь 2016 г. |15 минут. Пользовательские анализаторы позволяют настраивать лексические анализаторы и фильтры маркеров. Аналитика поиска позволяет получить сведения о поисковых запросах, введенных пользователями, и эффективности индекса поиска. Обозреватель поиска представляет собой встроенное средство выполнения запросов, которое позволяет выполнять запросы в портале. |
 | [Данные Channel9 раскрыты: "Расширенные возможности поиска Azure"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |Ноябрь 2015 г. |17 минут. Прием данных StackExchange. Создание индекса на портале Azure. Узнайте, как индексаторы сканируют поддерживаемые источники данных для извлечения данных в индекс поиска Azure. Анализаторы языка. Выражения запросов Lucene. |
 | [Что такое поиск Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/) |Октябрь 2015 г. |Есть пара минут? Просмотрите этот полутораминутный видеоролик — введение в поиск Azure. |
-| [AzureCon 2015. Рекомендации для поиска Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |Сентябрь 2015 г. |Практические советы по масштабированию, оптимальной производительности, а также обеспечению эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств, представленные Пабло Кастро. |
-| [Build 2015: современные средства обработки данных](http://channel9.msdn.com/Events/Build/2015/2-663) |Июнь 2015 г. |Ролик, повествующий о роли службы поиска Azure в революции современных средств обработки данных. Авторы: Шон Байс (Shawn Bice) и Пабло Кастро (Pablo Castro); продолжительность: 29 минут. |
-| [Build 2015: использование службы поиска Azure для создания эффективного поискового интерфейса в мобильных и веб-приложениях](http://channel9.msdn.com/Events/Build/2015/2-745) |Июнь 2015 г. |1 час. Доклад Пабло Кастро (Pablo Castro) на конференции Microsoft Build 2015. |
-| [Ignite 2015: включение возможностей поиска в веб-приложения с помощью службы поиска Microsoft Azure](http://channel9.msdn.com/Events/Ignite/2015/BRK2565) |Май 2015 г. |1 час 16 минут. Доклад Лиама Кавана (Liam Cavanagh) на конференции Microsoft Ignite 2015. |
-| [Академия Microsoft Virtual Academy: включение службы поиска Azure в веб-сайты и приложения](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps) |Апрель 2015 г. |Состоящий из 7 частей курс, в котором описывается включение службы поиска Azure в приложения. Авторы: Лиам Кавана (Liam Cavanagh), Януш Лембич (Janusz Lembicz) и Бернардита Торрес Гараяр (Bernardita Torres Garayar). |
-| [Elastic{ON} 2015. Повышение эффективности поиска в режиме реального времени в Майкрософт](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) |Март 2015 г. |16 минут. Презентация, представленная Пабло Кастро на конференции Elastic{ON} 2015, в которой описывается, как группа поиска Azure и другие группы Майкрософт используют ElasticSearch. |
+| [AzureCon 2015. Рекомендации для поиска Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |Сентябрь 2015 г. |Практические советы по масштабированию, оптимальной производительности, а также обеспечению эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств, представленные Пабло Кастро. |
+| [Build 2015: современные средства обработки данных](http://channel9.msdn.com/Events/Build/2015/2-663) |Июнь 2015 г. |Ролик, повествующий о роли службы поиска Azure в революции современных средств обработки данных. Авторы: Шон Байс (Shawn Bice) и Пабло Кастро (Pablo Castro); продолжительность: 29 минут. |
+| [Build 2015: использование службы поиска Azure для создания эффективного поискового интерфейса в мобильных и веб-приложениях](http://channel9.msdn.com/Events/Build/2015/2-745) |Июнь 2015 г. |1 час. Доклад Пабло Кастро (Pablo Castro) на конференции Microsoft Build 2015. |
+| [Ignite 2015: включение возможностей поиска в веб-приложения с помощью службы поиска Microsoft Azure](http://channel9.msdn.com/Events/Ignite/2015/BRK2565) |Май 2015 г. |1 час 16 минут. Доклад Лиама Кавана (Liam Cavanagh) на конференции Microsoft Ignite 2015. |
+| [Академия Microsoft Virtual Academy: включение службы поиска Azure в веб-сайты и приложения](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps) |Апрель 2015 г. |Состоящий из 7 частей курс, в котором описывается включение службы поиска Azure в приложения. Авторы: Лиам Кавана (Liam Cavanagh), Януш Лембич (Janusz Lembicz) и Бернардита Торрес Гараяр (Bernardita Torres Garayar). |
+| [Elastic{ON} 2015. Повышение эффективности поиска в режиме реального времени в Майкрософт](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) |Март 2015 г. |16 минут. Презентация, представленная Пабло Кастро на конференции Elastic{ON} 2015, в которой описывается, как группа поиска Azure и другие группы Майкрософт используют ElasticSearch. |
 | [Данные Channel9 раскрыты. Выпуск общедоступной версии службы поиска Azure и ее новые возможности](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-General-Availability-and-Whats-New) |Март 2015 г. |12 минут. Поиск Azure становится общедоступным, представлено Лайамом Каванагом. |
 | [Данные Channel9 раскрыты: "Предложения поиска Azure"](https://channel9.msdn.com/Shows/Data-Exposed/DataExposedAzureSearchSuggestions) |Февраль 2015 г. |15 минут. Предложения (также называемые запросами с упреждающим вводом или запросами с автозаполнением, которые отображаются как возможные варианты поиска при вводе запроса пользователем). Функция нечетких соответствий в службе поиска Azure реализована в виде предложений. |
 | [Данные Channel9 раскрыты: "Синхронизация SQL Server с поиском Azure"](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization) |Декабрь 2014 г. |16 минут. Синхронизация операций с базой данных. Загрузка реляционных данных Azure SQL в поиск Azure. |
@@ -81,6 +85,9 @@ ms.author: heidist
 | [Учебник по созданию профиля повышения](search-get-started-scoring-profiles.md) |Тестовый выпуск профиля повышения с помощью консольного приложения. |
 | [Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md) |Как использовать API REST управления для подготовки службы и управления ключами API администрирования или запросов. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

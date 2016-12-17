@@ -1,12 +1,12 @@
 ---
-title: 'Синхронизация Azure AD Connect: планировщик | Microsoft Docs'
-description: В этом разделе описывается встроенная функция планировщика синхронизации Azure AD Connect.
+title: "Синхронизация Azure AD Connect: планировщик | Документация Майкрософт"
+description: "В этом разделе описывается встроенная функция планировщика синхронизации Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 41b2cdf8fec8a0e3cb83682afdfb5c974452fe47
+
 
 ---
-# <a name="azure-ad-connect-sync:-scheduler"></a>Синхронизация Azure AD Connect: планировщик
+# <a name="azure-ad-connect-sync-scheduler"></a>Синхронизация Azure AD Connect: планировщик
 В этом разделе описывается встроенный планировщик синхронизации Azure AD Connect (модуль синхронизации).
 
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
@@ -157,6 +161,9 @@ Get-ADSyncConnectorRunStatus
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
