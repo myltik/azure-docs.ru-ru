@@ -1,12 +1,12 @@
 ---
-title: Кэширование поставщика кэша вывода ASP.NET
-description: Информация о том, как выходные данные страницы ASP.NET кэшируются с помощью кэша Redis для Azure.
+title: "Кэширование поставщика кэша вывода ASP.NET"
+description: "Информация о том, как выходные данные страницы ASP.NET кэшируются с помощью кэша Redis для Azure."
 services: redis-cache
 documentationcenter: na
 author: steved0x
 manager: douge
 editor: tysonn
-
+ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 09/27/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
+
 
 ---
-# <a name="asp.net-output-cache-provider-for-azure-redis-cache"></a>Поставщик кэша вывода ASP.NET для кэша Redis для Azure
+# <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Поставщик кэша вывода ASP.NET для кэша Redis для Azure
 Поставщик кэша вывода Redis представляет собой механизм внепроцессного хранения для выходных данных кэширования. Эти данные предназначены специально для полных HTTP-ответов (кэширование вывода страниц). Поставщик подключается к новой точке расширения поставщика вывода кэша, которая появилась в ASP.NET 4.
 
 Чтобы использовать поставщик кэша вывода Redis, сначала настройте кэш, а затем приложение ASP.NET, используя пакет NuGet поставщика кэша вывода Redis. Этот раздел содержит информацию о том, как настроить приложение, чтобы оно использовало поставщик кэша вывода Redis. Дополнительные сведения о создании и настройке экземпляра кэша Redis для Azure см. в разделе [Создание кэша](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-## <a name="store-asp.net-page-output-in-the-cache"></a>Сохранение выходных данных страницы ASP.NET в кэше
+## <a name="store-aspnet-page-output-in-the-cache"></a>Сохранение выходных данных страницы ASP.NET в кэше
 Для настройки клиентского приложения в Visual Studio используйте пакет NuGet поставщика кэша вывода Redis: щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
 
 ![Управление пакетами NuGet с помощью кэша Redis для Azure](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
@@ -61,12 +65,12 @@ ms.author: sdanie
 * **host** — укажите конечную точку кэша.
 * **port** — используйте порт без или с SSL в зависимости от параметров SSL.
 * **accessKey** — используйте для кэша первичный или вторичный ключ.
-* **ssl** — задайте значение true, если нужно обеспечить безопасный обмен данными между клиентом и кэшем с помощью SSL. В противном случае задайте значение false. Обязательно укажите правильный порт.
+* **ssl** — задайте значение true, если нужно обеспечить безопасный обмен данными между клиентом и кэшем с помощью SSL. В противном случае задайте значение false. Обязательно укажите правильный порт.
   * Для новых кэшей не SSL порт по умолчанию запрещен. Если вы хотите, чтобы для этого параметра использовался SSL-порт, укажите значение true. Дополнительные сведения о том, как настроить использование порта без SSL, см. в статье [Настройка кэша](cache-configure.md#access-ports) в разделе [Порты доступа](cache-configure.md).
 * **databaseId** — укажите базу данных, которую необходимо использовать для выходных данных кэша. Если значение в этом поле не задано, по умолчанию используется значение 0.
-* **applicationName** — ключи хранятся в кэше Redis как <AppName>_<SessionId>_Data. Это позволяет нескольким приложениям совместно использовать один ключ. Этот параметр — необязательный, и, если для него не указано другое значение, используется значение по умолчанию.
-* **connectionTimeoutInMilliseconds** — этот параметр позволяет переопределить параметр connectTimeout в клиенте StackExchange.Redis. Если для параметра connectTimeout значение не указано, по умолчанию используется значение 5000. Дополнительную информацию см. в статье [Модель конфигурации StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** — этот параметр позволяет переопределить параметр syncTimeout в клиенте StackExchange.Redis. Если для параметра syncTimeout значение не указано, по умолчанию используется значение 1000. Дополнительную информацию см. в статье [Модель конфигурации StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **applicationName** — ключи хранятся в кэше Redis как <AppName>_<SessionId>_Data. Это позволяет нескольким приложениям совместно использовать один ключ. Этот параметр — необязательный, и, если для него не указано другое значение, используется значение по умолчанию.
+* **connectionTimeoutInMilliseconds** — этот параметр позволяет переопределить параметр connectTimeout в клиенте StackExchange.Redis. Если для параметра connectTimeout значение не указано, по умолчанию используется значение 5000. Дополнительную информацию см. в статье [Модель конфигурации StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** — этот параметр позволяет переопределить параметр syncTimeout в клиенте StackExchange.Redis. Если для параметра syncTimeout значение не указано, по умолчанию используется значение 1000. Дополнительную информацию см. в статье [Модель конфигурации StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
 Добавьте директиву OutputCache для каждой страницы, для которой требуется кэшировать выходные данные.
 
@@ -79,6 +83,9 @@ ms.author: sdanie
 ## <a name="next-steps"></a>Дальнейшие действия
 Посетите страницу [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](cache-aspnet-session-state-provider.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

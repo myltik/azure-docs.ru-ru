@@ -1,13 +1,13 @@
 ---
-title: Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов и PowerShell | Microsoft Docs
-description: В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute.
+title: "Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов и PowerShell | Документация Майкрософт"
+description: "В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
 > [!div class="op_single_selector"]
-> [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell — классический портал](expressroute-howto-circuit-classic.md)
+> * [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell — классическая модель](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -36,7 +40,7 @@ ms.author: ganesr
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
-### <a name="1.-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Войдите в учетную запись Azure и выберите подписку.
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Войдите в учетную запись Azure и выберите подписку.
 Чтобы начать настройку, войдите в свою учетную запись Azure. Дополнительные сведения о PowerShell см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md). Для подключения используйте следующие примеры:
 
     Login-AzureRmAccount
@@ -49,7 +53,7 @@ ms.author: ganesr
 
     Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
 Перед созданием канала ExpressRoute потребуется список поддерживаемых поставщиков услуг подключения, расположений и вариантов пропускной способности.
 
 Командлет PowerShell `Get-AzureRmExpressRouteServiceProvider` возвращает эти сведения, которые будут использоваться в последующих шагах.
@@ -64,7 +68,7 @@ ms.author: ganesr
 
 Теперь все готово к созданию канала ExpressRoute.   
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Создание канала ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. Создание канала ExpressRoute
 Перед созданием канала ExpressRoute необходимо создать группу ресурсов (если вы этого еще не сделали) с помощью следующей команды:
 
     New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
@@ -89,7 +93,7 @@ ms.author: ganesr
     get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### <a name="4.-list-all-expressroute-circuits"></a>4. Получение списка всех каналов ExpressRoute
+### <a name="4-list-all-expressroute-circuits"></a>4. Получение списка всех каналов ExpressRoute
 Чтобы получить список всех созданных вами каналов ExpressRoute, выполните команду `Get-AzureRmExpressRouteCircuit`.
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -106,7 +110,7 @@ ms.author: ganesr
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState          : Enabled
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
@@ -135,7 +139,7 @@ ms.author: ganesr
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
@@ -143,7 +147,7 @@ ms.author: ganesr
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -152,7 +156,7 @@ ms.author: ganesr
 
     get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Отправка ключа службы поставщику услуг подключения для подготовки
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Отправка ключа службы поставщику услуг подключения для подготовки
 Параметр *ServiceProviderProvisioningState* предоставляет сведения о текущем состоянии подготовки на стороне поставщика услуг. Параметр Status предоставляет состояние на стороне Майкрософт. Дополнительные сведения о состояниях подготовки канала см. в статье [Рабочие процессы](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 Вновь созданный канал ExpressRoute будет иметь следующее состояние:
@@ -172,7 +176,7 @@ ms.author: ganesr
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Периодическая проверка состояния и статуса ключа канала
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Периодическая проверка состояния и статуса ключа канала
 Проверка состояния и состояния ключа канала позволит вам узнать, когда поставщик активирует ваш канал. После настройки канала значение параметра *ServiceProviderProvisioningState* изменится на *Provisioned*, как показано в примере ниже.
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -198,11 +202,11 @@ ms.author: ganesr
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                    }
+                                       }
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7.-create-your-routing-configuration"></a>7. Создание конфигурации маршрутизации
+### <a name="7-create-your-routing-configuration"></a>7. Создание конфигурации маршрутизации
 Пошаговые инструкции по созданию и изменению пиринга каналов см. в статье [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md).
 
 > [!IMPORTANT]
@@ -210,7 +214,7 @@ ms.author: ganesr
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Связывание виртуальной сети с каналом ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Связывание виртуальной сети с каналом ExpressRoute
 Теперь свяжите виртуальную сеть с каналом ExpressRoute. При работе с моделью развертывания Resource Manager пользуйтесь статьей [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md) .
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Получение состояния канала ExpressRoute
@@ -236,10 +240,10 @@ ms.author: ganesr
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
+                                            "BandwidthInMbps": 200
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -259,9 +263,9 @@ ms.author: ganesr
     ProvisioningState                : Succeeded
     Sku                              : {
                                          "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
+                                            "Tier": "Standard",
+                                            "Family": "MeteredData"
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
@@ -269,7 +273,7 @@ ms.author: ganesr
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -279,7 +283,7 @@ ms.author: ganesr
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="<a-name="modify"></a>modifying-an-expressroute-circuit"></a><a name="modify"></a>Изменение канала ExpressRoute
+## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Изменение канала ExpressRoute
 Некоторые свойства канала ExpressRoute можно изменить, не повлияв на подключение.
 
 Вы можете выполнять следующие действия без простоя:
@@ -377,6 +381,9 @@ ms.author: ganesr
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

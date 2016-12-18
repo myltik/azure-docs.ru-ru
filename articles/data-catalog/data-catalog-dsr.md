@@ -1,13 +1,13 @@
 ---
-title: Источники данных, поддерживаемые каталогом данных Azure | Microsoft Docs
-description: Спецификация источников данных, поддерживаемых на данный момент.
+title: "Источники данных, поддерживаемые каталогом данных Azure | Документация Майкрософт"
+description: "Спецификация источников данных, поддерживаемых на данный момент."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: jstrauss
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/15/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+
 
 ---
 # <a name="azure-data-catalog-supported-data-sources"></a>Источники данных, поддерживаемые каталогом данных Azure
@@ -428,7 +432,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Озеро данных</td>
 > <td>
-> <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: webhdfs
+> <br>аутентификация: {basic, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -436,7 +443,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Каталог, файл</td>
 > <td>
-> <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: webhdfs
+> <br>аутентификация: {basic, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -444,7 +454,12 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Контейнер</td>
 > <td>
-> <font size=2> протокол: azure-blobs <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container </font>
+> <font size=2> протокол: azure-blobs
+> <br>проверка подлинности: {azure-access-key}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container </font>
 > </td>
 > </tr>
 > <tr>
@@ -452,7 +467,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Большой двоичный объект, каталог</td>
 > <td>
-> <font size=2> протокол: azure-blobs <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+> <font size=2> протокол: azure-blobs
+> <br>проверка подлинности: {azure-access-key}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
 > </td>
 > </tr>
 > <tr>
@@ -460,7 +481,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Контейнер</td>
 > <td>
-> <font size=2> протокол: azure-tables <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
+> <font size=2> протокол: azure-tables
+> <br>проверка подлинности: {azure-access-key}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
 > </td>
 > </tr>
 > <tr>
@@ -468,7 +493,12 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица</td>
 > <td>
-> <font size=2> протокол: azure-tables <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+> <font size=2> протокол: azure-tables
+> <br>проверка подлинности: {azure-access-key}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
 > </td>
 > </tr>
 > <tr>
@@ -476,7 +506,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Виртуальный кластер</td>
 > <td>
-> <font size=2> протокол: cosmos <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: cosmos
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -484,7 +517,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Поток, набор потоков, представление</td>
 > <td>
-> <font size=2> протокол: cosmos <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: cosmos
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -492,7 +528,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Сайт</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -500,7 +539,10 @@ ms.author: maroche
 > <td>Отчет</td>
 > <td>Отчет, панель мониторинга</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -508,7 +550,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: db2 <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: db2
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -516,7 +562,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: db2 <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+> <font size=2> протокол: db2
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
 > </td>
 > </tr>
 > <tr>
@@ -524,7 +576,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Файл</td>
 > <td>
-> <font size=2> протокол: файл <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </font>
+> <font size=2> протокол: файл
+> <br>проверка подлинности: {none, basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </font>
 > </td>
 > </tr>
 > <tr>
@@ -532,7 +587,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Каталог, файл</td>
 > <td>
-> <font size=2> протокол: ftp <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: ftp
+> <br>проверка подлинности: {none, basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -540,7 +598,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>HDInsight</td>
 > <td>
-> <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: webhdfs
+> <br>аутентификация: {basic, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -548,7 +609,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Каталог, файл</td>
 > <td>
-> <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: webhdfs
+> <br>аутентификация: {basic, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -556,7 +620,13 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: hive <br>проверка подлинности: {hdinsight, basic, username, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> протокол: hive
+> <br>проверка подлинности: {hdinsight, basic, username, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -564,7 +634,14 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: hive <br>проверка подлинности: {hdinsight, basic, username, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> протокол: hive
+> <br>проверка подлинности: {hdinsight, basic, username, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -572,7 +649,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Сайт</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -580,7 +660,10 @@ ms.author: maroche
 > <td>Отчет</td>
 > <td>Отчет, панель мониторинга</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -588,7 +671,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Конечная точка, файл</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -596,7 +682,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: mysql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: mysql
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -604,7 +694,12 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: mysql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: mysql
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -612,7 +707,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Контейнер сущностей</td>
 > <td>
-> <font size=2> протокол: odata <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: odata
+> <br>проверка подлинности: {none, basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -620,7 +718,11 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Набор сущностей, функция</td>
 > <td>
-> <font size=2> протокол: odata <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource </font>
+> <font size=2> протокол: odata
+> <br>проверка подлинности: {none, basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource </font>
 > </td>
 > </tr>
 > <tr>
@@ -628,7 +730,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: oracle <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: oracle
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -636,7 +742,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: oracle <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: oracle
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -644,7 +756,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: postgresql <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: postgresql
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -652,7 +768,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: postgresql <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: postgresql
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -660,7 +782,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Сайт</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -668,7 +793,10 @@ ms.author: maroche
 > <td>Отчет</td>
 > <td>Отчет, панель мониторинга</td>
 > <td>
-> <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: http
+> <br>аутентификация: {none, basic, windows, oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -676,7 +804,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Гибридные данные</td>
 > <td>Протокол 
-> <font size=2>: Power Query <br>Аутентификация: {oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2>: Power Query
+> <br>Аутентификация: {oauth}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -684,7 +815,12 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Объект</td>
 > <td>
-> <font size=2> протокол: salesforce-com <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+> <font size=2> протокол: salesforce-com
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
 > </td>
 > </tr>
 > <tr>
@@ -692,7 +828,10 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>сервер;</td>
 > <td>
-> <font size=2> протокол: sap-hana-sql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
+> <font size=2> протокол: sap-hana-sql
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
 > </td>
 > </tr>
 > <tr>
@@ -700,7 +839,12 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Просмотр</td>
 > <td>
-> <font size=2> протокол: sap-hana-sql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: sap-hana-sql
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -708,7 +852,10 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>список</td>
 > <td>
-> <font size=2> протокол: sharepoint-list <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> протокол: sharepoint-list
+> <br>Проверка подлинности: {basic, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -716,7 +863,13 @@ ms.author: maroche
 > <td>Команда</td>
 > <td>Хранимая процедура</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -724,7 +877,13 @@ ms.author: maroche
 > <td>TableValuedFunction</td>
 > <td>Функция с табличным значением</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -732,7 +891,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -740,7 +903,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -748,7 +917,13 @@ ms.author: maroche
 > <td>Команда</td>
 > <td>Хранимая процедура</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -756,7 +931,13 @@ ms.author: maroche
 > <td>TableValuedFunction</td>
 > <td>Функция с табличным значением</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -764,7 +945,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -772,7 +957,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: tds
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -780,7 +971,12 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Модель</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
 > </td>
 > </tr>
 > <tr>
@@ -788,7 +984,14 @@ ms.author: maroche
 > <td>Ключевой показатель эффективности</td>
 > <td>Ключевой показатель эффективности</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -796,7 +999,14 @@ ms.author: maroche
 > <td>Measure</td>
 > <td>Measure</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
 > </td>
 > </tr>
 > <tr>
@@ -804,7 +1014,14 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Измерение</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
 > </td>
 > </tr>
 > <tr>
@@ -812,7 +1029,12 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Модель</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
 > </td>
 > </tr>
 > <tr>
@@ -820,7 +1042,14 @@ ms.author: maroche
 > <td>Ключевой показатель эффективности</td>
 > <td>Ключевой показатель эффективности</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -828,7 +1057,14 @@ ms.author: maroche
 > <td>Measure</td>
 > <td>Measure</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
 > </td>
 > </tr>
 > <tr>
@@ -836,7 +1072,14 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица</td>
 > <td>
-> <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
+> <font size=2> протокол: analysis-services
+> <br>аутентификация: {windows, basic, anonymous, none}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
 > </td>
 > </tr>
 > <tr>
@@ -844,7 +1087,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>сервер;</td>
 > <td>
-> <font size=2> протокол: reporting-services <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+> <font size=2> протокол: reporting-services
+> <br>проверка подлинности: {windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -852,7 +1099,12 @@ ms.author: maroche
 > <td>Отчет</td>
 > <td>Отчет</td>
 > <td>
-> <font size=2> протокол: reporting-services <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+> <font size=2> протокол: reporting-services
+> <br>проверка подлинности: {windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -860,7 +1112,11 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>База данных</td>
 > <td>
-> <font size=2> протокол: teradata <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+> <font size=2> протокол: teradata
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
 > </td>
 > </tr>
 > <tr>
@@ -868,7 +1124,12 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Таблица, представление</td>
 > <td>
-> <font size=2> протокол: teradata <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+> <font size=2> протокол: teradata
+> <br>проверка подлинности: {protocol, windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
 > </td>
 > </tr>
 > <tr>
@@ -876,7 +1137,12 @@ ms.author: maroche
 > <td>Контейнер</td>
 > <td>Модель</td>
 > <td>
-> <font size="2"> протокол: mssql-mds <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version </font>
+> <font size="2"> протокол: mssql-mds
+> <br>проверка подлинности: {windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version </font>
 > </td>
 > </tr>
 > <tr>
@@ -884,7 +1150,13 @@ ms.author: maroche
 > <td>Таблица</td>
 > <td>Сущность</td>
 > <td>
-> <font size="2"> протокол: mssql-mds <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity </font>
+> <font size="2"> протокол: mssql-mds
+> <br>проверка подлинности: {windows}
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity </font>
 > </td>
 > </tr>
 > <tr>
@@ -892,15 +1164,16 @@ ms.author: maroche
 > <td>\*</td>
 > <td>\*</td>
 > <td>
-> <font size=2> протокол: generic-asset <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+> <font size=2> протокол: generic-asset
+> <br>адрес:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table>
-> 
-> 
-> 
-> 
+> </table> 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
