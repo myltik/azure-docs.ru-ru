@@ -1,20 +1,24 @@
 ---
-title: Создание конвейеров, цепочки действий и расписаний для них в фабрике данных | Microsoft Docs
-description: Узнайте, как создать конвейер данных в фабрике данных Azure для перемещения и преобразования данных. Создание управляемого данными рабочего процесса, который предоставит готовую к использованию информацию.
-keywords: конвейер данных, управляемый данными рабочий процесс
+title: "Создание конвейеров, цепочки действий и расписаний для них в фабрике данных | Документация Майкрософт"
+description: "Узнайте, как создать конвейер данных в фабрике данных Azure для перемещения и преобразования данных. Создание управляемого данными рабочего процесса, который предоставит готовую к использованию информацию."
+keywords: "конвейер данных, управляемый данными рабочий процесс"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 11/01/2016
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d841c57dc736f7d690a6dc97863b7568365fd01a
+
 
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Конвейеры и действия в фабрике данных Azure
@@ -25,10 +29,10 @@ ms.author: shlo
 > 
 > 
 
-## <a name="what-is-a-data-pipeline?"></a>Что такое конвейер данных
+## <a name="what-is-a-data-pipeline"></a>Что такое конвейер данных
 **Конвейер** — это группа логически связанных **действий**. С его помощью действия объединяются в блок для выполнения определенной задачи. Чтобы лучше понять сущность конвейеров, необходимо сначала разобраться с понятием «действия». 
 
-## <a name="what-is-an-activity?"></a>Что такое действие
+## <a name="what-is-an-activity"></a>Что такое действие
 Действия определяют то, что нужно выполнить с вашими данными. Каждое действие принимает некоторое количество [наборов данных](data-factory-create-datasets.md) на входе и создает один или несколько наборов данных на выходе. 
 
 Действие копирования, например, может использоваться для управления копированием данных из одного хранилища данных в другое. Аналогичным образом можно использовать действие Hive HDInsight для отправки запроса Hive к кластеру Azure HDInsight для преобразования данных. Фабрика данных Azure позволяет выполнять широкий набор действий по [преобразованию](data-factory-data-transformation-activities.md) и [перемещению данных](data-factory-data-movement-activities.md). Кроме того, вы можете создать действие .NET для выполнения собственного кода. 
@@ -36,46 +40,48 @@ ms.author: shlo
 ## <a name="sample-copy-pipeline"></a>Пример конвейера копирования
 В следующем примере конвейера содержится одно действие типа **Copy** in the **действий** . В этом примере [действие копирования](data-factory-data-movement-activities.md) копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. 
 
-    {
-      "name": "CopyPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "CopyPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputDataset"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputDataset"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputDataset"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    } 
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+} 
+```
 
 Обратите внимание на следующие моменты.
 
@@ -88,48 +94,50 @@ ms.author: shlo
 ## <a name="sample-transformation-pipeline"></a>Пример конвейера преобразования
 В следующем примере конвейера содержится одно действие типа **HDInsightHive** in the **действий** . В этом примере [действие HDInsight Hive](data-factory-hive-activity.md) преобразовывает данные из хранилища BLOB-объектов Azure, запуская файл сценария Hive в кластере Azure HDInsight Hadoop. 
 
-    {
-        "name": "TransformPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "AzureStorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
-        }
+```json
+{
+    "name": "TransformPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "AzureStorageLinkedService",
+                    "defines": {
+                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2016-04-01T00:00:00Z",
+        "end": "2016-04-02T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 Обратите внимание на следующие моменты. 
 
@@ -180,11 +188,13 @@ ms.author: shlo
 ### <a name="using-azure-powershell"></a>Использование Azure PowerShell
 Для создания конвейеров в фабрике данных Azure можно использовать Azure PowerShell. Предположим, вы определили JSON конвейера в файле, который находится в папке c:\DPWikisample.json. В следующем примере показано, как можно передать его в экземпляр фабрики данных Azure.
 
-    New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```PowerShell
+New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```
 
 Полное пошаговое руководство по созданию фабрики данных с конвейером см. в статье [Создание первой фабрики данных Azure с помощью Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md). 
 
-### <a name="using-.net-sdk"></a>Использование пакета .NET SDK
+### <a name="using-net-sdk"></a>Использование пакета .NET SDK
 Вы можете создавать и развертывать конвейеры, используя пакет .NET SDK. Этот способ является программным. Дополнительные сведения см. в статье [Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных](data-factory-create-data-factories-programmatically.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Использование шаблона Azure Resource Manager
@@ -199,40 +209,44 @@ ms.author: shlo
 ## <a name="pipeline-json"></a>Конвейер JSON
 Рассмотрим подробнее определение конвейера в формате JSON. В общем виде структуру конвейера можно представить приведенным ниже образом.
 
+```json
+{
+    "name": "PipelineName",
+    "properties": 
     {
-        "name": "PipelineName",
-        "properties": 
-        {
-            "description" : "pipeline description",
-            "activities":
-            [
+        "description" : "pipeline description",
+        "activities":
+        [
 
-            ],
-            "start": "<start date-time>",
-            "end": "<end date-time>"
-        }
+        ],
+        "start": "<start date-time>",
+        "end": "<end date-time>"
     }
+}
+```
 
 В разделе **activities** можно определить одно или несколько действий. Каждое действие имеет следующую структуру верхнего уровня.
 
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
     {
-        "name": "ActivityName",
-        "description": "description", 
-        "type": "<ActivityType>",
-        "inputs":  "[]",
-        "outputs":  "[]",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties":
-        {
 
-        },
-        "policy":
-        {
-        }
-        "scheduler":
-        {
-        }
+    },
+    "policy":
+    {
     }
+    "scheduler":
+    {
+    }
+}
+```
 
 В приведенной ниже таблице описаны свойства, используемые в определениях JSON действия и конвейера.
 
@@ -248,7 +262,7 @@ ms.author: shlo
 | policy |Политики, которые влияют на поведение во время выполнения действия. Если для этого свойства не задано значение, используются стандартные политики. |Нет |
 | start |Дата и время начала работы конвейера. Задается в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. <br/><br/>Можно указать местное время, например восточное поясное время (EST). Вот пример: "2016-02-27T06:00:00**-05:00**". Это 6:00 по восточному стандартному времени.<br/><br/> Свойства start и end определяют активный период работы конвейера. Срезы выходных данных создаются только в этот активный период. |Нет<br/><br/>Если вы указываете значение свойства end, вы также должны указать значение свойства start.<br/><br/>Для создания конвейера значения времени начала и времени окончания могут быть пустыми. Если требуется задать активный период работы конвейера, следует указать оба значения. Если вы не указали время начала и окончания при создании конвейера, их можно установить позже с помощью командлета Set-AzureRmDataFactoryPipelineActivePeriod. |
 | end |Дата и время завершения работы конвейера. Не является обязательным и задается в формате ISO. Например: 2014-10-14T17:32:41Z <br/><br/>Можно указать местное время, например восточное поясное время (EST). Вот пример: "2016-02-27T06:00:00**-05:00**". Это 6:00 по восточному стандартному времени.<br/><br/> Чтобы работа конвейера не была ограничена во времени, укажите для свойства end значение 9999-09-09. |Нет <br/><br/>Если вы указываете значение свойства end, вы также должны указать значение свойства start.<br/><br/>Ознакомьтесь с примечаниями к свойству **start**. |
-| isPaused |Если задано значение true, конвейер не запускается. Значение по умолчанию — false. Это свойство можно использовать для включения или отключения. |Нет |
+| isPaused |Если задано значение true, конвейер не запускается. Значение по умолчанию — false. Это свойство можно использовать для включения или отключения. |Нет |
 | scheduler |Свойство scheduler позволяет задать расписание выполнения действия. Для него предусмотрен такой же набор подсвойств, что и для [свойства availability в наборе данных](data-factory-create-datasets.md#Availability). |Нет |
 | pipelineMode |Определяет метод планирования работы конвейера. Допустимые значения: scheduled (по умолчанию), onetime.<br/><br/>Значение scheduled означает, что конвейер будет запускаться с указанной периодичностью в соответствии с его активным периодом (временем начала и окончания). Значение onetime означает, что конвейер будет запускаться только один раз. В настоящее время изменить или обновить однократные конвейеры после их создания нельзя. Подробные сведения об однократном запуске см. в разделе [Однократный конвейер](data-factory-scheduling-and-execution.md#onetime-pipeline). |Нет |
 | expirationTime; |Период времени после создания, в течение которого конвейер является допустимым и должен оставаться подготовленным. Если на момент завершения этого периода у конвейера не будет активных, невыполненных или ожидающих выполнения запусков, конвейер будет автоматически удален. |Нет |
@@ -261,7 +275,7 @@ ms.author: shlo
 | --- | --- | --- | --- |
 | concurrency |Целое число  <br/><br/> Максимальное значение — 10 |1 |Число одновременных выполнений действия.<br/><br/>Определяет количество параллельных выполнений одного действия для обработки разных срезов. Например, высокое значение этого свойства ускорит обработку большого набора доступных данных. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Определяет порядок обработки срезов данных.<br/><br/>Предположим, есть два ожидающих обработки среза (от 16:00 и от 17:00). Если для свойства executionPriorityOrder задано значение NewestFirst, срез от 17:00 будет обработан первым. Точно так же, если для executionPriorityORder задано значение OldestFIrst, первым будет обработан срез от 16:00. |
-| retry |Целое число <br/><br/>Максимальное значение — 10 |3 |Число повторных попыток обработки данных до того, как срез перейдет в состояние Failure (сбой). Выполнение действия со срезом данных повторяется указанное количество раз. Повторная попытка выполняется сразу после неудачной. |
+| retry |Целое число <br/><br/>Максимальное значение — 10 |0 |Число повторных попыток обработки данных до того, как срез перейдет в состояние Failure (сбой). Выполнение действия со срезом данных повторяется указанное количество раз. Повторная попытка выполняется сразу после неудачной. |
 | timeout |TimeSpan |00:00:00 |Время ожидания для действия. Пример: 00:10:00 (время ожидания — 10 минут).<br/><br/>Если значение не указано или равно 0, то время ожидания не ограничено.<br/><br/>Если время обработки среза превышает время ожидания, система отменяет текущую обработку и начинает новую. Количество повторов зависит от значения свойства retry. Когда время ожидания истекает, состояние среза меняется на TimedOut. |
 | delay |TimeSpan |00:00:00 |Задайте задержку перед обработкой данных после начала выполнения среза.<br/><br/>Действие для среза данных запускается в ожидаемое время выполнения с указанной задержкой.<br/><br/>Пример: 00:10:00 (означает задержку в 10 минут). |
 | longRetry |Целое число <br/><br/> Максимальное значение — 10 |1 |Количество длительных повторных попыток перед завершением сбоем выполнения среза.<br/><br/>Интервал между этими попытками задается свойством longRetryInterval. Используйте свойство longRetry, если повторные попытки необходимо выполнять с паузами. Если указаны свойства Retry и longRetry, то каждая попытка longRetry включает в себя попытки Retry, и максимальное число попыток равно Retry * longRetry.<br/><br/>Например, в политике действия указаны следующие параметры:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Предположим, что существует только один выполняемый срез (в состоянии Waiting), и каждый раз при выполнении действия происходит сбой. Первые три попытки будут выполнены подряд. После каждой повторной попытки срез будет находиться в состоянии Retry. После выполнения первых трех попыток состоянием среза станет LongRetry.<br/><br/>Через час (значение свойства longRetryInterval) будут выполнены еще три попытки подряд. После этого состояние среза изменится на Failed и дальнейшие попытки предприниматься не будут. Поэтому всего было предпринято 6 попыток.<br/><br/>Если какое-либо выполнение завершится успешно, то состоянием среза станет Ready и дальнейшие попытки выполняться не будут.<br/><br/>Свойство longRetry можно использовать в ситуациях, когда зависимые данные поступают в неопределенное время или вся среда, в которой происходит обработка данных, непредсказуема. В таких случаях последовательные повторные попытки могут оказаться бесполезными, а выполненные через некоторое время, напротив, могут привести к желаемому результату.<br/><br/>Предупреждение. Не задавайте высокие значения для свойств longRetry и longRetryInterval. Как правило, более высокие значения приводят к появлению других системных проблем. |
@@ -273,6 +287,9 @@ ms.author: shlo
 * Ознакомьтесь со сведениями об [управлении и мониторинге в фабрике данных Azure](data-factory-monitor-manage-pipelines.md).
 * [Создайте и разверните свой первый конвейер](data-factory-build-your-first-pipeline.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
