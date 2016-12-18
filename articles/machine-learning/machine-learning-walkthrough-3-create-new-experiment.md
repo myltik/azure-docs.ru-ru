@@ -1,12 +1,12 @@
 ---
-title: Шаг 3. Создание эксперимента машинного обучения | Microsoft Docs
-description: 'Третий этап пошагового руководства по разработке прогнозного решения: создание эксперимента обучения в студии машинного обучения Azure.'
+title: "Шаг 3. Создание эксперимента машинного обучения | Документация Майкрософт"
+description: "Третий этап пошагового руководства по разработке прогнозного решения: создание эксперимента обучения в студии машинного обучения Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6ca6b1f06223b1ce3d38e22117e63f438859ce
+
 
 ---
-# <a name="walkthrough-step-3:-create-a-new-azure-machine-learning-experiment"></a>Шаг 3. Создание эксперимента машинного обучения Azure
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Шаг 3. Создание эксперимента машинного обучения Azure
 Это третий этап из пошагового руководства [Разработка решения для прогнозной аналитики в службе машинного обучения Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -67,9 +71,9 @@ ms.author: garye
 5. В диалоговом окне **Select columns** (Выбор столбцов) выберите все строки в разделе **Available Columns** (Доступные столбцы) и нажмите кнопку ">", чтобы переместить их в раздел **Selected Columns** (Выбранные столбцы).
    Диалоговое окно должно выглядеть следующим образом: ![Селектор столбцов, где выделены все столбцы][4]
 6. Установите флажок **ОК** .
-7. На панели **Свойства** найдите параметр **New column names** (Новые имена столбцов). В этом поле введите список имен для 21 столбца набора данных с разделителями-запятыми и в порядке расположения столбцов. Вы можете получить имена столбцов из документации по наборам данных на веб-сайте UCI или скопировать и вставить следующий список.  
+7. На панели **Свойства** найдите параметр **New column names** (Новые имена столбцов). В этом поле введите список имен для 21 столбца набора данных с разделителями-запятыми и в порядке расположения столбцов. Вы можете получить имена столбцов из документации по наборам данных на веб-сайте UCI или скопировать и вставить следующий список.  
    
-         Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
    Панель свойств будет выглядеть следующим образом:
    
@@ -86,15 +90,15 @@ ms.author: garye
 Для этого используется модуль [Split Data][split] (Разделение данных).  
 
 1. Найдите модуль [Split Data][split], перетащите его на холст и подключите к последнему модулю [Edit Metadata][edit-metadata].
-2. По умолчанию коэффициент разделения равен 0,5 и задан параметр **Randomized split** (Случайное разделение). Это означает, что случайно выбранная половина данных будет выводиться через один порт модуля [Split Data][split], а другая половина — через другой. Это можно отрегулировать, а также использовать параметр **Random seed** (Псевдослучайные числа), чтобы изменить соотношение между данными для обучения и тестирования. Для этого примера оставим их как есть.
+2. По умолчанию коэффициент разделения равен 0,5 и задан параметр **Randomized split** (Случайное разделение). Это означает, что случайно выбранная половина данных будет выводиться через один порт модуля [Split Data][split], а другая половина — через другой. Это можно отрегулировать, а также использовать параметр **Random seed** (Псевдослучайные числа), чтобы изменить соотношение между данными для обучения и тестирования. Для этого примера оставим их как есть.
    
    > [!TIP]
    > Свойство **Fraction of rows in the first output dataset** (Доля строк в первом выходном наборе данных) определяет, какой объем данных будет выходить через левый порт вывода. Например, если коэффициент установлен на 0,7, то 70% данных выходит через левый порт, а 30% — через правый.  
    > 
    > 
-3. Дважды щелкните модуль [Split Data][split] и введите комментарий "Соотношение данных обучения и тестирования составляет 50 %". 
+3. Дважды щелкните модуль [Split Data][split] и введите комментарий "Соотношение данных обучения и тестирования составляет 50 %". 
 
-Выходные данные модуля [Split Data][split] можно использовать по своему усмотрению. Однако предлагаем использовать левый порт вывода для обучения данных, а правый — для их оценки.  
+Выходные данные модуля [Split Data][split] можно использовать по своему усмотрению. Однако предлагаем использовать левый порт вывода для обучения данных, а правый — для их оценки.  
 
 Как отмечалось на веб-сайте UCI, стоимость неверной классификации высокого кредитного риска как низкого в пять раз выше, чем стоимость неверной классификации низкого кредитного риска как высокого. Чтобы это учесть, создадим новый набор данных, отражающий эту функцию стоимости. В новом наборе данных каждый пример высокого риска реплицируется пять раз, а каждый пример низкого риска не реплицируется.   
 
@@ -104,11 +108,11 @@ ms.author: garye
 2. Дважды щелкните модуль [Execute R Script][execute-r-script] и введите комментарий "Задать корректировку стоимости".
 3. На панели **Свойства** удалите текст по умолчанию в параметре **R-скрипт** и введите следующий сценарий:
    
-         dataset1 <- maml.mapInputPort(1)
-         data.set<-dataset1[dataset1[,21]==1,]
-         pos<-dataset1[dataset1[,21]==2,]
-         for (i in 1:5) data.set<-rbind(data.set,pos)
-         maml.mapOutputPort("data.set")
+       dataset1 <- maml.mapInputPort(1)
+       data.set<-dataset1[dataset1[,21]==1,]
+       pos<-dataset1[dataset1[,21]==2,]
+       for (i in 1:5) data.set<-rbind(data.set,pos)
+       maml.mapOutputPort("data.set")
 
 Необходимо проделать ту же операцию репликации для каждого порта вывода модуля [Split Data][split], чтобы данные для обучения и тестирования получили одинаковую корректировку стоимости.
 
@@ -143,6 +147,6 @@ ms.author: garye
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

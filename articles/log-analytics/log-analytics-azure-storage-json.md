@@ -1,12 +1,12 @@
 ---
-title: Анализ журналов диагностики Azure с помощью Log Analytics | Microsoft Docs
-description: Log Analytics может считывать журналы из служб Azure, которые записывают журналы диагностики Azure в хранилище BLOB-объектов в формате JSON.
+title: "Анализ журналов диагностики Azure с помощью Log Analytics | Документация Майкрософт"
+description: "Log Analytics может считывать журналы из служб Azure, которые записывают журналы диагностики Azure в хранилище BLOB-объектов в формате JSON."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Анализ журналов диагностики Azure с помощью Log Analytics
@@ -80,7 +84,7 @@ foreach ($resource in $resources) {
 4. Модуль PowerShell AzureDiagnosticsAndLogAnalytics.
    * Скачайте модуль [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) из коллекции PowerShell.
 
-### <a name="option-1:-run-the-interactive-configuration-scripts"></a>Вариант 1: выполнить сценарии интерактивной конфигурации
+### <a name="option-1-run-the-interactive-configuration-scripts"></a>Вариант 1: выполнить сценарии интерактивной конфигурации
 Откройте PowerShell и выполните:
 
 ```
@@ -106,7 +110,7 @@ Add-AzureDiagnosticsToLogAnalyticsUI
 
 После выполнения этого сценария в службе Log Analytics должны отобразиться записи, примерно через 30 минут после записи новых диагностических данных в хранилище. Если по истечении этого времени записи не отобразились, обратитесь к разделу по устранению неполадок далее в этой статье.
 
-### <a name="option-2:-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Вариант 2: создать список ресурсов и передать его в командлет конфигурации
+### <a name="option-2-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Вариант 2: создать список ресурсов и передать его в командлет конфигурации
 Будет создан список ресурсов, для которых включена система диагностики Azure, а затем эти ресурсы будут переданы в командлет конфигурации.
 
 Дополнительные сведения о командлете можно просмотреть, запустив `Get-Help Add-AzureDiagnosticsToLogAnalytics`.
@@ -233,6 +237,9 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $logAnalyticsWor
 * [Включите решения](log-analytics-add-solutions.md) , чтобы обеспечить глубокое понимание данных.
 * [Воспользуйтесь запросами поиска](log-analytics-log-searches.md) для анализа данных.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
