@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с SanSan | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и SanSan.
+title: "Руководство по интеграции Azure Active Directory с SanSan | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и SanSan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2533338698478a4d9aa07aace93c9bbecb0b3350
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>Руководство. Интеграция Azure Active Directory с SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Руководство. Интеграция Azure Active Directory с SanSan
 В этом руководстве описано, как интегрировать SanSan с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением SanSan обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к SanSan.
 * Вы можете включить автоматический вход пользователей в SanSan (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с SanSan, вам потребуется:
@@ -113,11 +117,11 @@ ms.author: jeedes
 
     b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: 
 
-      | Среда             | URL-адрес |
-      | :--                     | :-- |
-      | Компьютерная сеть                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | Собственное мобильное приложение       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | Параметры браузера для мобильных устройств | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Среда             | URL-адрес |
+    | :--                     | :-- |
+    | Компьютерная сеть                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | Собственное мобильное приложение       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Параметры браузера для мобильных устройств | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. Нажмите кнопку **Далее**.
@@ -146,10 +150,10 @@ ms.author: jeedes
 
 1. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 2. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -259,6 +263,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

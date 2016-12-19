@@ -1,32 +1,36 @@
 ---
-title: Создание группы в предварительной версии Azure Active Directory | Microsoft Docs
-description: Узнайте, как создать группу в Azure Active Directory и добавить в нее пользователей (участников).
+title: "Создание группы в предварительной версии Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как создать группу в Azure Active Directory и добавить в нее пользователей (участников)."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 10/17/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
+
 
 ---
 # <a name="create-a-new-group-in-azure-active-directory-preview"></a>Создание группы в предварительной версии Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-groups-create-azure-portal.md)
 > * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
 В этой статье объясняется, как создать и заполнить новую группу в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)  Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям или устройствам.
 
-## <a name="how-do-i-create-a-group?"></a>Как создать группу?
+## <a name="how-do-i-create-a-group"></a>Как создать группу?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
    
@@ -55,6 +59,9 @@ ms.author: curtand
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

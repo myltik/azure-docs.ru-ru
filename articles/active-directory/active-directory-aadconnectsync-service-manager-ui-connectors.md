@@ -1,40 +1,35 @@
 ---
-title: 'Синхронизация Azure AD Connect: пользовательский интерфейс диспетчера службы синхронизации'
-description: 'Получите общие сведения о вкладке '
-;соединители";: ''
-в: ''
-диспетчере: ''
-службы: ''
-синхронизации: ''
-для: ''
-azure: ''
-ad: ''
-connect.": ''
+title: "Синхронизация Azure AD Connect: пользовательский интерфейс Synchronization Service Manager | Документация Майкрософт"
+description: "Получите общие сведения о вкладке &quot;Соединители&quot; в диспетчере службы синхронизации для Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
-ms.author: andkjell
+ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 4d248fedea7c3b05b5bf4a28cd99923302c43a9b
+
 
 ---
-# Синхронизация Azure AD Connect: Synchronization Service Manager
-| [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Конструктор метавселенной](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Поиск в метавселенной](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Синхронизация Azure AD Connect: Synchronization Service Manager
+| [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Конструктор метавселенной) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Поиск в метавселенной) |
 | --- | --- | --- | --- |
 |  | | | |
 
-![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
+![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 Вкладка "Соединители" используется для управления всеми системами, к которым подключен модуль синхронизации.
 
-## Действия соединителя
+## <a name="connector-actions"></a>Действия соединителя
 | Действие | Комментарий |
 | --- | --- |
 | Создание |Не используйте. Для подключения к дополнительным лесам AD используйте мастер установки. |
@@ -49,8 +44,9 @@ ms.author: andkjell
 | Обновить схему |Обновляет кэшированную схему. Этот параметр рекомендуется использовать в мастере установки, так как он также обновляет правила синхронизации. |
 | [Пространство поиска соединителя](#search-connector-space) |Применяется для поиска объектов и [отслеживания объекта и его данных в системе](#follow-an-object-and-its-data-through-the-system). |
 
-### Удалить
-Действие удаления используется в двух разных целях. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
+### <a name="delete"></a>Удалить
+Действие удаления используется в двух разных целях.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 Параметр **Delete connector space only** (Удалить только пространство соединителя) позволяет удалить все данные, но оставить конфигурацию.
 
@@ -58,42 +54,64 @@ ms.author: andkjell
 
 Оба параметра синхронизируют все объекты и обновляют объекты метавселенной. Это действие является длительной операцией.
 
-### Настройка профилей выполнения
+### <a name="configure-run-profiles"></a>Настройка профилей выполнения
 Этот параметр позволяет просматривать профили выполнения, настроенные для соединителя.
 
-![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### Пространство поиска соединителя
+### <a name="search-connector-space"></a>Пространство поиска соединителя
 Действие поиска пространства соединителя полезно для поиска объектов и устранения проблем с данными.
 
-![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
 
-Начните с выбора **пространства**. Можно выполнять поиск на основе данных (RDN DN, привязка, поддерево) или состояния объекта (все другие параметры). ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png) Если, к примеру, выполняется поиск в поддереве, вы получаете все объекты в одном подразделении. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) Здесь можно выбрать объект и **свойства**, а также [отслеживать объект](#follow-an-object-and-its-data-through-the-system) из исходного пространства соединителя через метавселенную до целевого пространства соединителя.
+Начните с выбора **пространства**. Можно выполнять поиск на основе данных (RDN DN, привязка, поддерево) или состояния объекта (все другие параметры).  
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
+ Если, к примеру, выполняется поиск в поддереве, вы получаете все объекты в одном подразделении.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) Здесь можно выбрать объект и **properties**, а также [отслеживать объект](#follow-an-object-and-its-data-through-the-system) from the source connector space, through the metaverse, а также to the target connector space.
 
-## Следование за объектом и его данными в системе
+## <a name="follow-an-object-and-its-data-through-the-system"></a>отслеживания объекта и его данных в системе
 При устранении проблем с данными процедура следования за объектом из исходного пространства соединителя через метавселенную до целевого пространства соединителя является ключевой и позволяет понять отсутствие у данных ожидаемых значений.
 
-### Свойства объекта пространства соединителя
-**Импорт**. При открытии объекта пространства соединителя в верхней части будут находиться несколько вкладок. На вкладке **Import** (Импорт) отображаются данные, добавленные после импорта. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) В столбце **Старое значение** отображаются объекты, в настоящее время хранящиеся в системе. В столбце **Новое значение** отображаются объекты, полученные из исходной системы и еще не примененные. В нашем примере из-за ошибки синхронизации изменение применить нельзя.
+### <a name="connector-space-object-properties"></a>Свойства объекта пространства соединителя
+**Импорт**  
+При открытии объекта пространства соединителя в верхней части отображаются несколько вкладок. На вкладке **импорта** отображаются данные, добавленные после импорта.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) В столбце **Old Value** (Старое значение) отображаются объекты, которые сейчас хранятся в системе. В столбце **New Value** (Новое значение) отображаются объекты, полученные из исходной системы и еще не примененные. В нашем примере из-за ошибки синхронизации изменение применить нельзя.
 
-**Ошибка**. Страница ошибки отображается только при наличии проблемы с объектом. Подробные сведения об [устранении неполадок синхронизации](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab) см. на странице операций.
+**Ошибка**  
+Страница ошибки отображается только при наличии проблемы с объектом. Подробные сведения об [устранении неполадок синхронизации](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab) см. на странице с описанием операций.
 
-**Журнал обращений и преобразований**. На вкладке "Журнал обращений и преобразований" отображается связь объекта пространства соединителя с объектом метавселенной. Можно увидеть, когда соединитель в последний раз импортировал изменение из подключенной системы и какие правила были применены для внесения данных в метавселенную. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) В столбце **Действия** отображается одно правило синхронизации с направлением **Входящее** и действием **Подготовка**. Это значит, что объект метавселенной хранится, пока существует этот объект пространства соединителя. Если в списке правил синхронизации отображается правило синхронизации с направлением **Исходящее** и действием **Подготовка**, это значит, что объект удаляется вместе с объектом метавселенной. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) В столбце **Синхронизация паролей** можно увидеть, что входящее пространство соединителя может вносить изменения в пароль, так как одно правило синхронизации имеет значение **True**. Затем этот пароль отправляется в Azure AD с помощью правила для исходящего подключения.
+**Журнал преобразований**  
+На вкладке журнала преобразований отображается связь объекта пространства соединителя с объектом метавселенной. Можно увидеть, когда соединитель в последний раз импортировал изменение из подключенной системы и какие правила были применены для внесения данных в метавселенную.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) В столбце **Action** (Действие) отображается одно правило синхронизации с направлением **Inbound** (Входящее) и действием **Provision** (Подготовка). Это значит, что объект метавселенной хранится, пока существует этот объект пространства соединителя. Если в списке правил синхронизации отображается правило синхронизации с направлением **Outbound** (Исходящее) и действием **Provision** (Подготовка), это значит, что объект удаляется вместе с объектом метавселенной.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) В столбце **PasswordSync** (Синхронизация паролей) можно увидеть, что входящее пространство соединителя может вносить изменения в пароль, так как одно правило синхронизации имеет значение **True**. Затем этот пароль отправляется в Azure AD с помощью правила для исходящего подключения.
 
-С вкладки "Lineage" (Журнал обращений и преобразований) можно перейти к метавселенной. Для этого нужно щелкнуть [Metaverse Object Properties](#metaverse-object-properties) (Свойства объекта метавселенной).
+Со вкладки журнала преобразований можно перейти к метавселенной. Для этого нужно щелкнуть элемент [Metaverse Object Properties](#metaverse-object-properties) (Свойства объекта метавселенной).
 
-В нижней части всех вкладок находятся две кнопки: **Предварительный просмотр** и **Журнал**.
+На каждой вкладке в нижней части есть две кнопки: **Preview** (Предварительный просмотр) и **Log** (Журнал).
 
-**Предварительный просмотр**. Страница предварительного просмотра используется для синхронизации одного объекта. Это полезно, если необходимо устранить ошибки некоторых правил синхронизации клиента и увидеть результат изменения одного объекта. Можно выбрать нужный режим: **Полная синхронизация** и **Синхронизация изменений**. Кроме того, можно нажать кнопку **Generate Preview** (Создать предварительный просмотр), чтобы сохранить изменения в памяти, или кнопку **Commit Preview** (Зафиксировать предварительный просмотр), чтобы передать все изменения в целевые пространства соединителей. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Вы можете проверить объект и узнать, какое правило применено к конкретному потоку атрибутов. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
+**Предварительный просмотр**  
+Страница предварительного просмотра используется для синхронизации одного объекта. Это полезно, если необходимо устранить ошибки некоторых правил синхронизации клиента и увидеть результат изменения одного объекта. Можно выбрать нужный режим: **Full Sync** (Полная синхронизация) и **Delta sync** (Синхронизация изменений). Кроме того, можно нажать кнопку **Generate Preview** (Создать предварительный просмотр), чтобы сохранить изменения в памяти, или кнопку **Commit Preview** (Просмотр перед фиксацией), чтобы передать все изменения в целевые пространства соединителей.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Вы можете проверить объект и узнать, какое правило применено к определенному потоку атрибутов.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
-**Журнал**. Страница "Журнал" используется для проверки состояния синхронизации пароля и просмотра исторических данных. Дополнительные сведения см. в статье [Устранение неполадок синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+**Журнал**  
+Страница журнала используется для проверки состояния синхронизации пароля и просмотра сведений журнала.
 
-### Свойства объекта метавселенной
-**Атрибуты**. На вкладке "Attributes" (Атрибуты) можно просмотреть значения и узнать, какой соединитель их передал. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png) **Соединители**. На вкладке "Connectors" (Соединители) отображаются все пространства соединителя, имеющие представление объекта. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) С этой вкладки также можно перейти к [объекту пространства соединителя](#connector-space-object-properties).
+### <a name="metaverse-object-properties"></a>Свойства объекта метавселенной
+**Атрибуты**  
+На вкладке атрибутов можно просмотреть значения и узнать, какой соединитель их передал.
+**Соединители **![диспетчера службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png)
+  
+На вкладке соединителей отображаются все пространства соединителя, которые включают представление объекта.
+![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) С этой вкладки также можно перейти к[объекту пространства соединителя](#connector-space-object-properties).
 
-## Дальнейшие действия
-Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

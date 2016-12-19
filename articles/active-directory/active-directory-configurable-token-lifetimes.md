@@ -1,12 +1,12 @@
 ---
-title: Configurable Token Lifetimes in Azure Active Directory  | Microsoft Docs
-description: This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD.
+title: "Настройка времени жизни маркеров в Azure Active Directory | Документация Майкрософт"
+description: "С помощью этой функции администраторы и разработчики могут указывать время жизни маркеров, выдаваемых Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,189 +14,193 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+
 
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-(public-preview)"></a>Configurable Token Lifetimes in Azure Active Directory (Public Preview)
+# <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Настройка времени жизни маркеров в Azure Active Directory (общедоступная предварительная версия)
 > [!NOTE]
-> This capability is currently in public preview.  You should be prepared to revert or remove any changes.  We are opening up this feature for everyone to try during the public preview, however, certain aspects may require an [Azure AD Premium subscription](active-directory-get-started-premium.md) once generally available.
+> Эта функция сейчас предоставляется в режиме общедоступной предварительной версии.  Вы должны быть готовы отменить или удалить все изменения.  Доступ к общедоступной предварительной версии мы предоставляем всем желающим, но для использования некоторых возможностей после выхода общедоступной версии вам может потребоваться [подписка на Azure AD "Премиум"](active-directory-get-started-premium.md).
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD. Token lifetimes can be configured for all apps in a tenant, for a multi-tenant application, or for a specific Service Principal in a tenant.
+## <a name="introduction"></a>Введение
+С помощью этой функции администраторы и разработчики могут указывать время жизни маркеров, выдаваемых Azure AD. Время жизни маркеров можно настроить для всех приложений в клиенте, для многопользовательского приложения или для определенного субъекта-службы в клиенте.
 
-In Azure AD, a policy object represents a set of rules enforced on individual applications or all applications in a tenant.  Each type of policy has a unique structure with a set of properties that are then applied to objects to which they are assigned.
+В Azure AD объект политики представлен набором правил, которые применяются к отдельным приложениям или ко всем приложениям в клиенте.  Каждый тип политики имеет уникальную структуру и набор свойств, которые применяются к объектам, для которых назначена эта политика.
 
-A policy can be designated as the default for a tenant. This policy then takes effect on any application that resides within that tenant as long as it is not overridden by a policy with a higher priority. Policies can also be assigned to specific applications. The order of priority varies by policy type.
+Для клиента можно назначить политику по умолчанию. Тогда она будет влиять на любое приложение, существующее в этом клиенте, если только не переопределена политикой с более высоким приоритетом. Политики можно назначать и для отдельных приложений. Приоритетность политики определяется ее типом.
 
-Token lifetime policies can be configured for refresh tokens, access tokens, session tokens, and ID tokens.
+Политики времени жизни маркера можно настроить для маркеров обновления, маркеров доступа, маркеров сеансов и маркеров идентификации.
 
-### <a name="access-tokens"></a>Access tokens
-An access token is used by a client to access a protected resource. An access token can only be used for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime.  Adjusting access token lifetime is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled.  Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token. 
+### <a name="access-tokens"></a>Маркеры доступа
+Маркер доступа используется клиентским приложением для доступа к защищенному ресурсу. Маркер доступа можно использовать только для конкретного сочетания пользователя, клиентского приложения и ресурса. Маркеры доступа не могут быть отозваны. Они действуют до истечения срока своего действия. Вредоносный субъект, получивший маркер доступа, сможет использовать его на протяжении всего времени жизни.  Настройка времени жизни маркера доступа — это компромисс между производительностью системы и временем, в течение которого клиентское приложение сохраняет доступ после отключения учетной записи пользователя.  Чтобы повысить производительность системы, нужно минимизировать частоту обращений клиентского приложения за обновленным маркером доступа. 
 
-### <a name="refresh-tokens"></a>Refresh tokens
-When a client acquires an access token to access a protected resource, it receives both a refresh token and an access token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are bound to combinations of user and client. They can be revoked and their validity is checked every time they are used.
+### <a name="refresh-tokens"></a>Маркеры обновления
+Когда клиентское приложение обращается за маркером доступа для доступа к защищенному ресурсу, оно получает и маркер обновления, и маркер доступа. Маркер обновления используется для получения новой пары маркеров доступа и обновления, когда истечет срок действия маркера доступа. Маркеры обновления привязаны одновременно и к пользователю, и клиентскому приложению. Они могут быть отозваны, и при каждом использовании проверяется их действительность.
 
-It is important to make a distinction between confidential and public clients. Confidential clients are applications that are able to securely store a client password, allowing them to prove that requests are coming from the client application and not a malicious actor. As these flows are more secure, the default lifetimes of refresh tokens issued to these flows are higher and cannot be changed using policy.
+Важно различать конфиденциальные и общедоступные клиентские приложения. Конфиденциальные — это такие клиентские приложения, которые могут безопасно хранить клиентский пароль, с помощью которого можно подтвердить, что запросы поступают от клиентского приложения, а не от вредоносного субъекта. Так как такие последовательности достаточно безопасные, для них по умолчанию устанавливается более продолжительное время жизни маркеров, и этот срок нельзя изменить с помощью политик.
 
-Due to limitations of the environment that the applications run in, public clients are unable to securely store a client password. Policies can be set on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair (Refresh Token Max Inactive Time).  Additionally, policies can be used to set a period of time beyond which the refresh tokens are no longer accepted (Refresh Token Max Age).  Adjusting refresh token lifetime allows you to control when and how often the user is required to reenter credentials instead of being silently re-authenticated when using a public client application.
+Из-за ограничений среды выполнения, в которых запущены приложения, общедоступные клиентские приложения не могут безопасно хранить пароль клиента. Для ресурсов можно определить политики, которые запрещают маркерам обновления из общедоступных клиентских приложений, которые старше указанного периода, получать новую пару маркеров доступа и обновления (максимальное время неактивности для маркеров обновления).  Кроме того, с помощью политик можно определить период времени, по истечении которого маркеры обновления больше не принимаются (максимальный возраст маркеров обновления).  Настроив время жизни маркера обновления, вы можете управлять частотой, с которой пользователь должен повторно вводить учетные данные при использовании общедоступного клиентского приложения.
 
-### <a name="id-tokens"></a>ID tokens
-ID tokens are passed to web sites and native clients and contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until expiry.  Normally, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user.  Adjusting ID token lifetime allows you to control how often the web application will expire the application session and require the user to be re-authenticated with Azure AD (either silently or interactively).
+### <a name="id-tokens"></a>Маркеры идентификации
+Маркеры идентификации передаются веб-сайтам и собственным клиентам. Они содержат данные профиля пользователя. Маркер идентификации привязан одновременно и к пользователю, и клиентскому приложению. Маркеры идентификации считаются действительными до истечения срока действия.  Как правило, в веб-приложениях длительность пользовательского сеанса согласовывается со временем жизни маркера идентификации, выданного этому пользователю.  Изменяя время жизни маркера идентификации, вы можете управлять частотой завершения пользовательского сеанса в веб-приложении. А также — частотой, с которой пользователю нужно выполнять проверку подлинности в Azure AD (в автоматическом или интерактивном режиме).
 
-### <a name="single-sign-on-session-token"></a>Single sign-on session token
-When a user authenticates with Azure AD, a single sign-on session is established with the user’s browser and Azure AD.  The Single Sign-On Session Token, in the form of a cookie, represents this session. It is important to note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked and their validity is checked every time they are used.
+### <a name="single-sign-on-session-token"></a>Маркер сеанса единого входа
+Если пользователь при проверке подлинности в Azure AD установит флажок "Оставаться в системе", для пользовательского браузер и Azure AD создается сеанс единого входа.  Этот сеанс представлен маркером сеанса единого входа — в виде файла cookie. Важно отметить, что маркер сеанса единого входа не привязан к определенному ресурсу или клиентскому приложению. Маркеры сеанса единого входа могут быть отозваны, а при каждом использовании проверяется их действительность.
 
-There are two kinds of SSO session tokens. Persistent session tokens are stored as persistent cookies by the browser and non-persistent session tokens are stored as session cookies (these are destroyed when the browser is closed).
+Есть два вида маркеров сеанса единого входа. Постоянные маркеры сеанса — хранятся в постоянных файлах cookie, и временные маркеры сеанса — хранятся в виде файлов cookie сеанса (они удаляются при закрытии браузера).
 
-Non-persistent session tokens have a lifetime of 24 hours whereas persistent tokens have a lifetime of 180 days. Any time the SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days. If the SSO session token is not used within its validity period, it is considered expired and will no longer be accepted. 
+Срок действия временных маркеров сеанса составляет 24 часа, а постоянных маркеров — 180 дней. Каждый раз, когда используется действующий маркер сеанса единого входа, срок его действия продлевается еще на 24 часа или 180 дней соответственно. Если маркер сеанса единого входа не используется в течение срока его действия, он считается истекшим и не будет приниматься. 
 
-Policies can be used to set a period of time after the first session token was issued beyond which the session tokens are no longer accepted (Session Token Max Age).  Adjusting session token lifetime allows you to control when and how often the user is required to re-enter credentials instead of being silently authenticated when using a web application.
+С помощью политик можно задать период, следующий за выдачей первого маркера сеанса, по прошествии которого такой маркер не будет приниматься (максимальный возраст маркера сеанса).  Настройка времени жизни действия маркера сеанса позволяет управлять частотой, с которой пользователь должен повторно вводить учетные данные при использовании веб-приложения.
 
-### <a name="token-lifetime-policy-properties"></a>Token lifetime policy properties
-A token lifetime policy is a type of policy object that contains token lifetime rules.  The properties of the policy are used to control specified token lifetimes.  If no policy is set, the system enforces the default lifetime value.
+### <a name="token-lifetime-policy-properties"></a>Свойства политики времени жизни маркера
+Политика времени жизни маркера — это объект политики, который содержит правила времени жизни маркера.  Свойства этой политики и определяют срок действия соответствующих маркеров.  Если политика не задана, система использует стандартное значение для времени жизни.
 
-### <a name="configurable-token-lifetime-properties"></a>Configurable token lifetime properties
-| Property | Policy property string | Affects | Default | Minimum | Maximum |
+### <a name="configurable-token-lifetime-properties"></a>Свойства для настройки времени жизни маркера
+| Свойство | Строка свойства политики | Область применения | значение по умолчанию | Минимальная | Максимальная |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
-| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |14 days |10 minutes |90 days |
-| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor** |Session tokens(persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor*** |Session tokens (persistent and non-persistent) |Until-revoked |10 minutes |Until-revoked* |
+| Время жизни маркера доступа |AccessTokenLifetime |Маркеры доступа, маркеры безопасности, маркеры SAML2 |1 час |10 минут |1 день |
+| Максимальное время неактивности для маркеров обновления |MaxInactiveTime |Маркеры обновления |14 дней |10 минут |90 дней |
+| Максимальный возраст однофакторного маркера обновления |MaxAgeSingleFactor |Маркеры обновления (для всех пользователей) |90 дней |10 минут |Пока не будет отозван* |
+| Максимальный возраст многофакторного маркера обновления |MaxAgeMultiFactor |Маркеры обновления (для всех пользователей) |90 дней |10 минут |Пока не будет отозван* |
+| Максимальный возраст однофакторного маркера сеанса |MaxAgeSessionSingleFactor** |Маркеры сеанса (постоянные и временные) |Пока не будет отозван |10 минут |Пока не будет отозван* |
+| Максимальный возраст многофакторного маркера сеанса |MaxAgeSessionMultiFactor*** |Маркеры сеанса (постоянные и временные) |Пока не будет отозван |10 минут |Пока не будет отозван* |
 
-* *365 days is the maximum explicit length that can be set for these attributes.
-* **If MaxAgeSessionSingleFactor is not set then this value takes the MaxAgeSingleFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
-* ***If MaxAgeSessionMultiFactor is not set then this value takes the MaxAgeMultiFactor value. If neither parameter is set, the property takes on the default value (Until-revoked).
+* *Максимальная длительность, которую можно явно задать для этих атрибутов, — 365 дней.
+* **Если не задано значение для MaxAgeSessionSingleFactor, этот параметр принимает значение MaxAgeSingleFactor. Если оба параметра не заданы, свойство принимает значение по умолчанию (Until-revoked).
+* ***Если не задано значение для MaxAgeSessionMultiFactor, этот параметр принимает значение MaxAgeMultiFactor. Если оба параметра не заданы, свойство принимает значение по умолчанию (Until-revoked).
 
-### <a name="exceptions"></a>Exceptions
-| Property | Affects | Default |
+### <a name="exceptions"></a>Исключения
+| Свойство | Область применения | значение по умолчанию |
 | --- | --- | --- |
-| Refresh Token Max Inactive Time (federated users with insufficient revocation information) |Refresh tokens (Issued for federated users with insufficient revocation information) |12 hours |
-| Refresh Token Max Inactive Time (Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |90 days |
-| Refresh token Max Age (Issued for Confidential Clients) |Refresh tokens (Issued for Confidential Clients) |Until-revoked |
+| Максимальное время неактивности для маркера обновления (федеративные пользователи с недостаточной информацией об отзыве) |Маркеры обновления (выданные для федеративных пользователей с недостаточной информацией об отзыве) |12 часов |
+| Максимальное время неактивности для маркера обновления (конфиденциальные клиенты) |Маркеры обновления (выданные для конфиденциальных клиентов) |90 дней |
+| Максимальный возраст маркеров обновления (выданных для конфиденциальных клиентов) |Маркеры обновления (выданные для конфиденциальных клиентов) |Пока не будет отозван |
 
-### <a name="priority-and-evaluation-of-policies"></a>Priority and evaluation of policies
-Token Lifetime policies can be created and assigned to specific applications, tenants and service principals. This means that it is possible for multiple policies to apply to a specific application. The Token Lifetime policy that takes effect follows these rules:
+### <a name="priority-and-evaluation-of-policies"></a>Приоритетность и оценка политик
+Политики времени жизни можно создать и назначить для отдельных приложений, клиентов и субъектов-служб. Это означает, что к определенному приложению может применяться сразу несколько политик. Политики определяют время жизни маркеров в соответствии со следующими правилами:
 
-* If a policy is explicitly assigned to the service principal, it will be enforced. 
-* If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent tenant of the service principal will be enforced. 
-* If no policy is explicitly assigned to the service principal or the tenant, the policy assigned to the application will be enforced. 
-* If no policy has been assigned to the service principal, the tenant, or the application object, the default values will be enforced (see table above).
+* если политика явно назначена субъекту-службе, применяется именно она; 
+* если нет политики, явно назначенной субъекту-службе, применяется политика, явно назначенная родительскому клиенту субъекта-службы; 
+* если нет политики, явно назначенной субъекту-службе или клиенту, применяется политика, назначенная приложению; 
+* если нет политики, явно назначенной субъекту-службе, клиенту или объекту приложения, применяются значения по умолчанию (см. таблицу выше).
 
-For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
+Дополнительные сведения о связях между объектами приложения и объектами субъекта-службы см. в статье [Объекты приложения и субъекта-службы в Azure Active Directory](active-directory-application-objects.md).
 
-A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.
+Срок действия маркера оценивается при его использовании. Используется политика с самым высоким приоритетом, установленная для оцениваемого приложения.
 
 > [!NOTE]
-> Example
+> Пример
 > 
-> A user wants to access 2 web applications, A and B. 
+> Пользователь хочет получить доступ к двум веб-приложениям, условно именуемым А и Б. 
 > 
-> * Both applications are in the same parent tenant. 
-> * Token lifetime policy 1 with a Session Token Max Age of 8 hours is set as the parent tenant’s default.
-> * Web application A is a regular use web application and isn’t linked to any policies. 
-> * Web application B is used for highly sensitive processes and its service principal is linked to token lifetime policy 2 with a Session Token Max Age of 30 minutes.
+> * Оба приложения находятся в одном родительском клиенте. 
+> * Для родительского клиента в качестве политики по умолчанию установлена политика времени жизни маркеров 1, в соответствии с которой максимальный возраст маркера сеанса составляет 8 часов.
+> * Веб-приложение A — это обычное веб-приложение без настроенных политик. 
+> * Веб-приложение Б используется для процессов с высоким уровнем конфиденциальности, и его субъект-служба связана с политикой времени жизни действия маркеров 2, в которой максимальный возраст маркера сеанса составляет 30 минут.
 > 
-> At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.
+> В 12:00 пользователь открывает новый сеанс браузера и пытается получить доступ к веб-приложению A. Он перенаправляется в Azure AD, где отображается запрос на вход. При этом в браузере удаляется файл cookie с маркером сеанса. После этого пользователь перенаправляется в веб-приложение A с маркером идентификатора, который предоставляет права доступа к приложению.
 > 
-> At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
+> В 12:15 этот же пользователь пытается получить доступ к веб-приложению Б. Браузер перенаправляется на платформу Azure AD, которая находит файл cookie сеанса. Субъект-служба веб-приложения Б связана с политикой 2, но также входит в родительский клиент, для которого по умолчанию используется политика 1. Здесь применяется политика 2, так как политики для субъекта-службы имеют более высокий приоритет, чем политики по умолчанию для клиента. Исходный маркер сеанса был выпущен в течение последних 30 минут, поэтому считается допустимым. Пользователь перенаправляется в веб-приложение Б с маркером идентификатора, предоставляющим права доступа.
 > 
-> At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.
+> В 13:00 пользователь пытается перейти к веб-приложению A и перенаправляется в Azure AD. Веб-приложение A не имеет связанных политик, но входит в клиент, для которого в качестве политики по умолчанию установлена политика 1, поэтому применяется именно эта политика. Система обнаруживает файл cookie сеанса, выпущенный в пределах последних 8 часов. Пользователь автоматически и без проверки подлинности перенаправляется обратно в веб-приложение A с новым маркером идентификатора.
 > 
-> The user immediately tries to access web application B. The user is redirected to Azure AD. As before, policy 2 takes effect. As the token was issued longer than 30 minutes ago, the user is then prompted to re-enter their credentials, and a brand new session and ID token are issued. The user can then access web application B.
+> Теперь пользователь сразу переходит к веб-приложению Б и снова перенаправляется в Azure AD. Как и в прошлый раз, применяется политика 2. Так как маркер был выдан раньше, чем 30 минут назад, пользователю предлагается повторно ввести учетные данные, чтобы получить новые маркер сеанса и маркер идентификатора. Пользователь получает доступ к веб-приложению Б.
 > 
 > 
 
-## <a name="configurable-policy-properties:-in-depth"></a>Configurable policy properties: In-Depth
-### <a name="access-token-lifetime"></a>Access token lifetime
-**String:** AccessTokenLifetime
+## <a name="configurable-policy-properties-in-depth"></a>Настройка свойств политики: подробные сведения
+### <a name="access-token-lifetime"></a>Время жизни маркера доступа
+**Строка:** AccessTokenLifetime
 
-**Affects:** Access tokens, ID tokens
+**Область применения:** маркеры доступа, маркеры безопасности
 
-**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the access token lifetime mitigates the risk of an access or ID token being used by a malicious actor for an extended period of time (as they cannot be revoked) but also adversely impacts performance as the tokens will have to be replaced more often.
+**Описание:** эта политика определяет, как долго продолжают действовать маркеры доступа и маркеры идентификации для определенного ресурса. Минимизация времени жизни маркера доступа снижает риск использования маркера доступа или маркера идентификатора вредоносным субъектом в течение длительного времени (как мы помним, эти маркеры не могут быть отозваны), но отрицательно влияет на производительность системы, вынуждая чаще заменять маркеры.
 
-### <a name="refresh-token-max-inactive-time"></a>Refresh token max inactive time
-**String:** MaxInactiveTime
+### <a name="refresh-token-max-inactive-time"></a>Максимальное время неактивности для маркеров обновления
+**Строка:** MaxInactiveTime
 
-**Affects:** Refresh tokens
+**Область применения:** маркеры обновления
 
-**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
+**Описание:** эта политика определяет, насколько старым должен быть маркер обновления, чтобы клиент больше не мог использовать его для получения новой пары маркеров доступа и обновления при попытке доступа к определенному ресурсу. При использовании маркера обновления обычно возвращается новый маркер обновления. Следовательно, политика запретит доступ после того, как клиент в течение указанного времени не будет обращаться к каким-либо ресурсам с полученным маркером обновления. 
 
-This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. 
+Эта политика вынуждает пользователей, не выполнявших активных действий в клиентских приложениях, повторно проходить проверку подлинности для получения нового маркера обновления. 
 
-It is important to note that the Refresh Token Max Inactive Time must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age.
+Важно отметить, что максимальное время неактивности маркера обновления должно быть меньше, чем максимальный возраст однофакторного маркера или многофакторного маркера обновления.
 
-### <a name="single-factor-refresh-token-max-age"></a>Single-factor refresh token max age
-**String:** MaxAgeSingleFactor
+### <a name="single-factor-refresh-token-max-age"></a>Максимальный возраст однофакторного маркера обновления
+**Строка:** MaxAgeSingleFactor
 
-**Affects:** Refresh tokens
+**Область применения:** маркеры обновления
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**Описание:** эта политика определяет, как долго пользователь может применять маркеры обновления для получения новых пар маркеров доступа и обновления после последней успешной проверки подлинности с использованием однофакторных методов. Когда пользователь выполнит проверку подлинности и получит новый маркер обновления, он сможет и дальше использовать последовательность маркеров обновления в течение указанного периода (если текущий маркер обновления не будет отозван или не будет превышено максимальное время неактивности). После этого пользователь должен повторно выполнить проверку подлинности, чтобы получить новый маркер обновления. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Refresh Token Max Age Policy.
+Сокращение максимального возраста вынуждает пользователей чаще выполнять проверку подлинности. Поскольку однофакторная идентификация подлинности считается менее безопасной, чем многофакторная, мы рекомендуем для этой политики указывать значение не больше, чем максимальный возраст многофакторного маркера обновления.
 
-### <a name="multi-factor-refresh-token-max-age"></a>Multi-factor refresh token max age
-**String:** MaxAgeMultiFactor
+### <a name="multi-factor-refresh-token-max-age"></a>Максимальный возраст многофакторного маркера обновления
+**Строка:** MaxAgeMultiFactor
 
-**Affects:** Refresh tokens
+**Область применения:** маркеры обновления
 
-**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+**Описание:** эта политика определяет, как долго пользователь может применять маркеры обновления для получения новых пар маркеров доступа и обновления после последней успешной проверки подлинности с использованием многофакторных методов. Когда пользователь выполнит проверку подлинности и получит новый маркер обновления, он сможет и дальше использовать последовательность маркеров обновления в течение указанного периода (если текущий маркер обновления не будет отозван или не будет превышено максимальное время неактивности). После этого пользователь должен повторно выполнить проверку подлинности, чтобы получить новый маркер обновления. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Refresh Token Max Age Policy.
+Сокращение максимального возраста вынуждает пользователей чаще выполнять проверку подлинности. Так как однофакторная проверка подлинности считается менее безопасной, чем многофакторная, мы рекомендуем для этой политики указывать значение не меньше, чем максимальный возраст однофакторного маркера обновления.
 
-### <a name="single-factor-session-token-max-age"></a>Single-factor session token max age
-**String:** MaxAgeSessionSingleFactor
+### <a name="single-factor-session-token-max-age"></a>Максимальный возраст однофакторного маркера сеанса
+**Строка:** MaxAgeSessionSingleFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**Область применения:** маркеры сеанса (постоянные и временные)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**Описание:** эта политика определяет, как долго пользователь может применять маркеры сеанса для получения новых маркеров сеанса и идентификатора после последней успешной проверки подлинности с использованием однофакторных методов. Когда пользователь выполнит проверку подлинности и получит новый маркер сеанса, он сможет и дальше использовать последовательность маркеров сеанса в течение указанного периода времени (если текущий маркер сеанса не будет отозван или не истечет его срок действия). После этого пользователь должен повторно выполнить проверку подлинности, чтобы получить новый маркер сеанса. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Session Token Max Age Policy.
+Сокращение максимального возраста вынуждает пользователей чаще выполнять проверку подлинности. Так как однофакторная проверка подлинности считается менее безопасной, чем многофакторная, мы рекомендуем для этой политики указывать значение не больше, чем максимальный возраст многофакторного маркера сеанса.
 
-### <a name="multi-factor-session-token-max-age"></a>Multi-factor session token max age
-**String:** MaxAgeSessionMultiFactor
+### <a name="multi-factor-session-token-max-age"></a>Максимальный возраст многофакторного маркера сеанса
+**Строка:** MaxAgeSessionMultiFactor
 
-**Affects:** Session tokens (persistent and non-persistent)
+**Область применения:** маркеры сеанса (постоянные и временные)
 
-**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+**Описание:** эта политика определяет, как долго пользователь может применять маркеры сеанса для получения новых маркеров сеанса и идентификатора после последней успешной проверки подлинности с использованием многофакторных методов. Когда пользователь выполнит проверку подлинности и получит новый маркер сеанса, он сможет и дальше использовать последовательность маркеров сеанса в течение указанного периода времени (если текущий маркер сеанса не будет отозван или не истечет его срок действия). После этого пользователь должен повторно выполнить проверку подлинности, чтобы получить новый маркер сеанса. 
 
-Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Session Token Max Age Policy.
+Сокращение максимального возраста вынуждает пользователей чаще выполнять проверку подлинности. Так как однофакторная проверка подлинности считается менее безопасной, чем многофакторная, мы рекомендуем для этой политики указывать значение не меньше, чем максимальный возраст однофакторного маркера сеанса.
 
-## <a name="sample-token-lifetime-policies"></a>Sample token lifetime policies
-Being able to create and manage token lifetimes for apps, service principals, and your overall tenant exposes all kinds of new scenarios possible in Azure AD.  We're going to walk through a few common policy scenarios that will help you impose new rules for:
+## <a name="sample-token-lifetime-policies"></a>Пример использования политик срока действия маркеров
+Указывая и изменяя время жизни маркеров для приложений, субъектов-служб и клиента в целом, вы сможете реализовать в Azure AD много новых сценариев.  Сейчас мы рассмотрим несколько распространенных вариантов использования политик, которые помогут вам правильно применять новые правила для следующих параметров.
 
-* Token Lifetimes
-* Token Max Inactive Times
-* Token Max Age
+* Сроки действия маркеров
+* Максимальное время неактивности для маркеров
+* Максимальный возраст маркеров
 
-We'll walk through a few scenarios including:
+Мы рассмотрим несколько сценариев, включая:
 
-* Managing a Tenant's Default Policy
-* Creating a Policy for Web Sign-in
-* Creating a Policy for Native Apps calling a Web API
-* Managing an Advanced Policy 
+* управление политикой клиента по умолчанию;
+* создание политики для входа в веб-службы;
+* создание политики для собственных приложений, вызывающих веб-API;
+* управление расширенной политикой. 
 
-### <a name="prerequisites"></a>Prerequisites
-In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall tenant.  If you are new to Azure AD, checkout [this article](active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
+### <a name="prerequisites"></a>Предварительные требования
+В примерах сценариев мы будем создавать, обновлять, связывать и удалять политики для приложений, субъектов-служб и клиента в целом.  Если вы еще не работали с Azure AD, прежде чем продолжать, изучите [эту статью](active-directory-howto-tenant.md).  
 
-1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
-2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
+1. Чтобы начать, скачайте последнюю [предварительную версию командлетов Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
+2. Получив командлеты Azure AD PowerShell, выполните команду Connect для входа в учетную запись администратора Azure AD. Это действие нужно выполнять при каждом запуске сеанса.
    
-       Connect-AzureAD -Confirm
-3. Run the following command to see all policies that have been created in your tenant.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
+     Connect-AzureAD -Confirm
+3. Выполните следующую команду для просмотра всех политик, которые созданы в клиенте.  Эту команду следует использовать после большинства операций в наших примерах.  Также она позволит получить **идентификатор объекта** нужной политики. 
    
-       Get-AzureADPolicy
+     Get-AzureADPolicy
 
-### <a name="sample:-managing-a-tenant's-default-policy"></a>Sample: Managing a tenant's default policy
-In this sample, we will create a policy that allows your users to sign in less frequently across your entire tenant. 
+### <a name="sample-managing-a-tenants-default-policy"></a>Пример: управление политикой клиента по умолчанию
+В этом примере мы создадим для всего клиента политику, которая позволяет пользователям реже вводить учетные данные. 
 
-To do this, we create a token lifetime policy for Single-Factor Refresh Tokens that is applied across your tenant. This policy will be applied to every application in your tenant, and each service principal that doesn’t already have a policy set to it. 
+Для этого мы создадим политику времени жизни для однофакторных маркеров обновления и применим ее к клиенту. Эта политика будет распространяться на все приложения в клиенте и на все субъекты-службы, для которых не установлены отдельные политики. 
 
-1. **Create a Token Lifetime Policy.** 
+1. **Создание политики времени жизни маркеров** 
 
-Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:
+Если для параметра срока действия однофакторного маркера обновления установить значение until-revoked, маркер будет действовать неограниченно долго — пока не будет отозван.  Мы создадим политику со следующим определением:
 
         @("{
           `"TokenLifetimePolicy`":
@@ -206,247 +210,250 @@ Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire u
               }
         }")
 
-Then run the following command to create this policy. 
+Выполните следующую команду, чтобы создать эту политику: 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Update the Policy**
+&nbsp;&nbsp;2.    **Обновление политики**
 
-You've decided that the first policy is not quite as strict as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 
+Предположим, вы решили, что созданная политика для службы не соответствует строгим требованиям, и хотите, чтобы однофакторные маркеры обновления истекали через 2 дня. Выполните следующую команду: 
 
     Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
-&nbsp;&nbsp;3. **You're done!** 
+&nbsp;&nbsp;3. **Готово!** 
 
-### <a name="sample:-creating-a-policy-for-web-sign-in"></a>Sample: Creating a policy for web sign-in
-In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
+### <a name="sample-creating-a-policy-for-web-sign-in"></a>Пример: создание политики для входа в веб-службы
+В этом примере мы создадим политику, в соответствии с которой пользователи должны будут чаще выполнять проверку подлинности в веб-приложении. Эта политика определит время жизни для маркеров доступа и идентификатора, а также максимальный возраст многофакторного маркера сеанса для субъекта-службы веб-приложения.
 
-1. **Create a Token Lifetime Policy.**
+1. **Создание политики времени жизни маркеров**
 
-This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.
+Эта политика для входа в веб-службы определит время жизни для маркеров доступа и идентификатора, а также максимальный возраст многофакторного маркера сеанса (2 часа).
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
     Get-AzureADPolicy
-&nbsp;&nbsp;2.  **Assign the policy to your service principal.**
+&nbsp;&nbsp;2.    **Назначение политики для субъекта-службы.**
 
-We're going to link this new policy with a service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+Теперь мы сопоставим новую политику с субъектом-службой.  Вам потребуется также получить доступ к идентификатору **ObjectId** субъекта-службы. Для этого можно запросить [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) или открыть средство [Graph Explorer](https://graphexplorer.cloudapp.net/) и войти в учетную запись Azure AD, чтобы просмотреть список всех субъектов-служб в своем клиенте. 
 
-Once you have the **ObjectId**, Run the following command.
+Получив идентификатор **ObjectId**, выполните следующую команду:
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **Готово!** 
 
  
 
-### <a name="sample:-creating-a-policy-for-native-apps-calling-a-web-api"></a>Sample: Creating a policy for native apps calling a Web API
+### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Пример: создание политики для собственных приложений, вызывающих веб-API
 > [!NOTE]
-> Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
+> Связывание политик с приложениями сейчас отключено.  Такая возможность будет вскоре предоставлена.  Эта страница будет обновлена, как только функция станет доступной.
 > 
 > 
 
-In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
+В этом примере мы создадим политику, которая требует реже выполнять проверку подлинности, а также увеличивает длительность периода, в течение которого пользователи могут оставаться неактивными без необходимости повторной проверки подлинности. Политика будет применяться к веб-API каждый раз, когда собственные приложения обращаются к этому интерфейсу как к ресурсу.
 
-1. **Create a Token Lifetime Policy.** 
+1. **Создание политики времени жизни маркеров** 
 
-This command will create a strict policy for a Web API. 
+Эта команда создает строгую политику для веб-API. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
 
-To see your new policy and get its ObjectID, run the following command.
+Чтобы просмотреть созданную политику и получить для нее идентификатор объекта (ObjectID), выполните следующую команду:
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the policy to your Web API**.
+&nbsp;&nbsp;2.    **Назначение политики для веб-API**
 
-We're going to link this new policy with an application.  You'll also need a way to access the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure Portal](https://portal.azure.com/). 
+Теперь мы сопоставим новую политику с приложением.  Вам потребуется также получить доступ к идентификатору **ObjectId** приложения. Получить **ObjectId** для приложения проще всего на [портале Azure](https://portal.azure.com/). 
 
-Once you have the **ObjectId**, Run the following command.
+Получив идентификатор **ObjectId**, выполните следующую команду:
 
     Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **You're Done!** 
+&nbsp;&nbsp;3.    **Готово!** 
 
-### <a name="sample:-managing-an-advanced-policy"></a>Sample: Managing an advanced policy
-In this sample, we will create a few policies to demonstrate how the priority system works, and how you can manage multiple policies applied to several objects. This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios. 
+### <a name="sample-managing-an-advanced-policy"></a>Пример: управление расширенной политикой
+В этом примере мы создадим несколько политик для демонстрации системы приоритетов, а также представим методы управления несколькими политиками, примененными к нескольким объектам. Это даст вам некоторое представление о приоритетности политик (см. выше) и позволит реализовывать более сложные сценарии. 
 
-1. **Create a Token Lifetime Policy**
+1. **Создание политики времени жизни маркеров**
 
-So far pretty simple. We've created a tenant default policy that sets the Single-Factor Refresh Token lifetime to 30 days. 
+Пока все было достаточно просто. Мы создали политику по умолчанию для клиента, которая определяет для однофакторного маркера обновления время жизни в 30 дней. 
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
-To see your new policy and get it's ObjectID, run the following command.
+Чтобы просмотреть созданную политику и получить ее идентификатор объекта (ObjectID), выполните следующую команду:
 
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.  **Assign the Policy to a Service Principal**
+&nbsp;&nbsp;2.    **Назначение политики для субъекта-службы**
 
-Now we have a policy on the entire tenant.  Let's say we want to preserve this 30 day policy for a specific service principal, but change the tenant default policy to be the upper limit of "until-revoked". 
+Теперь у нас есть политика, примененная ко всему клиенту.  Предположим, что мы хотим сохранить эту политику со сроком действия 30 дней для определенного субъекта-службы, но изменить максимальное ограничение стандартной политики для клиента, указав значение until-revoked (пока не будет отозван). 
 
-First, We're going to link this new policy with our service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+Прежде всего, давайте сопоставим новую политику с субъектом-службой.  Вам потребуется также получить доступ к идентификатору **ObjectId** субъекта-службы. Для этого можно запросить [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) или открыть средство [Graph Explorer](https://graphexplorer.cloudapp.net/) и войти в учетную запись Azure AD, чтобы просмотреть список всех субъектов-служб в своем клиенте. 
 
-Once you have the **ObjectId**, Run the following command.
+Получив идентификатор **ObjectId**, выполните следующую команду:
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.  **Set the IsTenantDefault flag to false using the following command**. 
+&nbsp;&nbsp;3.    **Установите значение false для флага IsTenantDefault, используя следующую команду**. 
 
     Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.  **Create a new Tenant Default Policy**
+&nbsp;&nbsp;4.    **Создание новой политики по умолчанию для клиента**
 
     New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
 
-&nbsp;&nbsp;5.   **You're Done!** 
+&nbsp;&nbsp;5.     **Готово!** 
 
-You now have the original policy linked to your service principal and the new policy set as your tenant default policy.  It's important to remember that policies applied to service principals have priority over tenant default policies. 
+Теперь ваша исходная политика связана с субъектом-службой, а клиенту в качестве политики по умолчанию назначена новая политика.  Важно помнить, что политики, примененные к субъектам-службам, имеют более высокий приоритет, чем политики по умолчанию для клиента. 
 
-## <a name="cmdlet-reference"></a>Cmdlet Reference
-### <a name="manage-policies"></a>Manage policies
-The following cmdlets can be used to manage policies.</br></br>
+## <a name="cmdlet-reference"></a>Справочник по командлетам
+### <a name="manage-policies"></a>Управление политиками
+Управлять политиками можно с помощью следующих командлетов.</br></br>
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-Creates a new policy.
+Создает новую политику.
 
     New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -Definition |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -Definition |Переведенный в строку массив JSON, который содержит все правила политики. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -DisplayName |Строка c именем политики. |-DisplayName MyTokenPolicy |
+| -IsTenantDefault |Если присвоено значение true, политика устанавливается политикой по умолчанию для клиента; если присвоено значение false — параметр игнорируется. |-IsTenantDefault $true |
+| -Type |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [необязательно] |Задает альтернативный идентификатор политики. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Gets all AzureAD Policies or specified policy 
+Возвращает полный список политик Azure AD или одну указанную политику. 
 
     Get-AzureADPolicy 
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId [Optional] |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId [необязательно] |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Gets all apps and service principals linked to a policy
+Возвращает список приложений и субъектов-служб, связанных с политикой.
 
     Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Updates an existing policy
+Обновляет существующую политику.
 
     Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -Definition [Optional] |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [Optional] |If true sets the policy as tenant's default policy, if false does nothing |-IsTenantDefault $true |
-| -Type [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
+| -DisplayName |Строка c именем политики. |-DisplayName MyTokenPolicy |
+| -Definition [необязательно] |Переведенный в строку массив JSON, который содержит все правила политики. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
+| -IsTenantDefault [необязательно] |Если присвоено значение true, политика устанавливается политикой по умолчанию для клиента; если присвоено значение false — параметр игнорируется. |-IsTenantDefault $true |
+| -Type [необязательно] |Тип политики. Для политик времени жизни маркеров всегда используйте значение TokenLifetimePolicy. |-Type TokenLifetimePolicy |
+| -AlternativeIdentifier [необязательно] |Задает альтернативный идентификатор политики. |-AlternativeIdentifier myAltId |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Deletes the specified policy
+Удаляет указанную политику.
 
      Remove-AzureADPolicy -ObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор политики, который нужно получить. |-ObjectId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
-### <a name="application-policies"></a>Application policies
-The following cmdlets can be used for application policies.</br></br>
+### <a name="application-policies"></a>Политики приложений
+Управлять политиками приложений можно с помощью следующих командлетов.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Links the specified policy to an application
+Связывает указанную политику с приложением.
 
     Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| -RefObjectId |Идентификатор объекта (ObjectID) политики. |-RefObjectId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Gets the policy assigned to an application
+Возвращает политику, назначенную для приложения.
 
     Get-AzureADApplicationPolicy -ObjectId <object id of application>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Removes a policy from an application
+Удаляет политику из приложения.
 
     Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| -PolicyId |Идентификатор объекта (ObjectID) политики. |-PolicyId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Service principal policies
-The following cmdlets can be used for service principal policies.</br></br>
+### <a name="service-principal-policies"></a>Политики субъекта-службы
+Управлять политиками субъектов-служб можно с помощью следующих командлетов.</br></br>
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Links the specified policy to a service principal
+Связывает указанную политику с субъектом-службой.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| -RefObjectId |Идентификатор объекта (ObjectID) политики. |-RefObjectId &lt;значение ObjectID для политики&gt; |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Gets any policy linked to the specified service principal
+Возвращает все политики, связанные с указанной субъектом-службой.
 
     Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Removes the policy from specified service principal
+Удаляет политику из указанной субъекта-службы.
 
     Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
 
-| Parameters | Description | Example |
+| Параметры | Описание | Пример |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| -ObjectId |Идентификатор объекта (ObjectID) приложения. |-ObjectId &lt;значение ObjectID для приложения&gt; |
+| -PolicyId |Идентификатор объекта (ObjectID) политики. |-PolicyId &lt;значение ObjectID для политики&gt; |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
