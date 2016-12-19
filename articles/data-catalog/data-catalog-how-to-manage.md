@@ -1,13 +1,13 @@
 ---
-title: Как управлять ресурсами данных | Microsoft Docs
-description: В этом практическом руководстве рассказывается, как управлять видимостью и владением ресурсов данных, зарегистрированных в каталоге данных Azure.
+title: "Как управлять ресурсами данных | Документация Майкрософт"
+description: "В этом практическом руководстве рассказывается, как управлять видимостью и владением ресурсов данных, зарегистрированных в каталоге данных Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+
 
 ---
 # <a name="how-to-manage-data-assets"></a>Как управлять ресурсами данных
@@ -70,6 +74,9 @@ ms.author: maroche
 ## <a name="summary"></a>Сводка
 Каталог данных поддерживает модель совместной работы над метаданными и поиска ресурсов данных, позволяя всем пользователям каталога добавлять и находить данные. В стандартном выпуске каталога данных реализованы возможности владения и управления, благодаря которым пользователи могут ограничивать видимость и использование определенных ресурсов данных.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

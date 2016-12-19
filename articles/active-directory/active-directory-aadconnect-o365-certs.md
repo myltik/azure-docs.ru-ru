@@ -1,12 +1,12 @@
 ---
-title: Руководство по обновлению сертификатов для пользователей Office 365 и Azure Active Directory | Microsoft Docs
-description: В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата.
+title: "Руководство по обновлению сертификатов для пользователей Office 365 и Azure Active Directory | Документация Майкрософт"
+description: "В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: dda6ff2f39980a3fc74e771e5bbbca00562bb989
+
 
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
@@ -32,8 +36,8 @@ ms.author: billmath
 ### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Уведомление о возобновлении действия на портале Office 365 или по электронной почте
 > [!NOTE]
 > Если вы получите через портал или по электронной почте уведомление о том, что необходимо возобновить действие сертификата для Office, см. раздел об [управлении изменениями в сертификатах для подписи маркеров](#managecerts). Так вы сможете узнать, нужно ли предпринимать какие-либо действия. Корпорации Майкрософт известно о потенциальной проблеме, в результате которой могут отправляться уведомления о возобновлении действия сертификата, даже если никаких действий не требуется.
-> 
-> 
+>
+>
 
 Azure AD пытается отслеживать метаданные федерации и обновлять сертификаты для подписи маркеров, как указано в этих метаданных. За 30 дней до истечения срока действия сертификатов для подписи маркеров Azure AD проверит, доступны ли новые сертификаты, путем опроса метаданных федерации.
 
@@ -44,15 +48,15 @@ Azure AD пытается отслеживать метаданные федер
 
 > [!IMPORTANT]
 > Чтобы обеспечить непрерывность бизнес-процессов при использовании AD FS, проверьте, установлены ли на ваших серверах следующие обновления, предотвращающие ошибки проверки подлинности при известных проблемах. Это позволит устранить известные проблемы с прокси-сервером AD FS при текущем и последующем возобновлении действия сертификатов.
-> 
+>
 > Server 2012 R2 — [Накопительный пакет обновления от мая 2014 г. для Windows RT 8.1, Windows 8.1 и Windows Server 2012 R2](http://support.microsoft.com/kb/2955164).
-> 
+>
 > Server 2008 R2 и 2012 — [Authentication through proxy fails in Windows Server 2012 or Windows Server 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
-> 
-> 
+>
+>
 
-## <a name="check-if-the-certificates-need-to-be-updated-<a-name="managecerts"></a>"></a>Проверка необходимости в обновлении сертификатов <a name="managecerts"></a>
-### <a name="step-1:-check-the-autocertificaterollover-state"></a>Шаг 1. Проверка состояния свойства AutoCertificateRollover
+## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>Проверка необходимости в обновлении сертификатов <a name="managecerts"></a>
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Шаг 1. Проверка состояния свойства AutoCertificateRollover
 На сервере AD FS откройте PowerShell. Удостоверьтесь, что для AutoCertificateRollover задано значение True.
 
     Get-Adfsproperties
@@ -61,13 +65,13 @@ Azure AD пытается отслеживать метаданные федер
 
 [AZURE.NOTE] При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2:-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Шаг 2. Убедитесь, что службы AD FS и Azure AD синхронизированы
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Шаг 2. Убедитесь, что службы AD FS и Azure AD синхронизированы
 На сервере AD FS откройте командную строку Azure AD PowerShell и подключитесь к Azure AD.
 
 > [!NOTE]
 > Вы можете скачать Azure AD PowerShell [здесь](https://technet.microsoft.com/library/jj151815.aspx).
-> 
-> 
+>
+>
 
     Connect-MsolService
 
@@ -79,7 +83,7 @@ Azure AD пытается отслеживать метаданные федер
 
 Если отпечатки в обоих наборах выходных данных совпадают, значит, сертификаты синхронизируются с Azure AD.
 
-### <a name="step-3:-check-if-your-certificate-is-about-to-expire"></a>Шаг 3. Проверьте, не истекает ли срок действия сертификата
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Шаг 3. Проверьте, не истекает ли срок действия сертификата
 В выходных данных Get-MsolFederationProperty или Get-AdfsCertificate проверьте дату, указанную после строки Not After. Если эта дата наступает менее чем через 30 дней, следует принять меры.
 
 | AutoCertificateRollover | Сертификаты синхронизированы с Azure AD | Метаданные федерации общедоступны | Срок действия | Действие |
@@ -90,7 +94,7 @@ Azure AD пытается отслеживать метаданные федер
 
 \[-] — не имеет значения
 
-## <a name="renew-the-token-signing-certificate-automatically-(recommended)-<a-name="autorenew"></a>"></a>Автоматическое возобновление действия сертификата для подписи маркера (рекомендуется) <a name="autorenew"></a>
+## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>Автоматическое возобновление действия сертификата для подписи маркера (рекомендуется) <a name="autorenew"></a>
 Если приведенные ниже условия выполняются, ничего не нужно делать вручную.
 
 * Вы развернули прокси веб-приложения, предоставляющий доступ к метаданным федерации из экстрасети.
@@ -108,15 +112,15 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 Пример: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-<a-name="manualrenew"></a>"></a>Возобновление действия сертификата для подписи маркера вручную <a name="manualrenew"></a>
+## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>Возобновление действия сертификата для подписи маркера вручную <a name="manualrenew"></a>
 Сертификаты для подписи маркеров можно обновить вручную. Например, в следующих сценариях лучше выполнять ручное обновление.
 
-* Сертификаты для подписи маркеров не являются самозаверяющими. Вероятнее всего, это происходит потому, что ваша организация использует сертификаты AD FS, зарегистрированные в центре сертификации организации.
+* Сертификаты для подписи маркеров не являются самозаверяющими. Вероятнее всего, это происходит потому, что ваша организация использует сертификаты AD FS, зарегистрированные в центре сертификации организации.
 * В системе безопасности сети запрещен общий доступ к метаданным федерации.
 
 В этих ситуациях при каждом обновлении сертификатов для подписи маркеров также необходимо обновить домен Office 365 с помощью команды PowerShell Update-MsolFederatedDomain.
 
-### <a name="step-1:-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Шаг 1. Убедитесь, что в службах AD FS используются новые сертификаты для подписи маркеров
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Шаг 1. Убедитесь, что в службах AD FS используются новые сертификаты для подписи маркеров
 **Нестандартная конфигурация**
 
 Если применяется нестандартная конфигурация AD FS (где значение свойства **AutoCertificateRollover** равно **False**), вероятно, вы используете настраиваемые (не самозаверяющие) сертификаты. Дополнительные сведения об обновлении сертификатов для подписи маркеров AD FS см. в разделе [Рекомендации для клиентов, не использующих самозаверяющие сертификаты AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
@@ -127,13 +131,13 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 1. Удостоверьтесь, что вы вошли на основной сервер AD FS.
 2. Проверьте текущие сертификаты подписи в AD FS, открыв командное окно PowerShell и выполнив следующую команду.
-   
+
     PS C:\>Get-ADFSCertificate –CertificateType token-signing
-   
+
    > [!NOTE]
    > При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
-   > 
-   > 
+   >
+   >
 3. Просмотрите данные, которые будут выведены для всех сертификатов в списке. Если служба AD FS создала сертификат, вы увидите два сертификата в выходных данных: один, для которого значение **IsPrimary** равно **True**, а дата **NotAfter** равна 5 дней; второй, для которого значение **IsPrimary** равно **False**, а дата **NotAfter** равна приблизительно году.
 4. Если вы видите только один сертификат, а дата **NotAfter** равна 5 дням, необходимо создать сертификат.
 5. Чтобы создать сертификат, в командной строке PowerShell выполните такую команду: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
@@ -141,25 +145,27 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 Теперь должны появиться два сертификата, один из которых имеет дату **NotAfter**, равную приблизительно году, и у которого значение параметра **IsPrimary** равно **False**.
 
-### <a name="step-2:-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Шаг 2. Обновление новых сертификатов для подписи маркеров для использования в отношениях доверия Office 365
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Шаг 2. Обновление новых сертификатов для подписи маркеров для использования в отношениях доверия Office 365
 Выполните описанные ниже действия, чтобы добавить в Office 365 новые сертификаты для подписи маркеров, которые будут использоваться в отношениях доверия.
 
 1. Откройте модуль Microsoft Azure Active Directory для Windows PowerShell.
 2. Запустите $cred=Get-Credential. Если этот командлет запрашивает учетные данные, введите данные учетной записи администратора облачных служб.
-3. Запустите Connect-MsolService –Credential $cred. Этот командлет подключит вас к облачной службе. Перед выполнением любых дополнительных командлетов, установленных с помощью средства, необходимо создать контекст, который подключит вас к облачной службе.
-4. Если эти команды выполняются на компьютере, который не является основным сервером федерации AD FS, выполните команду Set-MSOLAdfscontext -Computer <AD FS primary server>, где <AD FS primary server> — внутреннее полное доменное имея основного сервера AD FS. Этот командлет создает контекст, подключающий вас к AD FS.
-5. Выполните команду Update-MSOLFederatedDomain -DomainName <domain>. Этот командлет обновляет параметры AD FS в облачной службе и настраивает отношения доверия между ними.
+3. Запустите Connect-MsolService –Credential $cred. Этот командлет подключит вас к облачной службе. Перед выполнением любых дополнительных командлетов, установленных с помощью средства, необходимо создать контекст, который подключит вас к облачной службе.
+4. Если эти команды выполняются на компьютере, который не является основным сервером федерации AD FS, выполните команду Set-MSOLAdfscontext -Computer <AD FS primary server>, где <AD FS primary server> — внутреннее полное доменное имея основного сервера AD FS. Этот командлет создает контекст, подключающий вас к AD FS.
+5. Выполните команду Update-MSOLFederatedDomain -DomainName <domain>. Этот командлет обновляет параметры AD FS в облачной службе и настраивает отношения доверия между ними.
 
 > [!NOTE]
 > Если требуется поддержка нескольких доменов верхнего уровня, например contoso.com и fabrikam.com, то необходимо использовать параметр **SupportMultipleDomain** с любыми командлетами. Дополнительные сведения см. в статье [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md).
-> 
-> 
+>
+>
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-<a-name="connectrenew"></a>"></a>Восстановление доверия Azure AD с помощью Azure AD Connect <a name="connectrenew"></a>
+## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Восстановление доверия Azure AD с помощью Azure AD Connect <a name="connectrenew"></a>
 Если вы настроили ферму AD FS и доверие Azure AD, используя Azure AD Connect, то с помощью Azure AD Connect можно определить, нужно ли выполнять какие-либо действия с сертификатами для подписи маркеров. Если требуется обновить сертификаты, используйте Azure AD Connect.
 
-Дополнительные сведения см. в разделе [Восстановление доверия](active-directory-aadconnect-federation-management.md#repairing-the-trust).
+Дополнительные сведения см. в разделе [Восстановление доверия](active-directory-aadconnect-federation-management.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

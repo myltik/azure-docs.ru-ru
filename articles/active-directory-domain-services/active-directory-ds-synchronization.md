@@ -1,79 +1,128 @@
 ---
-title: 'Azure Active Directory Domain Services: Synchronization in managed domains | Microsoft Docs'
-description: Understand synchronization in an Azure Active Directory Domain Services managed domain
+title: "Доменные службы Azure Active Directory: синхронизация в управляемых доменах | Документация Майкрософт"
+description: "Общие сведения о синхронизации в управляемом домене доменных служб Azure Active Directory."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/02/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+
 
 ---
-# <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronization in an Azure AD Domain Services managed domain
-The following diagram illustrates how synchronization works in Azure AD Domain Services managed domains.
+# <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Синхронизация в управляемом домене доменных служб Azure AD
+На следующей схеме показано, как работает синхронизация в управляемых доменах доменных служб Azure AD.
 
-![Synchronization topology in Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Топология синхронизации в доменных службах Azure AD](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Synchronization from your on-premises directory to your Azure AD tenant
-Azure AD Connect sync is used to synchronize user accounts, group memberships, and credential hashes to your Azure AD tenant. Attributes of user accounts such as the UPN and on-premises SID (security identifier) are synchronized. If you use Azure AD Domain Services, legacy credential hashes required for NTLM and Kerberos authentication are also synchronized to your Azure AD tenant.
+## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Синхронизация между локальным каталогом и клиентом Azure AD
+Синхронизация Azure AD Connect используется для того, чтобы синхронизировать учетные записи пользователей, сведения о членстве в группах, а также хэши учетных данных с клиентом Azure AD. Атрибуты учетных записей пользователей, такие как имя участника-пользователя и локальный идентификатор безопасности (SID), синхронизируются. Если используются доменные службы Azure AD, то предыдущие версии хэшей учетных данных, необходимые для аутентификации NTLM и Kerberos, также синхронизируются с клиентом Azure AD.
 
-If you configure write-back, changes occurring in your Azure AD directory are synchronized back to your on-premises Active Directory. For example, if you change your password using Azure AD's self-service password change features, the changed password is updated in your on-premises AD domain.
+Если настроить обратную запись, то изменения, вносимые в каталог Azure AD, синхронизируются обратно в локальную службу Active Directory. Например, если изменить пароль с помощью функций самостоятельного изменения пароля Azure AD, то измененный пароль обновится в локальном домене AD.
 
 > [!NOTE]
-> Always use the latest version of Azure AD Connect to ensure you have fixes for all known bugs.
+> Всегда используйте последнюю версию Azure AD Connect. В этом случае у вас точно будут исправления для всех известных ошибок.
 > 
 > 
 
-## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Synchronization from your Azure AD tenant to your managed domain
-User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
+## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Синхронизация между клиентом Azure AD и управляемым доменом
+Учетные записи пользователей, сведения о членстве в группах, а также хэши учетных данных синхронизируются между клиентом Azure AD и управляемым доменом доменных служб Azure AD. Этот процесс синхронизации выполняется автоматически. Для него не требуется настройка, отслеживание или управление. Кроме того, процесс синхронизации по своей природе является односторонним (однонаправленным). Как правило, управляемый домен доступен только для чтения. Исключениями являются любые пользовательские подразделения, которые вы создаете. Поэтому внесение изменений в атрибуты и пароли пользователя, а также в сведения о членстве в группах недоступно в пределах управляемого домена. В результате обратная синхронизация изменений из управляемого домена в клиент Azure AD не выполняется.
 
-## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Synchronization from a multi-forest on-premises environment
-Many organizations have a fairly complex on-premises identity infrastructure consisting of multiple account forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to your Azure AD tenant.
+## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Синхронизация из локальной среды с несколькими лесами
+Многие организации имеют довольно сложную локальную инфраструктуру идентификации, состоящую из нескольких лесов учетных записей. Azure AD Connect поддерживает синхронизацию пользователей, групп и хэшей учетных данных между средами с несколькими лесами и клиентом Azure AD.
 
-In contrast, your Azure AD tenant is a much simpler and flat namespace. To enable users to reliably access applications secured by Azure AD, resolve UPN conflicts across user accounts in different forests. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All users and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
+В свою очередь, клиент Azure AD использует гораздо более простое и одноуровневое пространство имен. Чтобы предоставить пользователям надежный доступ к приложениям, защищенным с помощью Azure AD, устраните конфликты имен участников-пользователей между учетными записями пользователей в разных лесах. Управляемый домен доменных служб Azure AD имеет много сходств с клиентом Azure AD. Поэтому в своем управляемом домене вы видите одноуровневую структуру подразделений. Все пользователи и группы хранятся в контейнере "AADDC Users" (Пользователи AADDC) независимо от локального домена или леса, с которым они были синхронизированы. Возможно, у вас настроена иерархическая локальная структура подразделений. Но ваш управляемый домен по-прежнему имеет простую одноуровневую структуру подразделений.
 
-## <a name="exclusions---what-isn't-synchronized-to-your-managed-domain"></a>Exclusions - what isn't synchronized to your managed domain
-The following objects or attributes are not synchronized to your Azure AD tenant or to your managed domain:
+## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Исключения: что не синхронизируется с управляемым доменом
+Ниже перечислены объекты и атрибуты, которые не синхронизируются с клиентом Azure AD или управляемым доменом.
 
-* **Excluded attributes:** You may choose to exclude certain attributes from synchronizing to your Azure AD tenant from your on-premises domain using Azure AD Connect. These excluded attributes are not available in your managed domain.
-* **Group Policies:** Group Policies configured in your on-premises domain are not synchronized to your managed domain.
-* **SYSVOL share:** Similarly, the contents of the SYSVOL share on your on-premises domain are not synchronized to your managed domain.
-* **Computer objects:** Computer objects for computers joined to your on-premises domain are not synchronized to your managed domain. These computers do not have a trust relationship with your managed domain and belong to your on-premises domain only. In your managed domain, you find computer objects only for computers you have explicitly domain-joined to the managed domain.
-* **SidHistory attributes for users and groups:** The primary user and primary group SIDs from your on-premises domain are synchronized to your managed domain. However, existing SidHistory attributes for users and groups are not synchronized from your on-premises domain to your managed domain.
-* **Organization Units (OU) structures:** Organizational Units defined in your on-premises domain do not synchronize to your managed domain. There are two built-in OUs in your managed domain. By default, your managed domain has a flat OU structure. You may however choose to [create a custom OU in your managed domain](active-directory-ds-admin-guide-create-ou.md).
+* **Исключенные атрибуты**. При выполнении синхронизации между локальным доменом и клиентом Azure AD с помощью Azure AD Connect можно исключить из синхронизации определенные атрибуты. Исключенные атрибуты будут недоступны в управляемом домене.
+* **Групповые политики**. Групповые политики, настроенные в локальном домене, не синхронизируются с управляемым доменом.
+* **Общий ресурс SYSVOL**. Аналогичным образом содержимое общего ресурса SYSVOL в локальном домене не синхронизируется с управляемым доменом.
+* **Объекты-компьютеры**. Объекты-компьютеры для компьютеров, присоединенных к локальному домену, не синхронизируются с управляемым доменом. Эти компьютеры не имеют отношений доверия с управляемым доменом и принадлежат только к локальному домену. В управляемом домене можно найти объекты-компьютеры только для компьютеров, которые были явно присоединены к управляемому домену.
+* **Атрибуты SidHistory для пользователей и групп**. Основные идентификаторы безопасности (SID) пользователей и групп из локального домена синхронизируются с управляемым доменом. Но существующие атрибуты SidHistory для пользователей и групп из локального домена не синхронизируются с управляемым доменом.
+* **Структуры подразделений**. Подразделения, определенные в локальном домене, не синхронизируются с управляемым доменом. В управляемом домене есть два встроенных подразделения. По умолчанию структура подразделений в управляемом домене одноуровневая. Однако вы можете [создавать в управляемом домене пользовательские подразделения](active-directory-ds-admin-guide-create-ou.md).
 
-## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>How specific attributes are synchronized to your managed domain
-The following table lists some common attributes and describes how they are synchronized to your managed domain.
+## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Синхронизация определенных атрибутов с управляемым доменом
+В следующей таблице перечислены некоторые распространенные атрибуты, а также описывается, как они синхронизируются с управляемым доменом.
 
-| Attribute in your managed domain | Source | Notes |
+| Атрибут в управляемом домене | Источник | Примечания |
 |:--- |:--- |:--- |
-| UPN |User's UPN attribute in your Azure AD tenant |The UPN attribute from your Azure AD tenant is synchronized as is to your managed domain. Therefore, the most reliable way to sign in to your managed domain is using your UPN. |
-| SAMAccountName |User's mailNickname attribute in your Azure AD tenant or auto-generated |The SAMAccountName attribute is sourced from the mailNickname attribute in your Azure AD tenant. If multiple user accounts have the same mailNickname attribute, the SAMAccountName is auto-generated. If the user's mailNickname or UPN prefix is longer than 20 characters, the SAMAccountName is auto-generated to satisfy the 20 character limit on SAMAccountName attributes. |
-| Passwords |User's password from your Azure AD tenant |Credential hashes required for NTLM or Kerberos authentication (also called supplemental credentials) are synchronized from your Azure AD tenant. If your Azure AD tenant is a synced tenant, these credentials are sourced from your on-premises domain. |
-| Primary user/group SID |Auto-generated |The primary SID for user/group accounts is auto-generated in your managed domain. This attribute does not match the primary user/group SID of the object in your on-premises AD domain. This mismatch is because the managed domain has a different SID namespace than your on-premises domain. |
-| SID history for users and groups |On-premises primary user and group SID |The SidHistory attribute for users and groups in your managed domain is set to match the corresponding primary user or group SID in your on-premises domain. This feature helps make lift-and-shift of on-premises applications to the managed domain easier, since you do not need to re-ACL resources. |
+| Имя участника-пользователя (UPN) |Атрибут UPN пользователя в клиенте Azure AD |Атрибут UPN из клиента Azure AD синхронизируется с управляемым доменом "как есть". Поэтому самый надежный способ входа в управляемый домен — это с помощью имени участника-пользователя. |
+| SAMAccountName |Атрибут mailNickname пользователя в клиенте Azure AD или автоматически созданный атрибут |Атрибут SAMAccountName формируется из атрибута mailNickname в клиенте Azure AD. Если несколько учетных записей пользователей имеют одинаковый атрибут mailNickname, то SAMAccountName создается автоматически. Если длина атрибута mailNickname пользователя или префикс имени участника-пользователя превышает 20 знаков, то SAMAccountName создается автоматически, чтобы не превышать ограничение в 20 знаков, установленное для атрибутов SAMAccountName. |
+| Пароли |Пароль пользователя из клиента Azure AD |Хэши учетных данных, необходимые для аутентификации NTLM или Kerberos (которые также называют дополнительными учетными данными), синхронизируются с клиентом Azure AD. Если клиент Azure AD является синхронизируемым клиентом, то источником этих учетных данных будет локальный домен. |
+| Основной идентификатор безопасности (SID) пользователя или группы |Создается автоматически |Основной идентификатор безопасности для учетных записей пользователей или групп создается автоматически в управляемом домене. Этот атрибут не совпадает с основным идентификатором безопасности пользователя или группы объекта в локальном домене AD. Это несоответствие объясняется тем, что управляемый домен имеет пространство имен SID, отличное от локального домена. |
+| Журнал идентификаторов безопасности для пользователей и групп |Локальный основной идентификатор безопасности пользователя и группы |Атрибут SidHistory для пользователей и групп в управляемом домене совпадает с соответствующим основным идентификатором безопасности пользователя или группы в локальном домене. Эта функция значительно упрощает процесс извлечения и перемещения локальных приложений в управляемый домен, так как не требуется повторно создавать список управления доступом для ресурсов. |
 
 > [!NOTE]
-> **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO100\joeuser') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'joeuser@contoso100.com') to sign in to the managed domain reliably.
+> **При входе в управляемый домен используйте формат имени участника-пользователя (UPN)**. Для некоторых учетных записей пользователей в управляемом домене атрибут SAMAccountName может создаваться автоматически. Если несколько пользователей имеют одинаковый атрибут mailNickname или у пользователей слишком длинные префиксы имени участника-пользователя, то атрибут SAMAccountName для этих пользователей может создаваться автоматически. Поэтому имя в формате SAMAccountName (например, CONTOSO100\joeuser) не всегда является надежным способом входа в домен. Автоматически создаваемый атрибут SAMAccountName пользователей может отличаться от их префикса имени участника-пользователя. Для безопасного входа в управляемый домен используйте формат имени участника-пользователя (например, 'joeuser@contoso100.com').
 > 
 > 
 
-## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Objects that are not synchronized to your Azure AD tenant from your managed domain
-As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](active-directory-ds-admin-guide-create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
+### <a name="attribute-mapping-for-user-accounts"></a>Сопоставление атрибутов для учетных записей пользователей
+В следующей таблице показано, как определенные атрибуты для пользовательских объектов в клиенте Azure AD синхронизируются с соответствующими атрибутами в управляемом домене.
 
-## <a name="related-content"></a>Related Content
-* [Features - Azure AD Domain Services](active-directory-ds-features.md)
-* [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md)
-* [Get started with Azure AD Domain Services](active-directory-ds-getting-started.md)
+| Атрибут пользователя в клиенте Azure AD | Атрибут пользователя в управляемом домене |
+|:--- |:--- |
+| AccountEnabled |userAccountControl (задает или удаляет значение ACCOUNT_DISABLED) |
+| city |l |
+| country |co |
+| department |department |
+| displayName |displayName |
+| facsimileTelephoneNumber |facsimileTelephoneNumber |
+| givenName |givenName |
+| jobTitle |title |
+| mail |mail |
+| mailNickname |msDS-AzureADMailNickname |
+| mailNickname |SAMAccountName (в некоторых случаях создается автоматически) |
+| mobile |mobile |
+| objectid |msDS-AzureADObjectId |
+| onPremiseSecurityIdentifier |sidHistory |
+| passwordPolicies |userAccountControl (задает или удаляет значение DONT_EXPIRE_PASSWORD) |
+| physicalDeliveryOfficeName |physicalDeliveryOfficeName |
+| postalCode |postalCode |
+| preferredLanguage |preferredLanguage |
+| state |st |
+| streetAddress |streetAddress |
+| surname |sn |
+| TelephoneNumber |TelephoneNumber |
+| userPrincipalName |userPrincipalName |
 
-<!--HONumber=Oct16_HO2-->
+### <a name="attribute-mapping-for-groups"></a>Сопоставление атрибутов для групп
+В следующей таблице показано, как определенные атрибуты для объектов групп в клиенте Azure AD синхронизируются с соответствующими атрибутами в управляемом домене.
+
+| Атрибут группы в клиенте Azure AD | Атрибут группы в управляемом домене |
+|:--- |:--- |
+| displayName |displayName |
+| displayName |SAMAccountName (в некоторых случаях создается автоматически) |
+| mail |mail |
+| mailNickname |msDS-AzureADMailNickname |
+| objectid |msDS-AzureADObjectId |
+| onPremiseSecurityIdentifier |sidHistory |
+| securityEnabled |groupType |
+
+## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Объекты, которые не синхронизируются между управляемым доменом и клиентом Azure AD
+Как сказано в предыдущем разделе этой статьи, обратная синхронизация из управляемого домена в клиент Azure AD не выполняется. Вы можете [создать пользовательское подразделения](active-directory-ds-admin-guide-create-ou.md) в управляемом домене. Затем вы можете создать другие подразделения, а также пользователей, группы и учетные записи служб в этих пользовательских подразделениях. Ни один из объектов, созданных в пользовательских подразделениях, не синхронизируется обратно в клиент Azure AD. Эти объекты доступны для использования только в пределах управляемого домена. Таким образом, данные объекты не отображаются при использовании командлетов Azure AD PowerShell, интерфейса API Graph Azure AD или пользовательского интерфейса управления Azure AD.
+
+## <a name="related-content"></a>Похожий контент
+* [Возможности доменных служб Azure AD](active-directory-ds-features.md)
+* [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
+* [Рекомендации по сетям для доменных служб Azure AD](active-directory-ds-networking.md)
+* [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: How to Deploy the Access Panel Extension for Internet Explorer using Group Policy | Microsoft Docs
-description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
+title: "Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики | Документация Майкрософт"
+description: "Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,152 +14,159 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+
 
 ---
-# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
-This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики
+В этом руководстве описывается удаленная установка расширения панели доступа для Internet Explorer на компьютерах пользователей с помощью групповой политики. Это расширение является обязательным для пользователей Internet Explorer, выполняющих вход в приложения, для которых настроен [единый вход по паролю](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-It is recommended that admins automate the deployment of this extension. Otherwise, users will have to download and install the extension themselves, which is prone to user error and requires administrator permissions. This tutorial covers one method of automating software deployments by using group policy. [Learn more about group policy.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+Мы рекомендуем автоматизировать развертывание этого расширения. В противном случае пользователям нужно будет самостоятельно загружать и устанавливать расширение. Для этого требуются права администратора, к тому же пользователи могут совершать ошибки при установке. В этом руководстве рассматривается один из методов автоматизированного развертывания программного обеспечения с помощью групповой политики. [Дополнительные сведения о групповой политике.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
-The Access Panel extension is also available for [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) and [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), neither of which require administrator permissions to install.
+Также существует расширение панели доступа для браузеров [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) и [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998). Для их установки права администратора не требуются.
 
-## <a name="prerequisites"></a>Prerequisites
-* You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
-* You must have the "Edit settings" permission in order to edit Group Policy Objects (GPOs). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+## <a name="prerequisites"></a>Предварительные требования
+* Вы уже настроили [доменные службы Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)и подключили компьютеры пользователей к домену.
+* У вас есть разрешение на изменение параметров для редактирования объектов групповой политики (GPO). По умолчанию такое разрешение имеют члены следующих групп безопасности: «Администраторы домена», «Администраторы предприятия» и «Владельцы-создатели групповой политики». [Подробнее.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Step 1: Create the Distribution Point
-First, you must place the installer package on a network location that can be accessed from all of the machines that you wish to remotely install the extension on. To do this, follow these steps:
+## <a name="step-1-create-the-distribution-point"></a>Создание точки распространения
+Прежде всего следует поместить пакет установщика в сетевое расположение, доступное со всех компьютеров, на которых вы хотите удаленно установить расширение. Для этого выполните следующие действия.
 
-1. Log on to the server as an administrator
-2. In the **Server Manager** window, go to **Files and Storage Services**.
+1. Войдите на сервер с учетной записью администратора.
+2. В окне **диспетчера серверов** выберите пункт **Файловые службы и службы хранилища**.
    
-    ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/files-services.png)
-3. Go to the **Shares** tab. Then click on **Tasks** > **New Share...**
+    ![Откройте «Файловые службы и службы хранилища»](./media/active-directory-saas-ie-group-policy/files-services.png)
+3. Перейдите на вкладку **Общие ресурсы** . Затем выберите **Задачи** > **Новый общий ресурс…**
    
-    ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/shares.png)
-4. Complete the **New Share Wizard** and set permissions to ensure that it can be accessed from your users' machines. [Learn more about shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
-6. Copy the installer package to a desired location on the share.
+    ![Откройте «Файловые службы и службы хранилища»](./media/active-directory-saas-ie-group-policy/shares.png)
+4. Выполните все шаги **мастера создания общих ресурсов** и настройте разрешения, позволяющие использовать ресурс с компьютеров пользователей. [Дополнительные сведения об общих ресурсах.](https://technet.microsoft.com/library/cc753175.aspx)
+5. Скачайте следующий пакет установщика Microsoft Windows (MSI-файл): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi).
+6. Скопируйте пакет установщика в выбранное расположение в общем ресурсе.
    
-    ![Copy the .msi file to your the share.](./media/active-directory-saas-ie-group-policy/copy-package.png)
-7. Verify that your client machines are able to access the installer package from the share. 
+    ![Скопируйте MSI-файл в общий ресурс.](./media/active-directory-saas-ie-group-policy/copy-package.png)
+7. Убедитесь, что клиентские компьютеры имеют доступ к пакету установщика, размещенному в общем ресурсе. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Step 2: Create the Group Policy Object
-1. Log on to the server that hosts your Active Directory Domain Services (AD DS) installation.
-2. In the Server Manager, go to **Tools** > **Group Policy Management**.
+## <a name="step-2-create-the-group-policy-object"></a>Шаге 2. Создание объекта групповой политики
+1. Войдите на сервер, на котором размещается установка доменных служб Active Directory (AD DS).
+2. В диспетчере серверов выберите **Инструменты** > **Управление групповой политикой**.
    
-    ![Go to Tools > Group Policy Managment](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
-3. In the left pane of the **Group Policy Management** window, view your Organizational Unit (OU) hierarchy and determine at which scope you would like to apply the group policy. For instance, you may decide to pick a small OU to deploy to a few users for testing, or you may pick a top-level OU to deploy to your entire organization.
+    ![Выберите «Инструменты» > «Управление групповой политикой»](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
+3. В левой части окна **Управление групповой политикой** изучите иерархию организационного подразделения и определите, для какой области действия следует применить групповую политику. Например, вы можете выбрать небольшое организационное подразделение для тестового развертывания на нескольких компьютерах или организационное подразделение верхнего уровня для развертывания во всей организации.
    
    > [!NOTE]
-   > If you would like to create or edit your Organization Units (OUs), switch back to the Server Manager and go to **Tools** > **Active Directory Users and Computers**.
+   > Если вы захотите создать или изменить организационные подразделения, то вернитесь в диспетчер серверов и перейдите в раздел **Инструменты** > **Пользователи и компьютеры Active Directory**.
    > 
    > 
-4. Once you have selected an OU, right-click on it and select **Create a GPO in this domain, and Link it here...**
+4. Выбрав организационное подразделение, щелкните его правой кнопкой мыши и выберите пункт **Создать объект GPO в этом домене и связать его**
    
-    ![Create a new GPO](./media/active-directory-saas-ie-group-policy/create-gpo.png)
-5. In the **New GPO** prompt, type in a name for the new Group Policy Object.
+    ![Создайте новый объект групповой политики](./media/active-directory-saas-ie-group-policy/create-gpo.png)
+5. В окне **Новый объект групповой политики** введите имя для нового объекта групповой политики.
    
-    ![Name the new GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Right-click on the Group Policy Object that you just created, and select **Edit**.
+    ![Присвойте имя новому объекту групповой политики](./media/active-directory-saas-ie-group-policy/name-gpo.png)
+6. Щелкните созданный объект групповой политики правой кнопкой мыши и выберите пункт **Изменить**.
    
-    ![Edit the new GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
+    ![Измените свойства нового объекта групповой политики](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>Step 3: Assign the Installation Package
-1. Determine whether you would like to deploy the extension based on **Computer Configuration** or **User Configuration**. When using [computer configuration](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), the extension will be installed on the computer regardless of which users log on to it. On the other hand, with [user configuration](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), users will have the extension installed for them regardless of which computers they log on to.
-2. In the left pane of the **Group Policy Management Editor** window, go to either of the following folder paths, depending on which type of configuration you chose:
+## <a name="step-3-assign-the-installation-package"></a>Назначение пакета установки
+1. Выберите, как вы будете развертывать расширение: на основе **конфигурации компьютера** или **конфигурации пользователя**. При использовании [конфигурации компьютера](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx)расширение будет установлено на заданные компьютеры независимо от того, какие пользователи на них работают. Если же выбрать [конфигурацию пользователя](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), расширение будет устанавливаться для заданных пользователей независимо от того, на какие компьютеры они входят.
+2. В левой части окна **Редактор управления групповыми политиками** пройдите по одному из следующих путей в зависимости от выбранной конфигурации.
    
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
-3. Right-click on **Software installation**, then select **New** > **Package...**
+3. Щелкните правой кнопкой мыши пункт **Установка программного обеспечения**, а затем выберите **Создать** > **Пакет…**
    
-    ![Create a new software installation package](./media/active-directory-saas-ie-group-policy/new-package.png)
-4. Go to the shared folder that contains the installer package from [Step 1: Create the Distribution Point](#step-1-create-the-distribution-point), select the .msi file, and click **Open**.
+    ![Создайте новый пакет установки программного обеспечения](./media/active-directory-saas-ie-group-policy/new-package.png)
+4. Перейдите к общей папке, в которую был помещен пакет установщика на этапе 1 ( [Создание точки распространения](#step-1-create-the-distribution-point)), выберите MSI-файл и нажмите кнопку **Открыть**.
    
    > [!IMPORTANT]
-   > If the share is located on this same server, verify that you are accessing the .msi through the network file path, rather than the local file path.
+   > Если общая папка расположена на том же сервере, убедитесь, что вы обращаетесь к MSI-файлу через сетевой, а не локальный путь.
    > 
    > 
    
-    ![Select the installation package from the shared folder.](./media/active-directory-saas-ie-group-policy/select-package.png)
-5. In the **Deploy Software** prompt, select **Assigned** for your deployment method. Then click **OK**.
+    ![Выберите пакет установки из общей папки.](./media/active-directory-saas-ie-group-policy/select-package.png)
+5. В окне запроса **Развертывание программ** выберите элемент **Назначено** для выбранного вами метода развертывания. Нажмите кнопку **ОК**.
    
-    ![Select Assigned, then click OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
+    ![Выберите значение «Назначено» и нажмите кнопку ОК.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
 
-The extension is now deployed to the OU that you selected. [Learn more about Group Policy Software Installation.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
+Теперь расширение будет развернуто для выбранного организационного подразделения. [Дополнительные сведения о групповой политике установки программного обеспечения.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-autoenable-the-extension-for-internet-explorer"></a>Step 4: Auto-Enable the Extension for Internet Explorer
-In addition to running the installer, every extension for Internet Explorer must be explicitly enabled before it can be used. Follow the steps below to enable the Access Panel Extension using group policy:
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Шаг 4. Автоматическое включение расширения для Internet Explorer
+Чтобы использовать расширение для Internet Explorer, это расширение нужно не только установить, но и включить явным образом. Чтобы включить расширение панели доступа с помощью групповой политики, выполните следующие действия.
 
-1. In the **Group Policy Management Editor** window, go to either of the following paths, depending on which type of configuration you chose in [Step 3: Assign the Installation Package](#step-3-assign-the-installation-package):
+1. В окне **Редактор управления групповыми политиками** пройдите по одному из указанных ниже путей в зависимости от конфигурации, выбранной на этапе 3 ( [Назначение пакета установки](#step-3-assign-the-installation-package)).
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
-2. Right-click on **Add-on List**, and select **Edit**.
-    ![Edit Add-on List.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
-3. In the **Add-on List** window, select **Enabled**. Then, under the **Options** section, click **Show...**.
+2. Щелкните правой кнопкой мыши **Список надстроек** и выберите пункт **Изменить**.
+    ![Измените список надстроек.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
+3. В окне **Список надстроек** выберите **Включено**. Затем в разделе **Параметры** щелкните **Показать…**
    
-    ![Click Enable, then click Show...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
-4. In the **Show Contents** window, perform the following steps:
+    ![Щелкните «Включить», а затем «Показать».](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
+4. В окне **Вывод содержания** выполните следующие действия.
    
-   1. For the first column (the **Value Name** field), copy and paste the following Class ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. For the second column (the **Value** field), type in the following value: `1`
-   3. Click **OK** to close the **Show Contents** window.
+   1. Скопируйте и вставьте в первый столбец (поле **Имя значения**) следующий идентификатор класса: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`.
+   2. Во втором столбце (поле **Значение**) введите следующее значение: `1`.
+   3. Нажмите кнопку **ОК**, чтобы закрыть окно **Вывод содержания**.
       
-      ![Fill out the values as specified above.](./media/active-directory-saas-ie-group-policy/show-contents.png)
-5. Click **OK** to apply your changes and close the **Add-on List** window.
+      ![Введите значения, как указано выше.](./media/active-directory-saas-ie-group-policy/show-contents.png)
+5. Нажмите кнопку **ОК**, чтобы применить изменения и закрыть окно **Список надстроек**.
 
-The extension should now be enabled for the machines in the selected OU. [Learn more about using group policy to enable or disable Internet Explorer add-ons.](https://technet.microsoft.com/library/dn454941.aspx)
+Расширение будет включено на компьютерах выбранного организационного подразделения. [Дополнительные сведения об использовании групповой политики для включения или отключения надстроек Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Step 5 (Optional): Disable "Remember Password" Prompt
-When users sign-in to websites using the Access Panel Extension, Internet Explorer may show the following prompt asking "Would you like to store your password?"
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Шаг 5 (необязательный). Отключение запроса "Запомнить пароль"
+Когда пользователи выполняют вход на веб-сайты с помощью расширения панели доступа, в Internet Explorer может отображаться предложение "Вы хотите сохранить пароль?".
 
 ![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
-If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent auto-complete from remembering passwords:
+Если вы хотите, чтобы этот запрос не отображался для пользователей, выполните следующие действия, чтобы запретить функции автоматического заполнения запоминать пароли.
 
-1. In the **Group Policy Management Editor** window, go to the path listed below. Note that this configuration setting is only available under **User Configuration**.
+1. В окне **редактора управления групповыми политиками** перейдите по пути, указанному ниже. Обратите внимание, что этот параметр конфигурации доступен только в разделе **Конфигурация пользователя**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
-2. Find the setting named **Turn on the auto-complete feature for user names and passwords on forms**.
+2. Найдите параметр **Включить автозаполнение для имен пользователей и паролей в формах**.
    
    > [!NOTE]
-   > Previous versions of Active Directory may list this setting with the name **Do not allow auto-complete to save passwords**. The configuration for that setting differs from the setting described in this tutorial.
+   > В предыдущих версиях Active Directory этот параметр может иметь имя **Запретить функции автоматического заполнения сохранять пароли**. Настройка для этого параметра отличается от параметра, описанного в этом учебнике.
    > 
    > 
    
-    ![Remember to look for this under User Settings.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
-3. Right click on the above setting, and select **Edit**.
-4. In the window titled **Turn on the auto-complete feature for user names and passwords on forms**, select **Disabled**.
+    ![Помните, что эти сведения находятся в разделе "Параметры пользователя".](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+3. Щелкните указанный выше параметр правой кнопкой мыши и выберите пункт **Изменить**.
+4. В окне **Включить автозаполнение для имен пользователей и паролей в формах** выберите **Отключено**.
    
-    ![Select Disable](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
-5. Click **OK** to apply these changes and close the window.
+    ![Выберите "Отключено".](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+5. Нажмите кнопку **ОК** , чтобы применить эти изменения и закрыть окно.
 
-Users will no longer be able to store their credentials or use auto-complete to access previously stored credentials. However, this policy does allow users to continue to use auto-complete for other types of form fields, such as search fields.
+Пользователи больше не смогут сохранять учетные данные или использовать функцию автозаполнения для доступа к ранее сохраненным учетным данным. Эта политика, тем не менее, разрешает пользователям продолжать использовать автозаполнение для других типов полей в формах, например для полей поиска.
 
 > [!WARNING]
-> If this policy is enabled after users have chosen to store some credentials, this policy will *not* clear the credentials that have already been stored.
+> Если эта политика включена после того, как пользователи выбрали сохранение некоторых учетных данных, она *не* сбрасывает учетные данные, которые уже сохранены.
 > 
 > 
 
-## <a name="step-6-testing-the-deployment"></a>Step 6: Testing the Deployment
-Follow the steps below to verify if the extension deployment was successful:
+## <a name="step-6-testing-the-deployment"></a>Шаг 6. Тестирование развертывания
+Выполните следующие действия, чтобы проверить, успешно ли развернуто расширение.
 
-1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, make sure to sign in as a user who belongs to that OU.
-2. It may take a couple sign ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
-3. You will need to restart the machine for the installation to take place. Bootup may take significantly more time than usual while the extension installs.
-4. After restarting, open **Internet Explorer**. On the upper-right corner of the window, click on **Tools** (the gear icon), and then select **Manage add-ons**.
+1. При развертывании с помощью раздела **Конфигурация компьютера**войдите на клиентский компьютер, который принадлежит к подразделению, выбранному в [Шаге 2. Создание объекта групповой политики](#step-2-create-the-group-policy-object). При развертывании с помощью раздела **Конфигурация пользователя**убедитесь, что выполнили вход как пользователь, принадлежащий к этому подразделению.
+2. Для полного обновления групповой политики для этого компьютера может потребоваться выполнить вход несколько раз. Для принудительного обновления откройте окно **командной строки** и выполните следующую команду: `gpupdate /force`.
+3. Перезагрузите компьютер, чтобы завершить установку. При установке расширения загрузка компьютера может занять значительно больше времени, чем обычно.
+4. После перезагрузки откройте браузер **Internet Explorer**. В правом верхнем углу окна щелкните **Инструменты** (значок шестеренки), а затем выберите пункт **Настроить надстройки**.
    
-    ![Go to Tools > Manage Add-Ons](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
-5. In the **Manage Add-ons** window, verify that the **Access Panel Extension** has been installed and that its **Status** has been set to **Enabled**.
+    ![Выберите «Сервис» > «Настроить надстройки»](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
+5. В окне **Управление надстройками** убедитесь, что **расширение панели доступа** установлено и для параметра **Состояние** задано значение **Включено**.
    
-    ![Verify that the Access Panel Extension is installed and enabled.](./media/active-directory-saas-ie-group-policy/verify-install.png)
+    ![Убедитесь, что расширение панели доступа установлено и включено.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-## <a name="related-articles"></a>Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+## <a name="related-articles"></a>Связанные статьи
+* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+* [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
