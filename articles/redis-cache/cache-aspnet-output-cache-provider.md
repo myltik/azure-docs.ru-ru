@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,25 +38,27 @@ ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
 
 Пакет NuGet загружает и добавляет требуемые ссылки на сборку и добавляет следующий раздел в файл web.config, который содержит необходимые настройки для приложения ASP.NET, позволяющие использовать поставщик кэша вывода Redis.
 
-    <caching>
-      <outputCachedefault Provider="MyRedisOutputCache">
-        <providers>
-          <!--
-          <add name="MyRedisOutputCache"
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-          -->
-          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-      </outputCache>
-    </caching>
+```xml
+<caching>
+  <outputCachedefault Provider="MyRedisOutputCache">
+    <providers>
+      <!--
+      <add name="MyRedisOutputCache"
+        host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+      />
+      -->
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+  </outputCache>
+</caching>
+```
 
 Раздел с комментариями содержит пример атрибутов и возможные настройки для каждого из них.
 
@@ -74,7 +76,9 @@ ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
 
 Добавьте директиву OutputCache для каждой страницы, для которой требуется кэшировать выходные данные.
 
-    <%@ OutputCache Duration="60" VaryByParam="*" %>
+```
+<%@ OutputCache Duration="60" VaryByParam="*" %>
+```
 
 В этом примере кэшированные данные страницы будут оставаться в кэше в течение 60 секунд, а для каждой комбинации параметров будет кэшироваться другая версия страницы. Для получения дополнительной информации о директиве OutputCache ознакомьтесь с [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
 

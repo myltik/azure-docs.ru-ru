@@ -457,7 +457,7 @@ ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
             }
         }
 3. Нам потребуется веб-интерфейс, который будет отображаться для пользователя. Повторно напишем файл index.jsp, созданный ранее:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. И наконец, запишем несколько сценариев Javascript на стороне клиента, чтобы связать вместе веб-интерфейс и сервлет:
    
         var todoApp = {

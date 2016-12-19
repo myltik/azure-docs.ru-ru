@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/30/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -84,26 +84,30 @@ ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
 
 Убедитесь, что запись `dataCacheClients` удалена из элемента `configSections`. Не удаляйте весь элемент `configSections`. Просто удалите запись `dataCacheClients`, если она есть.
 
-    <configSections>
-      <!-- Existing sections omitted for clarity. -->
-      <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
-    </configSections>
+```xml
+<configSections>
+  <!-- Existing sections omitted for clarity. -->
+  <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
+</configSections>
+```
 
 Убедитесь, что раздел `dataCacheClients` удален. Раздел `dataCacheClients` будет похож на следующий пример.
 
-    <dataCacheClients>
-      <dataCacheClientname="default">
-        <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
-        <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
-        <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
+```xml
+<dataCacheClients>
+  <dataCacheClientname="default">
+    <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
+    <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
+    <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
 
-        <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
-        <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
-        <!--<securityProperties mode="Message" sslEnabled="true">
-          <messageSecurity authorizationInfo="[Authentication Key]" />
-        </securityProperties>-->
-      </dataCacheClient>
-    </dataCacheClients>
+    <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
+    <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
+    <!--<securityProperties mode="Message" sslEnabled="true">
+      <messageSecurity authorizationInfo="[Authentication Key]" />
+    </securityProperties>-->
+  </dataCacheClient>
+</dataCacheClients>
+```
 
 После удаления конфигурации управляемой службы кэша вы можете настроить клиент кэша в соответствии с описаниями, приведенными в следующем разделе.
 
@@ -118,7 +122,9 @@ ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
 
 Добавьте следующий оператор using в начало любого файла, из которого вы хотите получить доступ к кэшу.
 
-    using StackExchange.Redis
+```c#
+using StackExchange.Redis
+```
 
 Если это пространство имен не разрешается, убедитесь, что вы добавили пакет NuGet для StackExchange.Redis в соответствии с описаниями, приведенными в разделе [Настройка клиентов кэша](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
@@ -129,33 +135,37 @@ ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
 
 Чтобы подключиться к экземпляру кэша Redis для Azure, вызовите статический метод `ConnectionMultiplexer.Connect` и передайте конечную точку и ключ. Один из способов совместного использования экземпляра `ConnectionMultiplexer` в приложении предполагает наличие статического свойства, которое возвращает подключенный экземпляр (как в приведенном ниже примере). Это помогает потокобезопасно инициализировать только один подключенный экземпляр `ConnectionMultiplexer` . В этих примерах для параметра `abortConnect` задано значение False, что указывает на безопасное завершение вызова, даже если подключение к кэшу не установлено. Одна из ключевых особенностей `ConnectionMultiplexer` заключается в том, что этот параметр автоматически восстанавливает соединение с кэшем, когда устраняется проблема с сетью или другие проблемы.
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    });
+```c#
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 Конечная точка кэша, ключи и порты указаны в колонке **Кэш Redis** вашего экземпляра кэша. Дополнительные сведения см. в разделе [Свойства кэша Redis](cache-configure.md#properties).
 
 Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase` . Объект, возвращенный из метода `GetDatabase` , – это упрощенный передаваемый объект, не требующий сохранения.
 
-    IDatabase cache = Connection.GetDatabase();
+```c#
+IDatabase cache = Connection.GetDatabase();
 
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
-    cache.StringSet("key1", "value");
-    cache.StringSet("key2", 25);
+// Perform cache operations using the cache object...
+// Simple put of integral data types into the cache
+cache.StringSet("key1", "value");
+cache.StringSet("key2", 25);
 
-    // Simple get of data types from the cache
-    string key1 = cache.StringGet("key1");
-    int key2 = (int)cache.StringGet("key2");
+// Simple get of data types from the cache
+string key1 = cache.StringGet("key1");
+int key2 = (int)cache.StringGet("key2");
+```
 
 Клиент StackExchange.Redis использует типы `RedisKey` и `RedisValue` для доступа к элементам в кэше и хранения их. Эти типы сопоставляются с большинством несложных типов языков, например со строками, и часто не используются напрямую. Строки Redis — это самый базовый тип значения Redis. Он может содержать много типов данных, в том числе сериализованные двоичные потоки. Возможно, вы не будете использовать этот тип напрямую, а будете использовать методы, содержащие `String` в имени. Работая с большинством примитивных типов данных, хранить элементы в кэше и извлекать их из него вы будете с помощью методов `StringSet` и `StringGet` (если только вы не храните в кэше коллекции или другие типы данных Redis). 
 
@@ -165,7 +175,9 @@ ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
 
 Чтобы указать срок действия объекта в кэше, используйте параметр `TimeSpan` метода `StringSet`.
 
-    cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```c#
+cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```
 
 Кэш Redis для Azure может работать с объектами .NET, а также несложными типами данных, но прежде чем объект .NET можно будет кэшировать, он должен быть сериализован. За это отвечает разработчик приложения. Это предоставляет разработчику гибкие возможности при выборе сериализатора. Дополнительную информацию и пример кода см. в разделе [Работа с объектами .NET в кэше](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 

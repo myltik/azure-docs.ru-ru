@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -123,7 +123,7 @@ ms.openlocfilehash: 74fd40d7cd2ce5aecf364ba8ead4e6dfcbf6ed54
 #### <a name="problem"></a>Проблема
 В экземпляре кэша Redis для Azure отсутствуют некоторые данные.
 
-##### <a name="resolution"></a>Способы устранения:
+#### <a name="resolution"></a>Способы устранения:
 Дополнительные сведения о возможных причинах и способах устранения проблемы см. в статье [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (Что произошло с моими данными в Redis?).
 
 ## <a name="server-side-troubleshooting"></a>Устранение проблем на стороне сервера
@@ -152,7 +152,7 @@ Redis предоставляет две метрики, с помощью кот
 4. [Увеличьте](cache-how-to-scale.md) размер кэша.
 5. Если используется [кэш Redis (цен. категории "Премиум") со включенной кластеризацией](cache-how-to-premium-clustering.md), [увеличьте количество сегментов](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
-### <a name="high-cpu-usage-server-load"></a>Высокий коэффициент загрузки ЦП и сервера
+### <a name="high-cpu-usage--server-load"></a>Высокий коэффициент загрузки ЦП и сервера
 #### <a name="problem"></a>Проблема
 Высокий коэффициент загрузки ЦП служит причиной того, что клиенту может не удаться своевременно обработать ответ от Redis (даже если ответ отправлен очень быстро).
 
@@ -194,20 +194,21 @@ Redis предоставляет две метрики, с помощью кот
 ### <a name="steps-to-investigate"></a>Действия для обнаружения проблем
 1. Убедитесь, что для подключения к кэшу с помощью клиента StackExchange.Redis используется следующий шаблон.
 
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    ```c#
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+    
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-        });
-
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+    ````
 
     Дополнительные сведения см. в разделе о [подключении к кэшу с использованием StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 

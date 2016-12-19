@@ -48,7 +48,9 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
   3. Выполните команду **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext**, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **NameOfAzureSubscription** именем своей подписки Azure.
 * Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell:
 
-       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Некоторые действия, описанные в этом учебнике, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, укажите ее имя вместо ADFTutorialResourceGroup.
 
@@ -61,10 +63,12 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 >
 >
 
-    {
-        "name": "FirstDataFactoryREST",
-        "location": "WestUS"
-    }
+```JSON
+{
+    "name": "FirstDataFactoryREST",
+    "location": "WestUS"
+}
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -72,30 +76,34 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 >
 >
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
-
+}
+```
 
 ### <a name="hdinsightondemandlinkedservicejson"></a>hdinsightondemandlinkedservice.json
-    {
-        "name": "HDInsightOnDemandLinkedService",
-        "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-                "version": "3.2",
-                "clusterSize": 1,
-                "timeToLive": "00:30:00",
-                "linkedServiceName": "AzureStorageLinkedService"
-            }
+
+```JSON
+{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+            "version": "3.2",
+            "clusterSize": 1,
+            "timeToLive": "00:30:00",
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
+}
+```
 
 В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
@@ -117,28 +125,30 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
-    }
 
+```JSON
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
 
 Приведенный выше JSON-файл определяет набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, файл указывает, что входные данные размещаются в контейнере больших двоичных объектов **adfgetstarted** и в папке **inputdata**.
 
@@ -155,24 +165,27 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 | external |Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adfgetstarted/partitioneddata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
+
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adfgetstarted/partitioneddata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
         }
     }
+}
+```
 
 JSON-файл определяет набор данных с именем **AzureBlobOutput**, представляющий выходные данные для действия в конвейере. Кроме того, файл указывает, что результаты хранятся в контейнере больших двоичных объектов **adfgetstarted** и в папке **partitioneddata**. В разделе **availability** указывается частота, с которой будет создаваться выходной набор данных (ежемесячно).
 
@@ -182,42 +195,44 @@ JSON-файл определяет набор данных с именем **Azu
 >
 >
 
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [{
-                "type": "HDInsightHive",
-                "typeProperties": {
-                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                    "scriptLinkedService": "AzureStorageLinkedService",
-                    "defines": {
-                        "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                        "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
-                    }
-                },
-                "inputs": [{
-                    "name": "AzureBlobInput"
-                }],
-                "outputs": [{
-                    "name": "AzureBlobOutput"
-                }],
-                "policy": {
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "scheduler": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "name": "RunSampleHiveActivity",
-                "linkedServiceName": "HDInsightOnDemandLinkedService"
+```JSON
+{
+    "name": "MyFirstPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [{
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                "scriptLinkedService": "AzureStorageLinkedService",
+                "defines": {
+                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                }
+            },
+            "inputs": [{
+                "name": "AzureBlobInput"
             }],
-            "start": "2016-07-10T00:00:00Z",
-            "end": "2016-07-11T00:00:00Z",
-            "isPaused": false
-        }
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "policy": {
+                "concurrency": 1,
+                "retry": 3
+            },
+            "scheduler": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "name": "RunSampleHiveActivity",
+            "linkedServiceName": "HDInsightOnDemandLinkedService"
+        }],
+        "start": "2016-07-10T00:00:00Z",
+        "end": "2016-07-11T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 Этот фрагмент JSON-файла создает конвейер из одного действия, использующего Hive для обработки данных в кластере HDInsight.
 
@@ -242,23 +257,26 @@ JSON-файл определяет набор данных с именем **Azu
 >
 >
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```PowerShell
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "FirstDataFactoryREST"
-
+$rg = "ADFTutorialResourceGroup"
+$adf = "FirstDataFactoryREST"
+```
 
 
 ## <a name="authenticate-with-aad"></a>Проверка подлинности с помощью AAD
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken)
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
+(ConvertFrom-Json $responseToken)
+```
 
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
@@ -268,13 +286,19 @@ JSON-файл определяет набор данных с именем **Azu
 
     Указываемое здесь имя фабрики данных (ADFCopyTutorialDF) должно соответствовать имени, указанному в **datafactory.json**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания фабрики данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 Обратите внимание на следующие моменты.
 
@@ -288,11 +312,14 @@ JSON-файл определяет набор данных с именем **Azu
 
   * Чтобы зарегистрировать поставщик фабрики данных Azure, выполните следующую команду в Azure PowerShell:
 
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
       Чтобы убедиться, что поставщик фабрики данных зарегистрирован, выполните следующую команду:
-
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Войдите на [портал Azure](https://portal.azure.com) с использованием подписки Azure и откройте колонку фабрики данных или создайте на портале фабрику данных. Поставщик будет зарегистрирован автоматически.
 
 Прежде чем создавать конвейер, необходимо создать несколько сущностей фабрики данных. Сначала создайте связанные службы, чтобы связать хранилища данных и вычисления со своим хранилищем данных, и определите входные и выходные наборы данных, которые будут представлять данные в связанных хранилищах.
@@ -305,26 +332,38 @@ JSON-файл определяет набор данных с именем **Azu
 
 1. Назначьте команду переменной с именем **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания связанной службы в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Создание связанной службы Azure HDInsight
 На этом шаге вы свяжете используемый по запросу кластер HDInsight с фабрикой данных. Кластер HDInsight автоматически создается в среде выполнения и удаляется после завершения обработки и простоя в течение указанного времени. Вместо используемого по запросу кластера HDInsight можно использовать собственный кластер HDInsight. Дополнительные сведения см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md).
 
 1. Назначьте команду переменной с именем **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания связанной службы в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Создание наборов данных
 На этом шаге вы создадите наборы данных, которые представляют входные и выходные данные для обработки Hive. Эти наборы данных ссылаются на службу **StorageLinkedService** , созданную ранее в ходе работы с этим руководством. Точки связанной службы указывают на учетную запись хранения Azure, а наборы данных указывают контейнер, папку и имя файла в хранилище, в котором содержатся входные и выходные данные.
@@ -334,26 +373,38 @@ JSON-файл определяет набор данных с именем **Azu
 
 1. Назначьте команду переменной с именем **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-output-dataset"></a>Создание выходного набора данных
 Теперь создайте выходной набор данных, представляющий выходные данные, которые хранятся в хранилище BLOB-объектов Azure.
 
 1. Назначьте команду переменной с именем **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-pipeline"></a>Создание конвейера
 На этом шаге вы создадите свой первый конвейер с действием **HDInsightHive** . Срез входных данных создается ежемесячно (frequency: Month, interval: 1), срез выходных данных создается ежемесячно, свойство scheduler для действия также указывается ежемесячно. Параметры выходного набора данных (outputs) и планировщика действия (scheduler) должны совпадать. В настоящее время расписание активируется с помощью выходного набора данных, поэтому его необходимо создать, даже если действие не создает никаких выходных данных. Если действие не принимает никаких входных данных, входной набор данных можно не создавать.
@@ -362,30 +413,37 @@ JSON-файл определяет набор данных с именем **Azu
 
 1. Назначьте команду переменной с именем **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Выполните команду с использованием командлета **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Просмотрите результаты. После успешного создания набора данных в **результатах** появится JSON-файл. В противном случае отобразится сообщение об ошибке.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 4. Поздравляем! Вы создали свой первый конвейер с помощью Azure PowerShell!
 
 ## <a name="monitor-pipeline"></a>Отслеживание конвейера
 На этом шаге используется REST API фабрики данных, чтобы отслеживать срезы, созданные конвейером.
 
-    $ds ="AzureBlobOutput"
+```PowerShell
+$ds ="AzureBlobOutput"
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+$results2 = Invoke-Command -scriptblock $cmd;
 
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
-
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 > [!IMPORTANT]
 > Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут** .

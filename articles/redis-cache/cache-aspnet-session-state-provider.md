@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/01/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,25 +43,27 @@ ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
 
 Пакет NuGet загружает и добавляет требуемые ссылки на сборки и добавляет в файл web.config следующий раздел, который содержит необходимые в приложении ASP.NET настройки для использования кэширующего поставщика состояний сеансов Redis.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-        <providers>
-        <!--
-        <add name="MySessionStateStore"
-               host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-    </sessionState>
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+    <!--
+    <add name="MySessionStateStore"
+           host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        throwOnError = "true" [true|false]
+        retryTimeoutInMilliseconds = "0" [number]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+    />
+    -->
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+</sessionState>
+```
 
 Раздел с комментариями содержит пример атрибутов и возможные настройки для каждого из них.
 
@@ -83,16 +85,18 @@ ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
 
 Не забудьте закомментировать стандартный раздел поставщика состояний сеансов InProc в своем файле web.config.
 
-    <!-- <sessionState mode="InProc"
-         customProvider="DefaultSessionProvider">
-         <providers>
-            <add name="DefaultSessionProvider"
-                  type="System.Web.Providers.DefaultSessionStateProvider,
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
-                        PublicKeyToken=31bf3856ad364e35"
-                  connectionStringName="DefaultConnection" />
-          </providers>
-    </sessionState> -->
+```xml
+<!-- <sessionState mode="InProc"
+     customProvider="DefaultSessionProvider">
+     <providers>
+        <add name="DefaultSessionProvider"
+              type="System.Web.Providers.DefaultSessionStateProvider,
+                    System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                    PublicKeyToken=31bf3856ad364e35"
+              connectionStringName="DefaultConnection" />
+      </providers>
+</sessionState> -->
+```
 
 После выполнения этих шагов приложение будет настроено для использования поставщика состояний сеансов Redis. При использовании состояния сеанса в приложении состояние будет храниться в экземпляре кэша Redis для Azure.
 
