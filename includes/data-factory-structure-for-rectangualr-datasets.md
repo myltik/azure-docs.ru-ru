@@ -12,12 +12,14 @@
 
 В следующем примере показан JSON раздела structure для таблицы, в которой имеются три столбца — userid, name и lastlogindate.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
+```json
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 
 Используйте приведенные ниже рекомендации о том, когда следует включать информацию о структуре и что включать в раздел **structure** .
 

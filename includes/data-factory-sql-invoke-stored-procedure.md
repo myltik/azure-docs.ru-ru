@@ -9,54 +9,60 @@
 
 В этом примере type имеет значение SqlServerTable. Задайте для него значение AzureSqlTable, чтобы использовать с базой данных SQL Azure. 
 
-    {
-      "name": "SqlOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlLinkedService",
-        "typeProperties": {
-          "tableName": "Marketing"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```json
+{
+  "name": "SqlOutput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlLinkedService",
+    "typeProperties": {
+      "tableName": "Marketing"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Определите раздел SqlSink в действии копирования JSON следующим образом. Для вызова хранимой процедуры во время вставки данных требуются свойства SqlWriterStoredProcedureName и SqlWriterTableType.
 
-    "sink":
-    {
-        "type": "SqlSink",
-        "SqlWriterTableType": "MarketingType",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-        "storedProcedureParameters":
+```json
+"sink":
+{
+    "type": "SqlSink",
+    "SqlWriterTableType": "MarketingType",
+    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+    "storedProcedureParameters":
+            {
+                "stringData": 
                 {
-                    "stringData": 
-                    {
-                        "value": "str1"     
-                    }
+                    "value": "str1"     
                 }
-    }
+            }
+}
+```
 
 В своей базе данных определите хранимую процедуру с тем же именем, что и SqlWriterStoredProcedureName. Она обрабатывает входные данные из указанного источника и вставляет их в выходную таблицу. Обратите внимание, что имя параметра хранимой процедуры должно совпадать с именем tableName, заданным в JSON-файле таблицы.
 
-    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-    AS
-    BEGIN
-        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-        INSERT [dbo].[Marketing](ProfileID, State)
-        SELECT * FROM @Marketing
-    END
-
+```sql
+CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+AS
+BEGIN
+    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    INSERT [dbo].[Marketing](ProfileID, State)
+    SELECT * FROM @Marketing
+END
+```
 В своей базе данных определите тип таблицы с тем же именем, что и SqlWriterTableType. Обратите внимание, что схема типа таблицы должны быть той же, что и схема, возвращаемая входными данными.
 
-    CREATE TYPE [dbo].[MarketingType] AS TABLE(
-        [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL
-    )
-
+```sql
+CREATE TYPE [dbo].[MarketingType] AS TABLE(
+    [ProfileID] [varchar](256) NOT NULL,
+    [State] [varchar](256) NOT NULL
+)
+```
 Функциональность хранимой процедуры использует преимущества [параметров с табличным значением](https://msdn.microsoft.com/library/bb675163.aspx).
 
 

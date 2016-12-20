@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/16/2016
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -78,32 +78,33 @@ ms.openlocfilehash: 9e61eeb9ec7895b4f436534a1fd8b2cb608cf613
   
     Для получения наилучшей пропускной способности копирование нужно выполнить с помощью пользователя хранилища данных SQL, относящегося к классу ресурсов `xlargerc`.  Узнайте, как это сделать, ознакомившись с [примером изменения класса ресурсов пользователя](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
 * Создайте схему целевой таблицы в базе данных хранилища данных SQL Azure, выполнив следующую инструкцию DDL.
-  
-        CREATE TABLE [dbo].[lineitem]
-        (
-            [L_ORDERKEY] [bigint] NOT NULL,
-            [L_PARTKEY] [bigint] NOT NULL,
-            [L_SUPPKEY] [bigint] NOT NULL,
-            [L_LINENUMBER] [int] NOT NULL,
-            [L_QUANTITY] [decimal](15, 2) NULL,
-            [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
-            [L_DISCOUNT] [decimal](15, 2) NULL,
-            [L_TAX] [decimal](15, 2) NULL,
-            [L_RETURNFLAG] [char](1) NULL,
-            [L_LINESTATUS] [char](1) NULL,
-            [L_SHIPDATE] [date] NULL,
-            [L_COMMITDATE] [date] NULL,
-            [L_RECEIPTDATE] [date] NULL,
-            [L_SHIPINSTRUCT] [char](25) NULL,
-            [L_SHIPMODE] [char](10) NULL,
-            [L_COMMENT] [varchar](44) NULL
-        )
-        WITH
-        (
-            DISTRIBUTION = ROUND_ROBIN,
-            CLUSTERED COLUMNSTORE INDEX
-        )
 
+    ```SQL  
+    CREATE TABLE [dbo].[lineitem]
+    (
+        [L_ORDERKEY] [bigint] NOT NULL,
+        [L_PARTKEY] [bigint] NOT NULL,
+        [L_SUPPKEY] [bigint] NOT NULL,
+        [L_LINENUMBER] [int] NOT NULL,
+        [L_QUANTITY] [decimal](15, 2) NULL,
+        [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
+        [L_DISCOUNT] [decimal](15, 2) NULL,
+        [L_TAX] [decimal](15, 2) NULL,
+        [L_RETURNFLAG] [char](1) NULL,
+        [L_LINESTATUS] [char](1) NULL,
+        [L_SHIPDATE] [date] NULL,
+        [L_COMMITDATE] [date] NULL,
+        [L_RECEIPTDATE] [date] NULL,
+        [L_SHIPINSTRUCT] [char](25) NULL,
+        [L_SHIPMODE] [char](10) NULL,
+        [L_COMMENT] [varchar](44) NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    )
+    ```
 Мы выполнили необходимые предварительные действия и готовы к настройке действия копирования с помощью мастера копирования.
 
 ## <a name="launch-copy-wizard"></a>Запуск мастера копирования
@@ -139,67 +140,66 @@ ms.openlocfilehash: 9e61eeb9ec7895b4f436534a1fd8b2cb608cf613
 2. Выберите параметр **Run once now** (Запустить сейчас один раз).   
 3. Нажмите кнопку **Далее**.  
 
-![Мастер копирования — страница "Свойства"](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    ![Мастер копирования — страница "Свойства"](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Шаг 2. Настройка источника
 В этом разделе описываются шаги для настройки источника: большого двоичного объекта Azure, содержащего файлы размером в 1 ТБ с элементами строк TPC-H.
 
-Выберите **хранилище BLOB-объектов Azure** в качестве хранилища и нажмите кнопку **Далее**.
+1. Выберите **хранилище BLOB-объектов Azure** в качестве хранилища и нажмите кнопку **Далее**.
 
-![Мастер копирования — страница "Выбрать источник"](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Мастер копирования — страница "Выбрать источник"](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-Укажите сведения о подключении для учетной записи хранения BLOB-объектов Azure и нажмите кнопку **Далее**.
+2. Укажите сведения о подключении для учетной записи хранения BLOB-объектов Azure и нажмите кнопку **Далее**.
 
-![Мастер копирования — сведения о подключении к источнику](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Мастер копирования — сведения о подключении к источнику](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-Выберите **папку**, содержащую файлы с элементами строк TPC-H, и нажмите кнопку **Далее**.
+3. Выберите **папку**, содержащую файлы с элементами строк TPC-H, и нажмите кнопку **Далее**.
 
-![Мастер копирования — выбор папки входных данных](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    ![Мастер копирования — выбор папки входных данных](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-После нажатия кнопки **Далее** параметры формата файлов определяются автоматически.  Убедитесь, что разделителем столбцов является "|", а не запятая ",", используемая умолчанию.  Просмотрев данные, нажмите кнопку **Далее**.
+4. После нажатия кнопки **Далее** параметры формата файлов определяются автоматически.  Убедитесь, что разделителем столбцов является "|", а не запятая ",", используемая умолчанию.  Просмотрев данные, нажмите кнопку **Далее**.
 
-![Мастер копирования — параметры формата файлов](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Мастер копирования — параметры формата файлов](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Шаг 3. Настройка назначения
 В этом разделе показано, как настроить назначение: таблицу `lineitem` в базе данных хранилища данных SQL Azure.
 
-Выберите **хранилище данных SQL Azure** в качестве назначения и нажмите кнопку **Далее**.
+1. Выберите **хранилище данных SQL Azure** в качестве назначения и нажмите кнопку **Далее**.
 
-![Мастер копирования — выбор целевого хранилища данных](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![Мастер копирования — выбор целевого хранилища данных](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-Введите сведения о подключении для хранилища данных SQL Azure.  Обязательно укажите пользователя, который является участником роли `xlargerc` (подробные инструкции приведены в разделе **предварительных требований**), и нажмите кнопку **Далее**. 
+2. Введите сведения о подключении для хранилища данных SQL Azure.  Обязательно укажите пользователя, который является участником роли `xlargerc` (подробные инструкции приведены в разделе **предварительных требований**), и нажмите кнопку **Далее**. 
 
-![Мастер копирования — сведения о подключении к целевому хранилищу](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Мастер копирования — сведения о подключении к целевому хранилищу](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-Выберите целевую таблицу и нажмите кнопку **Далее**.
+3. Выберите целевую таблицу и нажмите кнопку **Далее**.
 
-![Мастер копирования — страница сопоставления таблиц](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    ![Мастер копирования — страница сопоставления таблиц](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-Примите параметры сопоставления столбцов по умолчанию и нажмите кнопку **Далее**.
+4. Примите параметры сопоставления столбцов по умолчанию и нажмите кнопку **Далее**.
 
-![Мастер копирования — страница сопоставления столбцов](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+    ![Мастер копирования — страница сопоставления столбцов](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
 
 ## <a name="step-4-performance-settings"></a>Шаг 4. Настройки производительности
+
 Флажок **Allow polybase** (Разрешить использование PolyBase) установлен по умолчанию.  Нажмите кнопку **Далее**.
 
 ![Мастер копирования — страница сопоставления столбцов](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Шаг 5. Развертывание и мониторинг результатов нагрузки
-Нажмите кнопку **Готово**, чтобы осуществить развертывание. 
+1. Нажмите кнопку **Готово**, чтобы осуществить развертывание. 
 
-![Мастер копирования — страница сводки](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Мастер копирования — страница сводки](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-После завершения развертывания щелкните `Click here to monitor copy pipeline`, чтобы отслеживать ход выполнения копирования.
+2. После завершения развертывания щелкните `Click here to monitor copy pipeline`, чтобы отслеживать ход выполнения копирования. Выберите конвейер копирования, созданный при работе со списком **Окна действий**.
 
-Выберите конвейер копирования, созданный при работе со списком **Окна действий**.
+    ![Мастер копирования — страница сводки](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-![Мастер копирования — страница сводки](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    Можно просмотреть сведения о выполнении копирования в **Activity Window Explorer** в правой панели, в том числе объем данных, считанных из источника и записанных в назначение, продолжительность и среднюю пропускную способность копирования.
 
-Можно просмотреть сведения о выполнении копирования в **Activity Window Explorer** в правой панели, в том числе объем данных, считанных из источника и записанных в назначение, продолжительность и среднюю пропускную способность копирования.
+    Как видно на следующем снимке экрана, копирование 1 ТБ из хранилища BLOB-объектов Azure в хранилище данных SQL занимает 14 минут, то есть фактическая пропускная способность составила 1,22 Гбит/с!
 
-Как видно на следующем снимке экрана, копирование 1 ТБ из хранилища BLOB-объектов Azure в хранилище данных SQL занимает 14 минут, то есть фактическая пропускная способность составила 1,22 Гбит/с!
-
-![Мастер копирования — диалоговое окно успешного выполнения](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Мастер копирования — диалоговое окно успешного выполнения](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Рекомендации
 Ниже приведены некоторые советы и рекомендации по выполнению базы данных хранилища данных SQL Azure.

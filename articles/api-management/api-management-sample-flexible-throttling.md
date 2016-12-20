@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: darrmi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -32,23 +32,27 @@ ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
 ## <a name="ip-address-throttling"></a>Регулирование запросов по IP-адресам
 Описанные ниже политики накладывают на каждый IP-адрес клиента следующие ограничения: не более 10 запросов в минуту и не более 1 000 000 вызовов и 10 000 килобайт пропускной способности в месяц. 
 
-    <rate-limit-by-key  calls="10"
-              renewal-period="60"
-              counter-key="@(context.Request.IpAddress)" />
+```xml
+<rate-limit-by-key  calls="10"
+          renewal-period="60"
+          counter-key="@(context.Request.IpAddress)" />
 
-    <quota-by-key calls="1000000"
-              bandwidth="10000"
-              renewal-period="2629800"
-              counter-key="@(context.Request.IpAddress)" />
+<quota-by-key calls="1000000"
+          bandwidth="10000"
+          renewal-period="2629800"
+          counter-key="@(context.Request.IpAddress)" />
+```
 
 Если все клиенты в Интернете используют уникальный IP-адрес, этот способ позволит эффективно ограничить расход трафика для каждого пользователя. Однако часто случается, что несколько пользователей делят один общедоступный IP-адрес, поскольку доступ в Интернет им предоставляется через транслятор сетевых адресов. Но даже в этом случае для API, разрешающих доступ к `IpAddress` без проверки подлинности, этот вариант оптимален.
 
 ## <a name="user-identity-throttling"></a>Регулирование запросов по удостоверениям пользователя
 Если пользователь прошел проверку подлинности, на основе данных, уникально идентифицирующих этого пользователя, генерируется ключ регулирования.
 
-    <rate-limit-by-key calls="10"
-        renewal-period="60"
-        counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```xml
+<rate-limit-by-key calls="10"
+    renewal-period="60"
+    counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```
 
 В данном примере мы извлекаем заголовок Authorization (Авторизация), конвертируем его в объект `JWT` , а затем используем субъект маркера для идентификации пользователя и в качестве ключа для ограничения частоты запросов. Если удостоверение пользователя хранится в `JWT` вместе с другими утверждениями, вместо него можно использовать соответствующее значение.
 
@@ -58,9 +62,11 @@ ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
 ## <a name="client-driven-throttling"></a>Регулирование со стороны клиента
 Если ключ регулирования определяется с использованием [выражения политики](https://msdn.microsoft.com/library/azure/dn910913.aspx), объемы регулирования определяются поставщиком API. При этом разработчик может предпочитать самостоятельный контроль над ограничением частоты запросов для своих пользователей. Для этого поставщик API может ввести настраиваемый заголовок, позволяющий клиентскому приложению разработчика передавать ключ в API.
 
-    <rate-limit-by-key calls="100"
-              renewal-period="60"
-              counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```xml
+<rate-limit-by-key calls="100"
+          renewal-period="60"
+          counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```
 
 Это позволит клиентскому приложению разработчика выбирать способ создания ключа, ограничивающего частоту запросов. Проявив немного изобретательности, разработчик клиента может создать свои собственные уровни частоты запросов, назначив пользователям наборы ключей и контролируя их использование.
 

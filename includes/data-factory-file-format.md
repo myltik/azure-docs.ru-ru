@@ -12,7 +12,7 @@
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| columnDelimiter |Знак, используемый для разделения столбцов в файле. |Допускается только один знак. Значение по умолчанию — запятая (,). <br/><br/>Чтобы использовать [символы Юникода](https://en.wikipedia.org/wiki/List_of_Unicode_characters), необходимо получить соответствующий код. Например, вы можете использовать редкий непечатаемый символ, который обычно отсутствует в данных: укажите \u0001 (символ начала заголовка). |Нет |
+| columnDelimiter |Знак, используемый для разделения столбцов в файле. |Допускается только один знак. Значение по умолчанию — запятая (,). <br/><br/>Чтобы использовать [символы Юникода](https://en.wikipedia.org/wiki/List_of_Unicode_characters), необходимо получить соответствующий код. Например, вы можете использовать редкий непечатаемый символ, который обычно отсутствует в данных: укажите \u0001 (символ начала заголовка). |Нет |
 | rowDelimiter |Знак, используемый для разделения строк в файле. |Допускается только один знак. По умолчанию используется одно из следующих значений: для чтения — [\r\n, \r, \n], для записи — \r\n. |Нет |
 | escapeChar |Специальный знак, используемый для экранирования разделителя столбцов в содержимом входного файла. <br/><br/>Для таблицы нельзя указать и escapeChar, и quoteChar. |Допускается только один знак. Значение по умолчанию отсутствует. <br/><br/>Например, если в качестве разделителя столбцов используется запятая (,), но этот знак встречается и в тексте (пример: "Hello, world"), то в качестве знака экранирования можно определить знак доллара ($) и использовать в исходном тексте строку "Hello$, world". |Нет |
 | quoteChar |Знак, используемый в качестве кавычки для заключения строкового значения. Разделители столбцов и строк внутри знаков кавычек будут рассматриваться как часть строкового значения. Это свойство применимо к входным и выходным наборам данных.<br/><br/>Для таблицы нельзя указать и escapeChar, и quoteChar. |Допускается только один знак. Значение по умолчанию отсутствует. <br/><br/>Например, если в качестве разделителя столбцов используется запятая (,) и нужно, чтобы этот знак встречался в тексте (например, <Hello, world>), то можно в качестве знака кавычек определить двойную кавычку (") и использовать в исходном тексте строку "Hello, world". |Нет |
@@ -25,27 +25,30 @@
 #### <a name="textformat-example"></a>Пример TextFormat
 В следующем примере показаны некоторые свойства формата для TextFormat.
 
-    "typeProperties":
+```json
+"typeProperties":
+{
+    "folderPath": "mycontainer/myfolder",
+    "fileName": "myblobname",
+    "format":
     {
-        "folderPath": "mycontainer/myfolder",
-        "fileName": "myblobname"
-        "format":
-        {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";",
-            "quoteChar": "\"",
-            "NullValue": "NaN"
-            "firstRowAsHeader": true,
-            "skipLineCount": 0,
-            "treatEmptyAsNull": true
-        }
-    },
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";",
+        "quoteChar": "\"",
+        "NullValue": "NaN",
+        "firstRowAsHeader": true,
+        "skipLineCount": 0,
+        "treatEmptyAsNull": true
+    }
+},
+```
 
 Чтобы использовать escapeChar вместо quoteChar, вместо строки с quoteChar укажите следующее значение escapeChar:
 
-    "escapeChar": "$",
-
+```json
+"escapeChar": "$",
+```
 
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Сценарии использования firstRowAsHeader и skipLineCount
@@ -56,10 +59,12 @@
 ### <a name="specifying-avroformat"></a>Определение AvroFormat
 Если для свойства format выбрано значение AvroFormat, вам не нужно указывать какие-либо свойства в подразделе Format раздела typeProperties. Пример:
 
-    "format":
-    {
-        "type": "AvroFormat",
-    }
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
 
 Сведения об использовании формата Avro в таблице Hive см. в [руководстве по Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
@@ -74,7 +79,7 @@
 
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
-| filePattern |Шаблон данных, хранящихся в каждом JSON-файле. Допустимые значения: **setOfObjects** и **arrayOfObjects**. Значение **по умолчанию** — **setOfObjects**. Сведения об этих шаблонах см. в разделах ниже. |Нет |
+| filePattern |Шаблон данных, хранящихся в каждом JSON-файле. Допустимые значения: **setOfObjects** и **arrayOfObjects**. Значение **по умолчанию** — **setOfObjects**. Сведения об этих шаблонах см. в разделах ниже. |Нет |
 | encodingName |Имя кодировки. Список допустимых имен кодировок приведен в описании свойства [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Например: windows-1250 или shift_jis. **По умолчанию** используется **UTF-8**. |Нет |
 | nestingSeparator |Символ, используемый для разделения уровней вложенности. Значение по умолчанию — точка (.). |Нет |
 
@@ -83,25 +88,61 @@
 
 **один объект** 
 
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+```
 
 **JSON с разделителем-строкой** 
 
+```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
     {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
     {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
+```
 
 **объединенный JSON**
 
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+{
+    "time": "2015-04-29T07:13:21.0220000Z",
+    "callingimsi": "466922202613463",
+    "callingnum1": "123436380",
+    "callingnum2": "789037573",
+    "switch1": "US",
+    "switch2": "UK"
+}
+{
+    "time": "2015-04-29T07:13:21.4370000Z",
+    "callingimsi": "466923101048691",
+    "callingnum1": "678901578",
+    "callingnum2": "345626404",
+    "switch1": "Germany",
+    "switch2": "UK"
+}
+```
+
+#### <a name="arrayofobjects-file-pattern"></a>Шаблон файла arrayOfObjects.
+Каждый файл содержит массив объектов. 
+
+```json
+[
     {
         "time": "2015-04-29T07:12:20.9100000Z",
         "callingimsi": "466920403025604",
@@ -109,7 +150,7 @@
         "callingnum2": "567834760",
         "switch1": "China",
         "switch2": "Germany"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.0220000Z",
         "callingimsi": "466922202613463",
@@ -117,7 +158,7 @@
         "callingnum2": "789037573",
         "switch1": "US",
         "switch2": "UK"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.4370000Z",
         "callingimsi": "466923101048691",
@@ -125,83 +166,54 @@
         "callingnum2": "345626404",
         "switch1": "Germany",
         "switch2": "UK"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "789037573",
+        "callingnum2": "789044691",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "123436380",
+        "callingnum2": "789044691",
+        "switch1": "US",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:24.2120000Z",
+        "callingimsi": "466922201102759",
+        "callingnum1": "345698602",
+        "callingnum2": "789097900",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:25.6320000Z",
+        "callingimsi": "466923300236137",
+        "callingnum1": "567850552",
+        "callingnum2": "789086133",
+        "switch1": "China",
+        "switch2": "Germany"
     }
-
-
-#### <a name="arrayofobjects-file-pattern"></a>Шаблон файла arrayOfObjects.
-Каждый файл содержит массив объектов. 
-
-    [
-        {
-            "time": "2015-04-29T07:12:20.9100000Z",
-            "callingimsi": "466920403025604",
-            "callingnum1": "678948008",
-            "callingnum2": "567834760",
-            "switch1": "China",
-            "switch2": "Germany"
-        },
-        {
-            "time": "2015-04-29T07:13:21.0220000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789037573",
-            "switch1": "US",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:21.4370000Z",
-            "callingimsi": "466923101048691",
-            "callingnum1": "678901578",
-            "callingnum2": "345626404",
-            "switch1": "Germany",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "789037573",
-            "callingnum2": "789044691",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789044691",
-            "switch1": "US",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:24.2120000Z",
-            "callingimsi": "466922201102759",
-            "callingnum1": "345698602",
-            "callingnum2": "789097900",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:25.6320000Z",
-            "callingimsi": "466923300236137",
-            "callingnum1": "567850552",
-            "callingnum2": "789086133",
-            "switch1": "China",
-            "switch2": "Germany"
-        }
-    ]
-
+]
+```
 ### <a name="jsonformat-example"></a>Пример JsonFormat
 Если у вас есть JSON-файл со следующим содержимым:  
 
-    {
-        "Id": 1,
-        "Name": {
-            "First": "John",
-            "Last": "Doe"
-        },
-        "Tags": ["Data Factory”, "Azure"]
-    }
-
+```json
+{
+    "Id": 1,
+    "Name": {
+        "First": "John",
+        "Last": "Doe"
+    },
+    "Tags": ["Data Factory”, "Azure"]
+}
+```
 и вы хотите скопировать его в таблицу SQL Azure в следующем формате: 
 
 | Идентификатор | Name.First | Name.Middle | Name.Last | Теги |
@@ -210,27 +222,28 @@
 
 Входной набор данных с типом JsonFormat определяется следующим образом (частичное определение только соответствующих частей):
 
-    "properties": {
-        "structure": [
-            {"name": "Id", "type": "Int"},
-            {"name": "Name.First", "type": "String"},
-            {"name": "Name.Middle", "type": "String"},
-            {"name": "Name.Last", "type": "String"},
-            {"name": "Tags", "type": "string"}
-        ],
-        "typeProperties":
+```json
+"properties": {
+    "structure": [
+        {"name": "Id", "type": "Int"},
+        {"name": "Name.First", "type": "String"},
+        {"name": "Name.Middle", "type": "String"},
+        {"name": "Name.Last", "type": "String"},
+        {"name": "Tags", "type": "string"}
+    ],
+    "typeProperties":
+    {
+        "folderPath": "mycontainer/myfolder",
+        "format":
         {
-            "folderPath": "mycontainer/myfolder",
-            "format":
-            {
-                "type": "JsonFormat",
-                "filePattern": "setOfObjects",
-                "encodingName": "UTF-8",
-                "nestingSeparator": "."
-            }
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "encodingName": "UTF-8",
+            "nestingSeparator": "."
         }
     }
-
+}
+```
 Если структура не определена, действие копирования сведет структуру по умолчанию и скопирует каждый элемент. 
 
 #### <a name="supported-json-structure"></a>Поддерживаемая структура JSON
@@ -245,10 +258,12 @@
 ### <a name="specifying-orcformat"></a>Указание OrcFormat
 Если для свойства format выбрано значение OrcFormat, вам не нужно указывать какие-либо свойства в подразделе Format раздела typeProperties. Пример:
 
-    "format":
-    {
-        "type": "OrcFormat"
-    }
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
 
 > [!IMPORTANT]
 > Если вы не копируете ORC-файлов **как есть** между локальным и облачным хранилищами данных, то на компьютере шлюза необходимо установить 8 JRE (среду выполнения Java). Для 64-разрядного шлюза требуется 64-разрядная версия JRE, а для 32-разрядного шлюза — 32-разрядная версия JRE. Обе эти версии доступны [здесь](http://go.microsoft.com/fwlink/?LinkId=808605). Выберите ту, что вам подходит.
@@ -263,11 +278,12 @@
 ### <a name="specifying-parquetformat"></a>Указание ParquetFormat
 Если для свойства format выбрано значение ParquetFormat, вам не нужно указывать какие-либо свойства в подразделе Format раздела typeProperties. Пример:
 
-    "format":
-    {
-        "type": "ParquetFormat"
-    }
-
+```json
+"format":
+{
+    "type": "ParquetFormat"
+}
+```
 > [!IMPORTANT]
 > Если вы не копируете Parquet-файлы **как есть** между локальным и облачным хранилищами данных, то на компьютере шлюза необходимо установить JRE 8 (среду выполнения Java). Для 64-разрядного шлюза требуется 64-разрядная версия JRE, а для 32-разрядного шлюза — 32-разрядная версия JRE. Обе эти версии доступны [здесь](http://go.microsoft.com/fwlink/?LinkId=808605). Выберите ту, что вам подходит.
 > 
