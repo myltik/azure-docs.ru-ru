@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
 Apache Storm в службе HDInsight позволяет создавать в среде Azure распределенные решения для анализа данных в реальном времени. Для этих целей используется [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Что такое Apache Storm
@@ -47,13 +47,13 @@ Apache Storm в HDInsight представляет собой управляем
 
 Список компаний, использующих Apache Storm в качестве решения для анализа данных в реальном времени, см. в статье [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Компании, использующие Apache Storm).
 
-Сведения для начала работы с системой Storm см. в [руководстве по началу работы со Storm в HDInsight][gettingstarted].
+Сведения для начала работы с системой Storm см. в статье [Начало работы со Storm в HDInsight][gettingstarted].
 
 ### <a name="ease-of-provisioning"></a>Простота подготовки
 Новый кластер Storm в HDInsight можно подготовить за считанные минуты. Просто укажите имя кластера, размер, учетную запись администратора и учетную запись хранения, и служба Azure создаст кластер с примерами топологий и веб-сайтом панели мониторинга.
 
 > [!NOTE]
-> Кластеры Storm также можно подготавливать к работе с помощью [Azure CLI](../xplat-cli-install.md) или [Azure PowerShell](../powershell-install-configure.md).
+> Кластеры Storm также можно подготавливать к работе с помощью [Azure CLI](../xplat-cli-install.md) или [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Apache Storm в HDInsight представляет собой управляем
 ### <a name="support"></a>Поддержка
 Для кластеров Storm в HDInsight круглосуточно действует полная поддержка корпоративного уровня. Коме того, для кластеров Storm в HDInsight заявлена гарантированная доступность в течение 99,9 % времени. Это означает, что мы гарантируем возможность подключения к кластеру извне в течение как минимум 99,9 % времени.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Распространенные варианты использования аналитики в реальном времени
+## <a name="common-use-cases-for-real-time-analytics"></a>Распространенные варианты использования аналитики в реальном времени
 Ниже приведены несколько распространенных ситуаций, в которых вам может помочь кластер Apache Storm в HDInsight. Сценарии из реальной жизни см. в статье о том, [как компании используют Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Интернет вещей.
@@ -196,7 +196,7 @@ Storm использует Apache Log4j для записи информации
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены статьи, в которых можно найти дополнительные сведения о решениях для анализа данных в реальном времени с помощью Apache Storm в HDInsight.
 
-* [Руководство по началу работы со Storm в HDInsight][gettingstarted]
+* [Начало работы с кластером Storm в HDInsight][gettingstarted]
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ Storm использует Apache Log4j для записи информации
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

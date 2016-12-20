@@ -29,7 +29,7 @@ ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -1,26 +1,30 @@
 ---
-title: Использование очередей служебной шины с Java | Microsoft Docs
-description: Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java.
-services: service-bus
+title: "Использование очередей служебной шины с Java | Документация Майкрософт"
+description: "Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-
-ms.service: service-bus
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 29cab1dff7ffc0f42ee8c605e3817b855967eb53
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Как использовать очереди служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [пакет Azure SDK для Java][пакет Azure SDK для Java]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
+В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [Пакет Azure SDK для Java][Пакет Azure SDK для Java]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
 
-## <a name="what-are-service-bus-queues?"></a>Что такое очереди служебной шины?
+## <a name="what-are-service-bus-queues"></a>Что такое очереди служебной шины?
 Очереди служебной шины поддерживают модель **обмена сообщениями через посредника** . При использовании очередей компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через очередь, которая выступает в качестве посредника. Производитель (отправитель) передает сообщение в очередь, а затем продолжает его обработку.
 Потребитель сообщения (получатель) асинхронно извлекает сообщение из очереди и обрабатывает его. Поставщику не нужно ждать ответа от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений. Очереди предлагают доставку сообщений конкурирующим потребителям по типу **FIFO** (первым пришел, первым вышел). То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь, и каждое сообщение принимается и обрабатывается только одним потребителем сообщений.
 
@@ -42,7 +46,7 @@ ms.author: sethm
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
-Перед созданием этого образца убедитесь, что вы установили [пакет Azure SDK для Java][пакет Azure SDK для Java]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][набор средств Azure для Eclipse], включающий в себя пакет Azure SDK для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект.
+Перед созданием этого образца убедитесь, что вы установили [Пакет Azure SDK для Java][Пакет Azure SDK для Java]. При использовании Eclipse можно установить [Набор средств Azure для Eclipse][Набор средств Azure для Eclipse], включающий в себя пакет Azure SDK для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект.
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -112,7 +116,7 @@ catch (ServiceException e)
 }
 ```
 
-Сообщения, отправляемые в очереди служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage][BrokeredMessage] . Объекты [BrokeredMessage][BrokeredMessage] обладают набором стандартных свойств (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав любой сериализуемый объект конструктору [BrokeredMessage][BrokeredMessage], после чего для сериализации объекта будет использоваться соответствующий сериализатор. Вы также можете указать объект **java.IO.InputStream**.
+Сообщения, отправляемые в очереди служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage] обладают набором стандартных свойств (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав любой сериализуемый объект конструктору [BrokeredMessage][BrokeredMessage], после чего для сериализации объекта будет использоваться соответствующий сериализатор. Вы также можете указать объект **java.IO.InputStream**.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestQueue` объекта **MessageSender**, полученного в предыдущем фрагменте кода.
 
@@ -148,7 +152,7 @@ try
 
     while(true)  {
          ReceiveQueueMessageResult resultQM =
-                service.receiveQueueMessage("TestQueue", opts);
+                 service.receiveQueueMessage("TestQueue", opts);
         BrokeredMessage message = resultQM.getValue();
         if (message != null && message.getMessageId() != null)
         {
@@ -201,7 +205,7 @@ catch (Exception e) {
 Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса **deleteMessage** это сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью метода **getMessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы ознакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, разделы и подписки служебной шины][].
+Вы ознакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, разделы и подписки][Очереди, разделы и подписки].
 
 Дополнительную информацию см. в [Центре разработчиков Java](/develop/java/).
 
@@ -213,6 +217,6 @@ catch (Exception e) {
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

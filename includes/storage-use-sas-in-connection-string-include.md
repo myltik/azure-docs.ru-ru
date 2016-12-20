@@ -14,10 +14,10 @@ SharedAccessSignature=sasToken
 
 > [!NOTE]
 > По соображениям безопасности с SAS рекомендуется использовать протокол HTTPS.
-> 
+>
 > При указании SAS в строке подключения в файле конфигурации может потребоваться закодировать специальные символы в URL-адресе.
-> 
-> 
+>
+>
 
 ### <a name="service-sas-example"></a>Пример SAS службы
 Ниже приведен пример строки подключения, которая включает подписанный URL-адрес службы для хранилища BLOB-объектов:
@@ -36,17 +36,17 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=s
 Ниже приведен пример строки подключения, которая включает подписанный URL-адрес учетной записи для хранилища BLOB-объектов и файлового хранилища: Обратите внимание, что указаны конечные точки для обеих служб.
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 ```
 
 Еще один пример той же строки подключения с кодированием URL-адреса:
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 ```
 
 

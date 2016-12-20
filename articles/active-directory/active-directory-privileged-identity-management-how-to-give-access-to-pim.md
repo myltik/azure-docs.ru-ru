@@ -1,12 +1,12 @@
 ---
-title: Предоставление доступа к PIM | Microsoft Docs
-description: Узнайте, как назначать пользователям роли для управления PIM с помощью расширения для управления привилегированными пользователями Azure Active Directory.
+title: "Предоставление доступа к PIM | Документация Майкрософт"
+description: "Узнайте, как назначать пользователям роли для управления PIM с помощью расширения для управления привилегированными пользователями Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+
 
 ---
 # <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Предоставление доступа к управлению привилегированными пользователями Azure AD
@@ -40,7 +44,7 @@ ms.author: kgremban
    * Каждый раз, когда вы назначаете пользователю новую роль, он автоматически получает возможность активировать эту роль временно. Чтобы сделать назначенную роль постоянной, выберите пользователя в списке. Выберите в меню пользователя команду **сделать постоянной** .
 6. Отправьте пользователю ссылку на статью [Приступая к работе с управлением привилегированными пользователями Azure AD](active-directory-privileged-identity-management-getting-started.md).
 
-## <a name="remove-another-user's-access-rights-for-managing-pim"></a>Удаление прав доступа для управления PIM у другого пользователя
+## <a name="remove-another-users-access-rights-for-managing-pim"></a>Удаление прав доступа для управления PIM у другого пользователя
 Прежде чем удалить кого-либо из роли администратора привилегированных ролей, всегда проверяйте, остается ли хотя бы два пользователя, которым назначена эта роль.
 
 1. На панели мониторинга PIM щелкните роль **Администратор привилегированных ролей**.  Появится список пользователей, которые в настоящее время находятся в этой роли.
@@ -59,6 +63,6 @@ ms.author: kgremban
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

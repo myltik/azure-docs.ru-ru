@@ -1,12 +1,12 @@
 ---
-title: Политики хранения отчетов Azure Active Directory | Microsoft Docs
-description: Политики хранения данных отчета в Azure Active Directory
+title: "Политики хранения отчетов Azure Active Directory | Документация Майкрософт"
+description: "Политики хранения данных отчета в Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+
 
 ---
-# Политики хранения отчетов Azure Active Directory
+# <a name="azure-active-directory-report-retention-policies"></a>Политики хранения отчетов Azure Active Directory
 *Данная документация является частью [руководства по отчетам Azure Active Directory](active-directory-reporting-guide.md).*
 
 Данные отчетов Azure Active Directory (Azure AD) хранятся в течение определенного количества дней, указанного ниже.
@@ -47,4 +51,9 @@ ms.author: dhanyahk
 | Использование устройства с RMS |30 дней |
 | Использование приложений с поддержкой RMS |30 дней |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

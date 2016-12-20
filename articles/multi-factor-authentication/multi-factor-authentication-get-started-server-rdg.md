@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS
 Во многих случаях для проверки подлинности пользователей шлюз удаленных рабочих столов использует локальный сервер политик сети (NPS). В этом документе описывается способ перенаправления запроса RADIUS из шлюза удаленных рабочих столов (через локальный NPS) на сервер Multi-Factor Authentication.
 
 Сервер Multi-Factor Authentication должен быть установлен на отдельном сервере, который затем будет передавать запрос RADIUS обратно в NPS на сервере шлюза удаленных рабочих столов. После того как NPS проверит имя пользователя и пароль, он будет возвращать ответ на сервер Multi-Factor Authentication, который выполняет второй фактор проверки подлинности перед возвратом результата в шлюз.
@@ -36,7 +36,7 @@ ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
 3. Разверните раздел «Политики» в левой области навигации и щелкните «Политики запросов на подключение». Данный раздел должен содержать политику запросов на подключение с именем TS GATEWAY AUTHORIZATION POLICY, которая была создана при настройке шлюза удаленных рабочих столов. Эта политика направляет запросы RADIUS на сервер Multi-Factor Authentication.
 4. Скопируйте эту политику, чтобы создать новую. В новой политике добавьте условие, сопоставляющее понятное имя клиента с понятным именем, заданным на шаге 2 выше, для клиента RADIUS сервера Azure Multi-Factor Authentication. Измените поставщика проверки подлинности на локальный компьютер. Эта политика гарантирует, что при получении запроса RADIUS от сервера Azure Multi-Factor Authentication проверка подлинности выполняется локально вместо отправки запроса RADIUS на сервер Azure Multi-Factor Authentication, что может привести к возникновению цикла. Чтобы предотвратить зацикливание, эта новая политика должна быть размещена НАД исходной политикой, которая перенаправляет на сервер Multi-Factor Authentication.
 
-## <a name="configure-azure-multifactor-authentication"></a>Настройка Azure Multi-Factor Authentication
+## <a name="configure-azure-multi-factor-authentication"></a>Настройка Azure Multi-Factor Authentication
 - - -
 Между шлюзом удаленных рабочих столов и NPS сервер Azure Multi-Factor Authentication настраивается как прокси-сервер RADIUS.  Он должен быть установлен на сервере, присоединенном к домену, который отличается от сервера шлюза удаленных рабочих столов. Для настройки сервера Azure Multi-Factor Authentication используйте следующую процедуру.
 
@@ -50,6 +50,6 @@ ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

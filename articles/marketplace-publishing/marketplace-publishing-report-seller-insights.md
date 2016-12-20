@@ -1,19 +1,23 @@
 ---
-title: Основные сведения об отчетах Azure Marketplace на основе данных по использованию и отчетах Seller Insights | Microsoft Docs
-description: Информация об отчетах по использованию, которые также называются отчетами Seller Insights, для продавцов на Azure Marketplace
+title: "Основные сведения об отчетах Azure Marketplace на основе данных по использованию и отчетах Seller Insights | Документация Майкрософт"
+description: "Информация об отчетах по использованию, которые также называются отчетами Seller Insights, для продавцов на Azure Marketplace"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 51452ce98a02f3bcea9914b741c611b00f862cc6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>Основные сведения об отчетах Seller Insights
@@ -26,7 +30,7 @@ ms.author: v-jeana; hascipio
 * **Приветствие по электронное почте:** как новый издатель вы получите по электронное почте приветственное сообщение с уведомлением о том, что вы начнете получать ежемесячные отчеты Seller Insights.
 * **Ежемесячные отчеты по продажам:** если ваши предложения использовались, вы получите второе электронное письмо с прикрепленными отчетами и инструкциями по получению пароля.
   
-  * Если вашим образом виртуальной машины или SKU служб для разработчиков с оплатой за использование кто-то пользовался, в ежемесячном отчете будут представлены сведения о заказах, использовании, рынках и клиентах ваших предложений, распространяемых не на условии BYOL (собственной лицензии).
+  * Если вашим образом виртуальной машины или SKU служб для разработчиков с оплатой за использование кто-то пользовался, в ежемесячном отчете будут представлены сведения о заказах, использовании, рынках и клиентах ваших предложений.
   * Для защиты данных ваших клиентов файлы отчетов блокируются паролем, известным только вам и корпорации Майкрософт.
   * Если ни одно из ваших предложений в течение месяца не использовалось, отчет не отправляется.
 
@@ -113,6 +117,6 @@ ms.author: v-jeana; hascipio
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

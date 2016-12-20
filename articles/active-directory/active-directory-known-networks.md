@@ -1,24 +1,12 @@
 ---
-title: Известные сети | Microsoft Docs
-description: 'Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты '
-операции: ''
-входа: ''
-из: ''
-нескольких: ''
-географических: ''
-регионов": ''
-и: ''
-"\"операции": ''
-с: ''
-ip-адресов: ''
-подозрительными: ''
-действиями".": ''
+title: "Известные сети | Документация Майкрософт"
+description: "Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты &quot;Операции входа из нескольких географических регионов&quot; и &quot;Операции входа с IP-адресов с подозрительными действиями&quot;."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -26,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9911945ae36fc00c9be5092dd040b67adf537ec3
+
 
 ---
 # <a name="known-networks"></a>Известные сети
@@ -55,6 +47,9 @@ ms.author: markvi
 * [Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: MailChimp | Microsoft Docs
-description: Создание приложений логики с помощью службы приложений Azure. MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их.
+title: "MailChimp | Документация Майкрософт"
+description: "Создание приложений логики с помощью службы приложений Azure. MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 36559de2-94f0-4355-b492-2926dfc56486
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3df3dfa25bc438cfe4a340ba50868d2f2263b44a
+
 
 ---
-# Начало работы с соединителем MailChimp
+# <a name="get-started-with-the-mailchimp-connector"></a>Начало работы с соединителем MailChimp
 MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их.
 
 > [!NOTE]
@@ -25,17 +29,17 @@ MailChimp — это служба SaaS, которая позволяет ком
 > 
 > 
 
-Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Для начала можно создать приложение логики, как описано [здесь](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Триггеры и действия
+## <a name="triggers-and-actions"></a>Триггеры и действия
 Соединитель MailChimp можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
  Соединитель MailChimp предоставляет следующие триггеры и действия:
 
-### Действия MailChimp
+### <a name="mailchimp-actions"></a>Действия MailChimp
 Вы можете выполнять перечисленные ниже действия:
 
-| Действие | Описание |
+| Действие | Description (Описание) |
 | --- | --- |
 | [newcampaign](connectors-create-api-mailchimp.md#newcampaign) |Создание кампании на основе типа кампании, списка получателей и параметров кампании (тема, название, отправитель, получатель) |
 | [newlist](connectors-create-api-mailchimp.md#newlist) |Создание списка в учетной записи MailChimp |
@@ -43,7 +47,7 @@ MailChimp — это служба SaaS, которая позволяет ком
 | [removemember](connectors-create-api-mailchimp.md#removemember) |Удаление элемента из списка |
 | [updatemember](connectors-create-api-mailchimp.md#updatemember) |Изменение сведений для определенного элемента списка |
 
-### Триггеры MailChimp
+### <a name="mailchimp-triggers"></a>Триггеры MailChimp
 Можно прослушивать указанные ниже события:
 
 | Триггер | Описание |
@@ -51,24 +55,24 @@ MailChimp — это служба SaaS, которая позволяет ком
 | При добавлении элемента в список |Запускает рабочий процесс при добавлении нового элемента в список |
 | При создании списка |Запускает рабочий процесс при создании списка |
 
-## Создание подключения к MailChimp
+## <a name="create-a-connection-to-mailchimp"></a>Создание подключения к MailChimp
 Для создания приложений логики с помощью MailChimp необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
 | Свойство | Обязательно | Описание |
 | --- | --- | --- |
-| Маркер |Да |Укажите учетные данные MailChimp |
+| токен |Да |Укажите учетные данные MailChimp |
 
-> [!INCLUDE [Шаги по созданию подключения к MailChimp](../../includes/connectors-create-api-mailchimp.md)]
+> [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 > 
 > [!TIP]
 > Это подключение можно использовать в других приложениях логики.
 > 
 > 
 
-## Справочник по MailChimp
+## <a name="reference-for-mailchimp"></a>Справочник по MailChimp
 Относится к версии 1.0.
 
-## newcampaign
+## <a name="newcampaign"></a>newcampaign
 Новая кампания: создание кампании на основе типа кампании, списка получателей и параметров кампании (тема, название, отправитель, получатель)
 
 ```POST: /campaigns```
@@ -77,7 +81,7 @@ MailChimp — это служба SaaS, которая позволяет ком
 | --- | --- | --- | --- | --- | --- |
 | newCampaignRequest | |Да |текст |Нет |Объект JSON, отправляемый в тексте с параметрами запроса новой кампании |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -88,17 +92,17 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## newlist
+## <a name="newlist"></a>newlist
 Новый список: создание списка в учетной записи MailChimp
 
 ```POST: /lists```
 
-| Name (Имя) | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | newListRequest | |Да |текст |Нет |Объект JSON, отправляемый в тексте с параметрами запроса новой кампании |
 
-#### Ответ
-| Name (Имя) | Описание |
+#### <a name="response"></a>Ответ
+| Имя | Описание |
 | --- | --- |
 | 200 |ОК |
 | 400 |Ошибка запроса |
@@ -108,17 +112,17 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## addmember
+## <a name="addmember"></a>addmember
 Добавление элемента в список: добавление или изменение элемента списка
 
 ```POST: /lists/{list_id}/members```
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |string |Да |path |Нет |Уникальный идентификатор для списка |
+| list_id |string |Да |path |Нет |Уникальный идентификатор для списка |
 | newMemberInList | |Да |текст |Нет |Объект JSON, отправляемый в тексте со сведениями о новом элементе |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -129,17 +133,17 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## removemember
+## <a name="removemember"></a>removemember
 Удаление элемента из списка: удаление элемента из списка
 
 ```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |string |Да |path |Нет |Уникальный идентификатор для списка |
-| member\_email |string |Да |path |Нет |Адрес электронной почты удаляемого элемента |
+| list_id |string |Да |path |Нет |Уникальный идентификатор для списка |
+| member_email |string |Да |path |Нет |Адрес электронной почты удаляемого элемента |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -150,18 +154,18 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## updatemember
+## <a name="updatemember"></a>updatemember
 Изменение сведений об элементе: изменение сведений для определенного элемента списка
 
 ```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Name (Имя) | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Description (Описание) |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |string |Да |path |Нет |Уникальный идентификатор для списка |
-| member\_email |string |Да |path |Нет |Уникальный адрес электронной почты изменяемого элемента |
+| list_id |string |Да |path |Нет |Уникальный идентификатор для списка |
+| member_email |string |Да |path |Нет |Уникальный адрес электронной почты изменяемого элемента |
 | updateMemberInListRequest | |Да |текст |Нет |Объект JSON, отправляемый в тексте со сведениями об изменяемом элементе |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -172,16 +176,16 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## OnMemberSubscribed
+## <a name="onmembersubscribed"></a>OnMemberSubscribed
 При добавлении элемента в список: запускает рабочий процесс при добавлении нового элемента в список
 
 ```GET: /trigger/lists/{list_id}/members```
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |string |Да |path |Нет |Уникальный идентификатор для списка |
+| list_id |string |Да |path |Нет |Уникальный идентификатор для списка |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -193,14 +197,14 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## OnCreateList
+## <a name="oncreatelist"></a>OnCreateList
 При создании списка: запускает рабочий процесс при создании списка
 
 ```GET: /trigger/lists```
 
 Для этого вызова параметры отсутствуют
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -212,113 +216,113 @@ MailChimp — это служба SaaS, которая позволяет ком
 | 500 |Внутренняя ошибка сервера. Произошла неизвестная ошибка |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## Определения объектов
-### NewCampaignRequest
+## <a name="object-definitions"></a>Определения объектов
+### <a name="newcampaignrequest"></a>NewCampaignRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | type |string |Да |
 | recipients |не определено |Да |
 | Параметры |не определено |Да |
-| variate\_settings |не определено |Нет |
+| variate_settings |не определено |Нет |
 | tracking |не определено |Нет |
-| rss\_opts |не определено |Нет |
-| social\_card |не определено |Нет |
+| rss_opts |не определено |Нет |
+| social_card |не определено |Нет |
 
-### Recipient
+### <a name="recipient"></a>Recipient
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| list\_id |string |Да |
-| segment\_opts |не определено |Нет |
+| list_id |string |Да |
+| segment_opts |не определено |Нет |
 
-### Параметры
+### <a name="settings"></a>Параметры
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| subject\_line |string |Да |
+| subject_line |string |Да |
 | title |string |Нет |
-| from\_name |string |Да |
-| reply\_to |string |Да |
-| use\_conversation |Логическое |Нет |
-| to\_name |string |Нет |
-| folder\_id |целое число |Нет |
+| from_name |string |Да |
+| reply_to |string |Да |
+| use_conversation |Логическое |Нет |
+| to_name |string |Нет |
+| folder_id |целое число |Нет |
 | authenticate |Логическое |Нет |
-| auto\_footer |Логическое |Нет |
-| inline\_css |Логическое |Нет |
-| auto\_tweet |Логическое |Нет |
-| auto\_fb\_post |array |Нет |
-| fb\_comments |Логическое |Нет |
+| auto_footer |Логическое |Нет |
+| inline_css |Логическое |Нет |
+| auto_tweet |Логическое |Нет |
+| auto_fb_post |array |Нет |
+| fb_comments |Логическое |Нет |
 
-### Variate\_Settings
+### <a name="variatesettings"></a>Variate_Settings
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| winner\_criteria |string |Нет |
-| wait\_time |целое число |Нет |
-| test\_size |целое число |Нет |
-| subject\_lines |array |Нет |
-| send\_times |array |Нет |
-| from\_names |array |Нет |
-| reply\_to\_addresses |array |Нет |
+| winner_criteria |string |Нет |
+| wait_time |целое число |Нет |
+| test_size |целое число |Нет |
+| subject_lines |array |Нет |
+| send_times |array |Нет |
+| from_names |array |Нет |
+| reply_to_addresses |array |Нет |
 
-### Отслеживание
+### <a name="tracking"></a>Отслеживание
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | opens |Логическое |Нет |
-| html\_clicks |Логическое |Нет |
-| text\_clicks |Логическое |Нет |
-| goal\_tracking |Логическое |Нет |
+| html_clicks |Логическое |Нет |
+| text_clicks |Логическое |Нет |
+| goal_tracking |Логическое |Нет |
 | ecomm360 |Логическое |Нет |
-| google\_analytics |string |Нет |
+| google_analytics |string |Нет |
 | clicktale |string |Нет |
 | salesforce |не определено |Нет |
 | highrise |не определено |Нет |
 | capsule |не определено |Нет |
 
-### RSS\_Opts
+### <a name="rssopts"></a>RSS_Opts
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| feed\_url |string |Нет |
+| feed_url |string |Нет |
 | frequency |string |Нет |
-| constrain\_rss\_img |string |Нет |
+| constrain_rss_img |string |Нет |
 | schedule |не определено |Нет |
 
-### Social\_Card
+### <a name="socialcard"></a>Social_Card
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| image\_url |string |Нет |
+| image_url |string |Нет |
 | description |string |Нет |
 | title |string |Нет |
 
-### Segment\_Opts
+### <a name="segmentopts"></a>Segment_Opts
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| saved\_segment\_id |целое число |Нет |
+| saved_segment_id |целое число |Нет |
 | match |string |Нет |
 
-### Salesforce
+### <a name="salesforce"></a>Salesforce
 | Имя свойства | Тип данных | Обязательное |
 | --- | --- | --- |
 | campaign |Логическое |Нет |
 | HDInsight |Логическое |Нет |
 
-### Highrise
+### <a name="highrise"></a>Highrise
 | Имя свойства | Тип данных | Обязательное |
 | --- | --- | --- |
 | campaign |Логическое |Нет |
 | HDInsight |Логическое |Нет |
 
-### Capsule
+### <a name="capsule"></a>Capsule
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | HDInsight |Логическое |Нет |
 
-### Расписание
+### <a name="schedule"></a>Расписание
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | hour |целое число |Нет |
-| daily\_send |не определено |Нет |
-| weekly\_send\_day |string |Нет |
-| monthly\_send\_date |number |Нет |
+| daily_send |не определено |Нет |
+| weekly_send_day |string |Нет |
+| monthly_send_date |number |Нет |
 
-### Daily\_Send
+### <a name="dailysend"></a>Daily_Send
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | sunday |Логическое |Нет |
@@ -329,66 +333,66 @@ MailChimp — это служба SaaS, которая позволяет ком
 | friday |Логическое |Нет |
 | saturday |Логическое |Нет |
 
-### CampaignResponseModel
+### <a name="campaignresponsemodel"></a>CampaignResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | id |string |Нет |
 | type |string |Нет |
-| create\_time |string |Нет |
-| archive\_url |string |Нет |
+| create_time |string |Нет |
+| archive_url |string |Нет |
 | status |string |Нет |
-| emails\_sent |целое число |Нет |
-| send\_time |string |Нет |
-| content\_type |string |Нет |
+| emails_sent |целое число |Нет |
+| send_time |string |Нет |
+| content_type |string |Нет |
 | recipient |array |Нет |
 | Параметры |не определено |Нет |
-| variate\_settings |не определено |Нет |
+| variate_settings |не определено |Нет |
 | tracking |не определено |Нет |
-| rss\_opts |не определено |Нет |
-| ab\_split\_opts |не определено |Нет |
-| social\_card |не определено |Нет |
-| report\_summary |не определено |Нет |
-| delivery\_status |не определено |Нет |
-| \_links |array |Нет |
+| rss_opts |не определено |Нет |
+| ab_split_opts |не определено |Нет |
+| social_card |не определено |Нет |
+| report_summary |не определено |Нет |
+| delivery_status |не определено |Нет |
+| _links |array |Нет |
 
-### AB\_Split\_Opts
+### <a name="absplitopts"></a>AB_Split_Opts
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| split\_test |string |Нет |
-| pick\_winner |string |Нет |
-| wait\_units |string |Нет |
-| wait\_time |целое число |Нет |
-| split\_size |целое число |Нет |
-| from\_name\_a |string |Нет |
-| from\_name\_b |string |Нет |
-| reply\_email\_a |string |Нет |
-| reply\_email\_b |string |Нет |
-| subject\_a |string |Нет |
-| subject\_b |string |Нет |
-| send\_time\_a |string |Нет |
-| send\_time\_b |string |Нет |
-| send\_time\_winner |string |Нет |
+| split_test |string |Нет |
+| pick_winner |string |Нет |
+| wait_units |string |Нет |
+| wait_time |целое число |Нет |
+| split_size |целое число |Нет |
+| from_name_a |string |Нет |
+| from_name_b |string |Нет |
+| reply_email_a |string |Нет |
+| reply_email_b |string |Нет |
+| subject_a |string |Нет |
+| subject_b |string |Нет |
+| send_time_a |string |Нет |
+| send_time_b |string |Нет |
+| send_time_winner |string |Нет |
 
-### Report\_Summary
+### <a name="reportsummary"></a>Report_Summary
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | opens |целое число |Нет |
-| unique\_opens |целое число |Нет |
-| open\_rate |number |Нет |
+| unique_opens |целое число |Нет |
+| open_rate |number |Нет |
 | clicks |целое число |Нет |
-| subscriber\_clicks |number |Нет |
-| click\_rate |number |Нет |
+| subscriber_clicks |number |Нет |
+| click_rate |number |Нет |
 
-### Delivery\_Status
+### <a name="deliverystatus"></a>Delivery_Status
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | включено |Логическое |Нет |
-| can\_cancel |Логическое |Нет |
+| can_cancel |Логическое |Нет |
 | status |string |Нет |
-| emails\_sent |целое число |Нет |
-| emails\_canceled |целое число |Нет |
+| emails_sent |целое число |Нет |
+| emails_canceled |целое число |Нет |
 
-### Ссылка
+### <a name="link"></a>Ссылка
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | rel |string |Нет |
@@ -397,20 +401,20 @@ MailChimp — это служба SaaS, которая позволяет ком
 | targetSchema |string |Нет |
 | schema |string |Нет |
 
-### NewListRequest
+### <a name="newlistrequest"></a>NewListRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| name |string |Да |
+| Имя |string |Да |
 | contact |не определено |Да |
-| permission\_reminder |string |Да |
-| use\_archive\_bar |Логическое |Нет |
-| campaign\_defaults |не определено |Да |
-| notify\_on\_subscribe |string |Нет |
-| notify\_on\_unsubscribe |string |Нет |
-| email\_type\_option |Логическое |Да |
+| permission_reminder |string |Да |
+| use_archive_bar |Логическое |Нет |
+| campaign_defaults |не определено |Да |
+| notify_on_subscribe |string |Нет |
+| notify_on_unsubscribe |string |Нет |
+| email_type_option |Логическое |Да |
 | visibility |string |Нет |
 
-### Контакт
+### <a name="contact"></a>Контакт
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | company |string |Да |
@@ -422,176 +426,177 @@ MailChimp — это служба SaaS, которая позволяет ком
 | country |string |Да |
 | phone |string |Да |
 
-### Campaign\_Defaults
+### <a name="campaigndefaults"></a>Campaign_Defaults
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| from\_name |string |Да |
-| from\_email |string |Да |
+| from_name |string |Да |
+| from_email |string |Да |
 | subject |string |Нет |
 | язык |string |Да |
 
-### CreateNewListResponseModel
+### <a name="createnewlistresponsemodel"></a>CreateNewListResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | id |string |Да |
 | name |string |Да |
 | contact |не определено |Да |
-| permission\_reminder |string |Да |
-| use\_archive\_bar |Логическое |Нет |
-| campaign\_defaults |не определено |Да |
-| notify\_on\_subscribe |string |Нет |
-| notify\_on\_unsubscribe |string |Нет |
-| date\_created |string |Нет |
-| list\_rating |целое число |Нет |
-| email\_type\_option |Логическое |Да |
-| subscribe\_url\_short |string |Нет |
-| subscribe\_url\_long |string |Нет |
-| beamer\_address |string |Нет |
+| permission_reminder |string |Да |
+| use_archive_bar |Логическое |Нет |
+| campaign_defaults |не определено |Да |
+| notify_on_subscribe |string |Нет |
+| notify_on_unsubscribe |string |Нет |
+| date_created |string |Нет |
+| list_rating |целое число |Нет |
+| email_type_option |Логическое |Да |
+| subscribe_url_short |string |Нет |
+| subscribe_url_long |string |Нет |
+| beamer_address |string |Нет |
 | visibility |string |Нет |
 | modules |array |Нет |
 | stats |не определено |Нет |
-| \_links |array |Нет |
+| _links |array |Нет |
 
-### Статистика
+### <a name="stats"></a>Статистика
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| member\_count |целое число |Нет |
-| unsubscribe\_count |целое число |Нет |
-| cleaned\_count |целое число |Нет |
-| member\_count\_since\_send |целое число |Нет |
-| unsubscribe\_count\_since\_send |целое число |Нет |
-| cleaned\_count\_since\_send |целое число |Нет |
-| campaign\_count |целое число |Нет |
-| campaign\_last\_sent |целое число |Нет |
-| merge\_field\_count |целое число |Нет |
-| avg\_sub\_rate |number |Нет |
-| avg\_unsub\_rate |number |Нет |
-| target\_sub\_rate |number |Нет |
-| open\_rate |number |Нет |
-| click\_rate |number |Нет |
-| last\_sub\_date |string |Нет |
-| last\_unsub\_date |string |Нет |
+| member_count |целое число |Нет |
+| unsubscribe_count |целое число |Нет |
+| cleaned_count |целое число |Нет |
+| member_count_since_send |целое число |Нет |
+| unsubscribe_count_since_send |целое число |Нет |
+| cleaned_count_since_send |целое число |Нет |
+| campaign_count |целое число |Нет |
+| campaign_last_sent |целое число |Нет |
+| merge_field_count |целое число |Нет |
+| avg_sub_rate |number |Нет |
+| avg_unsub_rate |number |Нет |
+| target_sub_rate |number |Нет |
+| open_rate |number |Нет |
+| click_rate |number |Нет |
+| last_sub_date |string |Нет |
+| last_unsub_date |string |Нет |
 
-### GetListsResponseModel
+### <a name="getlistsresponsemodel"></a>GetListsResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | lists |array |Нет |
-| total\_items |целое число |Нет |
+| total_items |целое число |Нет |
 
-### NewMemberInListRequest
+### <a name="newmemberinlistrequest"></a>NewMemberInListRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| email\_type |string |Нет |
+| email_type |string |Нет |
 | status |string |Да |
-| merge\_fields |не определено |Нет |
+| merge_fields |не определено |Нет |
 | interests |string |Нет |
 | язык |string |Нет |
 | виртуальный IP-адрес |Логическое |Нет |
 | location |не определено |Нет |
-| email\_address |string |Да |
+| email_address |string |Да |
 
-### FirstAndLastName
+### <a name="firstandlastname"></a>FirstAndLastName
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | FNAME |string |Нет |
 | LNAME |string |Нет |
 
-### Расположение
+### <a name="location"></a>Расположение
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | latitude |number |Нет |
 | longitude |number |Нет |
 
-### MemberResponseModel
+### <a name="memberresponsemodel"></a>MemberResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | id |string |Нет |
-| email\_address |string |Нет |
-| unique\_email\_id |string |Нет |
-| email\_type |string |Нет |
+| email_address |string |Нет |
+| unique_email_id |string |Нет |
+| email_type |string |Нет |
 | status |string |Нет |
-| merge\_fields |не определено |Нет |
+| merge_fields |не определено |Нет |
 | interests |string |Нет |
 | stats |не определено |Нет |
-| ip\_signup |string |Нет |
-| timestamp\_signup |string |Нет |
-| ip\_opt |string |Нет |
-| timestamp\_opt |string |Нет |
-| member\_rating |целое число |Нет |
-| last\_changed |string |Нет |
+| ip_signup |string |Нет |
+| timestamp_signup |string |Нет |
+| ip_opt |string |Нет |
+| timestamp_opt |string |Нет |
+| member_rating |целое число |Нет |
+| last_changed |string |Нет |
 | язык |string |Нет |
 | виртуальный IP-адрес |Логическое |Нет |
-| email\_client |string |Нет |
+| email_client |string |Нет |
 | location |не определено |Нет |
-| last\_note |не определено |Нет |
-| list\_id |string |Нет |
-| \_links |array |Нет |
+| last_note |не определено |Нет |
+| list_id |string |Нет |
+| _links |array |Нет |
 
-### Last\_Note
+### <a name="lastnote"></a>Last_Note
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| note\_id |целое число |Нет |
-| created\_at |string |Нет |
-| created\_by |string |Нет |
+| note_id |целое число |Нет |
+| created_at |string |Нет |
+| created_by |string |Нет |
 | note |string |Нет |
 
-### GetAllMembersResponseModel
+### <a name="getallmembersresponsemodel"></a>GetAllMembersResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | members |array |Нет |
-| list\_id |string |Нет |
-| total\_items |целое число |Нет |
+| list_id |string |Нет |
+| total_items |целое число |Нет |
 
-### Объект
+### <a name="object"></a>Объект
+### <a name="updatememberinlistrequest"></a>UpdateMemberInListRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-|  | | |
-
-### UpdateMemberInListRequest
-| Имя свойства | Тип данных | Обязательно |
-| --- | --- | --- |
-| email\_address |string |Нет |
-| email\_type |string |Нет |
+| email_address |string |Нет |
+| email_type |string |Нет |
 | status |string |Да |
-| merge\_fields |не определено |Нет |
+| merge_fields |не определено |Нет |
 | interests |string |Нет |
 | язык |string |Нет |
 | виртуальный IP-адрес |Логическое |Нет |
 | location |не определено |Нет |
 
-### GetMembersResponseModel
+### <a name="getmembersresponsemodel"></a>GetMembersResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | members |array |Нет |
-| list\_id |string |Нет |
-| total\_items |целое число |Нет |
+| list_id |string |Нет |
+| total_items |целое число |Нет |
 
-### AddUserResponseModel
+### <a name="adduserresponsemodel"></a>AddUserResponseModel
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | id |string |Да |
-| email\_address |string |Да |
-| unique\_email\_id |string |Нет |
-| email\_type |string |Нет |
+| email_address |string |Да |
+| unique_email_id |string |Нет |
+| email_type |string |Нет |
 | status |string |Нет |
-| merge\_fields |не определено |Да |
+| merge_fields |не определено |Да |
 | interests |string |Нет |
 | stats |не определено |Нет |
-| ip\_signup |string |Нет |
-| timestamp\_signup |string |Нет |
-| ip\_opt |string |Нет |
-| timestamp\_opt |string |Нет |
-| member\_rating |целое число |Нет |
-| last\_changed |string |Нет |
+| ip_signup |string |Нет |
+| timestamp_signup |string |Нет |
+| ip_opt |string |Нет |
+| timestamp_opt |string |Нет |
+| member_rating |целое число |Нет |
+| last_changed |string |Нет |
 | язык |string |Нет |
 | виртуальный IP-адрес |Логическое |Нет |
-| email\_client |string |Нет |
+| email_client |string |Нет |
 | location |не определено |Нет |
-| last\_note |не определено |Нет |
-| list\_id |string |Нет |
-| \_links |array |Нет |
+| last_note |не определено |Нет |
+| list_id |string |Нет |
+| _links |array |Нет |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Сообщения системного журнала в Log Analytics | Microsoft Docs
-description: Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS.
+title: "Сообщения системного журнала в Log Analytics | Документация Майкрософт"
+description: "Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Источники данных системного журнала в Log Analytics
@@ -69,7 +73,7 @@ ms.author: bwren
 
 Устройство можно удалить, выполнив удаление соответствующего раздела в файле конфигурации.  Можно ограничить уровни серьезности для сообщений, собираемых с конкретного устройства, изменив соответствующую запись устройства.  Например, чтобы ограничить сообщения с пользовательского устройства уровнем серьезности "ошибка" или выше, необходимо изменить соответствующую строку в файле конфигурации таким образом:
 
-    user.error  @127.0.0.1:25224
+    user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
@@ -175,6 +179,9 @@ ms.author: bwren
 * Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
 * [Настройте агенты Linux](log-analytics-linux-agents.md) для сбора других типов данных. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Параметры групповой политики и управления мобильными устройствами | Microsoft Docs
-description: Здесь содержатся сведения о параметрах групповой политики и управления мобильными устройствами, которые следует использовать на корпоративных устройствах. Эти политики применяются ко всему устройству пользователя.
+title: "Параметры групповой политики и управления мобильными устройствами | Документация Майкрософт"
+description: "Здесь содержатся сведения о параметрах групповой политики и управления мобильными устройствами, которые следует использовать на корпоративных устройствах. Эти политики применяются ко всему устройству пользователя."
 services: active-directory
-keywords: что такое параметры групповой политики и MDM для службы Enterprise State Roaming, служба Enterprise State Roaming, облако Windows
-documentationcenter: ''
+keywords: "что такое параметры групповой политики и MDM для службы Enterprise State Roaming, служба Enterprise State Roaming, облако Windows"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+
 
 ---
 # <a name="group-policy-and-mdm-settings"></a>Параметры групповой политики и управления мобильными устройствами
@@ -24,7 +28,7 @@ ms.author: femila
 В следующих таблицах описаны доступные параметры политики.
 
 ## <a name="mdm-settings"></a>Параметры MDM
-Параметры политики MDM применяются к Windows 10 и Windows 10 Mobile.  Поддержка Windows 10 Mobile существует только для перемещения на основе учетной записи Майкрософт через учетную запись пользователя OneDrive.  Дополнительные сведения о том, для каких устройств поддерживается синхронизация на основе Azure AD, см. в разделе "Устройства и конечные точки".
+Параметры политики MDM применяются к Windows 10 и Windows 10 Mobile.  Поддержка Windows 10 Mobile существует только для перемещения на основе учетной записи Майкрософт через учетную запись пользователя OneDrive.  Дополнительные сведения о том, для каких устройств поддерживается синхронизация на основе Azure AD, см. в разделе "Устройства и конечные точки".
 
 | Имя | Описание |
 | --- | --- |
@@ -32,7 +36,7 @@ ms.author: femila
 | Разрешить синхронизацию моих параметров |Позволяет перемещать параметры Windows и данные приложений. Отключение этой политики приведет к отключению синхронизации и архивации на мобильных устройствах. |
 
 ## <a name="group-policy-settings"></a>Параметры групповой политики
-Параметры групповой политики применяются к устройствам Windows 10, присоединенным к домену Active Directory. Таблица содержит устаревшие параметры для управления настройками синхронизации. Они не действуют в службе Enterprise State Roaming для Windows 10, что указано в описании с помощью примечания "Не использовать".
+Параметры групповой политики применяются к устройствам Windows 10, присоединенным к домену Active Directory. Таблица содержит устаревшие параметры для управления настройками синхронизации. Они не действуют в службе Enterprise State Roaming для Windows 10, что указано в описании с помощью примечания "Не использовать".
 
 | Имя | Описание |
 | --- | --- |
@@ -52,8 +56,11 @@ ms.author: femila
 * [Обзор службы Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Включение службы Enterprise State Roaming в Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

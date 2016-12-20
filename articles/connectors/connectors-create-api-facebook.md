@@ -1,24 +1,28 @@
 ---
-title: Добавление соединителя Facebook в приложения логики | Microsoft Docs
-description: Обзор соединителя Facebook с параметрами интерфейса API REST
-services: ''
-documentationcenter: ''
+title: "Добавление соединителя Facebook в приложения логики | Документация Майкрософт"
+description: "Обзор соединителя Facebook с параметрами интерфейса API REST"
+services: 
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
+manager: anneta
+editor: 
 tags: connectors
-
+ms.assetid: f4d6f0ed-c09b-488c-be1c-8cf2b5b1d4b8
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
+
 
 ---
-# Начало работы с соединителем Facebook
-Подключение к Facebook позволяет оставлять публикации в хронике, получать канал страниц и выполнять другие действия.
+# <a name="get-started-with-the-facebook-connector"></a>Начало работы с соединителем Facebook
+Подключение к Facebook позволяет оставлять публикации в хронике, получать канал страниц и выполнять другие действия. 
 
 > [!NOTE]
 > Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
@@ -27,63 +31,65 @@ ms.author: mandia
 
 С помощью Facebook можно:
 
-* формировать бизнес-процессы на основе данных, получаемых из Facebook;
+* формировать бизнес-процессы на основе данных, получаемых из Facebook; 
 * использовать триггер при получении новой публикации;
-* использовать действия, оставляющие публикации в хронике, получающие канал страниц и выполняющие другие действия. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно настроить трансляцию всех публикаций, которые появляются в хронике, в Twitter.
+* использовать действия, оставляющие публикации в хронике, получающие канал страниц и выполняющие другие действия. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно настроить трансляцию всех публикаций, которые появляются в хронике, в Twitter. 
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Триггеры и действия
-Соединитель Facebook предоставляет следующие триггеры и действия.
+## <a name="triggers-and-actions"></a>Триггеры и действия
+Соединитель Facebook предоставляет следующие триггеры и действия. 
 
 | триггеры; | Действия |
 | --- | --- |
-| <ul><li>При появлении новой публикации в ленте</li></ul> |<ul><li>Получение веб-канала из ленты</li><li>Публикация в ленте</li><li>При появлении новой публикации в ленте</li><li>Получение веб-канала страниц</li><li>Получение публикаций в ленте пользователя</li><li>Публикация на странице</li></ul> |
+| <ul><li>При появлении новой публикации в хронике</li></ul> |<ul><li>Получение потока из хроники</li><li>Публикация в хронике</li><li>При появлении новой публикации в хронике</li><li>Получение канала страниц</li><li>Получение временной шкалы пользователя</li><li>Публикация на странице</li></ul> |
 
 Все соединители поддерживают данные в форматах JSON и XML.
 
-## Создание подключения к Facebook
+## <a name="create-a-connection-to-facebook"></a>Создание подключения к Facebook
 При добавлении соединителя в приложения логики эти приложения необходимо авторизовать для подключения к Facebook.
 
 1. Вход в учетную запись Facebook
-2. Выберите **Авторизовать** и разрешите приложениям логики подключаться к вашей учетной записи Facebook и использовать ее.
+2. Выберите **Авторизовать**и разрешите приложениям логики подключаться к Facebook и использовать его. 
 
-> [!INCLUDE [Шаги по созданию подключения к Facebook](../../includes/connectors-create-api-facebook.md)]
+> [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 > [!TIP]
 > Подключение к Facebook можно также использовать в других приложениях логики.
 > 
 > 
 
-## Справочник по REST API Swagger
+## <a name="swagger-rest-api-reference"></a>Справочник по REST API Swagger
 Относится к версии 1.0.
 
-### Получение потока из хроники
-Получает веб-каналы из ленты вошедшего в систему пользователя. ```GET: /me/feed```
+### <a name="get-feed-from-my-timeline"></a>Получение потока из хроники
+Получает веб-канал из хроники вошедшего в систему пользователя.  
+```GET: /me/feed```
 
-| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Description (Описание) |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | fields |string |Нет |запрос |Нет |Укажите поля, которые необходимо вернуть. Пример (идентификатор, имя, фото). |
-| limit |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
+| ограничение |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
 | на |string |Нет |запрос |Нет |Ограничение списка публикаций только теми, в которых указано местонахождение. |
 | фильтр |string |Нет |запрос |Нет |Получение только тех публикаций, которые соответствуют определенному фильтру потока. |
 
-#### Ответ
-| Name (Имя) | Описание |
+#### <a name="response"></a>Ответ
+| Имя | Описание |
 | --- | --- |
 | 200 |ОК |
 | 400 |Ошибка запроса |
 | 500 |Внутренняя ошибка сервера |
 | по умолчанию |Операция завершилась ошибкой. |
 
-### Публикация в хронике
-Публикует сообщение в ленте пользователя, вошедшего в систему. ```POST: /me/feed```
+### <a name="post-to-my-timeline"></a>Публикация в хронике
+Публикует сообщение о состоянии в хронике пользователя, вошедшего в систему.  
+```POST: /me/feed```
 
-| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Description (Описание) |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | post |string |Да |текст |Нет |Новое сообщение для публикации |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -91,12 +97,13 @@ ms.author: mandia
 | 500 |Внутренняя ошибка сервера |
 | по умолчанию |Операция завершилась ошибкой. |
 
-### При появлении новой публикации в хронике
-Активирует новый поток, когда в ленте пользователя, вошедшего в систему, появляется новая публикация. ```GET: /trigger/me/feed```
+### <a name="when-there-is-a-new-post-on-my-timeline"></a>При появлении новой публикации в хронике
+Активирует новый поток, когда в хронике пользователя, вошедшего в систему, появляется новая публикация.  
+```GET: /trigger/me/feed```
 
-Параметров нет.
+Параметров нет. 
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -104,17 +111,18 @@ ms.author: mandia
 | 500 |Внутренняя ошибка сервера |
 | по умолчанию |Операция завершилась ошибкой. |
 
-### Получение канала страниц
-Получает сообщения из веб-канала указанной страницы. ```GET: /{pageId}/feed```
+### <a name="get-page-feed"></a>Получение канала страниц
+Получает сообщения из веб-канала указанной страницы.  
+```GET: /{pageId}/feed```
 
 | Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
 | pageId |string |Да |path |Нет |Идентификатор страницы, с которой нужно получать сообщения. |
 | ограничение |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
-| include\_hidden |Логическое |Нет |запрос |Нет |Включение или отключение скрытых страницей публикаций |
+| include_hidden |Логическое |Нет |запрос |Нет |Включение или отключение скрытых страницей публикаций |
 | fields |string |Нет |запрос |Нет |Укажите поля, которые необходимо вернуть. Пример (идентификатор, имя, фото). |
 
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -122,34 +130,19 @@ ms.author: mandia
 | 500 |Внутренняя ошибка сервера |
 | по умолчанию |Операция завершилась ошибкой. |
 
-### Получение временной шкалы пользователя
-Получает публикации из ленты пользователя. ```GET: /{userId}/feed```
+### <a name="get-user-timeline"></a>Получение временной шкалы пользователя
+Получает публикации из хроники пользователя.  
+```GET: /{userId}/feed```
 
-| Name (Имя) | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Description (Описание) |
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
 | --- | --- | --- | --- | --- | --- |
-| userId |string |Да |path |Нет |Идентификатор пользователя, хронику которого нужно извлечь. |
-| limit |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
+| userId |строка |Да |path |Нет |Идентификатор пользователя, хронику которого нужно извлечь. |
+| ограничение |целое число |Нет |запрос |Нет |Максимальное количество публикаций для извлечения |
 | на |string |Нет |запрос |Нет |Ограничение списка публикаций только теми, в которых указано местонахождение. |
 | фильтр |string |Нет |запрос |Нет |Получение только тех публикаций, которые соответствуют определенному фильтру потока. |
 | fields |string |Нет |запрос |Нет |Укажите поля, которые необходимо вернуть. Пример (идентификатор, имя, фото). |
 
-#### Ответ
-| Name (Имя) | Описание |
-| --- | --- |
-| 200 |ОК |
-| 400 |Ошибка запроса |
-| 500 |Внутренняя ошибка сервера |
-| по умолчанию |Операция завершилась ошибкой. |
-
-### Публикация на странице
-Публикует сообщение на странице Facebook от имени вошедшего в систему пользователя. ```POST: /{pageId}/feed```
-
-| Name (Имя) | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
-| --- | --- | --- | --- | --- | --- |
-| pageId |string |Да |path |Нет |Идентификатор страницы для публикации. |
-| post |many |Да |текст |Нет |Новое сообщение для публикации. |
-
-#### Ответ
+#### <a name="response"></a>Ответ
 | Имя | Описание |
 | --- | --- |
 | 200 |ОК |
@@ -157,136 +150,153 @@ ms.author: mandia
 | 500 |Внутренняя ошибка сервера |
 | по умолчанию |Операция завершилась ошибкой. |
 
-## Определения объектов
-#### GetFeedResponse
+### <a name="post-to-page"></a>Публикация на странице
+Публикует сообщение на странице Facebook от имени вошедшего в систему пользователя.  
+```POST: /{pageId}/feed```
+
+| Имя | Тип данных | Обязательно | Местонахождение | Значение по умолчанию | Описание |
+| --- | --- | --- | --- | --- | --- |
+| pageId |string |Да |path |Нет |Идентификатор страницы для публикации. |
+| post |many |Да |текст |Нет |Новое сообщение для публикации. |
+
+#### <a name="response"></a>Ответ
+| Имя | Описание |
+| --- | --- |
+| 200 |ОК |
+| 400 |Ошибка запроса |
+| 500 |Внутренняя ошибка сервера |
+| по умолчанию |Операция завершилась ошибкой. |
+
+## <a name="object-definitions"></a>Определения объектов
+#### <a name="getfeedresponse"></a>GetFeedResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | data |array |Нет |
 
-#### TriggerFeedResponse
+#### <a name="triggerfeedresponse"></a>TriggerFeedResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | data |array |Нет |
 
-#### PostItem: отдельная запись в канале профиля
-В качестве профиля может выступать пользователь, страница, приложение или группа.
+#### <a name="postitem-a-single-entry-in-a-profiles-feed"></a>PostItem: отдельная запись в канале профиля
+В качестве профиля может выступать пользователь, страница, приложение или группа. 
 
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
-| admin\_creator |array |Нет |
+| id |строка |Нет |
+| admin_creator |array |Нет |
 | caption |string |Нет |
-| created\_time |string |Нет |
-| description |string |Нет |
-| feed\_targeting |не определено |Нет |
+| created_time |string |Нет |
+| Описание |строка |Нет |
+| feed_targeting |не определено |Нет |
 | from |не определено |Нет |
 | icon |string |Нет |
-| is\_hidden |Логическое |Нет |
-| is\_published |Логическое |Нет |
+| is_hidden |Логическое |Нет |
+| is_published |Логическое |Нет |
 | link |string |Нет |
 | message |string |Нет |
-| name |string |Нет |
-| object\_id |string |Нет |
+| Имя |строка |Нет |
+| object_id |string |Нет |
 | picture |string |Нет |
 | place |не определено |Нет |
 | privacy |не определено |Нет |
 | properties |array |Нет |
-| источник |string |Нет |
-| status\_type |string |Нет |
+| источник |строка |Нет |
+| status_type |string |Нет |
 | story |string |Нет |
 | targeting |не определено |Нет |
 | значение |array |Нет |
-| type |string |Нет |
-| updated\_time |string |Нет |
-| with\_tags |не определено |Нет |
+| type |строка |Нет |
+| updated_time |string |Нет |
+| with_tags |не определено |Нет |
 
-#### TriggerItem: отдельная запись в канале профиля
+#### <a name="triggeritem-a-single-entry-in-a-profiles-feed"></a>TriggerItem: отдельная запись в канале профиля
 В качестве профиля может выступать пользователь, страница, приложение или группа.
 
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
-| created\_time |string |Нет |
+| id |строка |Нет |
+| created_time |string |Нет |
 | from |не определено |Нет |
 | message |string |Нет |
-| type |string |Нет |
+| type |строка |Нет |
 
-#### AdminItem
+#### <a name="adminitem"></a>AdminItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
+| id |строка |Нет |
 | link |string |Нет |
 
-#### PropertyItem
+#### <a name="propertyitem"></a>PropertyItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| name |string |Нет |
+| Имя |строка |Нет |
 | text |string |Нет |
 | href |string |Нет |
 
-#### UserPostFeedRequest
+#### <a name="userpostfeedrequest"></a>UserPostFeedRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | message |string |Да |
 | link |string |Нет |
 | picture |string |Нет |
-| name |string |Нет |
+| Имя |строка |Нет |
 | caption |string |Нет |
-| description |string |Нет |
+| Описание |строка |Нет |
 | place |string |Нет |
 | tags |string |Нет |
 | privacy |не определено |Нет |
-| object\_attachment |string |Нет |
+| object_attachment |string |Нет |
 
-#### PagePostFeedRequest
+#### <a name="pagepostfeedrequest"></a>PagePostFeedRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | message |string |Да |
 | link |string |Нет |
 | picture |string |Нет |
-| name |string |Нет |
+| Имя |строка |Нет |
 | caption |string |Нет |
-| description |string |Нет |
-| actions |array |Нет |
+| Описание |строка |Нет |
+| Действия |array |Нет |
 | place |string |Нет |
 | tags |string |Нет |
-| object\_attachment |string |Нет |
+| object_attachment |string |Нет |
 | targeting |не определено |Нет |
-| feed\_targeting |не определено |Нет |
+| feed_targeting |не определено |Нет |
 | published |Логическое |Нет |
-| scheduled\_publish\_time |string |Нет |
-| backdated\_time |string |Нет |
-| backdated\_time\_granularity |string |Нет |
-| child\_attachments |array |Нет |
-| multi\_share\_end\_card |Логическое |Нет |
+| scheduled_publish_time |string |Нет |
+| backdated_time |string |Нет |
+| backdated_time_granularity |string |Нет |
+| child_attachments |array |Нет |
+| multi_share_end_card |Логическое |Нет |
 
-#### PostFeedResponse
+#### <a name="postfeedresponse"></a>PostFeedResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
+| id |строка |Нет |
 
-#### ProfileCollection
+#### <a name="profilecollection"></a>ProfileCollection
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | data |array |Нет |
 
-#### UserItem
+#### <a name="useritem"></a>UserItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
-| first\_name |string |Нет |
-| last\_name |string |Нет |
-| name |string |Нет |
+| id |строка |Нет |
+| first_name |string |Нет |
+| last_name |string |Нет |
+| Имя |строка |Нет |
 | gender |string |Нет |
 | about |string |Нет |
 
-#### ActionItem
+#### <a name="actionitem"></a>ActionItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| name |string |Нет |
+| Имя |строка |Нет |
 | link |string |Нет |
 
-#### TargetItem
+#### <a name="targetitem"></a>TargetItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | countries |array |Нет |
@@ -294,7 +304,7 @@ ms.author: mandia
 | regions |array |Нет |
 | cities |array |Нет |
 
-#### FeedTargetItem: объект, управляющий каналом новостей для этой публикации
+#### <a name="feedtargetitem-object-that-controls-news-feed-targeting-for-this-post"></a>FeedTargetItem: объект, управляющий каналом новостей для этой публикации
 Пользователи в этих группах, скорее всего, увидят эту публикацию, остальные с меньшей вероятностью. Применяется только к страницам.
 
 | Имя свойства | Тип данных | Обязательно |
@@ -302,109 +312,114 @@ ms.author: mandia
 | countries |array |Нет |
 | regions |array |Нет |
 | cities |array |Нет |
-| age\_min |целое число |Нет |
-| age\_max |целое число |Нет |
+| age_min |целое число |Нет |
+| age_max |целое число |Нет |
 | genders |array |Нет |
-| relationship\_statuses |array |Нет |
-| interested\_in |array |Нет |
-| college\_years |array |Нет |
+| relationship_statuses |array |Нет |
+| interested_in |array |Нет |
+| college_years |array |Нет |
 | interests |array |Нет |
-| relevant\_until |целое число |Нет |
-| education\_statuses |array |Нет |
+| relevant_until |целое число |Нет |
+| education_statuses |array |Нет |
 | locales |array |Нет |
 
-#### PlaceItem
+#### <a name="placeitem"></a>PlaceItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Нет |
-| name |string |Нет |
-| overall\_rating |number |Нет |
+| id |строка |Нет |
+| Имя |строка |Нет |
+| overall_rating |number |Нет |
 | location |не определено |Нет |
 
-#### LocationItem
+#### <a name="locationitem"></a>LocationItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | city |string |Нет |
 | country |string |Нет |
 | latitude |number |Нет |
-| located\_in |string |Нет |
+| located_in |string |Нет |
 | longitude |number |Нет |
-| name |string |Нет |
-| region |string |Нет |
+| Имя |строка |Нет |
+| region |строка |Нет |
 | state |string |Нет |
 | street |string |Нет |
 | zip |string |Нет |
 
-#### PrivacyItem
+#### <a name="privacyitem"></a>PrivacyItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| description |string |Нет |
+| Описание |строка |Нет |
 | value |string |Да |
 | allow |string |Нет |
 | deny |string |Нет |
 | friends |string |Нет |
 
-#### ChildAttachmentsItem
+#### <a name="childattachmentsitem"></a>ChildAttachmentsItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | link |string |Нет |
 | picture |string |Нет |
-| image\_hash |string |Нет |
-| name |string |Нет |
-| description |string |Нет |
+| image_hash |string |Нет |
+| Имя |строка |Нет |
+| Описание |строка |Нет |
 
-#### PostPhotoRequest
+#### <a name="postphotorequest"></a>PostPhotoRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | url |string |Да |
 | caption |string |Нет |
 
-#### PostPhotoResponse
+#### <a name="postphotoresponse"></a>PostPhotoResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Да |
-| post\_id |string |Да |
+| id |строка |Да |
+| post_id |string |Да |
 
-#### PostVideoRequest
+#### <a name="postvideorequest"></a>PostVideoRequest
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | videoData |string |Да |
-| description |string |Да |
+| Описание |string |Да |
 | title |string |Да |
 | uploadedVideoName |string |Нет |
 
-#### GetPhotoResponse
+#### <a name="getphotoresponse"></a>GetPhotoResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | data |не определено |Да |
 
-#### GetPhotoResponseItem
+#### <a name="getphotoresponseitem"></a>GetPhotoResponseItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | url |string |Да |
-| is\_silhouette |Логическое |Да |
+| is_silhouette |Логическое |Да |
 | height |string |Нет |
 | width |string |Нет |
 
-#### GetEventResponse
+#### <a name="geteventresponse"></a>GetEventResponse
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
 | data |array |Да |
 
-#### GetEventResponseItem
+#### <a name="geteventresponseitem"></a>GetEventResponseItem
 | Имя свойства | Тип данных | Обязательно |
 | --- | --- | --- |
-| id |string |Да |
-| name |string |Да |
-| start\_time |string |Нет |
-| end\_time |string |Нет |
+| id |строка |Да |
+| Имя |string |Да |
+| start_time |string |Нет |
+| end_time |string |Нет |
 | timezone |string |Нет |
 | location |string |Нет |
-| description |string |Нет |
-| ticket\_uri |string |Нет |
-| rsvp\_status |string |Да |
+| Описание |строка |Нет |
+| ticket_uri |string |Нет |
+| rsvp_status |string |Да |
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Дальнейшие действия
+[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

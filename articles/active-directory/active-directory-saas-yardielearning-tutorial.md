@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Yardi eLearning | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в Yardi eLearning.
+title: "Руководство по интеграции Azure Active Directory с Yardi eLearning | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Yardi eLearning."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31be0e05b72b8c1ba444ad69798f3675b58a6b71
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-yardi-elearning"></a>Учебник. Интеграция Azure Active Directory с Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Учебник. Интеграция Azure Active Directory с Yardi eLearning
 Цель этого руководства — показать, как интегрировать Yardi eLearning с Azure Active Directory (Azure AD).
 
 Интеграция приложения Yardi eLearning с Azure AD обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ пользователей к Yardi eLearning.
-* Вы можете включить автоматический вход пользователей в Yardi eLearning (единый вход) с использованием учетных записей Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* С помощью Azure AD вы можете контролировать доступ пользователей к Yardi eLearning.
+* Вы можете включить автоматический вход пользователей в Yardi eLearning (единый вход) с использованием учетных записей Azure AD.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с Yardi eLearning, вам потребуется:
+Чтобы настроить интеграцию Azure AD с Yardi eLearning, вам потребуется:
 
 * подписка Azure AD;
 * подписка Yardi eLearning с поддержкой единого входа.
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -52,7 +56,7 @@ ms.author: jeedes
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-yardi-elearning-from-the-gallery"></a>Добавление Yardi eLearning из коллекции
-Чтобы настроить интеграцию Yardi eLearning с Azure AD, необходимо добавить Yardi eLearning из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию Yardi eLearning с Azure AD, необходимо добавить Yardi eLearning из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Yardi eLearning из коллекции, выполните указанные далее действия.**
 
@@ -77,13 +81,13 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Yardi eLearning с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Yardi eLearning с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Yardi eLearning соответствует пользователю в Azure AD. То есть необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Yardi eLearning.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Yardi eLearning соответствует пользователю в Azure AD. То есть необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Yardi eLearning.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Yardi eLearning.
 
-Чтобы настроить и проверить единый вход Azure AD в Yardi eLearning, вам потребуется выполнить действия в указанных далее стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в Yardi eLearning, вам потребуется выполнить действия в указанных далее стандартных блоках.
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
@@ -92,7 +96,7 @@ ms.author: jeedes
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Yardi eLearning.
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Yardi eLearning.
 
 **Чтобы настроить единый вход Azure AD в Yardi eLearning, выполните указанные далее действия.**
 
@@ -121,13 +125,13 @@ ms.author: jeedes
 2. Чтобы настроить единый вход для приложения, отправьте в службу поддержки Yardi eLearning сообщение по электронному адресу [elearning@yardi.com](mailto:elearning@yardi.com) и вложите в него скачанный файл метаданных.
 3. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -177,7 +181,7 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-yardi-elearning-test-user"></a>Создание тестового пользователя Yardi eLearning
-Цель этого раздела — создать в приложении Yardi eLearning пользователя с именем Britta Simon. Приложение Yardi eLearning поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+Цель этого раздела — создать в приложении Yardi eLearning пользователя с именем Britta Simon. Приложение Yardi eLearning поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
 В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к приложению Yardi eLearning (если он еще не создан). [Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
 
@@ -208,7 +212,7 @@ ms.author: jeedes
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Yardi eLearning на панели доступа, вы автоматически войдете в приложение Yardi eLearning.
 
@@ -236,6 +240,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

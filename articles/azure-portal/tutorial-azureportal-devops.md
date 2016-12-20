@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
 
 
 ---
@@ -271,72 +271,72 @@ ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
 [image4]: ./media/tutorial-azureportal-devops/image4.png
 [image5]: ./media/tutorial-azureportal-devops/image5.png
 [image6]: ./media/tutorial-azureportal-devops/image6.png
-[рисунок 7]: ./media/tutorial-azureportal-devops/image7.png
-[рисунок 8]: ./media/tutorial-azureportal-devops/image8.png
+[image7]: ./media/tutorial-azureportal-devops/image7.png
+[image8]: ./media/tutorial-azureportal-devops/image8.png
 [image9]: ./media/tutorial-azureportal-devops/image9.png
 [image10]: ./media/tutorial-azureportal-devops/image10.png
 [image11]: ./media/tutorial-azureportal-devops/image11.png
 [image12]: ./media/tutorial-azureportal-devops/image12.png
 [image13]: ./media/tutorial-azureportal-devops/image13.png
-[рисунок 14]: ./media/tutorial-azureportal-devops/image14.png
-[рисунок 15]: ./media/tutorial-azureportal-devops/image15.png
-[рисунок 16]: ./media/tutorial-azureportal-devops/image16.png
-[рисунок 17]: ./media/tutorial-azureportal-devops/image17.png
-[рисунок 18]: ./media/tutorial-azureportal-devops/image18.png
-[рисунок 19]: ./media/tutorial-azureportal-devops/image19.png
-[рисунок 20]: ./media/tutorial-azureportal-devops/image20.png
-[рисунок 21]: ./media/tutorial-azureportal-devops/image21.png
-[рисунок 22]: ./media/tutorial-azureportal-devops/image22.png
-[рисунок 23]: ./media/tutorial-azureportal-devops/image23.png
-[рисунок 24]: ./media/tutorial-azureportal-devops/image24.png
-[рисунок 25]: ./media/tutorial-azureportal-devops/image25.png
-[рисунок 26]: ./media/tutorial-azureportal-devops/image26.png
-[рисунок 27]: ./media/tutorial-azureportal-devops/image27.png
-[рисунок 28]: ./media/tutorial-azureportal-devops/image28.png
-[рисунок 29]: ./media/tutorial-azureportal-devops/image29.png
-[рисунок 30]: ./media/tutorial-azureportal-devops/image30.png
-[рисунок 31]: ./media/tutorial-azureportal-devops/image31.png
-[рисунок 32]: ./media/tutorial-azureportal-devops/image32.png
-[рисунок 33]: ./media/tutorial-azureportal-devops/image33.png
-[рисунок 34]: ./media/tutorial-azureportal-devops/image34.png
-[рисунок 35]: ./media/tutorial-azureportal-devops/image35.png
-[рисунок 36]: ./media/tutorial-azureportal-devops/image36.png
-[рисунок 37]: ./media/tutorial-azureportal-devops/image37.png
-[рисунок 38]: ./media/tutorial-azureportal-devops/image38.png
-[рисунок 39]: ./media/tutorial-azureportal-devops/image39.png
-[рисунок 40]: ./media/tutorial-azureportal-devops/image40.png
-[рисунок 41]: ./media/tutorial-azureportal-devops/image41.png
-[рисунок 42]: ./media/tutorial-azureportal-devops/image42.png
-[рисунок 43]: ./media/tutorial-azureportal-devops/image43.png
-[рисунок 44]: ./media/tutorial-azureportal-devops/image44.png
-[рисунок 45]: ./media/tutorial-azureportal-devops/image45.png
-[рисунок 46]: ./media/tutorial-azureportal-devops/image46.png
-[рисунок 47]: ./media/tutorial-azureportal-devops/image47.png
-[рисунок 48]: ./media/tutorial-azureportal-devops/image48.png
-[рисунок 49]: ./media/tutorial-azureportal-devops/image49.png
-[рисунок 50]: ./media/tutorial-azureportal-devops/image50.png
-[рисунок 51]: ./media/tutorial-azureportal-devops/image51.png
-[рисунок 52]: ./media/tutorial-azureportal-devops/image52.png
-[рисунок 53]: ./media/tutorial-azureportal-devops/image53.png
-[рисунок 54]: ./media/tutorial-azureportal-devops/image54.png
-[рисунок 55]: ./media/tutorial-azureportal-devops/image55.png
-[рисунок 56]: ./media/tutorial-azureportal-devops/image56.png
-[рисунок 57]: ./media/tutorial-azureportal-devops/image57.png
-[рисунок 58]: ./media/tutorial-azureportal-devops/image58.png
-[рисунок 59]: ./media/tutorial-azureportal-devops/image59.png
-[рисунок 60]: ./media/tutorial-azureportal-devops/image60.png
-[рисунок 61]: ./media/tutorial-azureportal-devops/image61.png
-[рисунок 62]: ./media/tutorial-azureportal-devops/image62.png
-[рисунок 63]: ./media/tutorial-azureportal-devops/image63.png
-[рисунок 64]: ./media/tutorial-azureportal-devops/image64.png
-[рисунок 65]: ./media/tutorial-azureportal-devops/image65.png
-[рисунок 66]: ./media/tutorial-azureportal-devops/image66.png
-[рисунок 67]: ./media/tutorial-azureportal-devops/image67.png
-[рисунок 68]: ./media/tutorial-azureportal-devops/image68.png
-[рисунок 69]: ./media/tutorial-azureportal-devops/image69.png
+[image14]: ./media/tutorial-azureportal-devops/image14.png
+[image15]: ./media/tutorial-azureportal-devops/image15.png
+[image16]: ./media/tutorial-azureportal-devops/image16.png
+[image17]: ./media/tutorial-azureportal-devops/image17.png
+[image18]: ./media/tutorial-azureportal-devops/image18.png
+[image19]: ./media/tutorial-azureportal-devops/image19.png
+[image20]: ./media/tutorial-azureportal-devops/image20.png
+[image21]: ./media/tutorial-azureportal-devops/image21.png
+[image22]: ./media/tutorial-azureportal-devops/image22.png
+[image23]: ./media/tutorial-azureportal-devops/image23.png
+[image24]: ./media/tutorial-azureportal-devops/image24.png
+[image25]: ./media/tutorial-azureportal-devops/image25.png
+[image26]: ./media/tutorial-azureportal-devops/image26.png
+[image27]: ./media/tutorial-azureportal-devops/image27.png
+[image28]: ./media/tutorial-azureportal-devops/image28.png
+[image29]: ./media/tutorial-azureportal-devops/image29.png
+[image30]: ./media/tutorial-azureportal-devops/image30.png
+[image31]: ./media/tutorial-azureportal-devops/image31.png
+[image32]: ./media/tutorial-azureportal-devops/image32.png
+[image33]: ./media/tutorial-azureportal-devops/image33.png
+[image34]: ./media/tutorial-azureportal-devops/image34.png
+[image35]: ./media/tutorial-azureportal-devops/image35.png
+[image36]: ./media/tutorial-azureportal-devops/image36.png
+[image37]: ./media/tutorial-azureportal-devops/image37.png
+[image38]: ./media/tutorial-azureportal-devops/image38.png
+[image39]: ./media/tutorial-azureportal-devops/image39.png
+[image40]: ./media/tutorial-azureportal-devops/image40.png
+[image41]: ./media/tutorial-azureportal-devops/image41.png
+[image42]: ./media/tutorial-azureportal-devops/image42.png
+[image43]: ./media/tutorial-azureportal-devops/image43.png
+[image44]: ./media/tutorial-azureportal-devops/image44.png
+[image45]: ./media/tutorial-azureportal-devops/image45.png
+[image46]: ./media/tutorial-azureportal-devops/image46.png
+[image47]: ./media/tutorial-azureportal-devops/image47.png
+[image48]: ./media/tutorial-azureportal-devops/image48.png
+[image49]: ./media/tutorial-azureportal-devops/image49.png
+[image50]: ./media/tutorial-azureportal-devops/image50.png
+[image51]: ./media/tutorial-azureportal-devops/image51.png
+[image52]: ./media/tutorial-azureportal-devops/image52.png
+[image53]: ./media/tutorial-azureportal-devops/image53.png
+[image54]: ./media/tutorial-azureportal-devops/image54.png
+[image55]: ./media/tutorial-azureportal-devops/image55.png
+[image56]: ./media/tutorial-azureportal-devops/image56.png
+[image57]: ./media/tutorial-azureportal-devops/image57.png
+[image58]: ./media/tutorial-azureportal-devops/image58.png
+[image59]: ./media/tutorial-azureportal-devops/image59.png
+[image60]: ./media/tutorial-azureportal-devops/image60.png
+[image61]: ./media/tutorial-azureportal-devops/image61.png
+[image62]: ./media/tutorial-azureportal-devops/image62.png
+[image63]: ./media/tutorial-azureportal-devops/image63.png
+[image64]: ./media/tutorial-azureportal-devops/image64.png
+[image65]: ./media/tutorial-azureportal-devops/image65.png
+[image66]: ./media/tutorial-azureportal-devops/image66.png
+[image67]: ./media/tutorial-azureportal-devops/image67.png
+[image68]: ./media/tutorial-azureportal-devops/image68.png
+[image69]: ./media/tutorial-azureportal-devops/image69.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

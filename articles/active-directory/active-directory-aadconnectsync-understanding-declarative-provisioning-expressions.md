@@ -1,22 +1,26 @@
 ---
-title: 'Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки | Microsoft Docs'
-description: Описание выражений декларативной подготовки.
+title: "Синхронизация Azure AD Connect: общие сведения о выражениях декларативной подготовки | Документация Майкрософт"
+description: "Описание выражений декларативной подготовки."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: markusvi;andkjell
+ms.author: markvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3dbbe1c5df2e86cda7101452b490ec7251cc7b75
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning-expressions"></a>Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки
 Служба синхронизации Azure AD Connect основана на принципах декларативной подготовки, впервые представленной в Forefront Identity Manager 2010. Эта функция позволяет реализовать бизнес-логику интеграции идентификации без необходимости написания компилируемого кода.
 
 Важной частью декларативной подготовки является язык выражений, используемый в потоке атрибутов. Это подмножество Microsoft® Visual Basic® для приложений (VBA). Этот язык используется в Microsoft Office и знаком пользователи, имеющим опыт работы с VBScript. Язык выражений декларативной подготовки не структурированный и использует только функции, но не методы или инструкции. Вместо этого функции вложены в поток программы.
@@ -92,8 +96,11 @@ ms.author: markusvi;andkjell
 
 **Справочные материалы**
 
-* [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
+* [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

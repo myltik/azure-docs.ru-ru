@@ -1,12 +1,12 @@
 ---
-title: Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания | Microsoft Docs
-description: Используйте этот учебник, чтобы узнать, как управлять хранилищами и серверами службы архивации Azure.
+title: "Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания | Документация Майкрософт"
+description: "Используйте этот учебник, чтобы узнать, как управлять хранилищами и серверами службы архивации Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
@@ -26,8 +30,6 @@ ms.author: jimpark;markgal
 В этой статье представлен обзор задач управления резервным копированием, которые можно выполнять на классическом портале Azure и с помощью агента службы архивации Microsoft Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Модель развертывания диспетчера ресурсов.
 
 ## <a name="management-portal-tasks"></a>Задачи на портале управления
 1. Выполните вход на [Портал управления](https://manage.windowsazure.com).
@@ -190,6 +192,9 @@ ms.author: jimpark;markgal
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

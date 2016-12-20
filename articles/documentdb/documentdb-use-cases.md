@@ -1,107 +1,118 @@
 ---
-title: Common DocumentDB use cases | Microsoft Docs
-description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
+title: "Распространенные примеры использования DocumentDB | Документация Майкрософт"
+description: "Изучите пять вариантов использования DocumentDB: созданное пользователями содержимое, ведение журнала событий, данные каталога, данные настроек пользователей и Интернет вещей (IoT)."
 services: documentdb
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/11/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
+ms.openlocfilehash: c8f9240a4b0a996e91eace73b709ac331f82b6a0
+
 
 ---
-# <a name="common-documentdb-use-cases"></a>Common DocumentDB use cases
-This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
+# <a name="common-documentdb-use-cases"></a>Распространенные примеры использования DocumentDB
+В этой статье представлен обзор нескольких распространенных примеров использования DocumentDB.  Рекомендации в данной статье служат отправной точкой для разработки приложений с использованием DocumentDB.   
 
-After reading this article, you'll be able to answer the following questions: 
+Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы. 
 
-* What are the common use cases for DocumentDB?
-* What are the benefits of using DocumentDB as a user generated content store?
-* What are the benefits of using DocumentDB as a catalog data store?
-* What are the benefits of using DocumentDB as a event log store?
-* What are the benefits of using DocumentDB as a user preferences data store?
-* What are the benefits of using DocumentDB as a data store for Internet of Things (IoT) systems?
+* Каковы типичные примеры использования DocumentDB?
+* Каковы преимущества использования DocumentDB с веб-приложениями и мобильными приложениями?
+* Каковы преимущества использования DocumentDB с приложениями для розничной торговли?
+* Каковы преимущества использования DocumentDB в качестве хранилища данных для систем Интернета вещей (IoT)?
+* Каковы преимущества использования DocumentDB в качестве хранилища журналов событий?
 
-## <a name="common-use-cases-for-documentdb"></a>Common use cases for DocumentDB
-Azure DocumentDB is a general purpose NoSQL database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly. The following are some attributes of DocumentDB that make it well-suited for high-performance applications.
+## <a name="common-use-cases-for-documentdb"></a>Типичные варианты использования для DocumentDB
+Azure DocumentDB — это база данных NoSQL общего назначения, которая используется для самых разных приложений и вариантов использования. Она хорошо подходит для любого приложения, которому требуется время ответа, измеряемое в миллисекундах, и возможность быстрого масштабирования. Ниже приведены некоторые особенности DocumentDB, благодаря которым эта система отлично подходит для высокопроизводительных приложений.
 
-* DocumentDB natively partitions your data for high availability and scalability.
-* DocumentDB's has SSD backed storage with low-latency order-of-millisecond response times.
-* DocumentDB's support for consistency levels like eventual, session and bounded-staleness allows for low cost-to performance-ratio. 
-* DocumentDB has a flexible data-friendly pricing model that meters storage and throughput independently.
-* DocumentDB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware.
-* DocumentDB's design lets you scale to massive request volumes in the order of billions of requests per day.
+* DocumentDB изначально секционирует данные для обеспечения высокой доступности и масштабируемости.
+* DocumentDB имеет хранилище на базе SSD с низкой задержкой и временем ответа, измеряемым в миллисекундах.
+* Поддержка в DocumentDB уровней согласованности, таких как bounded-staleness (ограниченная), session (уровень сеанса) и eventual (согласованная в конечном счете), обеспечивает привлекательное соотношение затрат и производительности. 
+* DocumentDB имеет гибкую и понятную модель ценообразования, в которой место для хранения и пропускная способность измеряются независимо.
+* Модель зарезервированной пропускной способности DocumentDB позволяет вести учет по количеству операций чтения и записи, а не по ресурсам ЦП, памяти и операций ввода-вывода базового оборудования.
+* Структура DocumentDB допускает масштабирование для огромного числа запросов, измеряемого миллиардами запросов в день.
 
-These attributes are particularly beneficial when it comes to web, mobile, gaming and IoT applications that need low response times and need to handle massive amounts of reads and writes. 
+Эти особенности становятся особенно полезными при работе с веб-приложениями, мобильными устройствами, играми и приложениями IoT, которым требуется малое время отклика и возможность обрабатывать большие объемы операций чтения и записи. 
 
-## <a name="user-generated-content"></a>User generated content
-A common use case for DocumentDB is to store and query user generated content (UGC) for web and mobile applications, particularly social media applications.  Some examples of UGC are chat sessions, tweets, blog posts, ratings, and comments.  Often, the UGC in social media applications is a blend of free form text, properties, tags and relationships that are not bounded by rigid structure.   
+## <a name="web-and-mobile-applications"></a>Веб-приложения и мобильные приложения
+Служба DocumentDB часто используется с веб-приложениями и мобильными приложениями. Она особенно хорошо подходит для моделирования социального взаимодействия, интеграции со службами сторонних поставщиков, а также для создания разнообразных персонализированных возможностей. 
 
-Content such as chats, comments, and posts can be stored in DocumentDB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  
+### <a name="social-applications"></a>Приложения социальных сетей
+DocumentDB часто используется для хранения и запроса созданного пользователями содержимого для мобильных и веб-приложений, особенно для приложений социальных сетей. Вот некоторые примеры созданного пользователями содержимого: чаты, твиты, сообщения в блогах, оценки и комментарии. Часто созданное пользователями содержимое — это смесь произвольного текста, свойств, тегов и связей, которые не ограничены жесткой структурой. Содержимое, например чаты, комментарии и сообщения, могут храниться в DocumentDB без преобразования или сложного объекта для уровней реляционного сопоставления.  Свойства данных можно легко добавлять и изменять в соответствии с требованиями по мере того, как разработчики меняют код приложения, что ускоряет разработку.  
 
-Applications that integrate with various social networks must respond to changing schemas from these networks.  As data is automatically indexed by default in DocumentDB, data is ready to be queried at any time.  Hence, these applications have the flexibility to retrieve projections as per their respective needs.       
+Приложения, которые интегрируются с социальными сетями сторонних поставщиков, должны реагировать на изменение схем этих сетей. Так как в DocumentDB по умолчанию данные индексируются автоматически, они готовы к запросам в любое время. Следовательно, эти приложения могут получать проекции для своих нужд.
 
-Many of the social applications run at global scale and can exhibit unpredictable usage patterns.  Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a DocumentDB account.  In addition, you can also create additional DocumentDB accounts across multiple regions. For DocumentDB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).   
+Многие социальные приложения работают в глобальном масштабе и могут сталкиваться с непредсказуемыми закономерностями использования. Гибкие возможности масштабирования хранилища данных очень важны при масштабировании уровня приложения в соответствии с потребностями.  Можно добавить дополнительные секции данных для учетной записи DocumentDB.  Кроме того, можно создать дополнительные учетные записи DocumentDB в нескольких регионах. Сведения о доступности службы DocumentDB в различных регионах см. в разделе [Регионы Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="catalog-data"></a>Catalog data
-Catalog data usage scenarios involve storing and querying a set of attributes for entities such as people, places and products.  Some examples of catalog data are user accounts, product catalogs, device registries for IoT, and bill of materials systems.  Attributes for this data may vary and can change over time to fit application requirements.  
+### <a name="personalization"></a>Персонализация
+В настоящее время современные приложения используют сложные представления и функции. Как правило, они динамически адаптируются к предпочтениям или настроению пользователя и потребностям фирменной символики. Таким образом приложения должны иметь возможность эффективного извлекать персональные настройки, чтобы быстро отображать элементы пользовательского интерфейса и функции. 
 
-Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share.  Furthermore, attributes for a specific part can change the following year when a new model is released.  As a JSON document store, DocumentDB supports flexible schemas and allows you to represent data with nested properties, and thus it is well suited for storing product catalog data.       
+JSON — это эффективный формат для представления данных макета пользовательского интерфейса, так как он не только прост, но и легко интерпретируется JavaScript. DocumentDB предлагает настраиваемые уровни согласованности, обеспечивающие быстрое чтение и запись. Поэтому хранение данных макета пользовательского интерфейса, включая личные настройки, в виде документов JSON в DocumentDB — эффективный способ получать эти данные.
 
-## <a name="logging-and-time-series-data"></a>Logging and Time-series data
-Application logging is often emitted in large volumes and may have varying attributes based on the deployed application version or the component logging events.  Log data is not bounded by complex relationships or rigid structures. Increasingly, log data is persisted in JSON format since JSON is lightweight and easy for humans to read.
+## <a name="retail-applications"></a>Приложения для розничной торговли
+DocumentDB часто используется в сфере розничной торговли для хранения данных каталога. Сценарии использования данных каталога включают в себя хранение и запрос набора атрибутов для сущностей, например людей, расположений и продуктов.  Вот некоторые примеры данных каталога: учетные записи пользователей, каталоги продуктов, реестры устройств для IoT и системы учета запасов.  Атрибуты этих данных могут отличаться и изменяться со временем в соответствии с требованиями приложения.  
 
-There are typically two major use cases related to event log data.  The first use case is to perform ad-hoc queries over a subset of data for troubleshooting.  During troubleshooting, a subset of data is first retrieved from the logs, typically by time series.  Then, a drill-down is performed by filtering the dataset with error levels or error messages. This is where storing event logs in DocumentDB is an advantage. Log data stored in DocumentDB is automatically indexed by default, and thus it is ready to be queried at any time. In addition, log data can be persisted across data partitions as a time-series. Older logs can be rolled out to cold storage per your retention policy.          
+Рассмотрим пример каталога товаров для поставщика автомобильных запчастей. У каждого компонента могут быть собственные атрибуты, помимо общих атрибутов всех деталей.  Кроме того, атрибуты для определенной запчасти могут измениться в следующем году после выпуска новой модели.  DocumentDB как хранилище документов JSON поддерживает гибкие схемы и позволяет представлять данные с помощью вложенных свойств, что идеально подходит для хранения данных каталога продукции.       
 
-The second use case involves long running data analytics jobs performed offline over a large volume of log data.  Examples of this use case include server availability analysis, application error analysis, and clickstream data analysis.  Typically, Hadoop is used to perform these types of analyses.  With the Hadoop Connector for DocumentDB, DocumentDB databases function as data sources and sinks for Pig, Hive and Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).      
+## <a name="iot-and-telematics"></a>Интернет вещей и интегрированные средства обработки и передачи данных
+Варианты использования Интернета вещей (IoT) часто характеризуются одинаковым способом приема, обработки и хранения данных.  Во-первых, эти системы позволяют принимать большие объемы данных от датчиков с различными языковыми стандартами.  Затем эти системы обрабатывают и анализируют потоковые данные для получения полезных сведений в реальном времени. Кроме того, большая часть данных, если не все, в итоге попадут хранилище данных для специализированных запросов и автономной аналитики.    
 
-## <a name="gaming"></a>Gaming
-The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games require extremely low latencies for reads and writes to provide an engaging in-game experience, and the database tier needs to handle highs and lows in request rates during new game launches and feature updates.
+Microsoft Azure предлагает мощные службы, которые можно использовать для IoT.  Службы Azure IoT представляют собой набор служб, таких как концентраторы событий Azure, Azure DocumentDB, служба потоковой аналитики Azure, центр уведомлений Azure, служба машинного обучения Azure HDInsight и PowerBI. 
 
-DocumentDB is used by massive-scale games like [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) by [Next Games](http://www.nextgames.com/), and [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). In both use cases, the key advantages of DocumentDB were the following:
+Пакеты данных могут принимать концентраторы событий Azure, которые обеспечивают высокую пропускную способность с низкой задержкой. Принятые данные, которые необходимо обработать для анализа в реальном времени, можно туннелировать службе потоковой аналитики Azure. Данные могут быть загружены в DocumentDB для специальных запросов. После загрузки данных в DocumentDB данные готовы к запросам.  Данные в DocumentDB можно использовать как справочные данные в ходе анализа в реальном времени. Кроме того, данные можно уточнять и обрабатывать, подключая данные DocumentDB к HDInsight для заданий Pig, Hive и Map/Reduce.  Обработанные данные затем загружаются обратно в DocumentDB для создания отчетов.   
 
-* DocumentDB allows performance to be scaled up or down elastically. This allows games to handle updating profile and stats from dozens to millions of simultaneous gamers by making a single API call.
-* DocumentDB supports millisecond reads and writes to help avoid any lags during game play.
-* DocumentDB's automatic indexing allows for filtering against multiple different properties in real-time, e.g. locate players by their internal player IDs, or their GameCenter, Facebook, Google IDs, or query based on player membership in a guild. This is possible without building complex indexing or sharding infrastructure.
-* Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
-* DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
+Пример решения Интернета вещей, использующего DocumentDB, концентраторы событий и Storm, см. в [репозитории hdinsight-storm-examples на портале GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-## <a name="user-preferences-data"></a>User preferences data
-Nowadays, most modern web and mobile applications come with complex views and experiences. These views and experiences are usually dynamic, catering to user preferences or moods and branding needs.  Hence, applications need to be able to retrieve personalized settings effectively in order to render UI elements and experiences quickly. 
+Дополнительные сведения о предложениях Azure для Интернета вещей см. в видеоролике [Create the Internet of Your Things](http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx) (Создайте Интернет своих вещей).
 
-JSON is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript.  DocumentDB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in DocumentDB is an effective means to get this data across the wire.
+## <a name="logging-and-time-series-data"></a>Ведение журнала и данные временных рядов
+Журналы приложений часто достигают больших объемов и могут иметь различные атрибуты в зависимости от версии развернутого приложения или событий ведения журнала компонента.  Данные журнала не ограничены сложными связями или жесткой структурой. Все чаще данные журнала хранятся в формате JSON, так как он удобен для чтения, а файлы не занимают много места.
 
-## <a name="iot-and-device-sensor-data"></a>IoT and Device sensor data
-IoT use cases commonly share some patterns in how they ingest, process and store data.  First, these systems allow for data intake that can ingest bursts of data from device sensors of various locales.  Next, these systems process and analyze streaming data to derive real time insights. And last but not least, most if not all data will eventually land in a data store for adhoc querying and offline analytics.    
+С данными журналов событий связаны два основных варианта использования.  Первый вариант — выполнение специализированных запросов с подмножеством данных для устранения неполадок.  Во время устранения неполадок подмножество данных сначала извлекается из журналов, обычно в виде временных рядов.  Затем выполняется детализация за счет фильтрации набора данных с использованием уровней ошибок или сообщений об ошибках. Здесь устанавливается преимущество хранения журналов событий в DocumentDB. В DocumentDB по умолчанию данные журналов индексируются автоматически, поэтому они готовы к запросам в любое время. Кроме того, данные журнала могут сохраняться в секциях данных как временные ряды. Старые журналы можно переместить в "холодное" хранилище в соответствии с политикой хранения.          
 
-Microsoft Azure offers rich services that can be leveraged for IoT use cases.  Azure IoT services are a set of services including Azure Event Hubs, Azure DocumentDB, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
+Второй вариант использования — выполнение длительных заданий аналитики в автономном режиме с большим объемом данных журналов.  Вот некоторые примеры: анализ доступности сервера, анализ ошибок приложения и анализ данных навигации.  Как правило, для выполнения этих типов анализа используется Hadoop.  С соединителем Hadoop для DocumentDB база данных DocumentDB служит источником и приемником данных для заданий Pig, Hive и Map/Reduce. Дополнительные сведения о соединителе Hadoop для DocumentDB см. в статье [Запуск задания Hadoop с помощью DocumentDB и HDInsight](documentdb-run-hadoop-with-hdinsight.md).      
 
-Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, the data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics. In addition, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
+## <a name="gaming"></a>Игры
+Категория базы данных является критически важным компонентом для игровых приложений. Современные игры обрабатывают графику на клиентах мобильных устройств или консолей, однако получают из облака настраиваемое и персонализированное содержимое, например игровую статистику, интеграцию с социальными сетями и списки лидеров по набранным баллам. Для оперативного взаимодействия с пользователями играм требуются крайне низкие задержки для операций чтения и записи, а категория базы данных должна успешно справляться с пиковой и заниженной частотой запросов во время запусков новых игр и обновлений компонентов.
 
-For a sample IoT solution using DocumentDB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
+DocumentDB используется в крупномасштабных играх, таких как [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) от [Next Games](http://www.nextgames.com/) и [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). В обоих случаях основные преимущества DocumentDB заключались в следующем:
 
-For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx).
+* DocumentDB позволяет гибко масштабировать производительность. Это позволяет играм обновлять профили и статистику для как малого, так и большого числа одновременных игроков с помощью одного вызова API.
+* DocumentDB поддерживает операции чтения и записи, занимающие считанные миллисекунды, что помогает избежать любой из задержек во время игры.
+* Автоматическое индексирование DocumentDB обеспечивает фильтрацию по нескольким разным свойствам в режиме реального времени, например: можно найти игроков по внутренним идентификаторам или идентификаторам GameCenter, Facebook, Google либо выполнить запрос, учитывающий членство игрока в гильдии. Это возможно без создания сложной инфраструктуры сегментирования или индексирования.
+* Социальные функции, включая внутриигровой обмен сообщениями, членство в гильдии, пройденные испытания, списки лидеров по набранным баллам и профили в социальных сетях, проще реализовать благодаря гибкой схеме.
+* DocumentDB, как управляемая платформа как услуга (PaaS), требует минимальной настройки и управления для обеспечения быстрой доработки и ускорения выхода на рынок.
 
-## <a name="next-steps"></a>Next steps
-To get started with DocumentDB, you can create an [account](https://azure.microsoft.com/pricing/free-trial/) and then follow our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to learn about DocumentDB and find the information you need. 
+## <a name="next-steps"></a>Дальнейшие действия
+Для начала работы с DocumentDB можно создать [учетную запись](https://azure.microsoft.com/pricing/free-trial/) и следовать [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/), чтобы больше узнать о DocumentDB и найти необходимые сведения. 
 
-Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
+Или, если вы хотите узнать больше о клиентах, использующих DocumentDB, прочитайте следующие истории:
 
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure DocumentDB.
-* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB.
-* [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery - a scalable community site built on Azure DocumentDB.
-* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Leading Integrator Gives Multinational Firms Global Insight in Minutes with Flexible Cloud Technologies.
-* [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adding intelligence to the news to provide information with purpose for engaged citizens. 
-* [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). For consistent color across the globe, major brands turn to SGS. And SGS turns to Azure.
-* [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Global leader Telenor uses the cloud to move with the speed of a startup. 
-* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). The store of the future runs on speedy search and the easy flow of data.
+* [Affinio](https://customers.microsoft.com/en-US/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio переходит с AWS на Azure DocumentDB, чтобы в полной мере использовать социальные данные.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). Игра "№Walking Dead: No Man's Land" добралась до первого места при поддержке Azure DocumentDB.
+* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Реализация игрового процесса с социальными функциями в Halo 5 с помощью Azure DocumentDB.
+* [Коллекция Cortana Analytics](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Коллекция Cortana Analytics — это масштабируемый сайт сообщества, созданный на базе Azure DocumentDB.
+* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Ведущий системный интегратор предоставляет многонациональным компаниям глобальные сведения с помощью гибких облачных технологий.
+* [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Добавление аналитики в новости для предоставления информации заинтересованным гражданам. 
+* [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Крупные мировые компании обращаются к SGS за услугами. А компания SGS обращается к Azure.
+* [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Глобальный лидер Telenor использует облако для перемещения с высочайшей скоростью. 
+* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Хранилище будущего основано на быстром поиске и простом потоке данных.
+* [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet). Программная платформа на основе Azure разрушает барьеры между бизнесом и клиентами.
+* [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Решение Smart Fridge от Weka совершенствует управление хранением вакцин, и теперь от болезней могут уберечься больше людей.
+* [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Это приложение, работающее с продуктами питания, содержит больше возможностей, чем можно увидеть глазами или почувствовать на вкус.
+* [Реал Мадрид](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Футбольный клуб "Реал" (Мадрид) использует Microsoft Cloud, чтобы предоставить доступ на стадион 450-ти миллионам болельщиков со всего мира.
+* [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). Службы Azure помогают TUKU превратить процесс покупки автомобиля в увлекательное мероприятие. 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

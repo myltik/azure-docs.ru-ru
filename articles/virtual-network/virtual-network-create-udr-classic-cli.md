@@ -1,13 +1,13 @@
 ---
-title: Управление маршрутизацией и использование виртуальных модулей с помощью интерфейса командной строки Azure в классической модели развертывания | Microsoft Docs
-description: Сведения об управлении маршрутизацией и виртуальными сетями с помощью интерфейса командной строки Azure в классической модели развертывания
+title: "Управление маршрутизацией и использование виртуальных модулей с помощью интерфейса командной строки Azure в классической модели развертывания | Документация Майкрософт"
+description: "Сведения об управлении маршрутизацией и виртуальными сетями с помощью интерфейса командной строки Azure в классической модели развертывания"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
+ms.openlocfilehash: b7508d1ee01c1a5b7773360cabde075553b55ac1
+
 
 ---
-# Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью интерфейса командной строки Azure
-[!INCLUDE [virtual-network-create-udr-classic-selectors-include.md](../../includes/virtual-network-create-udr-classic-selectors-include.md)]
+# <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью интерфейса командной строки Azure
+
+> [!div class="op_single_selector"]
+- [PowerShell](virtual-network-create-udr-arm-ps.md)
+- [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+- [Шаблон](virtual-network-create-udr-arm-template.md)
+- [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
+- [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -32,19 +42,24 @@ ms.author: jdial
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Создание определяемого пользователем маршрута для подсети переднего плана
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Создание определяемого пользователем маршрута для подсети переднего плана
 Чтобы создать таблицу маршрутов и маршрут, необходимые для подсети переднего плана, на основании приведенного выше сценария, выполните следующие действия.
 
-1. Выполните **`azure config mode`** для переключения в классический режим.
-   
-        azure config mode asm
-   
+1. Чтобы переключиться в классический режим, выполните следующую команду:
+
+    ```azurecli
+    azure config mode asm
+    ```
+
     Выходные данные:
-   
+
         info:    New mode is asm
-2. Выполните команду **`azure network route-table create`**, чтобы создать таблицу маршрутов для подсети переднего плана.
-   
-        azure network route-table create -n UDR-FrontEnd -l uswest
+
+2. Чтобы создать таблицу маршрутов для интерфейсной подсети, выполните следующую команду:
+
+    ```azurecli
+    azure network route-table create -n UDR-FrontEnd -l uswest
+    ```
    
     Выходные данные:
    
@@ -59,10 +74,12 @@ ms.author: jdial
    
    * **-l (или --location)**. Регион Azure, в котором будет создана группа безопасности сети. В нашем случае это *westus*.
    * **-n (или --name)**. Имя новой группы безопасности сети. В данном сценарии это *NSG-FrontEnd*.
-3. Выполните команду **`azure network route-table route set`**, чтобы создать маршрут в созданной ранее таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4).
-   
-        azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
-   
+3. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
+
+    ```azurecli
+    azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
+    ```
+
     Выходные данные:
    
         info:    Executing command network route-table route set
@@ -76,9 +93,11 @@ ms.author: jdial
    * **-a (или --address-prefix)**. Префикс адреса для подсети, в которую адресованы пакеты. В данном сценарии это *192.168.2.0/24*.
    * **-t (или --next-hop-type)**. Тип объекта, куда будет отправляться трафик. Возможные значения: *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* или *None*.
    * **-p (или --next-hop-ip-address**). IP-адрес следующего прыжка. В нашем случае это *192.168.0.4*.
-4. Выполните команду **`azure network vnet subnet route-table add`**, чтобы сопоставить созданную ранее таблицу маршрутов с подсетью **FrontEnd**.
-   
-        azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
+4. Чтобы сопоставить созданную таблицу маршрутов с подсетью **FrontEnd**, выполните следующую команду:
+
+    ```azurecli
+    azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
+    ```
    
     Выходные данные:
    
@@ -98,17 +117,30 @@ ms.author: jdial
    * **-t (или --vnet-name)**. Имя виртуальной сети, в которой расположена подсеть. В нашем случае это *TestVNet*.
    * **-n (или --subnet-name**). Имя подсети, куда будет добавлена таблица маршрутов. В данном сценарии это *FrontEnd*.
 
-## Создание определяемого пользователем маршрута для серверной подсети
-Чтобы создать таблицу маршрутов и маршрут, необходимые для серверной подсети, на основании приведенного выше сценария, выполните следующие действия.
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Создание определяемого пользователем маршрута для серверной подсети
+Чтобы создать таблицу маршрутов и маршрут, необходимые для серверной подсети, на основании сценария, выполните следующие действия:
 
-1. Выполните команду **`azure network route-table create`**, чтобы создать таблицу маршрутов для серверной подсети.
-   
-        azure network route-table create -n UDR-BackEnd -l uswest
-2. Выполните команду **`azure network route-table route set`**, чтобы создать маршрут в созданной ранее таблице маршрутов для отправки всего трафика, предназначенного для подсети переднего плана (192.168.1.0/24), в виртуальную машину **FW1** (192.168.0.4).
-   
-        azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
-3. Выполните команду **`azure network vnet subnet route-table add`**, чтобы сопоставить созданную ранее таблицу маршрутов с подсетью **BackEnd**.
-   
-        azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
+1. Чтобы создать таблицу маршрутов для серверной подсети, выполните следующую команду:
 
-<!---HONumber=AcomDC_0810_2016-->
+    ```azurecli
+    azure network route-table create -n UDR-BackEnd -l uswest
+    ```
+
+2. Чтобы создать маршрут в таблице маршрутов для отправки всего трафика, предназначенного для интерфейсной подсети (192.168.1.0/24), в виртуальную машину **FW1** (192.168.0.4), выполните следующую команду:
+
+    ```azurecli
+    azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
+    ```
+
+3. Чтобы сопоставить таблицу маршрутов с подсетью **BackEnd**, выполните следующую команду:
+
+    ```azurecli
+    azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
+    ```
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

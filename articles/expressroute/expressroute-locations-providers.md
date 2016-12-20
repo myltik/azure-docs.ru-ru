@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute поддерживается во всех регионах и ра
 
 ![Карта расположения][0]
 
-Вы сможете получить доступ ко всем службам Azure во всех регионах соответствующего геополитического региона, если вы подключены по меньшей мере к одному расположению ExpressRoute в этом регионе. В следующей таблице сопоставлены регионы Azure с расположениями ExpressRoute в пределах геополитических регионов.
+Вы сможете получить доступ ко всем службам Azure во всех регионах соответствующего геополитического региона, если вы подключены по меньшей мере к одному расположению ExpressRoute в этом регионе. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Регионы Azure с расположениями ExpressRoute в пределах геополитических регионов
+В следующей таблице сопоставлены регионы Azure с расположениями ExpressRoute в пределах геополитических регионов.
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Австралия** |Восточная Австралия, Юго-Восточная Австралия |Мельбурн, Сидней |
 | **Индия** |Западная Индия, Центральная Индия, Южная Индия |Ченнаи, Мумбаи |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Регионы и геополитические границы для национальных облаков
 В таблице ниже содержатся сведения о регионах и геополитических границах для национальных облаков.
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
@@ -50,10 +54,10 @@ ExpressRoute поддерживается во всех регионах и ра
 
 В стандартном номере SKU ExpressRoute подключение между геополитическими регионами не поддерживается. Для поддержки глобальных подключений необходимо включить надстройку ExpressRoute класса "Премиум". Подключение к национальным облачным средам не поддерживается. При необходимости вы можете работать с поставщиками услуг подключения.
 
-## <a name="connectivity-provider-locations"></a>Расположения поставщиков услуг подключения
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Расположения поставщиков услуг подключения
 > [!div class="op_single_selector"]
-> [Расположения по поставщику](expressroute-locations.md#connectivity-provider-locations)
-> [Поставщики по расположению](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Расположения по поставщикам](expressroute-locations.md#locations)
+> * [Поставщики по расположению](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -72,7 +76,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Нью-Йорк** |Equinix, Megaport, Zayo Group |
-| **Newport(Wales)+** |Next Generation Data+ |
+| **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Монреаль** |Cologix + |
 | **Мумбай** |Tata Communications |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
@@ -83,13 +87,14 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Торонто** |Cologix, Equinix, Zayo Group |
+| **Торонто** |Cologix, Equinix, Megaport, Zayo Group |
 | **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** означает "скоро"
 
 ### <a name="national-cloud-environments"></a>Национальные облачные среды
-#### <a name="us-government-cloud"></a>Облако правительства США
+
+### <a name="us-government-cloud"></a>Облако правительства США
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
 | **Чикаго** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Нью-Йорк** |Equinix, Level 3 Communications+, Verizon |
 | **Вашингтон, округ Колумбия** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>Китай
+### <a name="china"></a>Китай
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
 | **Пекин** |China Telecom |
@@ -105,7 +110,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 Дополнительные сведения см. на странице [ExpressRoute в Китае](http://www.windowsazure.cn/home/features/expressroute/).
 
-#### <a name="germany"></a>Германия
+### <a name="germany"></a>Германия
 | **Расположение** | **Поставщики услуг** |
 | --- | --- |
 | **Берлин** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ ExpressRoute поддерживается во всех регионах и ра
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
 
 * Узнайте у своего поставщика услуг подключения, подключен ли он к какому-либо Exchange, указанному в таблице выше. Дополнительные сведения об услугах, предлагаемых поставщиками Exchange, см. по ссылкам ниже. Несколько поставщиков услуг подключения уже подключены к серверам Ethernet Exchange.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equnix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Обратитесь к своему поставщику услуг подключения, чтобы он расширил вашу сеть, добавив необходимое пиринговое расположение.
   * Убедитесь, что поставщик услуг подключения расширяет границы вашего подключения, сохраняя высокую доступность во избежание влияния единых точек отказа.
 * Закажите канал ExpressRoute с Exchange у вашего поставщика услуг подключения для связи с Майкрософт.
@@ -149,10 +154,10 @@ ExpressRoute поддерживается во всех регионах и ра
 * Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
-[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположений"
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Создание, запуск или удаление шлюза приложений
+
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
 В этой статье рассказывается, как создавать, настраивать, запускать и удалять шлюз приложений.
 
 ## <a name="before-you-begin"></a>Перед началом работы
+
 1. Установите последнюю версию командлетов Azure PowerShell, используя установщик веб-платформы. Вы можете скачать и установить последнюю версию из раздела **Windows PowerShell** на [странице загрузок](https://azure.microsoft.com/downloads/).
 2. Если у вас есть виртуальная сеть, выберите в ней пустую подсеть, которая не используется, или создайте другую подсеть специально для использования шлюзом приложений. Шлюз приложений можно развернуть только в той виртуальной сети, где находятся ресурсы, которые нужно развернуть на базе шлюза приложений (если только не используется пиринговая виртуальная сеть). См. дополнительные сведения о [пиринговых виртуальных сетях](../virtual-network/virtual-network-peering-overview.md).
 3. Убедитесь, что у вас есть рабочая виртуальная сеть с действительной подсетью. Убедитесь, что подсеть не используется виртуальной машиной или облачным развертыванием. Сам шлюз приложений должен находиться в подсети виртуальной сети.
 4. Для использования шлюза приложений настраиваются существующие серверы или серверы, для которых в виртуальной сети созданы конечные точки либо же назначен общедоступный или виртуальный IP-адрес.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Что необходимо для создания шлюза приложений?
-Если вы создаете шлюз приложений с помощью команды **New-AzureApplicationGateway**, на этом этапе конфигурация не определяется. Созданный ресурс необходимо настроить с помощью XML-файла или объекта конфигурации.
+Если вы создаете шлюз приложений с помощью командлета `New-AzureApplicationGateway`, на этом этапе конфигурация не определяется. Созданный ресурс необходимо настроить с помощью XML-файла или объекта конфигурации.
 
 Доступны следующие значения.
 
@@ -52,6 +54,7 @@ ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
 * **Правило**. Правило связывает прослушиватель и внутренний пул серверов, а также определяет, в какой внутренний пул серверов следует направлять трафик, поступающий на определенный прослушиватель.
 
 ## <a name="create-an-application-gateway"></a>Создание шлюза приложений
+
 Создание шлюза приложений:
 
 1. Создайте ресурс шлюза приложений.
@@ -66,7 +69,8 @@ ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
 ![Пример сценария][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Создание ресурса шлюза приложений.
-Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
+
+Для создания шлюза используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
 В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
 
-Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway** .
+Чтобы проверить создание шлюза, используйте командлет `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -95,19 +99,22 @@ DnsName       :
 ```
 
 > [!NOTE]
-> Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
+> Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
 > 
 > 
 
 Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
 ## <a name="configure-the-application-gateway"></a>Настройка шлюза приложений
+
 Шлюз приложений можно настроить с помощью XML-файла или объекта конфигурации.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
+
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.  
 
 ### <a name="step-1"></a>Шаг 1
+
 Скопируйте следующий текст в Блокнот.
 
 ```xml
@@ -210,21 +217,24 @@ DnsName       :
 ```
 
 ### <a name="step-2"></a>Шаг 2
-Теперь необходимо настроить шлюз приложений. Используйте командлет **Set-AzureApplicationGatewayConfig** и XML-файл конфигурации.
+
+Теперь необходимо настроить шлюз приложений. Используйте командлет `Set-AzureApplicationGatewayConfig` с XML-файлом конфигурации.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Настройка шлюза приложений с помощью объекта конфигурации
-В следующем примере показано, как настроить шлюз приложений с помощью объектов конфигурации. Все элементы конфигурации нужно настроить отдельно, а затем добавить в объект конфигурации шлюза приложений. Создав объект конфигурации, используйте команду **Set-AzureApplicationGateway** , чтобы применить конфигурацию к созданному ранее ресурсу шлюза приложений.
+
+В следующем примере показано, как настроить шлюз приложений с помощью объектов конфигурации. Все элементы конфигурации нужно настроить отдельно, а затем добавить в объект конфигурации шлюза приложений. После создания объекта конфигурации используйте командлет `Set-AzureApplicationGateway`, чтобы зафиксировать конфигурацию в ранее созданном ресурсе шлюза приложений.
 
 > [!NOTE]
-> Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(имя объекта) используется.
+> Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(имя объекта)** будет использоваться.
 > 
 > 
 
 ### <a name="step-1"></a>Шаг 1
+
 Создайте все отдельные элементы конфигурации.
 
 Создайте внешний IP-адрес, как показано в следующем примере.
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Шаг 2
+
 Назначьте все отдельные элементы конфигурации объекту конфигурации шлюза приложений ($appgwconfig).
 
 Добавьте в конфигурацию внешний IP-адрес.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Шаг 3.
-Примените объект конфигурации к ресурсу шлюза приложений, используя командлет **Set-AzureApplicationGatewayConfig**.
+Зафиксируйте объект конфигурации в ресурсе шлюза приложений с помощью командлета `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Запуск шлюза
-Настроенный шлюз можно запустить с помощью командлета **Start-AzureApplicationGateway** . Выставление счетов для шлюза приложений начинается после запуска шлюза.
+
+Настроенный шлюз можно запустить с помощью командлета `Start-AzureApplicationGateway` . Выставление счетов для шлюза приложений начинается после запуска шлюза.
 
 > [!NOTE]
-> Выполнение командлета **Start-AzureApplicationGateway** может занять 15–20 минут.
+> Выполнение командлета `Start-AzureApplicationGateway`может длиться 15–20 минут.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Проверка состояния шлюза
-Чтобы проверить состояние шлюза, используйте командлет **Get-AzureApplicationGateway** . Если командлет **Start-AzureApplicationGateway** на предыдущем этапе выполнен успешно, у параметра *State* должно быть значение "Работает", а у параметров *Vip* и *DnsName* — допустимые значения.
+
+Проверить состояние шлюза можно с помощью командлета `Get-AzureApplicationGateway`. Если на предыдущем этапе командлет `Start-AzureApplicationGateway` выполнен успешно, у параметра *State* должно быть значение "Running", а у параметров *Vip* и *DnsName* — допустимые значения.
 
 В следующем примере показан рабочий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Удаление шлюза приложений
+
 Удалить шлюз приложений можно так.
 
-1. Чтобы остановить работу шлюза, используйте командлет **Stop-AzureApplicationGateway** .
-2. Чтобы удалить шлюз, используйте командлет **Remove-AzureApplicationGateway** .
-3. Убедитесь, что шлюз удален, с помощью командлета **Get-AzureApplicationGateway** .
+1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`.
+2. Удалите шлюз с помощью командлета `Remove-AzureApplicationGateway`.
+3. С помощью командлета `Get-AzureApplicationGateway` проверьте, удален ли шлюз.
 
-В следующем примере командлет **Stop-AzureApplicationGateway** приведен в первой строке, а за ним следуют выходные данные.
+В следующем примере командлет `Stop-AzureApplicationGateway` показан в первой строке, а за ним следуют выходные данные.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Когда работа шлюза приложений будет остановлена, удалите службу с помощью командлета **Remove-AzureApplicationGateway** .
+Когда шлюз будет остановлен, удалите службу с помощью командлета `Remove-AzureApplicationGateway`.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Убедитесь, что служба удалена, с помощью командлета **Get-AzureApplicationGateway** . Этот шаг не является обязательным.
+Для проверки того, удалена ли служба, используйте командлет `Get-AzureApplicationGateway`. Этот шаг не является обязательным.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Чтобы настроить разгрузку SSL, ознакомьтесь с [настройкой шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
 Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
@@ -443,6 +458,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

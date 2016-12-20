@@ -1,32 +1,36 @@
 ---
-title: Управление ресурсами служебной шины и концентраторов событий с помощью PowerShell | Microsoft Docs
-description: Создание ресурсов служебной шины и концентраторов событий и управление этими ресурсами с помощью PowerShell
-services: service-bus,event-hubs
+title: "Управление ресурсами служебной шины и концентраторов событий с помощью PowerShell | Документация Майкрософт"
+description: "Создание ресурсов служебной шины и концентраторов событий и управление этими ресурсами с помощью PowerShell"
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+
 
 ---
 # <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Управление ресурсами служебной шины и концентраторов событий с помощью PowerShell
-Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью локальной консоли Azure PowerShell можно подготовить сущности служебной шины и управлять ими. В частности, речь пойдет о пространствах имен, очередях и концентраторах событий.
+Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью локальной консоли Azure PowerShell можно подготовить сущности служебной шины и управлять ими. В частности, речь пойдет о пространствах имен, очередях и концентраторах событий.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для этого потребуются следующие компоненты.
 
-* Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах о [вариантах приобретения][], [предложениях для участников][] или [бесплатной учетной записи][].
+* Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. на страницах [варианты приобретения][варианты приобретения], [предложения для участников][предложения для участников] или [бесплатная учетная запись][бесплатная учетная запись].
 * Компьютер с Azure PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 * Общее представление о сценариях PowerShell, пакетах NuGet и платформе .NET Framework.
 
-## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>Добавление ссылки на сборку .NET для служебной шины
+## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Добавление ссылки на сборку .NET для служебной шины
 Для управления служебной шиной доступно ограниченное число командлетов PowerShell. Для подготовки сущностей, которые недоступны с помощью существующих командлетов, можно использовать клиент .NET для служебной шины прямо в PowerShell, создав ссылку на [пакет NuGet служебной шины].
 
 Сначала убедитесь, что используемый сценарий может найти сборку **Microsoft.ServiceBus.dll** , которая устанавливается вместе с пакетом NuGet. Для гибкости сценарий выполняет такие действия:
@@ -64,9 +68,9 @@ catch [System.Exception]
 
 В этом примере мы создадим несколько локальных переменных в сценарии, в частности `$Namespace` и `$Location`.
 
-* `$Namespace` — имя пространства имен служебной шины, которое мы будем использовать.
-* `$Location` — центр обработки данных, в котором мы подготовим пространство имен к работе.
-* `$CurrentNamespace` — место хранения полученного (или созданного) исходного пространства имен.
+* `$Namespace` — имя пространства имен служебной шины, которое мы будем использовать.
+* `$Location` — центр обработки данных, в котором мы подготовим пространство имен к работе.
+* `$CurrentNamespace` — место хранения полученного (или созданного) исходного пространства имен.
 
 В фактическом сценарии переменные `$Namespace` и `$Location` могут передаваться как параметры.
 
@@ -98,7 +102,7 @@ catch [System.Exception]
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
     }
     ```
-   Чтобы подготовить другие сущности служебной шины к работе, создайте экземпляр объекта `NamespaceManager` из пакета SDK. Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] . В этом примере ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. Позже в сценарии будет использоваться переменная `$NamespaceManager` для подготовки других сущностей.
+   Чтобы подготовить другие сущности служебной шины к работе, создайте экземпляр объекта `NamespaceManager` из пакета SDK. Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule]. В этом примере ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. Позже в сценарии будет использоваться переменная `$NamespaceManager` для подготовки других сущностей.
    
     ``` powershell
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -258,7 +262,7 @@ catch [System.Exception]
 [варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
 [предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
 [бесплатная учетная запись]: http://azure.microsoft.com/pricing/free-trial/
-[пакете NuGet служебной шины]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[пакет NuGet служебной шины]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
@@ -267,6 +271,6 @@ catch [System.Exception]
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

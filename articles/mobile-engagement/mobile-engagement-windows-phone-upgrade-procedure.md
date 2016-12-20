@@ -1,12 +1,12 @@
 ---
-title: Процедуры обновления пакета SDK для Windows Phone Silverlight
-description: Процедуры обновления пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement
+title: "Процедуры обновления пакета SDK для Windows Phone Silverlight"
+description: "Процедуры обновления пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+
 
 ---
-# Процедуры обновления пакета SDK для Windows Phone Silverlight
+# <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Процедуры обновления пакета SDK для Windows Phone Silverlight
 Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
 
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции с версии 0.10.1 в версию 0.11.0 необходимо сначала выполнить процедуру миграции «с 0.9.0 в 0.10.1», а затем процедуру миграции «с 0.10.1 в 0.11.0».
 
-## С 2.0.0 в 3.3.0
-### Журналы тестирования
+## <a name="from-200-to-330"></a>С 2.0.0 в 3.3.0
+### <a name="test-logs"></a>Журналы тестирования
 Теперь журналы консоли, созданные с помощью пакета SDK, можно включать, отключать или фильтровать. Чтобы настроить это действие, обновите свойство `EngagementAgent.Instance.TestLogEnabled` до одного из значений, доступных в перечислении `EngagementTestLogLevel`, например:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-## От версии 1.1.1 до версии 2.0.0
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement.
+## <a name="from-111-to-200"></a>От версии 1.1.1 до версии 2.0.0
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
@@ -38,10 +42,10 @@ ms.author: piyushjo
 
 При переносе с использованием более ранней версии сначала ознакомьтесь с информацией о переносе в версии 1.1.1 на веб-сайте Capptain, а затем примените следующую процедуру.
 
-### Пакет NuGet
-Замените **Capptain.WindowsPhone** на пакет Nuget **MicrosoftAzure.MobileEngagement**.
+### <a name="nuget-package"></a>Пакет NuGet
+Замените **Capptain.WindowsPhone** на пакет NuGet **MicrosoftAzure.MobileEngagement**.
 
-### Применение Mobile Engagement
+### <a name="applying-mobile-engagement"></a>Применение Mobile Engagement
 В пакете SDK используется термин `Engagement`, поэтому необходимо обновить проект с учетом этого изменения.
 
 Необходимо удалить текущий пакет NuGet Capptain. Советуем удалить все, что было изменено в папке ресурсов Capptain. Если хотите сохранить эти файлы, скопируйте их в другое место.
@@ -106,14 +110,14 @@ ms.author: piyushjo
         </engagement:EngagementPage>
 4. Обратите внимание, что для использования Engagement были переименованы и другие ресурсы, такие как изображения Capptain.
 
-### Идентификатор приложения и ключ SDK
+### <a name="application-id-sdk-key"></a>Идентификатор приложения и ключ SDK
 Engagement использует строку подключения. При использовании Mobile Engagement не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
 
 Конфигурацию Engagement можно определить в файле `Resources\EngagementConfiguration.xml` проекта.
 
 Измените этот файл, чтобы указать:
 
-* строку подключения приложения между тегами `<connectionString>` и `<\connectionString>`.
+* строку подключения приложения между тегами `<connectionString>` and `<\connectionString>`.
 
 Если вместо этого вам необходимо указать ее во время выполнения, можно вызвать следующий метод до инициализации агента Engagement:
 
@@ -126,8 +130,8 @@ Engagement использует строку подключения. При ис
 
 Строка подключения для приложения отображается на классическом портале Azure.
 
-### Изменение имени элементов
-Каждый из элементов с именем *capptain* был переименован в *engagement*. Аналогичным образом имя *Capptain* изменилось на *Engagement*.
+### <a name="items-name-change"></a>Изменение имени элементов
+Каждый из элементов с именем *capptain* был переименован на *engagement*. Аналогичным образом имя *Capptain* изменилось на *Engagement*.
 
 Примеры часто используемых элементов Capptain:
 
@@ -139,4 +143,9 @@ Engagement использует строку подключения. При ис
 
 Обратите внимание, что переименование также влияет на переопределенные методы.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

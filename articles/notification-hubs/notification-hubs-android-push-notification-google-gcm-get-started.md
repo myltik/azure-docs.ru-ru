@@ -59,7 +59,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 
 Теперь центр уведомлений настроен для работы с GCM, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
 ### <a name="create-a-new-android-project"></a>Создание нового проекта Android
 1. В Android Studio создайте новый проект Android Studio.
    
@@ -132,8 +132,8 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
     Обязательно обновите эти три заполнителя в следующем коде для класса `NotificationSettings` :
    
    * **SenderId**: укажите номер проекта, полученный ранее в [консоли Google Cloud](http://cloud.google.com/console).
-   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** центра на [портале Azure].
-   * **HubName**: используйте имя центра уведомлений, которое отображается на [портале Azure]в колонке центра.
+   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** центра на [портала Azure].
+   * **HubName**: используйте имя центра уведомлений, которое отображается на [портала Azure]в колонке центра.
      
      `NotificationSettings` :
      
@@ -426,7 +426,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
         <string name="notification_message_hint">Enter notification message text</string>
 3. В файле `NotificationSetting.java` добавьте приведенный ниже параметр в класс `NotificationSettings`.
    
-    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портале Azure], щелкните **Политики доступа** в колонке **Параметры** центра уведомлений.
+    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портала Azure], щелкните **Политики доступа** в колонке **Параметры** центра уведомлений.
    
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 4. В файле `MainActivity.java` над классом `MainActivity` добавьте следующие операторы `import`:
@@ -664,10 +664,10 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 [Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Классический портал Azure]: https://manage.windowsazure.com/
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[обзоре центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[портале Azure]: https://portal.azure.com
+[портала Azure]: https://portal.azure.com
 
 
 

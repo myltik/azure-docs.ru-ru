@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Часто задаваемые вопросы об Azure Data Lake Store
 В этой статье приведены ответы на часто задаваемые вопросы об Azure Data Lake Store.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>Как выполняется аварийное восстановление и восстановление после повреждения данных для учетной записи Azure Data Lake Store?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Как дополнительно защитить данные от случайного удаления и общерегиональных аварий
 Благодаря автоматическим репликам данные в учетной записи Azure Data Lake Store устойчивы к временным сбоям оборудования в регионе. Это гарантирует устойчивость и высокий уровень доступности данных, а также соответствие требованиям соглашения об уровне обслуживания Azure Data Lake Store. Ниже приведены рекомендации по защите данных в случае редких сбоев оборудования в регионе или случайного удаления.
 
 ### <a name="disaster-recovery-guidance"></a>Руководство по аварийному восстановлению
@@ -52,6 +52,6 @@ ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

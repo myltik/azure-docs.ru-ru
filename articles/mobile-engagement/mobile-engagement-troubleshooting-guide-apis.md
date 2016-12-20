@@ -1,54 +1,58 @@
 ---
-title: Руководство по устранению неполадок Azure Mobile Engagement — API
-description: Руководства по устранению неполадок для Azure Mobile Engagement —API
+title: "Руководство по устранению неполадок Azure Mobile Engagement — API"
+description: "Руководства по устранению неполадок для Azure Mobile Engagement —API"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
-manager: dwrede
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
-ms.date: 08/19/2016
+ms.date: 10/04/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
+
 
 ---
-# Поиск и устранение неполадок API
+# <a name="troubleshooting-guide-for-api-issues"></a>Поиск и устранение неполадок API
 Ниже представлены проблемы, которые могут возникнуть в ходе взаимодействия администраторов с Azure Mobile Engagement через интерфейсы API.
 
-## Проблемы, связанные с синтаксисом
-### Проблема
+## <a name="syntax-issues"></a>Проблемы, связанные с синтаксисом
+### <a name="issue"></a>Проблема
 * Синтаксические ошибки при использовании API (или неожиданное поведение).
 
-### Причины
+### <a name="causes"></a>Причины
 * Проблемы, связанные с синтаксисом
   * Проверьте синтаксис определенного API, который вы используете, чтобы подтвердить, что определенная возможность доступна.
-  * Распространенная проблема с использованием API — неправильное использование Reach API и API push-уведомлений (большинство задач необходимо выполнять с помощью Reach API, а не API push-уведомлений).
+  * Распространенная проблема с использованием API — неправильное использование Reach API и API push-уведомлений (большинство задач необходимо выполнять с помощью Reach API, а не API push-уведомлений). 
   * Еще одна распространенная проблема с интеграцией пакета SDK и использованием API — неправильное использование ключа пакета SDK и ключа API.
-  * Скрипты, подключающиеся к интерфейсам API, должны отправлять данные по крайней мере каждые 10 минут, в противном случае время ожидания подключения истечет (эта проблема особенно распространена в скриптах Monitor API, прослушивающих данные). Чтобы предотвратить возникновение задержки, ваш скрипт должен отправлять команду ping XMPP каждые 10 минут, чтобы сеанс работы с сервером не завершался.
+  * Скрипты, подключающиеся к интерфейсам API, должны отправлять данные по крайней мере каждые 10 минут, в противном случае время ожидания подключения истечет (эта проблема особенно распространена в скриптах Monitor API, прослушивающих данные). Чтобы предотвратить возникновение задержки, ваш скрипт должен отправлять команду ping XMPP каждые 10 минут, чтобы сеанс работы с сервером не завершался.
 
-### Дополнительные материалы
+### <a name="see-also"></a>Дополнительные материалы
 * [Документация по API][Link 4]
 * [Сведения о протоколе XMPP](http://xmpp.org/extensions/xep-0199.html)
 
-## Не удается использовать API для выполнения действия, доступного в пользовательском интерфейсе Azure Mobile Engagement.
-### Проблема
+## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>Не удается использовать API для выполнения действия, доступного в пользовательском интерфейсе Azure Mobile Engagement.
+### <a name="issue"></a>Проблема
 * Действие, которое выполняется в пользовательском интерфейсе Azure Mobile Engagement, не выполняется в соответствующем API Azure Mobile Engagement.
 
-### Причины
+### <a name="causes"></a>Причины
 * Подтверждение того, что вы можете выполнять это действие в пользовательском интерфейсе Azure Mobile Engagement, свидетельствует о правильной интеграции этой функции Azure Mobile Engagement в пакет SDK.
 
-### Дополнительные материалы
+### <a name="see-also"></a>Дополнительные материалы
 * [Документация по пользовательскому интерфейсу][Link 1]
 
-## сообщения об ошибках
-### Проблема
+## <a name="error-messages"></a>сообщения об ошибках
+### <a name="issue"></a>Проблема
 * Во время выполнения или по завершении в журналах отображаются коды ошибок, связанные с использованием API.
 
-### Причины
+### <a name="causes"></a>Причины
 * Ниже приведен общий список распространенных кодов состояния API для справки и предварительного устранения неполадок.
   
         200        Success.
@@ -71,32 +75,32 @@ ms.author: piyushjo
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### Дополнительные материалы
-* [Документация по API — подробная информация об ошибках для каждого конкретного интерфейса API][Link 4]
+### <a name="see-also"></a>Дополнительные материалы
+* [Документация по API — подробная информация об ошибках для каждого конкретного интерфейса API][Link 4]
 
-## Автоматические сбои
-### Проблема
+## <a name="silent-failures"></a>Автоматические сбои
+### <a name="issue"></a>Проблема
 * Действие с использованием API заканчивается сбоем, при этом во время выполнения или по завершении в журналах не отображается сообщение об ошибке.
 
-### Причины
+### <a name="causes"></a>Причины
 * При неправильной интеграции многие элементы будут отключены в пользовательском интерфейсе Azure Mobile Engagement и незаметно завершатся ошибкой в API, поэтому не забудьте проверить определенную функцию в пользовательском интерфейсе, чтобы убедиться, что она работает.
 * Служба Azure Mobile Engagement и множество дополнительных функций этой службы, которые вы намереваетесь применять, перед использованием необходимо отдельно интегрировать в приложение с помощью пакета SDK.
 
-### Дополнительные материалы
-* [Руководство по устранению неполадок — пакет SDK][Link 25]
+### <a name="see-also"></a>Дополнительные материалы
+* [Руководство по устранению неполадок — пакет SDK][Link 25]
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
+[Link 1]: mobile-engagement-user-interface-home.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/ru-RU/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
 [Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
@@ -117,4 +121,8 @@ ms.author: piyushjo
 [Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

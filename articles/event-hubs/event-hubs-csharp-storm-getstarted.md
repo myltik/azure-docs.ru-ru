@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с концентраторами событий в C# и Apache Storm | Microsoft Docs
-description: Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C#, и их получению в кластере Apache Storm.
+title: "Приступая к работе с концентраторами событий в C# и Apache Storm | Документация Майкрософт"
+description: "Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C#, и их получению в кластере Apache Storm."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f64cb2bd-2e38-4c78-8d0d-9af14c000d9f
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26d0363d72147f1b72b77652ba9b638bfa260970
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Приступая к работе с концентраторами событий
@@ -50,7 +54,7 @@ ms.author: jotaub;sethm
 Теперь, когда вы создали рабочее приложение, которое создает концентратор событий и отправляет и получает данные, можно перейти к следующим сценариям:
 
 * Полный [пример приложения, использующего концентраторы событий][пример приложения, использующего концентраторы событий].
-* Пример [развертывания обработки событий при помощи концентраторов событий][развертывания обработки событий при помощи концентраторов событий] .
+* Пример [масштабирования обработки событий с помощью концентраторов событий][развертывания обработки событий при помощи концентраторов событий].
 
 <!-- Images. -->
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
@@ -63,6 +67,6 @@ ms.author: jotaub;sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

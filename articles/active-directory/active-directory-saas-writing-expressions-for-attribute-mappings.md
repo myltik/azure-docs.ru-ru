@@ -1,19 +1,23 @@
 ---
-title: Запись выражений для сопоставления атрибутов в Azure Active Directory | Microsoft Docs
-description: Узнайте, как использовать сопоставление выражений для преобразования значений атрибутов в допустимый формат при автоматической подготовке объектов приложения SaaS в Azure Active Directory.
+title: "Запись выражений для сопоставления атрибутов в Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как использовать сопоставление выражений для преобразования значений атрибутов в допустимый формат при автоматической подготовке объектов приложения SaaS в Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+
 
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Запись выражений для сопоставления атрибутов в Azure Active Directory
@@ -88,7 +92,7 @@ ms.author: markusvi
 | Имя | Обязательно/повторяется | Тип | Примечания |
 | --- | --- | --- | --- |
 | **источник** |Обязательно |Строка |Как правило, имя атрибута. |
-| **start** |Обязательно |целое число |Индекс положения в строке **source**, откуда должна начинаться подстрока. Первый символ в строке будет иметь индекс 1, второй символ — индекс 2 и т. д. |
+| **start** |Обязательно |целое число |Индекс положения в строке **source**, откуда должна начинаться подстрока. Первый символ в строке будет иметь индекс 1, второй символ — индекс 2 и т. д. |
 | **длина** |Обязательно |целое число |Длина подстроки. Если длина превышает размер **исходной** строки, функция возвращает подстроку из **начала** индекса и до конца **исходной** строки. |
 
 - - -
@@ -166,7 +170,7 @@ ms.author: markusvi
 ## <a name="examples"></a>Примеры
 ### <a name="strip-known-domain-name"></a>Извлечение известного доменного имени
 Необходимо извлечь известное доменное имя из адреса электронной почты пользователя, чтобы получить имя пользователя. <br>
- Например, если домен — contoso.com, можно использовать следующее выражение:
+ Например, если домен — contoso.com, можно использовать следующее выражение:
 
 **Выражение:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -213,7 +217,7 @@ ms.author: markusvi
 * **Выходные данные**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Замена значения на основе предопределенного набора параметров
-Необходимо определить часовой пояс пользователя на основе кода государства, сохраненного в Azure AD. <br>
+Необходимо определить часовой пояс пользователя на основе кода государства, сохраненного в Azure AD. <br>
  Если код государства не совпадает с предопределенными параметрами, используйте значение по умолчанию «Australia/Sydney».
 
 **Выражение:** <br>
@@ -234,6 +238,9 @@ ms.author: markusvi
 * [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 * [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

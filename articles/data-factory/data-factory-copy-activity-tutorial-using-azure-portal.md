@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 
 ---
@@ -68,8 +68,8 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
    2. Выберите свою **подписку Azure**.
    3. Для группы ресурсов выполните одно из следующих действий.
       
-      1. Выберите **Использовать существующую**и укажите существующую группу ресурсов в раскрывающемся списке. 
-      2. Выберите **Создать новую**и укажите имя группы ресурсов.   
+      - Выберите **Использовать существующую**и укажите существующую группу ресурсов в раскрывающемся списке. 
+      - Выберите **Создать новую**и укажите имя группы ресурсов.   
          
           Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Укажите **расположение** фабрики данных. В раскрывающемся списке отображаются только те регионы, которые поддерживаются службой фабрики данных.
@@ -90,7 +90,7 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
    ![Домашняя страница фабрики данных](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Создание связанных служб
-Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md##supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
+Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
 
 На этом шаге создаются две связанные службы: **AzureStorageLinkedService** и **AzureSqlLinkedService**. Связанная служба AzureStorageLinkedService связывает учетную запись хранения Azure, а AzureSqlLinkedService связывает базу данных SQL Azure с **ADFTutorialDataFactory**. Далее в этом руководстве будет создан конвейер, который копирует данные из контейнера больших двоичных объектов в AzureStorageLinkedService в таблицу SQL в AzureSqlLinkedService.
 
@@ -135,38 +135,39 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
     ![Меню "Новый набор данных"](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Замените JSON на правой панели следующим фрагментом JSON: 
    
-        {
-          "name": "InputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-              "folderPath": "adftutorial/",
-              "fileName": "emp.txt",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "external": true,
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "InputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+          "folderPath": "adftutorial/",
+          "fileName": "emp.txt",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Обратите внимание на следующие моменты. 
+      }
+    }
+    ```   
+    Обратите внимание на следующие моменты. 
    
    * Для параметра **type** набора данных задано значение **AzureBlob**.
    * Для **linkedServiceName** задано значение **AzureStorageLinkedService**. Эта связанная служба была создана на шаге 2.
@@ -180,16 +181,18 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
      Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.&lt;Guid\&gt;.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
      
      Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез создается для метки времени 2016-09-20T08:00:00, свойству folderName присваивается значение wikidatagateway/wikisampledataout/2016/09/20, а свойству fileName — значение 08.csv. 
-     
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-           ],
+
+    ```JSON     
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+       { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+       { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+       { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+       { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
+    ```
 3. На панели инструментов щелкните **Развернуть**, чтобы создать и развернуть набор данных **InputDataset**. Набор данных **InputDataset** должен отображаться в иерархическом представлении.
 
 > [!NOTE]
@@ -202,33 +205,34 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
 
 1. В **редакторе** фабрики данных щелкните **... Дополнительно**, **Новый набор данных**, а затем в раскрывающемся меню выберите пункт **Azure SQL**. 
 2. Замените JSON на правой панели следующим фрагментом JSON:
-   
-        {
-          "name": "OutputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-              "tableName": "emp"
-            },
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+
+    ```JSON   
+    {
+      "name": "OutputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "emp"
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Обратите внимание на следующие моменты. 
+      }
+    }
+    ```     
+    Обратите внимание на следующие моменты. 
    
    * Для параметра **type** набора данных задано значение **AzureSQLTable**.
    * **linkedServiceName** имеет значение **AzureSqlLinkedService** (эта связанная служба была создана на шаге 2).
@@ -247,48 +251,50 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
 
 1. В **редакторе** фабрики данных щелкните **... Дополнительно** и **Новый конвейер**. Кроме того, можно щелкнуть правой кнопкой мыши **Конвейеры** в древовидном представлении и выбрать **Создать конвейер**.
 2. Замените JSON на правой панели следующим фрагментом JSON: 
-   
-        {
-          "name": "ADFTutorialPipeline",
-          "properties": {
-            "description": "Copy data from a blob to Azure SQL table",
-            "activities": [
+
+    ```JSON   
+    {
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from a blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
               {
-                "name": "CopyFromBlobToSQL",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "InputDataset"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "OutputDataset"
-                  }
-                ],
-                "typeProperties": {
-                  "source": {
-                    "type": "BlobSource"
-                  },
-                  "sink": {
-                    "type": "SqlSink",
-                    "writeBatchSize": 10000,
-                    "writeBatchTimeout": "60:00:00"
-                  }
-                },
-                "Policy": {
-                  "concurrency": 1,
-                  "executionPriorityOrder": "NewestFirst",
-                  "retry": 0,
-                  "timeout": "01:00:00"
-                }
+                "name": "InputDataset"
               }
             ],
-            "start": "2016-07-12T00:00:00Z",
-            "end": "2016-07-13T00:00:00Z"
+            "outputs": [
+              {
+                "name": "OutputDataset"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
           }
-        } 
-   
+        ],
+        "start": "2016-07-12T00:00:00Z",
+        "end": "2016-07-13T00:00:00Z"
+      }
+    } 
+    ```   
+    
     Обратите внимание на следующие моменты.
    
    * В разделе действий доступно только одно действие, параметр **type** которого имеет значение **Copy**.
@@ -407,6 +413,6 @@ ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

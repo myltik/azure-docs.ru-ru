@@ -1,12 +1,12 @@
 ---
-title: Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к защите данных | Microsoft Docs
-description: При планировании гибридного решения для идентификации определите требования к защите данных для вашего бизнеса и варианты наилучшего выполнения этих требований.
-documentationcenter: ''
+title: "Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory ― определение требований к защите данных | Документация Майкрософт"
+description: "При планировании гибридного решения для идентификации определите требования к защите данных для вашего бизнеса и варианты наилучшего выполнения этих требований."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 797b467e480ba51c531ea6eddf3ad2447ec16f1a
+
 
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Планирование повышения безопасности данных благодаря надежному решению для идентификации
@@ -81,6 +85,9 @@ ms.author: billmath
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,55 +1,71 @@
 ---
-title: Триггеры с таймерами в функциях Azure | Microsoft Docs
-description: Узнайте, как использовать триггеры с таймерами в функциях Azure.
+title: "Триггеры с таймерами | Документация Майкрософт"
+description: "Узнайте, как использовать триггеры с таймерами в функциях Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
-
+editor: 
+tags: 
+keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 10/31/2016
 ms.author: chrande; glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
+ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+
 
 ---
-# Триггеры с таймерами в функциях Azure
+# <a name="azure-functions-timer-trigger"></a>Триггеры с таймерами в функциях Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-В этой статье описывается настройка триггеров с таймерами в функциях Azure. Триггеры с таймерами вызывают функции по расписанию, однократно или в повторяющемся режиме.
+В этой статье описывается настройка и программирование триггеров с таймерами в Функциях Azure. Функции Azure поддерживают триггер для таймеров. Триггеры с таймерами вызывают функции по расписанию, однократно или в повторяющемся режиме. 
 
-[!INCLUDE [общие сведения](../../includes/functions-bindings-intro.md)]
+Триггер с таймером поддерживает развертывание с несколькими экземплярами. Один экземпляр функции конкретного таймера выполняется для всех экземпляров.
 
-## Файл function.JSON для триггера с таймером
-Файл *function.json* содержит выражение schedule. Например, следующее расписание запускает функцию каждую минуту:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+<a id="trigger"></a>
+
+## <a name="timer-trigger"></a>Триггер таймера
+Триггер с таймером для функции использует следующий объект JSON в массиве `bindings` файла function.json:
 
 ```json
 {
-  "bindings": [
-    {
-      "schedule": "0 * * * * *",
-      "name": "myTimer",
-      "type": "timerTrigger",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
+    "schedule": "<CRON expression - see below>",
+    "name": "<Name of trigger parameter in function signature>",
+    "type": "timerTrigger",
+    "direction": "in"
 }
 ```
 
-Триггер таймера автоматически масштабирует несколько экземпляров. Во всех экземплярах будет выполняться только один экземпляр определенной функции таймера.
+Значение `schedule` представляет собой [выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с 6 полями: `{second} {minute} {hour} {day} {month} {day of the week}`. Во многих выражениях CRON в сети отсутствует поле `{second}`. Поэтому если скопировать текст в одном из таких выражений, понадобится добавить дополнительное поле `{second}`. Конкретные примеры см. в разделе [Примеры расписания](#examples) ниже.
 
-## Формат выражения schedule
-Выражение schedule представляет собой [выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями: `{second} {minute} {hour} {day} {month} {day of the week}`.
+Часовой пояс по умолчанию, используемый с выражениями CRON — время в формате UTC. Если нужно использовать другой часовой пояс в выражении CRON, создайте параметр приложения с именем `WEBSITE_TIME_ZONE` для приложения-функции. В качестве значения задайте имя нужного часового пояса, как показано в статье [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx) (Индексы часовых поясов Майкрософт). 
 
-Обратите внимание, что во многих выражениях CRON, которые можно найти в сети, отсутствует поле {second}. Поэтому, если скопировать текст выражения в одном из них, понадобится добавить дополнительное поле.
+Например, *восточное поясное время* — UTC-05:00. Если требуется, чтобы триггер с таймером активировался в 10:00 по восточному поясному времени каждый день, можно использовать следующее выражение CRON, в котором учитывается часовой пояс UTC:
 
-Ниже приведены примеры других выражений schedule.
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+Кроме того, можно добавить новый параметр приложения с именем `WEBSITE_TIME_ZONE` для приложения-функции и задать **Восточное поясное время** в качестве значения.  Затем можно использовать следующее выражение CRON для 10:00 по восточному поясному времени: 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+
+<a name="examples"></a>
+
+## <a name="schedule-examples"></a>Примеры расписания
+Ниже приведены некоторые примеры выражений CRON, которые можно использовать для свойства `schedule`. 
 
 Активация через каждые 5 минут:
 
@@ -87,17 +103,91 @@ ms.author: chrande; glenga
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Пример кода C# для триггера таймера
-В этом примере кода C# при каждой активации функции записывается один журнал.
+<a name="usage"></a>
 
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+## <a name="trigger-usage"></a>Использование триггера
+При вызове функции триггера с таймером [объект таймера](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) передается в функцию. Далее представлен JSON в качестве примера объекта таймера. 
+
+```json
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
+    "Schedule":{
+    },
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
+    },
+    "IsPastDue":false
 }
 ```
 
-## Дальнейшие действия
-[!INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
+<a name="sample"></a>
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="trigger-sample"></a>Пример триггера
+Предположим, что у вас есть следующий триггер с таймером в массиве `bindings` файла function.json:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Ознакомьтесь с примером для конкретного языка, считывающим объект таймера, чтобы определить, опаздывает ли он.
+
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.js](#triggernodejs)
+
+<a name="triggercsharp"></a>
+
+### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+<a name="triggerfsharp"></a>
+
+### <a name="trigger-sample-in-f"></a>Пример триггера на языке F# #
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+<a name="triggernodejs"></a>
+
+### <a name="trigger-sample-in-nodejs"></a>Пример триггера для Node.js
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

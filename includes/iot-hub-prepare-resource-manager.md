@@ -1,7 +1,7 @@
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Подготовка к проверке подлинности запросов Azure Resource Manager
-Необходимо проверять подлинность всех операций, выполняемых с ресурсами с помощью [Azure Resource Manager][lnk-authenticate-arm], используя Azure Active Directory (AD). Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
+Необходимо выполнять проверку подлинности всех операций, выполняемых с ресурсами с помощью [Azure Resource Manager][lnk-authenticate-arm], используя Azure Active Directory. Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
 
-Чтобы продолжить, установите [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
+Чтобы продолжить, установите [Azure PowerShell 1.0][lnk-powershell-install] или более позднюю версию.
 
 Ниже показано, как настроить проверку пароля для приложения AD с помощью PowerShell. Эти команды можно выполнять в обычном сеансе PowerShell.
 
@@ -41,9 +41,9 @@
 * Пароль
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../articles/powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

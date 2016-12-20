@@ -1,19 +1,23 @@
 ---
-title: Управление административными единицами в Azure Active Directory
-description: Использование административных единиц для делегирования разрешений в Azure Active Directory на фрагментарном уровне
+title: "Управление административными единицами в Azure Active Directory"
+description: "Использование административных единиц для делегирования разрешений в Azure Active Directory на фрагментарном уровне"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
+
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Управление административными единицами в Azure AD (общедоступной предварительной версии)
@@ -23,8 +27,8 @@ ms.author: curtand
 
 > [!IMPORTANT]
 > Создавать и использовать административные единицы можно только в том случае, если активна подписка Azure Active Directory Premium. Дополнительные сведения см. в разделе [Приступая к работе с Azure AD Premium](active-directory-get-started-premium.md).
-> 
-> 
+>
+>
 
 С точки зрения администратора центра, административная единица является объектом каталога, который можно создать и заполнить ресурсами. **В текущем выпуске ресурсами могут быть только пользователи.**  Созданную и заполненную административную единицу можно использовать для предоставления разрешений, ограниченных содержащимися в ней ресурсами.
 
@@ -36,6 +40,8 @@ ms.author: curtand
 ## <a name="next-steps"></a>Дальнейшие действия
 [Выпуски Azure Active Directory](active-directory-editions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

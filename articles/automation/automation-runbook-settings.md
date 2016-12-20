@@ -1,56 +1,67 @@
 ---
-title: Параметры модуля Runbook
-description: Описываются параметры конфигурации для модуля Runbook службы автоматизации Azure и то, как изменить их с помощью портала управления Azure и Windows PowerShell.
+title: "Параметры Runbook | Документация Майкрософт"
+description: "Описываются параметры конфигурации для модуля Runbook службы автоматизации Azure и то, как изменить их с помощью портала управления Azure и Windows PowerShell."
 services: automation
-documentationcenter: ''
-author: bwren
+documentationcenter: 
+author: mgoedtel
 manager: stevenka
 editor: tysonn
-
+ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 11/11/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
+ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
+
 
 ---
-# Параметры модуля Runbook
+# <a name="runbook-settings"></a>Параметры модуля Runbook
 Каждый модуль Runbook в службе автоматизации Azure имеет несколько параметров, которые помогут определить его и изменить его поведение при ведении журнала. Каждый из этих параметров описан ниже, рядом с ним приводятся пояснения об изменении его значения.
 
-## Параметры
-### Имя и описание
+## <a name="settings"></a>Параметры
+### <a name="name-and-description"></a>Имя и описание
 Имя модуля Runbook нельзя изменить после его создания. Описание не обязательно и может содержать до 512 символов.
 
-### Теги
-Теги позволяют назначать отдельные слова и фразы для идентификации модуля Runbook. Например, при отправке модуля Runbook в [коллекцию модулей Runbook](https://msdn.microsoft.com/library/dn781422.aspx) можно указать определенные теги для идентификации категорий, к которым должен относиться модуль Runbook. Вы можете указать несколько тегов модуля Runbook, разделив их запятой.
+### <a name="tags"></a>Теги
+Теги позволяют назначать отдельные слова и фразы для идентификации модуля Runbook. Например, при отправке модуля Runbook в [коллекцию PowerShell](https://www.powershellgallery.com/) можно указать определенные теги для идентификации категорий, к которым должен относиться модуль Runbook. Вы можете указать несколько тегов модуля Runbook, разделив их запятой.
 
-### Ведение журналов
-По умолчанию записи Verbose и Progress не записываются в журнал заданий. Вы можете изменить параметры для определенного модуля Runbook, чтобы записывать эти записи. Дополнительные сведения об этих записях см. в разделе [Выходные данные модуля Runbook и сообщения](https://msdn.microsoft.com/library/dn879148.aspx).
+### <a name="logging"></a>Ведение журналов
+По умолчанию записи Verbose и Progress не записываются в журнал заданий. Вы можете изменить параметры для определенного модуля Runbook, чтобы записывать эти записи. Дополнительные сведения об этих записях см. в статье [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
 
-## Изменение параметров модуля Runbook
-### Изменение параметров модуля Runbook с помощью портала управления Azure
-Параметры модуля Runbook можно изменить на портале управления Azure на странице **Настройка** модуля Runbook.
+## <a name="changing-runbook-settings"></a>Изменение параметров модуля Runbook
 
-1. На портале управления Azure выберите **Служба автоматизации** и затем имя учетной записи службы автоматизации.
-2. Выберите вкладку **Модули Runbook**.
-3. Щелкните имя модуля Runbook.
-4. Перейдите на вкладку **Настройка**.
+### <a name="changing-runbook-settings-with-the-azure-portal"></a>Изменение параметров модуля Runbook с помощью портала Azure
+Параметры модуля Runbook можно изменить на портале Azure в колонке **Параметры** модуля Runbook.
 
-### Изменение параметров модуля Runbook с помощью Windows PowerShell
-Можно использовать командлет [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) для изменения параметров модуля Runbook. Если вы хотите указать несколько тегов, вы можете предоставить массив или единую строку со значениями, разделенными запятыми, в параметр Tags. Можно получить текущие теги при помощи командлета [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
+1. На портале Azure щелкните **Служба автоматизации** и затем имя учетной записи службы автоматизации.
+2. Выберите вкладку **Модули Runbook** .
+3. Щелкните имя модуля Runbook. Откроется колонка "Параметры" выбранного модуля. В ней вы можете указать или изменить теги, ввести описание модуля Runbook, настроить параметры ведения журнала и трассировки, а также получить доступ к средствам поддержки, которые помогут устранить возникшие проблемы.     
+
+### <a name="changing-runbook-settings-with-windows-powershell"></a>Изменение параметров модуля Runbook с помощью Windows PowerShell
+Для изменения параметров модуля Runbook можно воспользоваться командлетом [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx). Если вы хотите указать несколько тегов, вы можете предоставить массив или единую строку со значениями, разделенными запятыми, в параметр Tags. С помощью командлета [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx) можно получить текущие теги.
 
 Приведенные образцы команд показывают, как установить свойства для модуля Runbook. В этом примере к существующим тегам добавляются три тега и указывается, что необходимо вести запись подробных записей.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
-    $tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
+    $tags = (Get-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName).Tags
     $tags += "Tag1,Tag2,Tag3"
-    Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
+    Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## Связанные статьи
-* [Выходные данные Runbook и сообщения](automation-runbook-output-and-messages.md) 
-* [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
+## <a name="next-steps"></a>Дальнейшие действия
+* Чтобы узнать, как создавать и извлекать выходные данные и сообщения об ошибках из модулей Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md) 
+* Сведения о добавлении модуля Runbook, который уже был разработан сообществом или взят из другого источника, а также сведения о создании собственного модуля Runbook см. в статье [Создание или импорт модуля Runbook](automation-creating-importing-runbook.md). 
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

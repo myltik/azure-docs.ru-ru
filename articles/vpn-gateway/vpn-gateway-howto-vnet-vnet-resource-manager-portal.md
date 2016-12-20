@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
+ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Настройка подключения между виртуальными сетями на портале Azure
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Настройка подключения между виртуальными сетями на портале Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,17 +35,18 @@ ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
 
 ![Схема подключения между виртуальными сетями](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Модели и методы развертывания для подключений между виртуальными сетями
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Модели и методы развертывания для подключений между виртуальными сетями
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 В следующей таблице показаны модели развертывания, доступные в настоящее время, и методы для конфигурации типа "сеть — сеть". Когда появится статья с руководством по конфигурации, мы разместим прямую ссылку на нее в этой таблице.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Пиринговая связь между виртуальными сетями
+**Пиринговая связь между виртуальными сетями**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>О подключениях "виртуальная сеть — виртуальная сеть"
+## <a name="about-vnet-to-vnet-connections"></a>О подключениях "виртуальная сеть — виртуальная сеть"
 Подключение типа "виртуальная сеть — виртуальная сеть" похоже на подключение виртуальной сети к локальному сайту. В обоих типах подключений используется VPN-шлюз Azure для создания защищенного туннеля, использующего IPsec/IKE. Подключаемые виртуальные сети могут находиться в разных регионах и иметь разные подписки.
 
 Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Это позволяет устанавливать топологии сети, совмещающие распределенные подключения с подключениями между виртуальными сетями, как показано на схеме ниже.
@@ -122,6 +123,7 @@ ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Добавление дополнительного адресного пространства и создание подсетей
 После создания виртуальной сети в нее можно добавить дополнительное адресное пространство и подсети.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Создание подсети шлюза
@@ -187,17 +189,16 @@ ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
 
 ![Основные компоненты](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
 Дополнительные сведения см. в ответах на часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть".
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [документации по виртуальным машинам](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

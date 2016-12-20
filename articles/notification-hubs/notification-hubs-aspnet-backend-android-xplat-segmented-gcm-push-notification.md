@@ -1,12 +1,12 @@
 ---
-title: Notification Hubs Breaking News Tutorial - Android
-description: Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices.
+title: "Учебник по передаче экстренных новостей в центрах уведомлений: Android"
+description: "Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений об экстренных новостях на устройства Android."
 services: notification-hubs
 documentationcenter: android
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,23 +14,27 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
+
 
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Use Notification Hubs to send breaking news
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Использование концентраторов уведомлений для передачи экстренных новостей
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Overview
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an Android app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc.
+## <a name="overview"></a>Обзор
+В этом разделе показано, как использовать концентраторы уведомлений Azure для рассылки уведомлений об экстренных новостях в приложение Android. По завершении вы сможете зарегистрироваться в интересующих вас категориях экстренных новостей и получать push-уведомления только для этих категорий. Данный сценарий является общеупотребимым шаблоном для многих приложений, где требуется отправлять уведомления группам пользователей, ранее проявивших к ним интерес, например, программы чтения RSS, приложений для музыкальных фанатов и т. д.
 
-Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+Широковещательные сценарии реализуются путем включения одного или нескольких *тегов* при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md).
 
-## <a name="prerequisites"></a>Prerequisites
-This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
+## <a name="prerequisites"></a>Предварительные требования
+Материал этой статьи основан на приложении, созданном в [руководстве по началу работы с Центрами уведомлений][get-started]. Перед началом работы с руководством необходимо пройти задания [руководства по началу работы с Центрами уведомлений][get-started].
 
-## <a name="add-category-selection-to-the-app"></a>Add category selection to the app
-The first step is to add the UI elements to your existing main activity that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
+## <a name="add-category-selection-to-the-app"></a>Добавление возможности выбора категорий в приложение
+Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющегося основного действия, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
 
-1. Open your res/layout/activity_main.xml file, and substitute the content with the following:
+1. Откройте файл res/layout/activity_main.xml file и замените содержимое на следующее:
    
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -79,7 +83,7 @@ The first step is to add the UI elements to your existing main activity that ena
                     android:onClick="subscribe"
                     android:text="@string/button_subscribe" />
         </LinearLayout>
-2. Open your res/values/strings.xml file and add the following lines:
+2. Откройте файл res/values/strings.xml и добавьте следующие строки кода:
    
         <string name="button_subscribe">Subscribe</string>
         <string name="label_world">World</string>
@@ -89,10 +93,10 @@ The first step is to add the UI elements to your existing main activity that ena
         <string name="label_science">Science</string>
         <string name="label_sports">Sports</string>
    
-    Your main_activity.xml graphical layout should now look like this:
+    Основная графическая структура main_activity.xml должна выглядеть следующим образом:
    
     ![][A1]
-3. Now create a class **Notifications** in the same package as your **MainActivity** class.
+3. Теперь создайте класс **Notifications** в том же пакете, в котором создан класс **MainActivity**.
    
         import java.util.HashSet;
         import java.util.Set;
@@ -163,13 +167,13 @@ The first step is to add the UI elements to your existing main activity that ena
    
         }
    
-    This class uses the local storage to store the categories of news that this device has to receive. It also contains methods to register for these categories.
-4. In your **MainActivity** class remove your private fields for **NotificationHub** and **GoogleCloudMessaging**, and add a field for **Notifications**:
+    Этот класс использует локальное хранилище для хранения категорий новостей, которые данное устройство должно получать. Он также содержит методы для регистрации этих категорий.
+4. В классе **MainActivity** удалите частные поля для **NotificationHub** и **GoogleCloudMessaging**, после чего добавьте поле для **Notifications**:
    
         // private GoogleCloudMessaging gcm;
         // private NotificationHub hub;
         private Notifications notifications;
-5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. 
+5. Затем в методе **onCreate** удалите код инициализации поля **hub** и метод **registerWithNotificationHubs**. Затем добавьте следующие строки, инициализирующие экземпляр класса **Notifications** . 
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -184,12 +188,12 @@ The first step is to add the UI elements to your existing main activity that ena
             notifications.subscribeToCategories(notifications.retrieveCategories());
         }
 
-    `HubName` and `HubListenConnectionString` should already be set with the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
+    В `HubName` и `HubListenConnectionString` заполнители `<hub name>` и `<connection string with listen access>` уже должны быть заменены именем центра уведомлений и строкой подключения для *DefaultListenSharedAccessSignature*, полученными ранее.
 
-    > [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+    > [AZURE.NOTE] Так как учетные данные, которые распространяются с помощью клиентского приложения, обычно небезопасны, с помощью вашего клиентского приложения следует распространять только ключ для доступа к прослушиванию. Доступ к прослушиванию позволяет приложению регистрироваться для использования уведомлений, однако при этом нельзя изменять имеющиеся регистрации и отправлять уведомления. Полный ключ доступа используется в защищенной серверной службе для отправки уведомлений и смены существующих регистраций.
 
 
-1. Then, add the following imports and `subscribe` method to handle the subscribe button click event:
+1. Затем добавьте следующие операторы import и метод `subscribe` для обработки события нажатия кнопки «Подписаться».
    
         import android.widget.CheckBox;
         import java.util.HashSet;
@@ -220,26 +224,29 @@ The first step is to add the UI elements to your existing main activity that ena
             notifications.storeCategoriesAndSubscribe(categories);
         }
    
-    This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
+    Этот метод создает список категорий и использует класс **Notifications** класс для хранения списка в локальном хранилище и регистрации соответствующих тегов в концентраторе уведомлений. При изменении категорий регистрация создается заново с новыми категориями.
 
-Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories.
+Ваше приложение теперь может сохранять набор категорий в локальном хранилище на устройстве и регистрироваться в центре уведомлений всякий раз, когда пользователь изменяет выбранные категории.
 
-## <a name="register-for-notifications"></a>Register for notifications
-These steps register with the notification hub on startup using the categories that have been stored in local storage.
+## <a name="register-for-notifications"></a>Регистрация для использования уведомлений
+Эти действия позволяют зарегистрироваться в центре уведомлений при запуске с использованием категорий, сохраненных в локальном хранилище.
 
 > [!NOTE]
-> Because the registrationId assigned by Google Cloud Messaging (GCM) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
+> Поскольку registrationId, назначенный службой Google Cloud Messaging (GCM), может в любой момент измениться, следует регулярно регистрироваться для получения уведомлений, чтобы предотвратить сбои в их передаче. В этом примере регистрация для использования уведомлений осуществляется при каждом запуске приложения. Для тех приложений, которые запускаются часто, более одного раза в день, возможно, лучше пропустить регистрацию, чтобы сэкономить трафик, если с момента прошлой регистрации прошло меньше суток.
 > 
 > 
 
-1. Add the following code at the end of the **onCreate** method in the **MainActivity** class:
+1. В конце метода **OnCreate** в классе **MainActivity** добавьте следующий код:
    
         notifications.subscribeToCategories(notifications.retrieveCategories());
    
-    This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. 
-2. Then update the `onStart()` method of the `MainActivity` class as follows:
+    Это гарантирует, что при каждом запуске приложения оно извлекает категории из локального хранилища и запрашивает для них регистрацию. 
+2. Затем обновите метод `onStart()` класса `MainActivity` следующим образом.
    
-    @Override  protected void onStart() {      super.onStart();      isVisible = true;
+    @Override  protected void onStart() {
+   
+        super.onStart();
+        isVisible = true;
    
         Set<String> categories = notifications.retrieveCategories();
    
@@ -257,49 +264,49 @@ These steps register with the notification hub on startup using the categories t
         sports.setChecked(categories.contains("sports"));
     }
    
-    This updates the main activity based on the status of previously saved categories.
+    При этом основное действие обновляется в зависимости от состояния ранее сохраненных категорий.
 
-The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
+Теперь приложение готово и может сохранять набор категорий в локальном хранилище устройств и использовать его для регистрации в концентраторе уведомлений всякий раз, когда пользователь изменяет выбранные категории. А сейчас определим серверную часть, которая может отправлять уведомления категорий в это приложение.
 
-## <a name="sending-tagged-notifications"></a>Sending tagged notifications
+## <a name="sending-tagged-notifications"></a>Отправка уведомлений с тегами
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Run the app and generate notifications
-1. In Android Studio, build the app and start it on a device or emulator.
+## <a name="run-the-app-and-generate-notifications"></a>Запуск приложения и создание уведомлений
+1. В Android Studio выполните сборку приложения и запустите его на устройстве или в эмуляторе.
    
-    Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
-2. Enable one or more categories toggles, then click **Subscribe**.
+    Обратите внимание, что в пользовательском интерфейсе присутствует набор переключателей, позволяющий выбрать категории для подписки.
+2. Включите переключатели одной или нескольких категорий, затем нажмите **Подписаться**.
    
-    The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
-3. Send a new notification by running the .NET Console app.  Alternatively, you can send tagged template notifications using the debug tab of your notification hub in the [Azure Classic Portal].
+    Приложение преобразует выбранные категории в теги и запрашивает у концентратора уведомлений новую регистрацию устройств для выбранных тегов. Зарегистрированные категории возвращаются и отображаются во всплывающем уведомлении.
+3. Отправьте новое уведомление, запустив консольное приложение .NET.  Кроме того, можно отправлять шаблонные уведомления с тегами с помощью вкладки «Отладка» центра уведомлений на [классическом портале Azure].
    
-    Notifications for the selected categories appear as toast notifications.
+    Уведомления для выбранных категорий отображаются в виде всплывающих уведомлений.
 
-## <a name="next-steps"></a>Next steps
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
+## <a name="next-steps"></a>Дальнейшие действия
+В этом учебнике мы рассмотрели, как производить рассылку экстренных новостей по категориям. Далее вам рекомендуется изучить один из следующих учебников, в которых рассматриваются более сложные сценарии использования концентраторов уведомлений:
 
-* [Use Notification Hubs to broadcast localized breaking news]
+* [Использование центров уведомлений для передачи локализованных экстренных новостей]
   
-    Learn how to expand the breaking news app to enable sending localized notifications.
+    Как расширить возможности приложения экстренных новостей для отправки локализованных уведомлений.
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
-[Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Azure Classic Portal]: https://manage.windowsazure.com
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Использование центров уведомлений для передачи локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Уведомление пользователей с помощью концентраторов уведомлений]: /manage/services/notification-hubs/notify-users
+[Мобильная служба]: /develop/mobile/tutorials/get-started/
+[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Инструкции по использованию Центров уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
+[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[классическом портале Azure]: https://manage.windowsazure.com
+[Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

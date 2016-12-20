@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
 
 ![Проверка подлинности IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Использование проверки подлинности IIS на основе форм с сервером Azure Multi-Factor Authentication
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Использование проверки подлинности IIS на основе форм с сервером Azure Multi-Factor Authentication
 Чтобы защитить веб-приложение IIS, использующее проверку подлинности на основе форм, установите сервер Azure Multi-Factor Authentication на веб-сервер IIS и настройте его согласно следующей процедуре.
 
 1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности IIS в левом меню.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
 13. Когда переменные для URL-адреса и страницы будут введены или обнаружены, данные веб-сайта отобразятся на панели «На основе форм».
 14. Для завершения настройки проверки подлинности IIS см. раздел «Включение подключаемых модулей IIS» ниже.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Использование встроенной проверки подлинности Windows с сервером Azure Multi-Factor Authentication
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Использование встроенной проверки подлинности Windows с сервером Azure Multi-Factor Authentication
 Чтобы защитить веб-приложение IIS, использующее встроенную проверку подлинности HTTP Windows, установите сервер Azure Multi-Factor Authentication на веб-сервере IIS и настройте его согласно следующей процедуре.
 
 1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности IIS в левом меню.
@@ -56,7 +56,7 @@ ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
 8. Нажмите кнопку «ОК».
 9. Для завершения настройки проверки подлинности IIS см. раздел [Включение подключаемых модулей IIS для сервера Azure Multi-Factor Authentication](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) ниже.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Включение подключаемых модулей IIS для сервера Azure Multi-Factor Authentication
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Включение подключаемых модулей IIS для сервера Azure Multi-Factor Authentication
 После настройки URL-адресов и параметров проверки подлинности на основе форм или HTTP необходимо выбрать места, в которые будут загружены подключаемые модули IIS для сервера Azure Multi-Factor Authentication, которые затем будут включены в IIS. Выполните перечисленные ниже действия.
 
 1. При работе в IIS 6 перейдите на вкладку ISAPI и выберите веб-сайт, на котором выполняется веб-приложение (например, Default Web Site), для включения подключаемого модуля фильтра ISAPI Azure Multi-Factor Authentication для этого сайта.
@@ -74,6 +74,6 @@ ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

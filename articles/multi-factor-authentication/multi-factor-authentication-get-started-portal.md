@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cdbf4b164af4a8077b8f9a166d6c4ad752b25ff4
 
 
 ---
-# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication
+# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication
 С помощью пользовательского портала администратор может установить и настроить пользовательский портал Azure Multi-Factor Authentication. Пользовательский портал — это веб-сайт IIS, с помощью которого пользователи могут зарегистрироваться в службе Azure Multi-Factor Authentication и управлять своими учетными записями. Пользователь может изменить свой номер телефона, ПИН-код или обойти проверку Azure Multi-Factor Authentication при следующем входе в систему.
 
 Пользователям предстоит входить на пользовательский портал с помощью привычного имени пользователя и пароля, а затем либо отвечать на телефонный вызов службы Azure Multi-Factor Authentication, либо отвечать на вопросы безопасности, чтобы пройти проверку подлинности. Если регистрация пользователей разрешена, пользователям предстоит настраивать свой номер телефона и ПИН-код при первом входе на пользовательский портал.
@@ -29,13 +29,13 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 <center>![Настройка](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Развертывание пользовательского портала на сервере, на котором расположен сервер Azure Multi-Factor Authentication
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Развертывание пользовательского портала на сервере, на котором расположен сервер Azure Multi-Factor Authentication
 Чтобы установить пользовательский портал на тот же сервер, на котором установлен сервер Azure Multi-Factor Authentication, нужно выполнить такие условия:
 
 * Необходимо установить службы IIS, включая ASP.NET и роль совместимости метабазы IIS 6 (для IIS 7 или более поздней версии).
 * Вошедший в систему пользователь должен иметь права администратора для компьютера и домена, если это применимо.  Это обусловлено тем, что, чтобы создать группы безопасности Active Directory, учетной записи требуются разрешения.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Развертывание пользовательского портала на сервере Azure Multi-Factor Authentication
+### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Развертывание пользовательского портала на сервере Azure Multi-Factor Authentication
 1. На сервере Azure Multi-Factor Authentication: щелкните значок пользовательского портала в меню слева, затем нажмите кнопку «Установить пользовательский портал».
 2. Нажмите кнопку Далее.
 3. Нажмите кнопку Далее.
@@ -47,7 +47,7 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 <center>![Настройка](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Развертывание пользовательского портала Azure Multi-Factor Authentication на отдельном сервере
+## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Развертывание пользовательского портала Azure Multi-Factor Authentication на отдельном сервере
 Для использования приложения Azure Multi-Factor Authentication и его успешного взаимодействия с пользовательским порталом должны выполняться приведенные ниже условия.
 
 Требования к оборудованию и программному обеспечению см. в разделе «Требования к оборудованию и программному обеспечению».
@@ -89,7 +89,7 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 7. Если веб-сайт, с которого выполнялась установка пользовательского портала (например, «веб-сайт по умолчанию»), еще не связан с публично подписанным сертификатом, установите сертификат на сервере, если он на нем еще не установлен, затем откройте диспетчер IIS и привяжите сертификат к веб-сайту.
 8. Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, с которой был установлен пользовательский портал (например https://www.publicwebsite.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Настроить параметры пользовательского портала на сервере Azure Multi-Factor Authentication.
+## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Настроить параметры пользовательского портала на сервере Azure Multi-Factor Authentication.
 Теперь, когда портал установлен, необходимо настроить сервер Azure Multi-Factor Authentication для работы с порталом.
 
 Сервер Azure Multi-Factor Authentication предоставляет несколько параметров для пользовательского портала.  Следующая таблица содержит список этих параметров и объяснение их использования.
@@ -113,7 +113,7 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 ![Параметры пользовательского портала](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Настройка параметров пользовательского портала на сервере Azure Multi-Factor Authentication Server
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Настройка параметров пользовательского портала на сервере Azure Multi-Factor Authentication Server
 1. На сервере Azure Multi-Factor Authentication щелкните значок пользовательского портала. На вкладке «Параметры» в текстовом поле «URL-адрес пользовательского портала» введите URL-адрес пользовательского портала. Если включена функция электронной почты, этот URL-адрес будет вставляться в сообщения электронной почты, отправляемые пользователям в процессе их импорта на сервер Azure Multi-Factor Authentication.
 2. Выберите параметры, которые необходимо использовать на пользовательском портале. Например, если пользователям разрешено управлять своими методами проверки подлинности, убедитесь, что установлен флажок «Разрешить пользователям выбирать метод» и что указаны методы, из которых пользователи могут выбирать.
 3. Щелкните ссылку «Справка» в верхнем правом углу — это поможет вам разобраться во всех отображаемых параметрах.
@@ -142,7 +142,7 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 ![Доверенные IP-адреса пользовательского портала](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="selfservice-user-enrollment"></a>Самостоятельная регистрация пользователей
+## <a name="self-service-user-enrollment"></a>Самостоятельная регистрация пользователей
 Если вы хотите, чтобы пользователи входили в систему и регистрировались, необходимо выбрать параметры «Разрешить пользователям вход в систему» и «Разрешить регистрацию пользователей». Помните, что выбранные параметры повлияют на процесс входа пользователя в систему.
 
 Например, когда пользователь открывает пользовательский портал и нажимает кнопку «Вход», он перенаправляется на страницу настройки многофакторной проверки подлинности Azure.  В зависимости от того, как вы настроили многофакторную проверку подлинности Azure, пользователь сможет выбрать свой способ проверки подлинности.  
@@ -177,6 +177,6 @@ ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

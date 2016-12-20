@@ -1,12 +1,12 @@
 ---
-title: Оптимизация среды с помощью решения Service Fabric в Log Analytics | Microsoft Docs
-description: Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric.
+title: "Оптимизация среды с помощью решения Service Fabric в Log Analytics | Документация Майкрософт"
+description: "Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Решение Service Fabric в Log Analytics)
@@ -338,33 +342,33 @@ $workspace = Select-Workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -IntelligencePackName "ServiceFabric" -Enabled $true
 ```
 
-После включения решения на странице обзора OMS появится плитка Service Fabric, на которой будут отображены важные проблем, например сбои и отмены RunAsync за последние 24 часа.
+После включения решения на странице обзора OMS появится плитка Service Fabric, на которой будут отображены важные проблем, например сбои и отмены RunAsync за последние 24 часа.
 
 ![Плитка Service Fabric](./media/log-analytics-service-fabric/sf2.png)
 
 ### <a name="view-service-fabric-events"></a>Просмотр событий Service Fabric
-Щелкните плитку **Service Fabric**, чтобы открыть панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. Каждый столбец содержит десять ведущих событий с числом, соответствующим критериям события для указанного диапазона времени. Можно выполнить поиск по журналам, выводящий весь список, щелкнув элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
+Щелкните плитку **Service Fabric**, чтобы открыть панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. В каждом столбце содержится десять основных событий, соответствующих таким указанным критериям, как диапазон времени. Можно выполнить поиск по журналам, выводящий весь список, щелкнув элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
 
 | **Событие Service Fabric** | **description** |
 | --- | --- |
 | Важные проблемы |Отображение таких проблем, как сбои и отмены RunAsync, а также отключение узлов. |
 | Операционные события |Важные операционные события, такие как обновление и развертывание приложения. |
 | События надежных служб |Важные события надежных служб, например вызовы RunAsync. |
-| События субъектов |Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
-| События приложений |Все пользовательские события трассировки событий Windows, создаваемые приложениями. |
+| События субъектов |Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
+| События приложений |Все пользовательские события ETW, создаваемые приложениями. |
 
 ![Панель мониторинга Service Fabric](./media/log-analytics-service-fabric/sf3.png)
 
 ![Панель мониторинга Service Fabric](./media/log-analytics-service-fabric/sf4.png)
 
-В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для Service Fabric.
+В следующей таблице описаны методы сбора данных, а также приведены сведения о сборе данных для Service Fabric.
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Да](./media/log-analytics-malware/oms-bullet-green.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |10 минут |
 
 > [!NOTE]
-> Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
+> Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
 > 
 > 
 
@@ -633,6 +637,9 @@ foreach($storageAccount in $storageAccountsToCheck)
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Управление подготовкой пользователей для корпоративных приложений в предварительной версии Azure Active Directory | Microsoft Docs
-description: Узнайте, как управлять подготовкой учетных записей пользователя для корпоративных приложений с помощью предварительной версии Azure Active Directory
+title: "Управление подготовкой пользователей для корпоративных приложений в предварительной версии Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как управлять подготовкой учетных записей пользователя для корпоративных приложений с помощью предварительной версии Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cecfdee4af934e68412699ce3166514c5521bb0
+
 
 ---
-# <a name="preview:-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Управление подготовкой учетных записей пользователей для корпоративных приложений на новом портале Azure (предварительная версия)
+# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Управление подготовкой учетных записей пользователей для корпоративных приложений на новом портале Azure (предварительная версия)
 В этой статье описывается управление автоматической подготовкой и отзывом учетных записей пользователей для приложений, поддерживающих эту возможность, особенно добавленных в категории "Избранные" [коллекции приложений Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), с помощью [портала Azure](https://portal.azure.com). Сейчас эта возможность управления на новом портале Azure доступна в общедоступной предварительной версии. В этой статье описываются новые функции, а также несколько временных ограничений на период действия предварительной версии. [Что есть в предварительной версии?](active-directory-preview-explainer.md)
 
 Дополнительные сведения об автоматической подготовке учетных записей пользователей см. в статье [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -81,6 +85,6 @@ ms.author: asmalser
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

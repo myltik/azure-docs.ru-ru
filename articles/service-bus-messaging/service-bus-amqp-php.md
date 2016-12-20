@@ -1,25 +1,29 @@
 ---
-title: Служебная шина и PHP с протоколом AMQP 1.0 | Microsoft Docs
-description: Использование служебной шины в PHP с протоколом AMQP
-services: service-bus
+title: "Служебная шина и PHP с протоколом AMQP 1.0 | Документация Майкрософт"
+description: "Использование служебной шины в PHP с протоколом AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>Использование служебной шины на платформе PHP с протоколом AMQP 1.0
+# <a name="using-service-bus-from-php-with-amqp-10"></a>Использование служебной шины на платформе PHP с протоколом AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Proton-PHP — это привязка языка PHP к Proton-C; т. е. Proton-PHP реализован как оболочка для ядра, реализованного на языке C.
+Proton-PHP — это привязка языка PHP к Proton-C; т. е. Proton-PHP реализован как оболочка для ядра, реализованного на языке C.
 
 ## <a name="downloading-the-proton-client-library"></a>Загрузка клиентской библиотеки Proton
 Proton-C и связанные с ним привязки (включая PHP) можно скачать с сайта [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Файл загружается в форме исходного кода. Чтобы создать код, следуйте инструкциям, содержащимся в загруженном пакете.
@@ -29,7 +33,7 @@ Proton-C и связанные с ним привязки (включая PHP) �
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>Работа с очередями, разделами и подписками служебной шины из PHP
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>Работа с очередями, разделами и подписками служебной шины из PHP
 В следующем примере кода показано, как отправлять и получать сообщения из сущности обмена сообщениями служебной шины.
 
 ### <a name="sending-messages-using-proton-php"></a>Отправка сообщений с помощью Proton-PHP
@@ -65,9 +69,9 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>Обмен сообщениями между .NET и Proton-PHP
+## <a name="messaging-between-net-and-proton-php"></a>Обмен сообщениями между .NET и Proton-PHP
 ### <a name="application-properties"></a>Свойства приложения
-#### <a name="protonphp-to-service-bus-.net-apis"></a>Взаимодействие между Proton-PHP и API .NET служебной шины
+#### <a name="protonphp-to-service-bus-net-apis"></a>Взаимодействие между Proton-PHP и API .NET служебной шины
 Сообщения Proton-PHP поддерживают свойства приложений следующих типов: **integer**, **double**, **Boolean**, **string** и **object**. В следующем примере кода PHP показано, как настроить свойства в сообщении с помощью каждого из этих типов свойств.
 
 ```
@@ -110,7 +114,7 @@ Console.WriteLine();
 | string |string |
 | object |Объект |
 
-#### <a name="service-bus-.net-apis-to-php"></a>Взаимодействие между API .NET служебной шины и PHP
+#### <a name="service-bus-net-apis-to-php"></a>Взаимодействие между API .NET служебной шины и PHP
 Тип [BrokeredMessage][BrokeredMessage] поддерживает свойства приложений следующих типов: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** и **TimeSpan**. В следующем примере кода .NET показано, как настроить свойства в объекте [BrokeredMessage][BrokeredMessage] с помощью каждого из этих типов свойств.
 
 ```
@@ -196,7 +200,7 @@ if ($message->properties != null)
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | Формат |Недоступно |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>Взаимодействие между API .NET служебной шины и Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>Взаимодействие между API .NET служебной шины и Proton-PHP
 | .NET служебной шины | Proton-PHP | Примечания |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -223,6 +227,6 @@ if ($message->properties != null)
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'Синхронизация Azure AD Connect: предотвращение случайного удаления | Microsoft Docs'
-description: В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect.
+title: "Синхронизация Azure AD Connect: предотвращение случайного удаления | Документация Майкрософт"
+description: "В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/01/2016
-ms.author: andkjell
+ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
+
 
 ---
-# Синхронизация Azure AD Connect: предотвращение случайного удаления
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Синхронизация Azure AD Connect: предотвращение случайного удаления
 В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect.
 
 При установке Azure AD Connect функция предотвращения случайного удаления включается по умолчанию с настроенным запретом экспортировать более 500 операций удаления. Эта функция защищает от случайных изменений конфигурации и изменений в локальном каталоге, которые могут повлиять на большое количество пользователей и других объектов.
@@ -37,7 +41,8 @@ ms.author: andkjell
 > 
 > 
 
-При поиске профиля экспорта в пользовательском интерфейсе **Synchronization Service Manager** также может отобразиться состояние `stopped-deletion-threshold-exceeded`. ![Предотвращение случайного удаления в пользовательском интерфейсе Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
+При поиске профиля экспорта в пользовательском интерфейсе **Synchronization Service Manager** также может отобразиться состояние `stopped-deletion-threshold-exceeded`.
+![Предотвращение случайного удаления в пользовательском интерфейсе Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 Если эта ситуация оказалась непредвиденной, выясните причину и выполните все действия для ее устранения. Чтобы увидеть, какие объекты должны быть удалены, выполните следующие действия.
 
@@ -45,20 +50,26 @@ ms.author: andkjell
 2. Выберите **Соединители**.
 3. Выберите соединитель типа **Azure Active Directory**.
 4. В разделе **Действия** справа выберите **Пространство поиска соединителя**.
-5. Во всплывающем окне в разделе **Scope** (Область) выберите **Disconnected Since** (Отключенные с...) и укажите момент времени в прошлом. Щелкните **Search** (Поиск). Вы получите список всех объектов, которые будут удалены. Щелкнув каждый объект, вы получите дополнительные сведения. Также можно щелкнуть **Column Setting** (Настройка столбца), чтобы добавить дополнительные атрибуты, отображаемые в сетке.
+5. Во всплывающем окне в разделе **Область** выберите **Отключенные с** и укажите момент времени в прошлом. Щелкните **Search**(Поиск). Вы получите список всех объектов, которые будут удалены. Щелкнув каждый объект, вы получите дополнительные сведения. Также можно щелкнуть **Column Setting** (Настройка столбца), чтобы добавить дополнительные атрибуты, отображаемые в сетке.
 
 ![Пространство поиска соединителя](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
 Если удаление необходимо, сделайте следующее.
 
-1. Чтобы временно отключить защиту и выполнить удаление, запустите следующий командлет PowerShell: `Disable-ADSyncExportDeletionThreshold`. Укажите имя учетной записи и пароль глобального администратора Azure AD. ![Учетные данные](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+1. Чтобы временно отключить защиту и выполнить удаление, запустите следующий командлет PowerShell: `Disable-ADSyncExportDeletionThreshold`. Укажите имя учетной записи и пароль глобального администратора Azure AD.
+   ![Учетные данные](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. С выбранным соединителем Azure Active Directory укажите действие **Запустить** и затем выберите **Экспорт**.
 3. Чтобы повторно включить защиту, запустите командлет PowerShell: `Enable-ADSyncExportDeletionThreshold`.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 **Обзорные статьи**
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

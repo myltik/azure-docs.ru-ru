@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,10 +47,14 @@ ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    ИЛИ 
+
+    Локальная установка [эмулятора Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) или более поздней версии либо [Visual Studio Express]() (бесплатная версия). Инструкции в этом руководстве предназначены для работы с Visual Studio 2015. 
 * Средства Python для Visual Studio с сайта [GitHub](http://microsoft.github.io/PTVS/). В этом руководстве используются средства Python для VS 2015. 
 * Пакет Azure SDK Python для Visual Studio версии 2.4 или выше с сайта [azure.com](https://azure.microsoft.com/downloads/). Мы использовали пакет Microsoft Azure SDK для Python 2.7.
-* Python 2.7 с сайта [python.org][2]. Мы использовали версию Python 2.7.11. 
+* Python 2.7 с сайта [python.org][2]. Мы использовали версию Python 2.7.11. 
 
 > [!IMPORTANT]
 > Если вы устанавливаете Python 2.7 впервые, убедитесь, что на экране Customize Python 2.7.11 (Настройка Python 2.7.11) вы выбрали **Add python.exe to Path**(Добавить файл python.exe к пути).
@@ -59,10 +63,10 @@ ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
 > 
 > 
 
-* Компилятор Microsoft Visual C++ для Python 2.7 из [Центра загрузки Майкрософт][3].
+* Компилятор Microsoft Visual C++ для Python 2.7 из [Центра загрузки Майкрософт][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
-Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, можно сразу перейти к разделу [Шаг 2. Создание веб-приложения Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание веб-приложения Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -315,7 +319,7 @@ def vote():
     ```
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Добавьте файл конфигурации и измените файл \_\_init\_\_.py
-1. В обозревателе решений щелкните правой кнопкой проект **tutorial**, выберите пункты **Добавить**, **Новый элемент** и **Empty Python File** (Пустой файл Python), а затем введите имя файла **config.py**. Этот файл необходим для работы форм в Flask. Кроме того, его можно использовать для предоставления секретного ключа. В этом учебнике секретный ключ не требуется.
+1. В обозревателе решений щелкните правой кнопкой мыши проект **tutorial**, выберите пункты **Добавить**, **Новый элемент** и **Empty Python File** (Пустой файл Python), а затем введите имя файла **config.py**. Этот файл необходим для работы форм в Flask. Кроме того, его можно использовать для предоставления секретного ключа. В этом учебнике секретный ключ не требуется.
 2. Добавьте приведенный ниже код в файл config.py. На следующем этапе вам потребуется изменить значения свойств **DOCUMENTDB\_HOST** и **DOCUMENTDB\_KEY**.
    
     ```python
@@ -404,11 +408,11 @@ def vote():
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Установщик веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
-[Портал Azure]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

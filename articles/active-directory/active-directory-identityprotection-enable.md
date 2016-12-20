@@ -1,13 +1,13 @@
 ---
-title: Enabling Azure Active Directory Identity Protection | Microsoft Docs
-description: Learn how to enable Azure Active Directory Identity Protection.
+title: "Включение защиты идентификации Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как включить защиту идентификации Azure Active Directory."
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
+keywords: "защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,33 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+
 
 ---
-# <a name="enabling-azure-active-directory-identity-protection"></a>Enabling Azure Active Directory Identity Protection
-Azure Active Directory Identity Protection is a new capability that provides a consolidated view into suspicious sign-in activities and potential vulnerabilities and with notifications, remediation recommendations and risk-based policies helps you protect your business. 
+# <a name="enabling-azure-active-directory-identity-protection"></a>Включение защиты идентификации Azure Active Directory
+Защита идентификации Azure Active Directory — это новая возможность, которая обеспечивает единое представление подозрительных операций входа в систему и потенциальных уязвимостей. В этой службе реализованы уведомления, рекомендации по исправлению и политики на основе рисков, помогающие защитить организацию. 
 
-The service detects suspicious activities for end user and privileged (admin) identities based on signals like brute force attacks, leaked credentials, sign ins from unfamiliar locations, infected devices, to protect against these activities in real-time. More importantly, based on these suspicious activities, a user risk severity is computed and risk-based policies can be configured and automatically protect the identities of your organization. For more details, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Данная служба обнаруживает подозрительные операции входа в систему по пользовательским и привилегированным (администраторы) удостоверениям по таким признакам, как атаки методом подбора, раскрытые учетные данные, попытки входа в систему из неизвестных расположений и зараженные устройства, чтобы обеспечить защиту в реальном времени. Что более важно, на основе этих подозрительных операций вычисляется серьезность риска пользователя, и можно настроить политики на основе рисков, чтобы обеспечить автоматическую защиту удостоверений своей организации. Дополнительные сведения см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 
-This topics shows how to enable Azure Active Directory Identity Protection.
+В этом разделе показано, как включить защиту идентификации Azure Active Directory.
 
-## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Steps to enable Azure Active Directory Identity Protection
-1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as global administrator. 
-2. In the Azure portal, click **Marketplace**.
+## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Инструкции по включению защиты идентификации Azure Active Directory
+1. [Войдите](https://ms.portal.azure.com/) на портал Azure с правами глобального администратора. 
+2. На портале Azure щелкните **Marketplace**.
    
-    ![Create](./media/active-directory-identityprotection-enable/01.png "Create")
-3. In the applications list, click **Security + Identity**.
+    ![Создать](./media/active-directory-identityprotection-enable/01.png "Create")
+3. В списке приложений щелкните **Безопасность+идентификация**.
    
-    ![Create](./media/active-directory-identityprotection-enable/02.png "Create")
-4. Click **Azure AD Identity Protection**.
+    ![Создать](./media/active-directory-identityprotection-enable/02.png "Create")
+4. Щелкните **Azure AD Identity Protection**(Защита идентификации Azure AD).
    
-    ![Create](./media/active-directory-identityprotection-enable/03.png "Create")
-5. On the **Azure AD Identity Protection** blade, click **Create**.
+    ![Создание](./media/active-directory-identityprotection-enable/03.png "Create")
+5. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) щелкните **Создать**.
    
-    ![Create](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Создание](./media/active-directory-identityprotection-enable/04.png "Create")
 
-## <a name="next-steps"></a>Next Steps
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

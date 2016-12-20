@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
@@ -67,7 +67,7 @@ ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
 В этом разделе описываются компоненты решения, целевые варианты использования и приводятся примеры.
 
 ### <a name="predictive-maintenance-dashboard"></a>Панель мониторинга диагностического обслуживания
-Эта страница веб-приложения использует элементы управления JavaScript PowerBI (см. [репозиторий визуальных элементов PowerBI][lnk-powerbi]) для визуализации:
+Эта страница веб-приложения использует элементы управления PowerBI JavaScript (см. [репозиторий визуальных элементов PowerBI][lnk-powerbi]) для визуализации:
 
 * выходных данных из задания Stream Analytics, поступающих в хранилище BLOB-объектов;
 * значений остаточного срока эксплуатации и количества циклов для каждого двигателя самолета.
@@ -100,14 +100,14 @@ ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
 Моделирование можно остановить в любой момент, но, если нажать кнопку **Запустить моделирование** , процесс перезапустится с самого начала.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Возможно, после запуска предварительно настроенного решения для диагностического обслуживания вам понадобится внести в него изменения. Дополнительные сведения об этом см. в статье [Настройка предварительно настроенного решения][lnk-customize].
+Возможно, после запуска предварительно настроенного решения для диагностического обслуживания вам понадобится внести в него изменения. Дополнительные сведения об этом см. в статье [Настройка предварительно настроенных решений][lnk-customize].
 
 В записи блога [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (IoT Suite. Как работает диагностическое обслуживание) на сайте TechNet приведены дополнительные сведения о готовом решении для диагностического обслуживания.
 
 Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
 * [Часто задаваемые вопросы об IoT Suite][lnk-faq]
-* [Комплексная защита в Интернете вещей][lnk-security-groundup]
+* [Все аспекты безопасности Интернета вещей][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

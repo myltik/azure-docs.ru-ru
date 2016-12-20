@@ -1,25 +1,29 @@
 ---
-title: 'Предварительная версия доменных служб Azure Active Directory: руководство по администрированию | Microsoft Docs'
-description: Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD
+title: "Доменные службы Azure Active Directory: присоединение виртуальной машины RHEL к управляемому домену | Документация Майкрософт"
+description: "Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 87291c47-1280-43f8-8fb2-da1bd61a4942
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 10/02/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: e345d39259f44fdd78a0f041ce823051da80b27f
+
 
 ---
-# Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
+# <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
 Эта статья покажет, как присоединить виртуальную машину Red Hat Enterprise Linux (RHEL) 7 к управляемому домену доменных служб Azure AD.
 
-## Подготовка виртуальной машины Red Hat Enterprise Linux
+## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Подготовка виртуальной машины Red Hat Enterprise Linux
 Вот как подготовить виртуальную машину RHEL 7 на портале Azure:
 
 1. Войдите на [портал Azure](https://portal.azure.com).
@@ -28,22 +32,22 @@ ms.author: maheshu
 2. Нажмите кнопку **Создать** в области слева и введите в поле поиска **Red Hat**, как показано ниже на снимке экрана. В результатах поиска вы увидите все записи для Red Hat Enterprise Linux. Щелкните **Red Hat Enterprise Linux 7.2**.
    
     ![Выбор RHEL в результатах](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
-3. Результаты поиска в области **Все** должны содержать образ Red Hat Enterprise Linux 7.2. Щелкните **Red Hat Enterprise Linux 7.2**, чтобы получить сведения об образе виртуальной машины.
+3. Результаты поиска в области **Все** должны содержать образ Red Hat Enterprise Linux 7.2. Щелкните **Red Hat Enterprise Linux 7.2** , чтобы получить сведения об образе виртуальной машины.
    
     ![Выбор RHEL в результатах](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-rhel-image.png)
-4. В области **Red Hat Enterprise Linux 7.2** вы увидите подробную информацию об образе виртуальной машины. В раскрывающемся списке **Выберите модель развертывания** выберите вариант **Классический**. Нажмите кнопку **Создать**.
+4. В области **Red Hat Enterprise Linux 7.2** вы увидите подробную информацию об образе виртуальной машины. В раскрывающемся списке **Выберите модель развертывания** выберите вариант **Классический**. Нажмите кнопку **Создать** .
    
     ![Просмотр сведений об образе](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-clicked.png)
 5. В области **Создать виртуальную машину** введите **Имя узла** для новой виртуальной машины. Также следует указать учетные данные локального администратора: **имя пользователя** и **пароль**. Вы также можете использовать ключ SSH для проверки подлинности локального администратора. Кроме того, выберите **ценовую категорию** для виртуальной машины.
    
     ![Создание виртуальной машины — основные сведения](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
-6. Затем щелкните **Необязательная конфигурация**. Появится область с названием **Дополнительная настройка**. В области **Необязательная конфигурация** щелкните **Сеть**.
+6. Затем щелкните **Необязательная конфигурация**. В области **Необязательная конфигурация** щелкните **Сеть**.
    
     ![Создание виртуальной машины — настройка виртуальной сети](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
-7. Откроется область **Сеть**. В области **Сеть** щелкните **Виртуальная сеть**, чтобы выбрать виртуальную сеть, в которой нужно развернуть виртуальную машину Linux. Откроется область **Виртуальная сеть**. В области **Виртуальная сеть** выберите вариант **Использовать существующую виртуальную сеть**. Затем выберите виртуальную сеть, в которой доступны доменные службы Azure AD. В этом примере мы выбрали виртуальную сеть MyPreviewVNet.
+7. Откроется область **Сеть**. В области **Сеть** щелкните **Виртуальная сеть**, чтобы выбрать виртуальную сеть, в которой нужно развернуть виртуальную машину Linux. Откроется область **Виртуальная сеть** . В области **Виртуальная сеть** выберите вариант **Использование существующей виртуальной сети**. Затем выберите виртуальную сеть, в которой доступны доменные службы Azure AD. В этом примере мы выбрали виртуальную сеть MyPreviewVNet.
    
     ![Создание виртуальной машины — выбор виртуальной сети](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
-8. В области **Дополнительная настройка** щелкните кнопку **ОК**.
+8. В области **Необязательная конфигурация** нажмите кнопку **ОК**.
    
     ![Создание виртуальной машины — виртуальная сеть выбрана](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-vnet-selected.png)
 9. Теперь все готово к созданию виртуальной машины. В области **Создать виртуальную машину** нажмите кнопку **Создать**.
@@ -56,25 +60,25 @@ ms.author: maheshu
     
     ![Создание виртуальной машины — развернута](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-deployed.png)
 
-## Удаленное подключение к только что подготовленной виртуальной машине Linux
+## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Удаленное подключение к только что подготовленной виртуальной машине Linux
 Вы подготовили виртуальную машину RHEL 7.2 в Azure. Следующий шаг — установка удаленного подключения к этой виртуальной машине.
 
-**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Во всех последующих действиях мы используем для подключения к виртуальной машине RHEL SSH-клиент PuTTY. Дополнительные сведения см. на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Во всех последующих действиях для подключения к виртуальной машине RHEL мы используем SSH-клиент PuTTY. Дополнительные сведения см. на [странице скачивания PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Откройте программу PuTTY.
 2. Введите **имя узла** для новой виртуальной машины RHEL. В нашем примере новая виртуальная машина имеет имя узла contoso-rhel.cloudapp.net. Если вы не уверены, какое имя узла у вашей виртуальной машины, откройте панель мониторинга виртуальной машины на портале Azure.
    
     ![Подключение PuTTY](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-connect.png)
-3. Войдите на виртуальную машину, используя учетные данные локального администратора, которые вы указали при создании виртуальной машины. В этом примере мы используем имя mahesh для учетной записи локального администратора.
+3. Войдите на виртуальную машину, используя учетные данные локального администратора, которые вы указали при создании виртуальной машины. В этом примере для учетной записи локального администратора используется имя mahesh.
    
     ![Окно входа PuTTY](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-login.png)
 
-## Установка требуемых пакетов на виртуальную машину Linux
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Установка требуемых пакетов на виртуальную машину Linux
 Когда вы подключитесь к виртуальной машине, вам следует установить все пакеты, необходимые для присоединения виртуальной машины к домену. Выполните следующие действия:
 
-1. **Установите realmd:** пакет realmd нужен для присоединения к домену. В окне терминала PuTTY введите следующую команду.
+1. **Установите realmd:** пакет realmd нужен для присоединения к домену. В окне терминала PuTTY введите следующую команду:
    
     sudo yum install realmd
    
@@ -83,7 +87,7 @@ ms.author: maheshu
     Через несколько минут пакет realmd будет установлен на виртуальной машине.
    
     ![realmd установлен](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
-2. **Установите sssd:** пакету realmd требуется sssd, чтобы выполнять операции присоединения к домену. В окне терминала PuTTY введите следующую команду.
+2. **Установите sssd:** пакету realmd требуется sssd, чтобы выполнять операции присоединения к домену. В окне терминала PuTTY введите следующую команду:
    
     sudo yum install sssd
    
@@ -92,7 +96,7 @@ ms.author: maheshu
     Через несколько минут пакет sssd будет установлен на виртуальной машине.
    
     ![realmd установлен](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
-3. **Установите kerberos:** в окне терминала PuTTY введите следующую команду.
+3. **Установите kerberos:** в окне терминала PuTTY введите следующую команду:
    
     sudo yum install krb5-workstation krb5-libs
    
@@ -102,24 +106,24 @@ ms.author: maheshu
    
     ![Kerberos установлен](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kerberos-installed.png)
 
-## Присоединение виртуальной машины Linux к управляемому домену
+## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Присоединение виртуальной машины Linux к управляемому домену
 Теперь, когда все требуемые пакеты установлены на виртуальной машине Linux, мы готовы присоединить виртуальную машину к управляемому домену.
 
-1. Выполните поиск управляемого домена доменных служб AAD. В окне терминала PuTTY введите следующую команду.
+1. Выполните поиск управляемого домена доменных служб AAD. В окне терминала PuTTY введите следующую команду:
    
     sudo realm discover CONTOSO100.COM
    
-    ![Поиск realmd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
+    ![realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
    
     Если команде **realm discover** не удается найти управляемый домен, проверьте подключение между доменом и виртуальной машиной (с помощью команды ping). Также убедитесь, что виртуальная машина развернута в одной виртуальной сети с управляемым доменом.
 2. Инициализируйте kerberos. В окне терминала PuTTY введите следующую команду. Обязательно укажите пользователя, который принадлежит к группе "Администраторы AAD AD". Только эти пользователи могут присоединять компьютеры к управляемому домену.
    
     kinit bob@CONTOSO100.COM
    
-    ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
+    ![kinit ](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
    
     Доменное имя следует вводить заглавными буквами, иначе kinit завершится ошибкой.
-3. Присоедините компьютер к домену. В окне терминала PuTTY введите следующую команду. Укажите того же пользователя, учетные данные которого использовали на предыдущем шаге (kinit).
+3. Присоедините компьютер к домену. В окне терминала PuTTY введите следующую команду. Укажите того же пользователя, учетные данные которого вы использовали на предыдущем шаге (kinit).
    
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
    
@@ -127,10 +131,10 @@ ms.author: maheshu
 
 Когда компьютер присоединится к управляемому домену, вы получите сообщение "Компьютер успешно зарегистрирован в realm" (Successfully enrolled machine in realm).
 
-## Проверка присоединения к домену
+## <a name="verify-domain-join"></a>Проверка присоединения к домену
 Вы можете быстро проверить, присоединена ли виртуальная машина к управляемому домену. Подключитесь к виртуальной машине, присоединенной к домену, используя SSH и учетную запись пользователя домена, а затем проверьте, правильно ли разрешена учетная запись.
 
-1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемой учетной записи (в нашем примере — bob@CONTOSO100.COM).
+1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемому домену (в нашем примере — 'bob@CONTOSO100.COM').
    
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 2. Чтобы проверить, правильно ли инициализирована домашняя папка, в окне терминала PuTTY введите такую команду:
@@ -140,18 +144,23 @@ ms.author: maheshu
    
     id
 
-Ниже приведен пример выходных данных этих команд.
+Ниже приведен пример выходных данных этих команд:
 
 ![Проверка присоединения к домену](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
 
-## Устранение неполадок при присоединении к домену
-См. раздел, посвященный [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join).
+## <a name="troubleshooting-domain-join"></a>Устранение неполадок при присоединении к домену
+См. статью, посвященную [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join).
 
-## Похожий контент
-* [Доменные службы Azure AD (предварительная версия) — приступая к работе](active-directory-ds-getting-started.md)
+## <a name="related-content"></a>Похожий контент
+* [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-* [Installing Kerberos (Установка Kerberos)](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
-* [Red Hat Enterprise Linux 7: Windows Integration Guide (Red Hat Enterprise Linux 7: руководство по интеграции Windows)](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+* [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Installing Kerberos (Установка Kerberos)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Red Hat Enterprise Linux 7: Windows Integration Guide (Red Hat Enterprise Linux 7: руководство по интеграции Windows)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

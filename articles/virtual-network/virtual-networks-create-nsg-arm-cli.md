@@ -1,13 +1,13 @@
 ---
-title: Создание групп безопасности сети с помощью интерфейса командной строки Azure | Microsoft Docs
-description: Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью интерфейса командной строки Azure.
+title: "Создание групп безопасности сети в режиме ARM с помощью интерфейса командной строки Azure | Документация Майкрософт"
+description: "Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью интерфейса командной строки Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d740926f6e372e46001b5a093c7fb25b47bc4f36
+
 
 ---
-# Создание групп безопасности сети с помощью интерфейса командной строки Azure
+# <a name="how-to-create-nsgs-in-the-azure-cli"></a>Создание групп безопасности сети с помощью интерфейса командной строки Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -28,20 +32,20 @@ ms.author: jdial
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Для приведенных ниже примеров команд интерфейса командной строки Azure (Azure CLI) требуется уже созданная простая среда по описанному выше сценарию. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd). Затем щелкните **Развернуть в Azure**, при необходимости измените значения параметров по умолчанию и следуйте указаниям на портале.
+Для приведенных ниже примеров команд интерфейса командной строки Azure требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd). Затем щелкните **Deploy to Azure** (Развернуть в Azure), при необходимости измените значения параметров по умолчанию и следуйте указаниям на портале.
 
-## Создание группы безопасности для подсети переднего плана
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создавать сетевую группу безопасности для подсети переднего плана
 Чтобы создать сетевую группу безопасности под названием *NSG-FrontEnd* по описанному выше сценарию, выполните указанные ниже действия.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
-2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+2. Выполните команду **azure config mode** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
    
         azure config mode arm
    
     Ожидаемые выходные данные:
    
         info:    New mode is arm
-3. Выполните команду **azure network nsg create**, чтобы создать сетевую группу безопасности.
+3. Выполните команду **azure network nsg create** , чтобы создать сетевую группу безопасности.
    
         azure network nsg create -g TestRG -l westus -n NSG-FrontEnd
    
@@ -72,7 +76,7 @@ ms.author: jdial
    * **-g (или --resource-group)**. Имя группы ресурсов, в которой будет создана группа безопасности сети. В данном сценарии это *TestRG*.
    * **-l (или --location)**. Регион Azure, в котором будет создана группа безопасности сети. В нашем случае это *westus*.
    * **-n (или --name)**. Имя новой группы безопасности сети. В данном сценарии это *NSG-FrontEnd*.
-4. Выполните команду **azure network nsg rule create**, чтобы создать правило, которое разрешает доступ к точке 3389 (RDP) из Интернета.
+4. Выполните команду **azure network nsg rule create** , чтобы создать правило, которое разрешает доступ к точке 3389 (RDP) из Интернета.
    
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
    
@@ -109,8 +113,8 @@ ms.author: jdial
    * **-f (или --source-address-prefix)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
    * **-o (или --source-port-range)**. Исходный порт или диапазон портов.
    * **-e (или --destination-address-prefix)**. Префикс адреса назначения в CIDR или использование тегов по умолчанию.
-   * **-u (или --destination-port-range)**. Конечный порт или диапазон портов.
-5. Выполните команду **azure network nsg rule create**, чтобы создать правило, которое разрешает доступ к порту 80 (HTTP) из Интернета.
+   * **-u (или --destination-port-range)**. Конечный порт или диапазон портов.    
+5. Выполните команду **azure network nsg rule create** , чтобы создать правило, которое разрешает доступ к порту 80 (HTTP) из Интернета.
    
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
    
@@ -134,7 +138,7 @@ ms.author: jdial
         data:    Access                          : Allow
         data:    Priority                        : 200
         info:    network nsg rule create command OK
-6. Выполните команду **azure network vnet subnet set**, чтобы связать группу безопасности сети с подсетью переднего плана.
+6. Выполните команду **azure network vnet subnet set** , чтобы связать группу безопасности сети с подсетью переднего плана.
    
         azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -o NSG-FrontEnd
    
@@ -160,10 +164,10 @@ ms.author: jdial
         data:    
         info:    network vnet subnet set command OK
 
-## Как создать группу безопасности сети для внутренней подсети
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Как создать группу безопасности сети для внутренней подсети
 Чтобы создать сетевую группу безопасности под названием *NSG-BackEnd* по описанному выше сценарию, выполните следующие действия.
 
-1. Выполните команду **azure network nsg create**, чтобы создать сетевую группу безопасности.
+1. Выполните команду **azure network nsg create** , чтобы создать сетевую группу безопасности.
    
         azure network nsg create -g TestRG -l westus -n NSG-BackEnd
    
@@ -189,7 +193,7 @@ ms.author: jdial
         data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001   
         data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
         info:    network nsg create command OK
-2. Выполните команду **azure network nsg rule create**, чтобы создать правило, которое разрешает доступ к порту 1433 (SQL) из подсети переднего плана.
+2. Выполните команду **azure network nsg rule create** , чтобы создать правило, которое разрешает доступ к порту 1433 (SQL) из подсети переднего плана.
    
         azure network nsg rule create -g TestRG -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
    
@@ -213,7 +217,7 @@ ms.author: jdial
         data:    Access                          : Allow
         data:    Priority                        : 100
         info:    network nsg rule create command OK
-3. Выполните команду **azure network nsg rule create**, чтобы создать правило, которое запрещает доступ к Интернету.
+3. Выполните команду **azure network nsg rule create** , чтобы создать правило, которое запрещает доступ к Интернету.
    
         azure network nsg rule create -g TestRG -a NSG-BackEnd -n web-rule -c Deny -p * -r Outbound -y 200 -f * -o * -e Internet -u *
    
@@ -237,7 +241,7 @@ ms.author: jdial
         data:    Access                          : Deny
         data:    Priority                        : 200
         info:    network nsg rule create command OK
-4. Выполните команду **azure network vnet subnet set**, чтобы связать группу безопасности сети с внутренней подсетью.
+4. Выполните команду **azure network vnet subnet set** , чтобы связать группу безопасности сети с внутренней подсетью.
    
         azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -o NSG-BackEnd
    
@@ -263,4 +267,9 @@ ms.author: jdial
         data:    
         info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

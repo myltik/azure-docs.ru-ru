@@ -1,36 +1,40 @@
 ---
-title: Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement
-description: Описание дополнительных параметров конфигурации, включая манифест Android, в пакете SDK для Android в службе Azure Mobile Engagement.
+title: "Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement"
+description: "Описание дополнительных параметров конфигурации, включая манифест Android, в пакете SDK для Android в службе Azure Mobile Engagement."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
+
 
 ---
-# Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement
+# <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Универсальная платформа Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-logging.md)
-> 
-> 
+> * [Android](mobile-engagement-android-advanced-configuration.md)
+>
+>
 
 В этой статье описано, как настроить различные параметры конфигурации для приложений Android в службе Azure Mobile Engagement.
 
-## Предварительные требования
-[!INCLUDE [Предварительные требования](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## Требования к разрешениям
+## <a name="permission-requirements"></a>Требования к разрешениям
 Для некоторых параметров необходимы специальные разрешения, которые здесь перечислены для справки, а также включены в некоторые компоненты. Добавьте эти разрешения в файл AndroidManifest.xml проекта непосредственно перед тегом `<application>` или после него.
 
 После того как вы вставите соответствующее разрешение из таблицы ниже, код должен выглядеть следующим образом.
@@ -41,39 +45,39 @@ ms.author: piyushjo;ricksal
 | Разрешение | Применение |
 | --- | --- |
 | ИНТЕРНЕТ |обязательный параметр. Базовые отчеты |
-| ACCESS\_NETWORK\_STATE |обязательный параметр. Базовые отчеты |
-| RECEIVE\_BOOT\_COMPLETED |обязательный параметр. Отображение центра уведомлений после перезагрузки устройства |
-| WAKE\_LOCK |(рекомендуется). Включает сбор данных при использовании Wi-Fi или при выключенном экране |
+| ACCESS_NETWORK_STATE |обязательный параметр. Базовые отчеты |
+| RECEIVE_BOOT_COMPLETED |обязательный параметр. Отображение центра уведомлений после перезагрузки устройства |
+| WAKE_LOCK |(рекомендуется). Включает сбор данных при использовании Wi-Fi или при выключенном экране |
 | VIBRATE |необязательный параметр. Включает вибрацию при получении уведомления |
-| DOWNLOAD\_WITHOUT\_NOTIFICATION |необязательный параметр. Включает общие уведомления Android |
-| WRITE\_EXTERNAL\_STORAGE |необязательный параметр. Включает общие уведомления Android |
-| ACCESS\_COARSE\_LOCATION |необязательный параметр. Включает отчет о расположении в реальном времени |
-| ACCESS\_FINE\_LOCATION |необязательный параметр. Включает отчет о расположении на основе GPS |
+| DOWNLOAD_WITHOUT_NOTIFICATION |необязательный параметр. Включает общие уведомления Android |
+| WRITE_EXTERNAL_STORAGE |необязательный параметр. Включает общие уведомления Android |
+| ACCESS_COARSE_LOCATION |необязательный параметр. Включает отчет о расположении в реальном времени |
+| ACCESS_FINE_LOCATION |необязательный параметр. Включает отчет о расположении на основе GPS |
 
-Начиная с Android M [управление некоторыми разрешениями осуществляется в среде выполнения](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
+Начиная с Android M [управление некоторыми разрешениями осуществляется в среде выполнения](mobile-engagement-android-location-reporting.md#android-m-permissions).
 
 Если вы уже используете разрешение ``ACCESS_FINE_LOCATION``, вам не нужно использовать ``ACCESS_COARSE_LOCATION``.
 
-## Варианты настройки манифеста для Android
-### Отчет о сбоях
+## <a name="android-manifest-configuration-options"></a>Варианты настройки манифеста для Android
+### <a name="crash-report"></a>Отчет о сбоях
 Чтобы отключить отчеты о сбоях, добавьте следующий код (между тегами `<application>` и `</application>`).
 
     <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-### Пороговое значение пакета
+### <a name="burst-threshold"></a>Пороговое значение пакета
 По умолчанию служба Engagement ведет отчеты по журналам в режиме реального времени. Если приложение очень часто отправляет отчеты журналов, лучше сохранять их в буфер и передавать все вместе через определенные промежутки времени (это называется пакетным режимом). Чтобы это сделать, добавьте следующий код (между тегами `<application>` и `</application>`).
 
     <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 Пакетный режим немного продлевает время работы батареи, но влияет на Engagement Monitor: время выполнения всех сеансов и заданий будет округляться до порогового значения пакета (таким образом, сеансы и задания, время выполнения которых короче, чем пороговое значение пакета, могут не отображаться). Пороговое значение пакета не должно превышать 30 000 (30 с).
 
-### Время ожидания сеанса
- Можно завершить действие, нажав клавишу **Домой** или **Назад**, переведя телефон в режим ожидания или перейдя к другому приложению. По умолчанию сеанс завершается через десять секунд после завершения его последнего действия. Это позволяет избежать разбиения сеанса каждый раз, когда пользователь выходит из приложения и вскоре возвращается в него (это может происходить при выборе изображения, проверке уведомления и т. п.). Вам может потребоваться изменить данный параметр. Чтобы сделать это, добавьте следующий код между тегами `<application>` и `</application>`.
+### <a name="session-timeout"></a>Время ожидания сеанса
+ Можно завершить действие, нажав клавишу **Домой** или **Назад**, переведя телефон в режим ожидания или перейдя к другому приложению. По умолчанию сеанс завершается через десять секунд после завершения его последнего действия. Это позволяет избежать разбиения сеанса каждый раз, когда пользователь выходит из приложения и вскоре возвращается в него (это может происходить при выборе изображения, проверке уведомления и т. п.). Вам может потребоваться изменить данный параметр. Чтобы это сделать, добавьте следующий код (между тегами `<application>` и `</application>`).
 
     <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
-## Выключение отчетов журналов
-### Использование вызова метода
+## <a name="disable-log-reporting"></a>Выключение отчетов журналов
+### <a name="using-a-method-call"></a>Использование вызова метода
 Если необходимо, чтобы служба Engagement перестала отправлять журналы, можно вызвать:
 
     EngagementAgent.getInstance(context).setEnabled(false);
@@ -84,7 +88,7 @@ ms.author: piyushjo;ricksal
 
 Вы можете снова включить журнал отчетов путем вызова той же функции с `true`.
 
-### Интеграция в собственное `PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Интеграция в собственное `PreferenceActivity`
 Вместо вызова этой функции вы можете интегрировать данный параметр непосредственно в существующее `PreferenceActivity`.
 
 Можно настроить Engagement для использования файла настроек (с нужным режимом) в файле `AndroidManifest.xml` с `application meta-data`:
@@ -114,4 +118,8 @@ ms.author: piyushjo;ricksal
       android:summaryOn="Engagement is enabled."
       android:summaryOff="Engagement is disabled." />
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

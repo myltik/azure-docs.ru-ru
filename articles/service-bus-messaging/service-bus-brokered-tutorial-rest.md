@@ -1,22 +1,22 @@
 ---
 title: "Руководство по обмену сообщениями через посредника служебной шины на основе REST | Документация Майкрософт"
 description: "Руководство по обмену сообщениями через посредника на основе REST"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: b2cd9e5db765aa2ffbb00063ae193e39ffe9de4e
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 2. Создайте новый проект консольного приложения. В меню **Файл** щелкните **Создать**, а затем — **Проект**. В диалоговом окне **Новый проект** выберите **Visual C#** (если **Visual C#** не отображается, перейдите в раздел **Другие языки**). Затем выберите шаблон **Консольное приложение** и назовите его **Microsoft.ServiceBus.Samples**. Используйте расположение по умолчанию. Нажмите кнопку **ОК** , чтобы создать проект.
 3. Убедитесь, что в файле Program.cs операторы `using` отображаются следующим образом.
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 4. При необходимости переименуйте пространство имен для программы, заданное в Visual Studio по умолчанию, в `Microsoft.ServiceBus.Samples`.
 5. В класс `Program` добавьте следующие глобальные переменные.
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
     ```
 6. В `Main()` вставьте следующий код.
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 ### <a name="create-a-getsastoken-method"></a>Создание метода GetSASToken()
 Вставьте следующий код в класс `Program` после метода `Main()`.
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 Вставьте следующий код сразу после кода `GetSASToken()`, добавленного на предыдущем шаге.
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ private static string CreateQueue(string queueName, string token)
 
 1. Вставьте следующий код сразу после кода `CreateQueue()`, добавленного на предыдущем шаге.
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ private static string CreateQueue(string queueName, string token)
     ```
 2. Свойства стандартных сообщений, доставляемых через посредник, помещаются в заголовок HTTP `BrokerProperties`. Свойства посредника должен быть сериализованы в формате JSON. Чтобы указать для параметра **TimeToLive** значение 30 секунд и добавить метку сообщения M1 в сообщение, добавьте следующий код непосредственно перед вызовом `webClient.UploadData()`, приведенным в предыдущем примере.
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ private static string CreateQueue(string queueName, string token)
     Обратите внимание, что свойства сообщения посредника были добавлены и будут добавляться. Таким образом, запрос отправки должен содержать версию API, которая поддерживает все свойства сообщения посредника, которые являются частью запроса. Если указанная версия API не поддерживает свойство сообщения посредника, это свойство игнорируется.
 3. Пользовательские свойства сообщения определяются в виде набора пар "ключ-значение". Каждое пользовательское свойство хранится в собственном заголовке TPPT. Чтобы добавить пользовательские свойства Priority и Customer, добавьте следующий код непосредственно перед вызовом `webClient.UploadData()`, показанным в предыдущем примере.
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ private static string CreateQueue(string queueName, string token)
 
 Вставьте следующий код сразу после кода `SendMessage()`, добавленного на предыдущем шаге.
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 ### <a name="create-a-topic"></a>Создание раздела
 Вставьте следующий код сразу после кода `ReceiveAndDeleteMessage()`, добавленного на предыдущем шаге.
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Создание подписки
 Следующий код создает подписку на раздел, созданный на предыдущем шаге. Добавьте следующий код сразу после определения `CreateTopic()`:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Получение подписки Atom с указанными ресурсами
 Вставьте следующий код сразу после метода `CreateSubscription()`, добавленного на предыдущем шаге.
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Удаление сущностей обмена сообщениями
 Вставьте следующий код сразу после метода кода, добавленного на предыдущем шаге.
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Изменение формата подписки Atom
 Метод `GetResources()` содержит вызов метода `FormatXml()`, который изменяет формат полученной подписки Atom на более удобочитаемый. Далее определяется `FormatXml()`. Вставьте этот код сразу после кода `DeleteResource()`, добавленного на предыдущем шаге.
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ private static string FormatXml(string inputXml)
 ### <a name="example"></a>Пример
 Ниже приведен полный код после выполнения всех шагов в этом руководстве.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
@@ -604,6 +604,6 @@ namespace Microsoft.ServiceBus.Samples
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

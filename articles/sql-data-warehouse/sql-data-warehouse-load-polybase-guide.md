@@ -1,12 +1,12 @@
 ---
-title: Guide for using PolyBase in SQL Data Warehouse | Microsoft Docs
-description: Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios.
+title: "Руководство по использованию PolyBase в хранилище данных SQL | Документация Майкрософт"
+description: "Правила и рекомендации по использованию PolyBase в сценариях с хранилищем данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 4757fce1-96b3-48ea-8a51-be1385705f9f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,32 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 472f86ecd821dfad74c25fe7cd36d07114489a71
+
 
 ---
-# <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guide for using PolyBase in SQL Data Warehouse
-This guide gives practical information for using PolyBase in SQL Data Warehouse.
+# <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Руководство по использованию PolyBase в хранилище данных SQL
+Это руководство содержит практические сведения об использовании PolyBase в хранилище данных SQL.
 
-To get started, see the [Load data with PolyBase][Load data with PolyBase] tutorial.
+Указания по началу работы см. в руководстве [Загрузка данных с помощью PolyBase][Загрузка данных с помощью PolyBase].
 
-## <a name="rotating-storage-keys"></a>Rotating storage keys
-From time to time you will want to change the access key to your blob storage for security reasons.
+## <a name="rotating-storage-keys"></a>Ротация ключей хранилищ данных
+Время от времени вам потребуется изменять ключи доступа к хранилищу больших двоичных объектов по соображениям безопасности.
 
-The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition
+Самым элегантным способом выполнить эту задачу является процесс, который называется "ротация ключей". Возможно, вы уже заметили, что для учетной записи хранения больших двоичных объектов имеется два ключа хранения. Это необходимо для перехода
 
-Rotating your Azure storage account keys is a simple three step process
+Ротация ключей учетной записи хранения Azure представляет собой простой процесс из трех шагов
 
-1. Create second database scoped credential based on the secondary storage access key
-2. Create second external data source based off this new credential
-3. Drop and create the external table(s) pointing to the new external data source
+1. Создайте второй набор учетных данных на уровне базы данных на основе вторичного ключа доступа к хранилищу
+2. Создайте второй внешний источник данных, основанных на этих учетных данных
+3. Удалите и создайте внешнюю таблицу или таблицы, указывающие на только что созданный внешний источник данных
 
-When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:
+После переноса всех внешних таблиц во внешний источник данных вы можете выполнить задачи очистки.
 
-1. Drop first external data source
-2. Drop first database scoped credential based on the primary storage access key
-3. Log into Azure and regenerate the primary access key ready for the next time
+1. Удалите первый внешний источник данных
+2. Удалите первые учетные данные, собранные в базе данных, основанные на основном ключе доступа к хранилищу
+3. Выполните вход в Azure и снова создайте основной ключ доступа хранилища, который будет готов к следующему переходу
 
-## <a name="query-azure-blob-storage-data"></a>Query Azure blob storage data
-Queries against external tables simply use the table name as though it was a relational table.
+## <a name="query-azure-blob-storage-data"></a>Отправка запроса для данных хранилища больших двоичных объектов Azure
+Запросы к внешним таблицам используют имя таблицы так, как будто это реляционная таблица.
 
 ```sql
 -- Query Azure storage resident data via external table.
@@ -48,18 +52,18 @@ SELECT * FROM [ext].[CarSensor_Data]
 ```
 
 > [!NOTE]
-> A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+> Запрос к внешней таблице может завершиться с ошибкой *«Запрос прерван — достигнуто максимальное число отклонений при чтении из внешнего источника»*. Это означает, что внешние данные содержат *«грязные»* записи. Запись данных считается "грязной", если фактические типы данных и количество столбцов не соответствуют определениям столбцов из внешней таблицы или если данные не соответствуют указанному формату внешнего файла. Чтобы устранить эту проблему, убедитесь в правильности определений внешней таблицы и формата внешнего файла, а также в том, что внешние данные соответствуют этим определениям. Если подмножество записей внешних данных "грязные", можно отклонить эти записи для запросов с помощью параметров отклонения в CREATE EXTERNAL TABLE DDL.
 > 
 > 
 
-## <a name="load-data-from-azure-blob-storage"></a>Load data from Azure blob storage
-This example loads data from Azure blob storage to SQL Data Warehouse database.
+## <a name="load-data-from-azure-blob-storage"></a>Загрузка данных из хранилища больших двоичных объектов Azure
+В этом примере данные загружаются из хранилища больших двоичных объектов Azure в базу данных хранилища данных SQL.
 
-Storing data directly removes the data transfer time for queries. Storing data with a columnstore index improves query performance for analysis queries by up to 10x.
+Прямое хранение данных сокращает время переноса данных для запроса. Хранение данных с индексом columnstore повышает производительность аналитических запросов до 10 раз.
 
-This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition.
+В этом примере для загрузки данных используется инструкция CREATE TABLE AS SELECT. Новая таблица наследует столбцы с именами, указанные в запросе. Таблица наследует типы данных столбцов из определения внешней таблицы.
 
-CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
+CREATE TABLE AS SELECT — это высокопроизводительная инструкция Transact-SQL, которая загружает данные одновременно во все вычислительные узлы вашего хранилища данных SQL.  Изначально указания были разработаны для подсистемы вычислений с массовым параллелизмом (MPP) в Analytics Platform System и теперь используются в хранилище данных SQL.
 
 ```sql
 -- Load data from Azure blob storage to SQL Data Warehouse
@@ -68,7 +72,7 @@ CREATE TABLE [dbo].[Customer_Speed]
 WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+,    DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
 AS
 SELECT *
@@ -76,10 +80,10 @@ FROM   [ext].[CarSensor_Data]
 ;
 ```
 
-See [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
+См. статью [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
-## <a name="create-statistics-on-newly-loaded-data"></a>Create Statistics on newly loaded data
-Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][Statistics] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
+## <a name="create-statistics-on-newly-loaded-data"></a>Создание статистики для вновь загруженных данных
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики.  Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных.  Подробные сведения о работе со статистикой см. в статье, посвященной [управлению статистикой таблиц в хранилище данных SQL][Статистика].  Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -89,10 +93,10 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Export data to Azure blob storage
-This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes.
+## <a name="export-data-to-azure-blob-storage"></a>Экспорт данных в хранилище BLOB-объектов Azure
+В этом разделе рассказывается, как экспортировать данные из хранилища данных SQL в хранилище BLOB-объектов Azure. В этом примере для экспорта данных в параллельном режиме из всех вычислительных узлов используется высокопроизводительная инструкция Transact-SQL CREATE EXTERNAL TABLE AS SELECT.
 
-The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format.
+В следующем примере создается внешняя таблица Weblogs2014 с помощью определений столбцов и данных из таблицы dbo.Weblogs. Определение внешней таблицы хранится в хранилище данных SQL, а результаты инструкции SELECT экспортируются в каталог /archive/log2014/ контейнера BLOB-объектов, указанного в источнике данных. Данные экспортируются в указанном текстовом формате.
 
 ```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -114,24 +118,24 @@ WHERE
 ```
 
 
-## <a name="working-around-the-polybase-utf8-requirement"></a>Working around the PolyBase UTF-8 requirement
-At present PolyBase supports loading data files that have been UTF-8 encoded. As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded. However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters. Extended ASCII includes characters with accents such as the umlaut which is common in German.
+## <a name="working-around-the-polybase-utf-8-requirement"></a>Обход требования PolyBase UTF-8
+В настоящее время PolyBase поддерживает загрузку файлов данных с кодировкой UTF-8. Поскольку UTF-8 использует ту же кодировку символов, что и ASCII, PolyBase будет также поддерживать загрузку данных с кодировкой ASCII. Однако PolyBase не поддерживает кодировку символов, подобную UTF-16 или Юникод или символы расширенной кодировки ASCII. Символы в расширенной кодировке ASCII включают символы с диакритическими знаками, например с умляутом, который часто используется в немецком языке.
 
-To work around this requirement the best answer is to re-write to UTF-8 encoding.
+Чтобы обойти это требование, лучше перевести набор символов в кодировку UTF-8.
 
-There are several ways to do this. Below are two approaches using Powershell:
+Для этого существует несколько способов. Ниже приведены два подхода, реализуемые при помощи Powershell.
 
-### <a name="simple-example-for-small-files"></a>Simple example for small files
-Below is a simple one line Powershell script that creates the file.
+### <a name="simple-example-for-small-files"></a>Простой пример для небольших файлов
+Ниже приведен простой одностроковый скрипт Powershell, создающий файл.
 
 ```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
-However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
+Однако, хотя этот способ является самым простым способом изменения кодировки данных, он ни в коем случае не является самым эффективным. Следующий пример с потоковым вводом-выводом позволяет получить тот же результат намного быстрее.
 
-### <a name="io-streaming-example-for-larger-files"></a>IO Streaming example for larger files
-The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
+### <a name="io-streaming-example-for-larger-files"></a>Пример с потоковым вводом-выводом для более крупных файлов
+Следующий пример кода более сложен, однако поскольку он передает из источника в целевой объект строки данных в потоке, то обладает гораздо большей эффективностью. Используйте этот подход для более крупных файлов.
 
 ```PowerShell
 #Static variables
@@ -167,21 +171,21 @@ $write.Close()
 $write.Dispose()
 ```
 
-## <a name="next-steps"></a>Next steps
-To learn more about moving data to SQL Data Warehouse, see the [data migration overview][data migration overview].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения о переносе данных в хранилище данных SQL см. в [этой статье][Перенос решения в хранилище данных SQL].
 
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[data migration overview]: ./sql-data-warehouse-overview-migrate.md
+[Загрузка данных с помощью bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Загрузка данных с помощью PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Статистика]: ./sql-data-warehouse-tables-statistics.md
+[Перенос решения в хранилище данных SQL]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
-[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[Поддерживаемый источник и приемник]: https://msdn.microsoft.com/library/dn894007.aspx
+[Действие копирования]: https://msdn.microsoft.com/library/dn835035.aspx
+[Адаптер загрузки данных SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
@@ -202,6 +206,6 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

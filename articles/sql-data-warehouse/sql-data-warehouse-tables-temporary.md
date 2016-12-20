@@ -1,12 +1,12 @@
 ---
-title: Temporary tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with temporary tables in Azure SQL Data Warehouse.
+title: "Временные таблицы в хранилище данных SQL | Документация Майкрософт"
+description: "Начало работы с временными таблицами в хранилище данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,81 +14,85 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
+
 
 ---
-# <a name="temporary-tables-in-sql-data-warehouse"></a>Temporary tables in SQL Data Warehouse
+# <a name="temporary-tables-in-sql-data-warehouse"></a>Временные таблицы в хранилище данных SQL
 > [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
+> * [Обзор][Обзор]
+> * [Типы данных][Типы данных]
+> * [Распределение][Распределение]
+> * [Индекс][Индекс]
+> * [Секция][Секция]
+> * [Статистика][Статистика]
+> * [Временные][Временные]
 > 
 > 
 
-Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
+Временные таблицы очень удобны при обработке данных — особенно во время преобразования, где промежуточные результаты являются временными. В хранилище данных SQL временные таблицы существуют на уровне сеанса.  Их можно просмотреть только в сеансе, в котором они были созданы. После выхода из сеанса они автоматически удаляются.  Временные таблицы позволяют оптимизировать производительность, так как их результаты записываются в локальное, а не удаленное хранилище.  Временные таблицы в хранилище данных SQL Azure немного отличаются от таких таблиц в Базе данных SQL Azure, потому что доступ к ним можно осуществлять из любого места в сеансе: как изнутри, так и извне хранимой процедуры.
 
-This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
+В этой статье содержатся важные рекомендации по использованию временных таблиц и приводятся основные концепции временных таблиц уровня сеанса. На основе сведений, содержащихся в этой статье, вы сможете разбить код на модули, чтобы улучшить его повторное использование и повысить удобство управления.
 
-## <a name="create-a-temporary-table"></a>Create a temporary table
-Temporary tables are created by simply prefixing your table name with a `#`.  For example:
+## <a name="create-a-temporary-table"></a>Создание временной таблицы
+Временные таблицы создаются простым добавлением к имени таблицы префикса `#`.  Например:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-    [schema_name]       NVARCHAR(128) NOT NULL
-,   [table_name]            NVARCHAR(128) NOT NULL
-,   [stats_name]            NVARCHAR(128) NOT NULL
-,   [stats_is_filtered]     BIT           NOT NULL
-,   [seq_nmbr]              BIGINT        NOT NULL
-,   [two_part_name]         NVARCHAR(260) NOT NULL
-,   [three_part_name]       NVARCHAR(400) NOT NULL
+    [schema_name]        NVARCHAR(128) NOT NULL
+,    [table_name]            NVARCHAR(128) NOT NULL
+,    [stats_name]            NVARCHAR(128) NOT NULL
+,    [stats_is_filtered]     BIT           NOT NULL
+,    [seq_nmbr]              BIGINT        NOT NULL
+,    [two_part_name]         NVARCHAR(260) NOT NULL
+,    [three_part_name]       NVARCHAR(400) NOT NULL
 )
 WITH
 (
     DISTRIBUTION = HASH([seq_nmbr])
-,   HEAP
+,    HEAP
 )
 ```
 
-Temporary tables can also be created with a `CTAS` using exactly the same approach:
+Временные таблицы можно также создать с помощью `CTAS` точно таким же образом:
 
 ```sql
 CREATE TABLE #stats_ddl
 WITH
 (
     DISTRIBUTION = HASH([seq_nmbr])
-,   HEAP
+,    HEAP
 )
 AS
 (
 SELECT
-        sm.[name]                                                               AS [schema_name]
-,       tb.[name]                                                               AS [table_name]
-,       st.[name]                                                               AS [stats_name]
-,       st.[has_filter]                                                         AS [stats_is_filtered]
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,                                QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM    sys.objects         AS ob
-JOIN    sys.stats           AS st   ON  ob.[object_id]      = st.[object_id]
-JOIN    sys.stats_columns   AS sc   ON  st.[stats_id]       = sc.[stats_id]
-                                    AND st.[object_id]      = sc.[object_id]
-JOIN    sys.columns         AS co   ON  sc.[column_id]      = co.[column_id]
-                                    AND sc.[object_id]      = co.[object_id]
-JOIN    sys.tables          AS tb   ON  co.[object_id]      = tb.[object_id]
-JOIN    sys.schemas         AS sm   ON  tb.[schema_id]      = sm.[schema_id]
-WHERE   1=1
-AND     st.[user_created]   = 1
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
 GROUP BY
         sm.[name]
-,       tb.[name]
-,       st.[name]
-,       st.[filter_definition]
-,       st.[has_filter]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -107,12 +111,12 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
+> `CTAS` — очень мощная команда, которая также очень эффективна при использовании с журналом транзакций. 
 > 
 > 
 
-## <a name="dropping-temporary-tables"></a>Dropping temporary tables
-When a new session is created, no temporary tables should exist.  However, if you are calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful a simple pre-existence check with a `DROP` can be used as in the below example:
+## <a name="dropping-temporary-tables"></a>Удаление временных таблиц
+При создании сеанса не должно быть ни одной временной таблицы.  Впрочем, если вы вызываете одну и ту же хранимую процедуру, которая создает временную таблицу с одним именем, чтобы обеспечить успешное выполнение инструкции `CREATE TABLE`, можно использовать простую проверку на наличие с помощью `DROP`, как показано в приведенном ниже примере.
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -121,14 +125,14 @@ BEGIN
 END
 ```
 
-For coding consistency, it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
+Для согласованности кода целесообразно использовать этот шаблон как для обычных, так и для временных таблиц.  Рекомендуется также удалить временные таблицы с помощью `DROP TABLE` , когда вы закончите работу с ними в коде.  При разработке хранимой процедуры команды удаления обычно помещаются вместе в конце процедуры, чтобы гарантировать, что объекты удалены.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-## <a name="modularizing-code"></a>Modularizing code
-Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate DDL which will update all statistics in the database by statistic name.
+## <a name="modularizing-code"></a>Разделение кода на модули
+Так как временные таблицы можно просмотреть где угодно в сеансе пользователя, эту возможность можно использовать для модульной организации кода приложения.  Например, представленная ниже хранимая процедура объединяет в себе приведенные выше рекомендуемые методы, чтобы создать инструкцию DDL, которая будет обновлять всю статистику в базе данных в соответствии с именем статистики.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -160,30 +164,30 @@ WITH
 AS
 (
 SELECT
-        sm.[name]                                                               AS [schema_name]
-,       tb.[name]                                                               AS [table_name]
-,       st.[name]                                                               AS [stats_name]
-,       st.[has_filter]                                                         AS [stats_is_filtered]
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,                                QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM    sys.objects         AS ob
-JOIN    sys.stats           AS st   ON  ob.[object_id]      = st.[object_id]
-JOIN    sys.stats_columns   AS sc   ON  st.[stats_id]       = sc.[stats_id]
-                                    AND st.[object_id]      = sc.[object_id]
-JOIN    sys.columns         AS co   ON  sc.[column_id]      = co.[column_id]
-                                    AND sc.[object_id]      = co.[object_id]
-JOIN    sys.tables          AS tb   ON  co.[object_id]      = tb.[object_id]
-JOIN    sys.schemas         AS sm   ON  tb.[schema_id]      = sm.[schema_id]
-WHERE   1=1
-AND     st.[user_created]   = 1
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
 GROUP BY
         sm.[name]
-,       tb.[name]
-,       st.[name]
-,       st.[filter_definition]
-,       st.[has_filter]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -202,7 +206,7 @@ FROM    t1
 GO
 ```
 
-At this stage the only action that has occurred is the creation of a stored procedure which will simply generated a temporary table, #stats_ddl, with DDL statements.  This stored procedure will drop #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it will leave the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the below example:
+На этом этапе единственное совершенное действие заключается в создании хранимой процедуры, которая просто создаст временную таблицу #stats_ddl с использованием инструкций DDL.  Эта хранимая процедура удалит таблицу #stats_ddl, если она уже существует, что обеспечит работу таблицы без сбоев в случае ее повторного запуска на протяжении сеанса.  Но так как в конце хранимой процедуры нет команды `DROP TABLE` , после выполнения этой процедуры созданная таблица сохранится и ее можно будет читать за пределами хранимой процедуры.  В отличие от других баз данных SQL Server, в хранилище данных SQL временную таблицу можно использовать вне процедуры, в которой она была создана.  Временные таблицы хранилища данных SQL можно использовать **где угодно** внутри сеанса. Это может привести к большей модульности и управляемости кода, как показано в следующем примере.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -223,23 +227,23 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-## <a name="temporary-table-limitations"></a>Temporary table limitations
-SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.
+## <a name="temporary-table-limitations"></a>Ограничения временной таблицы
+В хранилище данных SQL есть несколько ограничений, касающихся реализации временных таблиц.  В настоящее время поддерживаются временные таблицы, которые можно просмотреть только в сеансе.  Глобальные временные таблицы не поддерживаются.  Кроме того, для временных таблиц нельзя создавать представления.
 
-## <a name="next-steps"></a>Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Обзор], [типам данных таблиц][Типы данных], [распределению][Распределение], [индексированию][Индекс], [секционированию][Секция] и [управлению статистикой таблиц][Статистика].  Рекомендации по использованию хранилища данных SQL Azure см. в [этой статье][Рекомендации по использованию хранилища данных SQL Azure].
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Обзор]: ./sql-data-warehouse-tables-overview.md
+[Типы данных]: ./sql-data-warehouse-tables-data-types.md
+[Распределение]: ./sql-data-warehouse-tables-distribute.md
+[Индекс]: ./sql-data-warehouse-tables-index.md
+[Секция]: ./sql-data-warehouse-tables-partition.md
+[Статистика]: ./sql-data-warehouse-tables-statistics.md
+[Временные]: ./sql-data-warehouse-tables-temporary.md
+[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
@@ -247,6 +251,6 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Как создать группы безопасности сети в классическом режиме с помощью PowerShell | Microsoft Docs
-description: Узнайте, как создать и развернуть группы безопасности сети в классическом режиме, используя PowerShell.
+title: "Как создавать группы безопасности сети в классическом режиме с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как создать и развернуть группы безопасности сети в классическом режиме, используя PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+
 
 ---
-# Как создать группы безопасности сети (классические) в PowerShell
+# <a name="how-to-create-nsgs-classic-in-powershell"></a>Как создать группы безопасности сети (классические) в PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ ms.author: jdial
 
 Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в соответствии с указаниями, представленными в этом документе, сначала создайте тестовую среду, [создав виртуальную сеть](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## Как создать группу безопасности сети для подсети переднего плана
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создать группу безопасности сети для подсети переднего плана
 Чтобы создать группу безопасности сети **NSG-FrontEnd** по описанному выше сценарию, выполните указанные ниже действия:
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
@@ -118,7 +122,7 @@ ms.author: jdial
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-## Как создать группу безопасности сети для внутренней подсети
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Как создать группу безопасности сети для внутренней подсети
 1. Создайте группу безопасности сети с именем **NSG-BackEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
@@ -202,4 +206,8 @@ ms.author: jdial
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

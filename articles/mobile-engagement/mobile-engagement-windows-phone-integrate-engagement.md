@@ -1,12 +1,12 @@
 ---
-title: Интеграция пакета SDK Engagement для Windows Phone Silverlight
-description: Интеграция Azure Mobile Engagement с приложениями Windows Phone Silverlight
+title: "Интеграция пакета SDK Engagement для Windows Phone Silverlight"
+description: "Интеграция Azure Mobile Engagement с приложениями Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+
 
 ---
-# Интеграция пакета SDK Engagement для Windows Phone Silverlight
+# <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Интеграция пакета SDK Engagement для Windows Phone Silverlight
 > [!div class="op_single_selector"]
-> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
-> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
-> * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-integrate-engagement.md)
+> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+> * [iOS](mobile-engagement-ios-integrate-engagement.md) 
+> * [Android](mobile-engagement-android-integrate-engagement.md) 
 > 
 > 
 
@@ -29,21 +33,21 @@ ms.author: piyushjo
 
 Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется активировать вручную с помощью API Engagement (см. статью [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ниже), так как эти статистические данные зависят от приложения.
 
-## Поддерживаемые версии
+## <a name="supported-versions"></a>Поддерживаемые версии
 Пакет SDK Mobile Engagement для Windows Silverlight можно интегрировать только в приложения, предназначенные для:
 
 * Windows Phone 8.0
 * Windows Phone 8.1 Silverlight
 
 > [!NOTE]
-> Если вы ориентируетесь на Windows Phone 8.1 (не Silverlight), см. [процедуру интеграции универсальных приложений для Windows](mobile-engagement-windows-store-integrate-engagement.md).
+> Если вы ориентируетесь на Windows Phone 8.1 (не Silverlight), см. статью [Интеграция пакета SDK Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-integrate-engagement.md).
 > 
 > 
 
-## Установка пакета SDK Mobile Engagement для Silverlight
-Пакет SDK Mobile Engagement для Windows Silverlight доступен в виде пакета Nuget, который называется *MicrosoftAzure.MobileEngagement*. Вы можете установить его из диспетчера пакетов NuGet в Visual Studio.
+## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Установка пакета SDK Mobile Engagement для Silverlight
+Пакет SDK Mobile Engagement для Windows Silverlight доступен в виде пакета Nuget, который называется *MicrosoftAzure.MobileEngagement*. Вы можете установить его из диспетчера пакетов NuGet в Visual Studio. 
 
-## Добавление возможностей
+## <a name="add-the-capabilities"></a>Добавление возможностей
 Для надлежащей работы пакету SDK для Engagement требуются некоторые возможности пакета SDK для Windows Phone Silverlight.
 
 Откройте файл `WMAppManifest.xml` и убедитесь, что следующие возможности объявлены на панели `Capabilities`:
@@ -51,13 +55,13 @@ ms.author: piyushjo
 * `ID_CAP_NETWORKING`
 * `ID_CAP_IDENTITY_DEVICE`
 
-## Запуск пакета SDK для Engagement
-### Конфигурация Engagement
+## <a name="initialize-the-engagement-sdk"></a>Запуск пакета SDK для Engagement
+### <a name="engagement-configuration"></a>Конфигурация Engagement
 Конфигурация Engagement централизована в файле `Resources\EngagementConfiguration.xml` проекта.
 
 Измените файл, чтобы указать:
 
-* строку подключения приложения между тегами `<connectionString>` и `<\connectionString>`.
+* строку подключения приложения между тегами `<connectionString>` and `<\connectionString>`.
 
 Если вместо этого вам необходимо указать ее во время выполнения, можно вызвать следующий метод до инициализации агента Engagement:
 
@@ -70,8 +74,8 @@ ms.author: piyushjo
 
 Строка подключения для приложения отображается на классическом портале Azure.
 
-### Инициализация Engagement
-При создании проекта создается файл `App.xaml.cs`. Этот класс наследуется из `Application` и содержит множество важных методов. Он также будет использоваться для инициализации пакета SDK для Engagement.
+### <a name="engagement-initialization"></a>Инициализация Engagement
+При создании проекта создается файл `App.xaml.cs` . Этот класс наследуется из `Application` и содержит множество важных методов. Он также будет использоваться для инициализации пакета SDK для Engagement.
 
 Измените `App.xaml.cs`:
 
@@ -96,14 +100,14 @@ ms.author: piyushjo
 > 
 > 
 
-## Упрощенные отчеты
-### Рекомендуемый метод: перегрузка классов `PhoneApplicationPage`
+## <a name="basic-reporting"></a>Упрощенные отчеты
+### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>Рекомендуемый метод: перегрузка классов `PhoneApplicationPage`
 Чтобы активировать отчет по всем журналам, необходимым для Engagement при вычислении статистики пользователей, сеансов, действий, сбоев и технической информации, вы можете просто задать для подклассов `PhoneApplicationPage` наследование из классов `EngagementPage`.
 
 Ниже приведен пример того, как сделать это для страницы приложения. То же самое можно сделать для всех страниц приложения.
 
-#### Исходный файл на C
-Измените файл страницы `.xaml.cs`:
+#### <a name="c-source-file"></a>Исходный файл на C#
+Измените файл страницы `.xaml.cs` :
 
 * Добавьте операторы `using`:
   
@@ -137,8 +141,8 @@ ms.author: piyushjo
 > 
 > 
 
-#### XAML-файл
-Измените файл страницы `.xaml`:
+#### <a name="xaml-file"></a>XAML-файл
+Измените файл страницы `.xaml` :
 
 * Добавьте в объявления пространств имен:
   
@@ -159,7 +163,7 @@ ms.author: piyushjo
             <!-- layout -->
         </engagement:EngagementPage >
 
-#### Переопределение действия по умолчанию
+#### <a name="override-the-default-behavior"></a>Переопределение действия по умолчанию
 По умолчанию имя класса страницы сообщается как имя действия без дополнительной информации. Если класс использует суффикс Page, Engagement также удалит его.
 
 Если требуется переопределить поведение по умолчанию для имени, просто добавьте в код следующую строку:
@@ -182,7 +186,7 @@ ms.author: piyushjo
 
 Эти методы вызываются из метода `OnNavigatedTo` вашей страницы.
 
-### Альтернативный метод: вызов `StartActivity()` вручную
+### <a name="alternate-method-call-startactivity-manually"></a>Альтернативный метод: вызов `StartActivity()` вручную
 Если вам не удается перегрузить классы `PhoneApplicationPage` или вы не хотите этого делать, запустите действия, вызвав методы `EngagementAgent` напрямую.
 
 Советуем вызывать `StartActivity` в методе `OnNavigatedTo` класса PhoneApplicationPage.
@@ -200,13 +204,13 @@ ms.author: piyushjo
 > 
 > 
 
-## Расширенные отчеты
+## <a name="advanced-reporting"></a>Расширенные отчеты
 При желании можно также сообщать об определенных событиях, ошибках и заданиях приложения. Это можно сделать с помощью других методов в классе `EngagementAgent`. Engagement API позволяет использовать все дополнительные возможности Engagement.
 
-Дополнительную информацию см. в разделе [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
+Дополнительные сведения см. в статье [Как использовать API Engagement в Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
-## Расширенная конфигурация
-### Отключение автоматического создания отчетов о сбоях
+## <a name="advanced-configuration"></a>Расширенная конфигурация
+### <a name="disable-automatic-crash-reporting"></a>Отключение автоматического создания отчетов о сбоях
 Вы можете отключить функцию автоматического создания отчетов о сбоях в Engagement. После этого при возникновении необработанного исключения Engagement не будет предпринимать никаких действий.
 
 > [!WARNING]
@@ -216,18 +220,18 @@ ms.author: piyushjo
 
 Чтобы отключить автоматическое создание отчетов о сбоях, просто настройте конфигурацию в зависимости от того, как она была объявлена:
 
-#### Из файла `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>Из файла `EngagementConfiguration.xml`
 Задайте для параметра уведомления о сбоях значение `false` между тегами `<reportCrash>` и `</reportCrash>`.
 
-#### Из объекта `EngagementConfiguration` во время выполнения
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>Из объекта `EngagementConfiguration` во время выполнения
 Задайте для параметра уведомления о сбоях значение false с помощью объекта EngagementConfiguration.
 
         /* Engagement configuration. */
 
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        /* Disable Engagement crash reporting. */ engagementConfiguration.Agent.ReportCrash = false;
+        /\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
 
-### Пакетный режим
+### <a name="burst-mode"></a>Пакетный режим
 По умолчанию служба Engagement ведет отчеты по журналам в режиме реального времени. Если приложение создает отчеты по журналам очень часто, лучше поместить журналы в буфер и создавать отчеты по всем журналам одновременно через регулярные промежутки времени (это называется «пакетный режим»).
 
 Для этого вызовите следующий метод:
@@ -236,11 +240,16 @@ ms.author: piyushjo
 
 Значение аргумента задается в **миллисекундах**. Если вам в любое время потребуется повторно активировать ведение журнала в реальном времени, просто вызовите метод без каких-либо параметров или со значением 0.
 
-Пакетный режим немного продлевает время работы батареи, но влияет на Engagement Monitor: время выполнения всех сеансов и заданий будет округляться до порогового значения пакета (таким образом, сеансы и задания, время выполнения которых короче, чем пороговое значение пакета, могут не отображаться). Мы советуем использовать пороговое значение пакета не более чем 30 000 (30 с). Следует иметь в виду, что в сохраняемых журналах может быть не более 300 элементов. Если отправка занимает слишком много времени, некоторые журналы могут быть потеряны.
+Пакетный режим немного продлевает время работы батареи, но влияет на Engagement Monitor: время выполнения всех сеансов и заданий будет округляться до порогового значения пакета (таким образом, сеансы и задания, время выполнения которых короче, чем пороговое значение пакета, могут не отображаться). Мы советуем использовать пороговое значение пакета не более чем 30 000 (30 с). Следует иметь в виду, что в сохраняемых журналах может быть не более 300 элементов. Если отправка занимает слишком много времени, некоторые журналы могут быть потеряны.
 
 > [!WARNING]
-> Для порогового значения пакета нельзя настроить период менее одной секунды. При попытке задать значение менее одной секунды трассировка в пакете SDK отобразится с ошибкой, и будет автоматически восстановлено значения по умолчанию, т. е. ноль секунд. Это приведет к тому, что пакет SDK начнет создавать отчеты по журналам в режиме реального времени.
+> Для порогового значения пакета нельзя настроить период менее одной секунды. При попытке задать значение менее одной секунды трассировка в пакете SDK отобразится с ошибкой, и будет автоматически восстановлено значения по умолчанию, т. е. ноль секунд. Это приведет к тому, что пакет SDK начнет создавать отчеты по журналам в режиме реального времени.
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

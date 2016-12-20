@@ -1,12 +1,12 @@
 ---
-title: 'RBAC: встроенные роли | Microsoft Docs'
-description: В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC).
+title: "RBAC: встроенные роли | Документация Майкрософт"
+description: "В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+
 
 ---
-# RBAC: встроенные роли
+# <a name="rbac-built-in-roles"></a>RBAC: встроенные роли
 Управление доступом на основе ролей Azure (RBAC) поставляется со следующими встроенными ролями, которые могут быть назначены пользователям, группам и службам. Изменить определения встроенных ролей нельзя. Однако можно создать [настраиваемые роли в Azure RBAC](role-based-access-control-custom-roles.md) в соответствии с потребностями вашей организации.
 
-## Роли в Azure
-В таблице ниже содержатся краткие описания встроенных ролей. Щелкните имя роли, чтобы просмотреть подробный список свойств **actions** и **notactions** для роли. Свойство **actions** указывает разрешенные действия с ресурсами Azure. В строках действий можно использовать подстановочные знаки. Свойство **notactions** определения роли указывает действия, которые должны быть исключены из списка разрешенных действий.
+## <a name="roles-in-azure"></a>Роли в Azure
+В таблице ниже содержатся краткие описания встроенных ролей. Щелкните имя роли, чтобы просмотреть подробный список свойств **actions** и **notactions** для этой роли. Свойство **actions** указывает разрешенные действия с ресурсами Azure. В строках действий можно использовать подстановочные знаки. Свойство **notactions** определения роли указывает действия, которые должны быть исключены из списка разрешенных действий.
 
 > [!NOTE]
 > Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлеты `(get-azurermroledefinition "<role name>").actions` и `(get-azurermroledefinition "<role name>").notactions` по мере необходимости.
@@ -37,6 +41,7 @@ ms.author: kgremban
 | [Участник](#contributor) |Может управлять всем, кроме доступа |
 | [Участник фабрики данных](#data-factory-contributor) |Вы можете создавать фабрики данных и дочерние ресурсы внутри их, а также управлять ими. |
 | [Пользователь DevTest Labs](#devtest-labs-user) |Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
+| [Участник зоны DNS](#dns-zone-contributor) |Может управлять зонами и записями DNS. |
 | [Участник учетной записи DocumentDB](#documentdb-account-contributor) |Может управлять учетными записями DocumentDB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) |Может управлять учетными записями интеллектуальных систем |
 | [Участник сети](#network-contributor) |Может управлять всеми сетевыми ресурсами |
@@ -59,10 +64,10 @@ ms.author: kgremban
 | [Участник веб-плана](#web-plan-contributor) |Может управлять веб-планами |
 | [Участник веб-сайта](#website-contributor) |Может управлять веб-сайтами, но не веб-планами, к которым они подключены |
 
-## Разрешения ролей
-В следующих таблицах описываются разрешения, предоставленные каждой роли. Это могут быть свойства **Action**, которые предоставляют разрешения, и свойства **NotAction**, которые их ограничивают.
+## <a name="role-permissions"></a>Разрешения ролей
+В следующих таблицах описываются разрешения, предоставленные каждой роли. Это могут быть свойства **Actions**, которые предоставляют разрешения, и свойства **NotActions**, которые их ограничивают.
 
-### Участник службы управления API
+### <a name="api-management-service-contributor"></a>Участник службы управления API
 Может управлять службами управления API
 
 | **Действия** |  |
@@ -75,7 +80,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение ролей и назначений ролей |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник компонента Application Insights
+### <a name="application-insights-component-contributor"></a>Участник компонента Application Insights
 Может управлять компонентами Application Insights
 
 | **Действия** |  |
@@ -89,7 +94,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Оператор службы автоматизации
+### <a name="automation-operator"></a>Оператор службы автоматизации
 Может запускать, останавливать, приостанавливать и возобновлять задания
 
 | **Действия** |  |
@@ -113,7 +118,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник BizTalk
+### <a name="biztalk-contributor"></a>Участник BizTalk
 Может управлять службами BizTalk
 
 | **Действия** |  |
@@ -126,7 +131,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник ClearDB MySQL DB
+### <a name="cleardb-mysql-db-contributor"></a>Участник базы данных ClearDB MySQL
 Может создавать базы данных ClearDB MySQL
 
 | **Действия** |  |
@@ -139,7 +144,7 @@ ms.author: kgremban
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 | successbricks.cleardb/databases/* |Создание баз данных ClearDB MySQL и управление ими |
 
-### Участник
+### <a name="contributor"></a>Участник
 Может управлять всем, кроме доступа
 
 | **Действия** |  |
@@ -151,7 +156,7 @@ ms.author: kgremban
 | Microsoft.Authorization/*/Delete |Не может удалять роли и назначения ролей |
 | Microsoft.Authorization/*/Write |Не может создавать роли и назначения ролей |
 
-### Участник фабрики данных
+### <a name="data-factory-contributor"></a>Участник фабрики данных
 Создание фабрик данных и дочерних ресурсов внутри их, а также управление ими.
 
 | **Действия** |  |
@@ -164,7 +169,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Пользователь DevTest Labs
+### <a name="devtest-labs-user"></a>Пользователь DevTest Labs
 Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу
 
 | **Действия** |  |
@@ -197,7 +202,20 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Storage/storageAccounts/listKeys/action |Вывод списка ключей учетной записи хранения |
 
-### Участник учетной записи DocumentDB
+### <a name="dns-zone-contributor"></a>Участник зоны DNS
+Может управлять зонами и записями DNS.
+
+| **Действия** |  |
+| --- | --- |
+| Microsoft.Authorization/\*/read |Чтение ролей и назначений ролей |
+| Microsoft.Insights/alertRules/\* |Создание правил оповещения и управление ими |
+| Microsoft.Network/dnsZones/\* |Создание зон и записей DNS и управление ими. |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Чтение данных о работоспособности ресурсов. |
+| Microsoft.Resources/deployments/\* |Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
+| Microsoft.Support/\* |Создание запросов в службу поддержки и управление ими. |
+
+### <a name="documentdb-account-contributor"></a>Участник учетной записи DocumentDB
 Может управлять учетными записями DocumentDB
 
 | **Действия** |  |
@@ -210,7 +228,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник учетной записи интеллектуальных систем
+### <a name="intelligent-systems-account-contributor"></a>Участник учетной записи интеллектуальных систем
 Может управлять учетными записями интеллектуальных систем
 
 | **Действия** |  |
@@ -223,7 +241,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник сети
+### <a name="network-contributor"></a>Участник сети
 Может управлять всеми сетевыми ресурсами
 
 | **Действия** |  |
@@ -236,7 +254,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник учетной записи New Relic APM
+### <a name="new-relic-apm-account-contributor"></a>Участник учетной записи New Relic APM
 Может управлять учетными записями и приложениями для управления производительностью приложений New Relic
 
 | **Действия** |  |
@@ -249,21 +267,21 @@ ms.author: kgremban
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 | NewRelic.APM/accounts/* |Создание учетных записей для управления производительностью приложений New Relic и управление ими |
 
-### Владелец
+### <a name="owner"></a>Владелец
 Может управлять всем, включая доступ
 
 | **Действия** |  |
 | --- | --- |
 | * |Создание ресурсов всех типов и управление ими |
 
-### читатель.
+### <a name="reader"></a>Читатель
 Может все просматривать, но не может вносить изменения
 
 | **Действия** |  |
 | --- | --- |
 | */чтение |Чтение ресурсов всех типов, кроме секретов. |
 
-### Участник кэша Redis
+### <a name="redis-cache-contributor"></a>Участник кэша Redis
 Может управлять кэшами Redis
 
 | **Действия** |  |
@@ -276,7 +294,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник коллекции заданий планировщика
+### <a name="scheduler-job-collections-contributor"></a>Участник коллекции заданий планировщика
 Может управлять коллекциями заданий планировщика
 
 | **Действия** |  |
@@ -289,7 +307,7 @@ ms.author: kgremban
 | Microsoft.Scheduler/jobcollections/* |Создание коллекциями заданий и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник службы поиска
+### <a name="search-service-contributor"></a>Участник службы поиска
 Может управлять службами поиска
 
 | **Действия** |  |
@@ -302,7 +320,7 @@ ms.author: kgremban
 | Microsoft.Search/searchServices/* |Создание служб поиска и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Диспетчер безопасности
+### <a name="security-manager"></a>Диспетчер безопасности
 Может управлять компонентами безопасности, политиками безопасности и виртуальными машинами
 
 | **Действия** |  |
@@ -318,7 +336,7 @@ ms.author: kgremban
 | Microsoft.Security/* |Создание компонентов и политик безопасности и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник БД SQL
+### <a name="sql-db-contributor"></a>Участник базы данных SQL
 Может управлять базами данных SQL, но не их политиками безопасности
 
 | **Действия** |  |
@@ -342,7 +360,7 @@ ms.author: kgremban
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Не может изменять политики оповещения системы безопасности |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Не может изменять метрики безопасности |
 
-### Диспетчер безопасности SQL
+### <a name="sql-security-manager"></a>Диспетчер безопасности SQL
 Может управлять политиками безопасности для серверов и баз данных SQL
 
 | **Действия** |  |
@@ -369,7 +387,7 @@ ms.author: kgremban
 | Microsoft.Sql/servers/securityAlertPolicies/* |Создание политик оповещения системы безопасности SQL Server и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник SQL Server
+### <a name="sql-server-contributor"></a>Участник SQL Server
 Может управлять серверами и базами данных SQL, но не их политиками безопасности
 
 | **Действия** |  |
@@ -395,7 +413,7 @@ ms.author: kgremban
 | Microsoft.Sql/servers/databases/securityMetrics/* |Не может изменять метрики безопасности баз данных SQL Server |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Не может изменять политики оповещения системы безопасности SQL Server |
 
-### Участник классической учетной записи хранения
+### <a name="classic-storage-account-contributor"></a>Участник классической учетной записи хранения
 Может управлять классическими учетными записями хранения
 
 | **Действия** |  |
@@ -408,7 +426,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник учетной записи хранения
+### <a name="storage-account-contributor"></a>Участник учетной записи хранения
 Может управлять учетными записями хранения, но не имеет к ним доступа.
 
 | **Действия** |  |
@@ -422,7 +440,7 @@ ms.author: kgremban
 | Microsoft.Storage/storageAccounts/* |Создание учетных записей хранения и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Администратор доступа пользователей
+### <a name="user-access-administrator"></a>Администратор доступа пользователей
 Может управлять доступом пользователей к ресурсам Azure
 
 | **Действия** |  |
@@ -431,7 +449,7 @@ ms.author: kgremban
 | Microsoft.Authorization/* |Управление авторизацией |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник классической виртуальной машины
+### <a name="classic-virtual-machine-contributor"></a>Участник классической виртуальной машины
 Может управлять классическими виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены
 
 | **Действия** |  |
@@ -454,7 +472,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник виртуальной машины
+### <a name="virtual-machine-contributor"></a>Участник виртуальной машины
 Может управлять виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены
 
 | **Действия** |  |
@@ -485,7 +503,7 @@ ms.author: kgremban
 | Microsoft.Storage/storageAccounts/read |Чтение учетных записей хранения |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник классической сети
+### <a name="classic-network-contributor"></a>Участник классической сети
 Может управлять классическими виртуальными сетями и зарезервированными IP-адресами
 
 | **Действия** |  |
@@ -498,7 +516,7 @@ ms.author: kgremban
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
-### Участник веб-плана
+### <a name="web-plan-contributor"></a>Участник веб-плана
 Может управлять веб-планами
 
 | **Действия** |  |
@@ -511,7 +529,7 @@ ms.author: kgremban
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 | Microsoft.Web/serverFarms/* |Создание ферм серверов и управление ими |
 
-### Участник веб-сайта
+### <a name="website-contributor"></a>Участник веб-сайта
 Может управлять веб-сайтами, но не веб-планами, к которым они подключены
 
 | **Действия** |  |
@@ -527,12 +545,17 @@ ms.author: kgremban
 | Microsoft.Web/listSitesAssignedToHostName/read |Чтение сайтов, назначенных имени узла |
 | Microsoft.Web/serverFarms/join/action |Присоединение ферм серверов |
 | Microsoft.Web/serverFarms/read |Чтение ферм серверов |
-| Microsoft.Web/sites/* |Создание веб-сайтов и управление ими |
+| Microsoft.Web/sites/* |Создание веб-сайтов и управление ими (создание сайта также требует разрешений на запись к связанному плану службы приложений). |
 
-## Дополнительные материалы
-* [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
+## <a name="see-also"></a>Дополнительные материалы
+* [Управление доступом на основе ролей](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
 * [Пользовательские роли в Azure RBAC](role-based-access-control-custom-roles.md). Сведения о создании пользовательских ролей в соответствии с потребностями доступа.
 * [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
 * [Устранение неполадок при управлении доступом на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

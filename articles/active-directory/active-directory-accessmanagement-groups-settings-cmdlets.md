@@ -1,12 +1,12 @@
 ---
-title: Настройка параметров групп с помощью командлетов Azure Active Directory | Microsoft Docs
-description: Управление параметрами групп с помощью командлетов Azure Active Directory.
+title: "Настройка параметров группы с помощью командлетов Azure Active Directory | Документация Майкрософт"
+description: "Управление параметрами групп с помощью командлетов Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6a8bd076830d9b639007ee0130320869d2a63746
+
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
@@ -98,7 +102,7 @@ ms.author: curtand
 ## <a name="cmdlet-syntax-reference"></a>Справочник по синтаксису командлетов
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
 
-## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Ссылка на объект SettingsTemplate (объект SettingsTemplate шаблона Group.Unified)
+## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>Ссылка на объект SettingsTemplate (объект SettingsTemplate шаблона Group.Unified)
 * "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Логический флаг, указывающий, включена ли функция создания объединенных групп."
 * "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "Идентификатор GUID группы безопасности, внесенной в список расширений и имеющей право на создание объединенных групп."
 * "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам."
@@ -119,6 +123,9 @@ ms.author: curtand
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

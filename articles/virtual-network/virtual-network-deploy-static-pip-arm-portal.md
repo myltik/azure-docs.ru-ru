@@ -1,13 +1,13 @@
 ---
-title: Развертывание виртуальной машины с общедоступным IP-адресом с помощью портала Azure в диспетчере ресурсов | Microsoft Docs
-description: Дополнительные сведения о развертывании виртуальных машин со статическим общедоступным IP-адресом в диспетчере ресурсов на портале Azure
+title: "Создание виртуальной машины со статическим общедоступным IP-адресом на портале Azure | Документация Майкрософт"
+description: "Сведения о создании виртуальной машины со статическим общедоступным IP-адресом через Azure Resource Manager на портале Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,32 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
+ms.openlocfilehash: c2d0230550249c5f8ca406b61225822b7e19db2e
+
 
 ---
-# Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+# <a name="create-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Создание виртуальной машины со статическим общедоступным IP-адресом на портале Azure
+
+> [!div class="op_single_selector"]
+- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-Классическая модель развертывания.
+> [!NOTE]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо классической.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Создание виртуальной машины со статическим общедоступным IP-адресом
-Чтобы создать виртуальную машину со статическим общедоступным IP-адресом на портале Azure, выполните следующие действия.
+## <a name="create-a-vm-with-a-static-public-ip"></a>Создание виртуальной машины со статическим общедоступным IP-адресом
 
-1. В браузере откройте [портал Azure](https://portal.azure.com) и при необходимости войдите с использованием учетной записи Azure.
-2. В верхнем левом углу портала щелкните **Создать**>>**Вычисления**>**Windows Server 2012 R2 Datacenter**.
-3. В списке **Выбор модели развертывания** выберите элемент **Диспетчер ресурсов** и нажмите кнопку **Создать**.
+Чтобы создать виртуальную машину со статическим общедоступным IP-адресом на портале Azure, сделайте следующее:
+
+1. В браузере откройте [портал Azure](https://portal.azure.com) и при необходимости войдите с помощью учетной записи Azure.
+2. В верхнем левом углу портала щелкните **Создать**>>**Вычисления**>**Windows Server 2012 R2 Datacenter**.
+3. В списке **Выбор модели развертывания** выберите **Resource Manager** и нажмите кнопку **Создать**.
 4. В колонке **Основы** введите сведения о виртуальной машине, как показано ниже, и нажмите кнопку **ОК**.
    
     ![Портал Azure — основы](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. В колонке **Выбор размера** щелкните **A1 стандартный**, как показано ниже, и нажмите кнопку **Выбрать**.
+5. В колонке **Выбор размера** щелкните **A1 Standard**, как показано ниже, и нажмите кнопку **Выбрать**.
    
     ![Портал Azure — выбор размера](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. В колонке **Параметры** щелкните **Общедоступный IP-адрес**, затем в колонке **Создать общедоступный IP-адрес** в разделе **Назначения** нажмите кнопку **Статический**, как показано ниже. Затем нажмите **ОК**.
+6. В колонке **Параметры** щелкните **Общедоступный IP-адрес**, а затем в колонке **Создать общедоступный IP-адрес** в разделе **Назначения** выберите **Статический**, как показано ниже. Затем нажмите **ОК**.
    
     ![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. В колонке **Параметры** нажмите кнопку **ОК**.
@@ -52,6 +62,11 @@ ms.author: jdial
     ![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
 10. После создания виртуальной машины колонка **Параметры** будет отображаться, как показано ниже
     
-    .![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+    ![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

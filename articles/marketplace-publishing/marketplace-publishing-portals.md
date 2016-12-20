@@ -1,12 +1,12 @@
 ---
-title: Overview of the various portals needed to create an offer for the Marketplace | Microsoft Docs
-description: Overview of the various portals needed to create an offer for the Marketplace
+title: "Общие сведения о различных порталах, необходимые для создания предложения на Marketplace | Документация Майкрософт"
+description: "Общие сведения о различных порталах, необходимые для создания предложения на Marketplace."
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,51 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8087f27a692e1e2d0f2d9434b065ddb902de0d57
+
 
 ---
-# <a name="portals-you-will-need"></a>Portals you will need
-Before you start the process of publishing an offer, let’s get you introduced to the various portals that you will need. Below is the short summary about the portals--Developer Center, Azure Publishing Portal, and Azure Portal--in the order that you will interact with them.                                                                            
+# <a name="portals-you-will-need"></a>Порталы, которые вам потребуются
+Прежде чем приступить к публикации предложения, ознакомьтесь с различными порталами, которые вам потребуются. Ниже приводятся краткие сведения о портале "Центр разработчиков", портале публикации и портале предварительной версии Azure в том порядке, в котором вы будете взаимодействовать с ними.                                                                            
 
-## <a name="developer-center"></a>Developer Center
+## <a name="developer-center"></a>Центр разработчиков
 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-### <a name="description"></a>Description
-Creating your Microsoft Developer Center account is a one-time task. Make sure that the company does not already have a Developer Center account before you attempt to create one. During the process, we collect bank account information, tax information, and company address information.
+### <a name="description"></a>Описание
+Учетная запись разработчика Майкрософт создается один раз. Прежде чем начать, убедитесь в том, что у вашей компании еще нет учетной записи в центре разработчиков. В ходе создания учетной записи мы соберем сведения о вашем банковском счете, о налогах и об адресе компании.
 
 > [!NOTE]
-> If you are publishing only free offers (or bring-your-own-license offers), we do not require tax and bank information.
+> Если вы публикуете только бесплатные предложения (или предложения с использованием собственной лицензии), налоговая и банковская информация не требуются.
 > 
 > 
 
-### <a name="identity/account-used"></a>Identity/account used
-Ideally, this is a distribution list or a security group (e.g., azurepublishing@*partnercompany*.com). The distribution list or security group **must** be registered as a Microsoft account.
+### <a name="identityaccount-used"></a>Используемое удостоверение или учетная запись
+В идеальном случае это список рассылки или группа безопасности (например, azurepublishing@*компания-партнер*.com). Этот список рассылки или группа безопасности **должны** быть зарегистрированы в качестве учетной записи Майкрософт.
 
 > [!TIP]
-> We recommend using a distribution list or a security group because it removes the dependency on any individual, although an individual account can be used as well.
+> Мы рекомендуем использовать список рассылки или группу безопасности, так как они не привязаны к конкретному пользователю. Тем не менее учетную запись отдельного пользователя также можно использовать.
 > 
 > 
 
-## <a name="publishing-portal"></a>Publishing portal
+## <a name="publishing-portal"></a>Портал публикации
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
-### <a name="description"></a>Description
-This is the portal that you use to work on the offer and to publish it (marketing, pricing, publishing, certification if applicable, etc.).
+### <a name="description"></a>Описание
+Это портал, на котором вы работаете над предложением и публикуете его (рекламируете его, определяете цену, публикует, сертифицируете при необходимости и т. д.).
 
-### <a name="identity/account-used"></a>Identity/account used
-The above distribution list or security group must be used for the first time to sign in to the publishing portal. Later, other users can be added as co-admins. This is how it gets mapped to the Developer Center registration data.
+### <a name="identityaccount-used"></a>Используемое удостоверение или учетная запись
+Упомянутый ранее список рассылки или группа безопасности необходимо использовать при первом входе на портал публикации. Позже других пользователей можно будет добавлять как соадминистраторов. Таким образом выполняется их связь с регистрационными данными центра разработчиков.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Портал Azure
 [https://portal.azure.com](https://portal.azure.com)
 
-### <a name="description"></a>Description
-This is the portal where you can view your staged and published offers in the Azure Marketplace (applicable for VMs, solution templates, and Azure Resource Manager-based developer services).
+### <a name="description"></a>Описание
+Это портал, на котором вы можете просмотреть свои предложения, находящиеся в промежуточном состоянии или опубликованные в Azure Marketplace (это относится к виртуальным машинам, шаблонам решений и службам разработчика на основе диспетчера ресурсов Azure).
 
-### <a name="identity/account-used"></a>Identity/account used
-While you're staging an offer from the publishing portal, a subscription ID needs to be whitelisted. The same subscription (there is a user name and password associated with it) needs to be used for signing in to this portal to test the staged offer.
+### <a name="identityaccount-used"></a>Используемое удостоверение или учетная запись
+Пока предложение находится в промежуточном состоянии на портале публикации, идентификатор подписки необходимо включить в список разрешений. Для входа в этот портал для тестирования приложения, находящегося в промежуточном состоянии, необходимо использовать ту же подписку (с ней связаны имя пользователя и пароль).
 
-## <a name="see-also"></a>See also
-* [Getting started: How to publish an offer for the Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Дополнительные материалы
+* [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

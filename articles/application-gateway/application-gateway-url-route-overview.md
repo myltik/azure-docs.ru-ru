@@ -4,7 +4,7 @@ description: "Эта страница содержит общие сведени
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea30057b62bdf926d6e39c170c4ad32afb202aef
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 1f273f3b55d719e37b9cdb6cefda30c3566e7226
 
 
 ---
 # <a name="url-path-based-routing-overview"></a>Общие сведения о маршрутизации на основе URL-путей
+
 Маршрутизация на основе URL-путей позволяет направлять трафик в пулы тыловых серверов в зависимости от URL-путей поступающих запросов. Один из сценариев — это маршрутизация запросов содержимого различных типов в различные пулы тыловых серверов.
 В следующем примере шлюз приложений обслуживает трафик веб-сайта contoso.com с трех пулов тыловых серверов, например VideoServerPool, ImageServerPool и DefaultServerPool.
 
@@ -29,6 +30,7 @@ ms.openlocfilehash: ea30057b62bdf926d6e39c170c4ad32afb202aef
 Запросы для http://contoso.com/video* направляются в VideoServerPool, а запросы для http://contoso.com/images* направляются в ImageServerPool. Если ни один из шаблонов пути не подходит, выбирается пул DefaultServerPool.
 
 ## <a name="urlpathmap-configuration-element"></a>Элемент конфигурации UrlPathMap
+
 Элемент UrlPathMap используется для указания шаблонов пути при сопоставлении с пулом тыловых серверов. Ниже приведен пример кода, который является фрагментом элемента urlPathMap из файла шаблона.
 
 ```json
@@ -65,13 +67,12 @@ ms.openlocfilehash: ea30057b62bdf926d6e39c170c4ad32afb202aef
 ```
 
 > [!NOTE]
-> Параметр PathPattern представляет список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Символ * может быть только в конце после косой черты. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются. 
-> 
-> 
+> Параметр PathPattern представляет список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Символ * может быть только в конце после косой черты. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются.
 
 Дополнительные сведения см. в статье [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) (Шаблон Resource Manager с использованием маршрутизации на основе URL-адресов).
 
 ## <a name="pathbasedrouting-rule"></a>Правило PathBasedRouting
+
 Правило RequestRoutingRule типа PathBasedRouting используется для привязки прослушивателя к urlPathMap. Все получаемые запросы для этого прослушивателя распределяются согласно политике, указанной в urlPathMap.
 Фрагмент правила PathBasedRouting:
 
@@ -96,11 +97,12 @@ ms.openlocfilehash: ea30057b62bdf926d6e39c170c4ad32afb202aef
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Ознакомившись с маршрутизацией на основе URL-адресов, создайте шлюз приложений с соответствующими правилами маршрутизации, как указано в статье о [создании шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-portal.md) .
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

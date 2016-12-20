@@ -1,12 +1,12 @@
 ---
-title: Просмотр назначений доступа к ресурсам Azure | Microsoft Docs
-description: Просмотр всех назначений управления доступом на основе ролей и управление ими для любого пользователя или группы на портале Azure.
+title: "Просмотр назначений доступа к ресурсам Azure | Документация Майкрософт"
+description: "Просмотр всех назначений управления доступом на основе ролей и управление ими для любого пользователя или группы на портале Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: jeffsta
-
+ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+
 
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Просмотр назначенных прав доступа для пользователей и групп на портале Azure (общедоступная предварительная версия)
@@ -57,6 +61,9 @@ ms.author: kgremban
 * Приступите к управлению доступом на основе ролей, чтобы [использовать назначение ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md)
 * Ознакомьтесь со статьей [RBAC: встроенные роли](role-based-access-built-in-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

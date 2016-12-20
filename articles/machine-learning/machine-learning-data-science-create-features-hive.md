@@ -1,19 +1,23 @@
 ---
-title: Создание характеристик для данных в кластере Hadoop с помощью запросов Hive | Microsoft Docs
-description: Примеры запросов Hive, формирующие характеристики в данных, хранящихся в кластере Azure HDInsight Hadoop.
+title: "Создание признаков для данных в кластере Hadoop с помощью запросов Hive | Документация Майкрософт"
+description: "Примеры запросов Hive, формирующие характеристики в данных, хранящихся в кластере Azure HDInsight Hadoop."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: hangzh;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+
 
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Создание характеристик для данных в кластере Hadoop с помощью запросов Hive
@@ -35,7 +39,7 @@ ms.author: hangzh;bradsev
 * Отправили данные в таблицы Hive, которые находятся в кластерах Azure HDInsight Hadoop. Если данные не загружены, необходимо предварительно загрузить их в таблицы Hive, воспользовавшись инструкциями из раздела [Создание данных и их загрузка в таблицы Hive](machine-learning-data-science-move-hive-tables.md) .
 * Включили удаленный доступ к кластеру. Инструкции можно найти в разделе [Доступ к головному узлу в кластере Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Создание функций
+## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Создание функций
 В этом разделе описано несколько примеров создания характеристик с помощью запросов Hive. После создания дополнительных признаков вы можете добавить их в виде столбцов к существующей таблице или создать новую таблицу с дополнительными возможностями и первичный ключ, который затем можно объединить с исходной таблицей. Здесь представлены следующие примеры.
 
 1. [Возможность создания функций на основе частоты](#hive-frequencyfeature)
@@ -44,7 +48,7 @@ ms.author: hangzh;bradsev
 4. [Извлечение признаков из текстовых полей](#hive-textfeatures)
 5. [Вычисления расстояния между координатами GPS](#hive-gpsdistance)
 
-### <a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Возможность создания функций на основе частоты
+### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Возможность создания функций на основе частоты
 Часто бывает полезным вычислить частоту уровней категориальной переменной или частоту сочетания уровней нескольких категориальных переменных. Вот какой скрипт вы можете использовать для вычисления этих типов частоты.
 
         select
@@ -58,7 +62,7 @@ ms.author: hangzh;bradsev
         order by frequency desc;
 
 
-### <a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Риски категориальных переменных в двоичной классификации
+### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Риски категориальных переменных в двоичной классификации
 В двоичной классификации нужно преобразовать нечисловые категориальные переменные в числовые функции, тогда как используемые модели принимают только числовые функции. Чтобы это сделать, нужно заменить каждый нечисловой уровень числовым риском. В этом разделе приведены некоторые общие запросы Hive, с помощью которых вы можете вычислить значения риска категориальной переменной.
 
         set smooth_param1=1;
@@ -83,7 +87,7 @@ ms.author: hangzh;bradsev
 
 После вычисления таблицы рисков риски можно назначить таблице, объединив ее с таблицей рисков. Запрос Hive на объединение предоставлен в предыдущем разделе.
 
-### <a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Извлечение функций из полей даты и времени
+### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Извлечение функций из полей даты и времени
 Язык Hive включает в себя набор функций, определяемых пользователем, для обработки полей даты и времени. По умолчанию формат даты и времени в Hive выглядит так: yyyy-MM-dd 00:00:00 (например, 1970-01-01 12:21:32). В этом разделе приведены примеры того, как из поля даты и времени извлекать день месяца и месяц, и другие примеры, в которых строка даты и времени в формате не по умолчанию преобразуется в строку в формате по умолчанию.
 
         select day(<datetime field>), month(<datetime field>)
@@ -103,14 +107,14 @@ ms.author: hangzh;bradsev
 
 Компонент *hivesampletable* этого запроса по умолчанию предустановлен во всех подготовленных кластерах Azure HDInsight Hadoop.
 
-### <a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Извлечение функций из текстовых полей
+### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Извлечение функций из текстовых полей
 Если таблица Hive содержит текстовое поле, содержащее строку слов, разделенных пробелами, следующий запрос извлекает длину строки и число слов в строке.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Вычисление расстояния между координатами GPS
-Запрос, приведенный в этом разделе, вы можете напрямую применить к данным о поездках в такси в Нью-Йорке. Цель этого запроса — продемонстрировать, как применить внедренные математические функции в Hive, чтобы создать признаки.
+### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Вычисление расстояния между координатами GPS
+Запрос, приведенный в этом разделе, вы можете напрямую применить к данным о поездках в такси в Нью-Йорке. Цель этого запроса — продемонстрировать, как применить внедренные математические функции в Hive, чтобы создать признаки.
 
 Поля в этом запросе — это координаты GPS, обозначающие точки посадки и высадки пассажиров. Они называются так: *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* и *dropoff\_latitude*. Ниже приведены запросы, которые рассчитывают расстояние между координатами посадки и высадки.
 
@@ -130,7 +134,7 @@ ms.author: hangzh;bradsev
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Математические уравнения, с помощью которых рассчитывается расстояние между двумя координатами GPS, можно найти на сайте <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (создатель веб-сайта — Петер Лапису (Peter Lapisu)). В его коде Javascript функция `toRad()` имеет значение *lat_or_lon*pi/180*, преобразующее градусы в радианы. Здесь *lat_or_lon* — это широта или долгота. Так как в Hive нет функции `atan2`, но есть функция `atan`, функция `atan2` в приведенном выше запросе Hive реализована функцией `atan` с помощью определения из <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Википедии</a>.
+Математические уравнения, с помощью которых рассчитывается расстояние между двумя координатами GPS, можно найти на сайте <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (создатель веб-сайта — Петер Лапису (Peter Lapisu)). В его коде Javascript функция `toRad()` имеет значение *lat_or_lon*pi/180*, преобразующее градусы в радианы. Здесь *lat_or_lon* — это широта или долгота. Так как в Hive нет функции `atan2`, но есть функция `atan`, функция `atan2` в приведенном выше запросе Hive реализована функцией `atan` с помощью определения из <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Википедии</a>.
 
 ![Создание рабочей области](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
@@ -144,9 +148,9 @@ ms.author: hangzh;bradsev
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Этот параметр выделяет 4 ГБ памяти куче Java и, кроме того, выделяя на сортировку больший объем памяти, повышает эффективность сортировки. Мы рекомендуем заняться настройкой того, сколько памяти куда выделяется, если произошли сбои задач, связанные с размером кучи.
+    Этот параметр выделяет 4 ГБ памяти куче Java и, кроме того, выделяя на сортировку больший объем памяти, повышает эффективность сортировки. Мы рекомендуем заняться настройкой того, сколько памяти куда выделяется, если произошли сбои задач, связанные с размером кучи.
 
-1. **Размер блока DFS** : этот параметр задает минимальную единицу измерения данных файловой системы. Например, если размер блока DFS составляет 128 МБ, тогда любые данные размером не более 128 МБ хранятся в одном блоке, тогда как для данных размером более 128 МБ выделяется несколько блоков. Очень маленький размер блока может привести к тому, что в Hadoop будет задействовано много служебных данных, так как узлу имени, чтобы найти блок, соответствующий файлу, придется обрабатывать гораздо больше запросов. При работе с гигабайтами (или большими объемами) данных рекомендуем такую настройку:
+1. **Размер блока DFS** : этот параметр задает минимальную единицу измерения данных файловой системы. Например, если размер блока DFS составляет 128 МБ, тогда любые данные размером не более 128 МБ хранятся в одном блоке, тогда как для данных размером более 128 МБ выделяется несколько блоков. Очень маленький размер блока может привести к тому, что в Hadoop будет задействовано много служебных данных, так как узлу имени, чтобы найти блок, соответствующий файлу, придется обрабатывать гораздо больше запросов. При работе с гигабайтами (или большими объемами) данных рекомендуем такую настройку:
    
         set dfs.block.size=128m;
 2. **Оптимизация операций объединения в Hive** : так как операции объединения на платформе Map/Reduce обычно выполняются на этапе сокращения, в некоторых случаях эффективность этих операций можно существенно повысить, запланировав объединения на этапе сопоставления (они также называются «объединениями при сопоставлении»). Чтобы объединение в Hive выполнялось всегда по мере возможности, можно задать следующую настройку:
@@ -165,6 +169,9 @@ ms.author: hangzh;bradsev
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
 
-<!---HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

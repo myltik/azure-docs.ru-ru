@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
 Для работы с этим руководством вам понадобится [образец базы данных Azure DocumentDB](#apdx-sampledata), который легко создать с помощью наших инструкций и данных. Вы также можете адаптировать эти действия к имеющимся данным в базе данных DocumentDB или SQL.
 
 > [!NOTE]
-> Кроме того, вам понадобятся [подписка Azure](/pricing/free-trial/?WT.mc_id=A261C142F) и [служба поиска Azure](search-create-service-portal.md). 
+> Кроме того, вам понадобятся [подписка Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) и [служба поиска Azure](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

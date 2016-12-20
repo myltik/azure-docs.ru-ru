@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: timlt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
 
 
 ---
@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Развертывание контейнера формата Docker
+## <a name="deploy-a-docker-formatted-container"></a>Развертывание контейнера формата Docker
 Контейнеры формата Docker развертываются с помощью Marathon и файла JSON, описывающего предполагаемое развертывание. Приведенный ниже пример кода развертывает контейнер Nginx и привязывает порт 80 агента DC/OS к порту 80 контейнера. Также обратите внимание, что для свойства acceptedResourceRoles задано значение slave_public. Это означает, что контейнер будет развернут в агенте в наборе масштабирования общедоступного агента.
 
 ```json
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

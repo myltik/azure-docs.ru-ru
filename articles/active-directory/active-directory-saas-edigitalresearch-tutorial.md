@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с eDigitalResearch | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в приложении eDigitalResearch.
+title: "Учебник. Интеграция Azure Active Directory с eDigitalResearch | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении eDigitalResearch."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>Руководство. Интеграция Azure Active Directory с eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Руководство. Интеграция Azure Active Directory с eDigitalResearch
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением eDigitalResearch.
 
 Интеграция Azure AD с приложением eDigitalResearch дает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к eDigitalResearch.
 * Вы можете включить автоматический вход пользователей в eDigitalResearch (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с eDigitalResearch, вам потребуется:
@@ -132,10 +136,10 @@ ms.author: jeedes
       — файл **URL-адрес службы единого выхода**
 6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -242,6 +246,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

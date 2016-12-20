@@ -1,33 +1,37 @@
 ---
-title: Веб-API .NET для Azure AD версии 2.0 | Microsoft Docs
-description: Как создать веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей.
+title: "Веб-API .NET для Azure AD версии 2.0 | Документация Майкрософт"
+description: "Как создать веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 10/10/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 005e443bc2bc5cc32a7c32400cec3b7b34120485
+
 
 ---
-# Безопасность веб-API MVC
-Используя конечную точку Azure Active Directory версии 2.0, вы можете защитить веб-API с помощью маркеров доступа [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) и позволить пользователям входить в систему с помощью личной, рабочей или учебной учетной записи Майкрософт для безопасного доступа к веб-API.
+# <a name="secure-an-mvc-web-api"></a>Безопасность веб-API MVC
+Используя конечную точку Azure Active Directory версии 2.0, вы можете защитить веб-API с помощью маркеров доступа [OAuth 2.0](active-directory-v2-protocols.md) и позволить пользователям входить в систему с помощью личной, рабочей или учебной учетной записи Майкрософт для безопасного доступа к веб-API.
 
 > [!NOTE]
-> Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
-> 
-> 
+> Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0.  Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+>
+>
 
-В веб-API ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5. Мы будем использовать OWIN для создания "списка задач" веб-API MVC, который позволяет клиентам создавать и читать задачи из списка дел пользователя. Этот веб-API будет проверять, содержат ли входящие запросы действительный маркер доступа, и отклонять запросы, которые не прошли проверку на защищенном маршруте.
+В веб-API ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5.  Мы будем использовать OWIN для создания "списка задач" веб-API MVC, который позволяет клиентам создавать и читать задачи из списка дел пользователя.  Этот веб-API будет проверять, содержат ли входящие запросы действительный маркер доступа, и отклонять запросы, которые не прошли проверку на защищенном маршруте.  Этот пример создан с помощью Visual Studio 2015.
 
-## Загрузить
-Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) или клонировать ее:
+## <a name="download"></a>Загрузить
+Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) или клонировать ее:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -39,17 +43,16 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-## регистрация приложения;
-Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
+## <a name="register-an-app"></a>регистрация приложения;
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) или выполните [эти подробные указания](active-directory-v2-app-registration.md).  Не забудьте:
 
-* запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
+* Запишите назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
 
-В этом решении Visual Studio также содержится клиент TodoListClient, который представляет собой простое приложение WPF. TodoListClient используется для того, чтобы показать, как пользователь входит в систему и как клиент может отправлять запросы к вашему веб-API. В этом случае и TodoListClient, и TodoListService представлены одним приложением. Чтобы настроить TodoListClient, вам нужно также:
+В этом решении Visual Studio также содержится клиент TodoListClient, который представляет собой простое приложение WPF.  TodoListClient используется для того, чтобы показать, как пользователь входит в систему и как клиент может отправлять запросы к вашему веб-API.  В этом случае и TodoListClient, и TodoListService представлены одним приложением.  Чтобы настроить TodoListClient, вам нужно также:
 
 * Добавьте для приложения **мобильную** платформу.
-* Скопируйте с портала **универсальный код ресурса (URI) перенаправления**. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
-## Установка OWIN
+## <a name="install-owin"></a>Установка OWIN
 Зарегистрировав приложение, вам нужно настроить в нем обмен данными с конечной точкой v2.0. Это позволит проверять входящие запросы и маркеры.
 
 * Для начала откройте решение и добавьте пакеты NuGet промежуточного слоя OWIN в проект TodoListService с помощью консоли диспетчера пакетов.
@@ -60,9 +63,9 @@ PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
-## Настройка аутентификации OAuth 2.0
-* Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.
-* Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(…)` добавьте вызов ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
+## <a name="configure-oauth-authentication"></a>Настройка аутентификации OAuth 2.0
+* Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`.  Щелкните правой кнопкой мыши проект, выберите в контекстном меню пункты **Добавить** --> **Новый элемент** и найдите OWIN.  При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(…)` .
+* Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле.  В методе `Configuration(…)` добавьте вызов ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
 
 ```C#
 public partial class Startup
@@ -111,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью аутентификации OAuth 2.0. Снабдите класс `Controllers\TodoListController.cs` тегом авторизации. Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
+* Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью аутентификации OAuth 2.0.  Снабдите класс `Controllers\TodoListController.cs` тегом авторизации.  Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
 
 ```C#
 [Authorize]
@@ -119,7 +122,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController`, может потребоваться доступ к сведениям о вызывающем объекте. OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincpal`.
+* Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController` , может потребоваться доступ к сведениям о вызывающем объекте.  OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincpal` .  
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -137,32 +140,35 @@ public IEnumerable<TodoItem> Get()
 ```
 
 * Наконец, откройте файл `web.config` в корне проекта TodoListService, а затем введите значения конфигурации в разделе `<appSettings>`.
-  * Ваш `ida:Audience` — это **идентификатор приложения**, введенный на портале.
+  * Ваш `ida:Audience` — это **идентификатор приложения** , введенный на портале.
 
-## Настройка клиентского приложения
+## <a name="configure-the-client-app"></a>Настройка клиентского приложения
 Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров от конечной точки версии 2.0 и выполнения вызовов службы.
 
 * Откройте файл `App.config` проекта TodoListClient и введите значения конфигурации в разделе `<appSettings>`.
-  * Идентификатор приложения `ida:ClientId`, скопированный на портале.
-    * `ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления** с портала.
+  * Идентификатор приложения `ida:ClientId` , скопированный на портале.
 
-Наконец, выполните очистку, соберите и запустите каждый из проектов. Теперь у вас есть веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. Войдите в TodoListClient и вызовите веб-API для добавления задач в список дел пользователя.
+Наконец, выполните очистку, соберите и запустите каждый из проектов.  Теперь у вас есть веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей.  Войдите в TodoListClient и вызовите веб-API для добавления задач в список дел пользователя.
 
-Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip) или клонировать с портала GitHub.
+Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip)или клонировать с портала GitHub.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## Дальнейшие действия
-Теперь можно приступить к изучению других разделов. Можно попробовать:
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь можно приступить к изучению других разделов.  Можно попробовать:
 
-[Вызов веб-API из веб-приложения](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+[Вызов веб-API из веб-приложения >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Дополнительные ресурсы:
 
 * [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Тег StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Тег StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## Получение обновлений системы безопасности для наших продуктов
+## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
    2. Выберите свою **подписку Azure**.
    3. Для группы ресурсов выполните одно из следующих действий. 
       
-      1. а) выберите **Использовать существующую** и укажите имеющуюся группу ресурсов;
-      2. выберите **Создать** и введите имя для группы ресурсов.
+      - а) выберите **Использовать существующую** и укажите имеющуюся группу ресурсов;
+      - выберите **Создать** и введите имя для группы ресурсов.
          
           Некоторые действия, описанные в этом руководстве, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в статье, где описывается [использование групп ресурсов для управления ресурсами Azure](../azure-resource-manager/resource-group-overview.md).
    4. Укажите **расположение** фабрики данных.
@@ -163,6 +163,6 @@ ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

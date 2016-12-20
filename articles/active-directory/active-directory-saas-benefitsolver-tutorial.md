@@ -1,11 +1,11 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Benefitsolver | Microsoft Docs
-description: Узнайте, как использовать Benefitsolver вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с Benefitsolver | Документация Майкрософт"
+description: "Узнайте, как использовать Benefitsolver вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: cf4529b1-3fb6-4475-82b7-2ceedcb70b3c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benefitsolver"></a>Руководство. Интеграция Azure Active Directory с Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Руководство. Интеграция Azure Active Directory с Benefitsolver
 Цель данного учебника — показать интеграцию Azure и Benefitsolver.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-benefitsolver"></a>Включение интеграции приложений для Benefitsolver
 В этом разделе показано, как включить интеграцию приложений для Benefitsolver.
 
-### <a name="to-enable-the-application-integration-for-benefitsolver,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Benefitsolver, выполните следующие действия.
+### <a name="to-enable-the-application-integration-for-benefitsolver-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Benefitsolver, выполните следующие действия.
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ ms.author: jeedes
 
 ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **Benefitsolver** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
@@ -124,7 +128,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-benefitsolver,-perform-the-following-steps:"></a>Чтобы назначить пользователей Benefitsolver, выполните следующие действия.
+### <a name="to-assign-users-to-benefitsolver-perform-the-following-steps"></a>Чтобы назначить пользователей Benefitsolver, выполните следующие действия.
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Benefitsolver** щелкните **Назначить пользователей**.
    
@@ -135,6 +139,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

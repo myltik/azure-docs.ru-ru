@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -26,20 +26,20 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Обзор
-В этом учебнике рассказывается, как добавить облачную серверную службу в мобильное приложение для платформы Apache Cordova с помощью серверной части мобильного приложения Azure.  Мы создадим серверную часть мобильного приложения и простое приложение *списка дел* (на платформе Apache Cordova), которое хранит свои данные в Azure.
+В этом учебнике рассказывается, как добавить облачную серверную службу в мобильное приложение для платформы Apache Cordova с помощью серверной части мобильного приложения Azure.  Мы создадим серверную часть мобильного приложения и простое приложение *списка задач* (на платформе Apache Cordova), которое хранит свои данные в Azure.
 
 Выполнение инструкций из этого учебника необходимо для работы с другими учебниками по Apache Cordova, посвященными использованию функции мобильных приложений в службе приложений Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для работы с этим учебником требуется:
+Для работы с данным руководством вам потребуется:
 
 * компьютер с [Visual Studio Community 2015] или более поздней версии;
 * [набор средств Visual Studio для Apache Cordova];
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Можно также обойтись без Visual Studio и использовать командную строку Apache Cordova напрямую.  Это пригодится, если вы работаете с данным учебником на компьютере Mac.  Компиляция клиентских приложений Apache Cordova с помощью командной строки в этом учебнике не рассматривается.
+Можно также обойтись без Visual Studio и использовать командную строку Apache Cordova напрямую.  Эта командная строка пригодится, если вы работаете с данным руководством на компьютере Mac.  Компиляция клиентских приложений Apache Cordova с помощью командной строки в этом учебнике не рассматривается.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Создание серверной части мобильного приложения Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Создание серверной части мобильного приложения Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,11 +53,13 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 ## <a name="next-steps"></a>Дальнейшие действия
 Закончив работу с этим кратким учебником, переходите к одному из следующих руководств:
 
-* [Добавление аутентификации] в приложение Apache Cordova.
-* [Добавление push-уведомлений] в приложение Apache Cordova.
+* [Добавьте автономные данные](app-service-mobile-cordova-get-started-offline-data.md) в приложение Apache Cordova.
+* [Добавление аутентификации](app-service-mobile-cordova-get-started-users.md) в приложение Apache Cordova.
+* [Добавление push-уведомлений](app-service-mobile-cordova-get-started-push.md) в приложение Apache Cordova.
 
 Дополнительные сведения об основных понятиях, связанных со службой приложений Azure.
 
+* [Автономные данные]
 * [Аутентификация]
 * [Push-уведомления]
 
@@ -70,11 +72,10 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 <!-- Images. -->
 
 <!-- URLs -->
-[Портал Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Инструменты Visual Studio для Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Добавление аутентификации]: app-service-mobile-cordova-get-started-users.md
-[Добавление push-уведомлений]: app-service-mobile-cordova-get-started-push.md
+[набор средств Visual Studio для Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Автономные данные]: app-service-mobile-offline-data-sync.md
 [Аутентификация]: app-service-mobile-auth.md
 [Push-уведомления]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -83,6 +84,6 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

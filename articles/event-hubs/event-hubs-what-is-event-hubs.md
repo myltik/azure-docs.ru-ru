@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc3e2cb76a06607d0bfbbad810968b70d67e4f4
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: eddc3e7c4914936a8a83a042dc0f7d528b91f059
 
 
 ---
@@ -38,14 +38,14 @@ ms.openlocfilehash: fcc3e2cb76a06607d0bfbbad810968b70d67e4f4
 * [Обзор концентраторов событий](event-hubs-overview.md)
 * [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
 * [Доступность и поддержка концентраторов событий: часто задаваемые вопросы](event-hubs-availability-and-support-faq.md)
-* Начните работу с [руководства по концентраторам событий][руководство по концентраторам событий].
-* Полный [пример приложения с использованием концентраторов событий][пример приложения с использованием концентраторов событий].
+* Начните работу с [руководства по концентраторам событий][Event Hubs tutorial]
+* Полный [пример приложения, использующего концентраторы событий][sample application that uses Event Hubs]
 
-[учебника по концентраторам событий]: event-hubs-csharp-ephcs-getstarted.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

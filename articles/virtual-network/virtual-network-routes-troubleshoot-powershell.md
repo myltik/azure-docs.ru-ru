@@ -1,13 +1,13 @@
 ---
-title: Устранение неполадок маршрутов — PowerShell | Microsoft Docs
-description: Узнайте, как устранять неполадки маршрутов в модели развертывания Azure Resource Manager с помощью Azure PowerShell.
+title: "Устранение проблем с маршрутами с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как устранять неполадки маршрутов в модели развертывания Azure Resource Manager с помощью Azure PowerShell."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ecdf6e68a8d2bf7c034b92b57b45ae496a063713
+
 
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Устранение проблем с маршрутами с помощью Azure PowerShell
@@ -132,6 +136,9 @@ ms.author: anithaa
   * Подождите несколько секунд и повторите попытку, если пиринговая связь установлена недавно. Иногда требуется больше времени, чтобы распространить маршруты для всех сетевых интерфейсов в подсети.
   * Правила групп безопасности сети (NSG) могут влиять на потоки трафика. Дополнительные сведения см. в статье, посвященной [устранению неполадок с группами безопасности сети](virtual-network-nsg-troubleshoot-powershell.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

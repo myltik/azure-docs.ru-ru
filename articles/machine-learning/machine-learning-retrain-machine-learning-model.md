@@ -1,12 +1,12 @@
 ---
-title: Retrain a Machine Learning Model | Microsoft Docs
-description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
+title: "Переобучение модели машинного обучения | Документация Майкрософт"
+description: "Узнайте, как переобучить модель и обновить веб-службу так, чтобы она использовала заново обученную модель в службе машинного обучения Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,95 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f897a155d277e41695f5f52b22ab0c512413e5d8
+
 
 ---
-# <a name="retrain-a-machine-learning-model"></a>Retrain a Machine Learning Model
-As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
+# <a name="retrain-a-machine-learning-model"></a>Переобучение модели машинного обучения
+В рамках процесса операционализации моделей машинного обучения в Машинном обучении Azure модель обучается и сохраняется. После этого она используется для создания прогнозной веб-службы. Созданная веб-служба может впоследствии использоваться на веб-сайтах, панелях мониторинга и в мобильных приложениях. 
 
-Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. 
+Модели, создаваемые с помощью машинного обучения, обычно не статические. Если появляются новые данные или у пользователя API есть свои данные, модель нужно переобучить. 
 
-Retraining may occur frequently. With the Programmatic Retraining API feature, you can programmatically retrain the model using the Retraining APIs and update the Web service with the newly trained model. 
+Переобучение может требоваться достаточно часто. Интерфейс API программного переобучения позволяет программным путем переобучить модель с помощью API переобучения и обновить веб-службу, чтобы она использовала эту модель. 
 
-This document describes the retraining process, and shows you how to use the Retraining APIs.
+В этом документе описана процедура переобучения и показано, как использовать интерфейсы API переобучения.
 
-## <a name="why-retrain:-defining-the-problem"></a>Why retrain: defining the problem
-As part of the machine learning training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained.
+## <a name="why-retrain-defining-the-problem"></a>Зачем нужно повторное обучение: определение проблемы
+В рамках процесса машинного обучения модель обучается с использованием определенного набора данных. Модели, создаваемые с помощью машинного обучения, обычно не статические. Если появляются новые данные или у пользователя API есть свои данные, модель нужно переобучить.
 
-In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web service API to use the newly trained model.
+В этих сценариях программный API обеспечивает для вас или потребителя API удобный способ создания клиента, который может единовременно или регулярно переобучать модель при помощи собственных данных. После этого можно оценить результаты переобучения и обновить API веб-службы, чтобы использовать его с недавно обученной моделью.
 
 > [!NOTE]
-> If you have an existing Training Experiment and New Web service, you may want to check out Retrain an existing Predictive Web service instead of following the walkthrough mentioned in the following section.
+> Если у вас есть обучающий эксперимент и новая веб-служба, возможно, вас заинтересует раздел, посвященный переобучению существующей прогнозной веб-службы, а не пошаговое руководство, упомянутое в следующем разделе.
 > 
 > 
 
-## <a name="end-to-end-workflow"></a>End-to-end workflow
-The process involves the following components: A Training Experiment and a Predictive Experiment published as a Web service. To enable retraining of a trained model, the Training Experiment must be published as a Web service with the output of a trained model. This enables API access to the model for retraining. 
+## <a name="end-to-end-workflow"></a>Комплексный рабочий процесс
+В процессе задействованы следующие компоненты: обучающий эксперимент и прогнозный эксперимент, опубликованный в виде веб-службы. Чтобы включить переобучение обученной модели, обучающий эксперимент необходимо опубликовать в виде веб-службы, выходные данные которой будут представлять собой обученную модель. Это позволит использовать API-доступ для переобучения модели. 
 
-The following steps apply to both New and Classic Web services:
+Следующие шаги применяются как к новым, так и к классическим веб-службам.
 
-Create the initial Predictive Web service:
+Создание начальной прогнозной веб-службы:
 
-* Create a training experiment
-* Create a predictive web experiment
-* Deploy a predictive web service
+* Создание обучающего эксперимента
+* Создайте прогнозный веб-эксперимент.
+* Разверните прогнозную веб-службу.
 
-Retrain the Web service:
+Переобучение веб-службы:
 
-* Update training experiment to allow for retraining
-* Deploy the retraining web service
-* Grab Batch Execution Service code and retrain the model
+* Обновите обучающий эксперимент, чтобы предусмотреть переобучение.
+* Разверните переобучающую веб-службу.
+* Используйте код службы пакетного выполнения, чтобы переобучить модель.
 
-For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+Пошаговое руководство на основе указанных выше шагов см. в разделе [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md).
 
-If you deployed a Classic Web Service:
+Если развернута классическая веб-служба, выполните следующие действия.
 
-* Create a new Endpoint on the Predictive Web service
-* Get the PATCH URL and code
-* Use the PATCH URL to point the new Endpoint at the retrained model 
+* Создайте новую конечную точку в прогнозной веб-службе.
+* Получите URL-адрес и код исправления.
+* Используйте URL-адрес исправления, чтобы указать новую конечную точку на переобученной модели. 
 
-For a walkthrough of the preceding steps, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md).
+Пошаговое руководство на основе указанных выше шагов см. в разделе о [переобучении классической веб-службы](machine-learning-retrain-a-classic-web-service.md).
 
-If you run into difficulties retraining a Classic Web service, see [Troubleshooting the retraining of an Azure Machine Learning Classic Web service](machine-learning-troubleshooting-retraining-models.md).
+В случае возникновения трудностей при переобучении классической веб-службы см. раздел [Устранение неполадок при повторном обучении классической веб-службы машинного обучения Azure](machine-learning-troubleshooting-retraining-models.md).
 
-if you deployed a New Web service:
+Если развернута новая веб-служба, необходимо выполнить следующие действия:
 
-* Sign in to your Azure Resource Manager account
-* Get the Web service definition
-* Export the Web Service Definition as JSON
-* Update the reference to the ilearner blob in the JSON
-* Import the JSON into a Web Service Definition
-* Update the Web service with new Web Service Definition
+* Вход в учетную запись Azure Resource Manager
+* Получить определение веб-службы.
+* Экспортировать определение веб-службы в формате JSON.
+* Обновить ссылку на большой двоичный объект `ilearner` в JSON.
+* Импортировать JSON в определение веб-службы.
+* Обновить веб-службу с помощью нового определения веб-службы.
 
-For a walkthrough of the preceding steps, see [Retrain a New Web service using the Machine Learning Management PowerShell cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
+Пошаговое руководство на основе указанных выше шагов см. в статье [Переобучение новой веб-службы с помощью командлетов управления PowerShell Машинного обучения](machine-learning-retrain-new-web-service-using-powershell.md).
 
-The process for setting up retraining for a Classic Web service involves the following steps:
+Процесс настройки переобучения для классической веб-службы включает в себя следующие шаги:
 
-![Retraining process overview][1]
+![Обзор процесса переобучения][1]
 
-Diagram 1: Retraining process for a Classic Web service overview 
+Процесс настройки переобучения для новой веб-службы включает в себя следующие шаги:
 
-The process for setting up retraining for a New Web service involves the following steps:
+![Обзор процесса переобучения][7]
 
-![Retraining process overview][7]
-
-Diagram 2: Retraining process for a New Web service overview  
-
-## <a name="other-resources"></a>Other Resources
-[Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-
-<!--Retrain a New Web service with PowerShell video-->
-
-
+## <a name="other-resources"></a>Другие ресурсы
+* [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/) (Переобучение и обновление моделей машинного обучения Azure с фабрикой данных Azure).
+* [Создание множества моделей машинного обучения и конечных точек веб-службы из одного эксперимента с помощью PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
+* В видео [AML Retraining Models Using APIs](https://www.youtube.com/watch?v=wwjglA8xllg) (Переобучение моделей AML с помощью API-интерфейсов) показано, как переобучать модели машинного обучения, созданные в службе машинного обучения Azure, с использованием API-интерфейсов переобучения и PowerShell.
 
 <!--image links-->
-
-
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

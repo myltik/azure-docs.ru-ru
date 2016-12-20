@@ -1,22 +1,27 @@
 ---
-title: Мониторинг пула эластичных баз данных и управление им с помощью C# | Microsoft Docs
-description: Используйте методы разработки баз данных на C# для управлением пулом эластичных баз данных в Базе данных SQL Azure.
+title: "Мониторинг пула эластичных баз данных и управление им с помощью C# | Документация Майкрософт"
+description: "Используйте методы разработки баз данных на C# для управлением пулом эластичных баз данных в Базе данных SQL Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e13424d8dd652bc20c5746f81df7958963c43a
+
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-c&#x23;"></a>Мониторинг пула эластичных баз данных и управление им с помощью C&#x23;
+# <a name="monitor-and-manage-an-elastic-database-pool-with-cx23"></a>Мониторинг пула эластичных баз данных и управление им с помощью C&#x23;
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -28,7 +33,7 @@ ms.author: sstein
 Узнайте, как управлять [пулом эластичных баз данных](sql-database-elastic-pool.md) с помощью языка C&#x23;. 
 
 > [!NOTE]
-> Многие новые функции Базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
+> Многие новые функции Базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Поэтому всегда используйте последнюю **библиотеку управления базами данных SQL Azure для .NET ([документы](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [пакет NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Более ранние [библиотеки на основе классической модели развертывания](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) поддерживаются только для обратной совместимости. Поэтому советуем использовать более новые библиотеки на основе Resource Manager.
 > 
 > 
 
@@ -106,6 +111,9 @@ ms.author: sstein
 * [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 * Ознакомьтесь с разделом [Масштабирование базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В нем описывается использование инструментов эластичной базы данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

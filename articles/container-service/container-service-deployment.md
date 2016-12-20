@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, контейнеры, микрослужбы, Mesos, Azure"
+keywords: "Docker, контейнеры, микрослужбы, Mesos, Azure, dcos, swarm, kubernetes, служба контейнеров azure, acs"
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
+ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Развертывание кластера службы контейнеров Azure
-Служба контейнеров Azure предусматривает быстрое развертывание популярных решений с открытым кодом для кластеризации и оркестрации контейнеров. Служба контейнеров Azure позволяет развертывать кластеры DC/OS и Docker Swarm, используя шаблоны Azure Resource Manager или портал Azure. Эти кластеры развертываются с помощью наборов масштабирования виртуальных машин Azure. Они также могут использовать возможности сети и хранилища Azure. Для доступа к службе контейнеров Azure нужна подписка Azure. Если у вас ее нет, зарегистрируйтесь, чтобы воспользоваться [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Служба контейнеров Azure предусматривает быстрое развертывание популярных решений с открытым кодом для кластеризации и оркестрации контейнеров. Служба контейнеров Azure позволяет развертывать кластеры DC/OS, Kubernetes и Docker Swarm, используя шаблоны Azure Resource Manager или портал Azure. Эти кластеры развертываются с помощью наборов масштабирования виртуальных машин Azure. Они также могут использовать возможности сети и хранилища Azure. Для доступа к службе контейнеров Azure нужна подписка Azure. Если у вас ее нет, зарегистрируйтесь, чтобы воспользоваться [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 В этом документе описано развертывание кластера службы контейнеров Azure с использованием [портала Azure](#creating-a-service-using-the-azure-portal), [интерфейса командной строки Azure](#creating-a-service-using-the-azure-cli) и [модуля Azure PowerShell](#creating-a-service-using-powershell).  
 
@@ -50,17 +50,23 @@ ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
 
 Выберите тип оркестрации. Доступны следующие параметры.
 
-* **DC/OS**— выполняет развертывание кластера DC/OS.
-* **Swarm**— выполняет развертывание кластера Docker Swarm.
+* **DC/OS** — развертывает кластер DC/OS.
+* **Swarm** — развертывает кластер Docker Swarm.
+* **Kubernetes** — развертывает кластер Kubernetes.
 
 Когда будете готовы продолжить, нажмите кнопку **ОК** .
 
-![Создание развертывания 4](media/acs-portal4.png)  <br />
+![Создание развертывания 4](media/acs-portal4-new.png)  <br />
+
+Если в раскрывающемся списке выбран вариант **Kubernetes**, вам нужно будет ввести идентификатор клиента субъекта-службы и секрет клиента субъекта-службы.
+Дополнительные сведения о создании субъекта-службы см. на [этой странице](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md). 
+
+![Создание развертывания 4.5](media/acs-portal10.PNG)  <br />
 
 Введите следующие сведения:
 
-* **Количество главных серверов**— количество главных серверов в кластере.
-* **Количество агентов**— для Docker Swarm здесь указывается начальное количество агентов в наборе масштабирования агента. Для DC/OS этот параметр означает начальное количество агентов в частном наборе масштабирования. Кроме того, создается общедоступный набор масштабирования с заранее определенным количеством агентов. Количество агентов в этом общедоступном наборе определяется с учетом количества главных серверов в кластере: 1 общедоступный агент для 1 главного сервера, 2 общедоступных агента для 3 или 5 главных серверов.
+* **Количество главных серверов** — количество главных серверов в кластере. Если выбран вариант Kubernetes, количество главных серверов по умолчанию равно 1.
+* **Количество агентов** —для Docker Swarm и Kubernetes здесь указывается начальное количество агентов в агентском наборе масштабирования. Для DC/OS этот параметр означает начальное количество агентов в частном наборе масштабирования. Кроме того, создается общедоступный набор масштабирования с заранее определенным количеством агентов. Количество агентов в этом общедоступном наборе определяется с учетом количества главных серверов в кластере: 1 общедоступный агент для 1 главного сервера, 2 общедоступных агента для 3 или 5 главных серверов.
 * **Размер виртуальной машины агента**— размер виртуальных машин агентов.
 * **Префикс DNS**— уникальное имя, которое будет использоваться в качестве префикса для полных доменных имен службы.
 
@@ -85,10 +91,11 @@ ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Создание службы с помощью интерфейса командной строки Azure
 Чтобы создать экземпляр службы контейнеров Azure с помощью командной строки, вам нужна подписка Azure. Если у вас ее нет, зарегистрируйтесь, чтобы воспользоваться [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Вам также нужно [установить](../xplat-cli-install.md) и [настроить](../xplat-cli-connect.md) интерфейс командной строки Azure.
 
-Чтобы развернуть кластер DC/OS или Docker Swarm, выберите на GitHub один из следующих шаблонов. (обратите внимание, что эти шаблоны отличаются только выбором оркестратора по умолчанию):
+Чтобы развернуть кластер DC/OS, Docker Swarm или Kubernetes, выберите на GitHub один из следующих шаблонов: 
 
-* [шаблон DC/OS;](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [шаблон Swarm.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [шаблон DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos);
+* [шаблон Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm);
+* [шаблон Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 Затем убедитесь, что интерфейс командной строки Azure подключен к подписке Azure. Это можно сделать с помощью следующей команды:
 
@@ -140,10 +147,11 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 ## <a name="create-a-service-by-using-powershell"></a>Создание службы с помощью PowerShell
 Кластер службы контейнеров Azure также можно развернуть с помощью PowerShell. В этом документе используется [модуль Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/)версии 1.0.
 
-Выберите один из следующих шаблонов, чтобы развернуть кластер DC/OS или Docker Swarm. (обратите внимание, что эти шаблоны отличаются только выбором оркестратора по умолчанию):
+Чтобы развернуть кластер DC/OS, Docker Swarm или Kubernetes, выберите один из следующих шаблонов. Обратите внимание, что эти шаблоны отличаются только выбором оркестратора по умолчанию.
 
-* [шаблон DC/OS;](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [шаблон Swarm.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Шаблон DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
+* [Шаблон Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm).
+* [Шаблон Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 Прежде чем создать кластер в подписке Azure, убедитесь, что для сеанса PowerShell выполнен вход в Azure. Это можно сделать с помощью команды `Get-AzureRMSubscription` .
 
@@ -184,10 +192,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 * [Подключение к кластеру службы контейнеров Azure](container-service-connect.md)
 * [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 * [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
+* [Работа со службой контейнеров Azure и Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

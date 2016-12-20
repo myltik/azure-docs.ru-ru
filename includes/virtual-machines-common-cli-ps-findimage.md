@@ -127,7 +127,7 @@ info:    vm image list command OK
 
 ## <a name="powershell"></a>PowerShell
 > [!NOTE]
-> Установите и настройте [последнюю версию Azure PowerShell](../articles/powershell-install-configure.md). Если вы используете модули Azure PowerShell версии ниже 1.0, то можете использовать приведенные ниже команды. Но сначала необходимо выполнить команду `Switch-AzureMode AzureResourceManager`. 
+> Установите и настройте [последнюю версию Azure PowerShell](/powershell/azureps-cmdlets-docs). Если вы используете модули Azure PowerShell версии ниже 1.0, то можете использовать приведенные ниже команды. Но сначала необходимо выполнить команду `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -229,6 +229,6 @@ Windows-Server-Technical-Preview
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

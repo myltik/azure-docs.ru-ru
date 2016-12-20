@@ -64,13 +64,13 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 ## <a name="configure-a-new-notification-hub"></a>Настройка нового центра уведомлений
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. В колонке **Settings** (Параметры) щелкните **Notification Services** (Службы уведомлений) и **Google (GCM)**. Введите ключ сервера FCM, скопированный ранее из [консоли Firebase](https://firebase.google.com/console/) , и нажмите кнопку **Сохранить**.
+&emsp;&emsp;6. В колонке **Параметры** Центра уведомлений щелкните **Службы уведомлений**, а затем — **Google (GCM)**. Введите ключ сервера FCM, скопированный ранее из [консоли Firebase](https://firebase.google.com/console/) , и нажмите кнопку **Сохранить**.
 
 &emsp;&emsp;![Центры уведомлений Azure — Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
 Теперь центр уведомлений настроен для работы с Firebase Cloud Messaging, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
 ### <a name="add-google-play-services-to-the-project"></a>Добавление служб Google Play в проект
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -130,8 +130,8 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
     Обязательно обновите эти три заполнителя в следующем коде для класса `NotificationSettings` :
    
    * **SenderId** — идентификатор отправителя, полученный ранее на вкладке **Cloud Messaging** параметров проекта в [консоли Firebase](https://firebase.google.com/console/).
-   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** Центра на [портале Azure].
-   * **HubName**: используйте имя центра уведомлений, которое отображается на [портале Azure]в колонке центра.
+   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** Центра на [портала Azure].
+   * **HubName**: используйте имя центра уведомлений, которое отображается на [портала Azure]в колонке центра.
      
      `NotificationSettings` :
      
@@ -456,7 +456,7 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
         <string name="notification_message_hint">Enter notification message text</string>
 3. В файле `NotificationSetting.java` добавьте приведенный ниже параметр в класс `NotificationSettings`.
    
-    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портале Azure], щелкните **Политики доступа** в колонке **Параметры** Центра уведомлений.
+    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портала Azure], щелкните **Политики доступа** в колонке **Параметры** Центра уведомлений.
    
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
 4. В файле `MainActivity.java` над классом `MainActivity` добавьте следующие операторы `import`:
@@ -673,10 +673,10 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 [Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Классический портал Azure]: https://manage.windowsazure.com/
-[Общие сведения о концентраторах уведомлений]: notification-hubs-push-notification-overview.md
+[обзоре Центров уведомлений]: notification-hubs-push-notification-overview.md
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[портале Azure]: https://portal.azure.com
+[портала Azure]: https://portal.azure.com
 
 
 

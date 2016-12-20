@@ -1,12 +1,12 @@
 ---
-title: 'Шаг 6: доступ к веб-службе машинного обучения | Microsoft Docs'
-description: 'Шестой этап разработки прогнозного решения: доступ к активной веб-службе машинного обучения Azure.'
+title: "Шаг 6. Доступ к веб-службе машинного обучения | Документация Майкрософт"
+description: "Шестой этап разработки прогнозного решения: доступ к активной веб-службе машинного обучения Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+
 
 ---
-# <a name="walkthrough-step-6:-access-the-azure-machine-learning-web-service"></a>Шаг 6 пошагового руководства: доступ к веб-службе Машинного обучения Azure
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Шаг 6 пошагового руководства: доступ к веб-службе Машинного обучения Azure
 Это последний этап пошагового руководства [Разработка решения для прогнозной аналитики в службе машинного обучения Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -42,6 +46,9 @@ ms.author: garye
 Можно также разработать настраиваемое приложение для доступа к веб-службе с помощью стартового кода в языках программирования R, C# и Python.
 Полные сведения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

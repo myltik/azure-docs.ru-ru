@@ -1,13 +1,13 @@
 ---
-title: Добавление соединителя Informix в приложения логики | Microsoft Docs
-description: Обзор соединителя Logic Apps с параметрами REST API
-services: ''
-documentationcenter: ''
+title: "Добавление соединителя Informix в приложения логики | Документация Майкрософт"
+description: "Обзор соединителя Logic Apps с параметрами REST API"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b9ea0593e0ae6dc9e1b6b07665fc3b3fad264bf
+
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Приступая к работе с соединителем Informix
@@ -305,8 +309,8 @@ ms.author: plarsen
 | Имя свойства | Отображаемое имя | Описание |
 | --- | --- | --- |
 | table* |Имя таблицы |Имя таблицы Informix |
-| $skip |Число пропусков |Количество пропускаемых записей (значение по умолчанию — 0) |
-| $top |Максимальное число записей |Максимальное количество извлекаемых записей (значение по умолчанию — 256) |
+| $skip |Число пропусков |Количество пропускаемых записей (значение по умолчанию — 0) |
+| $top |Максимальное число записей |Максимальное количество извлекаемых записей (значение по умолчанию — 256) |
 | $filter |Запрос фильтра |Запрос фильтра ODATA для ограничения количества записей |
 | $orderby |Упорядочить по |Запрос orderBy ODATA для указания порядка записей |
 
@@ -402,6 +406,9 @@ TablesList
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

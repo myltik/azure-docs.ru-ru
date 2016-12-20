@@ -1,32 +1,36 @@
 ---
-title: Перемещение данных в файловую систему и из нее | Microsoft Docs
-description: Узнайте, как перемещать данные в локальную файловую систему и из нее с помощью фабрики данных Azure.
+title: "Перемещение данных в файловую систему и обратно | Документация Майкрософт"
+description: "Узнайте, как перемещать данные в локальную файловую систему и из нее с помощью фабрики данных Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: e715588edb60dbe19449474e89da841e8b375878
+
 
 ---
 # <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure
-В этой статье описано, как использовать действие копирования в фабрике данных Azure для перемещения данных в локальную файловую систему и из нее. Для получения списка хранилищ, которые можно использовать как источники и приемники для локальной файловой системы, см. раздел [Поддерживаемые хранилища данных](data-factory-data-movement-activities.md#supported-data-stores). Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+В этой статье описано, как использовать действие копирования в фабрике данных Azure для перемещения данных в локальную файловую систему и из нее. Для получения списка хранилищ, которые можно использовать как источники и приемники для локальной файловой системы, см. раздел [Поддерживаемые хранилища данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 Фабрика данных поддерживает обмен данными с локальной файловой системой через шлюз управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке.
 
 > [!NOTE]
 > Для обмена данными с файловой системой устанавливать какие-либо двоичные файлы, кроме шлюза управления данными, не требуется.
-> 
-> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
-> 
-> 
+>
+> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
+>
+>
 
 ## <a name="linux-file-share"></a>Файловый ресурс Linux
 Чтобы использовать файловый ресурс Linux со связанной службой файлового сервера, сделайте следующее.
@@ -37,15 +41,15 @@ ms.author: jingwang
 ## <a name="copy-wizard"></a>Мастер копирования
 Самый простой способ создать конвейер, копирующий данные в локальную файловую систему или из нее, — использовать мастер копирования. Краткое пошаговое руководство представлено в разделе [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md).
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В них показано, как копировать данные в локальную файловую систему и хранилище BLOB-объектов Azure и из них. Тем не менее вы можете скопировать данные *непосредственно* из любых источников в любые из приемников, перечисленных в разделе [Поддерживаемые источники и приемники](data-factory-data-movement-activities.md#supported-data-stores), с помощью действия копирования в фабрике данных Azure.
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В них показано, как копировать данные в локальную файловую систему и хранилище BLOB-объектов Azure и из них. Тем не менее вы можете скопировать данные *непосредственно* из любых источников в любые из приемников, перечисленных в разделе [Поддерживаемые источники и приемники](data-factory-data-movement-activities.md#supported-data-stores-and-formats), с помощью действия копирования в фабрике данных Azure.
 
-## <a name="sample:-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Пример. Копирование данных из локальной файловой системы в хранилище BLOB-объектов Azure
+## <a name="sample-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Пример. Копирование данных из локальной файловой системы в хранилище BLOB-объектов Azure
 В этом примере показано, как скопировать данные из локальной файловой системы в хранилище BLOB-объектов Azure.
 
 Пример содержит следующие сущности фабрики данных.
 
-* Связанная служба типа [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
-* Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* Связанная служба типа [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#on-premises-file-server-linked-service-properties).
+* Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * Входной [набор данных](data-factory-create-datasets.md) типа [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
 * Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
@@ -253,7 +257,7 @@ ms.author: jingwang
        }
     }
 
-## <a name="sample:-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Пример. Копирование данных из базы данных SQL Azure в локальную файловую систему
+## <a name="sample-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Пример. Копирование данных из базы данных SQL Azure в локальную файловую систему
 В примере ниже используется следующее:
 
 * Связанная служба типа AzureSqlDatabase.
@@ -386,7 +390,7 @@ ms.author: jingwang
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **FileSystemSink**. SQL-запрос, указанный для свойства **SqlReaderQuery**, выбирает для копирования данные за последний час.
+Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **FileSystemSink**. SQL-запрос, указанный для свойства **SqlReaderQuery**, выбирает для копирования данные за последний час.
 
     {  
         "name":"SamplePipeline",
@@ -445,7 +449,7 @@ ms.author: jingwang
 | encryptedCredential |Укажите зашифрованные учетные данные. Чтобы их получить, выполните командлет New-AzureRmDataFactoryEncryptValue. |Нет (если имя пользователя и пароль указываются в виде обычного текста) |
 | gatewayName |Задает имя шлюза, который следует использовать фабрике данных для подключения к локальному файловому серверу. |Да |
 
-Дополнительную информацию о настройке учетных данных для локальной файловой системы в качестве источника данных см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Дополнительные сведения о настройке учетных данных для локального источника данных файловой системы см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Примеры определений связанной службы и набора данных
 | Сценарий | Размещение в определении связанной службы | Путь к файлу в определении набора данных |
@@ -455,13 +459,13 @@ ms.author: jingwang
 
 **Как узнать версию шлюза**
 
-1. На своем компьютере запустите [диспетчер конфигурации шлюза управления данными](data-factory-data-management-gateway.md#data-management-gateway-configuration-manager) .
+1. На своем компьютере запустите [диспетчер конфигурации шлюза управления данными](data-factory-data-management-gateway.md#configuration-manager) .
 2. Перейдите на вкладку **Справка** .
 
 > [!NOTE]
-> Мы рекомендуем вам [обновить свой шлюз управления данными до версии 2.0 и выше](data-factory-data-management-gateway.md#update-data-management-gateway), чтобы получить преимущества последних функций и исправлений.
-> 
-> 
+> Мы рекомендуем вам [обновить свой шлюз управления данными до версии 2.0 и выше](data-factory-data-management-gateway.md#update), чтобы получить преимущества последних функций и исправлений.
+>
+>
 
 **Пример указания имени пользователя и пароля в виде обычного текста**
 
@@ -508,15 +512,15 @@ ms.author: jingwang
 
 > [!NOTE]
 > Свойства filename и fileFilter невозможно использовать одновременно.
-> 
-> 
+>
+>
 
 ### <a name="using-partitionedby-property"></a>Использование свойства partitionedBy
 Как сказано выше, для данных временных рядов путь к папке (folderPath) и имя файла (fileName) можно указывать динамически. Это делается с помощью свойства partitionedBy. Вы можете это сделать при помощи макроса фабрики данных и системных переменных SliceStart и SliceEnd, которые определяют логический период времени заданного среза данных.
 
 Дополнительные сведения о наборах данных временных рядов, планировании и срезах см. в статьях [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md), [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) и [Конвейеры и действия в фабрике данных Azure: создание конвейеров, цепочки действий и расписаний для них](data-factory-create-pipelines.md).
 
-#### <a name="sample-1:"></a>Пример 1
+#### <a name="sample-1"></a>Пример 1
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
     "partitionedBy":
     [
@@ -525,7 +529,7 @@ ms.author: jingwang
 
 В этом примере {Slice} заменяется значением SliceStart (системная переменная фабрики данных) в формате ГГГГММДДЧЧ. SliceStart указывает время начала среза. Значение folderPath отличается для каждого среза. Например: wikidatagateway/wikisampledataout/2014100103 или wikidatagateway/wikisampledataout/2014100104.
 
-#### <a name="sample-2:"></a>Пример 2
+#### <a name="sample-2"></a>Пример 2
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy":
@@ -574,6 +578,8 @@ ms.author: jingwang
 ## <a name="performance-and-tuning"></a>Производительность и настройка
  Ознакомьтесь с [руководством по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действия копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

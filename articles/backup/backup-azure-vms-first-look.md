@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/15/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
 ![Обобщенное представление процесса резервного копирования виртуальной машины.](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Это руководство предназначено для использования с виртуальными машинами, которые могут быть созданы на классическом портале Azure. Служба архивации Azure поддерживает виртуальные машины на основе Resource Manager. Дополнительные сведения об архивации виртуальных машин в хранилище службы восстановления см. в статье [Первое знакомство. Защита виртуальных машин в хранилище служб восстановления](backup-azure-vms-first-look-arm.md).
+> В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). Это руководство предназначено для использования с виртуальными машинами, которые могут быть созданы на классическом портале Azure. Служба архивации Azure поддерживает виртуальные машины на основе Resource Manager. Дополнительные сведения об архивации виртуальных машин в хранилище службы восстановления см. в статье [Первое знакомство. Защита виртуальных машин в хранилище служб восстановления](backup-azure-vms-first-look-arm.md).
 >
 >
 
@@ -211,6 +211,6 @@ ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

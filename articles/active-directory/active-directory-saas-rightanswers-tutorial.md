@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с RightAnswers | Microsoft Docs
-description: Узнайте, как использовать RightAnswers с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого.
+title: "Руководство по интеграции Azure Active Directory с RightAnswers | Документация Майкрософт"
+description: "Узнайте, как использовать RightAnswers с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 7f09e25a-a716-41e1-8ca3-fd00e3d1b8cc
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c08e0b1349a3eb1bb4876958e36172e87729330
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-rightanswers"></a>Учебник. Интеграция Azure Active Directory с RightAnswers
+# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Учебник. Интеграция Azure Active Directory с RightAnswers
 Цель данного учебника — показать интеграцию Azure и RightAnswers. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * действующая подписка Azure;
@@ -35,7 +39,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-rightanswers"></a>Включение интеграции приложений для RightAnswers
 В этом разделе показано, как включить интеграцию приложений для RightAnswers.
 
-### <a name="to-enable-the-application-integration-for-rightanswers,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для RightAnswers, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-rightanswers-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для RightAnswers, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-rightanswers-tutorial/IC700993.png "Active Directory")
@@ -58,7 +62,7 @@ ms.author: jeedes
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в RightAnswers со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **RightAnswers** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configure Single Sign-On")
@@ -98,7 +102,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-rightanswers,-perform-the-following-steps:"></a>Чтобы назначить пользователей RightAnswers, выполните следующие действия:
+### <a name="to-assign-users-to-rightanswers-perform-the-following-steps"></a>Чтобы назначить пользователей RightAnswers, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **RightAnswers** щелкните **Назначить пользователей**.
    
@@ -109,6 +113,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

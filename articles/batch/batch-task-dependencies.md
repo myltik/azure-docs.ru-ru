@@ -1,12 +1,12 @@
 ---
-title: Зависимости задач в пакетной службе Azure | Microsoft Docs
-description: Создание задач, которые зависят от успешного выполнения других задач обработки по модели MapReduce и аналогичных рабочих нагрузок данных большого размера в пакетной службе Azure.
+title: "Зависимости задач в пакетной службе Azure | Документация Майкрософт"
+description: "Создание задач, которые зависят от успешного выполнения других задач обработки по модели MapReduce и аналогичных рабочих нагрузок данных большого размера в пакетной службе Azure."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Зависимости задач в пакетной службе Azure
@@ -27,7 +31,7 @@ ms.author: marsma
 
 Можно создавать задачи, которые зависят от других задач по схеме "один к одному" или "один ко многим". Можно даже создать зависимость от диапазона, при которой задача зависит от успешного завершения группы задач, идентификаторы которых находятся в пределах определенного диапазона. Вы можете объединить эти три основные сценария, чтобы создать связь "многие ко многим".
 
-## <a name="task-dependencies-with-batch-.net"></a>Зависимости задач .NET пакетной службы
+## <a name="task-dependencies-with-batch-net"></a>Зависимости задач .NET пакетной службы
 В этой статье рассматривается настройка зависимостей задачи с помощью библиотеки [Batch .NET][net_msdn]. Сначала в этой статье описывается, как [включить зависимость задачи](#enable-task-dependencies) в заданиях, а потом рассматривается, как [настроить задачу с зависимостями](#create-dependent-tasks). Напоследок рассматриваются поддерживаемые пакетной службой [сценарии использования зависимостей](#dependency-scenarios) .
 
 ## <a name="enable-task-dependencies"></a>Включение зависимостей задач
@@ -165,6 +169,6 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

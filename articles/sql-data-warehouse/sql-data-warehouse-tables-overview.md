@@ -1,12 +1,12 @@
 ---
-title: Overview of tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with Azure SQL Data Warehouse Tables.
+title: "Общие сведения о таблицах в хранилище данных SQL | Документация Майкрософт"
+description: "Начало работы с таблицами хранилища данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,73 +14,77 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;jrj
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe62d672ebd4c6d9f5e161e337dbace0c80f67a5
+
 
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>Overview of tables in SQL Data Warehouse
+# <a name="overview-of-tables-in-sql-data-warehouse"></a>Общие сведения о таблицах в хранилище данных SQL
 > [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
+> * [Обзор][Обзор]
+> * [Типы данных][Типы данных]
+> * [Распределение][Распределение]
+> * [Индекс][Индекс]
+> * [Секция][Секция]
+> * [Статистика][Статистика]
+> * [Временные][Временные]
 > 
 > 
 
-Getting started with creating tables in SQL Data Warehouse is simple.  The basic [CREATE TABLE][CREATE TABLE] syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
+Приступить к созданию таблиц в хранилище данных SQL совсем нетрудно.  В основе базового синтаксиса [CREATE TABLE][CREATE TABLE] лежит стандартный синтаксис, с которым вы, скорее всего, уже ознакомились, работая с другими базами данных.  Чтобы создать таблицу, нужно просто назвать таблицу и столбцы, а также определить типы данных для каждого столбца.  Если вы создавали таблицы в других базах данных, вы должны быть знакомы с этим процессом.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
-The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is defined with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
+В приведенном выше примере создается таблица Customers с двумя столбцами: FirstName и LastName.  Для каждого столбца определен тип данных VARCHAR(25), который ограничивает длину данных до 25 символов.  Эти основные атрибуты таблицы, как и другие, в большей степени такие же, как и в других базах данных.  Типы данных определяются для каждого столбца. Они обеспечивают целостность данных.  Вы можете добавить индексы, чтобы повысить производительность за счет сокращения операций ввода-вывода.  Если нужно повысить производительность при изменении данных, можно добавить секционирование.
 
-[Renaming][RENAME] a SQL Data Warehouse table looks like this:
+Команда для [переименования][RENAME] таблицы хранилища данных SQL выглядит следующим образом:
 
 ```sql  
 RENAME OBJECT Customer TO CustomerOrig; 
  ```
 
-## <a name="distributed-tables"></a>Distributed tables
-A new fundamental attribute introduced by distributed systems like SQL Data Warehouse is the **distribution column**.  The distribution column is very much what it sounds like.  It is the column that determines how to distribute, or divide, your data behind the scenes.  When you create a table without specifying the distribution column, the table is automatically distributed using **round robin**.  While round robin tables can be sufficient in some scenarios, defining distribution columns can greatly reduce data movement during queries, thus optimizing performance.  See [Distributing a Table][Distribute] to learn more about how to select a distribution column.
+## <a name="distributed-tables"></a>Распределенные таблицы
+В распределенных системах, таких как хранилище данных SQL, представлен новый основной атрибут — **столбец распределения**.  Его функции соответствуют названию.  Этот столбец определяет способ распределения или разделения данных в фоновом режиме.  Если при создании таблицы не указать столбец распределения, таблица автоматически распределяется с использованием метода **циклического перебора**.  Хотя в некоторых сценариях таблиц, распределенных с использованием метода циклического перебора, может быть достаточно, определение столбцов распределения может значительно уменьшить перемещение данных во время выполнения запросов. Это позволяет оптимизировать производительность.  Дополнительные сведения о том, как выбрать столбец распределения, см. в статье [Распределение таблиц в хранилище данных SQL][Распределение].
 
-## <a name="indexing-and-partitioning-tables"></a>Indexing and partitioning tables
-As you become more advanced in using SQL Data Warehouse and want to optimize performance, you'll want to learn more about Table Design.  To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index] and  [Partitioning a Table][Partition].
+## <a name="indexing-and-partitioning-tables"></a>Индексирование и секционирование таблиц
+Когда вы усовершенствуете навыки работы с хранилищем данных SQL и захотите оптимизировать производительность, вам потребуется узнать больше о конструкторе таблиц.  Дополнительные сведения см. в статьях, посвященных [типам данных таблиц][Типы данных], [распределению][Распределение], [индексированию][Индекс] и [секционированию таблиц][Секция].
 
-## <a name="table-statistics"></a>Table statistics
-Statistics are an extremely important to getting the best performance out of your SQL Data Warehouse.  Since SQL Data Warehouse does not yet automatically create and update statistics for you, like you may have come to expect in Azure SQL Database, reading our article on [Statistics][Statistics] might be one of the most important articles you read to ensure that you get the best performance from your queries.
+## <a name="table-statistics"></a>Статистика таблицы
+Статистика очень важна для обеспечения наилучшей производительности хранилища данных SQL.  Так как хранилище данных SQL еще не создает и не обновляет статистику автоматически, что свойственно для базы данных SQL Azure, мы рекомендуем ознакомиться со статьей об [управлении статистикой][Статистика], в которой содержатся сведения по обеспечению оптимальной производительности запросов.
 
-## <a name="temporary-tables"></a>Temporary tables
-Temporary tables are tables which only exist for the duration of your logon and cannot be seen by other users.  Temporary tables can be a good way to prevent others from seeing temporary results and also reduce the need for cleanup.  Since temporary tables also utilize local storage, they can offer faster performance for some operations.  See the [Temporary Table][Temporary] articles for more details about temporary tables.
+## <a name="temporary-tables"></a>Временные таблицы
+Временные таблицы — это таблицы, которые существуют, пока вы пребываете в системе, и не видны другим пользователям.  Если вы используете такие таблицы, другие пользователи не смогут видеть ваши временные результаты. Кроме того, уменьшается потребность в очистке.  Так как временные таблицы используют локальное хранилище, некоторые операции выполняются быстрее.  Дополнительные сведения см в статье [Временные таблицы в хранилище данных SQL][Временные].
 
-## <a name="external-tables"></a>External tables
-External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][Load data with Polybase].  
+## <a name="external-tables"></a>Внешние таблицы
+Внешние таблицы, также известные как таблицы Polybase, можно запрашивать из хранилища данных SQL, но данные, на которые они указывают, расположены за его пределами.  Например, можно создать внешнюю таблицу, указывающую на файлы в хранилище BLOB-объектов Azure.  Дополнительные сведения о создании и запрашивании внешней таблицы см. в статье [Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)][Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)].  
 
-## <a name="unsupported-table-features"></a>Unsupported table features
-While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.
+## <a name="unsupported-table-features"></a>Неподдерживаемые функции таблиц
+Хотя хранилище данных SQL содержит много функций таблиц, которые характерны для других баз данных, некоторые функции еще не поддерживаются.  Ниже приведен список функций таблиц, которые еще не поддерживаются.
 
-| Unsupported features |
+| Неподдерживаемые функции |
 | --- |
-| [Identity Property][Identity Property] (see [Assigning Surrogate Key Workaround][Assigning Surrogate Key Workaround]) |
-| Primary key, Foreign keys, Unique and Check [Table Constraints][Table Constraints] |
-| [Unique Indexes][Unique Indexes] |
-| [Computed Columns][Computed Columns] |
-| [Sparse Columns][Sparse Columns] |
-| [User-Defined Types][User-Defined Types] |
-| [Sequence][Sequence] |
-| [Triggers][Triggers] |
-| [Indexed Views][Indexed Views] |
-| [Synonyms][Synonyms] |
+| [Свойство IDENTITY][Свойство IDENTITY] (см. запись блога о [назначении суррогатных ключей][Назначение суррогатного ключа]) |
+| [Ограничения таблицы][ограничения таблицы]: свойства PRIMARY KEY, FOREIGN KEY, UNIQUE и CHECK |
+| [Уникальные индексы][Уникальные индексы] |
+| [Вычисляемые столбцы][Вычисляемые столбцы] |
+| [Разреженные столбцы][Разреженные столбцы] |
+| [Пользовательские типы][Пользовательские типы] |
+| [Последовательность][Последовательность] |
+| [Триггеры][триггеры;] |
+| [Индексированные представления][Индексированные представления] |
+| [Синонимы][синонимы;] |
 
-## <a name="table-size-queries"></a>Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+## <a name="table-size-queries"></a>Запросы размера таблицы
+Простой способ определения пространства и строк, используемых таблицей в каждом из 60 распределений, — с помощью команды [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-However, using DBCC commands can be quite limiting.  Dynamic management views (DMVs) will allow you to see much more detail as well as give you much greater control over the query results.  Start by creating this view, which will be referred to by many of our examples in this and other articles.
+Однако возможности команд DBCC достаточно ограничены.  Динамические административные представления содержат больше сведений, а также обеспечивают больший контроль над результатами запросов.  Начните с создания этого представления, на которое будут ссылаться многие примеры в этой и других статьях.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -194,8 +198,8 @@ FROM size
 ;
 ```
 
-### <a name="table-space-summary"></a>Table space summary
-This query returns the rows and space by table.  It is a great query to see which tables are your largest tables and whether they are round robin or hash distributed.  For hash distributed tables it also shows the distribution column.  In most cases your largest tables should be hash distributed with a clustered columnstore index.
+### <a name="table-space-summary"></a>Сводка табличного пространства
+Этот запрос возвращает количество строк и объем каждой таблицы.  Он позволяет узнать, какие таблица занимают большего всего места, в каких таблицах применяется циклический перебор, а в каких — хэш-распределение.  Для таблиц с хэш-распределением запрос показывает столбец распределения.  В большинстве случаев наибольшая таблица должна иметь хэш-распределение и кластеризованный индекс columnstore.
 
 ```sql
 SELECT 
@@ -203,7 +207,7 @@ SELECT
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,     distribution_column
+,      distribution_column
 ,    index_type_desc
 ,    COUNT(distinct partition_nmbr) as nbr_partitions
 ,    SUM(row_count)                 as table_row_count
@@ -218,14 +222,14 @@ GROUP BY
 ,    schema_name
 ,    table_name
 ,    distribution_policy_name
-,     distribution_column
+,      distribution_column
 ,    index_type_desc
 ORDER BY
     table_reserved_space_GB desc
 ;
 ```
 
-### <a name="table-space-by-distribution-type"></a>Table space by distribution type
+### <a name="table-space-by-distribution-type"></a>Табличное пространство по типу распределения
 ```sql
 SELECT 
      distribution_policy_name
@@ -239,7 +243,7 @@ GROUP BY distribution_policy_name
 ;
 ```
 
-### <a name="table-space-by-index-type"></a>Table space by index type
+### <a name="table-space-by-index-type"></a>Табличное пространство по типу индекса
 ```sql
 SELECT 
      index_type_desc
@@ -253,7 +257,7 @@ GROUP BY index_type_desc
 ;
 ```
 
-### <a name="distribution-space-summary"></a>Distribution space summary
+### <a name="distribution-space-summary"></a>Сводка пространства распределения
 ```sql
 SELECT 
     distribution_id
@@ -268,42 +272,42 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Next steps
-To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения см. в статьях, посвященных [типам данных таблиц][Типы данных], [распределению][Распределение], [индексированию][Индекс], [секционированию][Секция], [управлению статистикой таблиц][Статистика] и [временным таблицам][Временные].  Рекомендации по использованию хранилища данных SQL Azure см. в [этой статье][Рекомендации по использованию хранилища данных SQL Azure].
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Обзор]: ./sql-data-warehouse-tables-overview.md
+[Типы данных]: ./sql-data-warehouse-tables-data-types.md
+[Распределение]: ./sql-data-warehouse-tables-distribute.md
+[Индекс]: ./sql-data-warehouse-tables-index.md
+[Секция]: ./sql-data-warehouse-tables-partition.md
+[Статистика]: ./sql-data-warehouse-tables-statistics.md
+[Временные]: ./sql-data-warehouse-tables-temporary.md
+[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
+[Свойство IDENTITY]: https://msdn.microsoft.com/library/ms186775.aspx
+[Назначение суррогатного ключа]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[ограничения таблицы]: https://msdn.microsoft.com/library/ms188066.aspx
+[Вычисляемые столбцы]: https://msdn.microsoft.com/library/ms186241.aspx
+[Разреженные столбцы]: https://msdn.microsoft.com/library/cc280604.aspx
+[Пользовательские типы]: https://msdn.microsoft.com/library/ms131694.aspx
+[Последовательность]: https://msdn.microsoft.com/library/ff878091.aspx
+[триггеры;]: https://msdn.microsoft.com/library/ms189799.aspx
+[Индексированные представления]: https://msdn.microsoft.com/library/ms191432.aspx
+[синонимы;]: https://msdn.microsoft.com/library/ms177544.aspx
+[Уникальные индексы]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

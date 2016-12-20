@@ -1,20 +1,24 @@
 ---
-title: Средство миграции базы данных для DocumentDB | Microsoft Docs
-description: Из этой статьи вы узнаете, как использовать открытые средства переноса данных DocumentDB для импорта данных в DocumentDB из различных источников, включая MongoDB, SQL Server, хранилище таблиц, Amazon DynamoDB, файлы CSV и JSON. Преобразование CSV в JSON.
-keywords: csv в json, средства миграции базы данных, преобразование csv в json
+title: "Средство миграции базы данных для DocumentDB | Документация Майкрософт"
+description: "Из этой статьи вы узнаете, как использовать открытые средства переноса данных DocumentDB для импорта данных в DocumentDB из различных источников, включая MongoDB, SQL Server, хранилище таблиц, Amazon DynamoDB, файлы CSV и JSON. Преобразование CSV в JSON."
+keywords: "csv в json, средства миграции базы данных, преобразование csv в json"
 services: documentdb
 author: andrewhoh
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 11/16/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
+ms.openlocfilehash: 8c295a4207e9d12eb0cb978205a75d536d6a55e7
+
 
 ---
 # <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>Импорт данных в DocumentDB с помощью средства миграции базы данных
@@ -26,12 +30,12 @@ ms.author: anhoh
 * Как импортировать в DocumentDB данные из хранилища таблиц Azure или Amazon DynamoDB?
 * Как переносить данные между коллекциями DocumentDB?
 
-## <a name="<a-id="prerequisites"></a>prerequisites"></a><a id="Prerequisites"></a>Предварительные требования
+## <a name="a-idprerequisitesaprerequisites"></a><a id="Prerequisites"></a>Предварительные требования
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) или более поздняя версия.
 
-## <a name="<a-id="overviewl"></a>overview-of-the-documentdb-data-migration-tool"></a><a id="Overviewl"></a>Обзор средства миграции данных DocumentDB
+## <a name="a-idoverviewlaoverview-of-the-documentdb-data-migration-tool"></a><a id="Overviewl"></a>Обзор средства миграции данных DocumentDB
 Средство миграции данных DocumentDB — это решение с открытым исходным кодом, которое импортирует данные в DocumentDB из различных источников, таких как:
 
 * файлы JSON;
@@ -45,13 +49,13 @@ ms.author: anhoh
 
 Хотя средство импорта предоставляет графический интерфейс пользователя (dtui.exe), им также можно управлять из командной строки (dt.exe). К слову, существует параметр для вывода соответствующей команды после настройки импорта в пользовательском интерфейсе. Табличный источник данных (например, SQL Server или CSV-файлы) можно преобразовать так, чтобы создать иерархические связи (вложенные документы) во время импорта. Читайте дальше, чтобы узнать о доступных источниках, примерах команд для импорта из каждого источника, возможных целевых объектах и просмотре результатов импорта.
 
-## <a name="<a-id="install"></a>installing-the-documentdb-data-migration-tool"></a><a id="Install"></a>Установка средства миграции данных DocumentDB
+## <a name="a-idinstallainstalling-the-documentdb-data-migration-tool"></a><a id="Install"></a>Установка средства миграции данных DocumentDB
 Исходный код средства миграции доступен на портале GitHub в [этом репозитории](https://github.com/azure/azure-documentdb-datamigrationtool), а скомпилированная версия доступна в [Центре загрузки Майкрософт](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Вы можете скомпилировать решение или просто скачать и извлечь скомпилированную версию в каталог по своему усмотрению. Затем запустите:
 
 * **Dtui.exe**— версия средства с графическим интерфейсом;
 * **Dt.exe**— версия средства с командной строкой.
 
-## <a name="<a-id="json"></a>import-json-files"></a><a id="JSON"></a>Импорт файлов JSON
+## <a name="a-idjsonaimport-json-files"></a><a id="JSON"></a>Импорт файлов JSON
 Параметр импорта файлов JSON позволяет импортировать файлы JSON с одним или несколькими документами или файлы JSON, каждый из которых содержит массив документов JSON. Во время добавления папок, содержащих JSON-файлы для импорта, вы можете выполнить рекурсивный поиск файлов во вложенных папках.
 
 ![Снимок экрана: параметры исходного файла JSON — средства миграции базы данных](./media/documentdb-import-data/jsonsource.png)
@@ -73,7 +77,7 @@ ms.author: anhoh
     #Import a single JSON file and partition the data across 4 collections
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
-## <a name="<a-id="mongodb"></a>import-from-mongodb"></a><a id="MongoDB"></a>Импорт из MongoDB
+## <a name="a-idmongodbaimport-from-mongodb"></a><a id="MongoDB"></a>Импорт из MongoDB
 Параметр импорта из MongoDB позволяет импортировать данные из отдельной коллекции MongoDB, фильтровать документы с помощью запроса, а также изменять структуру документа с помощью проекции.  
 
 ![Снимок экрана: параметры источника MongoDB — documentdb и mongodb](./media/documentdb-import-data/mongodbsource.png)
@@ -97,7 +101,7 @@ ms.author: anhoh
     #Import documents from a MongoDB collection which match the query and exclude the loc field
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
-## <a name="<a-id="mongodbexport"></a>import-mongodb-export-files"></a><a id="MongoDBExport"></a>Импортировать файлы экспорта MongoDB
+## <a name="a-idmongodbexportaimport-mongodb-export-files"></a><a id="MongoDBExport"></a>Импортировать файлы экспорта MongoDB
 Параметр импорта JSON-файлов экспорта MongoDB позволяет импортировать файлы JSON, созданные с помощью служебной программы mongoexport.  
 
 ![Снимок экрана: параметры источника экспорта MongoDB — documentdb и mongodb](./media/documentdb-import-data/mongodbexportsource.png)
@@ -108,7 +112,7 @@ ms.author: anhoh
 
     dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
 
-## <a name="<a-id="sql"></a>import-from-sql-server"></a><a id="SQL"></a>Импорт из SQL Server
+## <a name="a-idsqlaimport-from-sql-server"></a><a id="SQL"></a>Импорт из SQL Server
 Параметр импорта из источника SQL позволяет импортировать данные из отдельной базы данных SQL Server и фильтровать записи для импорта с помощью запроса. Кроме того, можно изменить структуру документа, указав разделитель вложения (подробнее об этом чуть позже).  
 
 ![Снимок экрана: параметры источника SQL — средства миграции базы данных](./media/documentdb-import-data/sqlexportsource.png)
@@ -140,7 +144,7 @@ ms.author: anhoh
     #Import records from sql which match a query and create hierarchical relationships
     dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionThroughput:2500
 
-## <a name="<a-id="csv"></a>import-csv-files---convert-csv-to-json"></a><a id="CSV"></a>Импорт CSV-файлов — преобразование CSV в JSON
+## <a name="a-idcsvaimport-csv-files---convert-csv-to-json"></a><a id="CSV"></a>Импорт CSV-файлов — преобразование CSV в JSON
 Параметр импорта из CSV-файла позволяет импортировать один или несколько CSV-файлов. Во время добавления папок, содержащих CSV-файлы для импорта, вы можете выполнить рекурсивный поиск файлов во вложенных папках.
 
 ![Снимок экрана: параметры источника CSV — преобразование CSV в JSON](media/documentdb-import-data/csvsource.png)
@@ -164,7 +168,7 @@ ms.author: anhoh
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
-## <a name="<a-id="azuretablesource"></a>import-from-azure-table-storage"></a><a id="AzureTableSource"></a>Импорт из табличного хранилища Azure
+## <a name="a-idazuretablesourceaimport-from-azure-table-storage"></a><a id="AzureTableSource"></a>Импорт из табличного хранилища Azure
 Параметр импорта из табличного хранилища Azure позволяет импортировать данные из отдельной таблицы хранилища Azure и фильтровать сущности таблицы для импорта при необходимости.  
 
 ![Снимок экрана: параметры источника табличного хранилища Azure](./media/documentdb-import-data/azuretablesource.png)
@@ -193,7 +197,7 @@ ms.author: anhoh
 
     dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
 
-## <a name="<a-id="dynamodbsource"></a>import-from-amazon-dynamodb"></a><a id="DynamoDBSource"></a>Импорт из Amazon DynamoDB
+## <a name="a-iddynamodbsourceaimport-from-amazon-dynamodb"></a><a id="DynamoDBSource"></a>Импорт из Amazon DynamoDB
 Параметр импортера источника Amazon DynamoDB позволяет выполнять импорт из отдельной таблицы Amazon DynamoDB и при необходимости фильтровать сущности для импорта. Чтобы максимально упростить настройку импорта, представлено несколько шаблонов.
 
 ![Снимок экрана: параметры источника DynamoDB Amazon — средства миграции базы данных](./media/documentdb-import-data/dynamodbsource1.png)
@@ -213,7 +217,7 @@ ms.author: anhoh
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
-## <a name="<a-id="blobimport"></a>import-files-from-azure-blob-storage"></a><a id="BlobImport"></a>Импорт файлов из хранилища больших двоичных объектов Azure
+## <a name="a-idblobimportaimport-files-from-azure-blob-storage"></a><a id="BlobImport"></a>Импорт файлов из хранилища больших двоичных объектов Azure
 JSON-файл, файл экспорта MongoDB и параметры импорта источника файла CSV позволяют импортировать из хранилища больших двоичных объектов Azure один или несколько файлов. Чтобы выбрать файлы для импорта, просто предоставьте регулярное выражение после указания URL-адреса или ключа учетной записи для контейнера больших двоичных объектов.
 
 ![Снимок экрана: параметры исходного файла больших двоичных объектов](./media/documentdb-import-data/blobsource.png)
@@ -222,7 +226,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
 
-## <a name="<a-id="documentdbsource"></a>import-from-documentdb"></a><a id="DocumentDBSource"></a>Импорт из DocumentDB
+## <a name="a-iddocumentdbsourceaimport-from-documentdb"></a><a id="DocumentDBSource"></a>Импорт из DocumentDB
 Параметр импортера источников DocumentDB позволяет импортировать данные из коллекций DocumentDB и, если нужно, фильтровать документы с помощью запроса.  
 
 ![Снимок экрана: параметры источника DocumentDB](./media/documentdb-import-data/documentdbsource.png)
@@ -272,7 +276,12 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
     #Export a DocumentDB collection to a JSON file
     dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 
-## <a name="<a-id="hbasesource"></a>import-from-hbase"></a><a id="HBaseSource"></a>Импорт из HBase
+> [!TIP]
+> Средство импорта данных DocumentDB также поддерживает импорт данных из [эмулятора DocumentDB](documentdb-nosql-local-emulator.md). При импорте данных из локального эмулятора задайте следующую конечную точку: https://localhost:<port>. 
+> 
+> 
+
+## <a name="a-idhbasesourceaimport-from-hbase"></a><a id="HBaseSource"></a>Импорт из HBase
 Параметр импортера источника HBase позволяет импортировать данные из таблицы HBase и фильтровать данные при необходимости. Чтобы максимально упростить настройку импорта, представлено несколько шаблонов.
 
 ![Снимок экрана: параметры источника HBase](./media/documentdb-import-data/hbasesource1.png)
@@ -292,7 +301,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
-## <a name="<a-id="documentdbbulktarget"></a>import-to-documentdb-(bulk-import)"></a><a id="DocumentDBBulkTarget"></a>Импорт в DocumentDB (массовый импорт)
+## <a name="a-iddocumentdbbulktargetaimport-to-documentdb-bulk-import"></a><a id="DocumentDBBulkTarget"></a>Импорт в DocumentDB (массовый импорт)
 Средство массового импорта DocumentDB позволяет импортировать данные из любого доступного источника, используя хранимую процедуру DocumentDB для повышения эффективности. Это средство поддерживает импорт в односекционную коллекцию DocumentDB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным коллекциям DocumentDB. Дополнительные сведения о секционировании данных см. в статье [Секционирование и масштабирование данных в Azure DocumentDB](documentdb-partition-data.md). Кроме того, это средство создает, выполняет и удаляет хранимые процедуры из целевых коллекций.  
 
 ![Снимок экрана: параметры массового импорта DocumentDB](./media/documentdb-import-data/documentdbbulk.png)
@@ -342,7 +351,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 Средство массового импорта DocumentDB предоставляет следующие дополнительные параметры:
 
 1. "Размер пакета": по умолчанию средство использует размер пакета 50.  При импорте больших документов рекомендуется уменьшить размер пакета. И наоборот, при импорте небольших документов рекомендуется увеличить размер пакета.
-2. "Максимальный размер скрипта (в байтах)": по умолчанию средство использует максимальный размер скрипта, равный 512 КБ.
+2. "Максимальный размер скрипта (в байтах)": по умолчанию средство использует максимальный размер скрипта, равный 512 КБ.
 3. "Отключить автоматическое создание идентификатора": если каждый импортируемый документ содержит поле идентификатора, то выбор этого параметра может повысить производительность. Документы без поля уникального идентификатора не будут импортированы.
 4. "Обновление существующих документов": по умолчанию средство не заменяет существующие документы с конфликтами идентификаторов. При выборе этого параметра существующие документы с совпадающими идентификаторами будут перезаписываться. Эта функция пригодится для плановых миграций, которые используются для обновления существующих документов.
 5. "Число повторных попыток в случае сбоя": указывает количество повторных попыток подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
@@ -356,7 +365,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 > 
 > 
 
-## <a name="<a-id="documentdbseqtarget"></a>import-to-documentdb-(sequential-record-import)"></a><a id="DocumentDBSeqTarget"></a>Импорт в DocumentDB (последовательный импорт записей)
+## <a name="a-iddocumentdbseqtargetaimport-to-documentdb-sequential-record-import"></a><a id="DocumentDBSeqTarget"></a>Импорт в DocumentDB (последовательный импорт записей)
 Средство последовательного импорта записей DocumentDB позволяет импортировать данные из любых доступных источников по одной записи. Этот параметр можно выбрать при импорте в существующую коллекцию, для которой достигнута квота хранимых процедур. Это средство поддерживает импорт в отдельную (односекционную или многосекционную) коллекцию DocumentDB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным и (или) многосекционным коллекциям DocumentDB. Дополнительные сведения о секционировании данных см. в статье [Секционирование и масштабирование данных в Azure DocumentDB](documentdb-partition-data.md).
 
 ![Снимок экрана: параметры последовательного импорта записей DocumentDB](./media/documentdb-import-data/documentdbsequential.png)
@@ -415,7 +424,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 > 
 > 
 
-## <a name="<a-id="indexingpolicy"></a>specify-an-indexing-policy-when-creating-documentdb-collections"></a><a id="IndexingPolicy"></a>Указание политики индексирования при создании коллекций DocumentDB
+## <a name="a-idindexingpolicyaspecify-an-indexing-policy-when-creating-documentdb-collections"></a><a id="IndexingPolicy"></a>Указание политики индексирования при создании коллекций DocumentDB
 Если вы разрешили средству миграции создавать коллекции во время импорта, можно указать политику индексирования коллекций. В разделе дополнительных параметров массового импорта DocumentDB и параметров последовательной записи DocumentDB перейдите в раздел "Политика индексации".
 
 ![Снимок экрана: дополнительные параметры политики индексации DocumentDB](./media/documentdb-import-data/indexingpolicy1.png)
@@ -448,7 +457,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
     Prettified JSON export
     [
-    {
+     {
     "id": "Sample",
     "Title": "About Paris",
     "Language": {
@@ -500,6 +509,9 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о DocumentDB см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

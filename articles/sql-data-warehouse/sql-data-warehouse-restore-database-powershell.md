@@ -1,12 +1,12 @@
 ---
-title: Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Docs
-description: Задачи PowerShell для восстановления хранилища данных SQL.
+title: "Восстановление хранилища данных SQL Azure (PowerShell) | Документация Майкрософт"
+description: "Задачи PowerShell для восстановления хранилища данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3f642b5b5b19887ebe373d1c0df809873abde503
+
 
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Восстановление хранилища данных SQL Azure (PowerShell)
@@ -31,10 +35,10 @@ ms.author: lakshmir;barbkess
 **Проверьте ресурсы DTU.**  Каждое хранилище данных SQL размещается на сервере SQL Server (например, myserver.database.windows.net), которому выделена квота DTU по умолчанию.  Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы узнать, как вычислить необходимое количество DTU или запросить дополнительные единицы DTU, ознакомьтесь с разделом [Создание запроса в службу поддержки для хранилища данных SQL][Создание запроса в службу поддержки для хранилища данных SQL].
 
 ### <a name="install-powershell"></a>Установка PowerShell
-Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии.  Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name AzureRM**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][].  Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][Как установить и настроить Azure PowerShell].
+Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии.  Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name AzureRM**.  Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][Установщик веб-платформы Майкрософт].  Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][Как установить и настроить Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Восстановление активной или приостановленной базы данных
-Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
+Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -82,7 +86,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-a-deleted-database"></a>Восстановление удаленной базы данных.
-Для восстановления удаленной базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
+Для восстановления удаленной базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -118,7 +122,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Восстановление из географического региона Azure
-Для восстановления базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] .
+Для восстановления удаленной базы данных используйте командлет [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -143,7 +147,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Настройка базы данных после восстановления]. 
+> Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][Настройка базы данных после восстановления].
 > 
 > 
 
@@ -155,15 +159,15 @@ $GeoRestoredDatabase.status
 <!--Image references-->
 
 <!--Article references-->
-[Обзор непрерывности бизнес-процессов в базе данных SQL Azure]: sql-database-business-continuity.md
+[Обзор непрерывности бизнес-процессов в базе данных SQL Azure]: ../sql-database/sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Как установить и настроить Azure PowerShell]: powershell-install-configure.md
+[Настройка базы данных после восстановления]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Как установить и настроить Azure PowerShell]: ../powershell-install-configure.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Настройка базы данных после восстановления]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -174,6 +178,6 @@ $GeoRestoredDatabase.status
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

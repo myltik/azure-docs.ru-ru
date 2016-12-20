@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
 
 
 ---
@@ -118,7 +118,7 @@ ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
 Кроме того, вы можете использовать Azure PowerShell для создания общих папок и управления ими.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Установите командлеты PowerShell для хранилища Azure
-Для подготовки к использованию PowerShell загрузите и установите командлеты Azure PowerShell. Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Для подготовки к использованию PowerShell загрузите и установите командлеты Azure PowerShell. Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Рекомендуется загрузить и установить или обновить версию модуля Azure PowerShell.
@@ -133,16 +133,16 @@ ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
 В следующем примере вместо `storage-account-name` и `storage-account-key` используйте имя и ключ своей учетной записи хранения.
 
 ```powershell
-    # create a context for account and key
-    $ctx=New-AzureStorageContext storage-account-name storage-account-key
+# create a context for account and key
+$ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
 ### <a name="create-a-new-file-share"></a>Создание нового ресурса совместно используемых файлов
 Затем создайте новый файловый ресурс с именем `logs`.
 
 ```powershell
-    # create a new share
-    $s = New-AzureStorageShare logs -Context $ctx
+# create a new share
+$s = New-AzureStorageShare logs -Context $ctx
 ```
 
 У вас появится новый общий ресурс в хранилище файлов. Далее мы добавим каталог и файл.
@@ -156,24 +156,24 @@ ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
 Затем создайте каталог в ресурсе совместно используемых файлов. В данном примере используется каталог с именем `CustomLogs`:
 
 ```powershell
-    # create a directory in the share
-    New-AzureStorageDirectory -Share $s -Path CustomLogs
+# create a directory in the share
+New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>Отправка локального файла в каталог
 Затем загрузите локальный файл в хранилище файлов. В данном примере файл передается из `C:\temp\Log1.txt`. Отредактируйте путь к файлу, чтобы он соответствовал пути к существующему файлу на локальном компьютере:
 
 ```powershell
-    # upload a local file to the new directory
-    Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+# upload a local file to the new directory
+Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
 ### <a name="list-the-files-in-the-directory"></a>Просмотр списка файлов в каталоге
 Чтобы просмотреть файлы в каталоге, можно вывести список файлов. Эта команда возвращает файлы и подкаталоги (если таковые имеются) в каталоге CustomLogs.
 
 ```powershell
-    # list files in the new directory
-    Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+# list files in the new directory
+Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
 Get-AzureStorageFile возвращает список файлов и каталогов в каталоге, в который отправлен объект. Get-AzureStorageFile -Share $s возвращает список файлов и каталогов в корневой папке. Чтобы получить список файлов в подкаталоге, необходимо передать подкаталог команде Get-AzureStorageFile. Как это работает: первая часть команды возвращает экземпляр каталога подкаталога CustomLogs. Затем этот экземпляр передается команде Get-AzureStorageFile, которая возвращает файлы и каталоги в CustomLogs.
@@ -182,11 +182,11 @@ Get-AzureStorageFile возвращает список файлов и ката�
 Начиная с версии 0.9.7 Azure PowerShell, можно скопировать файл в другой файл, файл в большой двоичный объект или BLOB-объект в файл. Ниже показано, как выполнить копирование с помощью командлетов PowerShell.
 
 ```powershell
-    # copy a file to the new directory
-    Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
+# copy a file to the new directory
+Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-    # copy a blob to a file directory
-    Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+# copy a blob to a file directory
+Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 
 ## <a name="mount-the-file-share"></a>Подключение общей папки
@@ -210,14 +210,16 @@ Get-AzureStorageFile возвращает список файлов и ката�
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Подключение общей папки из виртуальной машины Azure под управлением Windows
 Для демонстрации подключения общей папки с файлами Azure создадим виртуальную машину Azure под управлением Windows и удаленно подключимся к ней для подключения общей папки.
 
-1. Сначала создайте виртуальную машину Azure, выполнив действия, описанные в статье [Создание виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Затем установите удаленное подключение к виртуальной машине, следуя инструкциям из статьи, посвященной [входу на виртуальную машину Windows с помощью портала Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Сначала создайте виртуальную машину Azure, выполнив действия, описанные в статье [Создание виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Затем установите удаленное подключение к виртуальной машине, следуя инструкциям из статьи, посвященной [входу на виртуальную машину Windows с помощью портала Azure](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Откройте окно PowerShell на виртуальной машине.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Ввод данных учетной записи хранения в виртуальной машине.
 Перед монтированием общего ресурса введите данные учетной записи хранения в виртуальной машине. Это позволит Windows автоматически восстанавливать подключение к общему ресурсу файлов при перезагрузке виртуальной машины. Чтобы сохранить учетные данные, выполните команду `cmdkey` в окне PowerShell на виртуальной машине. Вместо `<storage-account-name>` укажите имя учетной записи хранения, а вместо `<storage-account-key>` — ключ учетной записи хранения.
 
-    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+```
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+```
 
 Windows автоматически восстановит подключение к общему ресурсу файлов при перезагрузке виртуальной машины. Вы можете проверить восстановление подключения к файловому ресурсу, выполнив команду `net use` в окне PowerShell.
 
@@ -226,23 +228,27 @@ Windows автоматически восстановит подключение
 ### <a name="mount-the-file-share-using-the-persisted-credentials"></a>Монтирование общего ресурса файлов с использованием введенных данных учетной записи
 Установив удаленное подключение к виртуальной машине, вы можете подключить файловый ресурс с помощью команды `net use`, используя синтаксис из примера ниже. Замените `<storage-account-name>` именем учетной записи хранения, а `<share-name>` именем вашего ресурса хранилища файлов.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+```
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 
-    example :
-    net use z: \\samples.file.core.windows.net\logs
+example :
+net use z: \\samples.file.core.windows.net\logs
+```
 
 Так как вы сохранили данные учетной записи хранения на предыдущем этапе, нет необходимости вводить их повторно с помощью команды `net use`. Если вы еще не сохранили учетные данные, включите их в параметры вызова команды `net use` , как показано в следующем примере.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+```
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
 
-    example :
-    net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+example :
+net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+```
 
 Теперь можно работать с общим ресурсом хранилища файлов из виртуальной машины, как с обычным диском. Можно выполнять стандартные команды для работы с файлами из интерфейса командной строки, либо просматривать монтированный ресурс и его содержимое с помощью Проводника. Также можно запускать на виртуальной машине код, который получит доступ к ресурсу с использованием стандартных API ввода-вывода Windows, так как они предоставляются [пространствами имен System.IO](http://msdn.microsoft.com/library/gg145019.aspx) в .NET Framework.
 
 Также можно монтировать общий ресурс файлов из роли, запущенной в облачной службе Azure с помощью удаленного подключения к роли.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Подключение общей папки из локального клиента под управлением Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Подключение общей папки из локального клиента под управлением Windows
 Чтобы подключить общую папку из локального клиента, выполните следующие действия.
 
 * Установите версию Windows, которая поддерживает протокол SMB 3.0. ОС Windows будет использовать шифрование SMB 3.0 для безопасной передачи данных между локальным клиентом и общей папкой Azure в облаке.
@@ -272,16 +278,17 @@ Windows автоматически восстановит подключение
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Сохранение данных учетной записи хранения в файле app.config.
 Затем сохраните данные учетной записи хранения в файле app.config вашего проекта. Замените содержимое файла app.config текстом из следующего примера: введите вместо `myaccount` имя учетной записи хранения, а вместо `mykey` — ключ учетной записи хранения.
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <startup>
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-        </startup>
-        <appSettings>
-            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-        </appSettings>
-    </configuration>
-
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+    </appSettings>
+</configuration>
+```
 
 > [!NOTE]
 > Последняя версия эмулятора хранения Azure не поддерживает хранилище файлов. Для работы с хранилищем файлов необходимо, чтобы строка подключения указывала на учетную запись хранения Azure в облаке.
@@ -292,10 +299,10 @@ Windows автоматически восстановит подключение
 В обозревателе решений откройте файл `program.cs` и добавьте следующие объявления пространств имен в начало файла.
 
 ```csharp
-    using Microsoft.Azure; // Namespace for Azure Configuration Manager
-    using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
-    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
-    using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+using Microsoft.Azure; // Namespace for Azure Configuration Manager
+using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
@@ -304,35 +311,35 @@ Windows автоматически восстановит подключение
 Затем, чтобы получить строку подключения, добавьте в метод `Main()` после указанного выше кода приведенный ниже код. Этот код получает ссылку на ранее созданный файл и выводит его содержимое в окне консоли.
 
 ```csharp
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Get a reference to the root directory for the share.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+    // Get a reference to the directory we created previously.
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+    // Ensure that the directory exists.
+    if (sampleDir.Exists())
     {
-        // Get a reference to the root directory for the share.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        // Get a reference to the file we created previously.
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
 
-        // Get a reference to the directory we created previously.
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-
-        // Ensure that the directory exists.
-        if (sampleDir.Exists())
+        // Ensure that the file exists.
+        if (file.Exists())
         {
-            // Get a reference to the file we created previously.
-            CloudFile file = sampleDir.GetFileReference("Log1.txt");
-
-            // Ensure that the file exists.
-            if (file.Exists())
-            {
-                // Write the contents of the file to the console window.
-                Console.WriteLine(file.DownloadTextAsync().Result);
-            }
+            // Write the contents of the file to the console window.
+            Console.WriteLine(file.DownloadTextAsync().Result);
         }
     }
+}
 ```
 
 Запустите консольное приложение и получите вывод.
@@ -345,33 +352,33 @@ Windows автоматически восстановит подключение
 В приведенном ниже примере показано, как проверить текущее использование данных в файловом ресурсе, а также задать для него квоту.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
-    {
-        // Check current usage stats for the share.
-        // Note that the ShareStats object is part of the protocol layer for the File service.
-        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Check current usage stats for the share.
+    // Note that the ShareStats object is part of the protocol layer for the File service.
+    Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-        // Specify the maximum size of the share, in GB.
-        // This line sets the quota to be 10 GB greater than the current usage of the share.
-        share.Properties.Quota = 10 + stats.Usage;
-        share.SetProperties();
+    // Specify the maximum size of the share, in GB.
+    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    share.Properties.Quota = 10 + stats.Usage;
+    share.SetProperties();
 
-        // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
-        share.FetchAttributes();
-        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
-    }
+    // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
+    share.FetchAttributes();
+    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+}
 ```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Создание подписи общего доступа для файла или файлового ресурса
@@ -380,47 +387,47 @@ Windows автоматически восстановит подключение
 В приведенном ниже примере создаются политики общего доступа в общей папке, а затем используются для обеспечения ограничения SAS для файла в общей папке.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
-    {
-        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+// Ensure that the share exists.
+if (share.Exists())
+{
+    string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-        // Create a new shared access policy and define its constraints.
-        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
-            {
-                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
-            };
+    // Create a new shared access policy and define its constraints.
+    SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+        {
+            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+            Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+        };
 
-        // Get existing permissions for the share.
-        FileSharePermissions permissions = share.GetPermissions();
+    // Get existing permissions for the share.
+    FileSharePermissions permissions = share.GetPermissions();
 
-        // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
-        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
-        share.SetPermissions(permissions);
+    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+    share.SetPermissions(permissions);
 
-        // Generate a SAS for a file in the share and associate this access policy with it.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-        CloudFile file = sampleDir.GetFileReference("Log1.txt");
-        string sasToken = file.GetSharedAccessSignature(null, policyName);
-        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+    // Generate a SAS for a file in the share and associate this access policy with it.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+    CloudFile file = sampleDir.GetFileReference("Log1.txt");
+    string sasToken = file.GetSharedAccessSignature(null, policyName);
+    Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
 
-        // Create a new CloudFile object from the SAS, and write some text to the file.
-        CloudFile fileSas = new CloudFile(fileSasUri);
-        fileSas.UploadText("This write operation is authenticated via SAS.");
-        Console.WriteLine(fileSas.DownloadText());
-    }
+    // Create a new CloudFile object from the SAS, and write some text to the file.
+    CloudFile fileSas = new CloudFile(fileSasUri);
+    fileSas.UploadText("This write operation is authenticated via SAS.");
+    Console.WriteLine(fileSas.DownloadText());
+}
 ```
 
 Дополнительные сведения см. в статьях [Использование подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md) и [Создание и использование подписанного URL-адреса в службе BLOB-объектов](storage-dotnet-shared-access-signature-part-2.md).
@@ -440,45 +447,45 @@ AzCopy можно использовать для копирования одн�
 В приведенном ниже примере файл копируется в другой файл в той же общей папке. Так как эта операция копирования осуществляет копирование между файлами в одной учетной записи хранения, для выполнения копирования можно использовать проверку подлинности Shared Key.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Get a reference to the root directory for the share.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+    // Get a reference to the directory we created previously.
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+    // Ensure that the directory exists.
+    if (sampleDir.Exists())
     {
-        // Get a reference to the root directory for the share.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        // Get a reference to the file we created previously.
+        CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
 
-        // Get a reference to the directory we created previously.
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-
-        // Ensure that the directory exists.
-        if (sampleDir.Exists())
+        // Ensure that the source file exists.
+        if (sourceFile.Exists())
         {
-            // Get a reference to the file we created previously.
-            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+            // Get a reference to the destination file.
+            CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
 
-            // Ensure that the source file exists.
-            if (sourceFile.Exists())
-            {
-                // Get a reference to the destination file.
-                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+            // Start the copy operation.
+            destFile.StartCopy(sourceFile);
 
-                // Start the copy operation.
-                destFile.StartCopy(sourceFile);
-
-                // Write the contents of the destination file to the console window.
-                Console.WriteLine(destFile.DownloadText());
-            }
+            // Write the contents of the destination file to the console window.
+            Console.WriteLine(destFile.DownloadText());
         }
     }
+}
 ```
 
 **Копирование файла в большой двоичный объект**
@@ -486,47 +493,47 @@ AzCopy можно использовать для копирования одн�
 В приведенном ниже примере файл создается и копируется в большой двоичный объект в пределах одной и той же учетной записи хранения. В примере для исходного файла создается SAS, которую служба использует для проверки подлинности при доступе к исходному файлу во время операции копирования.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Create a new file share, if it does not already exist.
-    CloudFileShare share = fileClient.GetShareReference("sample-share");
-    share.CreateIfNotExists();
+// Create a new file share, if it does not already exist.
+CloudFileShare share = fileClient.GetShareReference("sample-share");
+share.CreateIfNotExists();
 
-    // Create a new file in the root directory.
-    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
-    sourceFile.UploadText("A sample file in the root directory.");
+// Create a new file in the root directory.
+CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+sourceFile.UploadText("A sample file in the root directory.");
 
-    // Get a reference to the blob to which the file will be copied.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
-    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+// Get a reference to the blob to which the file will be copied.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
+CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
-    // Create a SAS for the file that's valid for 24 hours.
-    // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-    // to authenticate access to the source object, even if you are copying within the same
-    // storage account.
-    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
-    {
-        // Only read permissions are required for the source file.
-        Permissions = SharedAccessFilePermissions.Read,
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
-    });
+// Create a SAS for the file that's valid for 24 hours.
+// Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+// to authenticate access to the source object, even if you are copying within the same
+// storage account.
+string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+{
+    // Only read permissions are required for the source file.
+    Permissions = SharedAccessFilePermissions.Read,
+    SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+});
 
-    // Construct the URI to the source file, including the SAS token.
-    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+// Construct the URI to the source file, including the SAS token.
+Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
 
-    // Copy the file to the blob.
-    destBlob.StartCopy(fileSasUri);
+// Copy the file to the blob.
+destBlob.StartCopy(fileSasUri);
 
-    // Write the contents of the file to the console window.
-    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
-    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+// Write the contents of the file to the console window.
+Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 Таким же образом можно скопировать BLOB-объект в файл. Если исходным объектом является BLOB-объект, создайте SAS для проверки подлинности доступа к BLOB-объекту во время операции копирования.
@@ -541,51 +548,51 @@ AzCopy можно использовать для копирования одн�
 Сначала добавьте в файл program.cs приведенные ниже инструкции `using` в дополнение к указанным выше.
 
 ```csharp
-    using Microsoft.WindowsAzure.Storage.File.Protocol;
-    using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+using Microsoft.WindowsAzure.Storage.File.Protocol;
+using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
 Обратите внимание, что хранилища BLOB-объектов, таблиц и очередей применяют общий тип `ServiceProperties` в пространстве имен `Microsoft.WindowsAzure.Storage.Shared.Protocol`, однако хранилище файлов использует собственный тип `FileServiceProperties` в пространстве имен `Microsoft.WindowsAzure.Storage.File.Protocol`. Однако для обеспечения компиляции приведенного ниже кода ваш код должен ссылаться на оба этих пространства имен.
 
 ```csharp
-    // Parse your storage connection string from your application's configuration file.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    // Create the File service client.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Parse your storage connection string from your application's configuration file.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Create the File service client.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Set metrics properties for File service.
-    // Note that the File service currently uses its own service properties type,
-    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
-    fileClient.SetServiceProperties(new FileServiceProperties()
+// Set metrics properties for File service.
+// Note that the File service currently uses its own service properties type,
+// available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+fileClient.SetServiceProperties(new FileServiceProperties()
+{
+    // Set hour metrics
+    HourMetrics = new MetricsProperties()
     {
-        // Set hour metrics
-        HourMetrics = new MetricsProperties()
-        {
-            MetricsLevel = MetricsLevel.ServiceAndApi,
-            RetentionDays = 14,
-            Version = "1.0"
-        },
-        // Set minute metrics
-        MinuteMetrics = new MetricsProperties()
-        {
-            MetricsLevel = MetricsLevel.ServiceAndApi,
-            RetentionDays = 7,
-            Version = "1.0"
-        }
-    });
+        MetricsLevel = MetricsLevel.ServiceAndApi,
+        RetentionDays = 14,
+        Version = "1.0"
+    },
+    // Set minute metrics
+    MinuteMetrics = new MetricsProperties()
+    {
+        MetricsLevel = MetricsLevel.ServiceAndApi,
+        RetentionDays = 7,
+        Version = "1.0"
+    }
+});
 
-    // Read the metrics properties we just set.
-    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
-    Console.WriteLine("Hour metrics:");
-    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
-    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
-    Console.WriteLine(serviceProperties.HourMetrics.Version);
-    Console.WriteLine();
-    Console.WriteLine("Minute metrics:");
-    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
-    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
-    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+// Read the metrics properties we just set.
+FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+Console.WriteLine("Hour metrics:");
+Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+Console.WriteLine(serviceProperties.HourMetrics.Version);
+Console.WriteLine();
+Console.WriteLine("Minute metrics:");
+Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
 Кроме того, вы можете найти подробное руководство по устранению неполадок в статье [Troubleshooting Azure File storage problems](storage-troubleshoot-file-connection-problems.md) (Устранение неполадок в хранилище файлов Azure). 
@@ -662,8 +669,6 @@ AzCopy можно использовать для копирования одн�
 * [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

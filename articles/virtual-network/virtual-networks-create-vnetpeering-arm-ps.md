@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: dac579bd-7545-461a-bdac-301c87434c84
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
+ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
+ms.openlocfilehash: 7de9b1f207caf582bde153aa931f3996b459d825
 
 
 ---
@@ -32,10 +32,9 @@ ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-> [!NOTE]
-> Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
-> 
-> 
+    > [!NOTE]
+    > Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    >
 
 1. Чтение объектов виртуальных сетей.
    
@@ -238,6 +237,6 @@ ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

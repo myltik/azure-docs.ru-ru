@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 
 
 ---
@@ -56,7 +56,7 @@ ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Веб-API ASP.NET. В инструкциях руководства предполагается, что у вас уже есть базовые знания о работе с [веб-API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET в Visual Studio.
-* Учетная запись Azure. [Создайте бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Учетная запись Azure. [Создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
     Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Это не потребует **ни кредитной карты**, ни каких-либо обязательств.
 * Visual Studio 2015 с [Azure SDK для .NET](https://azure.microsoft.com/downloads/archive-net-downloads/). Пакет SDK автоматически устанавливает Visual Studio 2015, если вы еще этого не сделали.
@@ -442,6 +442,6 @@ Swashbuckle можно использовать с любыми проектам
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

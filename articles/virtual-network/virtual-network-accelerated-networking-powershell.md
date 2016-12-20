@@ -1,13 +1,13 @@
 ---
-title: Повышение производительности сети для виртуальной машины с использованием PowerShell | Microsoft Docs
-description: Сведения о настройке повышения производительности сети для виртуальной машины Azure с помощью PowerShell.
+title: "Повышение производительности сети для виртуальной машины с использованием PowerShell | Документация Майкрософт"
+description: "Сведения о настройке повышения производительности сети для виртуальной машины Azure с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+
 
 ---
 # <a name="accelerated-networking-for-a-virtual-machine"></a>Повышение производительности сети для виртуальной машины
@@ -50,7 +54,7 @@ ms.author: jdial
 * **Создание виртуальной машины.** Сетевой интерфейс с включенным повышением производительности сети можно подключить к виртуальной машине при ее создании. Этого нельзя сделать для имеющейся виртуальной машины.
 * **Регионы.** Эта функция доступна только в таких регионах Azure, как западно-центральная часть США и Западная Европа. Набор поддерживаемых регионов будет расширяться в будущем.
 * **Поддерживаемые операционные системы.** Microsoft Windows Server 2012 R2 и Windows Server 2016 Technical Preview 5. Вскоре будет добавлена поддержка Linux и Windows Server 2012.
-* **Размер виртуальной машины.** Standard_D15_v2 и Standard_DS15_v2 — единственные поддерживаемые размеры экземпляров виртуальных машин. Дополнительные сведения см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
+* **Размер виртуальной машины.** Standard_D15_v2 и Standard_DS15_v2 — единственные поддерживаемые размеры экземпляров виртуальных машин. Дополнительные сведения см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
 
 Сведения об изменениях этих ограничений будут публиковаться на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -111,7 +115,7 @@ ms.author: jdial
 10. Если вы решили не добавлять ресурс общедоступного IP-адреса к интерфейсу, удалите *- PublicIPAddress $PIP1* в конце следующей команды. Создайте сетевой интерфейс с повышением производительности сети, введя следующую команду:
     
         $nic = New-AzureRmNetworkInterface -Location $locName -Name $NICName -ResourceGroupName $rgName -Subnet $Subnet -EnableAcceleratedNetworking -PublicIpAddress $PIP1 
-11. Назначьте сетевой интерфейс виртуальной машине во время ее создания, следуя инструкциям, описанным в шагах 3 и 6 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md) . На шаге 6 в пункте 2 замените *Standard_A1* на один из размеров виртуальной машины, перечисленных в разделе [Ограничения](#limitations) этой статьи.
+11. Назначьте сетевой интерфейс виртуальной машине во время ее создания, следуя инструкциям, описанным в шагах 3 и 6 статьи [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . На шаге 6 в пункте 2 замените *Standard_A1* на один из размеров виртуальной машины, перечисленных в разделе [Ограничения](#limitations) этой статьи.
     
     > [!NOTE]
     > Если вы изменили *имена* переменных $locName, $rgName или $nic, приведенные в этой статье, вам не удастся выполнить шаг 6, описанный в статье "Создание виртуальной машины Windows с помощью Resource Manager и PowerShell". Однако вы можете изменить *значения* переменных.
@@ -122,6 +126,9 @@ ms.author: jdial
     
     ![Диспетчер устройств](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

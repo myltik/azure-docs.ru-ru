@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 В этой статье содержатся сведения об использовании интерфейсов REST API WebHDFS и REST API хранилища озера данных для управления учетными записями, а также для выполнения операций файловой системы в хранилище озера данных Azure. Хранилище озера данных располагает собственными интерфейсами REST API для операций управления учетными записями. Однако поскольку хранилище озера данных совместимо с экосистемой HDFS и Hadoop, оно поддерживает использование интерфейсов REST AP WebHDFS для выполнения операций файловой системы.
@@ -47,7 +48,7 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Как выполнить аутентификацию с помощью Azure Active Directory?
 Существует два способа проверки подлинности с помощью Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Проверка подлинности пользователя (интерактивная)
+### <a name="end-user-authentication-interactive"></a>Проверка подлинности пользователя (интерактивная)
 В этом сценарии приложение предлагает пользователю войти в систему, и все операции выполняются в контексте пользователя. Выполните следующие действия для использования интерактивной аутентификации.
 
 1. В приложении перенаправьте пользователя на следующий URL-адрес.
@@ -88,7 +89,7 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 
 Дополнительные сведения об интерактивной проверке подлинности пользователей см. в статье [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Проверка подлинности с взаимодействием между службами (неинтерактивная)
+### <a name="service-to-service-authentication-non-interactive"></a>Проверка подлинности с взаимодействием между службами (неинтерактивная)
 В этом сценарии приложение предоставляет свои собственные учетные данные для выполнения операций. Для этого необходимо отправить запрос POST, аналогичный показанному ниже. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

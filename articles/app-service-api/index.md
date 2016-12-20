@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
-ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
 
 
 ---
-# <a name="app-service---api-apps-documentation"></a>Служба приложений. Документация по приложениям API
+# <a name="app-service---api-apps-documentation"></a>Служба приложений. Документация по приложениям API
 
-Приложения API являются одним из четырех типов приложений, предлагаемых службой приложений Azure. Приложения API в службе приложений Azure предоставляют широкий набор возможностей по разработке, размещению и использованию интерфейсов API в облачной и локальной среде. Служба приложений Azure — это полностью управляемая платформа для сценариев веб-приложений и мобильных приложений, а также сценариев интеграции.
+Приложения API являются одним из четырех типов приложений, предлагаемых службой приложений Azure. Приложения API в службе приложений Azure предоставляют широкий набор возможностей по разработке, размещению и использованию интерфейсов API в облачной и локальной среде. Служба приложений Azure — это полностью управляемая платформа для сценариев веб-приложений и мобильных приложений, а также сценариев интеграции.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +76,7 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к созданию приложения API Java в службе приложений Azure</h3>
+                        <h3>Приступая к созданию приложения API Java в службе приложений Azure</h3>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к созданию API Node.js</h3>
+                        <h3>Приступая к созданию API Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -123,6 +123,26 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
 
 ---
 
+<h2>Справочные материалы</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Ресурсы</h3>
+                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Портал Azure</a></p>
+                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">Справочник службы приложений</a></p>
+                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">Пакет SDK для веб-заданий</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+---
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
@@ -133,6 +153,6 @@ ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

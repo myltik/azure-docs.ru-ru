@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 
 
 ---
@@ -43,18 +44,17 @@ ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
 Метрики производительности также помогут определить, можете ли вы перейти на более низкий уровень производительности. Предположим, вы используете базу данных размера S2 уровня Стандартный, и все метрики производительности показывают, что база данных никогда не используется более чем на 10%. Вполне вероятно, что эта база данных будет хорошо работать с размером S1 уровня Стандартный. Однако перед переходом на более низкий уровень производительности следует учитывать скачки и колебания рабочих нагрузок.
 
 ## <a name="monitor-databases-using-dmvs"></a>Мониторинг баз данных с помощью динамических административных представлений
-Метрики, которые отображаются на портале, доступны также в системных представлениях: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) — в логической базе данных **master** вашего сервера, а также [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) — в пользовательской базе данных. Используйте **sys.resource_stats**, если необходимо отслеживать менее детализированные данные для длительного периода времени. Используйте **sys.dm_db_resource_stats**, если необходимо отслеживать более детализированные данные для менее длительного периода времени. Дополнительные сведения см. в статье [База данных SQL Azure и производительность отдельных баз данных](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+Метрики, которые отображаются на портале, доступны также в системных представлениях: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) — в логической базе данных **master** вашего сервера, а также [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) — в пользовательской базе данных. Используйте **sys.resource_stats**, если необходимо отслеживать менее детализированные данные для длительного периода времени. Используйте **sys.dm_db_resource_stats**, если необходимо отслеживать более детализированные данные для менее длительного периода времени. Дополнительные сведения см. в статье [База данных SQL Azure и производительность отдельных баз данных](sql-database-performance-guidance.md#monitor-resource-use).
 
 > [!NOTE]
 > При использовании в базах данных устаревших выпусков Web Edition и Business Edition **sys.dm_db_resource_stats** возвращает пустой результирующий набор.
-> 
-> 
+>
+>
 
 Для пулов эластичных баз данных можно отслеживать отдельные базы данных в пуле с помощью способов, описанных в этом разделе. Но также можно отслеживать и пул в целом. Дополнительные сведения см. в статье [Мониторинг пула эластичных баз данных и управление им](sql-database-elastic-pool-manage-portal.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

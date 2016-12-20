@@ -1,12 +1,12 @@
 ---
-title: 'Запуск и остановка виртуальных машин с помощью службы автоматизации Azure: рабочий процесс PowerShell | Microsoft Docs'
-description: Версия сценария с графическим интерфейсом для службы автоматизации Azure, включая модули Runbook для запуска и остановки классических виртуальных машин.
+title: "Запуск и остановка виртуальных машин с помощью службы автоматизации Azure: рабочий процесс PowerShell | Документация Майкрософт"
+description: "Версия сценария с графическим интерфейсом для службы автоматизации Azure, включая модули Runbook для запуска и остановки классических виртуальных машин."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: d380bd43-d45d-45af-a5b2-78e7f66263c3
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 820ef7238593cd99d41cc3fe5d1d7a29699397fc
+
 
 ---
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Сценарий для службы автоматизации Azure: запуск и остановка виртуальных машин
 В этот сценарий для службы автоматизации Azure входят модули Runbook для запуска и остановки классических виртуальных машин.  С этим сценарием вы можете:  
 
-* использовать модули Runbook без внесения изменений в свою рабочую среду; 
+* использовать модули Runbook без внесения изменений в свою рабочую среду;
 * реализовать дополнительные функциональные возможности посредством изменения модулей Runbook;  
-* вызывать модули Runbook из другого модуля Runbook в рамках общего решения; 
-* использовать модули Runbook в качестве учебников для ознакомления с основными концепциями создания таких модулей. 
+* вызывать модули Runbook из другого модуля Runbook в рамках общего решения;
+* использовать модули Runbook в качестве учебников для ознакомления с основными концепциями создания таких модулей.
 
 > [!div class="op_single_selector"]
 > * [Графический](automation-solution-startstopvm-graphical.md)
@@ -41,13 +45,13 @@ ms.author: bwren
 | Stop-AzureVMs |[Остановка классических виртуальных машин Azure](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) |Рабочий процесс PowerShell |Остановка всех классических виртуальных машин в учетной записи службы автоматизации или всех виртуальных машин с определенным именем службы. |
 
 ## <a name="installing-and-configuring-the-scenario"></a>Установка и настройка сценария
-### <a name="1.-install-the-runbooks"></a>1. Установка модулей Runbook
+### <a name="1-install-the-runbooks"></a>1. Установка модулей Runbook
 Загрузив модули Runbook, импортируйте их, как описано в статье [Импорт модуля Runbook](http://msdn.microsoft.com/library/dn643637.aspx#ImportRunbook).
 
-### <a name="2.-review-the-description-and-requirements"></a>2. Просмотр описания и требований
-Модули Runbook содержат справочные комментарии с описанием и сведениями о необходимых ресурсах.  Аналогичную информацию можно получить из этой статьи. 
+### <a name="2-review-the-description-and-requirements"></a>2. Просмотр описания и требований
+Модули Runbook содержат справочные комментарии с описанием и сведениями о необходимых ресурсах.  Аналогичную информацию можно получить из этой статьи.
 
-### <a name="3.-configure-assets"></a>3. Настройка ресурсов
+### <a name="3-configure-assets"></a>3. Настройка ресурсов
 Для модулей Runbook нужно создать перечисленные ниже ресурсы, после чего добавить в них соответствующие значения.
 
 | Тип ресурса | Имя ресурса | Описание |
@@ -85,7 +89,7 @@ ms.author: bwren
 | Stop-AzureVMs |Запрос на остановку виртуальной машины успешно отправлен. |MyVM остановлена. |
 | Stop-AzureVMs |Не удалось отправить запрос на остановку виртуальной машины. |Не удалось остановить MyVM. |
 
-Например, следующий фрагмент кода в модуле Runbook пытается запустить все виртуальные машины с именем службы *MyServiceName*.  Если какой-либо из запросов на запуск не будет выполнен, вы сможете попытаться устранить ошибку. 
+Например, следующий фрагмент кода в модуле Runbook пытается запустить все виртуальные машины с именем службы *MyServiceName*.  Если какой-либо из запросов на запуск не будет выполнен, вы сможете попытаться устранить ошибку.
 
     $results = Start-AzureVMs -ServiceName "MyServiceName"
     foreach ($result in $results) {
@@ -103,13 +107,13 @@ ms.author: bwren
 
 ### <a name="parameters"></a>Параметры
     param (
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String]  $AzureCredentialAssetName = 'AzureCredential',
 
         [Parameter(Mandatory=$false)]
         [String] $AzureSubscriptionIdAssetName = 'AzureSubscriptionId',
 
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String] $ServiceName
     )
 
@@ -128,7 +132,7 @@ ms.author: bwren
     $SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
-Следующие строки определяют [учетные данные](automation-configuring.md#configuring-authentication-to-azure-resources) и подписку Azure, которые будут использоваться в остальной части Runbook.
+Следующие строки определяют [учетные данные](automation-credentials.md) и подписку Azure, которые будут использоваться в остальной части Runbook.
 Сначала мы используем **Get-AutomationPSCredential** , чтобы получить ресурс с учетными данными для запуска и остановки виртуальных машин в подписке Azure. **Add-AzureAccount** использует этот ресурс для добавления учетных данных.  Выходные данные передаются в фиктивную переменную, чтобы они не включались в выходные данные модуля Runbook.  
 
 Затем с помощью **Get-AutomationVariable** извлекается ресурс-контейнер переменной с идентификатором подписки, а с помощью **Select-AzureSubscription** выбирается подписка.
@@ -136,18 +140,18 @@ ms.author: bwren
 ### <a name="get-vms"></a>Получение виртуальных машин
     # If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
-    if ($ServiceName) 
-    { 
+    if ($ServiceName)
+    {
         $VMs = Get-AzureVM -ServiceName $ServiceName
     }
-    else 
-    { 
+    else
+    {
         $VMs = Get-AzureVM
     }
 
 **Get-AzureVM** используется для получения виртуальных машин, с которыми будет работать модуль.  Если входной переменной **ServiceName** присвоено значение, будут извлечены только виртуальные машины с указанным именем службы.  Если значение **ServiceName** пустое, извлекаются все виртуальные машины.
 
-### <a name="start/stop-virtual-machines-and-send-output"></a>Запуск и остановка виртуальных машин, отправка выходных данных
+### <a name="startstop-virtual-machines-and-send-output"></a>Запуск и остановка виртуальных машин, отправка выходных данных
     # Start each of the stopped VMs
     foreach ($VM in $VMs)
     {
@@ -177,9 +181,12 @@ ms.author: bwren
 На следующем этапе выполняется перебор всех виртуальных машин.  Сначала проверяется свойство **PowerState**, чтобы определить состояние виртуальной машины: запущена или остановлена (в зависимости от модуля Runbook).  Если машина уже находится в нужном состоянии, в выходные данные отправляется сообщение и выполнение модуля Runbook завершается.  В противном случае используется команда **Start-AzureVM** или **Stop-AzureVM** для запуска или остановки виртуальной машины. Результат запроса сохраняется в переменной.  Затем в выходные данные отправляется сообщение с указанием результата запроса на запуск или остановку.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения о работе с дочерними модулями Runbook см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md). 
+* Дополнительные сведения о работе с дочерними модулями Runbook см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
 * Чтобы узнать больше о выходных сообщениях во время выполнения Runbook и ведении журнала для устранения неполадок, ознакомьтесь с разделом [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

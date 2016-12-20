@@ -3,9 +3,8 @@ title: "Создание подсистемы балансировки нагр�
 description: "Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью шаблона"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
@@ -14,16 +13,20 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 540706ec32e3a0fbdfc29edd7e3e7b1784ecc720
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 47a057a5ff7fc893a2f82d762db499ec10a8db8e
 
 ---
 
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Создание балансировщика нагрузки для Интернета с помощью шаблона
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Портал](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Шаблон](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -41,13 +44,13 @@ ms.openlocfilehash: 540706ec32e3a0fbdfc29edd7e3e7b1784ecc720
 
 Чтобы развернуть шаблон, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до этапа входа в Azure и выбора подписки.
 2. Выполните командлет **New-AzureRmResourceGroupDeployment** , чтобы создать группу ресурсов с помощью шаблона.
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
-            -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
-            -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
+    New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
+        -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
+        -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Развертывание шаблона с помощью интерфейса командной строки Azure
@@ -58,7 +61,7 @@ ms.openlocfilehash: 540706ec32e3a0fbdfc29edd7e3e7b1784ecc720
 2. Выполните команду **azure config mode** , чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
     Вот результат, ожидаемый для указанной выше команды:
@@ -69,7 +72,7 @@ ms.openlocfilehash: 540706ec32e3a0fbdfc29edd7e3e7b1784ecc720
 4. Выполните командлет **azure group deployment create** , чтобы развернуть новый балансировщик нагрузки с помощью данного шаблона и файлов параметров, которые вы скачали и изменили ранее. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
 
     ```azurecli
-        azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
+    azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -82,6 +85,6 @@ ms.openlocfilehash: 540706ec32e3a0fbdfc29edd7e3e7b1784ecc720
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

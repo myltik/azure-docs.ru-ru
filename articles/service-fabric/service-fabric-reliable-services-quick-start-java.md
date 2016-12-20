@@ -1,12 +1,12 @@
 ---
-title: Get started with Reliable Services | Microsoft Docs
-description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
+title: "Приступая к работе со службами Reliable Services | Документация Майкрософт"
+description: "Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
@@ -14,37 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 224538560a50f9ab24b8c2746e99de1ab87f084b
+
 
 ---
-# <a name="get-started-with-reliable-services"></a>Get started with Reliable Services
+# <a name="get-started-with-reliable-services"></a>Приступая к работе с надежными службами
 > [!div class="op_single_selector"]
-> * [C# on Windows](service-fabric-reliable-services-quick-start.md)
-> * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+> * [C# в Windows](service-fabric-reliable-services-quick-start.md)
+> * [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
 > 
 > 
 
-This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
+В этой статье представлены общие сведения о Reliable Services в Azure Service Fabric, а также описывается процесс создания и развертывания простого приложения Reliable Services, написанного на языке Java.
 
-## <a name="installation-and-setup"></a>Installation and setup
-Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
+## <a name="installation-and-setup"></a>Установка и настройка
+Перед началом установите и настройте на своем компьютере среду разработки Service Fabric.
+Дополнительные сведения см. в статье [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md) и [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md).
 
-## <a name="basic-concepts"></a>Basic concepts
-To get started with Reliable Services, you only need to understand a few basic concepts:
+## <a name="basic-concepts"></a>Основные понятия
+Чтобы приступить к работе с Reliable Services, необходимо ознакомиться только с несколькими основными понятиями.
 
-* **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
-* **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
-* **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
-* **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
+* **Тип службы**. Это ваша реализация службы. Ее определяет создаваемый вами класс, который расширяет `StatelessService`, и любой другой код или зависимости, используемые в нем, а также имя и номер версии.
+* **Именованный экземпляр службы**. Для запуска службы создаются именованные экземпляры вашего типа службы, что во многом похоже на создание экземпляров объектов типа класса. Экземпляры службы фактически являются создаваемыми экземплярами объектов написанного вами класса службы. 
+* **Узел службы**. Создаваемые экземпляры службы должны выполняться на узле. Узел службы — это просто процесс, в котором можно запускать экземпляры вашей службы.
+* **Регистрации службы**. Регистрация объединяет все элементы. Тип службы должен быть зарегистрирован в среде выполнения Service Fabric на узле службы, что позволит Service Fabric создавать экземпляры службы для запуска.  
 
-## <a name="create-a-stateless-service"></a>Create a stateless service
-Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
+## <a name="create-a-stateless-service"></a>Создание службы без отслеживания состояния
+Сначала создайте приложение Service Fabric. В пакет SDK для Service Fabric для Linux входит генератор Yeoman, который позволяет формировать шаблоны для приложения Service Fabric с помощью службы без отслеживания состояния. Сначала выполните следующую команду Yeoman:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Stateless Service**. For this tutorial, name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
+Следуйте инструкциям по созданию **надежной службы без отслеживания состояния**. В этом руководстве в качестве имени приложения используется HelloWorldApplication, а в качестве имени службы — HelloWorld. Результат будет включать в себя каталоги для `HelloWorldApplication` и `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
@@ -71,10 +75,10 @@ HelloWorldApplication/
 └── uninstall.sh
 ```
 
-## <a name="implement-the-service"></a>Implement the service
-Open **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. This class defines the service type, and can run any code. The service API provides two entry points for your code:
+## <a name="implement-the-service"></a>Реализация службы
+Откройте файл **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Этот класс определяет тип службы и может выполнить любой код. API службы предоставляет две точки входа для кода.
 
-* An open-ended entry point method, called `runAsync()`, where you can begin executing any workloads, including long-running compute workloads.
+* Вызывается метод `runAsync()` с открытой точкой входа, в котором можно начать выполнение любой рабочей нагрузки, например длительных вычислений.
 
 ```java
 @Override
@@ -83,7 +87,7 @@ protected CompletableFuture<?> runAsync() {
 }
 ```
 
-* A communication entry point where you can plug in your communication stack of choice. This is where you can start receiving requests from users and other services.
+* Точка входа связи, где можно подключить любой стек связи по выбору. С ее помощью вы можете получать запросы от пользователей и других служб.
 
 ```java
 @Override
@@ -92,20 +96,20 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In this tutorial, we will focus on the `runAsync()` entry point method. This is where you can immediately start running your code.
+В этом учебнике рассматривается метод точки входа `runAsync()` . Используя его, вы можете сразу же начать выполнение кода.
 
 ### <a name="runasync"></a>RunAsync
-The platform calls this method when an instance of a service is placed and ready to execute. The open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
+Платформа вызывает этот метод, когда экземпляр службы размещен и готов к выполнению. Этот цикл открытия и закрытия экземпляра службы может выполняться много раз за все время существования службы. Это может происходить по ряду причин.
 
-* The system moves your service instances for resource balancing.
-* Faults occur in your code.
-* The application or system is upgraded.
-* The underlying hardware experiences an outage.
+* Система перемещает экземпляры служб для распределения ресурсов.
+* В коде возникают ошибки.
+* Выполняется обновление приложения или системы.
+* Возникает аппаратный сбой.
 
-This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
+Этой оркестрацией управляет Service Fabric для сохранения высокой доступности и правильного баланса службы.
 
-#### <a name="cancellation"></a>Cancellation
-It is vital that your code in `runAsync()` can stop execution when notified by Service Fabric. The `CompletableFuture` returned from `runAsync()` is canceled when Service Fabric requires your service to stop execution. The following example demonstrates how to handle a cancellation event: 
+#### <a name="cancellation"></a>Отмена
+Крайне важно, чтобы код в `runAsync()` смог остановить выполнение при получении уведомления от Service Fabric. Класс `CompletableFuture`, возвращенный из `runAsync()`, отменяется, когда Service Fabric отправляет в службу запрос на остановку выполнения. Следующий пример демонстрирует, как обрабатывать событие отмены. 
 
 ```java
     @Override
@@ -141,8 +145,8 @@ It is vital that your code in `runAsync()` can stop execution when notified by S
    }
 ``` 
 
-### <a name="service-registration"></a>Service registration
-Service types must be registered with the Service Fabric runtime. The service type is defined in the `ServiceManifest.xml` and your service class that implements `StatelessService`. Service registration is performed in the process main entry point. In this example, the process main entry point is `HelloWorldServiceHost.java`:
+### <a name="service-registration"></a>Регистрация службы
+Типы службы должны быть зарегистрированы в среде выполнения Service Fabric. Тип службы определен в `ServiceManifest.xml` и в классе службы, реализующем `StatelessService`. Регистрация службы выполняется в главной точке входа в рамках процесса. В этом примере главная точка входа в рамках процесса — это `HelloWorldServiceHost.java`.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -158,14 +162,14 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="run-the-application"></a>Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
+## <a name="run-the-application"></a>Выполнение приложения
+Формирование шаблонов Yeoman содержит скрипт Gradle, используемый для создания приложения, и bash-скрипты, используемые для развертывания и отмены развертывания приложения. Чтобы запустить приложение, сначала его нужно создать с помощью следующего скрипта Gradle:
 
 ```bash
 $ gradle
 ```
 
-This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+Этот скрипт создаст пакет приложения Service Fabric, который можно развернуть с помощью интерфейса командной строки Azure Service Fabric. Скрипт install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть пакет, просто выполните скрипт install.sh.
 
 ```bask
 $ ./install.sh
@@ -173,6 +177,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

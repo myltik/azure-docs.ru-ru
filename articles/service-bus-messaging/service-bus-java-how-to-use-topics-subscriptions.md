@@ -1,27 +1,31 @@
 ---
-title: Использование разделов служебной шины с Java | Microsoft Docs
-description: Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java.
-services: service-bus
+title: "Использование разделов служебной шины с Java | Документация Майкрософт"
+description: "Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d49567f5efe212852d6f9dc4008d616b8191184
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Как использовать разделы и подписки служебной шины
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-В этом руководстве описывается использование разделов и подписок служебной шины. Примеры написаны на Java и используют [пакет Azure SDK для Java][пакет Azure SDK для Java]. В этой статье описаны такие сценарии, как **создание разделов и подписок**, **создание фильтров подписок**, **отправка сообщений в раздел**, **получение сообщений из подписки** и **удаление разделов и подписок**.
+В этом руководстве описывается использование разделов и подписок служебной шины. Примеры написаны на Java и используют [Пакет Azure SDK для Java][Пакет Azure SDK для Java]. В этой статье описаны такие сценарии, как **создание разделов и подписок**, **создание фильтров подписок**, **отправка сообщений в раздел**, **получение сообщений из подписки** и **удаление разделов и подписок**.
 
-## <a name="what-are-service-bus-topics-and-subscriptions?"></a>Что такое разделы и подписки служебной шины?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Что такое разделы и подписки служебной шины?
 Разделы и подписки служебной шины поддерживают модель обмена сообщениями " *публикация и подписка* ". При использовании разделов и подписок компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через раздел, который выступает в качестве посредника.
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
@@ -40,7 +44,7 @@ ms.author: sethm
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
-Перед созданием этого образца убедитесь, что вы установили [пакет Azure SDK для Java][пакет Azure SDK для Java]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][набор средств Azure для Eclipse], включающий в себя пакет Azure SDK для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект.
+Перед созданием этого образца убедитесь, что вы установили [Пакет Azure SDK для Java][Пакет Azure SDK для Java]. При использовании Eclipse можно установить [Набор средств Azure для Eclipse][Набор средств Azure для Eclipse], включающий в себя пакет Azure SDK для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект.
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -92,7 +96,7 @@ import javax.xml.datatype.*;
 ## <a name="create-subscriptions"></a>Создание подписок
 Подписки на разделы также создаются с помощью класса **ServiceBusService**. Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
 Фильтр **MatchAll** является фильтром по умолчанию, используемым, если при создании новой подписки не указан фильтр. Если используется фильтр **MatchAll**, то все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -102,9 +106,9 @@ import javax.xml.datatype.*;
 ### <a name="create-subscriptions-with-filters"></a>Создание подписок с фильтрами
 Вы также можете создать фильтры, позволяющие определять, какие сообщения, отправленные в раздел, будут отображаться в определенной подписке раздела.
 
-Самый гибкий тип фильтра, который поддерживается подписками, — это [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с фильтром SQL, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Самый гибкий тип фильтра, который поддерживают подписки — это класс [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительную информацию о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-В следующем примере создается подписка `HighMessages`, содержащая объект [SqlFilter][SqlFilter], который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
+В следующем примере создается подписка `HighMessages`, содержащая объект [SqlFilter][SqlFilter], который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
 ```
 // Create a "HighMessages" filtered subscription  
@@ -117,7 +121,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ru
 service.deleteRule("TestTopic", "HighMessages", "$Default");
 ```
 
-Аналогично в следующем примере создается подписка `LowMessages` с фильтром [SqlFilter][SqlFilter], который выбирает только те сообщения, у которых значение свойства **MessageNumber** меньше или равно 3.
+Аналогично в следующем примере создается подписка `LowMessages` с фильтром [SqlFilter][SqlFilter], который выбирает только те сообщения, у которых значение свойства **MessageNumber** меньше или равно 3.
 
 ```
 // Create a "LowMessages" filtered subscription
@@ -140,7 +144,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage]* имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream* *.
+Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage]* имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream* *.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestTopic` объекта **MessageSender**, полученного в предыдущем фрагменте кода.
 Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их).
@@ -241,7 +245,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы познакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, темы и подписки][].
+Вы ознакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, разделы и подписки служебной шины][Очереди, разделы и подписки служебной шины].
 
 [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
 [Набор средств Azure для Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
@@ -257,6 +261,6 @@ service.deleteTopic("TestTopic");
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

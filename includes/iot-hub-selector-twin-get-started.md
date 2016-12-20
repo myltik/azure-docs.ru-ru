@@ -4,41 +4,41 @@
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+## <a name="introduction"></a>Введение
+Двойники устройств — это документы JSON, хранящие сведения о состоянии устройства (метаданные, конфигурации и условия). Центр Интернета вещей сохраняет двойник устройства для каждого устройства, подключаемого к Центру Интернета вещей.
 
-Use device twins to:
+Двойники устройства используются для выполнения следующих действий:
 
-* Store device meta-data from your back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
-* Query your device meta-data, configuration, or state.
+* хранение метаданных устройства из серверной части вашего решения;
+* сообщение сведений о текущем состоянии приложения устройства, таких как доступные возможности и условия (например, используемый метод подключения);
+* синхронизация состояния длительных рабочих процессов между приложением устройства и серверной частью (например, при обновлении встроенного ПО и конфигурации);
+* выполнение запроса метаданных, конфигурации или состояния устройства.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> Двойники устройств используются для синхронизации и выполнения запроса конфигураций или условий устройства. Дополнительную информацию об использовании двойников устройств см. в статье [Основные сведения о двойниках устройств][lnk-twins].
 > 
 > 
 
-Device twins are stored in an IoT hub and contain:
+Двойники устройств хранятся в Центре Интернета вещей. Они содержат следующие компоненты:
 
-* *tags*, device meta-data accessible only by the back end;
-* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *теги* — метаданные устройства, доступные только в серверной части решения;
+* *требуемые свойства* — объекты JSON, задаваемые только в серверной части решения и наблюдаемые в приложении устройства; а также
+* *сообщаемые свойства* — объекты JSON, задаваемые только в приложении устройства и считываемые в серверной части решения (теги и свойства не могут содержать массивы, но объекты могут быть вложенными).
 
 ![][img-twin]
 
-Additionally, the app back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
+Кроме того, из серверной части решения можно запросить двойники устройств на основе всех вышеизложенных данных.
+Дополнительные сведения о двойниках устройств см. в статье [Основные сведения о двойниках устройств][lnk-twins]. Справочные материалы по запросам см. в статье [Справочник по языку запросов для двойников и заданий][lnk-query].
 
 > [!NOTE]
-> At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+> На данный момент доступ к двойникам устройств можно получить только на устройствах, подключающихся к Центру Интернета вещей по протоколу MQTT. Инструкции по преобразованию существующего приложения устройства для использования MQTT см. в статье [Поддержка MQTT в Центре Интернета вещей][lnk-devguide-mqtt].
 > 
 > 
 
-This tutorial shows you how to:
+В этом учебнике описаны следующие процедуры.
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back end app using filters on the tags and properties previously created.
+* создание серверного приложения, добавляющего *теги* в двойник устройства и приложение, имитирующее устройство, которое сообщает о своем канале подключения в виде *сообщаемого свойства* в двойнике устройства;
+* запрос устройств из серверного приложения с использованием фильтров в созданных ранее тегах и свойствах.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png
@@ -50,6 +50,6 @@ This tutorial shows you how to:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

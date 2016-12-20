@@ -1,12 +1,12 @@
 ---
-title: Обработка больших двоичных данных Azure с применением методов расширенного анализа | Microsoft Docs
-description: Обработка данных в хранилище больших двоичных объектов Azure.
+title: "Обработка больших двоичных данных Azure с применением методов расширенного анализа | Документация Майкрософт"
+description: "Обработка данных в хранилище больших двоичных объектов Azure."
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a8bf79ca39effaa19518ade7ff392530ef29475
+
 
 ---
-# <a name="heading"></a>Обработка больших двоичных данных Azure с применением методов расширенного анализа
-Этот документ содержит сведения о работе с данными в хранилище больших двоичных объектов Azure и создании характеристик на их основе.
+# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Обработка больших двоичных данных Azure с применением методов расширенного анализа
+Этот документ содержит сведения о работе с данными в хранилище больших двоичных объектов Azure и создании характеристик на их основе. 
 
-## Загрузка данных во фрейм данных Pandas
+## <a name="load-the-data-into-a-pandas-data-frame"></a>Загрузка данных во фрейм данных Pandas
 Для просмотра набора данных и управления им набор необходимо скачать из источника больших двоичных объектов в локальный файл, который затем можно загрузить в кадр данных Pandas. Ниже приведен порядок выполнения данной процедуры.
 
-1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные этого кода своими значениями.
+1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные этого кода своими значениями. 
    
         from azure.storage.blob import BlobService
         import tables
@@ -46,10 +50,10 @@ ms.author: fashah;garye;bradsev
 
 Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
 
-## <a name="blob-dataexploration"></a>Просмотр данных
+## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Просмотр данных
 Вот несколько примеров того, как можно просматривать данные с помощью Pandas:
 
-1. Проверьте количество строк и столбцов.
+1. Проверьте количество строк и столбцов. 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. Проверьте первые или последние несколько строк в наборе данных так, как показано ниже.
@@ -73,13 +77,12 @@ ms.author: fashah;garye;bradsev
         print miss_num
 7. Если в том или ином столбце данных отсутствуют значения, вы можете заменить их так, как показано ниже.
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
-   Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
+   Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Создайте гистограмму, используя переменное количество ячеек, чтобы построить распределение переменной.
+8. Создайте гистограмму, используя переменное количество ячеек, чтобы построить распределение переменной.    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -92,10 +95,10 @@ ms.author: fashah;garye;bradsev
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Создание характеристик
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Создание характеристик
 Создавать функции с помощью Python вы можете приведенным ниже способом.
 
-### <a name="blob-countfeature"></a>Создание функций на основе значений индикатора
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Создание функций на основе значений индикатора
 Вот как можно создавать категориальные функции:
 
 1. Проверьте распределение категориального столбца.
@@ -105,7 +108,7 @@ ms.author: fashah;garye;bradsev
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Объедините столбец индикатора с исходным блоком данных.
+3. Объедините столбец индикатора с исходным блоком данных. 
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -114,7 +117,7 @@ ms.author: fashah;garye;bradsev
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
 Вот как можно создавать функции группирования:
 
 1. Добавьте последовательность столбцов, чтобы создать числовой столбец.
@@ -128,8 +131,8 @@ ms.author: fashah;garye;bradsev
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
-После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure.
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
+После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure. 
 
 1. Запишите блок данных в локальный файл.
    
@@ -155,7 +158,7 @@ ms.author: fashah;garye;bradsev
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных][import-data] Студии машинного обучения Azure (см. рисунок ниже).
+3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных][import-data] Машинного обучения Azure (см. рисунок ниже).
 
 ![большой двоичный объект считывателя][1]
 
@@ -166,4 +169,8 @@ ms.author: fashah;garye;bradsev
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

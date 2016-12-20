@@ -1,30 +1,34 @@
 ---
-title: Как использовать очереди служебной шины с Python | Microsoft Docs
-description: Узнайте, как использовать очереди служебной шины в Python.
-services: service-bus
+title: "Как использовать очереди служебной шины с Python | Документация Майкрософт"
+description: "Узнайте, как использовать очереди служебной шины в Python."
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: sethm;lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Как использовать очереди служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Python и используют [пакет служебной шины Azure для Python][пакет служебной шины Azure для Python]. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**.
+В этой статье показано, как использовать очереди служебной шины. Примеры написаны на языке Python и используют [Пакет служебной шины Azure для Python][Пакет служебной шины Azure для Python]. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 > [!NOTE]
-> Если требуется установить Python или [пакет служебной шины Azure для Python][пакет служебной шины Azure для Python], см. [руководство по установке Python](../python-how-to-install.md).
+> Если требуется установить Python или [Пакет служебной шины Azure для Python][Пакет служебной шины Azure для Python], см. [руководство по установке Python](../python-how-to-install.md).
 > 
 > 
 
@@ -44,13 +48,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Значения для имени и значения ключа SAS можно найти в данных подключения к [классическому порталу Azure][] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
+Значения для имени и значения ключа SAS можно найти в данных подключения к [классическому порталу Azure][классическом портале Azure] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
 
 ```
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
+**create_queue** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
 
 ```
 queue_options = Queue()
@@ -105,7 +109,7 @@ msg.delete()
 
 * См. статью [Очереди, разделы и подписки][Очереди, разделы и подписки].
 
-[классический портал Azure]: https://manage.windowsazure.com
+[классическом портале Azure]: https://manage.windowsazure.com
 [Пакет служебной шины Azure для Python]: https://pypi.python.org/pypi/azure-servicebus  
 [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
 [Квоты на служебную шину]: service-bus-quotas.md
@@ -113,6 +117,6 @@ msg.delete()
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

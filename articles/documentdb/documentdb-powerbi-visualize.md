@@ -1,13 +1,13 @@
 ---
-title: Учебник по Power BI для соединителя DocumentDB | Microsoft Docs
-description: Используйте этот учебник по Power BI для импорта JSON, создания информативных отчетов и визуализация данных с помощью соединителя DocumentDB и Power BI.
-keywords: учебник по Power BI, визуализация данных, соединитель Power BI
+title: "Руководство по Power BI для соединителя DocumentDB | Документация Майкрософт"
+description: "Используйте этот учебник по Power BI для импорта JSON, создания информативных отчетов и визуализация данных с помощью соединителя DocumentDB и Power BI."
+keywords: "учебник по Power BI, визуализация данных, соединитель Power BI"
 services: documentdb
 author: h0n
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+
 
 ---
-# <a name="power-bi-tutorial-for-documentdb:-visualize-data-using-the-power-bi-connector"></a>Учебник по Power BI для DocumentDB: визуализация данных с помощью соединителя Power BI
-[PowerBI.com](https://powerbi.microsoft.com/) — это веб-служба, с помощью которой можно создавать и совместно использовать панели мониторинга и отчеты с важными данными.  Power BI Desktop — это специальное средство создания отчетов, позволяющее получать данные из различных источников, объединять и преобразовывать их, создавая подробные отчеты и визуализации, и публиковать их в Power BI.  Последняя версия Power BI Desktop теперь позволяет подключаться к вашей учетной записи DocumentDB через соединитель DocumentDB для Power BI.   
+# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>Учебник по Power BI для DocumentDB: визуализация данных с помощью соединителя Power BI
+[PowerBI.com](https://powerbi.microsoft.com/) — это веб-служба, с помощью которой можно создавать и совместно использовать панели мониторинга и отчеты с важными данными.  Power BI Desktop — это специальное средство создания отчетов, позволяющее получать данные из различных источников, объединять и преобразовывать их, создавая подробные отчеты и визуализации, и публиковать их в Power BI.  Последняя версия Power BI Desktop теперь позволяет подключаться к вашей учетной записи DocumentDB через соединитель DocumentDB для Power BI.   
 
 В этом учебнике по Power BI мы рассматриваем действия для подключения к учетной записи DocumentDB в Power BI Desktop, переходим к коллекции для извлечения данных с помощью навигатора, преобразуем данные JSON в табличный формат с помощью редактора запросов Power BI Desktop, а также создаем и публикуем отчет в PowerBI.com.
 
@@ -42,24 +46,24 @@ ms.author: hawong
 
 Для совместного использования отчетов в службе PowerBI.com необходимо настроить учетную запись в PowerBI.com.  Дополнительные сведения о бесплатной версии Power BI и Power BI Pro см. по адресу: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="let's-get-started"></a>Начало работы
+## <a name="lets-get-started"></a>Начало работы
 Для работы с этим руководством представим, что вы геолог, изучающий вулканы по всему миру.  Данные о вулканах хранятся в учетной записи DocumentDB, а документы JSON выглядят, как показано ниже.
 
     {
         "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
             "type": "Point",
             "coordinates": [
-            -121.758,
-            46.87
+              -121.758,
+              46.87
             ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
 Вам нужно получить данные о вулканах из учетной записи DocumentDB и представить их в виде интерактивного отчета Power BI, подобного приведенному ниже.
@@ -76,7 +80,7 @@ ms.author: hawong
    
     ![Представление отчета в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Откройте ленту **Главная** и щелкните **Получить данные**.  Откроется окно **Получение данных** .
-5. Выберите **Azure**, затем — **Microsoft Azure DocumentDB (Beta)** и щелкните **Подключение**.  Откроется окно **Подключение Microsoft Azure DocumentDB** .
+5. Выберите **Azure**, затем — **Microsoft Azure DocumentDB (Beta)** и щелкните **Подключение**.  Откроется окно **Подключение Microsoft Azure DocumentDB** .
    
     ![Получение данных в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 6. Укажите URL-адрес конечной точки учетной записи DocumentDB, из которой необходимо получить данные, как показано ниже, и нажмите кнопку **ОK**. Этот URL-адрес можно найти в поле универсального кода ресурса (URI) в колонке **[Ключи](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую URL-адрес `https://analytics.documents.azure.com`. 
@@ -171,7 +175,7 @@ ms.author: hawong
    
     ![Публикация в Power BI успешно завершена! Открыть учебник в Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-## <a name="create-a-dashboard-in-powerbi.com"></a>Создание панели мониторинга на PowerBI.com
+## <a name="create-a-dashboard-in-powerbicom"></a>Создание панели мониторинга на PowerBI.com
 Теперь, когда у вас уже есть отчет, используйте его совместно с другими пользователями на сайте PowerBI.com.
 
 При публикации отчета из Power BI Desktop на сайт PowerBI.com он создает **отчет** и **набор данных** в клиенте PowerBI.com. Например, после публикации на сайте PowerBI.com отчета **PowerBITutorial** его имя отобразится в разделах **Отчеты** и **Наборы данных** на PowerBI.com.
@@ -186,7 +190,7 @@ ms.author: hawong
 
 Можно также внести в отчет ситуативные изменения, прежде чем создавать панель мониторинга. Однако для внесения изменений и повторной публикации отчета на PowerBI.com рекомендуется использовать Power BI Desktop.
 
-## <a name="refresh-data-in-powerbi.com"></a>Обновление данных на сайте PowerBI.com
+## <a name="refresh-data-in-powerbicom"></a>Обновление данных на сайте PowerBI.com
 Существует два способа обновления данных — ситуативно и по расписанию.
 
 Чтобы внести динамические обновления, просто нажмите кнопку с многоточием (...) напротив **набора данных**, например PowerBITutorial. Отобразится список доступных действий, включая **Обновить**. Чтобы обновить данные, выберите **Обновить**.
@@ -209,6 +213,9 @@ ms.author: hawong
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Дополнительные сведения о DocumentDB см. на [целевой странице документации по DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

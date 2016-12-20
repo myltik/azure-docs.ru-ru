@@ -8,25 +8,27 @@
 
 Чтобы указать сжатие для набора данных, используйте свойство **compression** в наборе данных JSON, как показано в следующем примере.   
 
-    {  
-        "name": "AzureBlobDataSet",  
-          "properties": {  
-            "availability": {  
-                "frequency": "Day",  
-                  "interval": 1  
-            },  
-            "type": "AzureBlob",  
-            "linkedServiceName": "StorageLinkedService",  
-            "typeProperties": {  
-                "fileName": "pagecounts.csv.gz",  
-                  "folderPath": "compression/file/",  
-                  "compression": {  
-                    "type": "GZip",  
-                    "level": "Optimal"  
-                  }  
-            }  
-          }  
-    }  
+```json
+{  
+    "name": "AzureBlobDataSet",  
+      "properties": {  
+        "availability": {  
+            "frequency": "Day",  
+              "interval": 1  
+        },  
+        "type": "AzureBlob",  
+        "linkedServiceName": "StorageLinkedService",  
+        "typeProperties": {  
+            "fileName": "pagecounts.csv.gz",  
+              "folderPath": "compression/file/",  
+              "compression": {  
+                "type": "GZip",  
+                "level": "Optimal"  
+              }  
+        }  
+      }  
+}  
+```
 
 Раздел **compression** содержит два свойства:  
 

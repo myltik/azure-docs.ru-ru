@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    Тестирование входа AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    Тестирование входа AD FS
 Самый простой способ тестировать вход AD FS — использовать страницу IdpInitiatedSignon.aspx. Для этого необходимо включить IdpInitiatedSignOn в свойствах AD FS. Чтобы проверить установку AD FS, сделайте следующее:
 
 1. Запустите указанный ниже командлет на сервере AD FS с помощью PowerShell, чтобы включить страницу входа:
@@ -357,6 +357,6 @@ ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

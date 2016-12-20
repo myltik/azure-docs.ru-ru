@@ -1,22 +1,26 @@
 ---
-title: Установка политик срока действия пароля в Azure Active Directory | Microsoft Docs
-description: Узнайте, как проверить политики срока действия и изменить срок действия пароля пользователя (одного или сразу нескольких) для Azure Active Directory.
+title: "Установка политик срока действия пароля в Azure Active Directory | Документация Майкрософт"
+description: "Узнайте, как проверить политики срока действия и изменить срок действия пароля пользователя (одного или сразу нескольких) для Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6887250c-15d4-4b59-a161-f0380c0f0acb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ad4bbbb226746e809d6c101e7bebc91f878d69bf
+
 
 ---
-# Установка политик срока действия пароля в Azure Active Directory
+# <a name="set-password-expiration-policies-in-azure-active-directory"></a>Установка политик срока действия пароля в Azure Active Directory
 > [!IMPORTANT]
 > **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 > 
@@ -31,33 +35,38 @@ ms.author: curtand
 
 Чтобы использовать командлеты Windows PowerShell, сначала необходимо установить их.
 
-## Что необходимо сделать?
+## <a name="what-do-you-want-to-do"></a>Что необходимо сделать?
 * [Как проверить политику срока действия пароля](#how-to-check-expiration-policy-for-a-password)
 * [Задание срока действия пароля](#set-a-password-to-expire)
 * [Задание бессрочного пароля](#set-a-password-to-never-expire)
 
-## Как проверить политику срока действия пароля
+## <a name="how-to-check-expiration-policy-for-a-password"></a>Как проверить политику срока действия пароля
 1. Подключитесь к Windows PowerShell с помощью учетных данных администратора.
 2. Выполните одно из следующих действий.
    
-   * Чтобы увидеть, задан ли для одного пользователя бессрочный пароль, выполните следующий командлет, используя имя участника-пользователя (UPN) (например, aprilr@contoso.onmicrosoft.com) или идентификатор проверяемого пользователя: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Чтобы увидеть, задан ли для одного пользователя бессрочный пароль, выполните следующий командлет, используя имя участника-пользователя (например, aprilr@contoso.onmicrosoft.com)) или идентификатор проверяемого пользователя `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
    * Чтобы просмотреть параметр «Пароль не имеет окончания срока действия» для всех пользователей, выполните следующий командлет: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
-## Задание срока действия пароля
+## <a name="set-a-password-to-expire"></a>Задание срока действия пароля
 1. Подключитесь к Windows PowerShell с помощью учетных данных администратора.
 2. Выполните одно из следующих действий.
    
    * Чтобы установить пароль одного пользователя со сроком действия, выполните следующий командлет, используя имя участника-пользователя (UPN) или идентификатор пользователя: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
    * Чтобы задать срок действия паролей всех пользователей в организации, используйте следующий командлет: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
-## Установка бессрочного пароля
+## <a name="set-a-password-to-never-expire"></a>Установка бессрочного пароля
 1. Подключитесь к Windows PowerShell с помощью учетных данных администратора.
 2. Выполните одно из следующих действий.
    
    * Чтобы установить бессрочный пароль для одного пользователя, выполните следующий командлет, используя имя участника-пользователя (UPN) или идентификатор пользователя: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Чтобы установить бессрочные пароли для всех пользователей в организации, выполните следующий командлет: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

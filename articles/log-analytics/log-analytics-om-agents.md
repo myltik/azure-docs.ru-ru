@@ -1,12 +1,12 @@
 ---
-title: Подключение Operations Manager к Log Analytics | Microsoft Docs
-description: Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS.
+title: "Подключение Operations Manager к Log Analytics | Документация Майкрософт"
+description: "Чтобы не увеличивать затраты на System Center Operations Manager и использовать расширенные возможности в Log Analytics, Operations Manager можно интегрировать с рабочей областью OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 961a3867362d14ab7b6ff99ce4002380d763082f
+
 
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Подключение Operations Manager к Log Analytics
@@ -86,7 +90,7 @@ ms.author: magoedte
 После создания подключения и настройки агентов для сбора и отправки данных в OMS для группы управления будет выполнено следующее (не обязательно в таком же порядке):
 
 * Будет создана учетная запись запуска от имени **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** .  Она связана с профилем запуска от имени **Microsoft System Center Advisor Run As Profile Blob** (Запуск от имени большого двоичного объекта профиля Microsoft System Center Advisor) и предназначена для двух классов: **сервера сбора** и **группы управления Operations Manager**.
-* Будут созданы два соединителя.  Первый называется **Microsoft.SystemCenter.Advisor.DataConnector** и автоматически настраивается с подпиской, которая будет перенаправлять все оповещения, созданные из экземпляров всех классов в группе управления, в OMS Log Analytics. Второй — **соединитель Advisor**. Он отвечает за взаимодействие с веб-службой OMS и обмен данными.
+* Будут созданы два соединителя.  Первый называется **Microsoft.SystemCenter.Advisor.DataConnector** и автоматически настраивается с подпиской, которая будет перенаправлять все оповещения, созданные из экземпляров всех классов в группе управления, в OMS Log Analytics. Второй — **соединитель Advisor**. Он отвечает за взаимодействие с веб-службой OMS и обмен данными.
 * Агенты и группы, выбранные для сбора данных в группе управления, будут добавлены в **группу серверов мониторинга Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Обновления пакета управления
@@ -260,6 +264,9 @@ ms.author: magoedte
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
 * [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md) , чтобы агенты могли взаимодействовать со службой Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

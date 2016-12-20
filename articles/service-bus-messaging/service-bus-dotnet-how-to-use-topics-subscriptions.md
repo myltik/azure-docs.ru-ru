@@ -1,13 +1,13 @@
 ---
 title: "Использование разделов служебной шины с .NET | Документация Майкрософт"
 description: "Узнайте, как использовать разделы и подписки служебной шины с .NET в Azure. Примеры кода написаны для приложений .NET."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: 71d0049c831b9bbcdef548bc129d6e15256a25b4
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
 В обоих случаях строку подключения можно получить с помощью метода `CloudConfigurationManager.GetSetting`, как показано далее в этой статье.
 
 ### <a name="configure-your-connection-string"></a>Настройка строки подключения
-Механизм настройки службы позволяет динамически изменять параметры конфигурации на [портале Azure][портал Azure], не развертывая приложение повторно. Например, добавьте метку `Setting` в файл определения службы (**CSDEF-файл**), как показано в примере ниже.
+Механизм настройки службы позволяет динамически изменять параметры конфигурации на [портале Azure][портале Azure], не развертывая приложение повторно. Например, добавьте метку `Setting` в файл определения службы (**CSDEF-файл**), как показано в примере ниже.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -94,7 +94,7 @@ ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
 </configuration>
 ```
 
-Используйте имя и значения ключа SAS, полученные на [портале Azure][портал Azure], как описано выше.
+Используйте имя и значения ключа SAS, полученные на [портале Azure][портале Azure], как описано выше.
 
 ## <a name="create-a-topic"></a>Создание раздела
 Операции управления для разделов и подписок служебной шины можно выполнять, используя класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс предоставляет методы для создания, перечисления и удаления разделов.
@@ -311,9 +311,9 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 * [Пример фильтров раздела][Пример фильтров раздела].
 * Справочник API для [SqlFilter][SqlFilter].
 * Дополнительные сведения о создании работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее, см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине][Учебное пособие по обмену сообщениями .NET через посредника в служебной шине].
-* Примеры служебной шины скачайте со страницы [примеров Azure][примеры Azure] или см. [обзор](service-bus-samples.md).
+* Примеры служебной шины скачайте со страницы [примеров Azure][примеров Azure] или см. [обзор](service-bus-samples.md).
 
-[Портал Azure]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com
 
 [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -322,10 +322,10 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине]: service-bus-brokered-tutorial-dotnet.md
-[Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[примеров Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

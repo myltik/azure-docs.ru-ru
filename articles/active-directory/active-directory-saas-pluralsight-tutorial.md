@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Pluralsight | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в Pluralsight.
+title: "Руководство по интеграции Azure Active Directory с Pluralsight | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Pluralsight."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b71ba7f928871768851357bcb4bce1fbf4fed3
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-pluralsight"></a>Учебник. Интеграция Azure Active Directory с Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Учебник. Интеграция Azure Active Directory с Pluralsight
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с Pluralsight.
 
 Интеграция Pluralsight с Azure AD обеспечивает приведенные далее преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к Pluralsight.
-* Вы можете включить автоматический вход пользователей в Pluralsight (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* С помощью Azure AD вы можете контролировать доступ к Pluralsight.
+* Вы можете включить автоматический вход пользователей в Pluralsight (единый вход) с использованием учетной записи Azure AD.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с Pluralsight, вам потребуется:
+Чтобы настроить интеграцию Azure AD с Pluralsight, вам потребуется:
 
 * Подписка Azure
 * подписка Pluralsight с поддержкой единого входа.
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -77,9 +81,9 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Pluralsight с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Pluralsight с использованием тестового пользователя Britta Simon.
 
-Чтобы настроить и проверить единый вход Azure AD в Pluralsight, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Azure AD в Pluralsight, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
@@ -96,7 +100,7 @@ ms.author: jeedes
 
 Также можно добавить атрибут **Уникальный идентификатор** с соответствующим значением, таким как EmployeeID или другим, которое подходит для вашей организации. Обратите внимание, что это необязательный атрибут, однако его можно добавить для идентификации уникального пользователя. 
 
-**Чтобы настроить единый вход Azure AD в Pluralsight, выполните следующие действия:**
+**Чтобы настроить единый вход Azure AD в Pluralsight, выполните следующие действия:**
 
 1. На странице интеграции с приложением **Pluralsight** классического портала Azure в меню в верхней части страницы щелкните **Атрибуты**.
    
@@ -126,7 +130,7 @@ ms.author: jeedes
 
     c. В списке **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
 
-    d. Нажмите **Завершено**.  
+    d. Нажмите **Завершено**.    
 
 
 
@@ -159,13 +163,13 @@ ms.author: jeedes
 2. Чтобы настроить единый вход для своего приложения, свяжитесь с представителем отдела [профессиональных услуг](mailTo:professionalservices@pluralsight.com) Pluralsight и передайте ему скачанный файл метаданных.
 3. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 В списке пользователей выберите **Britta Simon**.
 
@@ -217,10 +221,10 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-pluralsight-test-user"></a>Создание тестового пользователя Pluralsight
-Цель этого раздела — создать пользователя с именем Britta Simon в Pluralsight. Чтобы добавить пользователей в учетную запись Pluralsight, обратитесь в службу поддержки Pluralsight. 
+Цель этого раздела — создать пользователя с именем Britta Simon в Pluralsight. Чтобы добавить пользователей в учетную запись Pluralsight, обратитесь в службу поддержки Pluralsight. 
 
 > [!NOTE]
-> Если вам нужно создать пользователя вручную, то необходимо обратиться в службу поддержки Pluralsight.
+> Если вам нужно создать пользователя вручную, необходимо обратиться в службу поддержки Pluralsight.
 > 
 > 
 
@@ -246,7 +250,7 @@ ms.author: jeedes
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Pluralsight на панели доступа, вы автоматически войдете в приложение Pluralsight.
 
@@ -274,6 +278,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

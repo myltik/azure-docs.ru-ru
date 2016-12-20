@@ -1,12 +1,12 @@
 ---
-title: Пакет SDK для Operations Management Suite (OMS) | Microsoft Docs
-description: В этой статье перечислена документация и другие ресурсы для доступа к службам OMS вне порталов OMS и Azure.  Сюда входит REST API для доступа из различных программных интерфейсов и обработчиков сценариев, таких как PowerShell.
+title: "Пакет SDK для Operations Management Suite (OMS) | Документация Майкрософт"
+description: "В этой статье перечислена документация и другие ресурсы для доступа к службам OMS вне порталов OMS и Azure.  Сюда входит REST API для доступа из различных программных интерфейсов и обработчиков сценариев, таких как PowerShell."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aac9c627-4060-4aa9-a2ea-85248e25d5ce
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b040697591dc94952239bf7897869d8a0ea4818c
+
 
 ---
-# <a name="operations-management-suite-(oms)-sdk"></a>Пакет SDK для Operations Management Suite (OMS)
+# <a name="operations-management-suite-oms-sdk"></a>Пакет SDK для Operations Management Suite (OMS)
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее.  В этой статье перечислена документация и другие ресурсы для доступа к службам OMS вне порталов OMS и Azure.  Сюда входит REST API для доступа из различных программных интерфейсов и обработчиков сценариев, таких как PowerShell. 
 
 ## <a name="automation"></a>Автоматизация
@@ -49,6 +53,9 @@ ms.author: bwren
 * Ознакомьтесь с вариантами [интеграции со службами OMS](operations-management-suite-integration.md).
 * Создайте пользовательское решение в OMS (ожидается в ближайшее время).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

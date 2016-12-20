@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
+title: "Учебник. Интеграция Azure Active Directory с Lifesize Cloud | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Lifesize Cloud."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,249 +14,253 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: faa41c24c08a1e4f47b448210d882269c4c5a742
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Azure Active Directory integration with Lifesize Cloud
-In this tutorial, you learn how to integrate Lifesize Cloud with Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Учебник. Интеграция Azure Active Directory с Lifesize Cloud
+В этом учебнике описано, как интегрировать приложение Lifesize Cloud с Azure Active Directory (Azure AD).
 
-Integrating Lifesize Cloud with Azure AD provides you with the following benefits:
+Интеграция Azure AD с приложением Lifesize Cloud обеспечивает следующие преимущества:
 
-* You can control in Azure AD who has access to Lifesize Cloud
-* You can enable your users to automatically get signed-on to Lifesize Cloud (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* С помощью Azure AD вы можете контролировать доступ к Lifesize Cloud.
+* Вы можете включить автоматический вход пользователей в Lifesize Cloud (единый вход) с учетной записью Azure AD.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with Lifesize Cloud, you need the following items:
+## <a name="prerequisites"></a>Предварительные требования
+Чтобы настроить интеграцию Azure AD с приложением Lifesize Cloud, вам потребуется:
 
-* An Azure AD subscription
-* A Lifesize Cloud single-sign on enabled subscription
+* подписка Azure AD;
+* подписка Lifesize Cloud с поддержкой единого входа.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Не следует использовать рабочую среду при отсутствии необходимости.
+* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
-1. Adding Lifesize Cloud from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Добавление Lifesize Cloud из коллекции
+2. Настройка и проверка единого входа в Azure AD.
 
-## <a name="adding-lifesize-cloud-from-the-gallery"></a>Adding Lifesize Cloud from the gallery
-To configure the integration of Lifesize Cloud into Azure AD, you need to add Lifesize Cloud from the gallery to your list of managed SaaS apps.
+## <a name="adding-lifesize-cloud-from-the-gallery"></a>Добавление Lifesize Cloud из коллекции
+Чтобы настроить интеграцию Lifesize Cloud с Azure AD, необходимо добавить Lifesize Cloud из коллекции в список управляемых приложений SaaS.
 
-**To add Lifesize Cloud from the gallery, perform the following steps:**
+**Чтобы добавить Lifesize Cloud из коллекции, выполните следующие действия:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
+    ![Приложения][2]
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+    ![Приложения][3]
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Applications][4]
-6. In the search box, type **Lifesize Cloud**.
+    ![Приложения][4]
+6. В поле поиска введите **Lifesize Cloud**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_01.png)
-7. In the results pane, select **Lifesize Cloud**, and then click **Complete** to add the application.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_01.png)
+7. В области результатов выберите **Lifesize Cloud** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_02.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Lifesize Cloud based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD.
+В этом разделе описана настройка и проверка единого входа Azure AD в Lifesize Cloud с использованием тестового пользователя Britta Simon.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Lifesize Cloud is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Lifesize Cloud needs to be established.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Lifesize Cloud соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Lifesize Cloud.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Lifesize Cloud.
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Lifesize Cloud.
 
-To configure and test Azure AD single sign-on with Lifesize Cloud, you need to complete the following building blocks:
+Чтобы настроить и проверить единый вход Azure AD в Lifesize Cloud, выполните действия в следующих стандартных блоках:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Lifesize Cloud test user](#creating-a-lifesize-cloud-test-user)** - to have a counterpart of Britta Simon in Lifesize Cloud that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Lifesize Cloud](#creating-a-lifesize-cloud-test-user)** требуется для создания в Lifesize Cloud пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить пользователю Britta Simon использовать единый вход Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Lifesize Cloud application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Lifesize Cloud.
 
-**To configure Azure AD single sign-on with Lifesize Cloud, perform the following steps:**
+**Чтобы настроить единый вход Azure AD в Lifesize Cloud, выполните следующие действия:**
 
-1. In the classic portal, on the **Lifesize Cloud** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. На странице интеграции с приложением **Lifesize Cloud** классического портала щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to Lifesize Cloud** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Настройка единого входа][6] 
+2. На странице **Как пользователи должны входить в Lifesize Cloud?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_03.png) 
+3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_04.png) 
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_04.png) 
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Lifesize Cloud application using the following pattern: **https://login.lifesizecloud.com/ls/?acs**.
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение Lifesize Cloud, в следующем формате: **https://login.lifesizecloud.com/ls/?acs**.
    
-    b. click **Next**
-4. On the **Configure single sign-on at Lifesize Cloud** page, perform the following steps:
+    b. click **Далее**
+4. На странице **Настройка единого входа в Lifesize Cloud** выполните следующие действия:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_05.png)
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_05.png)
    
-    a. Click **Download certificate**, and then save the file on your computer.
+    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
-    b. Click **Next**.
-5. To get SSO configured for your application, login into the Lifesize Cloud application with Admin privileges.
-6. In the top right corner click on your name and then click on the **Advance Settings**
+    b. Нажмите кнопку **Далее**.
+5. Для настройки единого входа в вашем приложении необходимо войти в приложение Lifesize Cloud с правами администратора.
+6. В правом верхнем углу страницы щелкните свое имя и выберите **Advance Settings** (Дополнительные параметры).
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
-7. In the Advance Settings now click on the **SSO Configuration** link. This will open the SSO Configuration page for your instance.
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+7. В меню Advance Settings (Дополнительные параметры) щелкните ссылку **SSO Configuration** (Конфигурация единого входа). Откроется страница "SSO Configuration" (Конфигурация единого входа) для вашего экземпляра.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
-8. Now configure the following values in the SSO configuration UI.    
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+8. Теперь настройте следующие значения в пользовательском интерфейсе единого входа.    
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
    
-    • Copy the value of Issuer URL from Azure AD and paste that in **Identity Provider Issuer** textbox.
+    • Скопируйте значение URL-адреса издателя из Azure AD и вставьте его в текстовое поле **Identity Provider Issuer** (Издатель поставщика удостоверений).
    
-    • Copy the value of Remote Login URL from Azure AD and paste that in **Login URL** textbox.
+    • Скопируйте значение URL-адреса удаленного входа из Azure AD и вставьте его в текстовое поле **Login URL** (URL-адрес для входа).
    
-    • Open the downloaded certificate in notepad and copy the content of certificate, excluding the Begin Certificate and End Certificate lines, paste this in the **X.509 Certificate** textbox.
+    • Откройте скачанный сертификат в Блокноте, скопируйте содержимое сертификата (кроме первой и последней строк), а затем вставьте его в текстовое поле **X.509 Certificate** (Сертификат X.509).
    
-    • In the SAML Attribute mapping for the **First Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    • В разделе "SAML Attribute Mappings" в текстовом поле **First Name** (Имя) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
    
-    • In the SAML Attribute mapping for the **Last Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    • В разделе "SAML Attribute Mappings" в текстовом поле **Last Name** (Фамилия) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
    
-    • In the SAML Attribute mapping for the **Email** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
-9. To check the configuration you can click on the **Test** button.
+    • В разделе "SAML Attribute Mappings" в текстовом поле **Email** (Адрес электронной почты) введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+9. Чтобы проверить конфигурацию, можно нажать кнопку **Test** (Проверить).
    
    > [!NOTE]
-   > For successful testing you need to complete the configuration wizard in Azure AD and also provide access to users or groups who can perform the test.
+   > Чтобы проверка прошла успешно, необходимо завершить работу мастера настройки в Azure AD, а также предоставить доступ пользователям или группам, которые будут выполнять эту проверку.
    > 
    > 
-10. Enable the SSO by checking on the **Enable SSO** button.
-11. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value which is generated in the text box. We will need this value in the next steps.
-12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+10. Чтобы включить единый вход, установите флажок **Enable SSO** (Включить единый вход).
+11. Затем нажмите кнопку **Update** (Обновить), чтобы сохранить все параметры. При этом будет создано значение RelayState. Скопируйте значение RelayState, которое отобразится в текстовом поле. Оно понадобится вам на последующих шагах.
+12. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
     
-    ![Azure AD Single Sign-On][10]
-13. On the **Single sign-on confirmation** page, click **Complete**.  
+    ![единого входа Azure AD][10]
+13. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-    ![Azure AD Single Sign-On][11]
-14. Now login into the Azure Management Portal **https://portal.azure.com** using the admin credentials
-15. Click on **More Services** link in the left navigation pane
+    ![единого входа Azure AD][11]
+14. Затем выполните вход на портал управления Azure (**https://portal.azure.com**), используя учетные данные администратора.
+15. В области навигации слева щелкните ссылку **Больше служб**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_09.png)
-16. Search for Azure Active Directory and Click on the **Azure Active Directory** Link
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_09.png)
+16. Выполните поиск Azure Active Directory и щелкните ссылку **Azure Active Directory**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_10.png)
-17. You will find all your SaaS applications under the **Enterprise Applications** button.
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_10.png)
+17. Вы можете просмотреть все свои приложения SaaS, нажав кнопку **Корпоративные приложения**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_11.png)
-18. Now click on **All Applications** link in the next blade
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_11.png)
+18. Теперь щелкните ссылку **Все приложения** в следующей колонке.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_12.png)
-19. Search for Lifesize application for which you want to setup the RelayState. 
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_12.png)
+19. Выполните поиск приложения Lifesize, для которого требуется настроить RelayState. 
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_13.png)
-20. Now Click **Single sign-on** link in the blade
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_13.png)
+20. Затем щелкните ссылку **Единый вход** в колонке.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_14.png)
-21. You will see the **Show advanced URL settings** check box. Click the check box.
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_14.png)
+21. Отобразится параметр **Показать дополнительные параметры URL-адресов**. Установите флажок.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_15.png)
-22. Now configure the RelayState for the application, which you see in the Lifesize application SSO configuration page. 
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_15.png)
+22. Теперь настройте RelayState для приложения, которое отображается на странице настройки единого входа приложения Lifesize. 
     
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_16.png)
-23. Save the settings.
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_16.png)
+23. Сохраните параметры.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
-![Create Azure AD User][20]
+![Создание пользователя Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_09.png) 
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_05.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_05.png) 
    
-    a. As Type Of User, select New user in your organization.
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_06.png) 
+    c. Нажмите кнопку **Далее**.
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+   b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+   d. В списке **Роль** выберите **Пользователь**.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
+   д. Нажмите кнопку **Далее**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_07.png) 
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_08.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
+    а. Запишите значение поля **Новый пароль**.
    
-    b. Click **Complete**.   
+    b. Нажмите **Завершено**.   
 
-### <a name="creating-an-lifesize-cloud-test-user"></a>Creating an Lifesize Cloud test user
-In this section, you create a user called Britta Simon in Lifesize Cloud. Lifesize cloud does support automatic user provisioning. After successful authentication at Azure AD, the user will be automatically provisioned in the application. 
+### <a name="creating-an-lifesize-cloud-test-user"></a>Создание тестового пользователя Lifesize Cloud
+В этом разделе описано, как создать пользователя Britta Simon в приложении Lifesize Cloud. Lifesize Cloud поддерживает автоматическую подготовку пользователей. После успешной аутентификации в Azure AD для пользователя будет автоматически выполняться подготовка в приложении. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Lifesize Cloud.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Lifesize Cloud.
 
-![Assign User][200] 
+![Назначение пользователя][200] 
 
-**To assign Britta Simon to Lifesize Cloud, perform the following steps:**
+**Чтобы назначить пользователя Britta Simon в FileCloud, выполните следующие действия:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
    
-    ![Assign User][201] 
-2. In the applications list, select **Lifesize Cloud**.
+    ![Назначение пользователя][201] 
+2. В списке приложений выберите **Lifesize Cloud**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_50.png) 
-3. In the menu on the top, click **Users**.
+    ![Настройка единого входа](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_50.png) 
+3. В меню в верхней части страницы щелкните **Пользователи**.
    
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
+    ![Назначение пользователя][203]
+4. В списке пользователей выберите **Britta Simon**.
+5. На панели инструментов внизу щелкните **Назначить**.
    
-    ![Assign User][205]
+    ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-When you click the Lifesize Cloud tile in the Access Panel, you should get automatically signed-on to your Lifesize Cloud application.
+Щелкнув элемент Lifesize Cloud на панели доступа, вы автоматически войдете в приложение Lifesize Cloud.
 
-## <a name="additional-resources"></a>Additional resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Дополнительные ресурсы
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -278,6 +282,6 @@ When you click the Lifesize Cloud tile in the Access Panel, you should get autom
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

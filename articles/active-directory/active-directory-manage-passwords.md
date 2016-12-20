@@ -1,19 +1,23 @@
 ---
-title: Управление паролями в Azure Active Directory | Microsoft Docs
-description: Сведения об управлении паролями в Azure Active Directory.
+title: "Управление паролями в Azure Active Directory | Документация Майкрософт"
+description: "Сведения об управлении паролями в Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a7679724-0ed5-4973-92e2-bd1285a6ef93
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: 0006818063724e50e2febb02e5ebaa0e2f688ea1
+
 
 ---
 # <a name="manage-passwords-in-azure-active-directory"></a>Управление паролями в Azure Active Directory
@@ -29,8 +33,8 @@ ms.author: curtand
 
 > [!NOTE]
 > Китайским клиентам служба Azure AD Premium доступна в качестве веб-экземпляра Azure AD, доступного по всему миру. Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 Используйте следующие ссылки, чтобы перейти к документации, в которой вы заинтересованы больше всего.
 
@@ -43,11 +47,13 @@ ms.author: curtand
 * [Устранение неполадок, связанных с управлением паролями Azure AD](active-directory-passwords-troubleshoot.md)
 * [Часто задаваемые вопросы об управлении паролями Azure AD](active-directory-passwords-faq.md)
 
-## <a name="what's-next"></a>Что дальше?
+## <a name="whats-next"></a>Что дальше?
 * [Администрирование Azure AD](active-directory-administer.md)
 * [Создание и изменение пользователей в Azure AD](active-directory-create-users.md)
 * [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

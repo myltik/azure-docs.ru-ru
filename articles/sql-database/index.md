@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
 
 ---
-#<a name="sql-database-documentation"></a>Документация по базе данных SQL
+
+# <a name="sql-database-documentation"></a>Документация по базе данных SQL
 
 База данных SQL Azure — это реляционная облачная служба баз данных на основе ядра Microsoft SQL Server со встроенными критически важными функциями. База данных SQL обеспечивает прогнозируемую производительность, масштабируемость без простоев, непрерывность бизнес-процессов и защиту данных — и все это с минимальным администрированием. Так как база данных SQL основана на SQL Server, она поддерживает существующие средства, библиотеки и API-интерфейсы SQL Server. Это значительно упрощает операции переноса и расширения в облако.
 
@@ -104,78 +105,50 @@ ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (эластичная база данных)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по .NET</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по пакету SDK для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/sql">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API базы данных SQL</p>
+                        <p><a href="/rest/api/sql/">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Справочник по T-SQL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -189,6 +162,6 @@ ms.openlocfilehash: b63022d6bfc74dca56cc117913d4288d0ed7fe20
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

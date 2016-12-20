@@ -1,60 +1,64 @@
 ---
-title: Перемещение данных из Teradata | Microsoft Docs
-description: Сведения о соединителе Teradata для службы фабрики данных, с помощью которого можно перемещать данные из базы данных Teradata.
+title: "Перемещение данных из Teradata | Документация Майкрософт"
+description: "Сведения о соединителе Teradata для службы фабрики данных, с помощью которого можно перемещать данные из базы данных Teradata."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 11/01/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
+
 
 ---
-# Перемещение данных из Teradata с помощью фабрики данных Azure
-В этой статье описано использование действия копирования в фабрике данных Azure для перемещения данных из Teradata в другое хранилище данных. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+# <a name="move-data-from-teradata-using-azure-data-factory"></a>Перемещение данных из Teradata с помощью фабрики данных Azure
+В этой статье описано использование действия копирования в фабрике данных Azure для перемещения данных из Teradata в другое хранилище данных. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 Фабрика данных поддерживает подключение к локальным источникам Teradata с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке.
 
 > [!NOTE]
 > Шлюз является обязательным, даже если база данных Teradata размещается на виртуальной машине (ВМ) Azure IaaS. Шлюз можно установить на той же ВМ IaaS, на которой размещается хранилище данных, или на другой ВМ. Важно, чтобы шлюз мог подключиться к базе данных.
-> 
-> 
+>
+>
 
 Фабрика данных поддерживает только перемещение данных из Teradata в другие хранилища данных, а не наоборот.
 
-## Установка
-Для подключения шлюза управления данными к базе данных Teradata необходимо установить [поставщик данных .NET для Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) в одной системе со шлюзом управления данными.
+## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
+Для подключения шлюза управления данными к базе данных Teradata необходимо установить [поставщик данных .NET для Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) версии 14 и более в одной системе со шлюзом управления данными. Поддерживается Teradata версии 12 и более.
 
 > [!NOTE]
-> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
-> 
-> 
+> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
+>
+>
 
-## Мастер копирования данных
+## <a name="copy-data-wizard"></a>Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные из Teradata в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из Teradata в хранилище BLOB-объектов Azure. Однако данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из Teradata в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.   
 
-### Пример копирования данных из Teradata в BLOB-объект Azure
-В этом примере показано, как скопировать данные из базы данных Teradata в хранилище BLOB-объектов Azure. Однако данные можно **напрямую** копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
+### <a name="sample-copy-data-from-teradata-to-azure-blob"></a>Пример копирования данных из Teradata в BLOB-объект Azure
+В этом примере показано, как скопировать данные из базы данных Teradata в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.  
 
 Образец состоит из следующих сущностей фабрики данных.
 
 1. Связанная служба типа [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties).
 4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В примере данные из результата выполнения запроса к базе данных Teradata каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
+Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Связанная служба Teradata**
 
@@ -177,7 +181,7 @@ ms.author: jingwang
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования, которое использует входные и выходные наборы данных и выполняется ежечасно. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query**, выбирает для копирования данные за последний час.
+Конвейер содержит действие копирования, которое использует входные и выходные наборы данных и выполняется ежечасно. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query** , выбирает для копирования данные за последний час.
 
     {
         "name": "CopyTeradataToBlob",
@@ -225,40 +229,40 @@ ms.author: jingwang
     }
 
 
-## Свойства связанной службы Teradata
+## <a name="teradata-linked-service-properties"></a>Свойства связанной службы Teradata
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Teradata.
 
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
-| type |Для свойства type необходимо задать значение **OnPremisesTeradata**. |Да |
+| type |Для свойства type необходимо задать значение **OnPremisesTeradata** |Да |
 | server |Имя сервера Teradata. |Да |
 | authenticationType |Тип проверки подлинности, используемый для подключения к базе данных Teradata. Возможными значениями являются: анонимная, обычная и Windows. |Да |
 | Имя пользователя |При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. |Нет |
 | пароль |Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. |Нет |
 | gatewayName |Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных Teradata. |Да |
 
-Подробную информацию о настройке учетных данных для локального источника данных Teradata см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Дополнительные сведения о настройке учетных данных для локального источника данных Teradata см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
-## Свойства типа "Набор данных Teradata"
+## <a name="teradata-dataset-type-properties"></a>Свойства типа "Набор данных Teradata"
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
-Раздел **typeProperties** во всех типах наборов данных разный. В нем содержится информация о расположении данных в хранилище данных. Сейчас нет каких-либо свойств типа, поддерживаемых для набора данных Teradata.
+Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Сейчас нет каких-либо свойств типа, поддерживаемых для набора данных Teradata.
 
-## Свойства типа "Действие копирования Teradata"
+## <a name="teradata-copy-activity-type-properties"></a>Свойства типа "Действие копирования Teradata"
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (такие как имя, описание, входные и выходные таблицы, политики и т. д.) доступны для всех типов действий.
 
 С другой стороны, свойства, доступные в разделе typeProperties действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
 
-Когда источник относится к типу **RelationalSource** (который содержит Teradata), в разделе **typeProperties** доступны следующие свойства.
+Если источник относится к типу **RelationalSource** (который содержит Teradata), в разделе**typeProperties** доступны следующие свойства:
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | --- | --- | --- | --- |
-| запрос |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable. |Да |
+| query |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable. |Да |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Сопоставление типов для Teradata
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа.
+## <a name="type-mapping-for-teradata"></a>Сопоставление типов для Teradata
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -272,9 +276,9 @@ ms.author: jingwang
 | Graphic |Строка |
 | VarChar |Строка |
 | VarGraphic |Строка |
-| BLOB-объект |Byte |
-| Byte |Byte |
-| VarByte |Byte |
+| BLOB-объект |Byte[] |
+| Byte |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
@@ -311,7 +315,11 @@ ms.author: jingwang
 
 [!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## Производительность и настройка
-См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
+## <a name="performance-and-tuning"></a>Производительность и настройка
+Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

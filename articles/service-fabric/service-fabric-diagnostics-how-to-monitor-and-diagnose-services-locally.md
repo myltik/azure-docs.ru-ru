@@ -1,12 +1,12 @@
 ---
-title: Локальный мониторинг и диагностика служб, созданных с помощью Azure Service Fabric | Microsoft Docs
-description: Узнайте, как осуществлять мониторинг и диагностику состояния служб с использованием платформы Microsoft Azure Service Fabric на локальном компьютере для разработки.
+title: "Локальный мониторинг и диагностика служб, созданных с помощью Azure Service Fabric | Документация Майкрософт"
+description: "Узнайте, как осуществлять мониторинг и диагностику состояния служб с использованием платформы Microsoft Azure Service Fabric на локальном компьютере для разработки."
 services: service-fabric
 documentationcenter: .net
 author: ms-toddabel
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
+
 
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Мониторинг и диагностика состояния служб в локальной среде разработки
@@ -63,6 +67,9 @@ Service Fabric генерирует события ETW, чтобы разраб�
 * [Сбор журналов с помощью системы диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Использование ElasticSearch в качестве хранилища данных трассировки приложения Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

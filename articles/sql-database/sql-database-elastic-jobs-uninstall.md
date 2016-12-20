@@ -1,39 +1,43 @@
 ---
-title: Удаление инструмента заданий обработки эластичных баз данных
-description: Удаление инструмента заданий обработки эластичных баз данных
+title: "Удаление инструмента заданий обработки эластичных баз данных"
+description: "Удаление инструмента заданий обработки эластичных баз данных"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
 ms.workload: sql-database
+ms.custom: multiple databases
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
+
 
 ---
-# Удаление компонентов заданий обработки эластичных баз данных.
-Компоненты **заданий обработки эластичных баз данных** можно удалить с помощью портала или PowerShell.
+# <a name="uninstall-elastic-database-jobs-components"></a>Удаление компонентов заданий обработки эластичных баз данных.
+**заданий обработки эластичных баз данных** можно удалить с помощью портала или PowerShell.
 
-## Удаление компонентов заданий обработки эластичных баз данных с помощью портала Azure
+## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Удаление компонентов заданий обработки эластичных баз данных с помощью портала Azure
 1. Откройте [портал Azure](https://portal.azure.com/).
-2. Перейдите к подписке, которая содержит компоненты **заданий обработки эластичных баз данных**, то есть подписку, в которой они были установлены.
-3. Последовательно щелкните **Обзор** и **Группы ресурсов**.
-4. Выберите группу ресурсов с именем \_\_ElasticDatabaseJob.
+2. Перейдите к подписке, которая содержит компоненты **заданий обработки эластичных баз данных** , то есть подписку, в которой они были установлены.
+3. Щелкните **Обзор** и **Группы ресурсов**.
+4. Выберите группу ресурсов с именем __ElasticDatabaseJob.
 5. Удалите ее.
 
-## Удаление компонентов заданий обработки эластичных баз данных с помощью PowerShell
+## <a name="uninstall-elastic-database-jobs-components-using-powershell"></a>Удаление компонентов заданий обработки эластичных баз данных с помощью PowerShell
 1. Откройте командную строку Microsoft Azure PowerShell и перейдите в подкаталог tools в папке Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: введите команду **cd tools**.
    
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
-2. Запустите сценарий PowerShell .\\UninstallElasticDatabaseJobs.ps1.
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+2. Запустите сценарий PowerShell .\UninstallElasticDatabaseJobs.ps1.
    
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
 
 Или просто запустите следующий сценарий, если для установки компонентов использовались значения по умолчанию:
 
@@ -51,13 +55,17 @@ ms.author: ddove
         Remove-AzureResourceGroup -Name $ResourceGroupName -Force
         Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
-## Дальнейшие действия
-Сведения о повторной установке службы можно найти в статье [Установка компонентов службы заданий обработки эластичных баз данных](sql-database-elastic-jobs-service-installation.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Сведения о повторной установке службы можно найти в статье [Установка компонентов службы заданий обработки эластичных баз данных](sql-database-elastic-jobs-service-installation.md)
 
-Общие сведения о заданиях обработки эластичных баз данных см. в статье [Обзор службы заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md).
+Общие сведения о заданиях обработки эластичных баз данных см. в статье [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 
 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

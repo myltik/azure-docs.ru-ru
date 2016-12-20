@@ -1,20 +1,24 @@
 ---
-title: Управление параметрами двухфакторной проверки подлинности | Microsoft Docs
-description: Управление использованием многофакторной идентификации Azure, в том числе изменение контактных данных и настройка устройств.
+title: "Управление параметрами двухфакторной проверки подлинности | Документация Майкрософт"
+description: "Управление использованием многофакторной идентификации Azure, в том числе изменение контактных данных и настройка устройств."
 services: multi-factor-authentication
-keywords: многофакторная проверка подлинности клиента, проблемы с проверкой подлинности, идентификатор корреляции
-documentationcenter: ''
+keywords: "многофакторная проверка подлинности клиента, проблемы с проверкой подлинности, идентификатор корреляции"
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: yossib
-
+ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/23/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 8156a7e9d9cbe1631c2e777454d04519b413d551
+
 
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Управление параметрами двухфакторной проверки подлинности
@@ -28,19 +32,19 @@ ms.author: kgremban
 1. Войдите на портал по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 2. Вверху выберите **профиль**.  
 3. Выберите элемент **Дополнительная проверка безопасности**.  
-   
+
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. Загрузится страница дополнительной проверки безопасности с настроенными параметрами.
-   
-    ![Подтверждение](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
-## <a name="i-want-to-change-my-phone-number,-or-add-a-secondary-number"></a>Я хочу изменить свой номер телефона или добавить дополнительный номер
+    ![Подтверждение](./media/multi-factor-authentication-end-user-manage/proofup.png)
+
+## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Я хочу изменить свой номер телефона или добавить дополнительный номер
 Важно настроить дополнительный номер телефона для проверки подлинности.  Скорее всего, ваш основной номер телефона и мобильное приложение находятся на одном телефоне. Поэтому дополнительный номер телефона является единственным способом возврата в вашу учетную запись в случае потери или кражи телефона.
 
 > [!NOTE]
 > Если у вас нет доступа к основному телефону и вам требуется помощь для входа в учетную запись, см. справочную информацию в статье [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Трудности с двухфакторной проверкой подлинности).
-> 
-> 
+>
+>
 
 **Изменение основного номера телефона**  
 
@@ -54,13 +58,15 @@ ms.author: kgremban
 2. В текстовом поле введите дополнительный номер телефона.  
 3. Щелкните **Сохранить**. Настройка завершена.  
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one?"></a>Как удалить Microsoft Authenticator со старого устройства и перенести на новое?
-При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Для этого нужно выполнить действия, описанные в разделе [о переходе на новое устройство](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
+## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Как удалить Microsoft Authenticator со старого устройства и перенести на новое?
+При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Дополнительные сведения можно найти в статье [Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * См. советы и справочные сведения по устранению неполадок в статье [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Трудности с двухфакторной проверкой подлинности).
 * Настройте [пароли приложений](multi-factor-authentication-end-user-app-passwords.md) для всех приложений, которые не поддерживают двухфакторную проверку подлинности.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

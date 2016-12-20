@@ -18,7 +18,8 @@
 ### [Веб-приложение Java](documentdb-java-application.md)
 ### [Веб-приложения Python Flask](documentdb-python-application.md)
 ## [Разработка в локальной среде](documentdb-nosql-local-emulator.md)
-## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](documentdb-faq.md)
+### [Экспорт сертификатов в эмуляторе](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+## [Часто задаваемые вопросы](documentdb-faq.md)
 
 # Практическое руководство
 
@@ -40,14 +41,18 @@
 ### [Уровни производительности](documentdb-performance-levels.md)
 ### [Квоты ресурсов](documentdb-limits.md)
 ### [Увеличение квот](documentdb-increase-limits.md)
-### [Единицы запроса](documentdb-request-units.md)
-### [Azure CLI и Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### [Единиц запросов](documentdb-request-units.md)
+### Инфраструктура CLI Azure
+#### [Создание учетной записи](documentdb-automation-resource-manager-cli.md)
+#### [Добавление и удаление регионов](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Поддерживаемые брандмауэры](documentdb-firewall-support.md)
 ### [Расширение возможностей учетной записи](documentdb-supercharge-your-account.md)
 
 ## Разработка
 ### [SQL query](documentdb-sql-query.md)
 ### [Хранимые процедуры, триггеры и определяемые пользователем функции](documentdb-programming.md)
+### [Отслеживание изменений с помощью веб-канала изменений](documentdb-change-feed.md)
 ### [Тестирование производительности](documentdb-performance-testing.md)
 ### [Советы по улучшению производительности](documentdb-performance-tips.md)
 ### DocumentDB для разработчиков MongoDB
@@ -72,7 +77,7 @@
 ## Интеграция
 ### [Развертывание веб-сайта в службе приложений Azure](documentdb-create-documentdb-website.md)
 ### [Вход в приложения с помощью Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
-### [Привязка к Функциям Azure](../azure-functions/functions-bindings-documentdb.md)
+### [Привязка к функциям Azure](../azure-functions/functions-bindings-documentdb.md)
 ### [Анализ данных с использованием Hadoop](documentdb-run-hadoop-with-hdinsight.md)
 ### [Интеграция с Поиском Azure](documentdb-search-indexer.md)
 ### [Перенос данных с помощью фабрики данных Azure](../data-factory/data-factory-azure-documentdb-connector.md)
@@ -83,18 +88,20 @@
 
 
 # Справочные материалы
-## [Пакет SDK для Java](documentdb-sdk-java.md)
-## [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
-## [Пакет SDK для .NET Core](documentdb-sdk-dotnet-core.md)
-## [Примеры для .NET](documentdb-dotnet-samples.md)
-## [Пакет SDK для Node.js](documentdb-sdk-node.md)
-## [Примеры для Node.js](documentdb-nodejs-samples.md)
-## [Пакет SDK для Python](documentdb-sdk-python.md)
-## [Примеры для Python](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Памятка по грамматике SQL](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Поставщик ресурсов REST](/rest/api/documentdbresourceprovider/)
+
+# Сопутствующие материалы
+## [Примеры для .NET](documentdb-dotnet-samples.md)
+## [Примеры для Node.js](documentdb-nodejs-samples.md)
+## [Примеры для Python](documentdb-python-samples.md)
+## [Синтаксис SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Памятка по грамматике SQL](documentdb-sql-query-cheat-sheet.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +117,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

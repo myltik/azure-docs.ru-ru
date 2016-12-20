@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с HireVue | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в HireVue.
+title: "Учебник. Интеграция Azure Active Directory с HireVue | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в HireVue."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9dfa1df1497d7505f283b7ed3bffa3c37ac0b351
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-hirevue"></a>Руководство. Интеграция Azure Active Directory с HireVue
+# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Руководство. Интеграция Azure Active Directory с HireVue
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением HireVue.
 
 Интеграция Azure AD с приложением HireVue обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к HireVue.
 * Вы можете включить автоматический вход пользователей в HireVue (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с HireVue, вам потребуется:
@@ -108,19 +112,19 @@ ms.author: jeedes
    
     а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение HireVue в следующем формате: 
 
-      | Среда | URL-адрес |
-      |---|---|
-      | Производство | `https://<company name>.hirevue.com` |
-      | Промежуточная| `https://<company name>.stghv.com` |
+    | Среда | URL-адрес |
+    |---|---|
+    | Производство | `https://<company name>.hirevue.com` |
+    | Промежуточная| `https://<company name>.stghv.com` |
 
 
     b. В текстовом поле **Идентификатор** введите URN в следующем формате:
 
 
-      | Среда | URN |
-      |---|---|
-      |Производство | `urn:federation:hirevue.com:saml:sp:prod` |
-      |Промежуточная | `urn:federation:hirevue.com:saml:sp:staging` |
+    | Среда | URN |
+    |---|---|
+    |Производство | `urn:federation:hirevue.com:saml:sp:prod` |
+    |Промежуточная | `urn:federation:hirevue.com:saml:sp:staging` |
 
 
 
@@ -144,10 +148,10 @@ ms.author: jeedes
     • **URL-адрес службы единого выхода**
 3. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -248,6 +252,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

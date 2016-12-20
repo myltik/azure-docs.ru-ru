@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с UserEcho | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в приложении UserEcho.
+title: "Руководство по интеграции Azure Active Directory с UserEcho | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении UserEcho."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a59878b0cb6f33af27f5008faf828cd4eb0eb537
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-userecho"></a>Руководство. Интеграция Azure Active Directory с UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Руководство. Интеграция Azure Active Directory с UserEcho
 Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением UserEcho.  
 Интеграция Azure AD с приложением UserEcho обеспечивает следующие преимущества. 
 
-* С помощью Azure AD вы можете контролировать доступ к приложению UserEcho. 
+* С помощью Azure AD вы можете контролировать доступ к приложению UserEcho. 
 * Вы можете включить автоматический вход пользователей в UserEcho (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с приложением UserEcho, вам потребуется следующее:
+Чтобы настроить интеграцию Azure AD с приложением UserEcho, вам потребуется следующее:
 
 * подписка Azure AD;
 * подписка UserEcho с поддержкой единого входа.
@@ -43,14 +47,14 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление UserEcho из коллекции. 
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-userecho-from-the-gallery"></a>Добавление UserEcho из коллекции.
-Чтобы настроить интеграцию UserEcho с Azure AD, необходимо добавить UserEcho из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию UserEcho с Azure AD, необходимо добавить UserEcho из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить UserEcho из коллекции, выполните следующие действия.**
 
@@ -75,23 +79,23 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в UserEcho с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в UserEcho с использованием тестового пользователя Britta Simon.
 
-Для настройки единого входа в Azure AD необходимо знать, какой пользователь в UserEcho соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в UserEcho.  
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в UserEcho.
+Для настройки единого входа в Azure AD необходимо знать, какой пользователь в UserEcho соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в UserEcho.  
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в UserEcho.
 
-Чтобы настроить и проверить единый вход Azure AD в UserEcho, вам потребуется выполнить действия в следующих стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в UserEcho, вам потребуется выполнить действия в следующих стандартных блоках.
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя UserEcho](#creating-a-userecho-test-user)** требуется для создания в UserEcho пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
+3. **[Создание тестового пользователя UserEcho](#creating-a-userecho-test-user)** требуется для создания в UserEcho пользователя Britta Simon, связанного с соответствующим пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение UserEcho. 
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение UserEcho. 
 
-**Чтобы настроить единый вход Azure AD в UserEcho, выполните следующие действия.**
+**Чтобы настроить единый вход Azure AD в UserEcho, выполните следующие действия.**
 
 1. На классическом портале Azure на странице интеграции с приложением **UserEcho** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
@@ -138,13 +142,13 @@ ms.author: jeedes
     д. Щелкните **Сохранить**.
 10. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**. 
     
-     ![единого входа Azure AD][10]
+     ![единого входа Azure AD][10]
 11. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-     ![единого входа Azure AD][11]
+     ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -193,7 +197,7 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-userecho-test-user"></a>Создание тестового пользователя UserEcho
-Цель этого раздела — создать в приложении UserEcho пользователя с именем Britta Simon.
+Цель этого раздела — создать в приложении UserEcho пользователя с именем Britta Simon.
 
 **Чтобы создать пользователя с именем Britta Simon в UserEcho, выполните следующие действия.**
 
@@ -277,6 +281,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

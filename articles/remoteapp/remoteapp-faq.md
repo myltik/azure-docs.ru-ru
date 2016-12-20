@@ -3,7 +3,7 @@ title: "Часто задаваемые вопросы об Azure RemoteApp | Д
 description: "Получите ответы на часто задаваемые вопросы об Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
 * **Сколько стоит RemoteApp?** Ознакомьтесь с [ценами на Azure RemoteApp ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Может ли один тип коллекции стоить больше, чем другой?** Да, может. Это зависит от требований к коллекции. Для гибридной коллекции требуется подключение Azure RemoteApp к вашей локальной сети. Если вы используете существующую виртуальную сеть или Express Route, то вам не придется нести дополнительные расходы. Однако если вы используете новую виртуальную сеть Azure и шлюз или Express Route, то вам придется платить за [VPN-шлюз](https://azure.microsoft.com/pricing/details/vpn-gateway) или [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Эти расходы (подробно описанные по ссылкам) необходимо нести дополнительно к ежемесячным расходам на Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Коллекции: что поддерживается, какие коллекции следует использовать и другие вопросы
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Коллекции: что поддерживается, какие коллекции следует использовать и другие вопросы
 * **Поддерживаются ли настраиваемые бизнес-приложения?**  Да. Чтобы использовать настраиваемое приложение в Azure RemoteApp, создайте [настраиваемый образ шаблона](remoteapp-create-custom-image.md)и отправьте его в коллекцию RemoteApp.
 * **Будут ли настраиваемые бизнес-приложения работать в Azure RemoteApp?**  Лучший способ узнать это — протестировать приложения. Посетите наш [центр совместимости удаленных рабочих столов](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Какой метод развертывания (облачное или гибридное) лучше подходит для моей организации?**  Гибридные коллекции обеспечивают наиболее полные возможности, если вам необходима полная интеграция с единым входом (SSO) и защищенным подключением к локальной сети. Облачные коллекции предоставляют гибкий и простой способ изолировать развертывание с использованием нескольких методов проверки подлинности. Узнайте больше о [вариантах развертывания](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
 
 * **Почему не удается предоставить доступ к учетной записи Azure Active Directory?** Пользователи Azure Active Directory должны относиться к каталогу, связанному с вашей подпиской. Вы можете просматривать и изменять этот каталог на вкладке "Параметры" на портале. Дополнительные сведения см. в статье [Смена клиента Azure Active Directory в Azure RemoteApp](remoteapp-changetenant.md).
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Клиенты: какие устройства можно использовать для доступа к Azure RemoteApp?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Клиенты: какие устройства можно использовать для доступа к Azure RemoteApp?
 Дополнительные сведения о клиентах, в том числе инструкции по установке различных клиентов, см. в статье [Доступ к приложениям в Azure RemoteApp](remoteapp-clients.md).
 
 * **Какие устройства или операционные системы поддерживаются клиентскими приложениями?**
@@ -126,6 +126,6 @@ ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

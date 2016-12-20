@@ -1,12 +1,12 @@
 ---
-title: Источники данных в Log Analytics | Microsoft Docs
-description: Источники данных определяют, какие данные Log Analytics будет собирать из агентов и других подключенных источников.  В этой статье описывается, каким образом служба Log Analytics использует источники данных, и рассказывается, как их настраивать, а также приводятся общие сведения о различных доступных источниках данных.
+title: "Источники данных в Log Analytics | Документация Майкрософт"
+description: "Источники данных определяют, какие данные Log Analytics будет собирать из агентов и других подключенных источников.  В этой статье описывается, каким образом служба Log Analytics использует источники данных, и рассказывается, как их настраивать, а также приводятся общие сведения о различных доступных источниках данных."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 412483cfbce7621612a7283b8a72c24d23b851b5
+
 
 ---
 # <a name="data-sources-in-log-analytics"></a>Источники данных в Log Analytics
@@ -58,6 +62,9 @@ ms.author: bwren
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Настройте [оповещения](log-analytics-alerts.md) для получения заблаговременных уведомлений о получении критически важных данных из источников данных и решений.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

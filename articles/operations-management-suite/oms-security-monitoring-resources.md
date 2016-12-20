@@ -1,40 +1,30 @@
 ---
-title: 'Мониторинг ресурсов в решении '
-безопасность: ''
-и: ''
-аудит": ''
-operations: ''
-management: ''
-suite: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: 'Этот документ поможет вам использовать функции решения OMS '
-для: ''
-отслеживания: ''
-ресурсов: ''
-выявления: ''
-проблем: ''
-безопасности.": ''
+title: "Мониторинг ресурсов в решении &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
+description: "Этот документ поможет вам использовать функции решения OMS &quot;Безопасность и аудит&quot; для отслеживания ресурсов и выявления проблем безопасности."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: d6752120-821f-4aa7-a049-25bf5a653b95
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
+
 
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Мониторинг ресурсов в решении "Безопасность и аудит" Operations Management Suite
 Этот документ поможет вам использовать функции решения OMS "Безопасность и аудит" для отслеживания ресурсов и выявления проблем безопасности.
 
-## <a name="what-is-oms?"></a>Что такое OMS?
+## <a name="what-is-oms"></a>Что такое OMS?
 Microsoft Operations Management Suite (OMS) — это облачное решение Майкрософт для управления ИТ-средой, которое помогает управлять локальной и облачной инфраструктурой и защищать ее. Дополнительные сведения об OMS см. в статье [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="monitoring-resources"></a>Мониторинг ресурсов
@@ -122,6 +112,9 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 * [Приступая к работе с решением "Безопасность и аудит" Operations Management Suite](oms-security-getting-started.md)
 * [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Приступая к работе с Azure Multi-Factor Authentication в облаке
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Приступая к работе с Azure Multi-Factor Authentication в облаке
 В этой статье вы узнаете, как приступить к работе с многофакторной идентификацией Azure в облаке.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
+## <a name="turn-on-two-step-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
 Чтобы включить двухфакторную проверку подлинности для пользователей, измените состояние пользователя с "Отключено" на "Включено".  Дополнительные сведения о состояниях пользователей см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
 
 Чтобы включить MFA для пользователей, выполните процедуру ниже.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Включение многофакторной проверки подлинности
+### <a name="to-turn-on-multi-factor-authentication"></a>Включение многофакторной проверки подлинности
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетной записью администратора.
 2. В левой части щелкните **Active Directory**.
 3. В разделе "Каталог" выберите каталог пользователя, которого нужно включить.
@@ -66,8 +66,8 @@ ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
 
 После включения рекомендуется уведомить пользователей по электронной почте. В следующий раз при попытке входа в систему им нужно будет зарегистрировать свою учетную запись для прохождения двухфакторной проверки. Им также потребуется задать пароли для приложений, чтобы они не были заблокированы при входе в приложения, не использующие браузер.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Автоматизация включения двухфакторной проверки подлинности с помощью PowerShell
-Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](../powershell-install-configure.md), можно использовать команды, приведенные ниже.  Для параметра `$st.State` можно задать одно из следующих состояний:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Автоматизация включения двухфакторной проверки подлинности с помощью PowerShell
+Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](/powershell/azureps-cmdlets-docs), можно использовать команды, приведенные ниже.  Для параметра `$st.State` можно задать одно из следующих состояний:
 
 * Включено
 * Принудительно
@@ -107,6 +107,6 @@ ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

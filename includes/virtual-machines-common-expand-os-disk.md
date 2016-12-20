@@ -10,7 +10,7 @@
 > 
 
 ## <a name="resize-the-os-drive"></a>Изменение размера диска операционной системы
-В этой статье мы займемся задачей изменения размера для диска операционной системы с помощью модулей Resource Manager из [Azure Powershell](../articles/powershell-install-configure.md). Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
+В этой статье мы займемся задачей изменения размера для диска операционной системы с помощью модулей Resource Manager из [Azure Powershell](/powershell/azureps-cmdlets-docs). Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
 
 1. Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
    
@@ -84,6 +84,6 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

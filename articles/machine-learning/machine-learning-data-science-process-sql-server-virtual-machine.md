@@ -1,12 +1,12 @@
 ---
-title: Обработка данных из SQL Azure | Microsoft Docs
-description: Обработка данных из SQL Azure
+title: "Обработка данных из SQL Azure | Документация Майкрософт"
+description: "Обработка данных из SQL Azure"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dac57c04453c071279534795464907a67d88a3b0
+
 
 ---
-# <a name="heading"></a>Обработка данных в виртуальной машине SQL Server на платформе Azure
+# <a name="a-nameheadingaprocess-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Обработка данных в виртуальной машине SQL Server на платформе Azure
 В этом документе описывается изучение данных и создание характеристик для данных, хранящихся в виртуальной машине SQL Server в Azure. Это можно сделать путем структурирования данных с помощью SQL или с использованием языка программирования, например Python.
 
 > [!NOTE]
@@ -24,46 +28,46 @@ ms.author: fashah;garye;bradsev
 > 
 > 
 
-## <a name="SQL"></a>Использование SQL
+## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Использование SQL
 В данном разделе с помощью SQL описываются следующие задачи по структурированию данных:
 
 1. [Просмотр данных](#sql-dataexploration)
 2. [Создание характеристик](#sql-featuregen)
 
-### <a name="sql-dataexploration"></a>Просмотр данных
+### <a name="a-namesql-dataexplorationadata-exploration"></a><a name="sql-dataexploration"></a>Просмотр данных
 Вот несколько примеров сценариев SQL, которые можно использовать для изучения хранилищ данных в SQL Server.
 
 > [!NOTE]
-> Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
+> Для практического примера можно использовать [набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
 > 
 > 
 
 1. Получение количества наблюдений за день
    
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
 2. Получение уровней в столбце категорий
    
     `select  distinct <column_name> from <databasename>`
-3. Получение числа уровней в сочетании двух столбцов категорий
+3. Получение числа уровней в сочетании двух столбцов категорий 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 4. Получение распределения для числовых столбцов
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Создание характеристик
-В этом разделе мы опишем способы создания характеристик с помощью SQL:
+### <a name="a-namesql-featuregenafeature-generation"></a><a name="sql-featuregen"></a>Создание характеристик
+В этом разделе мы опишем способы создания характеристик с помощью SQL:  
 
 1. [Создание характеристик на основе количества](#sql-countfeature)
 2. [Создание характеристик путем группирования данных](#sql-binningfeature)
 3. [Развертывание характеристик из одного столбца](#sql-featurerollout)
 
 > [!NOTE]
-> После создания дополнительных компонентов можно либо добавить их в виде столбцов в существующую таблицу, либо создать новую таблицу с дополнительными компонентами и первичным ключом, которую можно будет объединить с исходной таблицей.
+> После создания дополнительных компонентов можно либо добавить их в виде столбцов в существующую таблицу, либо создать новую таблицу с дополнительными компонентами и первичным ключом, которую можно будет объединить с исходной таблицей. 
 > 
 > 
 
-### <a name="sql-countfeature"></a>Создание характеристик на основе количества
+### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Создание характеристик на основе количества
 В этом документе показаны два способа создания количественных характеристик. В первом способе используется условная сумма, а во втором — предложение where. Затем их можно объединить с исходной таблицей (с помощью столбцов первичных ключей), чтобы включить количественные характеристики вместе с исходными данными.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -71,13 +75,13 @@ ms.author: fashah;garye;bradsev
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
 В следующем примере показано, как создать группированные характеристики путем группирования (с использованием 5 ячеек) числового столбца, который взамен можно использовать как характеристику:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
+### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
 В этом разделе мы покажем, как развернуть одиночный столбец в таблице для создания дополнительных характеристик. В примере предполагается, что в таблице, из которой вы намерены создать характеристики, содержится столбец широты или долготы.
 
 Вот краткое руководство по данным широты/долготы расположения (на основе ресурса stackoverflow): [Как измерить точность широты и долготы](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude). Перед присвоением характеристики полю расположения полезно понять следующее:
@@ -93,7 +97,7 @@ ms.author: fashah;garye;bradsev
 * Пятый десятичный разряд соответствует точности до 1,1 м: он позволяет отличать деревья друг от друга. Точность этого уровня с помощью коммерческих GPS-устройств может быть достигнута только при использовании дифференциальной коррекции.
 * Шестой десятичный разряд соответствует точности до 0,11 м: это значение можно использовать для подробной детализации сооружений, для проектирования ландшафтов, строительства дорог. Этого уровня более чем достаточно для отслеживания движения ледников и рек. Его можно достичь с помощью тщательного измерения с использованием GPS, например при дифференциальной коррекции GPS.
 
-Сведения о местоположении можно характеризовать следующим образом, выделяя информацию о регионе, местоположении и городе. Обратите внимание на то, что для получения сведений об области или регионе можно также вызвать конечную точку REST, например интерфейс Bing Maps API, доступный в разделе [Поиск расположения по точке](https://msdn.microsoft.com/library/ff701710.aspx).
+Сведения о местоположении можно характеризовать следующим образом, выделяя информацию о регионе, местоположении и городе. Обратите внимание на то, что для получения сведений об области или регионе можно также вызвать конечную точку REST, например интерфейс Bing Maps API, доступный в разделе [Поиск расположения по точке](https://msdn.microsoft.com/library/ff701710.aspx) .
 
     select 
         <location_columnname>
@@ -106,19 +110,19 @@ ms.author: fashah;garye;bradsev
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Вышеуказанные характеристики на основе расположения можно в дальнейшем использовать для создания дополнительных количественных характеристик, как было описано ранее.
+Вышеуказанные характеристики на основе расположения можно в дальнейшем использовать для создания дополнительных количественных характеристик, как было описано ранее. 
 
 > [!TIP]
-> Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками — пример такого решения с использованием pyodbc см. в статье [Пример HelloWorld с обращением к SQL Server с помощью python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). Другой вариант – вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками — пример такого решения с использованием pyodbc см. в статье [Пример HelloWorld с обращением к SQL Server с помощью Python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). Другой вариант — вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 > 
 > 
 
-### <a name="sql-aml"></a>Подключение к службе машинного обучения Azure
-Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать характеристики и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных][import-data] в студии машинного обучения Azure, как показано ниже.
+### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать признаки и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных][import-data] в Студии машинного обучения Azure, как показано ниже.
 
-![считыватели azureml][1]
+![считыватели azureml][1] 
 
-## <a name="python"></a>Использование языка программирования, например Python
+## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Использование языка программирования, например Python
 Использование языка Python для просмотра данных и создания характеристик, когда данные находятся в SQL Server, подобно обработке данных в большом двоичном объекте Azure с использованием Python, как описано в разделе [Обработка данных большого двоичного объекта Azure в среде обработки данных](machine-learning-data-science-process-data-blob.md). Данные необходимо загрузить из базы данных во фрейм данных pandas для последующей обработки. В этом разделе документирован процесс подключения к базе данных и загрузки данных во фрейм данных.
 
 Для подключения к базе данных SQL Server из языка Python с использованием pyodbc можно применить следующий формат строки подключения (замените servername, dbname, username и password соответствующими значениями имени сервера, имени БД, имени пользователя и пароля):
@@ -134,8 +138,8 @@ ms.author: fashah;garye;bradsev
 
 Теперь можно работать с фреймом данных Pandas, как описано в статье [Обработка данных большого двоичного объекта Azure в среде обработки данных](machine-learning-data-science-process-data-blob.md).
 
-## Пример применения обработки данных в Azure на практике
-Пример комплексного пошагового руководства по обработке и анализу данных в Azure с использованием общедоступного набора данных см. в разделе [Обработка и анализ данных в Azure на практике](machine-learning-data-science-process-sql-walkthrough.md).
+## <a name="azure-data-science-in-action-example"></a>Пример применения обработки данных в Azure на практике
+Пример комплексного пошагового руководства по обработке и анализу данных в Azure с использованием общедоступного набора данных см. в статье [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
@@ -144,4 +148,8 @@ ms.author: fashah;garye;bradsev
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

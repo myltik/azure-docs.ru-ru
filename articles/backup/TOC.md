@@ -43,7 +43,7 @@
 ### [Восстановление файлов на Windows Server с использованием модели развертывания Resource Manager](backup-azure-restore-windows-server.md)
 ### [Восстановление файлов на Windows Server с использованием классической модели развертывания](backup-azure-restore-windows-server-classic.md)
 
-## [Удаление хранилища архивации Azure](backup-azure-delete-vault.md)
+## [Удаление хранилища службы архивации Azure](backup-azure-delete-vault.md)
 ## [Настройка автономного резервного копирования](backup-azure-backup-import-export.md)
 ## [Использование службы архивации Azure для замены ленточной инфраструктуры](backup-azure-backup-cloud-as-tape.md)
 ## Устранение неполадок
@@ -52,6 +52,10 @@
 ### [Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Медленное резервное копирование файлов и папок в службе архивации Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Справочные материалы
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/backup/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

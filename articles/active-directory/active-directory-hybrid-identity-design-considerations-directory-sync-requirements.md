@@ -1,12 +1,12 @@
 ---
-title: Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к синхронизации каталога | Microsoft Docs
-description: Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия.
-documentationcenter: ''
+title: "Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory ― определение требований к синхронизации каталогов | Документация Майкрософт"
+description: "Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4fc6aa1baa5f558b8e706d94e3e604824f531d4a
+
 
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Определение требований к синхронизации каталога
@@ -70,6 +74,9 @@ ms.author: billmath
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

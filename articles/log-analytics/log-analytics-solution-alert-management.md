@@ -1,22 +1,26 @@
 ---
-title: Решение управления оповещениями в Operations Management Suite (OMS) | Microsoft Docs
-description: Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в OMS, оно импортирует оповещения из подключенных групп управления System Center Operations Manager (SCOM) в Log Analytics.
+title: "Решение для управления оповещениями в Operations Management Suite (OMS) | Документация Майкрософт"
+description: "Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в OMS, оно импортирует оповещения из подключенных групп управления System Center Operations Manager (SCOM) в Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>Решение управления оповещениями в Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Решение управления оповещениями в Operations Management Suite (OMS)
 ![Значок "Управление оповещениями"](media/log-analytics-solution-alert-management/icon.png) Решение для управления оповещениями помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в OMS, оно импортирует оповещения из подключенных групп управления System Center Operations Manager (SCOM) в Log Analytics.  В средах с несколькими группами управления решение для управления оповещениями предоставит собой консолидированное представление оповещений для всех групп управления.
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -114,6 +118,9 @@ ms.author: bwren
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](log-analytics-alerts.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

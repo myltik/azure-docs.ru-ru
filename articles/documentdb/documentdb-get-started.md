@@ -13,19 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/29/2016
+ms.date: 11/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
+ms.openlocfilehash: a71130709ea33a8f6efb14ed0e4609a366d3ac98
 
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Добро пожаловать в руководство по NoSQL, посвященное пакету SDK для .NET в Azure DocumentDB. После изучения этого учебника e вас будет консольное приложение, которое создает ресурсы DocumentDB и отправляет запросы к ним.
@@ -51,27 +53,28 @@ ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
 ## <a name="prerequisites"></a>Предварительные требования
 Убедитесь, что у вас есть указанные ниже компоненты.
 
-* Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
+* Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
+    * Кроме того, в этом руководстве можно использовать [эмулятор Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013 или 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>Этап 1: создание учетной записи DocumentDB
-Создадим учетную запись DocumentDB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS).
+Создадим учетную запись DocumentDB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка решения Visual Studio](#SetupVS). Если вы используете эмулятор DocumentDB, выполните действия, описанные в статье об [эмуляторе Azure DocumentDB](documentdb-nosql-local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
 1. Откройте **Visual Studio 2015** у себя на компьютере.
-2. В меню **Файл** выберите пункт **Создать**, а затем — пункт **Проект**.
-3. В диалоговом окне **Создание проекта** последовательно выберите элементы **Шаблоны** / **Visual C#** / **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **ОК**.
+2. В меню **Файл** выберите пункт **Создать**, а затем — **Проект**.
+3. В диалоговом окне **Новый проект** выберите **Шаблоны** / **Visual C#** / **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **ОК**.
    ![Снимок экрана: диалоговое окно «Новый проект»](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. В **обозревателе решений**щелкните правой кнопкой мыши новое консольное приложение (оно находится в решении Visual Studio).
-5. Не выходя из меню, выберите элементы **Управление пакетами NuGet...**
+5. Не выходя из меню, выберите **Управление пакетами NuGet...**
    ![Снимок экрана с контекстным меню проекта](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. На вкладке **Nuget** щелкните **Обзор** и введите **azure documentdb** в поле поиска.
+6. На вкладке **Nuget** щелкните **Обзор** и в поле поиска введите **azure documentdb**.
 7. В результатах найдите **Microsoft.Azure.DocumentDB** и нажмите кнопку **Установить**.
-   Идентификатор пакета для клиентской библиотеки DocumentDB — [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
-   ![Снимок экрана меню Nuget с поиском пакета SDK клиента DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Идентификатор пакета для клиентской библиотеки DocumentDB — [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+   ![Снимок экрана меню Nuget для поиска пакета SDK клиента DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Отлично! Теперь, когда мы завершили настройку, начнем писать код. Вы можете найти проект готового кода для этого руководства в [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -210,7 +213,7 @@ ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
 
 ## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
-> Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> С использованием элемента **CreateDocumentCollectionAsync** можно создать новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
 > 
 
@@ -270,7 +273,7 @@ ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
 
 Сначала необходимо создать класс **Family** , который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address**, используемые в классе **Family**. Обратите внимание, документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
 
-Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address**под кодом метода **WriteToConsoleAndPromptToContinue**.
+Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address** под кодом метода **WriteToConsoleAndPromptToContinue**.
 
     private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
     {
@@ -618,6 +621,6 @@ DocumentDB поддерживает удаление документов JSON.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

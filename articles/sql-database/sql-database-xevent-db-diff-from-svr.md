@@ -1,23 +1,28 @@
 ---
-title: Расширенные события в Базе данных SQL | Microsoft Docs
-description: В статье описываются расширенные события (XEvents) в Базе данных SQL Azure и отличия соответствующих сеансов событий от сеансов событий в Microsoft SQL Server.
+title: "Расширенные события в базе данных SQL | Документация Майкрософт"
+description: "В статье описываются расширенные события (XEvents) в Базе данных SQL Azure и отличия соответствующих сеансов событий от сеансов событий в Microsoft SQL Server."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
+
 
 ---
-# Расширенные события в Базе данных SQL
+# <a name="extended-events-in-sql-database"></a>Расширенные события в Базе данных SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 В этом разделе объясняется, чем расширенные события в Базе данных SQL Azure отличается от расширенных событий в Microsoft SQL Server.
@@ -37,10 +42,10 @@ ms.author: genemi
 
 Дополнительные сведения о расширенных событиях для базы данных SQL Azure и Microsoft SQL Server доступны в следующих разделах.
 
-* [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx) (Краткое руководство по расширенным событиям в SQL Server)
+* [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
 * [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 В данной статье предполагается, чтобы вы уже ознакомились со следующими компонентами:
 
 * [Служба Базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/);
@@ -48,72 +53,72 @@ ms.author: genemi
   
   * Большинство документации о расширенных событиях относится и к SQL Server, и к Базе данных SQL.
 
-При выборе файла событий в качестве [целевого объекта](#AzureXEventsTargets) пригодится знание следующих компонентов:
+При выборе файла событий в качестве [целевого объекта](#AzureXEventsTargets)пригодится знание следующих компонентов:
 
 * [Служба хранилища Azure](https://azure.microsoft.com/services/storage/)
 * PowerShell
   
   * [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
 
-## Примеры кода
+## <a name="code-samples"></a>Примеры кода
 Связанные разделы содержат два примера кода.
 
 * [Код целевого объекта "Кольцевой буфер" для расширенных событий в Базе данных SQL](sql-database-xevent-code-ring-buffer.md)
   
   * Простой короткий сценарий Transact-SQL.
-  * В этой статье с примером кода подчеркивается, что после завершения работы с целевым объектом "Кольцевой буфер" необходимо освободить задействованные им ресурсы с помощью инструкции изменения и удаления `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Впоследствии вы сможете добавить другой экземпляр кольцевого буфера с помощью оператора `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+  * В этой статье с примером кода подчеркивается, что после завершения работы с целевым объектом "Кольцевой буфер" необходимо освободить задействованные им ресурсы с помощью инструкции изменения и удаления `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` . Впоследствии вы сможете добавить другой экземпляр кольцевого буфера с помощью оператора `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 * [Код целевого объекта "Файл событий" для расширенных событий в Базе данных SQL](sql-database-xevent-code-event-file.md)
   
   * Этап 1. PowerShell: создание контейнера хранилища Azure в облаке.
   * Этап 2. Transact-SQL: использование контейнера хранилища Azure.
 
-## Отличия Transact-SQL
-* При выполнении команды [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) на сервере SQL Server используется предложение **ON SERVER**. В Базе данных SQL вместо него используется предложение **ON DATABASE**.
+## <a name="transact-sql-differences"></a>Отличия Transact-SQL
+* При выполнении команды [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) на сервере SQL Server используется предложение **ON SERVER** . В Базе данных SQL вместо него используется предложение **ON DATABASE** .
 * Предложение **ON DATABASE** применяется также в командах Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) и [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
-* Рекомендуется включать параметр сеанса событий **STARTUP\_STATE = ON** в операторы **CREATE EVENT SESSION** и **ALTER EVENT SESSION**.
+* Мы рекомендуем включать параметр сеанса событий **STARTUP_STATE = ON** в операторы **CREATE EVENT SESSION** и **ALTER EVENT SESSION**.
   
   * Значение **= ON** поддерживает автоматический перезапуск после перенастройки логической базы данных из-за сбоя.
 
-## Новые представления каталога
+## <a name="new-catalog-views"></a>Новые представления каталога
 Функцию расширенных событий поддерживают несколько [представлений каталога](http://msdn.microsoft.com/library/ms174365.aspx). Представления каталога сообщают *метаданные или определения* сеансов событий, созданных пользователями в текущей базе данных. Представления не возвращают сведения об экземплярах активных сеансов событий.
 
-| Имя<br/>представления каталога | Description (Описание) |
+| Имя<br/>представления каталога | Описание |
 |:--- |:--- |
-| **sys.database\_event\_session\_actions** |Возвращает строку для каждого действия с каждым событием в сеансе событий. |
-| **sys.database\_event\_session\_events** |Возвращает строку для каждого события в сеансе событий. |
-| **sys.database\_event\_session\_fields** |Возвращает строку для каждого настраиваемого столбца, который можно прямо задавать для событий и целевых объектов. |
-| **sys.database\_event\_session\_targets** |Возвращает строку для каждого целевого объекта события в сеансе событий. |
-| **sys.database\_event\_sessions** |Возвращает строку для каждого сеанса событий в Базе данных SQL. |
+| **sys.database_event_session_actions** |Возвращает строку для каждого действия с каждым событием в сеансе событий. |
+| **sys.database_event_session_events** |Возвращает строку для каждого события в сеансе событий. |
+| **sys.database_event_session_fields** |Возвращает строку для каждого настраиваемого столбца, который можно прямо задавать для событий и целевых объектов. |
+| **sys.database_event_session_targets** |Возвращает строку для каждого целевого объекта события в сеансе событий. |
+| **sys.database_event_sessions** |Возвращает строку для каждого сеанса событий в Базе данных SQL. |
 
-В Microsoft SQL Server, аналогичные представления каталогов имеют имена, содержащие *.server\_* вместо *.database\_*. Шаблон имени выглядит как **sys.server\_event\_%**.
+В Microsoft SQL Server аналогичные представления каталогов имеют имена, содержащие *.server\_* вместо *.database\_*. Шаблон имени выглядит как **sys.server_event_%**.
 
-## Новые динамические административные представления [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
-База данных SQL Azure включает [динамические административные представления (DMV)](http://msdn.microsoft.com/library/bb677293.aspx), которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
+## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Новые динамические административные представления [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+База данных SQL Azure включает [динамические административные представления (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) , которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
 
-| Имя DMV | Description (Описание) |
+| Имя DMV | Описание |
 |:--- |:--- |
-| **sys.dm\_xe\_database\_session\_event\_actions** |Возвращает сведения о действиях в сеансе событий. |
-| **sys.dm\_xe\_database\_session\_events** |Возвращает сведения о событиях в сеансе. |
-| **sys.dm\_xe\_database\_session\_object\_columns** |Отображает значения конфигурации для объектов, привязанных к сеансу. |
-| **sys.dm\_xe\_database\_session\_targets** |Возвращает сведения о целевых объектах сеанса. |
-| **sys.dm\_xe\_database\_sessions** |Возвращает строку для каждого сеанса событий, относящегося к текущей базе данных. |
+| **sys.dm_xe_database_session_event_actions** |Возвращает сведения о действиях в сеансе событий. |
+| **sys.dm_xe_database_session_events** |Возвращает сведения о событиях в сеансе. |
+| **sys.dm_xe_database_session_object_columns** |Отображает значения конфигурации для объектов, привязанных к сеансу. |
+| **sys.dm_xe_database_session_targets** |Возвращает сведения о целевых объектах сеанса. |
+| **sys.dm_xe_database_sessions** |Возвращает строку для каждого сеанса событий, относящегося к текущей базе данных. |
 
 В Microsoft SQL Server имена аналогичных представлений каталога не содержат указание *\_database* и выглядят следующим образом:
 
-* **sys.dm\_xe\_sessions** вместо имени <br/>**sys.dm\_xe\_database\_sessions**.
+* **sys.dm_xe_sessions** вместо имени<br/>**sys.dm_xe_database_sessions**.
 
-### Общие DMV
+### <a name="dmvs-common-to-both"></a>Общие DMV
 Для расширенных событий существуют дополнительные DMV, которые являются общими и для Базы данных SQL Azure, и для Microsoft SQL Server:
 
-* **sys.dm\_xe\_map\_values**
-* **sys.dm\_xe\_object\_columns**
-* **sys.dm\_xe\_objects**
-* **sys.dm\_xe\_packages**
+* **sys.dm_xe_map_values**
+* **sys.dm_xe_object_columns**
+* **sys.dm_xe_objects**
+* **sys.dm_xe_packages**
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## Поиск доступных расширенных событий, действий и целевых объектов
-Для получения списка доступных событий, действий и целевых объектов можно выполнить простую SQL-команду **SELECT**.
+## <a name="find-the-available-extended-events-actions-and-targets"></a>Поиск доступных расширенных событий, действий и целевых объектов
+Для получения списка доступных событий, действий и целевых объектов можно выполнить простую SQL-команду **SELECT** .
 
 ```
 SELECT
@@ -141,7 +146,7 @@ SELECT
 
 &nbsp;
 
-## Целевые объекты для сеансов событий в Базе данных SQL
+## <a name="targets-for-your-sql-database-event-sessions"></a>Целевые объекты для сеансов событий в Базе данных SQL
 Результаты сеансов событий в Базе данных SQL можно фиксировать в следующих целевых объектах:
 
 * [Целевой объект "Кольцевой буфер"](http://msdn.microsoft.com/library/ff878182.aspx) — сохраняет данные события в памяти на недолгое время.
@@ -150,23 +155,23 @@ SELECT
 
 API [трассировки событий для Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
 
-## Ограничения
+## <a name="restrictions"></a>Ограничения
 В облачной среде Базы данных SQL имеется несколько отличий, связанных с обеспечением безопасности.
 
 * Функция расширенных событий основана на изоляционной модели с одним клиентом. Сеанс событий в одной базе данных не может получить доступ к данным или событиям в другой базе данных.
-* В контексте **главной** базы данных оператор **CREATE EVENT SESSION** не вызывается.
+* В контексте базы данных **master** оператор **CREATE EVENT SESSION** не вызывается.
 
-## Модель разрешений
-Для вызова оператора **CREATE EVENT SESSION** требуется разрешение на **управление**. Владелец базы данных (dbo) имеет разрешение на **управление**.
+## <a name="permission-model"></a>Модель разрешений
+Чтобы вызвать оператор **CREATE EVENT SESSION**, требуется разрешение на **управление**. Владелец базы данных (dbo) имеет разрешение на **управление** .
 
-### Авторизации контейнера хранилища
+### <a name="storage-container-authorizations"></a>Авторизации контейнера хранилища
 Маркер SAS, сформированный для вашего контейнера хранилища Azure, должен указывать **rwl** для разрешений. Значение **rwl** обеспечивает следующие разрешения:
 
 * чтение
 * запись
 * список
 
-## Рекомендации по производительности
+## <a name="performance-considerations"></a>Рекомендации по производительности
 Существуют сценарии, в которых интенсивное использование расширенных событий может задействовать больше активной памяти, чем допустимо для сохранения работоспособности всей системы. В связи с этим система Базы данных SQL Azure динамически устанавливает и корректирует ограничения на объем активной памяти, который может использоваться сеансом событий. Динамические расчеты выполняются с учетом множества факторов.
 
 При появлении сообщения о превышении максимального объема памяти можно предпринять следующие коррекционные меры:
@@ -174,12 +179,12 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 * уменьшить количество одновременно запущенных сеансов событий;
 * уменьшить объем памяти, заданный в предложении **MAX\_MEMORY**, с помощью операторов **CREATE** и **ALTER**.
 
-### Задержки сети
+### <a name="network-latency"></a>Задержки сети
 Целевой объект **Файл событий** может столкнуться с медленной работой или отказами сети при сохранении данных в большие двоичные объекты хранилища Azure. Другие события в Базе данных SQL могут откладываться до установки подключения к сети. Такая задержка может замедлить вашу работу.
 
-* Чтобы уменьшить этот риск, старайтесь не указывать для параметра **EVENT\_RETENTION\_MODE** значение **NO\_EVENT\_LOSS** в определениях сеанса событий.
+* Чтобы уменьшить этот риск, старайтесь не указывать для параметра **EVENT_RETENTION_MODE** значение **NO_EVENT_LOSS** в определениях сеанса событий.
 
-## Связанные ссылки
+## <a name="related-links"></a>Связанные ссылки
 * [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md)
 * [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/dn806401.aspx)
 * [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
@@ -197,4 +202,8 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

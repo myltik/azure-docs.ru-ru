@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с CloudPassage | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и CloudPassage.
+title: "Учебник. Интеграция Azure Active Directory с CloudPassage | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и CloudPassage."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01676cbaf2b677b43a223cf33699710c77da41fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-cloudpassage"></a>Учебник. Интеграция Azure Active Directory с CloudPassage
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Учебник. Интеграция Azure Active Directory с CloudPassage
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением CloudPassage.  
 Интеграция приложения CloudPassage с Azure AD обеспечивает следующие преимущества. 
 
 * С помощью Azure AD вы можете контролировать доступ к CloudPassage. 
 * Вы можете включить автоматический вход пользователей в CloudPassage (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через Azure Active Directory. 
+* Вы можете управлять учетными записями централизованно — через Azure Active Directory. 
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с CloudPassage, вам потребуется следующее:
@@ -43,7 +47,7 @@ ms.author: jeedes
 * При отсутствии тестовой среды Azure AD [здесь](https://azure.microsoft.com/pricing/free-trial/)вы можете получить бесплатную пробную подписку Azure сроком на один месяц. 
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление CloudPassage из коллекции 
@@ -52,7 +56,7 @@ ms.author: jeedes
 ## <a name="adding-cloudpassage-from-the-gallery"></a>Добавление CloudPassage из коллекции
 Чтобы настроить интеграцию CloudPassage с Azure AD, вам потребуется добавить CloudPassage из коллекции в список управляемых приложений SaaS.
 
-### <a name="to-add-cloudpassage-from-the-gallery,-perform-the-following-steps:"></a>Чтобы добавить CloudPassage из коллекции, выполните следующие действия:
+### <a name="to-add-cloudpassage-from-the-gallery-perform-the-following-steps"></a>Чтобы добавить CloudPassage из коллекции, выполните следующие действия:
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
    
     ![Active Directory][1]
@@ -74,7 +78,7 @@ ms.author: jeedes
     ![Приложения][6]
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать вам, как настроить и проверить единый вход Azure AD в CloudPassage с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать вам, как настроить и проверить единый вход Azure AD в CloudPassage с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в CloudPassage соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в CloudPassage.  
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в CloudPassage.
@@ -173,7 +177,7 @@ ms.author: jeedes
    ![Настройка единого входа][20]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
 
 ![Создание тестового пользователя Azure AD](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
@@ -223,9 +227,9 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-cloudpassage-test-user"></a>Создание тестового пользователя CloudPassage
-Цель этого раздела — создать пользователя с именем Britta Simon в CloudPassage.
+Цель этого раздела — создать пользователя с именем Britta Simon в CloudPassage.
 
-#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage,-perform-the-following-steps:"></a>Чтобы создать пользователя с именем Britta Simon в CloudPassage, выполните следующие действия:
+#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage-perform-the-following-steps"></a>Чтобы создать пользователя с именем Britta Simon в CloudPassage, выполните следующие действия:
 1. Выполните вход на сайт **CloudPassage** компании в качестве администратора. 
 2. На панели инструментов в верхней части экрана щелкните **Settings** (Параметры), а затем выберите **Site Administration** (Администрирование сайта). 
    
@@ -331,6 +335,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

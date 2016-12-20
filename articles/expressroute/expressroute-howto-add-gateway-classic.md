@@ -1,13 +1,13 @@
 ---
-title: Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell | Microsoft Docs
-description: Узнайте, как настроить шлюз виртуальной сети для виртуальной сети на основе классической модели развертывания с помощью командлетов PowerShell для настройки ExpressRoute.
+title: "Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как настроить шлюз виртуальной сети для виртуальной сети на основе классической модели развертывания с помощью командлетов PowerShell для настройки ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6d079003674a3025a8ce8f39ab61d9ca544e132a
+
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью классической модели развертывания и PowerShell
@@ -38,6 +42,9 @@ ms.author: charwen
 ## <a name="next-steps"></a>Дальнейшие действия
 После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. Ознакомьтесь со статьей [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

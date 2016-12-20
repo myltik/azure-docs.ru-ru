@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
+ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
 
 
 ---
@@ -25,28 +26,28 @@ ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
 > * [Портал Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
-> 
-> 
+>
+>
 
-Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью командлетов PowerShell. 
+Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью командлетов PowerShell.
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
 > [!NOTE]
 > Пулы эластичных БД общедоступны во всех регионах Azure, кроме северо-центрального региона США и западной Индии, в которых сейчас доступна только предварительная версия.  Общедоступная версия появится в этих регионах в ближайшее время. Кроме того, в настоящее время пулы эластичных БД не поддерживают базы данных, использующие [выполняющуюся в памяти OLTP или аналитику](sql-database-in-memory.md).
-> 
-> 
+>
+>
 
-Для работы вам понадобится Azure PowerShell 1.0 или более поздняя версия. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Для работы вам понадобится Azure PowerShell 1.0 или более поздняя версия. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Создание пула
-Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) создает новый пул. Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный" или "Премиум"). См. раздел [Ограничения eDTU и хранилища для пулов эластичных БД и эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) создает новый пул. Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный" или "Премиум"). См. раздел [Ограничения eDTU и хранилища для пулов эластичных БД и эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## <a name="create-a-new-elastic-database-in-a-pool"></a>Создание эластичной базы данных в пуле
-Используйте командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) и укажите целевой пул в качестве параметра **ElasticPoolName**. Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+Используйте командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) и укажите целевой пул в качестве параметра **ElasticPoolName**. Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
@@ -83,7 +84,6 @@ ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

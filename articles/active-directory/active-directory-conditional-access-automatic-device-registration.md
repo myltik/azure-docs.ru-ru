@@ -1,12 +1,12 @@
 ---
-title: Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows | Microsoft Docs
-description: ИТ-администраторы могут автоматически и без предупреждений регистрировать устройства Windows, присоединенные к домену, с помощью Azure AD.
+title: "Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows | Документация Майкрософт"
+description: "ИТ-администраторы могут автоматически и без предупреждений регистрировать устройства Windows, присоединенные к домену, с помощью Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2d717f906bd4aad35cb46852baf84c4e088b953e
+
 
 ---
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
 ИТ-администраторы могут автоматически и без предупреждений зарегистрировать устройства Windows, присоединенные к домену, с помощью Azure Active Directory (Azure AD). Такую регистрацию удобно использовать, если вы настроили политики условного доступа на основе устройств для приложений Office 365 или приложений, которыми локально управляют службы федерации Active Directory (AD FS). Дополнительную информацию о сценариях регистрации устройств см. в разделе [Знакомство с регистрацией устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
 > AZURE.NOTE Дополнительные сведения о настройке автоматической регистрации устройств см. в разделе [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
@@ -93,6 +97,9 @@ ms.author: markvi
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

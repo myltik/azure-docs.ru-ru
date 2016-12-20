@@ -1,45 +1,49 @@
 ---
-title: Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею | Microsoft Docs
-description: Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell
+title: "Развертывание архивации виртуальных машин Azure и управление ею с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
-
+editor: 
+ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+
 
 ---
-# Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
+# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](backup-azure-vms-automation.md)
 > * [Классический](backup-azure-vms-classic-automation.md)
-> 
-> 
+>
+>
 
 В этой статье объясняется, как использовать Azure PowerShell для архивации и восстановления виртуальных машин Azure. В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: модель Resource Manager и классическая модель. В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
-## Основные понятия
+## <a name="concepts"></a>Основные понятия
 В этой статье содержатся сведения о командлетах PowerShell, используемых для архивации виртуальных машин. Чтобы изучить вводные сведения о защите виртуальных машин Azure, ознакомьтесь с разделом [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](backup-azure-vms-introduction.md).
 
 > [!NOTE]
-> Перед началом работы изучите [предварительные требования](backup-azure-vms-prepare.md) для работы со службой архивации Azure и [ограничения](backup-azure-vms-prepare.md#limitations) текущего решения для архивации виртуальных машин.
-> 
-> 
+> Перед началом работы изучите [предварительные требования](backup-azure-vms-prepare.md) для работы со службой архивации Azure и [ограничения](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) текущего решения для архивации виртуальных машин.
+>
+>
 
 Чтобы эффективно использовать PowerShell, необходимо понимать иерархию объектов и знать, с чего начать.
 
-.![Иерархия объектов](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
+![Иерархия объектов](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
 
 Две самые важные процедуры — это обеспечение защиты виртуальной машины и восстановление данных из точки восстановления. Эта статья поможет вам приобрести опыт в работе с командлетами PowerShell для выполнения этих двух сценариев.
 
-## Настройка и регистрация
+## <a name="setup-and-registration"></a>Настройка и регистрация
 Чтобы начать работу, сделайте следующее:
 
 1. [Скачайте последнюю версию PowerShell](https://github.com/Azure/azure-powershell/releases) (минимальная требуемая версия: 1.0.0).
@@ -81,27 +85,27 @@ Cmdlet          Wait-AzureRmBackupJob                              1.0.1      Az
 * создать хранилище архивации;
 * Регистрация виртуальной машины в службе архивации Azure
 
-### создать хранилище архивации;
+### <a name="create-a-backup-vault"></a>создать хранилище архивации;
 > [!WARNING]
 > Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
-Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
+Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault** . Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
 ```
 PS C:\> New-AzureRmResourceGroup –Name “test-rg” –Location “West US”
 PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Чтобы получить список всех хранилищ службы архивации в заданной подписке, используйте командлет **Get-AzureRmBackupVault**.
+Чтобы получить список всех хранилищ службы архивации в заданной подписке, используйте командлет **Get-AzureRmBackupVault** .
 
 > [!NOTE]
 > Объект хранилища службы архивации удобно хранить в переменной. Объект хранилища используется в качестве входных данных для многих командлетов службы архивации Azure.
-> 
-> 
+>
+>
 
-### Регистрация виртуальных машин
+### <a name="registering-the-vms"></a>Регистрация виртуальных машин
 Чтобы настроить резервное копирование с помощью службы архивации Azure, сначала зарегистрируйте свой компьютер или виртуальную машину в хранилище службы архивации Azure. Командлет **Register-AzureRmBackupContainer** принимает входные данные виртуальной машины Azure IaaS и регистрирует ее в указанном хранилище. Операция регистрации связывает виртуальную машину Azure с хранилищем службы архивации и отслеживает виртуальную машину на протяжении всего цикла резервного копирования.
 
 Во время регистрации виртуальной машины в службе архивации Azure создается объект контейнера верхнего уровня. Контейнер обычно содержит несколько элементов, которые можно архивировать, но контейнер для виртуальной машины содержит только один элемент для резервного копирования.
@@ -110,9 +114,9 @@ PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg”
 PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
 ```
 
-## Виртуальные машины службы архивации Azure
-### Создание политики защиты
-Чтобы начать резервное копирование виртуальных машин, создавать новую политику защиты не обязательно. Хранилище поставляется с "политикой по умолчанию", которую можно использовать для быстрого включения защиты. Позднее в эту политику можно внести сведения о правах. Список доступных в хранилище политик можно получить с помощью командлета **Get-AzureRmBackupProtectionPolicy**:
+## <a name="backup-azure-vms"></a>Виртуальные машины службы архивации Azure
+### <a name="create-a-protection-policy"></a>Создание политики защиты
+Чтобы начать резервное копирование виртуальных машин, создавать новую политику защиты не обязательно. Хранилище поставляется с "политикой по умолчанию", которую можно использовать для быстрого включения защиты. Позднее в эту политику можно внести сведения о правах. Список доступных в хранилище политик можно получить, используя командлет **Get-AzureRmBackupProtectionPolicy**:
 
 ```
 PS C:\> Get-AzureRmBackupProtectionPolicy -Vault $backupvault
@@ -124,12 +128,12 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [!NOTE]
 > Часовой пояс поля BackupTime в PowerShell — UTC. Однако при отображении времени резервного копирования на портале Azure часовой пояс выравнивается с локальной системой вместо со смещением от UTC.
-> 
-> 
+>
+>
 
 Политика резервного копирования связана по крайней мере с одной политикой хранения. Политика хранения определяет продолжительность хранения точки восстановления в службе архивации Azure. Командлет **New-AzureRmBackupRetentionPolicy** создает объекты PowerShell, в которых содержатся сведения о политике хранения. Эти объекты политики хранения используются в качестве входных данных для командлета *New-AzureRmBackupProtectionPolicy* или используются непосредственно с командлетом *Enable-AzureRmBackupProtection*.
 
-Политика резервного копирования определяет время и частоту резервного копирования элемента. Командлет **New-AzureRmBackupProtectionPolicy** создает объект PowerShell, в котором содержатся сведения о политике архивации. Политика архивации используется в качестве входных данных для командлета *Enable-AzureRmBackupProtection*.
+Политика резервного копирования определяет время и частоту резервного копирования элемента. Командлет **New-AzureRmBackupProtectionPolicy** создает объект PowerShell, в котором содержатся сведения о политике архивации. Политика архивации используется в качестве входных данных для командлета *Enable-AzureRmBackupProtection* .
 
 ```
 PS C:\> $Daily = New-AzureRmBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -140,15 +144,15 @@ Name                      Type               ScheduleType       BackupTime
 DailyBackup01             AzureVM            Daily              01-Sep-15 3:30:00 PM
 ```
 
-### Включить защиту
+### <a name="enable-protection"></a>Включить защиту
 Защита включается для двух объектов: элемента и политики, оба объекта должны принадлежать одному хранилищу. После того как политика сопоставится с элементом, рабочий процесс резервного копирования будет срабатывать по определенному расписанию.
 
 ```
 PS C:\> Get-AzureRmBackupContainer -Type AzureVM -Status Registered -Vault $backupvault | Get-AzureRmBackupItem | Enable-AzureRmBackupProtection -Policy $newpolicy
 ```
 
-### Начальное резервное копирование
-Расписание резервного копирования предполагает создание полной начальной копии элемента и добавочное копирование последующих резервных копий. Если вы хотите, чтобы начальная архивация была выполнена в определенное время или даже немедленно, то используйте командлет **Backup-AzureRmBackupItem**.
+### <a name="initial-backup"></a>Начальное резервное копирование
+Расписание резервного копирования предполагает создание полной начальной копии элемента и добавочное копирование последующих резервных копий. Если вы хотите, чтобы начальная архивация была выполнена в определенное время или даже немедленно, то используйте командлет **Backup-AzureRmBackupItem** .
 
 ```
 PS C:\> $container = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -Name "testvm"
@@ -162,13 +166,13 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 
 > [!NOTE]
 > Часовой пояс для полей StartTime и EndTime, отображаемый в PowerShell, — UTC. Однако при отображении подобной информации на портале Azure часовой пояс выравнивается с часами локальной системы.
-> 
-> 
+>
+>
 
-### Наблюдение за выполнением задания резервного копирования
+### <a name="monitoring-a-backup-job"></a>Наблюдение за выполнением задания резервного копирования
 Большинство длительных операций службы архивации Azure моделируются в виде задания. Это упрощает отслеживание хода выполнения, при этом вам не нужно все время держать открытым портал Azure.
 
-Чтобы получить последнее состояние выполняющегося задания, используйте командлет **Get-AzureRmBackupJob**.
+Чтобы получить последнее состояние выполняющегося задания, используйте командлет **Get-AzureRmBackupJob** .
 
 ```
 PS C:\> $joblist = Get-AzureRmBackupJob -Vault $backupvault -Status InProgress
@@ -179,24 +183,24 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Вместо опроса этих заданий о ходе их выполнения, который требует дополнительного кода, проще использовать командлет **Wait-AzureRmBackupJob**. Если командлет используется в сценарии, он приостанавливает выполнение сценария до завершения задания или до достижения конкретного значения времени ожидания.
+Вместо опроса этих заданий о ходе их выполнения, который требует дополнительного кода, проще использовать командлет **Wait-AzureRmBackupJob** . Если командлет используется в сценарии, он приостанавливает выполнение сценария до завершения задания или до достижения конкретного значения времени ожидания.
 
 ```
 PS C:\> Wait-AzureRmBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 
-## Восстановление виртуальной машины Azure
+## <a name="restore-an-azure-vm"></a>Восстановление виртуальной машины Azure
 Чтобы восстановить данные резервной копии, необходимо определить архивный элемент и точку восстановления, которая содержит данные на определенный момент времени. Эти сведения предоставляются командлету AzureRmBackupItem, чтобы инициировать восстановление данных из хранилища в учетную запись клиента.
 
-### Выбор виртуальной машины.
+### <a name="select-the-vm"></a>Выбор виртуальной машины.
 Чтобы получить объект PowerShell, определяющий правильный архивный элемент, необходимо начать с контейнера в хранилище и пройти постепенно вниз по иерархии объектов. Чтобы выбрать контейнер, который представляет виртуальную машину, используйте командлет **Get-AzureRmBackupContainer** и передайте найденный контейнер в командлет **Get-AzureRmBackupItem**.
 
 ```
 PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRmBackupItem
 ```
 
-### Выбор точки восстановления
+### <a name="choose-a-recovery-point"></a>Выбор точки восстановления
 Теперь можно получить список всех точек восстановления для архивного элемента с помощью командлета **Get-AzureRmBackupRecoveryPoint** и выбрать точку восстановления. Обычно пользователи выбирают самую последнюю точку *AppConsistent* в списке.
 
 ```
@@ -210,13 +214,13 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 
 Переменная ```$rp``` — массив точек восстановления для выбранного архивного элемента, отсортированный по времени в обратном порядке, — последняя точка восстановления имеет индекс 0. Используйте стандартное индексирование массива PowerShell для выбора точки восстановления. Например: ```$rp[0]``` выбирает последнюю точку восстановления.
 
-### Восстановление дисков
+### <a name="restoring-disks"></a>Восстановление дисков
 Операции восстановления, выполняемые на портале Azure и с помощью Azure PowerShell, существенно отличаются. При использовании PowerShell операция восстановления прекращается на восстановлении дисков и сведений о конфигурации из точки восстановления. Она не создает виртуальную машину.
 
 > [!WARNING]
 > Командлет Restore-AzureRmBackupItem не создает виртуальную машину. Он только восстанавливает диски в указанную учетную запись хранения. На портале Azure операция восстановления выполняется иначе.
-> 
-> 
+>
+>
 
 ```
 PS C:\> $restorejob = Restore-AzureRmBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -227,51 +231,51 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-Когда задание восстановления будет выполнено, вы сможете получить сведения об операции восстановления с помощью командлета **Get-AzureRmBackupJobDetails**. Свойство *ErrorDetails* будет содержать сведения, необходимые для повторного создания виртуальной машины.
+Когда задание восстановления будет выполнено, вы сможете получить сведения об операции восстановления с помощью командлета **Get-AzureRmBackupJobDetails** . Свойство *ErrorDetails* будет содержать сведения, необходимые для повторного создания виртуальной машины.
 
 ```
 PS C:\> $restorejob = Get-AzureRmBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmBackupJobDetails -Job $restorejob
 ```
 
-### Сборка виртуальной машины
+### <a name="build-the-vm"></a>Сборка виртуальной машины
 Вы можете собрать виртуальную машину из восстановленных дисков с помощью старых командлетов PowerShell управления службами Azure, новых шаблонов диспетчера ресурсов Azure или даже с помощью портала Azure. В кратком примере мы покажем, как это сделать с помощью командлетов управления службами Azure.
 
 ```
- $properties  = $details.Properties
+$properties  = $details.Properties
 
- $storageAccountName = $properties["Target Storage Account Name"]
- $containerName = $properties["Config Blob Container Name"]
- $blobName = $properties["Config Blob Name"]
+$storageAccountName = $properties["Target Storage Account Name"]
+$containerName = $properties["Config Blob Container Name"]
+$blobName = $properties["Config Blob Name"]
 
- $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
- $storageAccountKey = $keys.Primary
- $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+$keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
+$storageAccountKey = $keys.Primary
+$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 
- $destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
- Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
+$destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
+Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
 $obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
- $pvr = $obj.PersistentVMRole
- $os = $pvr.OSVirtualHardDisk
- $dds = $pvr.DataVirtualHardDisks
- $osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
- $vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
+$pvr = $obj.PersistentVMRole
+$os = $pvr.OSVirtualHardDisk
+$dds = $pvr.DataVirtualHardDisks
+$osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
+$vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
 
- if (!($dds -eq $null))
- {
-     foreach($d in $dds.DataVirtualHardDisk)
-      {
-         $lun = 0
-         if(!($d.Lun -eq $null))
-         {
-              $lun = $d.Lun
-         }
-         $name = "panbhadataDisk" + $lun
-     Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
-     $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
+if (!($dds -eq $null))
+{
+    foreach($d in $dds.DataVirtualHardDisk)
+    {
+        $lun = 0
+        if(!($d.Lun -eq $null))
+        {
+            $lun = $d.Lun
+        }
+        $name = "panbhadataDisk" + $lun
+        Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
+        $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
     }
 }
 
@@ -284,9 +288,9 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 * [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 * [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-## Примеры кода
-### 1\. Получение состояния выполнения подзадач
-Чтобы отслеживать состояние выполнения отдельных подзадач, можно использовать командлет **Get-AzureRmBackupJobDetails**.
+## <a name="code-samples"></a>Примеры кода
+### <a name="1-get-the-completion-status-of-job-sub-tasks"></a>1. Получение состояния выполнения подзадач
+Чтобы отслеживать состояние выполнения отдельных подзадач, можно использовать командлет **Get-AzureRmBackupJobDetails** .
 
 ```
 PS C:\> $details = Get-AzureRmBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
@@ -298,7 +302,7 @@ Take Snapshot                                               Completed
 Transfer data to Backup vault                               InProgress
 ```
 
-### 2) Создание ежедневного или еженедельного отчета для задач резервного копирования
+### <a name="2-create-a-dailyweekly-report-of-backup-jobs"></a>2. Создание ежедневного или еженедельного отчета для задач резервного копирования
 Администраторы обычно хотят знать, какие задачи резервного копирования запускались за последние 24 часа и каково состояние этих заданий резервного копирования. Кроме того, объем передаваемых данных позволяет администраторам оценить ежемесячное использование данных. Следующий сценарий извлекает необработанные данные из службы архивации Azure и отображает сведения в консоли PowerShell.
 
 ```
@@ -342,9 +346,13 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Если вы хотите добавить в выходные данные отчета возможности построения диаграмм, ознакомьтесь с записью [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Построение диаграмм с помощью PowerShell) в блоге TechNet.
+Если вы хотите добавить в выходные данные отчета возможности построения диаграмм, ознакомьтесь с записью [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](backup-client-automation-classic.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](backup-dpm-automation-classic.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

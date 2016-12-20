@@ -1,13 +1,13 @@
 ---
 title: "Руководство для .NET по обмену сообщениями через брокер с помощью служебной шины | Документация Майкрософт"
 description: "Руководство по обмену сообщениями .NET через посредника"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d888a16d538491535aad8effed53a5e98aa01359
 
 
 ---
@@ -43,19 +43,19 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
 1. Откройте Visual Studio с правами администратора, щелкнув программу правой кнопкой мыши в меню "Пуск" и выбрав **Запустить от имени администратора**.
 2. Создайте новый проект консольного приложения. В меню **Файл** выберите **Создать**, а затем — **Проект**. В диалоговом окне **Новый проект** выберите **Visual C#** (если **Visual C#** не отображается, перейдите в раздел **Другие языки**). Затем выберите шаблон **Консольное приложение** и назовите его **QueueSample**. Используйте **расположение** по умолчанию. Нажмите кнопку **ОК** , чтобы создать проект.
 3. Воспользуйтесь диспетчером пакетов NuGet для добавления библиотек служебной шины в проект.
-   
+
    1. В обозревателе решений щелкните правой кнопкой мыши проект **QueueSample** и выберите **Управление пакетами NuGet**.
    2. В диалоговом окне **Управление пакетами NuGet** откройте вкладку **Обзор** и найдите **служебную шину Azure**, а затем щелкните **Установить**.
       <br />
 4. В окне обозревателя решений дважды щелкните файл Program.cs, чтобы открыть его в редакторе Visual Studio. Измените имя пространства имен с `QueueSample` (имя по умолчанию) на `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Измените инструкции `using`, как показано в следующем коде.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Создайте текстовый файл с именем Data.csv и скопируйте в него следующий текст, разделенный запятыми.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Сохраните и закройте файл Data.csv и запомните расположение, в котором его сохранили.
 7. В обозревателе решений щелкните правой кнопкой мыши имя проекта (в этом примере **QueueSample**), выберите **Добавить**, а затем щелкните **Существующий элемент**.
 8. Найдите файл Data.csv, созданный на шаге 6. Щелкните файл и выберите **Добавить**. В списке типов файлов должно быть выбрано **Все файлы (*.*)**.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Создание метода для анализа списка сообщений
 1. В классе `Program` перед методом `Main()` объявите две переменные. Первая должна иметь тип **DataTable** и содержать список сообщений в файле Data.csv. Вторая должна иметь тип объекта List, строго типизированный к [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Эта переменная представляет собой список сообщений, доставленных через посредника, которые будут использоваться далее в этом руководстве.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. За пределами `Main()` определите метод `ParseCSV()`, который анализирует список сообщений в файле Data.csv и загружает сообщения в таблицу [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), как показано ниже. Этот метод возвращает объект **DataTable**.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. В метод `Main()` добавьте вызов метода `ParseCSVFile()`.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Создание метода, который загружает список сообщений
-1. За пределами `Main()` определите `GenerateMessages()` метод, который принимает объект **DataTable**, возвращаемый `ParseCSVFile()`, и загружает таблицу в строго типизированный список сообщений в брокере. Затем метод возвращает объект **List**, как показано в следующем примере. 
-   
+1. За пределами `Main()` определите `GenerateMessages()` метод, который принимает объект **DataTable**, возвращаемый `ParseCSVFile()`, и загружает таблицу в строго типизированный список сообщений в брокере. Затем метод возвращает объект **List**, как показано в следующем примере.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
     }
     ```
 2. В `Main()` сразу после вызова `ParseCSVFile()` добавьте инструкцию для вызова метода `GenerateMessages()` со значением, возвращаемым `ParseCSVFile()`, в качестве аргумента.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
 
 ### <a name="obtain-user-credentials"></a>Получение учетных данных пользователя
 1. Сначала создайте три глобальных строковых переменных для хранения этих значений. Объявите эти переменные сразу после предыдущего объявления переменных, например:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Затем создайте функцию, которая принимает и сохраняет пространство имен службы и ключ SAS. Добавьте этот метод вне `Main()`. Например: 
-   
+2. Затем создайте функцию, которая принимает и сохраняет пространство имен службы и ключ SAS. Добавьте этот метод вне `Main()`. Например:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. В `Main()` сразу после вызова `GenerateMessages()` добавьте инструкцию для вызова метода `CollectUserInput()`.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
 На этом шаге определяются операции управления, которые будут использованы для создания учетных данных подписи общего доступа (SAS), с которыми будет выполняться проверка подлинности приложения.
 
 1. Для ясности в этом руководстве все операции по работе с очередью помещены в отдельный метод. Создайте асинхронный метод `Queue()` в классе `Program` после метода `Main()`. Например:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
     }
     ```
 2. Затем необходимо создать учетные данные SAS с помощью объекта [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Метод создания принимает имя ключа SAS и значение, полученное в методе `CollectUserInput()`. Добавьте в метод `Queue()` следующий код:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
     }
     ```
 3. Создайте новый объект управления пространством имен с URI, содержащим имя пространства имен и учетные данные управления, полученные на предыдущем шаге, в качестве аргументов. Добавьте этот код сразу после кода, добавленного на предыдущем этапе. Не забудьте заменить `<yourNamespace>` именем пространства имен своей службы:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ namespace Microsoft.ServiceBus.Samples
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Создание очереди и отправка сообщений в очередь
 1. Сначала создайте очередь. Например, назовите ее `myQueue` и объявите ее сразу после операций управления, добавленных на предыдущем этапе в метод `Queue()`:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. В методе `Queue()` создайте объект фабрики обмена сообщениями, указав только что созданный URI служебной шины в качестве аргумента. Добавьте следующий код сразу после операций управления, добавленных на предыдущем этапе. Не забудьте заменить `<yourNamespace>` именем пространства имен своей службы:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. После этого создайте объект очереди с помощью класса [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Добавьте следующий код сразу после кода, добавленного на предыдущем шаге:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Затем добавьте код, который просматривает список сообщений, доставленных через посредника, который вы создали ранее, и отправляет каждое сообщение в очередь. Добавьте следующий код сразу после инструкции `CreateQueueClient()` на предыдущем шаге:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,7 +615,7 @@ namespace Microsoft.ServiceBus.Samples
 В Visual Studio в меню **Сборка** выберите пункт **Собрать решение** или нажмите клавиши **CTRL+SHIFT+B**. При возникновении ошибок проверьте правильность кода по полному примеру, приведенному в конце предыдущего шага.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом учебнике было показано создание приложения клиента и службы служебной шины с использованием возможностей обмена сообщениями через посредника служебной шины. Похожее руководство, в котором используется [ретранслятор WCF](service-bus-messaging-overview.md#Relayed-messaging) служебной шины, см. в статье [Руководство по использованию ретранслятора служебной шины](../service-bus-relay/service-bus-relay-tutorial.md).
+В этом учебнике было показано создание приложения клиента и службы служебной шины с использованием возможностей обмена сообщениями через посредника служебной шины. Похожее руководство, в котором используется [ретранслятор WCF](service-bus-messaging-overview.md#service-bus-relay) служебной шины, см. в статье [Руководство по использованию ретранслятора служебной шины](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Дополнительные сведения о [служебной шине](https://azure.microsoft.com/services/service-bus/) см. в следующих статьях.
 
@@ -625,7 +625,6 @@ namespace Microsoft.ServiceBus.Samples
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

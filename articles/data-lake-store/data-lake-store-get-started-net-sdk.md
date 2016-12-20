@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
+ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Узнайте, как с помощью [пакета SDK .NET для Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) выполнять базовые операции, такие как создание папок, отправка и скачивание файлов данных и т. д. Дополнительные сведения об Azure Data Lake Store см. в [этой статье](data-lake-store-overview.md).
@@ -103,7 +104,7 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 В остальных разделах статьи рассматривается использование доступных методов .NET при выполнении таких операций, как проверка подлинности, отправка файла и т. д.
 
 ## <a name="authentication"></a>Аутентификация
-### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>При использовании проверки подлинности пользователя (рекомендуется для этого руководства)
+### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>При использовании проверки подлинности пользователя (рекомендуется для этого руководства)
 Используйте приведенный ниже фрагмент кода для существующего собственного клиентского приложения Azure AD. Мы советуем вам использовать этот подход для быстрого завершения работы с этим руководством.
 
     // User login via interactive popup
@@ -117,14 +118,14 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 Некоторые важные моменты касательно этого фрагмента.
 
 * Для быстрого завершения работы с руководством в этом фрагменте кода используется домен Azure AD и идентификатор клиента, доступный по умолчанию для всех подписок Azure. Таким образом, вы можете **использовать в приложении этот фрагмент в исходном виде**.
-* Если вы не хотите использовать свой домен Azure AD и идентификатор клиента приложения, необходимо создать собственное приложение Azure AD и использовать домен Azure AD, идентификатор клиента и URI перенаправления этого приложения. Подробные инструкции см. в разделе [Создание приложения Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+* Если вы не хотите использовать свой домен Azure AD и идентификатор клиента приложения, необходимо создать собственное приложение Azure AD и использовать домен Azure AD, идентификатор клиента и URI перенаправления этого приложения. Подробные инструкции см. в разделе [Создание приложения Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 > [!NOTE]
 > Инструкции, доступные по указанным ниже ссылкам, относятся к веб-приложению Azure AD. Однако если вы решите создать собственное клиентское приложение, ваши действия будут такими же. 
 > 
 > 
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>При использовании проверки подлинности через секрет клиента со взаимодействием между службами
+### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>При использовании проверки подлинности через секрет клиента со взаимодействием между службами
 Следующий фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью секрета клиента, ключа приложения или субъекта-службы. Примените этот фрагмент кода к существующему [веб-приложению Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -136,7 +137,7 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>При использовании проверки подлинности с помощью сертификата со взаимодействием между службами
+### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>При использовании проверки подлинности с помощью сертификата со взаимодействием между службами
 Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в неинтерактивном режиме с помощью сертификата приложения или субъекта-службы. Примените этот фрагмент кода к существующему [веб-приложению Azure AD](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -260,6 +261,6 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Вопросы и ответы о выставлении счетов и управлении подпиской Azure | Microsoft Docs"
+title: "Вопросы и ответы о выставлении счетов и управлении подпиской Azure | Microsoft Docs"
 description: "Ответы на распространенные вопросы о выставлении счетов и управлении подпиской Azure"
 services: 
 documentationcenter: 

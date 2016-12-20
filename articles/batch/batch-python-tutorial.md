@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
+ms.date: 11/30/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
+ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
 Здесь представлены основные сведения о [пакетной службе Azure][azure_batch] и клиенте [Python пакетной службы][py_azure_sdk] в рамках обсуждения небольшого приложения пакетной службы Azure, написанного на языке Python. Мы рассмотрим, как в двух примерах скрипта используется пакетная служба для обработки параллельной рабочей нагрузки на виртуальных машинах Linux в облаке и происходит взаимодействие со [службой хранилища Azure](../storage/storage-introduction.md) при промежуточном хранении и извлечении файлов. Вы узнаете об общем рабочем процессе приложения пакетной службы и получите базовые знания о главных компонентах пакетной службы, например заданиях, задачах, пулах и вычислительных узлах.
 
@@ -35,12 +35,12 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 В этой статье предполагается, что вы уже работали с Python и знаете, как работать в Linux. Также предполагается, что вы можете выполнить требования к созданию учетной записи для службы хранилища и пакетной службы Azure. Эти требования перечислены ниже.
 
 ### <a name="accounts"></a>Учетные записи
-* **Учетная запись Azure**. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
+* **Учетная запись Azure.** Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
 * **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure](batch-account-create-portal.md).
 * **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Пример кода
-[Пример кода][github_article_samples] Python для руководства — это один из многих примеров кода пакетной службы в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория щелкните **Clone or download (Клонировать или скачать) > Download ZIP (Скачать ZIP-файл)** или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла оба сценария для этого руководства будут находиться в каталоге `article_samples` :
+[Пример кода][github_article_samples] Python для руководства — это один из многих примеров кода пакетной службы в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория щелкните **Clone or download > Download ZIP** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла оба сценария для этого руководства будут находиться в каталоге `article_samples` :
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -49,28 +49,28 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 Чтобы запустить пример скрипта *python_tutorial_client.py* на локальной рабочей станции, необходим **интерпретатор Python**, совместимый с версией **2.7** или **3.3+**. Сценарий прошел испытания в Linux и Windows.
 
 ### <a name="cryptography-dependencies"></a>Зависимости шифрования
-Для библиотеки [шифрования][crypto], которая требуется пакетам Python `azure-batch` и `azure-storage`, необходимо установить зависимости. Выполните одну из следующих операций, подходящих для вашей платформы, или см. сведения по [установке шифрования][crypto_install]:
+Для библиотеки [шифрования][crypto], которая требуется пакетам Python `azure-batch` и `azure-storage`, необходимо установить зависимости. Выполните одну из следующих операций, подходящих для вашей платформы, или ознакомьтесь с дополнительными сведениями об [установке шифрования][crypto_install]:
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > При установке для версии Python 3.3+ в Linux используйте эквиваленты python3 для зависимостей Python. Например, в Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Пакеты Azure
-Далее установите пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Это можно сделать с помощью команды **pip** и файла *requirements.txt* , который находится здесь:
+Далее установите пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Оба пакета можно установить, используя **pip** и *requirements.txt*, доступные здесь:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -78,15 +78,15 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
 
 `pip install -r requirements.txt`
 
-Кроме того, пакеты Python [azure-batch][pypi_batch] и [azure-storage][pypi_storage] можно установить вручную:
+Кроме того, пакеты Python [azure-batch][pypi_batch] и [azure-storage][pypi_storage] можно установить вручную.
 
 `pip install azure-batch`<br/>
 `pip install azure-storage`
 
 > [!TIP]
-> Если вы используете непривилегированную учетную запись, может понадобиться добавить к команде префикс `sudo`. Пример: `sudo pip install -r requirements.txt`. Дополнительные сведения об установке пакетов Python см. в статье [Installing Packages][pypi_install] (Установка пакетов) на сайте readthedocs.io.
-> 
-> 
+> Если вы используете непривилегированную учетную запись, может понадобиться добавить к команде префикс `sudo`. Например, `sudo pip install -r requirements.txt`. Дополнительные сведения об установке пакетов Python см. в статье [Installing Packages][pypi_install] (Установка пакетов) на сайте python.org.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>Пример кода Python для руководства по пакетной службе
 Пример кода Python для руководства по пакетной службе состоит из двух сценариев Python и нескольких файлов данных:
@@ -108,7 +108,7 @@ ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
   &nbsp;&nbsp;&nbsp;&nbsp;**5а.** Планируется выполнение задач на узлах.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5б.** Каждая задача скачивает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/>
 [**Шаг 6.**](#step-6-monitor-tasks) Мониторинг задач.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** После выполнения задач их выходные данные отправляются в службу хранилища Azure.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Когда задачи выполнены, их выходные данные отправляются в службу хранилища Azure.<br/>
 [**Шаг 7.**](#step-7-download-task-output)  Скачайте выходные данные задачи из службы хранилища.
 
 Как уже упоминалось, не каждое решение пакетной службы будет выполнять именно эти шаги. Некоторые решения могут выполнять больше действий, но этот пример демонстрирует общие процессы в решении пакетной службы.
@@ -177,8 +177,8 @@ if __name__ == '__main__':
 
 > [!TIP]
 > Статья [Использование хранилища больших двоичных объектов Azure из Python](../storage/storage-python-how-to-use-blob-storage.md) содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Шаг 2. Отправка сценария задач и файлов данных
 ![Upload task application and input (data) files to containers][2]
@@ -251,10 +251,10 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 ### <a name="resourcefiles"></a>ResourceFiles
 Объект [ResourceFile][py_resource_file] передает задачи в пакетную службу с URL-адресом файла в службе хранилища Azure, который будет скачан на вычислительный узел перед выполнением этой задачи. Свойство [ResourceFile][py_resource_file].**blob_source** указывает полный URL-адрес файла, по которому его можно найти в службе хранилища Azure. URL-адрес может также включать подписанный URL-адрес (SAS), который обеспечивает безопасный доступ к файлу. Большинство типов задач в пакетной службе, в том числе перечисленные ниже, содержат свойство *ResourceFiles* .
 
-* [CloudTask][py_task];
-* [StartTask][py_starttask];
-* [JobPreparationTask][py_jobpreptask];
-* [JobReleaseTask][py_jobreltask].
+* [CloudTask][py_task]
+* [StartTask][py_starttask]
+* [JobPreparationTask][py_jobpreptask]
+* [JobReleaseTask][py_jobreltask]
 
 В этом примере не используются типы задач JobPreparationTask или JobReleaseTask, но о них можно узнать больше из статьи [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
 
@@ -266,8 +266,8 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 > [!TIP]
 > Дополнительные сведения о предоставлении безопасного доступа к данным в своей учетной записи службы хранилища см. в серии из двух статей о подписанных URL-адресах: [Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) и [Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md).
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Шаг 3. Создание пула пакетной службы
 ![Create a Batch pool][3]
@@ -275,7 +275,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 **Пул** пакетной службы — это коллекция вычислительных узлов (виртуальных машин), на которых пакетная служба выполняет задачи задания.
 
-После отправки скрипта задач и файлов данных в учетную запись службы хранилища *python_tutorial_client.py* начинает взаимодействие с пакетной службой, используя ее модуль Python. Для этого создается [BatchServiceClient][py_batchserviceclient]:
+После отправки скрипта задач и файлов данных в учетную запись службы хранилища *python_tutorial_client.py* начинает взаимодействие с пакетной службой, используя ее модуль Python. Для этого создается [BatchServiceClient][py_batchserviceclient].
 
 ```python
  # Create a Batch service client. We'll now be interacting with the Batch
@@ -288,7 +288,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
      base_url=_BATCH_ACCOUNT_URL)
 ```
 
-Затем в учетной записи пакетной службы нужно создать пул вычислительных узлов, вызвав `create_pool`.
+Затем в учетной записи пакетной службы создается пул вычислительных узлов с помощью вызова `create_pool`.
 
 ```python
 def create_pool(batch_service_client, pool_id,
@@ -361,8 +361,8 @@ def create_pool(batch_service_client, pool_id,
 
 * **Идентификатор** пула (*id*, обязательное).<p/>Как и у большинства сущностей в пакетной службе, у нового пула должен быть идентификатор, уникальный в учетной записи этой службы. Код ссылается на этот пул, используя его идентификатор, по которому пул также можно найти на [портале Azure][azure_portal].
 * **Количество вычислительных узлов** (*target_dedicated*, обязательное).<p/>Указывает, сколько виртуальных машин следует развернуть в пуле. Стоит отметить, что для всех учетных записей пакетной службы установлена **квота** по умолчанию, которая ограничивает количество **ядер** (и, следовательно, вычислительных узлов) в учетной записи. Дополнительные сведения о квотах по умолчанию и инструкцию по [увеличению квоты](batch-quota-limit.md#increase-a-quota) (например, максимального количества ядер в учетной записи пакетной службы) см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). Если возник вопрос о том, почему пул не использует больше определенного количества узлов, Если возник вопрос о том, почему пул не использует больше определенного количества узлов, причиной может быть квота на ядра.
-* **Операционная система** для узлов (*virtual_machine_configuration* **или** *cloud_service_configuration*, обязательное).<p/>В *python_tutorial_client.py* мы создаем пул узлов Linux с использованием [VirtualMachineConfiguration][py_vm_config]. Функция `select_latest_verified_vm_image_with_node_agent_sku` в `common.helpers` упрощает работу с образами из [магазина виртуальных машин Azure Marketplace][vm_marketplace]. Дополнительные сведения об использовании образов из магазина см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
-* **Размер вычислительных узлов** (*vm_size*, обязательное).<p/>Так как мы указываем узлы Linux для [VirtualMachineConfiguration][py_vm_config], необходимо указать их размер (в этом примере — `STANDARD_A1`), как описано в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md). Дополнительные сведения см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+* **Операционная система** для узлов (*virtual_machine_configuration* **или** *cloud_service_configuration*, обязательное).<p/>В *python_tutorial_client.py* мы создаем пул узлов Linux с использованием [VirtualMachineConfiguration][py_vm_config]. Функция `select_latest_verified_vm_image_with_node_agent_sku` в `common.helpers` упрощает работу с образами из [магазина виртуальных машин Azure][vm_marketplace]. Дополнительные сведения об использовании образов из магазина см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+* **Размер вычислительных узлов** (*vm_size*, обязательное).<p/>Так как мы указываем узлы Linux для [VirtualMachineConfiguration][py_vm_config], необходимо указать их размер (в этом примере — `STANDARD_A1`), как описано в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Дополнительные сведения см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
 * **Задача запуска** (*start_task*, не обязательное).<p/>Вместе со свойствами физических узлов выше можно также указать [StartTask][py_starttask] для пула (необязательно). Задача StartTask выполняется на каждом узле по мере его присоединения к пулу, а также при каждом перезапуске узла. Она особенно полезна для подготовки вычислительных узлов к выполнению таких операций, как установка приложений, которые будут использовать задачи.<p/>В этом примере приложения задача StartTask копирует файлы, которые она загружает из рабочего каталога StartTask службы хранилища (эти файлы указаны в свойстве **resource_files** задачи *StartTask*) в *общий* каталог, к которому имеют доступ все задачи, выполняемые на узле. По сути, это обеспечивает копирование `python_tutorial_task.py` в общий каталог на каждом узле, когда узел присоединяется к пулу, чтобы к нему был доступ у всех задач, запускаемых на узле.
 
 Вы могли заметить вызов вспомогательной функции `wrap_commands_in_shell` . Она использует коллекцию отдельных команд и создает одну соответствующую командную строку для свойства командной строки задачи.
@@ -371,8 +371,8 @@ def create_pool(batch_service_client, pool_id,
 
 > [!TIP]
 > Дополнительные сведения о переменных среды, доступных на вычислительных узлах в пуле пакетной службы, а также сведения о рабочих каталогах задач см. в разделах **Параметры среды для задач** и **Файлы и каталоги** статьи с [обзором функций пакетной службы Azure](batch-api-basics.md).
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Шаг 4. Создание задания пакетной службы
 ![Создание задания пакетной службы][4]<br/>
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > При получении доступа к переменным среды, таким как `$AZ_BATCH_NODE_SHARED_DIR`, или выполнении приложения, которое не находится в `PATH` на узле, командные строки задачи должны явным образом вызвать оболочку, например с помощью `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Это требование не является обязательным, если задачи выполняют приложение в `PATH` и не ссылаются на переменные среды.
-> 
-> 
+>
+>
 
 В пределах цикла `for` в приведенном выше фрагменте кода видно, что командная строка задачи построена с использованием пяти аргументов командной строки, передаваемых в *python_tutorial_task.py*:
 
@@ -487,7 +487,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 Добавленные в задание задачи автоматически выстраиваются в очередь и планируются для выполнения на вычислительных узлах пула, связанного с заданием. Пакетная служба обрабатывает постановку задач в очередь, их планирование извлечение и другие задачи администрирования с учетом указанных вами параметров.
 
-Есть несколько подходов к отслеживанию выполнения задач. Функция `wait_for_tasks_to_complete` в *python_tutorial_client.py* является простым примером мониторинга определенного состояния задач, в этом случае — [выполненного][py_taskstate] состояния.
+Есть несколько подходов к отслеживанию выполнения задач. Функция `wait_for_tasks_to_complete` в *python_tutorial_client.py* является простым примером мониторинга определенного состояния задач, в этом случае — [выполненного][py_taskstate] состояния.
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -563,8 +563,8 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > При вызове `download_blobs_from_container` в *python_tutorial_client.py* указывается, что файлы необходимо скачивать в корневой каталог. Вы можете изменить это расположение выходных данных.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Шаг 8. Удаление контейнеров
 Так как вы платите за данные, которые находятся в службе хранилища Azure, рекомендуется всегда удалять все большие двоичные объекты, которые больше не нужны для выполнения заданий пакетной службы. В *python_tutorial_client.py* это можно сделать, вызвав [BlockBlobService.delete_container][py_delete_container] трижды:
@@ -580,7 +580,7 @@ blob_client.delete_container(output_container_name)
 ## <a name="step-9-delete-the-job-and-the-pool"></a>Шаг 9. Удаление задания и пула
 На последнем шаге появляется запрос на удаление пула и задания, созданных скриптом *python_tutorial_client.py*. Хотя вы и не платите за задания и задачи, *взимается* плата за используемые вычислительные узлы. Поэтому рекомендуется выделять узлы только при необходимости. Удаление неиспользуемых пулов может быть частью процесса обслуживания.
 
-Свойства [JobOperations][py_job] и [PoolOperations][py_pool] предусматривают соответствующие методы удаления, которые вызываются, если подтвердить удаление:
+Свойства [JobOperations][py_job] и [PoolOperations BatchServiceClient][py_pool] предусматривают соответствующие методы удаления, которые вызываются, если подтвердить удаление.
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > Помните, что вы платите за использование вычислительных ресурсов, поэтому удаление неиспользуемых пулов позволит сократить затраты. Также не забывайте, что при удалении пула удаляются все вычислительные узлы этого пула, после чего все данные на узлах уже нельзя будет восстановить.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>Запуск примера сценария
-При запуске скрипта *python_tutorial_client.py* из [примера кода][github_article_samples] в руководстве консоль будет выглядеть следующим образом. Во время создания и запуска вычислительных узлов пула, а также выполнения команд в рамках его задачи запуска выполнение приостанавливается на `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` . Используйте [портал Azure][azure_portal] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или один из доступных [обозревателей службы хранилища Microsoft Azure][storage_explorers], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
+При запуске скрипта *python_tutorial_client.py* из [примера кода][github_article_samples] в руководстве консоль будет выглядеть следующим образом. Во время создания и запуска вычислительных узлов пула, а также выполнения команд в рамках его задачи запуска выполнение приостанавливается на `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` . Используйте [портал Azure][azure_portal] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или [обозреватель службы хранилища Microsoft Azure][storage_explorer], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
 
 > [!TIP]
 > Выполните скрипт *python_tutorial_client.py* в каталоге `azure-batch-samples/Python/Batch/article_samples`. Он использует относительный путь для импорта модуля `common.helpers`, поэтому, если не выполнить скрипт в этом каталоге, может возникнуть ошибка `ImportError: No module named 'common'`.
-> 
-> 
+>
+>
 
 Обычное время выполнения — **примерно 5–7 минут** , если для примера задана конфигурация по умолчанию.
 
@@ -640,8 +640,8 @@ Press ENTER to exit...
 Теперь, когда вы знакомы с основным рабочим процессом решения пакетной службы, пришло время подробно изучить дополнительные возможности пакетной службы.
 
 * Если вы недавно используете пакетную службу, рекомендуем прочитать статью [с обзором функций пакетной службы Azure](batch-api-basics.md) .
-* Ознакомьтесь с другими статьями на тему разработки в пакетной службе. См. раздел **Подробные сведения о разработке** на схеме обучения [Пакетная служба][batch_learning_path].
-* Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с использованием пакетной службы. См. пример приложения [TopNWords][github_topnwords].
+* Ознакомьтесь с другими статьями на тему разработки в пакетной службе в разделе **Подробные сведения о разработке** на [схеме обучения "Пакетная служба"][batch_learning_path].
+* Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с помощью пакетной службы на примере [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -689,8 +689,7 @@ Press ENTER to exit...
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
@@ -709,6 +708,6 @@ Press ENTER to exit...
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
