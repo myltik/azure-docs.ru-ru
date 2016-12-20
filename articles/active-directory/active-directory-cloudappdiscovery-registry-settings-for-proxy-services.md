@@ -1,18 +1,22 @@
 ---
-title: Параметры реестра Cloud App Discovery для прокси-служб | Microsoft Docs
-description: В этой статье приведены шаги, которые необходимо выполнить, чтобы задать требуемый порт на компьютере с запущенным агентом Cloud App Discovery.
+title: "Параметры реестра Cloud App Discovery для прокси-служб | Документация Майкрософт"
+description: "В этой статье приведены шаги, которые необходимо выполнить, чтобы задать требуемый порт на компьютере с запущенным агентом Cloud App Discovery."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-
+ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: be013882339bca88600e678ae7905b96ac94d0d9
+
 
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Параметры реестра Cloud App Discovery для прокси-служб
@@ -46,6 +50,9 @@ ms.author: markusvi
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

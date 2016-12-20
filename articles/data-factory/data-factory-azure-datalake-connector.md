@@ -1,12 +1,12 @@
 ---
-title: Перемещение данных в озеро данных Azure и из него| Microsoft Docs
-description: Узнайте, как с помощью фабрики данных Azure перемещать данные в озеро данных Azure и обратно
+title: "Перемещение данных в Azure Data Lake Store и из него | Документация Майкрософт"
+description: "Узнайте, как с помощью фабрики данных Azure перемещать данные в озеро данных Azure и обратно"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
+ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
+
 
 ---
 # <a name="move-data-to-and-from-azure-data-lake-store-using-azure-data-factory"></a>Перемещение данных в озеро данных Azure и обратно с помощью фабрики данных Azure
@@ -21,17 +25,17 @@ ms.author: jingwang
 
 > [!NOTE]
 > Чтобы создать конвейер с действием копирования для перемещения данных в Azure Data Lake Store и обратно, вам потребуется учетная запись этого хранилища. Сведения об Azure Data Lake Store см. в статье [Начало работы с хранилищем озера данных Azure с помощью портала Azure](../data-lake-store/data-lake-store-get-started-portal.md).
-> 
+>
 > В руководстве по [созданию первого конвейера](data-factory-build-your-first-pipeline.md) подробно описаны процедуры создания фабрики данных, связанных служб, наборов данных и конвейера. Для создания сущностей фабрики данных запустите предложенные фрагменты кода JSON в редакторе фабрики данных, в Visual Studio или в Azure PowerShell.
-> 
-> 
+>
+>
 
 ## <a name="copy-data-wizard"></a>Мастер копирования данных
-Самый простой способ создать конвейер, копирующий данные в Azure Data Lake Store или из него, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных. 
+Самый простой способ создать конвейер, копирующий данные в Azure Data Lake Store или из него, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В них показано, как копировать данные в Azure Data Lake Store и хранилище BLOB-объектов Azure и обратно. Тем не менее данные можно копировать **непосредственно** из любых источников в любой указанный [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемник. Это делается с помощью действия копирования в фабрике данных Azure.  
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). В них показано, как копировать данные в Azure Data Lake Store и хранилище BLOB-объектов Azure и обратно. Однако данные можно скопировать данные **непосредственно** из любых источников на любой из поддерживаемых приемников. Дополнительные сведения см. в разделе "Поддерживаемые хранилища данных и форматы" статьи [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).  
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-data-lake-store"></a>Пример. Копирование данных из BLOB-объекта Azure в хранилище озера данных Azure
+## <a name="sample-copy-data-from-azure-blob-to-azure-data-lake-store"></a>Пример. Копирование данных из BLOB-объекта Azure в хранилище озера данных Azure
 В примере ниже используется следующее:
 
 1. Связанная служба типа [AzureStorage](#azure-storage-linked-service-properties).
@@ -74,16 +78,16 @@ ms.author: jingwang
 1. Щелкните **Новое хранилище данных** на панели команд и выберите **Azure Data Lake Store**.
 2. В редакторе JSON введите универсальный код ресурса (URI) Data Lake в качестве значения свойства **dataLakeStoreUri** .
 3. Щелкните кнопку **Авторизовать** на панели команд. Появится всплывающее окно.
-   
+
     ![Кнопка "Авторизовать"](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 4. Войдите в систему с помощью своих учетных данных. После этого свойство **authorization** в JSON должно получить нужное значение.
 5. Укажите значения необязательных параметров JSON, например **accountName**, **subscriptionID** и **resourceGroupName**, или удалите эти свойства из JSON. Этот шаг можно пропустить.
 6. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
 > [!IMPORTANT]
-> Срок действия кода авторизации, созданного с помощью кнопки **Авторизовать**, через некоторое время истекает. Когда **срок действия маркера истечет**, вам потребуется **повторно авторизоваться** с помощью кнопки **Авторизовать** и повторно развернуть связанную службу. Дополнительные сведения см. в разделе [Связанная служба хранилища озера данных Azure](#azure-data-lake-store-linked-service-properties). 
-> 
-> 
+> Срок действия кода авторизации, созданного с помощью кнопки **Авторизовать**, через некоторое время истекает. Когда **срок действия маркера истечет**, вам потребуется **повторно авторизоваться** с помощью кнопки **Авторизовать** и повторно развернуть связанную службу. Дополнительные сведения см. в разделе [Связанная служба хранилища озера данных Azure](#azure-data-lake-store-linked-service-properties).
+>
+>
 
 **Входной набор данных BLOB-объекта Azure**
 
@@ -153,24 +157,24 @@ ms.author: jingwang
 
     {
         "name": "AzureDataLakeStoreOutput",
-        "properties": {
+          "properties": {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
             "typeProperties": {
                 "folderPath": "datalake/output/"
             },
             "availability": {
-                "frequency": "Hour",
-                "interval": 1
+                  "frequency": "Hour",
+                  "interval": 1
             }
-        }
+          }
     }
 
 
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **BlobSource**, а для **sink** — тип **AzureDataLakeStoreSink**.
+Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **BlobSource**, а для **sink** — тип **AzureDataLakeStoreSink**.
 
     {  
         "name":"SamplePipeline",
@@ -181,46 +185,46 @@ ms.author: jingwang
             "description":"pipeline with copy activity",
             "activities":
             [  
-                {
+                  {
                     "name": "AzureBlobtoDataLake",
                     "description": "Copy Activity",
                     "type": "Copy",
                     "inputs": [
-                    {
+                      {
                         "name": "AzureBlobInput"
-                    }
+                      }
                     ],
                     "outputs": [
-                    {
+                      {
                         "name": "AzureDataLakeStoreOutput"
-                    }
+                      }
                     ],
                     "typeProperties": {
                         "source": {
                             "type": "BlobSource",
                             "treatEmptyAsNull": true,
                             "blobColumnSeparators": ","
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "AzureDataLakeStoreSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
             ]
         }
     }
 
-## <a name="sample:-copy-data-from-azure-data-lake-store-to-azure-blob"></a>Пример. Копирование данных из хранилища озера данных Azure в BLOB-объект Azure
+## <a name="sample-copy-data-from-azure-data-lake-store-to-azure-blob"></a>Пример. Копирование данных из хранилища озера данных Azure в BLOB-объект Azure
 В примере ниже используется следующее:
 
 1. Связанная служба типа [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
@@ -247,8 +251,8 @@ ms.author: jingwang
 
 > [!NOTE]
 > Чтобы получить URL-адрес авторизации, см. шаги, приведенные в предыдущем примере.  
-> 
-> 
+>
+>
 
 **Связанная служба хранилища Azure**
 
@@ -268,7 +272,7 @@ ms.author: jingwang
 
     {
         "name": "AzureDataLakeStoreInput",
-        "properties":
+          "properties":
         {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -284,16 +288,16 @@ ms.author: jingwang
             "external": true,
             "availability": {
                 "frequency": "Hour",
-                "interval": 1
+                  "interval": 1
             },
             "policy": {
-                "externalData": {
+                  "externalData": {
                     "retryInterval": "00:01:00",
                     "retryTimeout": "00:10:00",
                     "maximumRetry": 3
-                }
+                  }
             }
-        }
+          }
     }
 
 **Выходной набор данных BLOB-объекта Azure**
@@ -356,7 +360,7 @@ ms.author: jingwang
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **AzureDataLakeStoreSource**, а для параметра **sink** — тип **BlobSink**.
+Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **AzureDataLakeStoreSource**, а для параметра **sink** — тип **BlobSink**.
 
     {  
         "name":"SamplePipeline",
@@ -365,7 +369,7 @@ ms.author: jingwang
             "end":"2014-06-01T19:00:00",
             "description":"pipeline for copy activity",
             "activities":[  
-                {
+                  {
                     "name": "AzureDakeLaketoBlob",
                     "description": "copy activity",
                     "type": "Copy",
@@ -382,22 +386,22 @@ ms.author: jingwang
                     "typeProperties": {
                         "source": {
                             "type": "AzureDataLakeStoreSource",
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
              ]
         }
     }
@@ -424,7 +428,7 @@ ms.author: jingwang
 | Учетные записи пользователей, которые НЕ управляются Azure Active Directory (@hotmail.com, @live.com, и т. д.). |12 часов |
 | Учетные записи пользователей, которые управляются Azure Active Directory (AAD) |14 дней после последнего запуска среза. <br/><br/>90 дней, если срез, основанный на связанной службе на основе OAuth, выполняется по крайней мере раз в 14 дней. |
 
-Если пароль изменяется прежде, чем срок действия маркера истечет, маркер мгновенно устаревает и отображается указанная в этом разделе ошибка. 
+Если пароль изменяется прежде, чем срок действия маркера истечет, маркер мгновенно устаревает и отображается указанная в этом разделе ошибка.
 
 Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** можно также задавать программно с помощью кода, приведенного в следующем разделе.
 
@@ -452,7 +456,7 @@ ms.author: jingwang
         }
     }
 
-Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования в коде класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на версию **2.9.10826.1824** файла **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**. 
+Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования в коде класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на версию **2.9.10826.1824** файла **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**.
 
 ## <a name="azure-data-lake-dataset-type-properties"></a>Свойства типа "Набор данных озера данных Azure"
 Полный список разделов и свойств JSON, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
@@ -472,7 +476,7 @@ ms.author: jingwang
 
 Дополнительные сведения о наборах данных временных рядов, планировании и срезах см. в статьях [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md) и [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md).
 
-#### <a name="sample-1"></a>Пример 1
+#### <a name="sample-1"></a>Пример 1
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
     "partitionedBy":
     [
@@ -481,7 +485,7 @@ ms.author: jingwang
 
 В этом примере {Slice} заменяется значением SliceStart (системная переменная фабрики данных) в формате ГГГГММДДЧЧ. SliceStart указывает время начала среза. Значение folderPath отличается для каждого среза. Например: wikidatagateway/wikisampledataout/2014100103 или wikidatagateway/wikisampledataout/2014100104.
 
-#### <a name="sample-2"></a>Пример 2
+#### <a name="sample-2"></a>Пример 2
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy":
@@ -503,39 +507,39 @@ ms.author: jingwang
 
     {  
         "name": "AzureDatalakeStoreDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureDatalakeStore",  
             "linkedServiceName": "DataLakeStoreLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 Раздел **compression** содержит два свойства:  
 
-* **Type** — кодек сжатия; возможные значения: **GZIP**, **Deflate** и **BZIP2**.  
-* **Level** — коэффициент сжатия; возможные значения: **Optimal** и **Fastest**. 
-  
-  * **Fastest:** операция сжатия должна выполняться как можно быстрее, даже если итоговый файл сжимается не оптимально. 
-  * **Optimal**: операция сжатия должна выполняться оптимально, даже если для ее завершения требуется больше времени. 
-    
-    Дополнительные сведения см. в разделе [Уровень сжатия](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx). 
+* **Type** — кодек сжатия; возможные значения: **GZIP**, **Deflate** и **BZIP2**.  
+* **Level** — коэффициент сжатия; возможные значения: **Optimal** и **Fastest**.
+
+  * **Fastest:** операция сжатия должна выполняться как можно быстрее, даже если итоговый файл сжимается не оптимально.
+  * **Optimal**: операция сжатия должна выполняться оптимально, даже если для ее завершения требуется больше времени.
+
+    Дополнительные сведения см. в разделе [Уровень сжатия](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
 Предположим, что пример набора данных используется в качестве результата действия копирования. Это действие сжимает выходные данные с использованием кодека GZIP и оптимального коэффициента сжатия, а затем записывает сжатые данные в файл с именем pagecounts.csv.gz в Azure Data Lake Store.   
 
-Если задать свойство compression во входном наборе данных JSON, конвейер будет считывать сжатые данные из источника. Если задать это свойство в выходном наборе данных JSON, действие копирования может записывать сжатые данные в место назначения. Ниже приведено несколько примеров сценариев: 
+Если задать свойство compression во входном наборе данных JSON, конвейер будет считывать сжатые данные из источника. Если задать это свойство в выходном наборе данных JSON, действие копирования может записывать сжатые данные в место назначения. Ниже приведено несколько примеров сценариев:
 
-* Считайте сжатые с помощью кодека GZIP данные из хранилища озера данных Azure, распакуйте их и запишите результирующие данные в базу данных SQL Azure. В этом случае вы определяете входной набор данных хранилища озера данных Azure с помощью свойства "compression" JSON. 
+* Считайте сжатые с помощью кодека GZIP данные из хранилища озера данных Azure, распакуйте их и запишите результирующие данные в базу данных SQL Azure. В этом случае вы определяете входной набор данных хранилища озера данных Azure с помощью свойства "compression" JSON.
 * Считайте данные из обычного текстового файла в локальной файловой системе, сожмите их в формате GZip и запишите сжатые данные в хранилище озера данных Azure. В этом случае вы определяете выходной набор озера данных Azure с помощью свойства "compression" JSON.  
 * Считайте сжатые с помощью кодека GZIP данные из хранилища озера данных Azure, распакуйте их и сожмите с помощью BZIP2, а затем запишите результирующие данные в хранилище озера данных Azure. Для типа сжатия необходимо установить значение GZIP, а для входного и выходного набора данных — значение BZIP2 соответственно.   
 
@@ -565,6 +569,8 @@ ms.author: jingwang
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: экземпляры службы синхронизации | Microsoft Docs'
-description: На этой странице приводятся специальные рекомендации для экземпляров Azure AD.
+title: "Azure AD Connect: экземпляры службы синхронизации | Документация Майкрософт"
+description: "На этой странице приводятся специальные рекомендации для экземпляров Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+
 
 ---
-# <a name="azure-ad-connect:-special-considerations-for-instances"></a>Azure AD Connect: специальные рекомендации для экземпляров
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: специальные рекомендации для экземпляров
 Azure AD Connect чаще всего используется с доступным во всем мире экземпляром Azure AD и Office 365. Но существуют и другие экземпляры, и они имеют другие требования к URL-адресам и прочие особенности.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany
@@ -65,6 +69,9 @@ Azure AD Connect не сможет автоматически определят
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Fuse | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Fuse.
+title: "Учебник. Интеграция Azure Active Directory с Fuse | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Fuse."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7183f3c93b991d3ed350be7c32564d9acaa7da51
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-fuse"></a>Руководство. Интеграция Azure Active Directory с Fuse
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Руководство. Интеграция Azure Active Directory с Fuse
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Fuse.
 
 Интеграция Azure AD с приложением Fuse обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к Fuse.
 * Вы можете включить автоматический вход пользователей в Fuse (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Fuse, вам потребуется:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -77,7 +81,7 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Fuse с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Fuse с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Fuse соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Fuse.
 
@@ -124,13 +128,13 @@ ms.author: jeedes
 5. Чтобы получить данные единого входа, настроенные для вашего приложения, свяжитесь со службой поддержки Fuse по адресу **support@fusion-universal.com**, прикрепите скачанный файл сертификата и укажите **URL-адрес издателя**, **URL-адрес службы единого входа** и **URL-адрес службы единого выхода**.
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 В списке пользователей выберите **Britta Simon**.
 
@@ -182,12 +186,12 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-fuse-test-user"></a>Создание тестового пользователя приложения Fuse
-Цель этого раздела — создать пользователя с именем Britta Simon в приложении Fuse. Приложение Fuse поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+Цель этого раздела — создать пользователя с именем Britta Simon в приложении Fuse. Приложение Fuse поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
 В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к приложению Fuse (если он еще не создан). [Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Fuse.
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Fuse.
 
 ![Назначение пользователя][200] 
 
@@ -208,7 +212,7 @@ ms.author: jeedes
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Fuse на панели доступа, вы автоматически войдете в приложение Fuse.
 
@@ -236,6 +240,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

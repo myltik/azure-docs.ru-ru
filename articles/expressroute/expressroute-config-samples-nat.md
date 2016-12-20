@@ -1,12 +1,12 @@
 ---
-title: Примеры конфигурации маршрутизатора клиента ExpressRoute | Microsoft Docs
-description: Эта страница содержит примеры конфигурации для маршрутизаторов серий Cisco ASA и Juniper MX.
+title: "Примеры конфигурации маршрутизатора клиента ExpressRoute | Документация Майкрософт"
+description: "Эта страница содержит примеры конфигурации для маршрутизаторов серий Cisco ASA и Juniper MX."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+
 
 ---
-# <a name="router-configuration-samples-to-setup-and-manage-nat"></a>Примеры конфигурации маршрутизатора для настройки и управления NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Примеры конфигурации маршрутизатора для настройки и управления NAT
 Эта страница содержит примеры конфигурации NAT для маршрутизаторов серий Cisco ASA и Juniper SRX. Эти примеры имеют только справочный характер и не должны использоваться как есть. Подходящие конфигурации для своей сети можно выработать совместно с поставщиком. 
 
 > [!IMPORTANT]
@@ -24,9 +28,10 @@ ms.author: cherylmc
 > 
 > 
 
-Примеры конфигурации маршрутизатора относятся к пирингам Azure Public и Microsoft. Вы не должны настраивать NAT для частного пиринга Azure. Для получения дополнительных сведений обратитесь к статьям [Сеансы пиринга ExpressRoute](expressroute-circuit-peerings.md) и [Требования ExpressRoute к NAT](expressroute-nat.md).
+* Примеры конфигурации маршрутизатора относятся к пирингам Azure Public и Microsoft. Вы не должны настраивать NAT для частного пиринга Azure. Для получения дополнительных сведений обратитесь к статьям [Сеансы пиринга ExpressRoute](expressroute-circuit-peerings.md) и [Требования ExpressRoute к NAT](expressroute-nat.md).
 
-**Примечание.** Для подключений к Интернету и ExpressRoute ДОЛЖНЫ использоваться отдельные пулы IP-адресов NAT. Использование одного пула IP-адресов NAT для подключения к Интернету и ExpressRoute приведет к асимметричной маршрутизации и потере подключения.
+* Для подключений к Интернету и ExpressRoute ДОЛЖНЫ использоваться отдельные пулы IP-адресов NAT. Использование одного пула IP-адресов NAT для подключения к Интернету и ExpressRoute приведет к асимметричной маршрутизации и потере подключения.
+
 
 ## <a name="cisco-asa-firewalls"></a>Брандмауэры Cisco ASA
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Конфигурация NAT для трафика от сети клиента в Майкрософт
@@ -50,11 +55,14 @@ ms.author: cherylmc
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Конфигурация PAT для трафика из Майкрософт в клиентскую сеть
-#### <a name="interfaces-and-direction:"></a>Интерфейсы и направление:
+
+**Интерфейсы и направление:**
+
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-#### <a name="configuration:"></a>Конфигурация:
+**Конфигурация:**
+
 Пул преобразования сетевых адресов:
 
     object network outbound-PAT
@@ -79,7 +87,7 @@ ms.author: cherylmc
 
 
 ## <a name="juniper-srx-series-routers"></a>Маршрутизаторы серии Juniper SRX
-### <a name="1.-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Создайте избыточные интерфейсы Ethernet для кластера.
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Создайте избыточные интерфейсы Ethernet для кластера.
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -111,15 +119,15 @@ ms.author: cherylmc
     }
 
 
-### <a name="2.-create-two-security-zones"></a>2. Создайте две зоны безопасности.
+### <a name="2-create-two-security-zones"></a>2. Создайте две зоны безопасности.
 * Доверенная зона предназначена для внутренней сети, а недоверенная зона — для внешней сети, направленной на граничные маршрутизаторы.
 * Назначьте соответствующие интерфейсы зонам.
 * Включите службы для интерфейсов.
 
-    security {      zones {          security-zone Trust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth0.100;              }          }          security-zone Untrust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth1.100;              }          }      }  }
+    security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
 
 
-### <a name="3.-create-security-policies-between-zones"></a>3. Создайте политики безопасности между зонами.
+### <a name="3-create-security-policies-between-zones"></a>3. Создайте политики безопасности между зонами.
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -150,7 +158,7 @@ ms.author: cherylmc
     }
 
 
-### <a name="4.-configure-nat-policies"></a>4. Настройте политики NAT.
+### <a name="4-configure-nat-policies"></a>4. Настройте политики NAT.
 * Создайте два пула NAT. Один будет использоваться для исходящего трафика NAT в Майкрософт, а второй — для трафика от Майкрософт клиенту.
 * Создайте правила для преобразования сетевых адресов соответствующего трафика.
   
@@ -209,10 +217,10 @@ ms.author: cherylmc
            }
        }
 
-### <a name="5.-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Настройки BGP для использования выборочных префиксов в каждом направлении
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Настройки BGP для использования выборочных префиксов в каждом направлении
 Обратитесь к примерам на странице [Примеры настройки маршрутизации ](expressroute-config-samples-routing.md) .
 
-### <a name="6.-create-policies"></a>6. Создайте политики.
+### <a name="6-create-policies"></a>6. Создайте политики.
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -310,6 +318,9 @@ ms.author: cherylmc
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения см. в разделе [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Видеоматериалы по безопасности в Azure на Channel 9 | Microsoft Docs
-description: Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов.
+title: "Видеоматериалы по безопасности в Azure на Channel 9 | Документация Майкрософт"
+description: "Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+
 
 ---
-# Видеоматериалы по безопасности в Azure на Channel 9
+# <a name="azure-security-videos-on-channel-9"></a>Видеоматериалы по безопасности в Azure на Channel 9
 [Channel 9](https://channel9.msdn.com/) — это сообщество, которое позволяет создателям наших продуктов знакомиться и общаться с клиентами.
 
 Они видят безоблачное будущее программного обеспечения очень этому рады. Channel 9 — это сообщество, где общение не затухает ни на минуту.
@@ -41,7 +45,7 @@ ms.author: terrylan
 
 [Шифрование внутри виртуальных машин Server SQL в Azure для повышения безопасности](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
 
-Джек Райчинс (Jack Richins) рассказывает [Скотту](https://channel9.msdn.com/Niners/Glucose), как зашифровать базы данных SQL Server на экземплярах виртуальных машин Azure. Оказывается, это проще, чем вы думаете!
+Джек Райчинс (Jack Richins) рассказывает [Скотту](https://channel9.msdn.com/Niners/Glucose) , как зашифровать базы данных SQL Server на экземплярах виртуальных машин Azure. Оказывается, это проще, чем вы думаете!
 
 В видеоролике затронуты следующие аспекты.
 
@@ -75,4 +79,8 @@ ms.author: terrylan
 
 Амит Бапат (Amit Bapat) знакомит Скотта с хранилищем ключей Azure. С помощью хранилища ключей Azure можно хранить ключи в аппаратных модулях безопасности (HSM), а также шифровать ключи и небольшие секретные данные, например пароли. Это облачное и аппаратное управление секретами для Microsoft Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

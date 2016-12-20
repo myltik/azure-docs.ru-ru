@@ -29,7 +29,7 @@ ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=biztalk-services">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

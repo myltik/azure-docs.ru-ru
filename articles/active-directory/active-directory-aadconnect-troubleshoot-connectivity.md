@@ -1,19 +1,23 @@
 ---
-title: 'Azure AD Connect: устранение неполадок подключения | Microsoft Docs'
-description: Сведения об устранении неполадок подключения в Azure AD Connect.
+title: "Azure AD Connect: устранение неполадок подключения | Документация Майкрософт"
+description: "Сведения об устранении неполадок подключения в Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fecca4c7667608bf081ed51025a92d40826f94c4
+
 
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Устранение неполадок подключения в Azure AD Connect
@@ -46,7 +50,7 @@ Azure AD Connect использует для аутентификации сов
 | \*.microsoftonline.com |HTTPS/443 |Используется для настройки каталога Azure AD, а также импорта и экспорта данных. |
 
 ## <a name="errors-in-the-wizard"></a>Ошибки в мастере
-Мастер установки использует два различных контекста безопасности. На странице **Подключение к Azure AD** он использует имя пользователя, выполнившего вход. На странице **Настройка** он переключается на [учетную запись, под которой работает служба модуля синхронизации](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Настраиваемые нами конфигурации прокси-сервера применяются к компьютеру в целом, поэтому возникающие проблемы обычно проявляются уже на странице мастера **Подключение к Azure AD** .
+Мастер установки использует два различных контекста безопасности. На странице **Подключение к Azure AD** он использует имя пользователя, выполнившего вход. На странице **Настройка** он переключается на [учетную запись, под которой работает служба модуля синхронизации](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Настраиваемые нами конфигурации прокси-сервера применяются к компьютеру в целом, поэтому возникающие проблемы обычно проявляются уже на странице мастера **Подключение к Azure AD** .
 
 Вот наиболее распространенные ошибки, которые встречаются в мастере установки.
 
@@ -168,7 +172,7 @@ Azure AD Connect использует для аутентификации сов
 ### <a name="retrievedomains"></a>RetrieveDomains
 Проверка подлинности прошла успешно. Не удалось получить от Azure AD сведения о домене.
 
-## <a name="troubleshooting-steps-for-previous-releases."></a>Действия по устранению неполадок для предыдущих версий.
+## <a name="troubleshooting-steps-for-previous-releases"></a>Действия по устранению неполадок для предыдущих версий.
 Начиная с версии с номером сборки 1.1.105.0 (выпущенной в феврале 2016) помощник по входу более не используется. Этот раздел и конфигурация больше не требуются, но хранятся для ссылки.
 
 Для работы помощника по единому входу необходимо настроить winhttp. Это можно сделать с помощью [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
@@ -185,6 +189,9 @@ Azure AD Connect использует для аутентификации сов
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,51 +1,82 @@
 ---
-title: Восстановление удаленной базы данных SQL Azure (PowerShell) | Microsoft Docs
-description: Восстановление удаленной базы данных SQL Azure (PowerShell).
+title: "Восстановление удаленной базы данных SQL Azure (PowerShell) | Документация Майкрософт"
+description: "Восстановление удаленной базы данных SQL Azure (PowerShell)."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ce7f0f3f-47a6-42af-b8a9-4a34bbbd8966
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
-ms.date: 07/09/2016
+ms.date: 10/12/2016
 ms.author: sstein
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fcaa796a9108700e34222eb12cc3c45d4d1b275a
+
 
 ---
-# Восстановление удаленной базы данных SQL Azure с помощью PowerShell
+# <a name="restore-a-deleted-azure-sql-database-by-using-powershell"></a>Восстановление удаленной базы данных SQL Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Обзор](sql-database-recovery-using-backups.md)
-> * [Восстановление удаленной базы данных: портал Azure](sql-database-restore-deleted-database-portal.md)
+> * [Восстановление удаленной базы данных: портал](sql-database-restore-deleted-database-portal.md)
+> * [**Восстановление удаленной базы данных: PowerShell**](sql-database-restore-deleted-database-powershell.md)
 > 
 > 
 
-[!INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Восстановление удаленной базы данных в автономную базу данных
-1. Создайте резервную копию удаленной базы данных, которую требуется восстановить, используя командлет [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx).
-   
-        $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
-2. Запустите восстановление из резервной копии удаленной базы данных с помощью командлета [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
-   
-        Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $DeletedDatabase.ResourceID -Edition "Standard" -ServiceObjectiveName "S2"
+## <a name="get-a-list-of-deleted-databases"></a>Получение списка удаленных баз данных
+```
+$resourceGroupName = "resourcegroupname"
+$sqlServerName = "servername"
 
-## Восстановление удаленной базы данных в пул эластичных баз данных
-1. Создайте резервную копию удаленной базы данных, которую требуется восстановить, используя командлет [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx).
-   
-        $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
-2. Запустите восстановление из резервной копии удаленной базы данных с помощью командлета [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
-   
-        Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $DeletedDatabase.ResourceID –ElasticPoolName "elasticpool01"
+$DeletedDatabases = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $resourceGroupName -ServerName $sqlServerName
+```
 
-## Дальнейшие действия
-* Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
-* Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
-* Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
-* Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
-* Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
+## <a name="restore-your-deleted-database-into-a-standalone-database"></a>Восстановление удаленной базы данных в автономную базу данных
+Создайте резервную копию удаленной базы данных, которую требуется восстановить, используя командлет [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387\(v=azure.300/\).aspx). Запустите восстановление из резервной копии удаленной базы данных с помощью командлета [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390\(v=azure.300/\).aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+```
+$resourceGroupName = "resourcegroupname"
+$sqlServerName = "servername"
+$databaseName = "deletedDbToRestore"
+
+$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $databaseName
+
+Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $DeletedDatabase.ResourceID -Edition "Standard" -ServiceObjectiveName "S2"
+```
+
+
+## <a name="restore-your-deleted-database-into-an-elastic-database-pool"></a>Восстановление удаленной базы данных в пул эластичных баз данных
+Создайте резервную копию удаленной базы данных, которую требуется восстановить, используя командлет [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387\(v=azure.300/\).aspx). Запустите восстановление из резервной копии удаленной базы данных с помощью командлета [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390\(v=azure.300/\).aspx).
+
+```
+$resourceGroupName = "resourcegroupname"
+$sqlServerName = "servername"
+$databaseName = "deletedDbToRestore"
+
+$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $databaseName
+
+Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $DeletedDatabase.ResourceID –ElasticPoolName "elasticpool01"
+```
+
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
+* Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
+* Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md)
+* Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  
+* Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

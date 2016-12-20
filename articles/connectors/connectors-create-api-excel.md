@@ -1,13 +1,13 @@
 ---
-title: Добавление соединителя Excel | Microsoft Docs
-description: Обзор соединителя Excel с параметрами API REST
-services: ''
-documentationcenter: ''
+title: "Добавление соединителя Excel | Документация Майкрософт"
+description: "Обзор соединителя Excel с параметрами API REST"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
+
 
 ---
-# Начало работы с соединителем Excel
-В настоящее время в приложениях логики нет соединителя Excel.
+# <a name="get-started-with-the-excel-connector"></a>Начало работы с соединителем Excel
+В настоящее время в приложениях логики нет соединителя Excel. 
 
-## Использование данных Excel
+## <a name="to-use-excel-data"></a>Использование данных Excel
 Вы можете сохранить данные Excel как файл с разделителями-запятыми (CSV) в папку хранилища, например [OneDrive](connectors-create-api-onedrive.md). Этот CSV-файл можно использовать с [соединителем неструктурированного файла](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
 <!---
@@ -213,4 +217,8 @@ Applies to version: 1.0.
 
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

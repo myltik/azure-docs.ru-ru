@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
 
 Чтобы оценить затраты на транзакции для учетных записей хранения общего назначения, просуммируйте стоимость всех транзакций независимо от операции или API.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Стоимость передачи данных георепликации и доступа к данным
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Стоимость передачи данных георепликации и доступа к данным
 Служба аналитики службы хранилища не указывает объем данных, которые считываются из учетной записи хранения и записываются в нее. Но этот объем можно приблизительно оценить, просмотрев таблицу метрик транзакций.
 Сумма значений *TotalIngress* во всех записях для API в таблице метрик транзакций отображает общий объем входящих данных в байтах для этого API.
 Точно так же сумма значений *TotalEgress* отображает общий объем исходящих данных в байтах.
@@ -345,6 +345,6 @@ AzCopy — это программа командной строки Windows, п
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

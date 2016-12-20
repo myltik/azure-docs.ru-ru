@@ -3,7 +3,7 @@ title: "Приступая к работе с модулем PowerShell паке
 description: "Краткое описание командлетов Azure PowerShell, используемых для управления пакетной службой Azure."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/20/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы управлять ресурсами пакетной службы с помощью Azure PowerShell, выполните следующие действия.
 
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Выполните командлет **Login-AzureRmAccount**, чтобы подключиться к своей подписке (командлеты пакетной службы Azure входят в состав модуля Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

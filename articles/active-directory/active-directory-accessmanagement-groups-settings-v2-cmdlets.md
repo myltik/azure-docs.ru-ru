@@ -1,13 +1,13 @@
 ---
-title: Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Microsoft Docs
-description: На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory.
-keywords: Azure AD, Azure Active Directory, PowerShell, группы, управление группами
+title: "Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Документация Майкрософт"
+description: "На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
+keywords: "Azure AD, Azure Active Directory, PowerShell, группы, управление группами"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
+
 
 ---
 # <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Командлеты предварительной версии Azure Active Directory для управления группами
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-groups-create-azure-portal.md)
 > * [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -45,7 +49,7 @@ ms.author: curtand
 ## <a name="connecting-to-the-directory"></a>Подключение к каталогу
 Прежде чем приступить к управлению группами с помощью командлетов предварительной версии Azure AD PowerShell, необходимо подключить сеанс PowerShell к каталогу, которым вы хотите управлять. Для этого воспользуйтесь следующей командой:
 
-    PS C:\Windows\system32> Connect-AzureAD -Force
+    PS C:\Windows\system32> Connect-AzureAD
 
 Командлет запросит ввести учетные данные, которые вы хотите использовать для доступа к каталогу. В этом примере для доступа к демонстрационному каталогу используется karen@drumkit.onmicrosoft.com . Командлет возвращает подтверждение, показывающее, что сеанс был успешно подключен к каталогу:
 
@@ -173,8 +177,8 @@ ms.author: curtand
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        72cd4bbd-2594-40a2-935c-016f3cfeeeea User
-                        8120cc36-64b4-4080-a9e8-23aa98e8b34f User
+                          72cd4bbd-2594-40a2-935c-016f3cfeeeea User
+                          8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
 Чтобы удалить члена, ранее добавленного в группу, используйте командлет Remove-AzureADGroupMember, как показано здесь:
 
@@ -192,8 +196,8 @@ ms.author: curtand
 
     PS C:\Windows\system32> Select-AzureADGroupIdsUserIsMemberOf -ObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea -GroupIdsForMembershipCheck $g
 
-    OdataMetadata                                                                                               Value
-    -------------                                                                                               -----
+    OdataMetadata                                                                                                 Value
+    -------------                                                                                                  -----
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 
 
@@ -214,7 +218,7 @@ ms.author: curtand
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        e831b3fd-77c9-49c7-9fca-de43e109ef67 User
+                          e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
 Для удаления владельца из группы, используйте командлет Remove-AzureADGroupOwner:
 
@@ -226,6 +230,9 @@ ms.author: curtand
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

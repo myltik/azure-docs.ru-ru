@@ -1,12 +1,12 @@
 ---
-title: 'Доменные службы Azure Active Directory: руководство по администрированию | Microsoft Docs'
-description: Создание подразделения в управляемых доменах доменных служб Azure AD
+title: "Доменные службы Azure Active Directory: руководство по администрированию | Документация Майкрософт"
+description: "Создание подразделения в управляемых доменах доменных служб Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+
 
 ---
-# <a name="create-an-organizational-unit-(ou)-on-an-azure-ad-domain-services-managed-domain"></a>Создание подразделения в управляемом домене доменных служб Azure AD
+# <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Создание подразделения в управляемом домене доменных служб Azure AD
 Управляемые домены доменных служб Azure AD включают два встроенных контейнера: "Компьютеры AADDC" и "Пользователи AADDC". Контейнер "Компьютеры AADDC" включает объекты-компьютеры для всех компьютеров, присоединенных к управляемому домену. Контейнер "Пользователи AADDC" включает пользователей и группы в клиенте Azure AD. В некоторых случаях в управляемом домене может потребоваться создать учетные записи служб для развертывания рабочих нагрузок. Для этой цели можно создать в управляемом домене пользовательское подразделение, а затем создать учетные записи служб в рамках этого подразделения. В этой статье демонстрируется создание подразделения в управляемом домене.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Установка средств администрирования AD на виртуальной машине, присоединенной к домену, для удаленного администрирования
@@ -50,7 +54,7 @@ ms.author: maheshu
    
     ![Центр администрирования Active Directory — созданное подразделение](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
-## <a name="permissions/security-for-newly-created-ous"></a>Разрешения и параметры безопасности для созданных подразделений
+## <a name="permissionssecurity-for-newly-created-ous"></a>Разрешения и параметры безопасности для созданных подразделений
 По умолчанию пользователю (участнику группы "Администраторы контроллера домена AAD"), который создал пользовательское подразделение, предоставляются права администратора (полный доступ) для этого подразделения. Теперь пользователь может предоставить права другим пользователям или группе "Администраторы контроллера домена AAD" по мере необходимости. Как показано на снимке экрана ниже, пользователю 'bob@domainservicespreview.onmicrosoft.com', создавшему подразделение MyCustomOU, предоставляется полный доступ к этому подразделению.
 
  ![Центр администрирования Active Directory — безопасность нового подразделения](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
@@ -68,6 +72,9 @@ ms.author: maheshu
 * [Центр администрирования Active Directory: приступая к работе](https://technet.microsoft.com/library/dd560651.aspx)
 * [Пошаговое руководство по использованию учетных записей служб](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

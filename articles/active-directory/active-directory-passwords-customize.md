@@ -1,12 +1,12 @@
 ---
-title: 'Настройка: управление паролями Azure AD| Microsoft Docs'
-description: Как настроить оформление, поведение и отправку уведомлений в Azure AD в соответствии с потребностями организации.
+title: "Настройка управления паролями Azure Active Directory | Документация Майкрософт"
+description: "Как настроить оформление, поведение и отправку уведомлений в Azure AD в соответствии с потребностями организации."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e11be2489d8c0585e386669f34012964e57978d7
+
 
 ---
-# <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Настройка компонентов управления паролями в соответствии с требованиями организации
+# <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Настройка компонентов управления паролями в соответствии с требованиями организации
 > [!IMPORTANT]
 > **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 > 
@@ -447,9 +451,9 @@ ms.author: asteen
                   <li class="unordered">
 Можно определить в общей сложности до 20 вопросов (суммарно вопросов на основе знаний и пользовательских вопросов).<br><br></li>
                  <li class="unordered">
-Минимальное количество знаков в ответе — 3.<br><br></li>
+Минимальное количество знаков в ответе — 3.<br><br></li>
                   <li class="unordered">
-Максимальное количество знаков в ответе — 40.<br><br></li>
+Максимальное количество знаков в ответе — 40.<br><br></li>
                   <li class="unordered">
 Пользователи не могут отвечать на один и тот же вопрос дважды.<br><br></li>
                   <li class="unordered">
@@ -496,11 +500,11 @@ ms.author: asteen
                   <li class="unordered">
 Можно определить в общей сложности до 20 вопросов (суммарно вопросов на основе знаний и пользовательских вопросов).<br><br></li>
                   <li class="unordered">
-Максимальное количество знаков в вопросе — 200.<br><br></li>
+Максимальное количество знаков в вопросе — 200.<br><br></li>
                   <li class="unordered">
-Минимальное количество знаков в ответе — 3.<br><br></li>
+Минимальное количество знаков в ответе — 3.<br><br></li>
                   <li class="unordered">
-Максимальное количество знаков в ответе — 40.<br><br></li>
+Максимальное количество знаков в ответе — 40.<br><br></li>
                   <li class="unordered">
 Пользователи не могут отвечать на один и тот же вопрос дважды.<br><br></li>
                   <li class="unordered">
@@ -763,7 +767,7 @@ ms.author: asteen
                 </p>
                 <ul>
                   <li class="unordered">
-Чтобы использовать эту функцию, необходимо установить выпуск Azure AD Connect от августа 2015 г или более поздней версии (версия 1.0.8667.0 или выше).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Щелкните здесь, чтобы загрузить последнюю версию Azure AD Connect.</a></li>
+Чтобы использовать эту функцию, необходимо установить выпуск Azure AD Connect от августа 2015 г или более поздней версии (версия 1.0.8667.0 или выше).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Щелкните здесь, чтобы загрузить последнюю версию Azure AD Connect.</a></li>
 
                   <li class="unordered">
                     <strong>Примечание.</strong> Для тестирования этой функции необходимо включить обратную запись паролей и использовать учетную запись, созданную в локальной среде (например, федеративного пользователя или пользователя с синхронизацией паролей), для которой выполнена блокировка учетной записи.  Для пользователей, учетные записи которых не локальные и не заблокированные, предложение разблокировать учетную запись отображаться не будет.</li>
@@ -876,6 +880,6 @@ ms.author: asteen
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

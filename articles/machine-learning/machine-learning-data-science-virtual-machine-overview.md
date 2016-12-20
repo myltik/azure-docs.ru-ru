@@ -1,85 +1,91 @@
 ---
-title: What is a Data Science Virtual Machine? | Microsoft Docs
-description: Learn the key scenarios, features, and how to get started with Data Science Virtual Machines, an environment and toolkit ready for analytics.
-keywords: data science tools, data science virtual machine, tools for data science, linux data science
+title: "Что такое виртуальная машина для обработки и анализа данных? | Документация Майкрософт"
+description: "Узнайте об основных сценариях и функциях виртуальной машины для обработки и анализа данных, среды и набора средств, готовых для анализа, а также о том, как начать работу с ней."
+keywords: "средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+
 
 ---
-# <a name="introduction-to-the-data-science-virtual-machine-for-linux-and-windows,-a-cloud-environment-and-toolkit"></a>Introduction to the Data Science Virtual Machine for Linux and Windows, a cloud environment and toolkit
-Learn about the key scenarios and features of Azure Data Science Virtual Machines and how to get started. The Data Science VM is a data science environment and toolkit ready for analytics and provisioned in the Microsoft Azure cloud in Windows Server 2012 or OpenLogic 7.2 CentOS-based Linux versions.
+# <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Введение в облачные виртуальные машины для анализа и обработки данных для Linux и Windows
+Виртуальная машина для анализа и обработки данных — это настроенный образ в облаке Microsoft Azure, созданный специально для целей выше. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Этот образ доступен в Windows Server 2012 и в версиях Linux на основе CentOS с поддержкой OpenLogic 7.2. 
 
-## <a name="what-can-i-do-in-the-data-science-virtual-machine?"></a>What can I do in the Data Science Virtual Machine?
-The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment that allows you to start your data science project immediately in a newly created VM instance. This VM saves you considerable time that you would spend if you rolled out a comparable environment on your own.
+В этом разделе обсуждаются возможности, которые предоставляет виртуальная машина для анализа и обработки данных. Здесь также описаны некоторые основные сценарии ее использования, перечислены ее ключевые функции, доступные в версиях Windows и Linux, а также инструкции о том, как приступить к работе с ними.
 
-The Data Science VM is preconfigured for the broad usage scenarios:
+## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Какие возможности предоставляет виртуальная машина для анализа и обработки данных?
+Предназначение виртуальной машины для анализа и обработки данных — обеспечить для специалистов, обладающих соответствующими навыками и выполняющих соответствующие роли, беспроблемную среду. Эта виртуальная машина позволяет значительно сэкономить время на развертывании собственной среды. Вместо этого вы можете сразу же запустить проект по анализу и обработке данных в новом экземпляре виртуальной машины. 
 
-* Scale your environment up or down as your project needs change.
-* Use any language to program your data science tasks.
-* Install other tools and customize the system for your exact needs.
+Виртуальная машина для анализа и обработки данных разработана и настроена для работы в сценариях широкого использования. Масштаб среды можно увеличивать и уменьшать согласно требованиям проекта. Вы можете использовать предпочитаемый язык, чтобы программировать задачи обработки и анализа данных. Вы также можете установить другие инструменты и настроить систему согласно конкретным потребностям.
 
-## <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Preconfigured analytics desktop in the cloud
-The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.  
+## <a name="key-scenarios"></a>Ключевые сценарии
+В этой главе рассматриваются некоторые основные сценарии, для которых можно развернуть виртуальную машину обработки и анализа данных.
 
-## <a name="data-science-training-and-education"></a>Data science training and education
-Enterprise trainers and educators that teach data science classes usually provide a virtual machine image to ensure that their students have a consistent setup and that the samples work predictably. The Data Science VM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
+### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Предварительно настроенный облачный компьютер для анализа
+В виртуальной машине для обработки и анализа данных доступна базовая конфигурация, что не смогут не оценить рабочие группы, которые ищут подходящий вариант для замены своих локальных компьютеров на управляемые облачные компьютеры. За счет базы у всех специалистов по обработке и анализу данных в рабочей группе будут согласованные настройки, позволяющие проверять эксперименты и повышать уровень взаимодействия. Кроме того, благодаря уменьшению нагрузки на системных администраторов и экономии времени, затрачиваемого на оценку, установку и обслуживание различных пакетов программного обеспечения, необходимого для использования расширенной аналитики, сокращаются расходы.  
 
-## <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>On-demand elastic capacity for large-scale projects
-Data science hackathons/competitions or large-scale data modeling and exploration require scaled out hardware capacity, typically for short duration. The Data Science VM can help replicate the data science environment quickly on demand, on scaled out servers that allow experiments requiring high-powered computing resources to be run.
+### <a name="data-science-training-and-education"></a>Обучение обработке и анализу данных
+Обычно учителя и преподаватели курсов по обработке и анализу данных предоставляют ученикам образ виртуальной машины, чтобы они использовали одинаковые настройки, а примеры работали правильно. Виртуальная машина обработки и анализа данных создает требуемую среду с согласованными настройками, что упрощает задачи поддержки и устраняет проблемы несовместимости. Для случаев, когда необходимо часто создавать такие среды, особенно в рамках коротких учебных курсов, характерно больше преимуществ.
 
-## <a name="short-term-experimentation-and-evaluation"></a>Short-term experimentation and evaluation
-The Data Science VM can be used to evaluate or learn tools such as Microsoft R Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios such as replicating published experiments, executing demos, following walkthroughs in online sessions or conference tutorials.
+### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Эластичность по требованию для проектов большого масштаба
+Интенсивная работа и соревнования по обработке и анализу данных, моделирование и изучение данных большого масштаба обычно требуют использования мощного оборудования в течение короткого периода. Виртуальная машина для обработки и анализа данных помогает быстро и по требованию реплицировать среду обработки данных на развернутые серверы. Это позволяет проводить эксперименты, требующие мощных вычислительных ресурсов для репликации.
 
-## <a name="what's-included-in-the-windows-and-linux-versions-of-the-data-science-vm?"></a>What's included in the Windows and Linux versions of the Data Science VM?
-The Data Science Virtual Machine has many popular data science and other tools already installed and configured to jump-start building intelligent applications using advanced analytics. These tools can be deployed on the cloud, on-premises, or in a hybrid environment.
+### <a name="short-term-experimentation-and-evaluation"></a>Краткосрочные эксперименты и оценка
+Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft R Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
 
-It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks.
+## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
+В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
 
-| Windows Edition | Linux Edition |
+| **Выпуск для Windows** | **Выпуск для Linux** |
 | --- | --- |
 | Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
 | Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Jupyter Notebook Server (R, Python) |JupyterHub: Multi-user Jupyter notebooks (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: Scalable in-database analytics with R services |Postgres, SQuirreL SQL (database tool), SQL Server drivers, and command line (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python, and R tools for Visual Studio |IDEs and editors </br> - Eclipse with Azure toolkit plugin </br> - Emacs (with ESS, auctex) gedit |
-| Power BI desktop |-- |
-| Machine Learning Tools </br> - Integration with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) </br> - Mxnet (deep learning/AI) |Machine Learning Tools </br> - Integrations with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) |
-| SDKs to access Azure and Cortana Intelligence Suite of services |SDKs to access Azure and Cortana Intelligence Suite of services |
-| Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (for DocumentDB), Microsoft Data Management Gateway |Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI |
-| Git, Visual Studio Team Services plugin |Git |
-| Windows port of most popular Linux/Unix command-line utilities accessible through GitBash/command prompt |-- |
+| Jupyter Notebook Server (R, Python) |JupyterHub: многопользовательские приложения Jupyter Notebook (R, Python, Julia) |
+| SQL Server 2016 Developer Edition: масштабируемое аналитическое решение в базе данных со службами R |Postgres, SQuirreL SQL (средство управления базой данных), драйверы SQL Server и командная строка (bcp, sqlcmd) |
+| Visual Studio Community Edition 2015 (IDE) </br> — Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools; </br> — Средства Node.js, Python и R для Visual Studio. |Интегрированные среды разработки и редакторы </br> — подключаемый модуль набора средств для Eclipse с Azure; </br> — Emacs (с ESS, AUCTeX), gedit. |
+| Power BI Desktop; |-- |
+| Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных); </br> — MXNet (глубокое обучение/AI). |Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных). |
+| Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |
+| Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки, PowerShell, AdlCopy (Azure Data Lake), AzCopy, DTUI (для DocumentDB), шлюз управления данными Майкрософт |Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки |
+| Git, подключаемый модуль Visual Studio Team Services |Git |
+| Порт Windows самых популярных служебных программ командной строки для Linux и Unix, доступный через GitBash или командную строку |-- |
 
-## <a name="how-to-get-started-with-the-windows-server-data-science-vm"></a>How to get started with the Windows Server Data Science VM
-* Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button.
-* Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
-* To discover and launch the tools available, click the **Start** menu.
+## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Как приступить к работе с виртуальной машиной Windows для обработки и анализа данных
+* Создайте экземпляр виртуальной машины под управлением Windows. Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) и нажмите зеленую кнопку **Создание виртуальной машины**.
+* Войдите в виртуальную машину из удаленного рабочего стола, используя учетные данные, указанные при ее создании.
+* Чтобы обнаружить и запустить средства, выберите меню **Запустить**.
 
-## <a name="get-started-with-the-linux-data-science-vm"></a>Get started with the Linux Data Science VM
-* Create an instance of the VM on Linux (OpenLogic CentOS-based) by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) and selecting the **Create Virtual Machine** button.
-* Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
-* In the shell prompt, enter dsvm-more-info.
-* For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux Data Science VM document [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+## <a name="get-started-with-the-linux-data-science-vm"></a>Приступая к работе с виртуальной машиной Linux для обработки и анализа данных
+* Создайте экземпляр виртуальной машины под управлением Linux (на основе CentOS с поддержкой OpenLogic). Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) и нажмите кнопку **Create Virtual Machine** (Создание виртуальной машины).
+* Войдите в виртуальную машину из клиента SSH, такого как PuTTY, с помощью команды SSH или используйте учетные данные, указанные при создании этой виртуальной машины.
+* В командной строке оболочки введите dsvm-more-info.
+* Для графического рабочего стола скачайте [отсюда](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) клиент X2Go в зависимости от его платформы и выполните инструкции в документе [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
-## <a name="next-steps"></a>Next steps
-### <a name="for-the-windows-data-science-vm"></a>For the Windows Data Science VM
-* For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and
-* For more information on how to perform various tasks needed for your data science project on the Windows VM, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+## <a name="next-steps"></a>Дальнейшие действия
+### <a name="for-the-windows-data-science-vm"></a>Для виртуальной машины Windows для обработки и анализа данных
+* Дополнительные сведения о том, как запустить конкретные средства, доступные в версии Windows, см. в разделе [Подготовка виртуальной машины Майкрософт для обработки и анализа данных](machine-learning-data-science-provision-vm.md), а
+* дополнительные сведения о том, как выполнять различные задачи рамках в проекта по обработке и анализу данных на виртуальной машине Windows, см. в статье [10 задач, которые можно выполнить в виртуальной машине для обработки и анализа данных](machine-learning-data-science-vm-do-ten-things.md).
 
-### <a name="for-the-linux-data-science-vm"></a>For the Linux Data Science VM
-* For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md).
-* For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md).
+### <a name="for-the-linux-data-science-vm"></a>Для виртуальной машины Linux для обработки и анализа данных
+* Дополнительные сведения о том, как запустить конкретные средства, доступные в версии Linux, см. в разделе [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md).
+* Пошаговое руководство по некоторым общим задачам обработки и анализа данных на виртуальных машинах Linux см. в статье [Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux](machine-learning-data-science-linux-dsvm-walkthrough.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

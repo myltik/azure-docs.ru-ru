@@ -1,12 +1,12 @@
 ---
-title: Создание расширенных отчетов для универсальных приложений для Windows с помощью MobileApps Engagement
-description: Интеграция Azure Mobile Engagement с универсальными приложениями для Windows
+title: "Создание расширенных отчетов для универсальных приложений для Windows с помощью MobileApps Engagement"
+description: "Интеграция Azure Mobile Engagement с универсальными приложениями для Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ea5030bf-73ac-49b7-bc3e-c25fc10e945a
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
+
 
 ---
-# Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows
+# <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Создание расширенных отчетов с помощью пакета SDK службы Engagement для универсальных приложений для Windows
 > [!div class="op_single_selector"]
 > * [Универсальная платформа Windows](mobile-engagement-windows-store-advanced-reporting.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -25,15 +29,15 @@ ms.author: piyushjo;ricksal
 > 
 > 
 
-В этом разделе описаны дополнительные сценарии создания отчетов в универсальном приложении для Windows. В них описываются параметры, которые можно применить для приложения, созданного в [учебнике по началу работы](mobile-engagement-windows-store-dotnet-get-started.md).
+В этом разделе описаны дополнительные сценарии создания отчетов в универсальном приложении для Windows. В них описываются параметры, которые можно применить для приложения, созданного в [учебнике по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## Предварительные требования
-[!INCLUDE [Предварительные требования](../../includes/mobile-engagement-windows-store-prereqs.md)]
+## <a name="prerequisites"></a>Предварительные требования
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-Прежде чем приступать к этому учебнику, необходимо изучить учебник [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md), в котором намеренно подобраны понятные и простые задания. В этом учебнике рассматриваются дополнительные параметры, доступные для выбора.
+Прежде чем приступать к этому учебнику, необходимо изучить учебник [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) , в котором намеренно подобраны понятные и простые задания. В этом учебнике рассматриваются дополнительные параметры, доступные для выбора.
 
-## Указание конфигурации Engagement во время выполнения
-Конфигурация Engagement сосредоточена в файле `Resources\EngagementConfiguration.xml` вашего проекта, где она была задана при изучении учебника [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md).
+## <a name="specifying-engagement-configuration-at-runtime"></a>Указание конфигурации Engagement во время выполнения
+Конфигурация Engagement сосредоточена в файле `Resources\EngagementConfiguration.xml` вашего проекта, где она была задана при изучении учебника [по началу работы](mobile-engagement-windows-store-dotnet-get-started.md) .
 
 Однако вы можете также указать его во время выполнения, так как можно вызвать приведенный ниже метод до инициализации агента Engagement.
 
@@ -48,13 +52,13 @@ ms.author: piyushjo;ricksal
 
 
 
-## Рекомендуемый метод: перегрузка классов `Page`
+## <a name="recommended-method-overload-your-page-classes"></a>Рекомендуемый метод: перегрузка классов `Page`
 Чтобы активировать создание отчетов по всем журналам, необходимым для службы Engagement при вычислении статистики пользователей, сеансов, действий, сбоев и технической информации, вы можете задать для подклассов `Page` наследование из классов `EngagementPage`.
 
 Ниже приведен пример страницы приложения. То же самое можно сделать для всех страниц приложения.
 
-### Исходный файл на C
-Измените файл страницы `.xaml.cs`:
+### <a name="c-source-file"></a>Исходный файл на C#
+Измените файл страницы `.xaml.cs` :
 
 * Добавьте операторы `using`:
   
@@ -88,8 +92,8 @@ ms.author: piyushjo;ricksal
 > 
 > 
 
-### XAML-файл
-Измените файл страницы `.xaml`:
+### <a name="xaml-file"></a>XAML-файл
+Измените файл страницы `.xaml` :
 
 * Добавьте в объявления пространств имен:
   
@@ -111,7 +115,7 @@ ms.author: piyushjo;ricksal
             ...
         </engagement:EngagementPage >
 
-### Переопределение действия по умолчанию
+### <a name="override-the-default-behaviour"></a>Переопределение действия по умолчанию
 По умолчанию имя класса страницы сообщается как имя действия без дополнительной информации. Если класс использует суффикс Page, служба Engagement также удалит его.
 
 Чтобы переопределить поведение по умолчанию для имени, добавьте следующий код.
@@ -134,7 +138,7 @@ ms.author: piyushjo;ricksal
 
 Эти методы вызываются из метода `OnNavigatedTo` вашей страницы.
 
-### Альтернативный метод: вызов `StartActivity()` вручную
+### <a name="alternate-method-call-startactivity-manually"></a>Альтернативный метод: вызов `StartActivity()` вручную
 Если вам не удается перегрузить классы `Page` или вы не хотите этого делать, запустите действия, вызвав методы `EngagementAgent` напрямую.
 
 Рекомендуем вызывать `StartActivity` внутри метода `OnNavigatedTo` своей страницы.
@@ -152,9 +156,14 @@ ms.author: piyushjo;ricksal
 > 
 > 
 
-## Расширенные отчеты
+## <a name="advanced-reporting"></a>Расширенные отчеты
 При желании можно также сообщать об определенных событиях, ошибках и заданиях приложения. Это можно сделать с помощью других методов в классе `EngagementAgent`. Engagement API позволяет использовать все дополнительные возможности Engagement.
 
-Дополнительную информацию см. в разделе [Как использовать API для расширенного добавления тегов Mobile Engagement в универсальном приложении для Windows](mobile-engagement-windows-store-use-engagement-api.md).
+Дополнительные сведения см. в статье [Как использовать API Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-use-engagement-api.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,27 +1,31 @@
 ---
-title: Назначение переменных в хранилище данных SQL | Microsoft Docs
-description: Советы по присваиванию значений переменных Transact-SQL в хранилище данных SQL Azure для разработки решений.
+title: "Назначение переменных в хранилище данных SQL | Документация Майкрософт"
+description: "Советы по присваиванию значений переменных Transact-SQL в хранилище данных SQL Azure для разработки решений."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ec9f7ad24dad833758d3b981fd4d8735119d813
+
 
 ---
-# Назначение переменных в хранилище данных SQL
+# <a name="assign-variables-in-sql-data-warehouse"></a>Назначение переменных в хранилище данных SQL
 Переменные в хранилище данных SQL задаются с помощью инструкции `DECLARE` или инструкции `SET`.
 
 Ниже перечислены допустимые способы задания значения переменной:
 
-## Задание переменных с помощью DECLARE
+## <a name="setting-variables-with-declare"></a>Задание переменных с помощью DECLARE
 Инициализация переменных с помощью DECLARE — один из наиболее гибких способов задать значение переменной в хранилище данных SQL.
 
 ```sql
@@ -45,7 +49,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Задание значений с помощью SET
+## <a name="setting-values-with-set"></a>Задание значений с помощью SET
 SET — это очень распространенный метод задания одной переменной.
 
 Ниже приведены примеры допустимого задания переменной с помощью SET:
@@ -59,19 +63,23 @@ SET     @v +=1;
 
 С помощью SET можно одновременно задать только одну переменную. Тем не менее, как видно выше, допускаются составные операторы.
 
-## Ограничения
+## <a name="limitations"></a>Ограничения
 Нельзя использовать SELECT или UPDATE, чтобы присвоить значение переменной.
 
-## Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Общие сведения о разработке][Общие сведения о разработке].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные советы по разработке см. в статье [общие сведения о разработке][общие сведения о разработке].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

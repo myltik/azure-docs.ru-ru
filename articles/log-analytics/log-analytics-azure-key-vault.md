@@ -1,12 +1,12 @@
 ---
-title: Решение хранилища ключей Azure в Log Analytics | Microsoft Docs
-description: Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы хранилища ключей Azure.
+title: "Решение хранилища ключей Azure в Log Analytics | Документация Майкрософт"
+description: "Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы хранилища ключей Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
+
 
 ---
-# <a name="azure-key-vault-(preview)-solution-in-log-analytics"></a>Решение хранилища ключей Azure (предварительная версия) в Log Analytics
+# <a name="azure-key-vault-preview-solution-in-log-analytics"></a>Решение хранилища ключей Azure (предварительная версия) в Log Analytics
 > [!NOTE]
 > Это [предварительная версия решения](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -96,6 +100,9 @@ ms.author: richrund
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о хранилище ключей Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

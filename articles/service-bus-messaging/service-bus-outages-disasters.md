@@ -1,102 +1,106 @@
 ---
-title: Insulating Service Bus applications against outages and disasters | Microsoft Docs
-description: Describes techniques you can use to protect applications against a potential Service Bus outage.
-services: service-bus
+title: "Рекомендации по изолированию приложений служебной шины от простоев и аварий | Документация Майкрософт"
+description: "В этой статье описаны методы, которые можно использовать для защиты приложений от возможного простоя служебной шины."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
-
-ms.service: service-bus
+ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a76ebad52b8b08311b488cd5bbdb909628d43ec3
+
 
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Best practices for insulating applications against Service Bus outages and disasters
-Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Рекомендации по изолированию приложений от простоев и аварий служебной шины
+Критически важные приложения должны работать постоянно, даже при возникновении незапланированных простоев или аварий. В этой статье описаны методы, которые можно использовать для защиты приложений служебной шины от возможного простоя службы или аварии.
 
-An outage is defined as the temporary unavailability of Azure Service Bus. The outage can affect some components of Service Bus, such as a messaging store, or even the entire datacenter. After the problem has been fixed, Service Bus becomes available again. Typically, an outage does not cause loss of messages or other data. An example of a component failure is the unavailability of a particular messaging store. An example of a datacenter-wide outage is a power failure of the datacenter, or a faulty datacenter network switch. An outage can last from a few minutes to a few days.
+Простой определяется как временная недоступность служебной шины Azure. Простой может влиять на некоторые компоненты служебной шины, например на хранилище сообщений или даже на весь центр обработки данных. После устранения проблемы служебная шина снова становится доступной. Как правило, простой не приводит к утрате сообщений или других данных. Примером сбоя компонента является недоступность определенного хранилища сообщений. Примером простоя центра обработки данных является сбой питания центра обработки данных или неисправность сетевого коммутатора центра обработки данных. Простой может длиться от нескольких минут до нескольких дней.
 
-A disaster is defined as the permanent loss of a Service Bus scale unit or datacenter. The datacenter may or may not become available again. Typically a disaster causes loss of some or all messages or other data. Examples of disasters are fire, flooding, or earthquake.
+Авария определяется как полная потеря единицы масштабирования или центра обработки данных служебной шины. Центр обработки данных может снова стать доступным, но может и не стать. Авария обычно вызывает потерю некоторых или всех сообщений или других данных. Примеры аварий — пожар, наводнение или землетрясение.
 
-## <a name="current-architecture"></a>Current architecture
-Service Bus uses multiple messaging stores to store messages that are sent to queues or topics. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail.
+## <a name="current-architecture"></a>Текущая архитектура
+Для хранения сообщений, отправляемых в очереди или разделы, служебная шина использует несколько хранилищ сообщений. Несекционированные очередь или раздел назначаются одному хранилищу сообщений. Если это хранилище сообщений недоступно, все операции с этой очередью или разделом завершатся с ошибкой.
 
-All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a namespace to span multiple datacenters.
+Все сущности обмена сообщениями служебной шины (очереди, разделы, ретрансляторы) располагаются в пространстве имен службы, которое связывается с центром обработки данных. Служебная шина не поддерживает автоматическую георепликацию данных и не позволяет пространству имен охватывать несколько центров обработки данных.
 
-## <a name="protecting-against-acs-outages"></a>Protecting against ACS outages
-If you are using ACS credentials, and ACS becomes unavailable, clients can no longer obtain tokens. Clients that have a token at the time ACS goes down can continue to use Service Bus until the tokens expire. The default token lifetime is 3 hours.
+## <a name="protecting-against-acs-outages"></a>Защита от простоев ACS
+Если вы используете учетные данные ACS и ACS становится недоступной, клиенты больше не смогут получать маркеры. Клиенты, имеющие маркер на момент сбоя ACS, могут продолжать пользоваться служебной шиной, пока срок действия маркера не истечет. По умолчанию время существования маркера составляет 3 часа.
 
-To protect against ACS outages, use Shared Access Signature (SAS) tokens. In this case, the client authenticates directly with Service Bus by signing a self-minted token with a secret key. Calls to ACS are no longer required. For more information about SAS tokens, see [Service Bus authentication][Service Bus authentication].
+Для защиты от простоев ACS используйте маркеры подписи общего доступа (SAS). В этом случае клиент проходит проверку подлинности непосредственно у служебной шины, подписывая самостоятельно созданный маркер секретным ключом. Вызовы к ACS больше не требуются. Дополнительные сведения о маркерах SAS см. в статье [Аутентификация и авторизация в служебной шине][Аутентификация и авторизация в служебной шине].
 
-## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protecting queues and topics against messaging store failures
-A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
+## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Защита очередей и разделов от сбоев хранилища сообщений
+Несекционированные очередь или раздел назначаются одному хранилищу сообщений. Если это хранилище сообщений недоступно, все операции с этой очередью или разделом завершатся с ошибкой. Секционированная очередь, с другой стороны, состоит из нескольких фрагментов. Все они хранятся в разных хранилищах сообщений. При отправке сообщения в секционированную очередь или раздел служебная шина назначает сообщение в один из фрагментов. В случае недоступности соответствующего хранилища сообщений служебная шина по возможности записывает сообщение в другой фрагмент. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Секционированные сущности обмена сообщениями].
 
-## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protecting against datacenter outages or disasters
-To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
+## <a name="protecting-against-datacenter-outages-or-disasters"></a>Защита от простоев или аварий центра обработки данных
+Чтобы разрешить переключение между двумя центрами обработки данных, можно создать пространство имен службы служебной шины в каждом центре обработки данных. Например, предположим, что пространство имен службы служебной шины **contosoPrimary.servicebus.windows.net** находится в северо-центральной части США, а пространство имен **contosoSecondary.servicebus.windows.net** — в южно-центральной части США. Если сущность обмена сообщениями служебной шины должна оставаться доступной при простое центра обработки данных, эту сущность можно создать в обоих пространствах имен.
 
-For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability].
+Дополнительные сведения см. в разделе "Сбой служебной шины в центре обработки данных Azure" статьи [Шаблоны асинхронного обмена сообщениями и высокий уровень доступности][Шаблоны асинхронного обмена сообщениями и высокий уровень доступности].
 
-## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protecting relay endpoints against datacenter outages or disasters
-Geo-replication of relay endpoints allows a service that exposes a relay endpoint to be reachable in the presence of Service Bus outages. To achieve geo-replication, the service must create two relay endpoints in different namespaces. The namespaces must reside in different datacenters and the two endpoints must have different names. For example, a primary endpoint can be reached under **contosoPrimary.servicebus.windows.net/myPrimaryService**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Защита конечных точек ретрансляции от простоев или аварий центра обработки данных
+Георепликация конечных точек ретрансляции позволяет службе, предоставляющей конечную точку ретрансляции, оставаться доступной при простое служебной шины. Для достижения георепликации служба должна создать две конечные точки ретрансляции в разных пространствах имен. Пространства имен должны находиться в разных центрах обработки данных, а две конечные точки должны иметь разные имена. Например, первичная конечная точка может быть доступна как **contosoPrimary.servicebus.windows.net/myPrimaryService**, а ее вторичный аналог — как **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
-The service then listens on both endpoints, and a client can invoke the service via either endpoint. A client application randomly picks one of the relays as the primary endpoint, and sends its request to the active endpoint. If the operation fails with an error code, this failure indicates that the relay endpoint is not available. The application opens a channel to the backup endpoint and reissues the request. At that point the active and the backup endpoints switch roles: the client application considers the old active endpoint to be the new backup endpoint, and the old backup endpoint to be the new active endpoint. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
+Затем служба прослушивает обе конечные точки, и клиент может вызывать службу через любую из них. Клиентское приложение случайным образом выбирает один из ретрансляторов в качестве первичной конечной точки и отправляет свой запрос активной конечной точке. Если операция завершается ошибкой с кодом ошибки, это означает, что конечная точка ретрансляции недоступна. Приложение открывает канал к резервной конечной точке и снова отправляет запрос. В этот момент активная и резервная конечные точки меняются ролями: клиентское приложение считает старую активную конечную точку новой резервной конечной точкой, а старую резервную конечную точку — новой активной конечной точкой. Если обе операции завершаются неудачно, роли двух сущностей не изменяются и возвращается сообщение об ошибке.
 
-The [Geo-replication with Service Bus Relayed Messages][Geo-replication with Service Bus Relayed Messages] sample demonstrates how to replicate relays.
+В примере [Георепликация с ретрансляцией сообщений служебной шины][Георепликация с ретрансляцией сообщений служебной шины] демонстрируется репликация ретрансляторов.
 
-## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protecting queues and topics against datacenter outages or disasters
-To achieve resilience against datacenter outages when using brokered messaging, Service Bus supports two approaches: *active* and *passive* replication. For each approach, if a given queue or topic must remain accessible in the presence of a datacenter outage, you can create it in both namespaces. Both entities can have the same name. For example, a primary queue can be reached under **contosoPrimary.servicebus.windows.net/myQueue**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/myQueue**.
+## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Защита очередей и разделов от простоев или аварий центра обработки данных
+Для обеспечения устойчивости к простоям центра обработки данных при обмене сообщениями через брокер служебная шина поддерживает два подхода: *активную* и *пассивную* репликацию. В каждом из этих подходов, если заданная очередь или раздел должны оставаться доступными при простое центра обработки данных, то эти очередь или раздел можно создать в обоих пространствах имен. Обе сущности могут иметь одно и то же имя. Например, первичная очередь может быть доступна как **contosoPrimary.servicebus.windows.net/myQueue**, а ее вторичный аналог — как **contosoSecondary.servicebus.windows.net/myQueue**.
 
-If the application does not require permanent sender-to-receiver communication, the application can implement a durable client-side queue to prevent message loss and to shield the sender from any transient Service Bus errors.
+Если приложение не требует постоянной связи отправителя и получателя, в нем можно реализовать долгосрочную клиентскую очередь для предотвращения потери сообщений и защиты отправителя от любых временных ошибок служебной шины.
 
-## <a name="active-replication"></a>Active replication
-Active replication uses entities in both namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
+## <a name="active-replication"></a>Активная репликация
+При активной репликации для каждой операции используются объекты в обоих пространствах имен. Любой клиент, отправляющий сообщение, отправляет две копии одного и того же сообщения. Первая копия отправляется основной сущности (например, **contosoPrimary.servicebus.windows.net/sales**), а вторая копия — дополнительной сущности (например, **contosoSecondary.servicebus.windows.net/sales**).
 
-A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [BrokeredMessage.MessageId][BrokeredMessage.MessageId] or [BrokeredMessage.Label][BrokeredMessage.Label] properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
+Клиент получает сообщения из обеих очередей. Получатель обрабатывает первую копию сообщения, а вторая копия пропускается. Во избежание дублирования сообщений отправитель должен помечать каждое сообщение уникальным идентификатором. Обе копии сообщения должны быть помечены одним и тем же идентификатором. Для указания идентификатора сообщения можно использовать свойства [BrokeredMessage.MessageId][BrokeredMessage.MessageId], [BrokeredMessage.Label][BrokeredMessage.Label] или пользовательские свойства. Получатель должен хранить список уже полученных им сообщений.
 
-The [Geo-replication with Service Bus Brokered Messages][Geo-replication with Service Bus Brokered Messages] sample demonstrates active replication of messaging entities.
+В примере [Георепликация с сообщениями служебной шины, отправляемыми через посредника][Георепликация с сообщениями служебной шины, отправляемыми через посредника] показана активная репликация сущностей обмена сообщениями.
 
 > [!NOTE]
-> The active replication approach doubles the number of operations, therefore this approach can lead to higher cost.
+> При активной репликации количество операций удваивается, поэтому этот подход может привести к увеличению расходов.
 > 
 > 
 
-## <a name="passive-replication"></a>Passive replication
-In the fault-free case, passive replication uses only one of the two messaging entities. A client sends the message to the active entity. If the operation on the active entity fails with an error code that indicates the datacenter that hosts the active entity might be unavailable, the client sends a copy of the message to the backup entity. At that point the active and the backup entities switch roles: the sending client considers the old active entity to be the new backup entity, and the old backup entity is the new active entity. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
+## <a name="passive-replication"></a>Пассивная репликация
+При отсутствии сбоев в пассивной репликации используется только одна из двух сущностей обмена сообщениями. Клиент отправляет сообщение активной сущности. При сбое операции на активной сущности с кодом ошибки, который указывает, что центр обработки данных, в котором размещена активная сущность, может быть недоступным, клиент отправляет копию сообщения резервной сущности. В этот момент активная и резервная сущности меняются ролями: клиент, отправляющий сообщение, считает старую активную сущность новой резервной сущностью, а старую резервную сущность — новой активной сущностью. Если обе операции завершаются неудачно, роли двух сущностей не изменяются и возвращается сообщение об ошибке.
 
-A client receives messages from both queues. Because there is a chance that the receiver receives two copies of the same message, the receiver must suppress duplicate messages. You can suppress duplicates in the same way as described for active replication.
+Клиент получает сообщения из обеих очередей. Поскольку есть вероятность того, что получатель получит две копии одного сообщения, он должен устранить дублирование сообщений. Устранить дубликаты можно так же, как при активной репликации.
 
-In general, passive replication is more economical than active replication because in most cases only one operation is performed. Latency, throughput, and monetary cost are identical to the non-replicated scenario.
+В целом пассивная репликация экономичнее активной, поскольку в большинстве случаев выполняется только одна операция. Задержки, пропускная способность и расходы для нее идентичны сценарию без репликации.
 
-When using passive replication, in the following scenarios messages can be lost or received twice:
+При использовании пассивной репликации сообщения могут быть утрачены или получены дважды в следующих сценариях:
 
-* **Message delay or loss**: Assume that the sender successfully sent a message m1 to the primary queue, and then the queue becomes unavailable before the receiver receives m1. The sender sends a subsequent message m2 to the secondary queue. If the primary queue is temporarily unavailable, the receiver receives m1 after the queue becomes available again. In case of a disaster, the receiver may never receive m1.
-* **Duplicate reception**: Assume that the sender sends a message m to the primary queue. Service Bus successfully processes m but fails to send a response. After the send operation times out, the sender sends an identical copy of m to the secondary queue. If the receiver is able to receive the first copy of m before the primary queue becomes unavailable, the receiver receives both copies of m at approximately the same time. If the receiver is not able to receive the first copy of m before the primary queue becomes unavailable, the receiver initially receives only the second copy of m, but then receives a second copy of m when the primary queue becomes available.
+* **Задержка или потеря сообщения.** Предположим, что отправитель успешно отправил сообщение m1 в основную очередь, а затем очередь стала недоступной до получения сообщения m1 получателем. Отправитель отправляет следующее сообщение m2 в дополнительную очередь. Если основная очередь временно недоступна, то получатель получит сообщение m1 после того, как очередь снова станет доступной. В случае сбоя получатель может никогда не получить сообщение m1.
+* **Дублирование.** Предположим, что отправитель отправляет сообщение m в основную очередь. Служебная шина успешно обрабатывает m, но ей не удается отправить ответ. По истечении времени ожидания отправки сообщения отправитель посылает идентичную копию сообщения m в дополнительную очередь. Если получатель смог получить первую копию m до того как основная очередь стала недоступной, то он получит обе копии m приблизительно в одно и то же время. Если получатель не смог получить первую копию m до того, как основная очередь стала недоступной, то сначала он получит вторую копию m, но затем получит первую копию m, когда основная очередь станет доступна.
 
-The [Geo-replication with Service Bus Brokered Messages][Geo-replication with Service Bus Brokered Messages] sample demonstrates passive replication of messaging entities.
+В примере [Георепликация с сообщениями служебной шины, отправляемыми через посредника][Георепликация с сообщениями служебной шины, отправляемыми через посредника] показана пассивная репликация сущностей обмена сообщениями.
 
-## <a name="next-steps"></a>Next steps
-To learn more about disaster recovery, see these articles:
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об аварийном восстановлении см. в следующих статьях:
 
-* [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
-* [Azure resiliency technical guidance][Azure resiliency technical guidance]
+* [Обеспечение непрерывности работы базы данных SQL Azure][Обеспечение непрерывности работы базы данных SQL Azure]
+* [Техническое руководство по обеспечению устойчивости в Azure][Техническое руководство по обеспечению устойчивости в Azure]
 
-[Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Partitioned messaging entities]: service-bus-partitioning.md
-[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
+[Аутентификация и авторизация в служебной шине]: service-bus-authentication-and-authorization.md
+[Секционированные сущности обмена сообщениями]: service-bus-partitioning.md
+[Шаблоны асинхронного обмена сообщениями и высокий уровень доступности]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
+[Георепликация с ретрансляцией сообщений служебной шины]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
 [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
 [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[Георепликация с сообщениями служебной шины, отправляемыми через посредника]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Обеспечение непрерывности работы базы данных SQL Azure]: ../sql-database/sql-database-business-continuity.md
+[Техническое руководство по обеспечению устойчивости в Azure]: ../resiliency/resiliency-technical-guidance.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

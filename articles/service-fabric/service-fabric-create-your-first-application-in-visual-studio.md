@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -151,6 +151,6 @@ ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

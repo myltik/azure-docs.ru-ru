@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
 ### <a name="azure-account"></a>Учетная запись Azure
 Для работы с этим руководством требуется учетная запись Azure. Вы можете:
 
-* [Открыть бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. После израсходования кредитов ваша учетная запись не исчезнет. Вы сможете использовать ее для работы с бесплатными службами и функциями Azure.
-* [Активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
+* [Открыть бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. После израсходования кредитов ваша учетная запись не исчезнет. Вы сможете использовать ее для работы с бесплатными службами и функциями Azure.
+* [Активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 с пакетом Azure SDK для .NET.
 Это руководство написано для Visual Studio 2015 с пакетом [Azure SDK для .NET](../dotnet-sdk.md) 2.8.2 или более поздней версии. [Скачайте последний пакет Azure SDK для Visual Studio 2015 отсюда](http://go.microsoft.com/fwlink/?linkid=518003). Будет автоматически установлена программа Visual Studio с пакетом SDK (если она еще не установлена).
@@ -808,6 +808,6 @@ ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

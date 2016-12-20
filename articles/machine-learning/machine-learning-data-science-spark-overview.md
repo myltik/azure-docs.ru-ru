@@ -1,12 +1,12 @@
 ---
-title: Обзор обработки и анализа данных с помощью платформы Spark в Azure HDInsight | Microsoft Docs
-description: Набор средств Spark MLlib предоставляет широкие возможности моделирования машинного обучения в распределенной среде HDInsight.
+title: "Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight | Документация Майкрософт"
+description: "Набор средств Spark MLlib предоставляет широкие возможности моделирования машинного обучения в распределенной среде HDInsight."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a4e1de99-a554-4240-9647-2c6d669593c8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
+ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+
+
 
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight
@@ -29,6 +34,7 @@ ms.author: deguhath;bradsev;gokuma
 
 ## <a name="prerequisites"></a>Предварительные требования
 1. У вас должна быть подписка Azure. Если у вас ее нет, см. статью [о получении бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 2. Для выполнения инструкций этого руководства требуется кластер HDInsight 3.4 Spark 1.6. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
@@ -136,7 +142,7 @@ ms.author: deguhath;bradsev;gokuma
 
 ![Кривая ROC логистической регрессии для универсального подхода](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="what's-next?"></a>Что дальше?
+## <a name="whats-next"></a>Что дальше?
 Теперь, когда вы настроили кластер HDInsight Spark и отправили записные книжки Jupyter, все готово для работы со статьями, посвященными этим трем записным книжкам PySpark. В них рассказывается, как исследовать данные, а также как создавать и использовать модели. С помощью записной книжки по расширенному исследованию и моделированию данных можно более подробно ознакомиться с тем, как использовать перекрестную проверку, перебор гиперпараметров и оценку модели. 
 
 **Исследование и моделирование данных с помощью Spark**. Исследуйте набор данных, а затем создайте, оцените и проанализируйте модели машинного обучения, выполнив инструкции из статьи, посвященной [созданию моделей двоичной классификации и регрессии для данных с помощью набора средств Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md).
@@ -145,6 +151,9 @@ ms.author: deguhath;bradsev;gokuma
 
 **Перекрестная проверка и перебор гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и перебора гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

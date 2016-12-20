@@ -50,10 +50,10 @@
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Шаг 3. Подключение](../articles/powershell-install-configure.md#step-3-connect).
+Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Шаг 3. Подключение](/powershell/azureps-cmdlets-docs#step-3-connect).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

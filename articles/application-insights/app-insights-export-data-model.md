@@ -1,11 +1,11 @@
 ---
-title: Модель данных Application Insights
-description: Описание свойств, экспортируемых с помощью непрерывного экспорта в формате JSON и используемых в качестве фильтров.
+title: "Модель данных Application Insights"
+description: "Описание свойств, экспортируемых с помощью непрерывного экспорта в формате JSON и используемых в качестве фильтров."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,32 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
+ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+
 
 ---
-# Экспорт модели данных Application Insights
-В этой таблице перечислены свойства телеметрии, отправляемой из различных пакетов SDK для [Application Insights](app-insights-overview.md) на портал. Вы увидите эти свойства в выходных данных [непрерывного экспорта](app-insights-export-telemetry.md). Также они отображаются в фильтрах свойств в [обозревателе метрик](app-insights-metrics-explorer.md) и [диагностическом поиске](app-insights-diagnostic-search.md).
+# <a name="application-insights-export-data-model"></a>Экспорт модели данных Application Insights
+В этой таблице перечислены свойства телеметрии, отправляемой из различных пакетов SDK для [Application Insights](app-insights-overview.md) на портал.
+Вы увидите эти свойства в выходных данных [непрерывного экспорта](app-insights-export-telemetry.md).
+Они также отображаются в фильтрах свойств в [обозревателе метрик](app-insights-metrics-explorer.md) и при [диагностическом поиске](app-insights-diagnostic-search.md).
 
 Примечания:
 
 * `[0]` в этих таблицах обозначает точку в пути, куда необходимо вставить индекс. При этом значение не всегда равно 0.
 * Продолжительность времени указана в десятых долях микросекунды, поэтому 10 000 000 = 1 с.
-* Значения даты и времени в формате UTC указаны в формате ISO `yyyy-MM-DDThh:mm:ss.sssZ`.
+* Значения даты и времени в формате UTC указаны в формате ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-Существует несколько [примеров](app-insights-export-telemetry.md#code-samples), показывающих, как их использовать.
+Существует несколько [примеров](app-insights-export-telemetry.md#code-samples) , показывающих, как их использовать.
 
-## Пример
+## <a name="example"></a>Пример
     // A server report about an HTTP request
     {
-    "request": [ 
+    "request": [
       {
         "urlData": { // derived from 'url'
           "host": "contoso.org",
           "base": "/",
-          "hashTag": "" 
+          "hashTag": ""
         },
         "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events 
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
@@ -71,14 +77,14 @@ ms.author: awills
         "continent": "North America",
         "country": "United States",
         // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0", 
+        "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
         // percentage of generated data sent to portal:
-        "samplingRate": 100.0, 
+        "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
       "user": {
@@ -106,7 +112,7 @@ ms.author: awills
     }
   }
 
-## Context
+## <a name="context"></a>Context
 Для каждого типа данных телеметрии приведен пример с разделом контекста. Не все эти поля передаются со всеми точками данных.
 
 | Путь | Тип | Примечания |
@@ -117,125 +123,125 @@ ms.author: awills
 | context.data.isSynthetic |Логическое |Запрос поступает от программы-робота или веб-теста. |
 | context.data.samplingRate |number |Процентная доля данных телеметрии, созданных с помощью пакета SDK, отправленного на портал. Диапазон 0,0–100,0. |
 | context.device |object |Устройство клиента |
-| context.device.browser |string |IE, Chrome… |
+| context.device.browser |строка |IE, Chrome… |
 | context.device.browserVersion |строка |Chrome 48.0… |
 | context.device.deviceModel |строка | |
 | context.device.deviceName |строка | |
-| context.device.id |string | |
-| context.device.locale |string |en-GB, de-DE… |
-| context.device.network |string | |
+| context.device.id |строка | |
+| context.device.locale |строка |en-GB, de-DE… |
+| context.device.network |строка | |
 | context.device.oemName |строка | |
 | context.device.osVersion |строка |ОС узла |
 | context.device.roleInstance |строка |Идентификатор узла сервера |
-| context.device.roleName |string | |
-| context.device.type |string |ПК, браузер… |
+| context.device.roleName |строка | |
+| context.device.type |строка |ПК, браузер… |
 | context.location |object |На основе значения clientip. |
 | context.location.city |строка |На основе значения clientip (если известно) |
 | context.location.clientip |строка |Последний восьмиугольник анонимизирован и имеет значение 0. |
-| context.location.continent |string | |
+| context.location.continent |строка | |
 | context.location.country |строка | |
-| context.location.province |string |Страна или область |
+| context.location.province |строка |Страна или область |
 | context.operation.id |строка |Элементы с одинаковым идентификатором операций отображаются на портале как связанные элементы. Как правило, это идентификатор запроса. |
 | context.operation.name |строка |URL-адрес или имя запроса |
-| context.operation.parentId |string |Разрешает использование вложенных связанных элементов. |
+| context.operation.parentId |строка |Разрешает использование вложенных связанных элементов. |
 | context.session.id |строка |Идентификатор группы операций из одного источника. 30-минутный период без операций указывает на завершение сеанса. |
 | context.session.isFirst |Логическое | |
 | context.user.accountAcquisitionDate |строка | |
-| context.user.anonAcquisitionDate |string | |
-| context.user.anonId |string | |
+| context.user.anonAcquisitionDate |строка | |
+| context.user.anonId |строка | |
 | context.user.authAcquisitionDate |строка |[Прошедший проверку пользователь.](app-insights-api-custom-events-metrics.md#authenticated-users) |
 | context.user.isAuthenticated |Логическое | |
-| internal.data.documentVersion |string | |
-| internal.data.id |string | |
+| internal.data.documentVersion |строка | |
+| internal.data.id |строка | |
 
-## События
+## <a name="events"></a>События
 Пользовательские события, создаваемые элементом [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
-| event [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
-| event [0] name |строка |Имя события. Максимальная длина: 250 |
+| event [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
+| event [0] name |строка |Имя события.  Максимальная длина: 250 |
 | event [0] url |строка | |
 | event [0] urlData.base |строка | |
-| event [0] urlData.host |string | |
+| event [0] urlData.host |строка | |
 
-## Исключения
+## <a name="exceptions"></a>Исключения
 Отправляются сведения об [исключениях](app-insights-asp-net-exceptions.md) на сервере и в браузере.
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
 | basicException [0] assembly |строка | |
-| basicException [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
+| basicException [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
 | basicException [0] exceptionGroup |строка | |
-| basicException [0] exceptionType |строка | |
-| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |строка | |
 | basicException [0] failedUserCodeAssembly |строка | |
 | basicException [0] handledAt |строка | |
 | basicException [0] hasFullStack |Логическое | |
-| basicException [0] id |string | |
+| basicException [0] id |строка | |
 | basicException [0] method |строка | |
 | basicException [0] message |строка |Сообщение об исключении. Максимальная длина: 10 000 |
 | basicException [0] outerExceptionMessage |строка | |
-| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtAssembly |строка | |
 | basicException [0] outerExceptionThrownAtMethod |строка | |
-| basicException [0] outerExceptionType |string | |
+| basicException [0] outerExceptionType |строка | |
 | basicException [0] outerId |строка | |
-| basicException [0] parsedStack [0] assembly |string | |
+| basicException [0] parsedStack [0] assembly |строка | |
 | basicException [0] parsedStack [0] fileName |строка | |
 | basicException [0] parsedStack [0] level |целое число | |
 | basicException [0] parsedStack [0] line |целое число | |
-| basicException [0] parsedStack [0] method |string | |
-| basicException [0] stack |string |Максимальная длина: 10 000 |
-| basicException [0] typeName |string | |
+| basicException [0] parsedStack [0] method |строка | |
+| basicException [0] stack |строка |Максимальная длина: 10 000 |
+| basicException [0] typeName |строка | |
 
-## Сообщения трассировки
+## <a name="trace-messages"></a>Сообщения трассировки
 Отправитель: [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) и [адаптеры ведения журналов](app-insights-asp-net-trace-logs.md).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
-| message [0] loggerName |string | |
+| message [0] loggerName |строка | |
 | message [0] parameters |строка | |
 | message [0] raw |строка |Сообщение журнала, максимальная длина — 10 тысяч символов. |
-| message [0] severityLevel |string | |
+| message [0] severityLevel |строка | |
 
-## Удаленная зависимость
+## <a name="remote-dependency"></a>Удаленная зависимость
 Отправитель: TrackDependency. Используется для создания отчетов о производительности и использовании [вызовов к зависимостям](app-insights-asp-net-dependencies.md) на сервере, а также вызовов AJAX в браузере.
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
 | remoteDependency [0] async |Логическое | |
-| remoteDependency [0] baseName |string | |
+| remoteDependency [0] baseName |строка | |
 | remoteDependency [0] commandName |строка |Например, home/index |
-| remoteDependency [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
-| remoteDependency [0] dependencyTypeName |string |HTTP, SQL, … |
+| remoteDependency [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
+| remoteDependency [0] dependencyTypeName |строка |HTTP, SQL, … |
 | remoteDependency [0] durationMetric.value |number |Время от вызова до завершения отклика зависимостью. |
 | remoteDependency [0] id |строка | |
-| remoteDependency [0] name |string |URL-адрес. Максимальная длина: 250 |
+| remoteDependency [0] name |строка |URL-адрес. Максимальная длина: 250 |
 | remoteDependency [0] resultCode |строка |Из зависимости HTTP. |
 | remoteDependency [0] success |Логическое | |
 | remoteDependency [0] type |строка |HTTP, SQL, … |
-| remoteDependency [0] url |string |Максимальная длина: 2000 |
+| remoteDependency [0] url |строка |Максимальная длина: 2000 |
 | remoteDependency [0] urlData.base |строка |Максимальная длина: 2000 |
 | remoteDependency [0] urlData.hashTag |строка | |
-| remoteDependency [0] urlData.host |string |Максимальная длина: 200 |
+| remoteDependency [0] urlData.host |строка |Максимальная длина: 200 |
 
-## Requests (Запросы)
+## <a name="requests"></a>Requests (Запросы)
 Отправитель: [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Используется стандартными модулями для создания отчетов о времени отклика сервера (измеряется на сервере).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
-| request [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
+| request [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например: 4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Время от поступления запроса до отклика. 1e7 = 1 с. |
-| request [0] id |string |Идентификатор операции |
-| request [0] name |строка |GET или POST + базовый URL-адрес. Максимальная длина: 250 |
+| request [0] id |строка |Идентификатор операции |
+| request [0] name |строка |GET или POST + базовый URL-адрес.  Максимальная длина: 250 |
 | request [0] responseCode |целое число |HTTP-отклик, отправленный клиенту. |
-| request [0] success |Логическое |Значение по умолчанию — responseCode &lt; 400 |
-| request [0] url |string |Не включая узел. |
+| request [0] success |Логическое |Значение по умолчанию == (responseCode &lt; 400) |
+| request [0] url |строка |Не включая узел. |
 | request [0] urlData.base |строка | |
 | request [0] urlData.hashTag |строка | |
 | request [0] urlData.host |строка | |
 
-## Производительность просмотра страницы
+## <a name="page-view-performance"></a>Производительность просмотра страницы
 Отправитель: браузер. Измеряет время обработки страницы — с момента инициации пользователем запроса до полного отображения страницы (за исключением асинхронных вызовов AJAX).
 
 Контекстные значения показывают версию клиентской ОС и версию браузера.
@@ -248,45 +254,45 @@ ms.author: awills
 | clientPerformance [0] receiveRequest.value |целое число |Время от завершения отправки запроса до получения HTML в отклике. |
 | clientPerformance [0] sendRequest.value |целое число |Время на отправку HTTP-запроса. |
 | clientPerformance [0] total.value |целое число |Время от запуска отправки запроса до отображения страницы. |
-| clientPerformance [0] url |string |URL-адрес запроса. |
-| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] url |строка |URL-адрес запроса. |
+| clientPerformance [0] urlData.base |строка | |
 | clientPerformance [0] urlData.hashTag |строка | |
-| clientPerformance [0] urlData.host |string | |
+| clientPerformance [0] urlData.host |строка | |
 | clientPerformance [0] urlData.protocol |строка | |
 
-## Просмотры страницы
-Отправитель: trackPageView() или [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view).
+## <a name="page-views"></a>Просмотры страницы
+Отправитель: trackPageView() или [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
-| view [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
+| view [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
 | view [0] durationMetric.value |целое число |При необходимости значение можно указать в методе trackPageView() или с помощью метода start/stopTrackPage(). Не совпадает со значениями clientPerformance. |
-| view [0] name |строка |Заголовок страницы. Максимальная длина: 250 |
+| view [0] name |строка |Заголовок страницы.  Максимальная длина: 250 |
 | view [0] url |строка | |
 | view [0] urlData.base |строка | |
 | view [0] urlData.hashTag |строка | |
 | view [0] urlData.host |строка | |
 
-## Доступность
+## <a name="availability"></a>Доступность
 Это свойство создает отчеты о [веб-тестах на доступность](app-insights-monitor-web-app-availability.md).
 
 | Путь | Тип | Примечания |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |строка |availability |
+| availability [0] availabilityMetric.name |строка |Доступность |
 | availability [0] availabilityMetric.value |number |1,0 или 0,0. |
-| availability [0] count |целое число |100/(частота [выборки](app-insights-sampling.md)). Например, 4 =&gt; 25 % |
-| availability [0] dataSizeMetric.name |string | |
+| availability [0] count |целое число |100/(частота[выборки](app-insights-sampling.md) ). Например, 4 = &gt; 25 %. |
+| availability [0] dataSizeMetric.name |строка | |
 | availability [0] dataSizeMetric.value |целое число | |
-| availability [0] durationMetric.name |string | |
+| availability [0] durationMetric.name |строка | |
 | availability [0] durationMetric.value |number |Продолжительность теста. 1e7 = 1 с. |
 | availability [0] message |строка |Диагностика сбоя. |
 | availability [0] result |строка |Успех или сбой. |
 | availability [0] runLocation |строка |Географический объект-источник HTTP-запроса. |
-| availability [0] testName |string | |
+| availability [0] testName |строка | |
 | availability [0] testRunId |строка | |
 | availability [0] testTimestamp |строка | |
 
-## Метрики
+## <a name="metrics"></a>Метрики
 Создатель: TrackMetric().
 
 Значение метрики можно найти в context.custom.metrics[0].
@@ -316,7 +322,7 @@ ms.author: awills
          } ] }
     }
 
-## О значениях метрик
+## <a name="about-metric-values"></a>О значениях метрик
 Значения метрик (как в отчетах, так и в других элементах) сообщаются в рамках стандартной структуры объекта. Например:
 
       "durationMetric": {
@@ -336,14 +342,18 @@ ms.author: awills
 
 В таблицах выше мы опустили редко используемые поля count, min, max, stdDev и sampledValue.
 
-Вместо предварительного статистического вычисления метрик вы можете использовать [выборки](app-insights-sampling.md), чтобы сократить объем данных телеметрии.
+Вместо предварительного статистического вычисления метрик вы можете использовать [выборки](app-insights-sampling.md) , чтобы сократить объем данных телеметрии.
 
-### Длительность
+### <a name="durations"></a>Длительность
 За исключением оговоренных случаев, показатели длительности представлены в десятых долях микросекунды, то есть 10 000 000,0 — это 1 с.
 
-## См. также
-* [Application Insights](app-insights-overview.md) 
+## <a name="see-also"></a>Дополнительные материалы
+* [Application Insights](app-insights-overview.md)
 * [Непрерывный экспорт](app-insights-export-telemetry.md)
 * [Примеры кода](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

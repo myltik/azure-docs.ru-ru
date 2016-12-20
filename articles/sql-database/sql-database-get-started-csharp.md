@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Создание сервера базы данных SQL, правила брандмауэра и базы данных SQL — пример на языке C#
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Создание сервера базы данных SQL, правила брандмауэра и базы данных SQL — пример на языке C#
 В следующем примере создается группа ресурсов, сервер, правило брандмауэра и база данных SQL. Чтобы получить переменные `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, см. раздел [Создание субъекта-службы для доступа к ресурсам](#create-a-service-principal-to-access-resources).
 
 Замените содержимое файла **Program.cs** приведенным ниже кодом и обновите `{variables}`, используя значения для своего приложения (удалите `{}`).
@@ -292,6 +293,6 @@ ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

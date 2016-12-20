@@ -1,11 +1,11 @@
 ---
-title: Приступая к работе с аутентификацией в Android на основе сертификата | Microsoft Docs
-description: Узнайте, как настроить аутентификацию на основе сертификата в решениях на устройствах Android.
+title: "Приступая к работе с аутентификацией в Android на основе сертификата | Документация Майкрософт"
+description: "Узнайте, как настроить аутентификацию на основе сертификата в решениях на устройствах Android."
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Приступая к работе с аутентификацией в Android на основе сертификата — общедоступная предварительная версия
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Приступая к работе с аутентификацией в Android на основе сертификата — общедоступная предварительная версия
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -60,9 +64,9 @@ CBA позволяет Azure Active Directory выполнять аутенти�
 Чтобы служба Azure Active Directory могла отзывать сертификат клиента, маркер AD FS должен иметь следующие утверждения:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (серийный номер сертификата клиента); 
+   (серийный номер сертификата клиента); 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (строка для издателя сертификата клиента). 
+   (строка для издателя сертификата клиента). 
 
 Azure Active Directory добавляет эти утверждения в маркер обновления, если они доступны в маркере AD FS (или любом другом токене SAML). Когда требуется проверить маркер обновления, эта информация используется для проверки отзыва. 
 
@@ -137,7 +141,7 @@ Azure Active Directory добавляет эти утверждения в ма�
 ### <a name="removing-a-certificate-authority"></a>Удаление центра сертификации
 1. Получите сведения о центрах сертификации: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Удалите сертификат для центра сертификации: 
    
         Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -145,7 +149,7 @@ Azure Active Directory добавляет эти утверждения в ма�
 ### <a name="modfiying-a-certificate-authority"></a>Изменение центра сертификации
 1. Получите сведения о центрах сертификации: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Измените свойства центра сертификации: 
    
         $c[0].AuthorityType=1 
@@ -192,11 +196,10 @@ Azure Active Directory добавляет эти утверждения в ма�
         connect-msolservice -credential $msolcred 
 2. Получите текущее значение StsRefreshTokensValidFrom для пользователя: 
    
-       $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-       $user.StsRefreshTokensValidFrom 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`   $user.StsRefreshTokensValidFrom 
 3. Настройте новое значение StsRefreshTokensValidFrom для пользователя, равное текущей метке времени: 
    
-       Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 Задаваемая дата должна быть в будущем. Если дата не в будущем, свойство **StsRefreshTokensValidFrom** не будет задано. Если дата в будущем, для **StsRefreshTokensValidFrom** задается актуальное время (не дата, указанная командой Set-MsolUser). 
 
@@ -204,6 +207,7 @@ Azure Active Directory добавляет эти утверждения в ма�
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

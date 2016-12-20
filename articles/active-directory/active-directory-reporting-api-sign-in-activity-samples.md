@@ -1,12 +1,12 @@
 ---
-title: Примеры для API отчета о действиях при входе Azure Active Directory | Microsoft Docs
-description: Как начать работу с API отчетов Azure Active Directory
+title: "Примеры для API отчета о событии входа в Azure Active Directory | Документация Майкрософт"
+description: "Как начать работу с API отчетов Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Примеры для API отчета о действиях при входе Azure Active Directory
@@ -84,6 +88,9 @@ ms.author: dhanyahk;markvi
 * Полный обзор использования API отчетов Azure Active Directory см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

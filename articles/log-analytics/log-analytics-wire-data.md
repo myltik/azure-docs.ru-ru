@@ -1,27 +1,23 @@
 ---
-title: 'Решение '
-данные: ''
-передачи": ''
-в: ''
-log: ''
-analytics: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные.
+title: "Решение &quot;Данные передачи&quot; в Log Analytics | Документация Майкрософт"
+description: "Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Решение "Данные передачи" в Log Analytics
@@ -29,8 +25,8 @@ ms.author: banders
 
 > [!NOTE]
 > Решение "Данные передачи" пока нельзя добавлять в рабочие области. Клиенты, у которых решение "Данные передачи" уже включено, могут продолжать его использовать.
-> 
-> 
+>
+>
 
 По умолчанию OMS собирает зарегистрированные в журналах данные производительности ЦП, памяти, дисков и сети на основе показателей счетчиков, встроенных в Windows. Процесс сбора сетевых и других данных выполняется в режиме реального времени для каждого агента, включая протоколы подсетей и протоколы уровня приложений, используемые компьютером. Дополнительные счетчики производительности можно добавить на странице "Параметры" на вкладке "Журналы".
 
@@ -84,7 +80,7 @@ ms.author: banders
 2. В списке **Common WireData Queries** (Общие запросы данных передачи) щелкните **Amount of Network Traffic (in Bytes) by Proces** (Объем сетевого трафика в байтах по процессам), чтобы просмотреть список возвращенных процессов.
     ![Запросы данных передачи](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. Если список процессов слишком велик и неудобен для просмотра, поисковый запрос можно изменить так, чтобы он выглядел следующим образом:
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -93,24 +89,26 @@ ms.author: banders
 4. Используя данные, возвращенные в списке, щелкните именованный процесс. В этом примере был выбран процесс DancingPigs.exe. В приведенных ниже результатах описывается тип сетевого трафика, например исходящий обмен данными по различным протоколам.
     ![Результаты данных передачи, показывающие именованный процесс](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. Так как установлено решение "Безопасность и аудит", можно взглянуть на события безопасности с одним и тем же значением поля ProcessName, изменив поисковый запрос с помощью операторов запроса IN и DISTINCT. Это можно сделать, когда данные передачи и другие журналы решений имеют значения в одном формате. Измените запрос, чтобы он имел следующий вид.
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![результаты данных передачи, показывающие объединенные данные](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. В результатах выше отображаются сведения об учетной записи. Теперь можно уточнить запрос, чтобы узнать частоту использования учетной записи, отображающей данные о безопасности и аудите, в процессе. Запрос должен выглядеть следующим образом:        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![результаты данных передачи, показывающие данные учетной записи](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные записи поиска данных передачи.
 * Прочитайте запись в блоге Дэна [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Использование данных передачи в поиске по журналам Operations Management Suite), которая включает дополнительные сведения о частоте сбора данных и способах изменения свойств сбора для агентов Operations Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

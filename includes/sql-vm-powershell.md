@@ -1,9 +1,9 @@
 
 ## <a name="start-your-powershell-session"></a>Запуск сеанса PowerShell
-Сначала установите и запустите последнюю версию [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) . Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
+Сначала установите и запустите последнюю версию [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) . Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
-> В примерах ниже используется [модель развертывания Azure Resource Manager](../articles/resource-group-overview.md), поэтому применяются [командлеты Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> В примерах ниже используется [модель развертывания Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), поэтому применяются [командлеты Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
 > 
 > 
 
@@ -17,6 +17,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

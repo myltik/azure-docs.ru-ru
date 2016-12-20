@@ -1,23 +1,29 @@
 ---
-title: Решение для мониторинга VMware в Log Analytics | Microsoft Docs
-description: Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi.
+title: "Решение для мониторинга VMware в Log Analytics | Документация Майкрософт"
+description: "Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
 
 ---
-# <a name="vmware-monitoring-(preview)-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
+
+# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
 Решение для мониторинга VMware в Log Analytics помогает управлять централизованным ведением больших журналов VMware, а также отслеживать их. В статье описано, как с помощью этого решения централизованно устранять неполадки, связанные с узлами ESXi, а также регистрировать их и управлять ими. В решении можно увидеть подробные данные для всех узлов ESXi в одном расположении. В журналах узла ESXi вы можете просматривать счетчики основных событий, а также состояния и тенденции ВМ и узлов ESXi. Вы также можете устранять неполадки, просматривая централизованные журналы узлов ESXi и выполняя поиск в них. И наоборот, можно создавать оповещения на основе поисковых запросов по журналам.
+
+В решении для отправки данных на целевую виртуальную машину, где установлен агент OMS, используются встроенные функции системного журнала узла ESXi. Однако решение не предусматривает запись файлов в системный журнал целевой виртуальной машины. Агент OMS открывает порт 1514 и прослушивает его. При получении данных он отправляет данные в OMS.
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
@@ -25,41 +31,42 @@ ms.author: banders
 * Включите решение для мониторинга VMware в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Поддерживаемые узлы VMware ESXi
-vSphere ESXi Host версий 5.5 и 6.0.
+vSphere ESXi Host версий 5.5 и 6.0.
 
 #### <a name="prepare-a-linux-server"></a>Подготовка сервера под управлением Linux
-Создайте ВМ с ОС Linux, чтобы получать все данные системных журналов от узлов ESXi. [Агент OMS для Linux ](log-analytics-linux-agents.md) — это точка сбора всех данных системных журналов узлов ESXi. Можно использовать несколько узлов ESXi для пересылки журналов на отдельный сервер под управлением Linux, как показано в следующем примере.  
+Создайте ВМ с ОС Linux, чтобы получать все данные системных журналов от узлов ESXi. [Агент OMS для Linux ](log-analytics-linux-agents.md) — это точка сбора всех данных системных журналов узлов ESXi. Можно использовать несколько узлов ESXi для пересылки журналов на отдельный сервер под управлением Linux, как показано в следующем примере.  
 
    ![Поток данных системных журналов](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Настройка сбора системных журналов
-1. Настройте пересылку системных журналов для VSphere. Подробные сведения о настройке пересылки системных журналов см. [здесь](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Последовательно выберите **ESXi Host Configuration** > **Software** > **Advanced Settings** > **Syslog** (Конфигурация узла ESXi > Программное обеспечение > Дополнительные параметры > Системный журнал).
+1. Настройте пересылку системных журналов для VSphere. Подробные сведения о настройке пересылки системных журналов см. [здесь](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Последовательно выберите **ESXi Host Configuration** > **Software** > **Advanced Settings** > **Syslog** (Конфигурация узла ESXi > Программное обеспечение > Дополнительные параметры > Системный журнал).
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. В поле *Syslog.global.logHost* укажите сервер Linux и номер порта *1514*. Например, `tcp://hostname:1514` или `tcp://123.456.789.101:1514`.
-3. Откройте брандмауэр узла ESXi для системного журнала. Последовательно выберите **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** и **Properties** (Конфигурация узла ESXi > Программное обеспечение > Профиль безопасности > Брандмауэр > Свойства).  
-   
+3. Откройте брандмауэр узла ESXi для системного журнала. Последовательно выберите **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** и **Properties** (Конфигурация узла ESXi > Программное обеспечение > Профиль безопасности > Брандмауэр > Свойства).  
+
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
-   
+
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 4. Проверьте консоль vSphere, чтобы удостовериться в правильной настройке системного журнала. Подтвердите на узле ESXI, что этот порт **1514** настроен.
-5. Проверьте подключение между сервером Linux и узлом ESXi, выполнив команду `nc` на узле ESXi. Например:
-   
-    ```
-    [root@ESXiHost:~] nc -z 123.456.789.101 1514
-    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
-    ```
-6. Скачайте и установите агент OMS для Linux на сервере Linux. Подробные сведения см. в [документации по агенту OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-7. Установив агента OMS для Linux, перейдите в каталог /etc/opt/microsoft/omsagent/sysconf/omsagent.d и скопируйте файл vmware_esxi.conf в каталог /etc/opt/microsoft/omsagent/conf/omsagent.d. Измените владельца или группу и разрешения для файла. Например:
-   
+5. Скачайте и установите агент OMS для Linux на сервере Linux. Дополнительные сведения см. в [документации по агенту OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
+6. Установив агента OMS для Linux, перейдите в каталог /etc/opt/microsoft/omsagent/sysconf/omsagent.d и скопируйте файл vmware_esxi.conf в каталог /etc/opt/microsoft/omsagent/conf/omsagent.d. Измените владельца или группу и разрешения для файла. Например:
+
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-8. Перезапустите агент OMS для Linux, выполнив `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+7. Перезапустите агент OMS для Linux, выполнив `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+8. Проверьте подключение между сервером Linux и узлом ESXi, выполнив команду `nc` на узле ESXi. Например:
+
+    ```
+    [root@ESXiHost:~] nc -z 123.456.789.101 1514
+    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
+    ```
+
 9. На портале OMS выполните следующий поиск по журналу: `Type=VMware_CL`. Собирая данные системного журнала, OMS сохраняет формат syslog. На портале регистрируются некоторые поля, включая *Hostname* и *ProcessName*.  
-   
+
     ![type](./media/log-analytics-vmware/type.png)  
-   
+
     Если представление с результатами поиска по журналу похоже на изображенное выше, это значит, что панель мониторинга для соответствующего решения OMS VMware настроена.  
 
 ## <a name="vmware-data-collection-details"></a>Сведения о сборе данных VMware
@@ -69,7 +76,7 @@ vSphere ESXi Host версий 5.5 и 6.0.
 
 | платформа | Агент OMS для Linux | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Да](./media/log-analytics-vmware/oms-bullet-green.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |Каждые 3 минуты |
+|  Linux |![Да](./media/log-analytics-vmware/oms-bullet-green.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |Каждые 3 минуты |
 
 В следующей таблице приведены примеры типов данных, собираемых решением для мониторинга VMware.
 
@@ -108,9 +115,9 @@ vSphere ESXi Host версий 5.5 и 6.0.
 * действия виртуальной машины;
 * события диска узла ESXi.
 
-![Решение 1](./media/log-analytics-vmware/solutionview1-1.png)
+![Решение 1](./media/log-analytics-vmware/solutionview1-1.png)
 
-![Решение 2](./media/log-analytics-vmware/solutionview1-2.png)
+![Решение 2](./media/log-analytics-vmware/solutionview1-2.png)
 
 Щелкните любую колонку, чтобы открыть область поиска Log Analytics с соответствующими подробными сведениями.
 
@@ -142,18 +149,57 @@ vSphere ESXi Host версий 5.5 и 6.0.
 ![Запросы](./media/log-analytics-vmware/queries.png)
 
 #### <a name="save-queries"></a>Сохранение запросов
-Сохранение запросов поиска — это стандартная функция OMS, которая помогает сохранять запросы, которые оказались полезными для вас. Создав запрос, который вы считаете полезным, сохраните его, щелкнув **Избранное**. Сохранение запроса позволяет без труда использовать его позже на странице [Моя панель мониторинга](log-analytics-dashboards.md), где вы можете создавать собственные настраиваемые панели мониторинга.
+Сохранение запросов поиска — это стандартная функция OMS, которая помогает сохранять запросы, которые оказались полезными для вас. Создав запрос, который вы считаете полезным, сохраните его, щелкнув **Избранное**. Сохранение запроса позволяет без труда использовать его позже на странице [Моя панель мониторинга](log-analytics-dashboards.md), где вы можете создавать собственные настраиваемые панели мониторинга.
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Создание оповещений из запросов
 Созданные запросы можно использовать для оповещения при возникновении определенных событий. Подробные сведения о создании оповещений см. в статье [Оповещения в Log Analytics](log-analytics-alerts.md). Примеры оповещающих и других запросов см. в записи блога [Monitor VMware using OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Мониторинг VMware с помощью OMS Log Analytics).
 
+## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
+### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Что нужно настраивать для узла ESXi? Какое влияние это окажет на мою текущую среду?
+В решении используется встроенный механизм перенаправления системного журнала узла ESXi. Для ведения журналов на узле ESXi не нужно устанавливать дополнительное программное обеспечение Майкрософт. Существенное влияние на имеющуюся среду не оказывается. Тем не менее необходимо настроить перенаправление системного журнала, что является функцией ESXi.
+
+### <a name="do-i-need-to-restart-my-esxi-host"></a>Нужно ли перезапускать узел ESXi?
+Нет. Для этого процесса перезапуск не требуется. В некоторых случаях vSphere не обновляет системный журнал надлежащим образом. В таком случае войдите на узел ESXi и перезагрузите системный журнал. Опять же, узел перезапускать не нужно, поэтому этот процесс не нарушает работу в среде.
+
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>Можно ли увеличить или уменьшить объем данных журнала, отправляемых в OMS?
+Да, можно. В vSphere можно использовать параметры уровня ведения журнала узла ESXi. Сбор данных журналов основан на уровне *info*. Таким образом, если нужно выполнить аудит создания или удаления виртуальной машины, необходимо задать уровень *info* для Hostd. Дополнительные сведения см. в [базе знаний VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
+
+### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>Почему Hostd не предоставляет данные в OMS? Для моего параметра журнала установлено значение info.
+Произошла ошибка узла ESXi, касающаяся метки времени системного журнала. Дополнительные сведения см. в [базе знаний VMware](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). После применения обходного решения Hostd должен работать нормально.
+
+### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Можно ли иметь несколько узлов ESXi, которые пересылают данные системного журнала на одну виртуальную машину с агентом OMS?
+Да. Вы можете иметь несколько узлов ESXi, которые пересылают данные системного журнала в одну виртуальную машину с агентом OMS.
+
+### <a name="why-dont-i-see-data-flowing-into-oms"></a>Почему не отображается поступление данных в OMS?
+Это может быть вызвано несколькими причинами.
+
+* Узел ESXi неправильно передает данные на виртуальную машину под управлением агента OMS. Чтобы проверить это, сделайте следующее:
+
+  1. Войдите на узел ESXi с помощью SSH и выполните следующую команду: `nc -z ipaddressofVM 1514`
+
+      Если команда завершится ошибкой, скорее всего, параметры vSphere в расширенной конфигурации настроены неправильно. Сведения о том, как настроить узел ESXi для перенаправления системного журнала, см. в разделе [Настройка сбора системных журналов](#configure-syslog-collection).
+  2. Если подключение к порту системного журнала выполнено успешно, но данные не отображаются, перезагрузите системный журнал на узле ESXi с помощью SSH и выполните следующую команду: ` esxcli system syslog reload`
+* Виртуальная машина с агентом OMS настроена неправильно. Чтобы проверить это, сделайте следующее:
+
+  1. OMS прослушивает порт 1514 и передает данные в OMS. Чтобы проверить, что он открыт, выполните следующую команду: `netstat -a | grep 1514`
+  2. Вы увидите, что порт `1514/tcp` открыт. В противном случае проверьте, правильно ли установлен агент OMS. Если сведения о порте не отображаются, порт системного журнала не открыт на виртуальной машине.
+
+     1. Убедитесь, что агент OMS запущен, с помощью `ps -ef | grep oms`. Если это не так, запустите его, выполнив команду ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     2. Откройте файл `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+
+         Убедитесь, что настройки пользователей и группы допустимы. Они должны выглядеть следующим образом: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+         Если файл не существует или настройки пользователя и группы неправильны, выполните действия по исправлению, приведенные в разделе [Подготовка сервера под управлением Linux](#prepare-a-linux-server).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных об узле VMware.
 * [Создавайте собственные панели мониторинга](log-analytics-dashboards.md), отображающие данные об узле VMware.
 * [Создавайте оповещения](log-analytics-alerts.md), информирующие о возникновении определенных событий узла VMware.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

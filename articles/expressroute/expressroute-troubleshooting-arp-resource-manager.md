@@ -1,25 +1,29 @@
 ---
-title: Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Microsoft Docs
-description: На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute.
+title: "Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Документация Майкрософт"
+description: "На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+
 
 ---
 # <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP в модели развертывания с помощью Resource Manager
 > [!div class="op_single_selector"]
-> [PowerShell — Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell — классический портал](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell — Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell — классическая модель](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ ms.author: ganesr
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Протокол ARP и таблицы ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Протокол ARP и таблицы ARP
 Протокол ARP — это протокол уровня 2, определенный в стандарте [RFC 826](https://tools.ietf.org/html/rfc826). Протокол ARP используется для сопоставления адреса Ethernet (MAC-адреса) с IP-адресом.
 
 Таблица ARP обеспечивает сопоставление IPv4-адреса и MAC-адреса для конкретного пиринга. Таблица ARP для пиринга канала ExpressRoute содержит следующие сведения о каждом интерфейсе (первичном и вторичном).
@@ -130,7 +134,7 @@ ms.author: ganesr
 ## <a name="how-to-use-this-information"></a>Как использовать эти сведения
 С помощью таблицы ARP для пиринга можно проверить конфигурацию и подключение уровня 2. В этом разделе описывается, как будут выглядеть таблицы ARP в различных сценариях.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>Таблица ARP, когда канал находится в рабочем состоянии (ожидаемое состояние)
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Таблица ARP, когда канал находится в рабочем состоянии (ожидаемое состояние)
 * В таблице ARP будет отображаться запись для локальной стороны с действительным IP-адресом и MAC-адресом, а также аналогичная запись со стороны сети Майкрософт. 
 * Последний октет локального IP-адреса всегда будет нечетным числом.
 * Последний октет IP-адреса сети Майкрософт всегда будет четным числом.
@@ -141,7 +145,7 @@ ms.author: ganesr
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
+### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>Таблица ARP в случае проблем на стороне локальной сети или поставщика услуг подключения
 * В таблице ARP будет отображаться только одна запись. Это будет сопоставление MAC-адреса и IP-адреса, используемого на стороне сети Майкрософт. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -164,6 +168,9 @@ ms.author: ganesr
 * Проверка передачи данных путем просмотра входящих и выходящих байтов.
 * Отправьте запрос в [службу поддержки Майкрософт](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , если у вас по-прежнему возникают проблемы.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

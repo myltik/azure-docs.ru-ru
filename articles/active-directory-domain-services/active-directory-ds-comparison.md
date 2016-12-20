@@ -1,12 +1,12 @@
 ---
-title: 'Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Microsoft Docs'
-description: Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена.
+title: "Доменные службы Azure AD: сравнение доменных служб Azure AD и самостоятельно развернутых контроллеров домена | Документация Майкрософт"
+description: "Сравнение доменных служб Azure Active Directory и самостоятельно развернутых контроллеров домена."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 92567d36632ae285377f41a6804ef04ef49d5628
+
 
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Как определить, подходят ли вам доменные службы Azure AD
@@ -87,7 +91,7 @@ ms.author: maheshu
 #### <a name="geo-dispersed-deployments"></a>Географически распределенные развернутые службы
 Управляемые домены доменных служб Azure AD доступны в отдельной виртуальной сети в Azure. Для сценариев, требующих наличия контроллеров домена в нескольких регионах Azure по всему миру, лучшим вариантом может быть настройка контроллеров домена на виртуальных машинах IaaS Azure.
 
-## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Варианты самостоятельного развертывания инфраструктуры AD
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>Варианты самостоятельного развертывания инфраструктуры AD
 В некоторых случаях могут быть нужны определенные возможности, для предоставления которых требуется установить Windows Server AD. В таких случаях рассмотрите один из следующих вариантов самостоятельного развертывания.
 
 * **Изолированный облачный домен**. Можно настроить изолированный "облачный домен" с помощью виртуальных машин Azure, настроенных как контроллеры домена. Такая инфраструктура не поддерживает интеграцию с локальной средой AD. Данный вариант потребует использовать отдельный набор "облачных учетных данных" для входа на виртуальные машины в облаке и управления ими.
@@ -106,6 +110,9 @@ ms.author: maheshu
 * [Сценарии развертывания доменных служб Azure AD](active-directory-ds-scenarios.md)
 * [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

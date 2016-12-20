@@ -1,12 +1,12 @@
 ---
-title: Новые возможности машинного обучения | Microsoft Docs
-description: Новые возможности в Машинном обучении Azure.
+title: "Новые возможности машинного обучения | Документация Майкрософт"
+description: "Новые возможности в Машинном обучении Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 528ae3db20815cf7409cf0e2c7eb5c4473ba16ce
+
 
 ---
-# <a name="what's-new-in-azure-machine-learning"></a>Новые возможности Машинного обучения Azure
-### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>Обновления для машинного обучения Microsoft Azure за август 2016 года обеспечивают приведенные ниже возможности.
-* Классическими веб-службами теперь можно управлять на новом портале [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который предоставляет возможность централизованно управлять всеми аспектами веб-службы.   
+# <a name="whats-new-in-azure-machine-learning"></a>Новые возможности Машинного обучения Azure
+### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Обновления для машинного обучения Microsoft Azure за август 2016 года обеспечивают приведенные ниже возможности.
+* Классическими веб-службами теперь можно управлять на новом портале [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который предоставляет возможность централизованно управлять всеми аспектами веб-службы.    
   * На нем предоставляется [статистика использования](machine-learning-manage-new-webservice.md) веб-службы.
   * Упрощается тестирование вызовов удаленных запросов машинного обучения Azure с использованием примеров данных.
   * Предоставляется новая страница тестирования службы пакетного выполнения, на которой можно использовать примеры данных и журнал отправки заданий.
   * Обеспечивается более простое управление конечными точками.
 
-### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features:"></a>Обновления для машинного обучения Microsoft Azure за июль 2016 года обеспечивают приведенные ниже возможности.
-* Веб-службы теперь управляются как ресурсы Azure, с помощью интерфейсов [Azure Resource Manager](../resource-group-overview.md) , что обеспечивает следующие усовершенствования:
+### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Обновления для машинного обучения Microsoft Azure за июль 2016 года обеспечивают приведенные ниже возможности.
+* Веб-службы теперь управляются как ресурсы Azure, с помощью интерфейсов [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , что обеспечивает следующие усовершенствования:
   * Добавлены новые [интерфейсы REST API](https://msdn.microsoft.com/library/azure/Dn950030.aspx) для развертывания веб-служб с помощью Resource Manager и управления ими.
   * Доступен новый портал [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который позволяет централизованно управлять всеми аспектами веб-службы.
 * Добавлена новая модель развертывания веб-служб в нескольких регионах по подписке, в которой применяются интерфейсы API на основе Resource Manager, использующие поставщик ресурсов Resource Manager для веб-служб.
@@ -37,6 +41,9 @@ ms.author: v-donglo
 
 Кроме того, обновлена студия машинного обучения. Теперь вы можете развертывать веб-службы с помощью новой модели или продолжать использовать классическую модель развертывания. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,44 +1,48 @@
 ---
-title: Создание правила авторизации служебной шины с помощью шаблона диспетчера ресурсов Azure | Microsoft Docs
-description: Создание правила авторизации служебной шины для пространства имен и очереди с помощью шаблона диспетчера ресурсов Azure
-services: service-bus
+title: "Создание правила авторизации служебной шины с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Создание правила авторизации служебной шины для пространства имен и очереди с помощью шаблона диспетчера ресурсов Azure"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
+
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Создание правила авторизации служебной шины для пространства имен и очереди с помощью шаблона диспетчера ресурсов Azure
-В этой статье показывается, как использовать шаблон Azure Resource Manager, который создает [правило авторизации](../service-bus/service-bus-authentication-and-authorization.md#shared-access-signature-authentication) для пространства имен и очереди служебной шины. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+В этой статье показывается, как использовать шаблон Azure Resource Manager, который создает [правило авторизации](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) для пространства имен и очереди служебной шины. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
 
-Полный шаблон приведен в разделе [Шаблон правила проверки подлинности для служебной шины][Шаблон правила проверки подлинности для служебной шины] в GitHub.
+Полный шаблон правила проверки подлинности для служебной шины приведен [здесь][Шаблон правила проверки подлинности для служебной шины] в GitHub.
 
 > [!NOTE]
 > Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
 > 
-> * [Создание пространства имен концентратора событий с концентратором событий и группой потребителей](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
 > * [Создание пространства имен служебной шины с очередью](service-bus-resource-manager-namespace-queue.md)
 > * [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
-> * [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
+> * [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "служебная шина".
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>Что вы развернете?
+## <a name="what-will-you-deploy"></a>Что вы развернете?
 С помощью этого шаблона вы развернете правило авторизации служебной шины для пространства имен и сущности обмена сообщениями (в нашем примере — очереди).
 
-Для проверки подлинности этот шаблон использует [подписанный URL-адрес (SAS)](../service-bus/service-bus-sas-overview.md). Подписанный URL-адрес (SAS) позволяет проверять подлинность приложений в служебной шине с помощью ключа доступа, настроенного в пространстве имен или в сущности обмена сообщениями (очереди или разделе) с определенными правами. Этот ключ можно использовать для создания маркера SAS, который клиенты могут использовать при проверке подлинности в служебной шине.
+Для проверки подлинности этот шаблон использует [подписанный URL-адрес (SAS)](service-bus-sas-overview.md). Подписанный URL-адрес (SAS) позволяет проверять подлинность приложений в служебной шине с помощью ключа доступа, настроенного в пространстве имен или в сущности обмена сообщениями (очереди или разделе) с определенными правами. Этот ключ можно использовать для создания маркера SAS, который клиенты могут использовать при проверке подлинности в служебной шине.
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
@@ -157,9 +161,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
-* [Управление служебной шиной с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
 * [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-* [Аутентификация и авторизация в служебной шине](../service-bus/service-bus-authentication-and-authorization.md)
+* [Аутентификация и авторизация в служебной шине](service-bus-authentication-and-authorization.md)
 
 [Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
 [шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
@@ -169,6 +173,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

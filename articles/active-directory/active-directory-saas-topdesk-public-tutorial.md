@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с TOPdesk - Public | Microsoft Docs
-description: Узнайте, как использовать TOPdesk - Public с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого.
+title: "Руководство. Интеграция Azure Active Directory с TOPdesk - Public | Документация Майкрософт"
+description: "Узнайте, как использовать TOPdesk - Public с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/11/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 03df35cff59f9de4642de7b5e851199d593129a9
+
 
 ---
-# Учебник. Интеграция Azure Directory с TOPdesk — Public
+# <a name="tutorial-azure-directory-integration-with-topdesk---public"></a>Учебник. Интеграция Azure Directory с TOPdesk — Public
 Цель данного учебника — показать интеграцию Azure и TOPdesk — Public.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
 * Подписка TOPdesk — Public с поддержкой единого входа.
 
-По завершении работы с этим руководством пользователи Azure AD, назначенные в TOPdesk — Public, смогут выполнять единый вход в приложение на веб-сайте TOPdesk — Public вашей компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+По завершении работы с этим руководством пользователи Azure AD, назначенные в TOPdesk — Public, смогут выполнять единый вход в приложение на веб-сайте TOPdesk — Public вашей компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -31,123 +35,123 @@ ms.author: jeedes
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-topdesk-public-tutorial/IC790613.png "Сценарий")
+![Сценарий](./media/active-directory-saas-topdesk-public-tutorial/IC790613.png "Scenario")
 
-## Включение интеграции приложений для TOPdesk — Public
+## <a name="enabling-the-application-integration-for-topdesk---public"></a>Включение интеграции приложений для TOPdesk — Public
 В этом разделе показано, как включить интеграцию приложений для TOPdesk — Public.
 
-### Чтобы включить интеграцию приложений для TOPdesk — Public, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-topdesk---public-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для TOPdesk — Public, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-topdesk-public-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить**.
+   ![Приложения](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Applications")
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+   ![Добавить приложение](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Add application")
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Добавить приложение из коллекции")
-6. В **поле поиска** введите **TOPdesk — Public**.
+   ![Добавить приложение из коллекции](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Add an application from gallerry")
+6. В **поле поиска** введите **TOPdesk - Public**.
    
-   ![Коллекция приложений](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Коллекция приложений")
-7. В области результатов выберите **TOPdesk — Public** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+   ![Коллекция приложений](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Application Gallery")
+7. В области результатов выберите **TOPdesk - Public** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![TOPdesk Public](./media/active-directory-saas-topdesk-public-tutorial/IC791317.png "TOPdesk Public")
 
-## Настройка единого входа
+## <a name="configuring-single-sign-on"></a>Настройка единого входа
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в TOPdesk — Public с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML.  
 Для настройки единого входа для TOPdesk — Public вам необходимо отправить файл значка с логотипом. Для получения файла значка обратитесь в службу поддержки TOPdesk.
 
-### Чтобы настроить единый вход, выполните следующие действия.
-1. Выполните вход на веб-сайт **TOPdesk — Public** компании в качестве администратора.
-2. В меню **TOPdesk** выберите пункт **Параметры**.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+1. Выполните вход на веб-сайт **TOPdesk — Public** компании в качестве администратора.
+2. В меню **TOPdesk** выберите **Settings** (Параметры).
    
-   ![данных](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Параметры")
+   ![Параметры](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Settings")
 3. Щелкните **Параметры входа**.
    
-   ![Параметры входа](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Параметры входа")
-4. Разверните меню **Параметры входа**, а затем выберите пункт **Общие**.
+   ![Параметры входа](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Login Settings")
+4. Разверните меню **Login Settings** (Параметры входа), а затем выберите **General** (Общие).
    
-   ![Общие сведения](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "Общие сведения")
-5. В разделе **Общедоступные** для конфигурации **Вход SAML** выполните следующие действия:
+   ![Общие сведения](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "General")
+5. В разделе **Public** (Общедоступные) для конфигурации **SAML login** (Вход SAML) выполните следующие действия.
    
-   ![Технические параметры](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Технические параметры")
+   ![Технические параметры](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Technical Settings")
    
-   1. Нажмите кнопку **Скачать**, чтобы скачать общедоступный файл метаданных, а затем сохраните его локально на компьютере.
-   2. Откройте файл метаданных и определите местоположение узла **AssertionConsumerService**.
+   1. Нажмите кнопку **Скачать** , чтобы скачать общедоступный файл метаданных, а затем сохраните его локально на компьютере.
+   2. Откройте файл метаданных и определите местоположение узла **AssertionConsumerService** .
       ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
-   3. Скопируйте значение **AssertionConsumerService**.  
+   3. Скопируйте значение **AssertionConsumerService** .  
       
       > [!NOTE]
       > Это значение потребуется в разделе **Настройка URL-адреса приложения** далее в этом руководстве.
       > 
       > 
 6. В другом окне веб-браузера войдите на **классический портал Azure** в качестве администратора.
-7. На странице интеграции с приложением **TOPdesk — Public** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+7. На странице интеграции с приложением **TOPdesk - Public** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Настройка единого входа")
-8. На странице **Как пользователи будут входить в TOPdesk — Public** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+   ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Configure Single Sign-On")
+8. На странице **Как пользователи должны входить в TOPdesk - Public** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configure Single Sign-On")
 9. На странице **Настройка URL-адреса приложения** выполните следующие действия.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Настройка URL-адреса приложения")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configure App URL")
    
-   1. В текстовом поле **URL-адрес входа в TOPdesk — Public** введите URL-адрес, используемый пользователями для входа в ваше приложение TOPdesk — Public (например, *https://qssolutions.topdesk.net*").
-   2. В текстовое поле **URL-адрес ответа TOPdesk — Public** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Public** (например, *https://qssolutions.topdesk.net/tas/public/login/saml*").
+   1. В текстовом поле **URL-адрес для входа в TOPdesk - Public** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk - Public (например, *https://qssolutions.topdesk.net*).
+   2. В текстовое поле **URL-адрес ответа TOPdesk - Public** вставьте значение **TOPdesk - Public AssertionConsumerService URL** (URL-адрес AssertionConsumerService для TOPdesk - Public) (например, *https://qssolutions.topdesk.net/tas/public/login/saml*).
    3. Нажмите кнопку **Далее**.
-10. На странице **Настройка единого входа в TOPdesk — Public** нажмите кнопку **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл данных локально на свой компьютер.
+10. На странице **Настройка единого входа в TOPdesk - Public** нажмите кнопку **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл данных на локальный компьютер.
     
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790623.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790623.png "Configure Single Sign-On")
 11. Чтобы создать файл сертификата, выполните следующие действия:
     
-    ![Сертификат](./media/active-directory-saas-topdesk-public-tutorial/IC790606.png "Сертификат")
+    ![Сертификат](./media/active-directory-saas-topdesk-public-tutorial/IC790606.png "Certificate")
     
     1. Откройте скачанный файл метаданных.
     2. Разверните узел **RoleDescriptor**, содержащий **xsi:type** со значением **fed:ApplicationServiceType**.
-    3. Скопируйте значение узла **X509Certificate**.
+    3. Скопируйте значение узла **X509Certificate** .
     4. Сохраните скопированное значение узла **X509Certificate** локально в файл на компьютере.
-12. На веб-сайте TOPdesk — Public компании в меню **TOPdesk** выберите пункт **Параметры**.
+12. На веб-сайте TOPdesk - Public компании в меню **TOPdesk** выберите **Параметры**.
     
-    ![Параметры](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Параметры")
+    ![Параметры](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Settings")
 13. Щелкните **Параметры входа**.
     
-    ![Параметры входа](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Параметры входа")
-14. Разверните меню **Параметры входа**, а затем выберите пункт **Общие**.
+    ![Параметры входа](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Login Settings")
+14. Разверните меню **Login Settings** (Параметры входа), а затем выберите **General** (Общие).
     
-    ![Общие сведения](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "Общие сведения")
-15. В разделе **Общедоступные** нажмите кнопку **Добавить**.
+    ![Общие сведения](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "General")
+15. В разделе **Public** (Общедоступные) щелкните **Add** (Добавить).
     
-    ![Вход SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790625.png "Вход SAML")
+    ![Вход SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790625.png "SAML Login")
 16. На странице диалогового окна **Помощник настройки SAML** сделайте следующее:
     
-    ![Помощник настройки SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790608.png "Помощник настройки SAML")
+    ![Помощник настройки SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790608.png "SAML Configuration Assistant")
     
-    1. Чтобы отправить скачанный файл метаданных, напротив пункта **Метаданные федерации** нажмите кнопку **Обзор**.
-    2. Чтобы отправить файл сертификата, напротив пункта **Сертификат (RSA)** нажмите кнопку **Обзор**.
-    3. Чтобы отправить файл с логотипом, полученный от службы поддержки TOPdesk, напротив пункта **Значок логотипа** нажмите кнопку **Обзор**.
-    4. В текстовом поле **Атрибут имени пользователя** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. Чтобы отправить скачанный файл метаданных, напротив пункта **Federation Metadata** (Метаданные федерации) нажмите кнопку **Browse** (Обзор).
+    2. Чтобы отправить файл сертификата, напротив пункта **Certificate (RSA)** (Сертификат (RSA)) нажмите кнопку **Browse** (Обзор).
+    3. Чтобы отправить файл с логотипом, полученный от службы поддержки TOPdesk, напротив пункта **Logo icon** (Значок логотипа) нажмите кнопку **Browse** (Обзор).
+    4. В текстовом поле **User name attribute** (Атрибут имени пользователя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
     5. В текстовом поле **Отображаемое имя** введите имя конфигурации.
     6. Щелкните **Сохранить**.
 17. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configure Single Sign-On")
 
-## Настройка подготовки учетных записей пользователей
-Чтобы пользователи Azure AD могли выполнять вход в систему TOPdesk — Public, они должны быть подготовлены для нее.
+## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+Чтобы пользователи Azure AD могли выполнять вход в систему TOPdesk — Public, они должны быть подготовлены для нее.  
 В случае TOPdesk — Public подготовка пользователей осуществляется вручную.
 
-### Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
-1. Выполните вход на веб-сайт **TOPdesk — Public** своей компании в качестве администратора.
-2. В меню в верхней части страницы щелкните **TOPdesk > Создать > Файлы поддержки > Пользователь**.
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+1. Выполните вход на веб-сайт **TOPdesk — Public** своей компании в качестве администратора.
+2. В меню в верхней части страницы щелкните **TOPdesk \> New \> Support Files \> Person** ("TOPdesk" > "Создать" > "Файлы поддержки" > "Пользователь").
    
    ![Person](./media/active-directory-saas-topdesk-public-tutorial/IC790628.png "Person")
 3. В диалоговом окне "Новый пользователь" выполните следующие действия:
    
-   ![Новый пользователь](./media/active-directory-saas-topdesk-public-tutorial/IC790629.png "Новый пользователь")
+   ![Новый пользователь](./media/active-directory-saas-topdesk-public-tutorial/IC790629.png "New Person")
    
    1. Перейдите на вкладку "Общее".
    2. В текстовом поле "Фамилия" введите фамилию пользователя действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
@@ -159,18 +163,23 @@ ms.author: jeedes
 > 
 > 
 
-## Назначение пользователей
+## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### Чтобы назначить пользователей TOPdesk — Public, выполните следующие действия:
+### <a name="to-assign-users-to-topdesk---public-perform-the-following-steps"></a>Чтобы назначить пользователей TOPdesk — Public, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **TOPdesk — Public** нажмите кнопку **Назначить пользователей**.
+2. На странице интеграции с приложением **TOPdesk - Public** щелкните **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Назначить пользователей")
+   ![Назначить пользователей](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Assign Users")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "Да")
+   ![Да](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

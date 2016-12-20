@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/07/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c5cebf365f99866058aec25da0564ee0854af9a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8d84716f82af9a5b8f51c51b36f779c1fb2b4691
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 0c5cebf365f99866058aec25da0564ee0854af9a
 Помимо защиты виртуальных машин Azure центр безопасности предоставляет средства мониторинга и управления безопасностью облачных служб, служб приложений, виртуальных сетей, а также многие другие возможности. 
 
 > [!NOTE]
-> Дополнительные сведения о центре безопасности Azure см. в статье [Введение в Центр безопасности Azure](security-center-intro.md).
+> Дополнительные сведения о центре безопасности Azure см. в статье [Введение в центр безопасности Azure](security-center-intro.md).
 > 
 > 
 
@@ -106,6 +106,6 @@ ms.openlocfilehash: 0c5cebf365f99866058aec25da0564ee0854af9a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

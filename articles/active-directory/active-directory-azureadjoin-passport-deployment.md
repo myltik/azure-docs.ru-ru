@@ -1,14 +1,14 @@
 ---
-title: Включение Microsoft Windows Hello для бизнеса в организации | Microsoft Docs
-description: Инструкции по развертыванию для включения в организации службы Microsoft Passport.
+title: "Включение Microsoft Windows Hello для бизнеса в организации | Документация Майкрософт"
+description: "Инструкции по развертыванию для включения в организации службы Microsoft Passport."
 services: active-directory
-documentationcenter: ''
-keywords: настройка Microsoft Passport, развертывание Microsoft Windows Hello для бизнеса
+documentationcenter: 
+keywords: "настройка Microsoft Passport, развертывание Microsoft Windows Hello для бизнеса"
 author: MarkusVi
 manager: femila
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,6 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
+
 
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Включение Microsoft Windows Hello для бизнеса в организации
@@ -103,13 +107,16 @@ ms.author: markvi
 На странице **Регистрация SCEP** профиля сертификата выберите для параметра **Поставщик хранилища ключей** значение **Установить в Passport for Work, в ином случае — выдать отказ**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

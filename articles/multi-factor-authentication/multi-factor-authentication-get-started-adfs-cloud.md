@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Защита облачных ресурсов с помощью Azure Multi-Factor Authentication и AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Защита облачных ресурсов с помощью Azure Multi-Factor Authentication и AD FS
 Если в организации настроена федерация с Azure Active Directory, используйте многофакторную идентификацию Azure или службы федерации Active Directory, чтобы обеспечить безопасность ресурсов, доступных для Azure AD. Чтобы защитить ресурсы Azure Active Directory с помощью многофакторной идентификации Azure или служб федерации Active Directory, следуйте инструкциям, приведенным ниже.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Защита ресурсов Azure AD с помощью AD FS
 Чтобы защитить облачные ресурсы, сначала включите учетную запись для пользователей, а затем настройте правило утверждений. Для этого следуйте такой процедуре:
 
-1. Чтобы активировать учетную запись, выполните действия, описанные в разделе [Включение многофакторной идентификации для пользователей](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users).
+1. Чтобы активировать учетную запись, выполните действия, описанные в разделе [Включение многофакторной идентификации для пользователей](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users).
 2. Запустите консоль управления AD FS.
    ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Перейдите к папке **Отношения доверия проверяющей стороны** и щелкните нужное отношение правой кнопкой мыши. Выберите пункт **Изменить правила утверждений...**
@@ -34,13 +34,13 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 5. В раскрывающемся меню выберите пункт **Отправка утверждений с помощью настраиваемого правила** и нажмите кнопку **Далее**.
 6. Введите имя для правила утверждений.
 7. В разделе "Настраиваемое правило" введите следующий текст:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Соответствующее утверждение.
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 10. В мастере добавления правила преобразования утверждения выберите **Отправка утверждений с помощью настраиваемого правила** в раскрывающемся списке и нажмите кнопку **Далее**.
 11. В поле "Имя правила утверждения" введите *Не затрагивать пользователей, вошедших в систему*.
 12. В поле "Настраиваемое правило " введите следующее:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 15. Нажмите кнопку **ОК**.
 16. Откройте оснастку управления AD FS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Настройка Multi-Factor Authentication с доверенными IP-адресами в Azure для федеративных пользователей
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Настройка Multi-Factor Authentication с доверенными IP-адресами в Azure для федеративных пользователей
 Теперь, когда утверждения добавлены, можно настроить надежные IP-адреса.
 
 1. Перейдите на [классический портал Azure](https://manage.windowsazure.com).
@@ -100,7 +100,6 @@ ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

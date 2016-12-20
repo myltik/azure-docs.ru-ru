@@ -1,53 +1,57 @@
 ---
-title: Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
-description: Узнайте, как защитить фоновые службы посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
+title: "Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management"
+description: "Узнайте, как защитить фоновые службы посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management"
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
+
 
 ---
-# Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
-Служба API Management дает возможность защищать доступ к фоновым службам API с помощью сертификатов клиента. В этом руководстве описывается, как управлять сертификатами на портале издателя API и как настроить использование сертификата в API для доступа к фоновой службе.
+# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
+Служба API Management дает возможность защищать доступ к фоновым службам API с помощью сертификатов клиента. В этом руководстве описывается, как управлять сертификатами на портале издателя API и как настроить использование сертификата в  API для доступа к фоновой службе.
 
-Сведения об управлении сертификатами с помощью REST API службы управления API см. в разделе [Объект сертификата REST API службы управления API Azure ][Объект сертификата REST API службы управления API Azure ].
+Дополнительные сведения об управлении сертификатами с помощью REST API управления API см. в разделе, посвященном [объекту сертификата REST API управления API Azure][Сущность сертификата REST API службы управления API Azure].
 
 ## <a name="prerequisites"> </a>Предварительные требования
-В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, в фоновой службе необходимо настроить проверку подлинности на основе сертификата клиента. [Чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью][Чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]. Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
+В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этой статье, в серверной службе необходимо настроить проверку подлинности на основе сертификата клиента. [Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.][Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.]. Кроме того, нужен доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
 
 ## <a name="step1"> </a>Отправка сертификата клиента
-Для начала на классическом портале Azure для службы управления API щелкните **Управление**. Будет открыт портал издателя службы управления API.
+Чтобы начать работу, щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя API][api-management-management-console]
 
-> Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
+> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
 > 
 > 
 
-В меню **API Management** (Управление API) слева выберите пункт **Security** (Безопасность), а затем перейдите на вкладку **Client certificates** (Сертификаты клиента).
+В левой части экрана в меню **Управление API** выберите пункт **Безопасность**, а затем перейдите на вкладку **Сертификаты клиента**.
 
-![Сертификаты клиента][api-management-security-client-certificates]
+![Client certificates][api-management-security-client-certificates]
 
-Чтобы добавить новый сертификат, щелкните ссылку **Upload certificate** (Загрузить сертификат).
+Чтобы добавить новый сертификат, щелкните ссылку **Upload certificate**(Загрузить сертификат).
 
-![Передача сертификата][api-management-upload-certificate]
+![Upload certificate][api-management-upload-certificate]
 
 Выберите сертификат и введите пароль к нему.
 
-> Сертификат должен быть в формате **PFX**. Разрешено использовать самозаверяющие сертификаты.
+> Сертификат должен быть в формате **PFX** . Разрешено использовать самозаверяющие сертификаты.
 > 
 > 
 
-![Передача сертификата][api-management-upload-certificate-form]
+![Upload certificate][api-management-upload-certificate-form]
 
 Нажмите кнопку **Upload** (Загрузить).
 
@@ -57,7 +61,11 @@ ms.author: sdanie
 
 ![Сертификат добавлен][api-management-certificate-uploaded]
 
-После добавления сертификат появляется на вкладке **Client certificates** (Сертификаты клиента). Если у вас несколько сертификатов, запишите субъект или последние четыре символа отпечатка. Эти данные используются для выбора сертификата при настройке API для использования сертификатов, как описано в разделе [Настройка API для проверки подлинности шлюза с помощью сертификата клиента][Настройка API для проверки подлинности шлюза с помощью сертификата клиента] ниже.
+После добавления сертификат появляется на вкладке **Сертификаты клиента**. Если у вас несколько сертификатов, запишите субъект или последние четыре символа отпечатка. Эти данные используются для выбора сертификата при настройке API для применения сертификатов, как описано в разделе [Настройка API для проверки подлинности шлюза с помощью сертификата клиента][Настройка API для проверки подлинности шлюза с помощью сертификата клиента] ниже.
+
+> Чтобы отключить проверку цепочки сертификатов при использовании, например, самозаверяющего сертификата, выполните действия, описанные в [этом разделе](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) часто задаваемых вопросов.
+> 
+> 
 
 ## <a name="step1a"> </a>Удаление сертификата клиента
 Чтобы удалить сертификат, щелкните рядом с ним ссылку **Delete** (Удалить).
@@ -73,13 +81,13 @@ ms.author: sdanie
 ![Подтверждение удаления][api-management-confirm-delete-policy]
 
 ## <a name="step2"> </a>Настройка API для проверки подлинности шлюза с помощью сертификата клиента
-В меню **API Management** (Управление API) слева выберите пункт **APIs** (Интерфейсы API), щелкните имя нужного API и перейдите на вкладку **Security** (Безопасность).
+В левой части экрана в меню **Управление API** выберите пункт **Интерфейсы API**, щелкните имя нужного API и перейдите на вкладку **Безопасность**.
 
 ![Безопасность API][api-management-api-security]
 
-В раскрывающемся списке **With credentials** (С учетными данными) выберите пункт **Mutual certificates** (Взаимные сертификаты).
+В раскрывающемся списке **С учетными данными** выберите пункт **Сертификаты клиента**.
 
-![Сертификаты клиента][api-management-mutual-certificates]
+![Client certificates][api-management-mutual-certificates]
 
 В раскрывающемся списке **Client certificate** (Сертификат клиента) выберите нужный сертификат. Если сертификатов несколько, то выбрать нужный можно по субъекту или последним четырем символам отпечатка, которые вы записали ранее.
 
@@ -99,7 +107,7 @@ ms.author: sdanie
 
 ![Политика сертификата][api-management-certificate-policy]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о других способах защиты фоновой службы, таких как базовая проверка подлинности HTTP или проверка подлинности с общим секретом, см. в следующем видео.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
@@ -122,28 +130,32 @@ ms.author: sdanie
 
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Начинаем работу с API Management]: api-management-get-started.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
-[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+[Как добавлять операции в API]: api-management-howto-add-operations.md
+[Как создать и опубликовать продукт]: api-management-howto-add-products.md
+[Мониторинг и аналитика]: ../api-management-monitoring.md
+[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
+[Публикация продукта]: api-management-howto-add-products.md#publish-product
+[Приступая к работе со службой управления API]: api-management-get-started.md
+[Справочник по политикам службы управления API]: api-management-policy-reference.md
+[Политики кэширования]: api-management-policy-reference.md#caching-policies
+[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
 
-[Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[Сущность сертификата REST API службы управления API Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[Настройка проверки подлинности сертификата в службе веб-сайтов Azure описана в этой статье.]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
-[Prerequisites]: #prerequisites
-[Upload a client certificate]: #step1
-[Delete a client certificate]: #step1a
+[Предварительные требования]: #prerequisites
+[Отправка сертификата клиента]: #step1
+[Удаление сертификата клиента]: #step1a
 [Настройка API для проверки подлинности шлюза с помощью сертификата клиента]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
-[Next steps]: #next-steps
+[Проверка конфигурации с помощью вызова операции на портале разработчика]: #step3
+[Дальнейшие действия]: #next-steps
 
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

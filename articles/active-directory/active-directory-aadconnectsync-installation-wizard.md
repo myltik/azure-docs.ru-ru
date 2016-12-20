@@ -1,23 +1,27 @@
 ---
-title: 'Синхронизация Azure AD Connect: повторный запуск мастера установки | Microsoft Docs'
-description: Объясняется, как работает мастер установки при повторном запуске.
-keywords: При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания.
+title: "Синхронизация Azure AD Connect: повторный запуск мастера установки | Документация Майкрософт"
+description: "Объясняется, как работает мастер установки при повторном запуске."
+keywords: "При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: andkjell
+ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3849a20d003fe68ad3567aea232433f3777b1811
+
 
 ---
-# Синхронизация Azure AD Connect sync: повторный запуск мастера установки
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Синхронизация Azure AD Connect sync: повторный запуск мастера установки
 При первом запуске мастера установки Azure AD Connect выполняется пошаговая настройка установки. При повторном запуске мастера установки предлагается настроить параметры обслуживания.
 
 Мастер установки можно найти в меню "Пуск" с именем **Azure AD Connect**.
@@ -30,27 +34,27 @@ ms.author: andkjell
 
 Если вы установили службы AD FS с Azure AD Connect, вам будет доступно еще больше возможностей. Дополнительные возможности служб AD FS описаны в разделе [Управление AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
-Чтобы продолжить, выберите одну из задач и нажмите кнопку **Далее**.
+Чтобы продолжить, выберите одну из задач и нажмите кнопку **Далее** .
 
 > [!IMPORTANT]
 > Когда открыт мастер установки, приостанавливаются все операции в модуле синхронизации. Убедитесь, что сразу после внесения изменений в конфигурацию вы завершили работу мастера установки.
 > 
 > 
 
-## Просмотр текущей конфигурации
+## <a name="view-current-configuration"></a>Просмотр текущей конфигурации
 Этот параметр позволяет быстро просмотреть текущие настройки параметров.
 
 ![Страница со списком всех параметров и их состоянием](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-Чтобы вернуться, нажмите кнопку **Назад**. Если выбрать **Выход**, окно мастера установки закроется.
+Чтобы вернуться, нажмите кнопку **Назад** . Если выбрать **Выход**, окно мастера установки закроется.
 
-## Настройка параметров синхронизации
+## <a name="customize-synchronization-options"></a>Настройка параметров синхронизации
 Этот параметр используется для изменения конфигурации синхронизации. Вы увидите набор параметров из пути установки пользовательской конфигурации. Они отобразятся, даже если изначально использовались параметры экспресс-установки.
 
-* [Добавить дополнительные каталоги](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Сведения об удалении каталога см. в разделе [Удаление соединителя](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-* [Изменить фильтрацию доменов и подразделений](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+* [Добавить дополнительные каталоги](connect/active-directory-aadconnect-get-started-custom.md#connect-your-directories). Сведения об удалении каталога см. [здесь](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+* [Изменить фильтрацию доменов и подразделений](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 * Удалить групповую фильтрацию.
-* [Изменить дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features).
+* [Изменить дополнительные возможности](connect/active-directory-aadconnect-get-started-custom.md#optional-features).
 
 Другие параметры из начальной установки нельзя изменить, поэтому они недоступны. Доступны следующие параметры:
 
@@ -58,26 +62,28 @@ ms.author: andkjell
 * Изменить метод соединения для объектов из другого леса.
 * Включить фильтрацию на основе группы.
 
-## Обновление схемы каталога
+## <a name="refresh-directory-schema"></a>Обновление схемы каталога
 Этот параметр используется при изменении схемы в одном из локальных лесов AD DS. Например, когда выполнена установка Exchange или обновление до схемы Windows Server 2012 с объектами устройства. В этом случае необходимо настроить Azure AD Connect на повторное чтение схемы из AD DS и обновление кэша. Это действие также повторно создает правила синхронизации. Если добавить, например, схему Exchange, то правила синхронизации для Exchange добавятся в конфигурацию.
 
 При выборе этого параметра отобразятся все каталоги в конфигурации. Можно оставить значение по умолчанию и обновить все леса или отменить выбор некоторых из них.
 
 ![Страница со списком всех каталогов в среде](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
-## Настройка промежуточного режима
-Этот параметр позволяет включить и отключить на сервере промежуточный режим. Дополнительные сведения о промежуточном режиме и его использовании см. в разделе [Операции](active-directory-aadconnectsync-operations.md#staging-mode).
+## <a name="configure-staging-mode"></a>Настройка промежуточного режима
+Этот параметр позволяет включить и отключить на сервере промежуточный режим. Дополнительные сведения о промежуточном режиме и его использовании см. [здесь](active-directory-aadconnectsync-operations.md#staging-mode).
 
-Рядом с параметром будет показано, включен или отключен промежуточный режим в данный момент: ![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
+Рядом с параметром будет показано, включен или отключен промежуточный режим в данный момент:   
+![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
-Для изменения состояния выберите этот параметр и установите или снимите флажок. ![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+Для изменения состояния выберите этот параметр и установите или снимите флажок.  
+![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## Изменение параметров входа пользователя
+## <a name="change-user-sign-in"></a>Изменение параметров входа пользователя
 Этот параметр позволяет заменить синхронизацию паролей на федерацию или наоборот. Нельзя изменить на значение **Не настраивать**.
 
-Дополнительные сведения об этом параметре см. в разделе [Вход пользователя](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Дополнительные сведения о входе пользователя см. [здесь](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Обзорные статьи**
@@ -85,4 +91,9 @@ ms.author: andkjell
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

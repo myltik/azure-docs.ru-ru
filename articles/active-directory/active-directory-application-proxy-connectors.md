@@ -1,12 +1,12 @@
 ---
-title: Работа с соединителями прокси приложения Azure AD | Microsoft Docs
-description: Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими.
+title: "Работа с соединителями прокси приложения Azure AD | Документация Майкрософт"
+description: "Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
+
 
 ---
-# Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Классический портал Azure](active-directory-application-proxy-connectors.md)
@@ -32,33 +36,42 @@ ms.author: kgremban
 * Группы соединителей могут применяться на сайтах аварийного восстановления для определения отработки отказа или в качестве резерва для основного сайта.
 * Группы соединителей также можно использовать для обслуживания нескольких компаний из одного клиента.
 
-## Необходимое условие: создание соединителей
+## <a name="prerequisite-create-your-connectors"></a>Необходимое условие: создание соединителей
 Чтобы сгруппировать соединители, необходимо убедиться, что вы [установили несколько соединителей](active-directory-application-proxy-enable.md), после чего им нужно присвоить имена, а затем сгруппировать их. После этого их необходимо назначить конкретным приложениям.
 
-## Шаг 1. Создание групп соединителей
+## <a name="step-1-create-connector-groups"></a>Шаг 1. Создание групп соединителей
 Можно создать любое число групп соединителей. Для создания группы соединителей используется классический портал Azure.
 
-1. Выберите свой каталог и щелкните **Настройка**. ![Снимок экрана: настройка прокси приложения — щелчок "Управление группами соединителей"](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
-2. В разделе "Прокси приложения" щелкните **Управление группами соединителей** и создайте группу соединителей, указав ее имя. ![Снимок экрана групп соединителей прокси приложения: присвойте имя для новой группы](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
+1. Выберите свой каталог и щелкните **Настройка**.  
+    ![Снимок экрана: настройка прокси приложения: выбор "Управление группами соединителей"](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
+2. В разделе "Прокси приложения" щелкните **Управление группами соединителей** и создайте группу соединителей, указав ее имя.  
+    ![Снимок экрана групп соединителей прокси приложения: присвоение имени для новой группы](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 
-## Шаг 2. Назначение соединителей группам
+## <a name="step-2-assign-connectors-to-your-groups"></a>Шаг 2. Назначение соединителей группам
 После создания групп соединителей переместите соединители в соответствующую группу.
 
 1. В разделе **Прокси приложения** нажмите кнопку **Управление соединителями**.
-2. В столбце **Группа** выберите группу для каждого соединителя. Для того, чтобы соединители стали активными в новой группе, может потребоваться до 10 минут. ![Снимок экрана соединителей прокси приложения: выберите группу из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+2. В столбце **Группа**выберите группу для каждого соединителя. Для того, чтобы соединители стали активными в новой группе, может потребоваться до 10 минут.  
+    ![Снимок экрана соединителей прокси приложения: выбор группы из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 
-## Шаг 3. Назначение приложений группам соединителей
+## <a name="step-3-assign-applications-to-your-connector-groups"></a>Шаг 3. Назначение приложений группам соединителей
 Последний шаг — назначить каждое приложение той группе соединителей, которая будет его обслуживать.
 
 1. В своем каталоге на классическом портале Azure выберите приложение, которое необходимо назначить группе, и щелкните **Настройка**.
-2. В разделе **Группа соединителей** выберите группу, которую должно использовать приложение. Это изменение применяется немедленно. ![Снимок экрана группы соединителей прокси приложения: выберите группу из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
+2. В разделе **Группа соединителей**выберите группу, которую должно использовать приложение. Это изменение применяется немедленно.  
+    ![Снимок экрана группы соединителей прокси приложения: выбор группы из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Включение прокси приложения](active-directory-application-proxy-enable.md)
 * [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 * [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
 * [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 
-Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
+Последние новости и обновления см. в [блоге, посвященном прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

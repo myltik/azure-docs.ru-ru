@@ -29,7 +29,7 @@ ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=multi-factor-authentication">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=multi-factor-authentication">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

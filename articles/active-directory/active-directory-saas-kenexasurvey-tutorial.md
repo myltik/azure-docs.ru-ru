@@ -1,33 +1,37 @@
 ---
-title: Руководство по интеграции Azure Active Directory с IBM Kenexa Survey Enterprise | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в IBM Kenexa Survey Enterprise.
+title: "Учебник. Интеграция Azure Active Directory с IBM Kenexa Survey Enterprise | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в IBM Kenexa Survey Enterprise."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2016
+ms.date: 10/20/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d6cee6b4d47264bb0b91d3169490af0b08c05711
+
 
 ---
-# Руководство по интеграции Azure Active Directory с IBM Kenexa Survey Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Руководство по интеграции Azure Active Directory с IBM Kenexa Survey Enterprise
 В этом руководстве описано, как интегрировать IBM Kenexa Survey Enterprise с Azure Active Directory (Azure AD).
 
 Интеграция IBM Kenexa Survey Enterprise с Azure AD обеспечивает следующие преимущества:
 
 * С помощью Azure AD можно контролировать, кто будет иметь доступ к IBM Kenexa Survey Enterprise.
 * Вы можете включить автоматический вход пользователей в IBM Kenexa Survey Enterprise (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с IBM Kenexa Survey Enterprise, вам потребуется следующее:
 
 * подписка Azure AD;
@@ -43,28 +47,28 @@ ms.author: jeedes
 * Не следует использовать рабочую среду при отсутствии необходимости.
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-## Описание сценария
+## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
 1. Добавление IBM Kenexa Survey Enterprise из коллекции.
 2. Настройка и проверка единого входа в Azure AD
 
-## Добавление IBM Kenexa Survey Enterprise из коллекции
+## <a name="adding-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Добавление IBM Kenexa Survey Enterprise из коллекции.
 Чтобы настроить интеграцию IBM Kenexa Survey Enterprise в Azure AD, необходимо добавить IBM Kenexa Survey Enterprise из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить IBM Kenexa Survey Enterprise из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
    
     ![Active Directory][1]
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить**.
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
 6. В поле поиска введите **IBM Kenexa Survey Enterprise**.
@@ -74,7 +78,7 @@ ms.author: jeedes
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_02.png)
 
-## Настройка и проверка единого входа в Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в IBM Kenexa Survey Enterprise с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в IBM Kenexa Survey Enterprise соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в IBM Kenexa Survey Enterprise.
@@ -83,66 +87,77 @@ ms.author: jeedes
 
 Чтобы настроить и проверить единый вход Azure AD в IBM Kenexa Survey Enterprise, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя IBM Kenexa Survey Enterprise](#creating-an-kenexasurvey-test-user)** требуется для создания пользователя Britta Simon в IBM Kenexa Survey Enterprise, связанного с соответствующим представлением в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### Настройка единого входа в Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении IBM Kenexa Survey Enterprise.
 
 **Чтобы настроить единый вход Azure AD в IBM Kenexa Survey Enterprise, выполните следующие действия.**
 
 1. На странице интеграции с приложением **IBM Kenexa Survey Enterprise** классического портала щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа][6]
+    ![Настройка единого входа][6] 
 2. На странице **Как пользователи должны входить в IBM Kenexa Survey Enterprise** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_03.png)
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png)
-
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый для входа в приложение IBM Kenexa Survey Enterprise, в формате **https://surveys.kenexa.com/<код компании>**.
-
-    b. В текстовое поле **Идентификатор** введите URL-адрес в следующем формате: **https://surveys.kenexa.com/\<КодКомпании>/tools**.
-
-    > [AZURE.NOTE] Предоставьте URL-адрес идентификатора группе поддержки IBM Kenexa Survey и попросите установить его в качестве идентификатора сущности для вашего экземпляра.
-
-
+   
+    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://surveys.kenexa.com/<company code>`
+   
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://surveys.kenexa.com/<company code>/tools/sso.asp`.
+   
     c. Нажмите кнопку **Далее**.
+   
+   > [!NOTE]
+   > Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо указать фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в службу поддержки IBM Kenexa Survey Enterprise.
+   > 
+   > 
+4. На странице **Настройка единого входа в IBM Kenexa Survey Enterprise** щелкните **Скачать сертификат** и сохраните полученный файл на своем компьютере.
+   
+    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_05.png) 
+5. Для настройки единого входа для своего приложения обратитесь к группе поддержки IBM Kenexa и предоставьте следующие сведения:
+   
+    • скачанный файл сертификата;
+   
+    • **URL-адрес издателя**;
+   
+    • **URL-адрес единого входа SAML**;
+   
+    • **URL-адрес службы единого выхода**.
+   
+   > [!NOTE]
+   > Обратите внимание, что значение утверждения NameID в ответе должно соответствовать идентификатору единого входа, настроенному в системе Kenexa. Поэтому поработайте с группой поддержки Kenexa, чтобы сопоставить соответствующий идентификатор пользователя в вашей организации как идентификатор единого входа. По умолчанию Azure AD задаст NameIdentifier в качестве значения UPN. Это можно изменить на вкладке "Атрибут", как показано на следующем снимке экрана. Интеграция будет работать только после завершения правильного сопоставления. 
+   > 
+   > 
+   
+    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_51.png)
+6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+   
+    ![единого входа Azure AD][10]
+7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
+   
+    ![единого входа Azure AD][11]
+8. На странице интеграции с приложением **IBM Kenexa Survey Enterprise** классического портала Azure в меню вверху щелкните **Атрибуты**.
+   
+    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_06.png)
+9. В диалоговом окне **Атрибуты токена SAML** сделайте следующее.
+   
+    а. Выберите атрибут **NameIdentifier** и щелкните значок **Изменить**.
+   
+    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_07.png)
+   
+    b. В списке **Значение атрибута** введите идентификатор единого входа, настроенный в системе Kenexa.
+   
+    c. В нижней части страницы нажмите кнопку **Завершить**
 
-
-1. На странице **Настройка единого входа в IBM Kenexa Survey Enterprise** выполните следующие действия:
-   
-    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_05.png)
-   
-    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Для настройки единого входа для своего приложения обратитесь к группе поддержки IBM Kenexa и предоставьте следующие сведения:
-   
-   * Скачанный файл сертификата
-   * **URL-адрес издателя**;
-   * **URL-адрес единого входа SAML**;
-   * **URL-адрес службы единого выхода**.
-     
-     > [!NOTE]
-     > Обратите внимание, что значение утверждения NameID в ответе должно соответствовать идентификатору единого входа, настроенному в системе Kenexa. Поэтому поработайте с группой поддержки Kenexa, чтобы сопоставить соответствующий идентификатор пользователя в вашей организации как идентификатор единого входа. По умолчанию Azure AD задаст NameIdentifier в качестве значения UPN. Это можно изменить на вкладке "Атрибут", как показано на следующем снимке экрана. Интеграция будет работать только после завершения правильного сопоставления.
-     > 
-     > 
-     
-     ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_51.png)
-3. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![Единый вход в Azure AD][10]
-4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
-   
-    ![Единый вход в Azure AD][11]
-
-### Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -150,48 +165,48 @@ ms.author: jeedes
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_09.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_09.png) 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы вывести на экран список пользователей, щелкните **Пользователи** в меню вверху.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_05.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_05.png) 
    
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png)
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.
+   а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовое поле **Фамилия** введите **Simon**.
+   b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   г) В списке **Роль** выберите **Пользователь**.
+   d. В списке **Роль** выберите **Пользователь**.
    
    д. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_07.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_07.png) 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png) 
    
     а. Запишите значение поля **Новый пароль**.
    
-    b. Нажмите **Завершено**.
+    b. Нажмите **Завершено**.   
 
-### Создание тестового пользователя IBM Kenexa Survey Enterprise
+### <a name="creating-an-ibm-kenexa-survey-enterprise-test-user"></a>Создание тестового пользователя IBM Kenexa Survey Enterprise
 В этом разделе описано, как создать пользователя Britta Simon в приложении IBM Kenexa Survey Enterprise. Поработайте с группой поддержки IBM Kenexa, чтобы сопоставить идентификатор единого входа для всех пользователей. Также это значение идентификатора единого входа необходимо сопоставить со значением NameIdentifier из Azure AD. Эти заданные по умолчанию параметры можно изменить на вкладке "Атрибут".
 
 > [!NOTE]
@@ -199,33 +214,33 @@ ms.author: jeedes
 > 
 > 
 
-### Назначение тестового пользователя Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к IBM Kenexa Survey Enterprise.
 
-![Назначение пользователя][200]
+![Назначение пользователя][200] 
 
 **Чтобы назначить Britta Simon в IBM Kenexa Survey Enterprise, выполните следующие действия.**
 
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
    
-    ![Назначение пользователя][201]
+    ![Назначение пользователя][201] 
 2. В списке приложений выберите **IBM Kenexa Survey Enterprise**.
    
-    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_50.png)
+    ![Настройка единого входа](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_50.png) 
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
-    ![Назначение пользователя][203]
+    ![Назначение пользователя][203] 
 4. В списке пользователей выберите **Britta Simon**.
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
 
-### Проверка единого входа
+### <a name="testing-single-sign-on"></a>Проверка единого входа
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув плитку IBM Kenexa Survey Enterprise на панели доступа, вы автоматически войдете в приложение IBM Kenexa Survey Enterprise.
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -247,4 +262,8 @@ ms.author: jeedes
 [204]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

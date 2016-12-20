@@ -1,12 +1,12 @@
 ---
-title: Notification Hubs - Enterprise Push Architecture
-description: Guidance on using Azure Notification Hubs in an enterprise environment
+title: "Центры уведомлений — корпоративная архитектура системы push-уведомлений"
+description: "Руководство по использованию центров уведомлений Azure в корпоративной среде"
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
@@ -14,52 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
+
 
 ---
-# <a name="enterprise-push-architectural-guidance"></a>Enterprise push architectural guidance
-Enterprises today are gradually moving towards creating mobile applications for either their end users (external) or for the employees (internal). They have existing backend systems in place be it mainframes or some LoB applications which must be integrated into the mobile application architecture. This guide will talk about how best to do this integration recommending possible solution to common scenarios.
+# <a name="enterprise-push-architectural-guidance"></a>Руководство по архитектуре push-уведомлений
+Сегодня предприятия постепенно переходят к созданию мобильных приложений для конечных пользователей (внешних) или сотрудников (внутренних). У них есть серверные системы, размещенные на мэйнфреймах, или бизнес-приложения, которые нужно интегрировать в архитектуру приложений для мобильных устройств. В этом руководстве рассказывается об оптимальном подходе к такой интеграции и излагаются рекомендации относительно возможных решений для распространенных сценариев.
 
-A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems. E.g. a bank customer who has the bank's banking app on her iPhone wants to be notified when a debit is made above a certain amount from her account or an intranet scenario where an employee from finance department who has a budget approval app on his Windows Phone wants to be notified when he gets an approval request.
+Одно из наиболее распространенных требований — возможность отправки push-уведомлений пользователям с помощью мобильных приложений при определенных событиях в серверной системе. Например:  клиент банка, у которого есть банковское приложение на iPhone, хочет получать уведомления при списании со счета сумм, превышающих определенное значение, а сотрудник из финансового отдела, у которого есть приложение для утверждения бюджета на устройстве Windows Phone, хочет получать по интрасети уведомления при получении запроса на утверждение.
 
-The bank account or approval processing is likely to be done in some backend system which must initiate a push to the user. There may be multiple such backend systems which must all build the same kind of logic to implement push when an event triggers a notification. The complexity here lies in integrating several backend systems together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications e.g. in the case of intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems. The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.
-Here we will talk about an even better solution using Azure Service Bus - Topic/Subscription model which will reduce the complexity while making the solution scalable.
+Обслуживание банковского счета и обработка утверждений, как правило, осуществляются в серверной системе, которая должна инициировать отправку push-уведомлений пользователю. Таких серверных систем может быть несколько, а для реализации push-уведомлений, отправка которых инициируется наступлением определенных событий, все они должны быть созданы на основе одной и той же логики. Сложность в том, как интегрировать несколько серверных систем с одной системой push-уведомлений, где конечные пользователи могут подписываться на различные уведомления и даже использовать различные мобильные приложения, например, в случае интрасети, где одно мобильное приложение может получать уведомления из нескольких таких серверных систем. Серверным системам неизвестна или не должна быть известна семантика или технология системы отправки push-уведомлений, поэтому в таких случаях традиционным решением было внедрение компонента, который опрашивает серверные системы, чтобы определить, не произошло ли то или иное событие, и отвечает за отправку push-уведомлений клиенту.
+Здесь мы поговорим о еще лучшем решении с использованием служебной шины Azure — модели разделов и подписок, которая обеспечивает простоту и масштабируемость.
 
-Here is the general architecture of the solution (generalized with multiple mobile apps but equally applicable when there is only one mobile app)
+Ниже описана общая архитектура решения. Изложенная здесь информация касается общего случая нескольких мобильных приложений, однако она в равной мере применима в случае, если такое приложение только одно.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Архитектура
 ![][1]
 
-The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]). The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems. A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification. The backend systems will send messages to these topics. A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription. This will entitle the mobile backend to receive a notification from the corresponding backend system. Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub. Notification hubs then eventually delivers the message to the mobile app. So to summarize the key components, we have:
+Основной элемент на этой схеме архитектуры — это служебная шина Azure, которая предоставляет модель программирования разделов и подписок (подробнее об этом см. в статье [Как использовать разделы и подписки служебной шины]). Получатель (в данном случае это серверная часть мобильной службы, обычно — [мобильная служба Azure], которая будет инициировать отправку push-уведомлений для мобильных приложений) не получает сообщения напрямую от серверных систем. Эти уведомления поступают к нему с промежуточного уровня абстракции, предоставляемого [служебной шиной Azure], что позволяет серверной части мобильной службы получать сообщения из одной или нескольких серверных систем. Раздел "Служебная шина" необходимо создать для каждой из серверных систем, например "Бухгалтерия", "Отдел кадров" и "Финансы", по сути являющиеся "разделами", которые будут инициировать отправку сообщений в виде push-уведомлений. Серверные системы будут отправлять сообщения в эти разделы. Мобильный внутренний сервер может подписаться на один или несколько таких разделов, создав подписку на служебную шину. Это даст серверной части мобильной службы возможность получать уведомления от соответствующей серверной системы. Этот сервер продолжает прослушивать сообщения по своим подпискам, и как только сообщение поступает, он отправляет его в виде уведомления в свой центр уведомлений. В конечном итоге центры уведомлений доставляют сообщение в мобильное приложение. Итак, у нас есть следующие ключевые компоненты:
 
-1. Backend systems (LoB/Legacy systems)
-   * Creates Service Bus Topic
-   * Sends Message
-2. Mobile backend
-   * Creates Service Subscription
-   * Receives Message (from Backend system)
-   * Sends notification to clients (via Azure Notification Hub)
-3. Mobile Application
-   * Receives and display notification
+1. Серверные системы (бизнес-системы или устаревшие системы)
+   * Создает раздел Service Bus
+   * Отправляет сообщение
+2. Серверная часть мобильной службы
+   * Создает подписку на службу
+   * Получает сообщение (из серверной системы)
+   * Отправляет уведомление клиентам (через центр уведомлений Azure)
+3. Мобильное приложение
+   * Получает и отображает уведомление
 
-### <a name="benefits:"></a>Benefits:
-1. The decoupling between the receiver (mobile app/service via Notification Hub) and sender (backend systems) enables additional backend systems being integrated with minimal change.
-2. This also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.  
+### <a name="benefits"></a>Преимущества:
+1. Разделение на получателя (мобильное приложение или служба через центр уведомлений) и отправителя (серверные системы) позволяет интегрировать дополнительные серверные системы с минимальными изменениями.
+2. Упрощается ситуация, когда необходимо, чтобы уведомления о событиях в одной или нескольких серверных системах получали несколько мобильных приложений.  
 
-## <a name="sample:"></a>Sample:
-### <a name="prerequisites"></a>Prerequisites
-You should complete the following tutorials to familiarize with the concepts as well as common creation & configuration steps:
+## <a name="sample"></a>Пример:
+### <a name="prerequisites"></a>Предварительные требования
+Чтобы ознакомиться с основными понятиями и общими процедурами создания и настройки, необходимо пройти следующие учебники:
 
-1. [Service Bus Pub/Sub programming] - This explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send & receive messages from them.
-2. [Notification Hubs - Windows Universal tutorial] - This explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.
+1. [Как использовать разделы и подписки служебной шины] — здесь подробно описывается работа с разделами и подписками служебной шины, создание пространства имен для хранения разделов и подписок, отправка им сообщений и получение сообщений от них.
+2. [учебника по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
 
-### <a name="sample-code"></a>Sample code
-The full sample code is available at [Notification Hub Samples]. It is split into three components:
+### <a name="sample-code"></a>Пример кода
+Полный пример кода доступен в [коллекции примеров центра уведомлений]. Он состоит из трех компонентов:
 
 1. **EnterprisePushBackendSystem**
    
-    a. This project uses the *WindowsAzure.ServiceBus* Nuget package and is  based on [Service Bus Pub/Sub programming].
+    а. Этот проект использует пакет NuGet *WindowsAzure.ServiceBus* и основан на материале, изложенном в статье [Как использовать разделы и подписки служебной шины].
    
-    b. This is a simple C# console app to simulate an LoB system which initiates the message to be delivered to the mobile app.
+    b. Это простое консольное приложение на C# для моделирования бизнес-систем, которое инициирует доставку сообщений мобильному приложению.
    
         static void Main(string[] args)
         {
@@ -73,7 +77,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             SendMessage(connectionString);
         }
    
-    c. `CreateTopic` is used to create the Service Bus topic where we will send messages.
+    c. `CreateTopic` используется для создания раздела служебной шины, в который будут отправляться сообщения.
    
         public static void CreateTopic(string connectionString)
         {
@@ -88,7 +92,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             }
         }
    
-    d. `SendMessage` is used to send the messages to this Service Bus Topic. Here we are simply sending a set of random messages to the topic periodically for the purpose of the sample. Normally there will be a backend system which will send messages when an event occurs.
+    d. `SendMessage` используется для отправки сообщений в этот раздел служебной шины. В данном примере мы будем периодически отправлять набор случайных сообщений в этот раздел. Как правило эту функцию будет выполнять серверная система, которая будет отправлять сообщения при наступлении события.
    
         public static void SendMessage(string connectionString)
         {
@@ -120,9 +124,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         }
 2. **ReceiveAndSendNotification**
    
-    a. This project uses the *WindowsAzure.ServiceBus* and *Microsoft.Web.WebJobs.Publish* Nuget packages and is based on [Service Bus Pub/Sub programming].
+    а. Этот проект использует пакеты NuGet *WindowsAzure.ServiceBus* и *Microsoft.Web.WebJobs.Publish* и основан на материале, изложенном в статье [Как использовать разделы и подписки служебной шины].
    
-    b. This is another C# console app which we will run as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems. This will be part of your Mobile backend.
+    b. Это еще одно консольное приложение на C#, которое мы будем запускать в качестве [веб-задания Azure] , так как оно должно выполняться непрерывно для прослушивания сообщений из бизнес-систем и серверных систем. Оно будет входить в состав серверной части мобильной службы.
    
         static void Main(string[] args)
         {
@@ -136,7 +140,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             ReceiveMessageAndSendNotification(connectionString);
         }
    
-    c. `CreateSubscription` is used to create a Service Bus subscription for the topic where the backend system will send messages. Depending on the business scenario, this component will create one or more subscriptions to corresponding topics (e.g. some may be receiving messages from HR system, some from Finance system, and so on)
+    c. `CreateSubscription` используется для создания подписки служебной шины для раздела, в который серверная система будет отправлять сообщения. В зависимости от бизнес-сценария этот компонент создаст одну или несколько подписок на соответствующие разделы (например, одни будут получать сообщения из системы "Отдел кадров", другие — из системы "Финансы" и т. д.)
    
         static void CreateSubscription(string connectionString)
         {
@@ -150,7 +154,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             }
         }
    
-    d. ReceiveMessageAndSendNotification is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.
+    d. ReceiveMessageAndSendNotification используется для чтения сообщения из раздела с использованием подписки. Если операция считывания выполнена успешно, создается уведомление (в этом примере сценария — собственное всплывающее уведомление Windows), которое необходимо отправить в мобильное приложение с помощью Центров уведомлений Azure.
    
         static void ReceiveMessageAndSendNotification(string connectionString)
         {
@@ -200,24 +204,24 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             await hub.SendWindowsNativeNotificationAsync(message);
         }
    
-    e. For publishing this as a **WebJob**, right click on the solution in Visual Studio and select **Publish as WebJob**
+    д. Чтобы опубликовать этот процесс в виде **веб-задания**, щелкните правой кнопкой мыши решение в Visual Studio и выберите **Publish as WebJob** (Опубликовать как веб-задание).
    
     ![][2]
    
-    f. Select your publishing profile and create a new Azure WebSite if it doesnt exist already which will host this WebJob and once you have the WebSite then **Publish**.
+    Е. Выберите профиль публикации и создайте новый веб-сайт Azure для размещения веб-задания (если он еще не существует), а когда веб-сайт будет создан, щелкните **Опубликовать**.
    
     ![][3]
    
-    g. Configure the job to be "Run Continuously" so that when you log in to the [Azure Classic Portal] you should see something like the following:
+    ж. Настройте "непрерывное выполнение" задания, чтобы при входе на [классическом портале Azure] отображалось примерно следующее:
    
     ![][4]
 3. **EnterprisePushMobileApp**
    
-    a. This is a Windows Store application which will receive toast notifications from the WebJob running as part of your Mobile backend and display it. This is based on [Notification Hubs - Windows Universal tutorial].  
+    а. Это приложение Магазина Windows, которое будет получать всплывающие уведомления из задания WebJob, выполняющегося в составе серверной части мобильной службы, и отображать это уведомление. Оно основано на материале [учебника по центрам уведомлений для Windows Universal].  
    
-    b. Ensure that your application is enabled to receive toast notifications.
+    b. Убедитесь, что в приложении включено получение всплывающих уведомлений.
    
-    c. Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the *HubName* and *DefaultListenSharedAccessSignature*:
+    c. Убедитесь, что при запуске приложения вызывается следующий код регистрации Центров уведомлений (после замены *HubName* и *DefaultListenSharedAccessSignature*:
    
         private async void InitNotificationsAsync()
         {
@@ -235,13 +239,13 @@ The full sample code is available at [Notification Hub Samples]. It is split int
             }
         }
 
-### <a name="running-sample:"></a>Running sample:
-1. Ensure that your WebJob is running successfully and scheduled to "Run Continuously".
-2. Run the **EnterprisePushMobileApp** which will start the Windows Store app.
-3. Run the **EnterprisePushBackendSystem** console application which will simulate the LoB backend and will start sending messages and you should see toast notifications appearing like the following:
+### <a name="running-sample"></a>Запуск примера
+1. Убедитесь, что задание WebJob успешно запущено и для него запланировано «непрерывное выполнение».
+2. Запустите **EnterprisePushMobileApp** , чтобы запустить приложение Магазина Windows.
+3. Запустите консольное приложение **EnterprisePushBackendSystem**, которое будет имитировать серверную часть бизнес-системы и начнет отправлять сообщения. Вы должны увидеть примерно такие всплывающие уведомления:
    
     ![][5]
-4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure Classic Portal] for your Web Job:
+4. Первоначально сообщения были отправлены в разделы Service Bus, которые отслеживаются по подпискам Service Bus в задании WebJob. При получении сообщения было создано уведомление, которое затем было отправлено в мобильное приложение. Чтобы убедиться в правильности выполнения обработки, можно просмотреть журналы задания WebJob, перейдя по ссылке "Журналы" на [классическом портале Azure] для соответствующего задания WebJob:
    
     ![][6]
 
@@ -254,16 +258,16 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 [6]: ./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png
 
 <!-- Links -->
-[Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub programming]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[Notification Hubs - Windows Universal tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[коллекции примеров центра уведомлений]: https://github.com/Azure/azure-notificationhubs-samples
+[мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[служебной шиной Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Как использовать разделы и подписки служебной шины]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[веб-задания Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[классическом портале Azure]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

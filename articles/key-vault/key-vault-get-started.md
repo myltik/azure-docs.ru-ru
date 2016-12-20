@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
 Для работы с этим учебником требуется:
 
 * подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной учетной записи](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в [этой статье](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в [этой статье](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 * приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
 
 Хотя этот учебник предназначен для начинающих пользователей Azure PowerShell, предполагается, что вы знакомы с такими основными понятиями, как модули, командлеты и сеансы. Дополнительные сведения см. в статье [Начало работы с Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,7 +56,7 @@ ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
 
 Чтобы ознакомиться с диспетчером ресурсов Azure в Azure PowerShell, можно также прочитать следующие учебники:
 
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Использование Azure PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
@@ -76,7 +76,7 @@ ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Создание новой группы ресурсов
 При использовании диспетчера ресурсов Azure все связанные ресурсы создаются внутри группы ресурсов. Для примера мы создадим новую группу ресурсов с именем **ContosoResourceGroup** :
@@ -237,6 +237,6 @@ ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

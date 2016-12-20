@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
 
 
 ---
@@ -137,7 +137,7 @@ ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
 
 1. Если вы используете Windows 7, скачайте и установите [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) .   
     Если вы используете Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 или Windows 7 с пакетом обновления 1 (SP1), установите [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) .
-2. Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. Создана учетная запись службы автоматизации.  Эта учетная запись будет указана как значение для параметров -AutomationAccountName и -ApplicationDisplayName в приведенных ниже сценариях.
 
 Чтобы получить значения для параметров *SubscriptionID*, *ResourceGroup* и *AutomationAccountName*, которые являются обязательными для сценариев, на портале Azure в колонке **Учетная запись службы автоматизации** выберите свою учетную запись службы автоматизации, а затем щелкните **Все параметры**.  В колонке **Все параметры** в разделе **Параметры учетной записи** выберите пункт **Свойства**.  В колонке **Свойства** вы увидите нужные значения.<br> ![Свойства учетной записи службы автоматизации](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

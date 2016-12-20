@@ -1,12 +1,12 @@
 ---
-title: 'Доменные службы Azure AD: создание группы администраторов контроллера домена AAD | Microsoft Docs'
-description: Приступая к работе с доменными службами Azure Active Directory
+title: "Доменные службы Azure AD: создание группы администраторов контроллера домена AAD | Документация Майкрософт"
+description: "Приступая к работе с доменными службами Azure Active Directory"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0dfc373cc65033cfb7c2b1882dca41faa7c7bcae
+
 
 ---
 # <a name="get-started-with-azure-ad-domain-services"></a>Приступая к работе с доменными службами Azure AD
 В этой статье приводятся задачи конфигурации, необходимые для включения доменных служб Azure AD для вашего клиента Azure AD.
 
-## <a name="task-1:-create-the-'aad-dc-administrators'-group"></a>Задача 1. Создание группы "Администраторы контроллера домена AAD"
+## <a name="task-1-create-the-aad-dc-administrators-group"></a>Задача 1. Создание группы "Администраторы контроллера домена AAD"
 Первой задачей является создание административной группы в клиенте Azure Active Directory. Эта специальная административная группа называется **Администраторы контроллера домена AAD**. Участникам этой группы предоставляются права администратора для компьютеров, присоединенных к управляемому домену доменных служб Azure AD. На компьютерах, присоединенных к домену, эта группа добавляется в группу "Администраторы". Кроме того, участники этой группы могут подключаться по протоколу удаленного рабочего стола к компьютерам, присоединенным к домену.  
 
 > [!NOTE]
@@ -56,9 +60,12 @@ ms.author: maheshu
 
 <br>
 
-## <a name="task-2:-create-or-select-an-azure-virtual-network"></a>Задача 2. Создание или выбор виртуальной сети Azure.
+## <a name="task-2-create-or-select-an-azure-virtual-network"></a>Задача 2. Создание или выбор виртуальной сети Azure.
 Следующая задача по настройке — [создать или выбрать виртуальную сеть Azure](active-directory-ds-getting-started-vnet.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

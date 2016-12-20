@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
 
 Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>1. Определение ключа API запроса службы поиска Azure
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>1. Определение ключа API запроса службы поиска Azure
 Теперь, когда вы создали индекс службы поиска Azure, вы почти готовы отправлять запросы с помощью пакета SDK для .NET. Для этого сначала нужно получить один из ключей API запроса, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
 1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/)
@@ -170,6 +170,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

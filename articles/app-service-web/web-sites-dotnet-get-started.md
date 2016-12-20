@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
 
 ## <a name="prerequisites"></a>Предварительные требования
 * В этом руководстве предполагается, что у вас есть опыт работы с ASP.NET MVC и Visual Studio. Общие сведения об этих компонентах см. в статье [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) (Приступая к работе с Azure и ASP.NET MVC 5).
-* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
@@ -219,6 +219,6 @@ ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке | Microsoft Docs'
-description: В этой статье объясняется модель конфигурации декларативной подготовки в Azure AD Connect.
+title: "Синхронизация Azure AD Connect: общие сведения о декларативной подготовке | Документация Майкрософт"
+description: "В этой статье объясняется модель конфигурации декларативной подготовки в Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a52714e1b549452929827edd5bf77bfc64d405c3
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке
 В этой статье объясняется используемая в Azure AD Connect модель конфигурации, именуемая декларативной подготовкой. Она позволяет без труда вносить изменения в конфигурацию. Некоторые сложные аспекты, описанные в этой статье, не предназначены для большинства клиентских сценариев.
 
 ## <a name="overview"></a>Обзор
@@ -157,8 +161,11 @@ ms.author: billmath
 
 **Справочные материалы**
 
-* [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
+* [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

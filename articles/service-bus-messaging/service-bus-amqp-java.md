@@ -1,27 +1,31 @@
 ---
-title: Служебная шина и Java с протоколом AMQP 1.0 | Microsoft Docs
-description: Использование служебной шины на платформе Java с протоколом AMQP
-services: service-bus
+title: "Служебная шина и Java с протоколом AMQP 1.0 | Документация Майкрософт"
+description: "Использование служебной шины на платформе Java с протоколом AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1848f58d-1b40-43e0-89c4-ab14ba34c032
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: eb41df70551bc327473caea4fab95cd269bc0175
+
 
 ---
-# <a name="use-service-bus-from-java-with-amqp-1.0"></a>Использование служебной шины для Java с протоколом AMQP 1.0
+# <a name="use-service-bus-from-java-with-amqp-10"></a>Использование служебной шины для Java с протоколом AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Служба сообщений Java (JMS) — это стандартный API для работы с ПО промежуточного слоя, ориентированного на обработку сообщений, в рамках платформы Java. Служебная шина Microsoft Azure протестирована с помощью протокола AMQP 1.0 на основе клиентской библиотеки JMS, разработанной проектом Apache Qpid. Эта библиотека поддерживает полную версию API JMS 1.1 и может использоваться с любой службой обмена сообщениями, совместимой с AMQP 1.0. Этот сценарий также поддерживается [служебной шиной для Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (локальной служебной шиной). Дополнительные сведения см. в статье [Протокол AMQP служебной шины для Windows Server][Протокол AMQP служебной шины для Windows Server].
+Служба сообщений Java (JMS) — это стандартный API для работы с ПО промежуточного слоя, ориентированного на обработку сообщений, в рамках платформы Java. Служебная шина Microsoft Azure протестирована с помощью протокола AMQP 1.0 на основе клиентской библиотеки JMS, разработанной проектом Apache Qpid. Эта библиотека поддерживает полную версию API JMS 1.1 и может использоваться с любой службой обмена сообщениями, совместимой с AMQP 1.0. Этот сценарий также поддерживается [служебной шиной для Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (локальной служебной шиной). Дополнительные сведения см. в статье [Протокол AMQP служебной шины для Windows Server][Протокол AMQP служебной шины для Windows Server] (Использование служебной шины для Windows Server из Java с протоколом AMQP 1.0).
 
-## <a name="download-the-apache-qpid-amqp-1.0-jms-client-library"></a>Загрузка клиентской библиотеки Apache Qpid JMS AMQP 1.0
+## <a name="download-the-apache-qpid-amqp-10-jms-client-library"></a>Загрузка клиентской библиотеки Apache Qpid JMS AMQP 1.0
 Сведения о скачивании последней версии клиентской библиотеки Apache Qpid JMS AMQP 1.0 см. на странице [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
@@ -31,9 +35,9 @@ ms.author: sethm
 * qpid-amqp-1-0-client-jms-[version].jar
 * qpid-amqp-1-0-common-[version].jar
 
-## <a name="work-with-service-bus-queues,-topics,-and-subscriptions-from-jms"></a>Работа с очередями, разделами и подписками служебной шины из JMS
-### <a name="java-naming-and-directory-interface-(jndi)"></a>Интерфейс JNDI
-JMS использует интерфейс JNDI для разделения логических и физических имен. С помощью JNDI разрешаются два типа объектов JMS: **ConnectionFactory** и **Destination**. JNDI использует модель поставщика, к которой можно подключить различные службы каталогов для обработки заданий разрешения имен. Библиотека Apache Qpid JMS AMQP 1.0 поставляется с простым поставщиком JNDI файла свойств, который настраивается с помощью текстового файла.
+## <a name="work-with-service-bus-queues-topics-and-subscriptions-from-jms"></a>Работа с очередями, разделами и подписками служебной шины из JMS
+### <a name="java-naming-and-directory-interface-jndi"></a>Интерфейс JNDI
+JMS использует интерфейс JNDI для разделения логических и физических имен. С помощью JNDI разрешаются два типа объектов JMS: **ConnectionFactory** и **Destination**. JNDI использует модель поставщика, к которой можно подключить различные службы каталогов для обработки заданий разрешения имен. Библиотека Apache Qpid JMS AMQP 1.0 поставляется с простым поставщиком JNDI файла свойств, который настраивается с помощью текстового файла.
 
 Поставщик JNDI файла свойств Qpid настраивается с помощью файла свойств в следующем формате:
 
@@ -75,9 +79,9 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | Имя | Значение |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| `[namespace]` |Пространство имен служебной шины, полученное с [портала Azure][]. | | | | |
-| `[username]` |Ключ SAS служебной шины, полученный с [портала Azure][]. | | | | |
-| `[password]` |Ключ SAS служебной шины, полученный с [портала Azure][], в формате URL-адреса. | | | | |
+| `[namespace]` |Пространство имен служебной шины, полученное с [портала Azure][портал Azure]. | | | | |
+| `[username]` |Имя ключа SAS служебной шины, полученное с [портала Azure][портал Azure]. | | | | |
+| `[password]` |Ключ SAS служебной шины, полученный с [портала Azure][портал Azure], в формате URL-адреса. | | | | |
 
 > [!NOTE]
 > Необходимо применить URL-кодирование к паролю вручную. Удобная служебная программа для кодирования URL-адресов доступна на странице [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
@@ -146,7 +150,7 @@ producer.send(message);
 ```
 
 ### <a name="receive-messages-using-jms"></a>Получение сообщений с помощью JMS
-В следующем коде показано `how`, чтобы получить сообщение из подписки раздела служебной шины. Предполагается, что `SBCONNECTIONFACTORY` и TOPIC определены в файле конфигурации **servicebus.properties**, как описано в предыдущем разделе. Также предполагается, что имя подписки — `subscription1`.
+В следующем коде показано `how`, чтобы получить сообщение из подписки раздела служебной шины. Предполагается, что `SBCONNECTIONFACTORY` и TOPIC определены в файле конфигурации **servicebus.properties**, как описано в предыдущем разделе. Также предполагается, что имя подписки — `subscription1`.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -174,11 +178,11 @@ Message message = messageConsumer.receive();
   1. Если проблема возникает из-за того, что служебная шина отклоняет определенное отправленное сообщение, будет вызвано исключение **MessageRejectedException**. Эта ошибка либо временная, либо связанная с определенной проблемой в сообщении. Рекомендуется несколько раз повторить операцию с использованием логики переключения в пассивный режим. Если проблема сохранится, сообщение следует отклонить с регистрацией ошибки в локальном журнале. В таком случае нет необходимости повторно создавать объекты **JMS Connection**, **Session** или **MessageProducer**. 
   2. Если проблема возникает из-за того, что служебная шина закрывает ссылку AMQP, будет вызвано исключение **InvalidDestinationException**. Это может быть связано с временным сбоем или удалением сущности обмена сообщениями. Объекты **JMS Connection**, **Session** и **MessageProducer** в любом случае следует создать заново. Если ошибка была временной, эта операция в конечном счете будет выполнена успешно. Если сущность удалена, ошибка будет возникать постоянно.
 
-## <a name="messaging-between-.net-and-jms"></a>Обмен сообщениями между .NET и JMS
+## <a name="messaging-between-net-and-jms"></a>Обмен сообщениями между .NET и JMS
 ### <a name="message-bodies"></a>Текст сообщений
-В JMS определены пять типов сообщений: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** и **TextMessage**. В служебной шине API .NET есть только один тип сообщений — [BrokeredMessage][BrokeredMessage].
+В JMS определены пять типов сообщений: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** и **TextMessage**. В служебной шине API .NET есть только один тип сообщений — [BrokeredMessage][BrokeredMessage].
 
-#### <a name="jms-to-service-bus-.net-api"></a>Взаимодействие между JMS и API .NET служебной шины
+#### <a name="jms-to-service-bus-net-api"></a>Взаимодействие между JMS и API .NET служебной шины
 В следующих разделах показано, как получать сообщения каждого типа JMS из .NET. Пример **ObjectMessage** не включен, так как текст **ObjectMessage** содержит сериализуемый объект на языке программирования Java, который не интерпретируется приложением .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -233,7 +237,7 @@ foreach (Object item in list)
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
-#### <a name="service-bus-.net-apis-to-jms"></a>Взаимодействие между API .NET служебной шины и JMS
+#### <a name="service-bus-net-apis-to-jms"></a>Взаимодействие между API .NET служебной шины и JMS
 В следующих разделах показано, как приложение .NET может создать сообщение всех типов JMS, получаемое в JMS. Пример **ObjectMessage** не включен, так как текст **ObjectMessage** содержит сериализуемый объект на языке программирования Java, который не интерпретируется приложением .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -264,7 +268,7 @@ message = new BrokeredMessage("this is a text string");
 ```
 
 ### <a name="application-properties"></a>Свойства приложения
-#### <a name="jms-to-service-bus-.net-apis"></a>Взаимодействие между JMS и API .NET служебной шины
+#### <a name="jms-to-service-bus-net-apis"></a>Взаимодействие между JMS и API .NET служебной шины
 Сообщения JMS поддерживают свойства приложений следующих типов: **boolean**, **byte**, **short**, **int**, **long**, **float**, **double** и **String**. В следующем примере кода .NET показано, как настроить свойства в сообщении с помощью каждого из этих типов свойств.
 
 ```
@@ -299,7 +303,7 @@ if (message.Properties.Keys.Count > 0)
 | Float |float; |
 | Double |double |
 | Логический |bool |
-| Строка |строка |
+| Строка |string |
 
 Тип [BrokeredMessage][BrokeredMessage] поддерживает свойства приложений следующих типов: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** и **TimeSpan**. В следующем примере кода .NET показано, как настроить свойства в объекте [BrokeredMessage][BrokeredMessage] с помощью каждого из этих типов свойств.
 
@@ -362,9 +366,9 @@ while (propertyNames.hasMoreElements())
 | URI |DescribedType |Uri.AbsoluteUri сопоставляется с типом AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### <a name="standard-headers"></a>Стандартные заголовки
-В следующей таблице показано сопоставление стандартных заголовков JMS и стандартных свойств [BrokeredMessage][BrokeredMessage] в AMQP 1.0.
+В следующей таблице показано сопоставление стандартных заголовков JMS и стандартных свойств [BrokeredMessage][BrokeredMessage] в AMQP 1.0.
 
-#### <a name="jms-to-service-bus-.net-apis"></a>Взаимодействие между JMS и API .NET служебной шины
+#### <a name="jms-to-service-bus-net-apis"></a>Взаимодействие между JMS и API .NET служебной шины
 | JMS | .NET служебной шины | Примечания |
 | --- | --- | --- |
 | JMSCorrelationID |Message.CorrelationID |- |
@@ -378,7 +382,7 @@ while (propertyNames.hasMoreElements())
 | JMSTimestamp |Message.EnqueuedTimeUtc |Преобразование |
 | JMSType |Message.Properties[“jms-type”] |- |
 
-#### <a name="service-bus-.net-apis-to-jms"></a>Взаимодействие между API .NET служебной шины и JMS
+#### <a name="service-bus-net-apis-to-jms"></a>Взаимодействие между API .NET служебной шины и JMS
 | .NET служебной шины | JMS | Примечания |
 | --- | --- | --- |
 | ContentType |- |В настоящее время недоступно. |
@@ -394,7 +398,7 @@ while (propertyNames.hasMoreElements())
 | Кому |JMSDestination |- |
 
 ## <a name="unsupported-features-and-restrictions"></a>Неподдерживаемые возможности и ограничения
-При использовании JMS через протокол AMQP 1.0 со служебной шиной существуют следующие ограничения.
+При использовании JMS через протокол AMQP 1.0 со служебной шиной существуют следующие ограничения.
 
 * Для одного сеанса допускается только один объект **MessageProducer** или **MessageConsumer**. Если в приложении нужно создать несколько объектов **MessageProducer** или **MessageConsumer**, создайте выделенные сеансы для каждого из них.
 * Временные подписки раздела в настоящее время не поддерживаются.
@@ -417,6 +421,6 @@ while (propertyNames.hasMoreElements())
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

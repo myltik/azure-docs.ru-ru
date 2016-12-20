@@ -1,13 +1,13 @@
 ---
-title: Управление группами безопасности сети с помощью интерфейса командной строки Azure в Resource Manager | Microsoft Docs
-description: Дополнительные сведения об управлении существующими группами безопасности сети с помощью интерфейса командной строки Azure в Resource Manager
+title: "Управление группами безопасности сети с помощью интерфейса командной строки Azure | Документация Майкрософт"
+description: "Сведения об управлении существующими группами безопасности сети с помощью интерфейса командной строки Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,28 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: e42818f9c810cc72996178b2f9a41e1bc98c6734
+ms.openlocfilehash: 68406c2c2b88150c17c9a2d2996b6dd0209c2972
+
 
 ---
-# Управление группами безопасности сети с помощью интерфейса командной строки Azure
+# <a name="manage-nsgs-using-the-azure-cli"></a>Управление группами безопасности сети с помощью интерфейса командной строки Azure
+
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-Классическая модель развертывания.
+> [!NOTE]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо классической.
+> 
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Извлечение информации
+## <a name="retrieve-information"></a>Извлечение информации
 Вы можете просмотреть существующие группы безопасности сети, получить правила для существующей группы и узнать, с какими ресурсами она связана.
 
-### Просмотр существующих групп безопасности сети
-Чтобы просмотреть список групп безопасности сети в определенной группе ресурсов, выполните команду `azure network nsg list`, как показано ниже.
+### <a name="view-existing-nsgs"></a>Просмотр существующих групп безопасности сети
+Чтобы просмотреть список групп безопасности сети в определенной группе ресурсов, выполните команду `azure network nsg list` , как показано ниже.
 
-    azure network nsg list --resource-group RG-NSG
+```azurecli
+azure network nsg list --resource-group RG-NSG
+```
 
 Ожидаемые выходные данные:
 
@@ -48,16 +55,18 @@ ms.author: jdial
     data:    NSG-FrontEnd  westus
     info:    network nsg list command OK
 
-### Перечисление всех правил для группы безопасности сети
-Чтобы просмотреть правила группы безопасности сети с именем **NSG-FrontEnd**, выполните команду `azure network nsg show`, как показано ниже.
+### <a name="list-all-rules-for-an-nsg"></a>Перечисление всех правил для группы безопасности сети
+Чтобы просмотреть правила группы безопасности сети с именем **NSG-FrontEnd`azure network nsg show`, выполните команду **, как показано ниже. 
 
-    azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
+```azurecli
+azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
+```
 
 Ожидаемые выходные данные:
 
     info:    Executing command network nsg show
     + Looking up the network security group "NSG-FrontEnd"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
     data:    Name                            : NSG-FrontEnd
     data:    Type                            : Microsoft.Network/networkSecurityGroups
     data:    Location                        : westus
@@ -78,45 +87,49 @@ ms.author: jdial
 
 > [!NOTE]
 > Можно также использовать `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` для получения списка правил из группы безопасности сети **NSG-FrontEnd**.
-> 
-> 
+>
 
-### Просмотр связей для группы безопасности сети
-Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd**, выполните команду `azure network nsg show`, как показано ниже. Обратите внимание, что единственная разница — использование параметра **--json**.
+### <a name="view-nsg-associations"></a>Просмотр связей для группы безопасности сети
 
-    azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
+Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`azure network nsg show`, выполните команду **, как показано ниже. Обратите внимание, что единственная разница — использование параметра **--json** .
 
-Найдите свойства **networkInterfaces** и **subnets**, как показано ниже:
+```azurecli
+azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
+```
+
+Найдите свойства **networkInterfaces** и **subnets**, как показано ниже.
 
     "networkInterfaces": [],
     ...
     "subnets": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+            "id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
         }
     ],
     ...
 
 В приведенном выше примере группа безопасности сети не связана с сетевыми адаптерами, но связана с подсетью **FrontEnd**.
 
-## Управление правилами
+## <a name="manage-rules"></a>Управление правилами
 Можно добавлять правила для существующей группы безопасности сети, изменять существующие правила и удалять их.
 
-### Добавление правила
-Чтобы добавить правило, разрешающее **входящий** трафик через порт **443** с любого компьютера в группу безопасности сети **NSG-FrontEnd**, выполните команду `azure network nsg rule create`, как показано ниже.
+### <a name="add-a-rule"></a>Добавление правила
+Чтобы добавить правило, разрешающее **входящий** трафик через порт **443** с любого компьютера в группу безопасности сети **NSG-FrontEnd**, выполните следующую команду:
 
-    azure network nsg rule create --resource-group RG-NSG \
-        --nsg-name NSG-FrontEnd \
-        --name allow-https \
-        --description "Allow access to port 443 for HTTPS" \
-        --protocol Tcp \
-        --source-address-prefix * \
-        --source-port-range * \
-        --destination-address-prefix * \
-        --destination-port-range 443 \
-        --access Allow \
-        --priority 102 \
-        --direction Inbound        
+```azurecli
+azure network nsg rule create --resource-group RG-NSG \
+    --nsg-name NSG-FrontEnd \
+    --name allow-https \
+    --description "Allow access to port 443 for HTTPS" \
+    --protocol Tcp \
+    --source-address-prefix * \
+    --source-port-range * \
+    --destination-address-prefix * \
+    --destination-port-range 443 \
+    --access Allow \
+    --priority 102 \
+    --direction Inbound
+```
 
 Ожидаемые выходные данные:
 
@@ -124,7 +137,7 @@ ms.author: jdial
     + Looking up the network security rule "allow-https"
     + Creating a network security rule "allow-https"
     + Looking up the network security group "NSG-FrontEnd"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
+    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
     data:    Name                            : allow-https
     data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
     data:    Provisioning state              : Succeeded
@@ -139,13 +152,15 @@ ms.author: jdial
     data:    Priority                        : 102
     info:    network nsg rule create command OK
 
-### Изменение правила
-Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните команду `azure network nsg rule set`, как показано ниже.
+### <a name="change-a-rule"></a>Изменение правила
+Чтобы изменить созданное ранее правило, разрешающее входящий трафик только из **Интернета**, выполните следующую команду:
 
-    azure network nsg rule set --resource-group RG-NSG \
-        --nsg-name NSG-FrontEnd \
-        --name allow-https \
-        --source-address-prefix Internet
+```azurecli
+azure network nsg rule set --resource-group RG-NSG \
+    --nsg-name NSG-FrontEnd \
+    --name allow-https \
+    --source-address-prefix Internet
+```
 
 Ожидаемые выходные данные:
 
@@ -168,18 +183,19 @@ ms.author: jdial
     data:    Priority                        : 102
     info:    network nsg rule set command OK
 
-### Удаление правила
-Чтобы удалить созданное выше правило, выполните команду `azure network nsg rule delete`, как показано ниже.
+### <a name="delete-a-rule"></a>Удаление правила
+Чтобы удалить созданное ранее правило, выполните следующую команду:
 
-    azure network nsg rule delete --resource-group RG-NSG \
-        --nsg-name NSG-FrontEnd \
-        --name allow-https \
-        --quiet
+```azurecli
+azure network nsg rule delete --resource-group RG-NSG \
+    --nsg-name NSG-FrontEnd \
+    --name allow-https \
+    --quiet
+```
 
 > [!NOTE]
-> Параметр **--quiet** гарантирует, что удаление не потребуется подтверждать.
-> 
-> 
+> Параметр `--quiet` гарантирует, что удаление не потребуется подтверждать.
+>
 
 Ожидаемые выходные данные:
 
@@ -188,15 +204,17 @@ ms.author: jdial
     + Deleting network security rule "allow-https"
     info:    network nsg rule delete command OK
 
-## Управление связями
+## <a name="manage-associations"></a>Управление связями
 Группу безопасности сети можно связать с сетевыми адаптерами и подсетями. Можно также отменить связь группы безопасности сети с любым ресурсом.
 
-### Связывание группы безопасности сети с сетевым адаптером
-Чтобы связать группу безопасности сети **NSG-FrontEnd** с сетевым адаптером **TestNICWeb1**, выполните команду `azure network nic set`, как показано ниже.
+### <a name="associate-an-nsg-to-a-nic"></a>Связывание группы безопасности сети с сетевым адаптером
+Чтобы привязать группу безопасности сети **NSG-FrontEnd** к сетевому интерфейсу **TestNICWeb1**, выполните следующую команду:
 
-    azure network nic set --resource-group RG-NSG \
-        --name TestNICWeb1 \
-        --network-security-group-name NSG-FrontEnd
+```azurecli
+azure network nic set --resource-group RG-NSG \
+    --name TestNICWeb1 \
+    --network-security-group-name NSG-FrontEnd
+```
 
 Ожидаемые выходные данные:
 
@@ -225,14 +243,16 @@ ms.author: jdial
     data:
     info:    network nic set command OK
 
-### Отмена связи с сетевым адаптером для группы безопасности сети
-Чтобы отвязать группу безопасности сети **NSG-FrontEnd** от сетевого адаптера **TestNICWeb1**, выполните команду `azure network nic set`, как показано ниже.
+### <a name="dissociate-an-nsg-from-a-nic"></a>Отмена связи с сетевым адаптером для группы безопасности сети
 
-    azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
+Чтобы отменить связь между группой безопасности сети **NSG-FrontEnd** и сетевым интерфейсом **TestNICWeb1**, выполните следующую команду:
+
+```azurecli
+azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
+```
 
 > [!NOTE]
-> Обратите внимание на значение "" (пустое) в параметре **network-security-group-id**. Это позволяет удалить связь с группой. Сделать то же самое с помощью параметра **network-security-group-name** невозможно.
-> 
+> Обратите внимание на значение "" (пустое) в параметре `network-security-group-id`. Это позволяет удалить связь с группой. Нельзя сделать то же самое с параметром `network-security-group-name`.
 > 
 
 Ожидаемый результат:
@@ -241,7 +261,7 @@ ms.author: jdial
     + Looking up the network interface "TestNICWeb1"
     + Updating network interface "TestNICWeb1"
     + Looking up the network interface "TestNICWeb1"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
+    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
     data:    Name                            : TestNICWeb1
     data:    Type                            : Microsoft.Network/networkInterfaces
     data:    Location                        : westus
@@ -249,24 +269,26 @@ ms.author: jdial
     data:    MAC address                     : 00-0D-3A-30-A1-F8
     data:    Enable IP forwarding            : false
     data:    Tags                            : displayName=NetworkInterfaces - Web
-    data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
+    data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
     data:    IP configurations:
     data:      Name                          : ipconfig1
     data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
+    data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
     data:      Private IP address            : 192.168.1.5
     data:      Private IP Allocation Method  : Dynamic
-    data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
     data:
     info:    network nic set command OK
 
-### Отмена связи с подсетью для группы безопасности сети
-Чтобы отвязать группу безопасности сети **NSG-FrontEnd** от подсети **FrontEnd**, выполните команду `azure network vnet subnet set`, как показано ниже.
+### <a name="dissociate-an-nsg-from-a-subnet"></a>Отмена связи с подсетью для группы безопасности сети
+Чтобы отменить связь между группой безопасности сети **NSG-FrontEnd** и подсетью **FrontEnd**, выполните следующую команду:
 
-    azure network vnet subnet set --resource-group RG-NSG \
-        --vnet-name TestVNet \
-        --name FrontEnd \
-        --network-security-group-id ""
+```azurecli
+azure network vnet subnet set --resource-group RG-NSG \
+    --vnet-name TestVNet \
+    --name FrontEnd \
+    --network-security-group-id ""
+```
 
 Ожидаемые выходные данные:
 
@@ -274,28 +296,29 @@ ms.author: jdial
     + Looking up the subnet "FrontEnd"
     + Setting subnet "FrontEnd"
     + Looking up the subnet "FrontEnd"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
     data:    Type                            : Microsoft.Network/virtualNetworks/subnets
     data:    ProvisioningState               : Succeeded
     data:    Name                            : FrontEnd
     data:    Address prefix                  : 192.168.1.0/24
     data:    IP configurations:
-    data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-    data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
+    data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
+    data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
     data:
     info:    network vnet subnet set command OK
 
-### Связывание группы NSG с подсетью
-Чтобы снова связать группу безопасности сети **NSG-FrontEnd** с подсетью **FrontEnd**, выполните команду `azure network vnet subnet set`, как показано ниже.
+### <a name="associate-an-nsg-to-a-subnet"></a>Связывание группы NSG с подсетью
+Чтобы снова связать группу безопасности сети **NSG-FrontEnd** с подсетью **FrontEnd**, выполните следующую команду:
 
-    azure network vnet subnet set --resource-group RG-NSG \
-        --vnet-name TestVNet \
-        --name FrontEnd \
-        --network-security-group-name NSG-FronEnd
+```azurecli
+azure network vnet subnet set --resource-group RG-NSG \
+    --vnet-name TestVNet \
+    --name FrontEnd \
+    --network-security-group-name NSG-FronEnd
+```
 
 > [!NOTE]
-> Приведенная выше команда работает только потому, что группа безопасности сети **NSG-FrontEnd** находится в той же группе ресурсов, что и виртуальная сеть **TestVNet**. Если группа безопасности сети находится в другой группе ресурсов, необходимо использовать вместо этого параметр **--network-security-group-id** и указать полный идентификатор для группы безопасности сети. Идентификатор можно получить, выполнив команду **azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json** и найдя свойство **id**.
-> 
+> Приведенная выше команда работает только потому, что группа безопасности сети **NSG-FrontEnd** находится в той же группе ресурсов, что и виртуальная сеть **TestVNet**. Если группа безопасности сети находится в другой группе ресурсов, необходимо использовать вместо этого параметр `--network-security-group-id` и указать полный идентификатор для группы безопасности сети. Идентификатор можно получить, выполнив команду `azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json` и найдя свойство **id**. 
 > 
 
 Ожидаемые выходные данные:
@@ -305,36 +328,43 @@ ms.author: jdial
         + Looking up the network security group "NSG-FrontEnd"
         + Setting subnet "FrontEnd"
         + Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
         data:    Type                            : Microsoft.Network/virtualNetworks/subnets
         data:    ProvisioningState               : Succeeded
         data:    Name                            : FrontEnd
         data:    Address prefix                  : 192.168.1.0/24
         data:    Network security group          : [object Object]
         data:    IP configurations:
-        data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-        data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
+        data:      /subscriptions/[Subscription Id]resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
+        data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
         data:
         info:    network vnet subnet set command OK
 
-## Удаление группы NSG
+## <a name="delete-an-nsg"></a>Удаление группы NSG
 Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия.
 
-1. Чтобы проверить ресурсы, связанные с группой, выполните команду `azure network nsg show`, как показано в разделе [Просмотр связей для группы безопасности сети](#View-NSGs-associations).
-2. Если группа связана с сетевыми адаптерами, выполните `azure network nic set`, как показано в разделе [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC), для каждого сетевого адаптера.
-3. Если группа связана с подсетью, выполните `azure network vnet subnet set`, как показано в разделе [Отмена связи с подсетью для группы безопасности сети](#Dissociate-an-NSG-from-a-subnet), для каждой подсети.
-4. Чтобы удалить группу безопасности сети, выполните команду `azure network nsg delete`, как показано ниже.
-   
-        azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
-   
+1. Чтобы проверить ресурсы, связанные с группой, выполните команду `azure network nsg show` , как показано в разделе [Просмотр связей для группы безопасности сети](#View-NSGs-associations).
+2. Если группа связана с сетевыми адаптерами, выполните `azure network nic set` , как показано в разделе [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC) , для каждого сетевого адаптера. 
+3. Если группа связана с подсетью, выполните `azure network vnet subnet set` , как показано в разделе [Отмена связи с подсетью для группы безопасности сети](#Dissociate-an-NSG-from-a-subnet) , для каждой подсети.
+4. Чтобы удалить группу безопасности сети, выполните следующую команду:
+
+    ```azurecli
+    azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
+    ```
+
     Ожидаемые выходные данные:
-   
+
         info:    Executing command network nsg delete
         + Looking up the network security group "NSG-FrontEnd"
         + Deleting network security group "NSG-FrontEnd"
         info:    network nsg delete command OK
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Узнайте, как с помощью портала Azure создать учетную запись хранения для озера данных Azure и выполнять базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения о Data Lake Store см. в [обзоре Azure Data Lake Store](data-lake-store-overview.md).
@@ -58,8 +59,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
    * **Расположение**: выберите расположение, в котором нужно создать учетную запись хранения озера данных.
    * **Параметры шифрования**. Можно выбрать, следует ли шифровать учетную запись Data Lake Store. Выбрав шифрование, также можно указать способ управления главным ключом шифрования, который будет использоваться для шифрования данных в учетной записи.
      
-     * (По умолчанию.) Если вам не требуется использовать шифрование, в раскрывающемся списке выберите **Не включать шифрование**.
-     * (Необязательно.) Для управления ключами шифрования с помощью Azure Data Lake выберите **Использовать ключи, управляемые Azure Data Lake**.
+     * (Необязательно.) Если вам не требуется использовать шифрование, в раскрывающемся списке выберите пункт **Не включать шифрование**.
+     * (По умолчанию.) Для управления ключами шифрования с помощью Azure Data Lake выберите пункт **Использовать ключи, управляемые Azure Data Lake**.
        
          ![Шифрование данных с помощью Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Необязательно.) Если вы хотите использовать собственные ключи, имеющиеся в хранилище ключей Azure, выберите **Выбрать ключи из хранилища ключей Azure**. С помощью этого параметра можно также создать учетную запись хранилища ключей и ключи, если у вас их нет.
@@ -136,6 +137,6 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

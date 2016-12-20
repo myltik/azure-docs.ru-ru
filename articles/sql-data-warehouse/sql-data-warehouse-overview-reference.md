@@ -1,22 +1,26 @@
 ---
-title: Справочные темы по хранилищу данных SQL | Microsoft Docs
-description: Ссылки на статьи, содержащие справочную информацию о хранилище данных SQL.
+title: "Справочные темы по хранилищу данных SQL | Документация Майкрософт"
+description: "Ссылки на статьи, содержащие справочную информацию о хранилище данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/08/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9395c092411ebc056a8b3145a29f3a0c56b2a3cd
+
 
 ---
-# Справочные темы по хранилищу данных SQL
+# <a name="reference-topics-for-sql-data-warehouse"></a>Справочные темы по хранилищу данных SQL
 Приведенные ниже статьи содержат справочные сведения о хранилище данных SQL.
 
 * [Элементы языка Transact-SQL][Элементы языка Transact-SQL]
@@ -24,13 +28,13 @@ ms.author: barbkess;sonyama
 * [Системные представления Transact-SQL][Системные представления Transact-SQL]
 * [Командлеты PowerShell][Командлеты PowerShell]
 
-## Дальнейшие действия
-Информацию о разработке см. в обзоре [Общие сведения о разработке][Общие сведения о разработке].
+## <a name="next-steps"></a>Дальнейшие действия
+Сведения о разработке см. в статье [общие сведения о разработке][общие сведения о разработке].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 [Элементы языка Transact-SQL]: sql-data-warehouse-reference-tsql-language-elements.md
 [Инструкции Transact-SQL]: sql-data-warehouse-reference-tsql-statements.md
 [Системные представления Transact-SQL]: sql-data-warehouse-reference-tsql-system-views.md
@@ -39,4 +43,8 @@ ms.author: barbkess;sonyama
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

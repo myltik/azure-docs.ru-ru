@@ -1,12 +1,12 @@
 ---
-title: Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI) | Microsoft Docs
-description: Узнайте, как установить Azure CLI на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создать кэш Redis и управлять им.
+title: "Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI) | Документация Майкрософт"
+description: "Узнайте, как установить Azure CLI на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создать кэш Redis и управлять им."
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,26 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: db8095f225a6d5a954474f7014ce35800a363b55
+
 
 ---
-# Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Интерфейс командной строки Azure](cache-manage-cli.md)
-> 
-> 
+>
+>
 
 Интерфейс CLI Azure позволяет управлять инфраструктурой Azure с любой платформы. В этой статье показано, как создавать экземпляры кэша Redis для Azure и управлять ими с помощью Azure CLI.
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для создания экземпляров кэша Redis для Azure и управления ими с помощью Azure CLI необходимо выполнить следующие действия.
 
 * Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за пару минут.
 * [Установка Azure CLI](../xplat-cli-install.md).
-* Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login`. Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
-* Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в подразделе [Настройка режима Azure Resource Manager](../xplat-cli-azure-resource-manager.md#set-the-azure-resource-manager-mode).
+* Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login` . Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+* Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в разделе [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure](../xplat-cli-azure-resource-manager.md).
 
-## Свойства кэша Redis
+## <a name="redis-cache-properties"></a>Свойства кэша Redis
 При создании и обновлении экземпляров кэша Redis используются следующие свойства.
 
 | Свойство | Switch | Описание |
@@ -47,15 +51,15 @@ ms.author: sdanie
 | Конфигурация Redis |-c, --redis-configuration |Конфигурация Redis. Введите строку ключей и значений конфигурации в формате JSON. Формат:"{"":"","":""}" |
 | Конфигурация Redis |-f, --redis-configuration-file |Конфигурация Redis. Введите путь к файлу, содержащему ключи и значения. Формат записи в файле: {"":"","":""} |
 | Число сегментов |-r, --shard-count |Число сегментов, которые будут созданы при создании кэша уровня "Премиум" с включенной кластеризацией. |
-| Виртуальная сеть |-v, --virtual-network |При размещении кэша в виртуальной сети определяет точный идентификатор ресурса ARM виртуальной сети, в которой будет развернут кэш Redis. Пример формата: /subscriptions/{идентификатор\_подписки}/resourceGroups/{имя\_группы\_ресурсов}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Виртуальная сеть |-v, --virtual-network |При размещении кэша в виртуальной сети определяет точный идентификатор ресурса ARM виртуальной сети, в которой будет развернут кэш Redis. Пример формата: /subscriptions/{идентификатор_подписки}/resourceGroups/{имя_группы_ресурсов}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Тип обновляемого ключа. Допустимые значения: [Primary, Secondary]. |
 | StaticIP |-p, --static-ip <static-ip> |При размещении кэша в виртуальной сети определяет уникальный IP-адрес подсети для кэша. Если IP-адрес не указан, он автоматически выбирается из подсети. |
 | Подсеть |t, --subnet <subnet> |При размещении кэша в виртуальной сети определяет имя подсети, в которой будет развернут кэш. |
-| Виртуальная сеть |-v, --virtual-network <virtual-network> |При размещении кэша в виртуальной сети определяет точный идентификатор ресурса ARM виртуальной сети, в которой будет развернут кэш Redis. Пример формата: /subscriptions/{идентификатор\_подписки}/resourceGroups/{имя\_группы\_ресурсов}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Виртуальная сеть |-v, --virtual-network <virtual-network> |При размещении кэша в виртуальной сети определяет точный идентификатор ресурса ARM виртуальной сети, в которой будет развернут кэш Redis. Пример формата: /subscriptions/{идентификатор_подписки}/resourceGroups/{имя_группы_ресурсов}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Подписки |-s, --subscription |Идентификатор подписки. |
 
-## Просмотр всех команд кэша Redis
-Для просмотра всех команд кэша Redis и их параметров используйте команду `azure rediscache -h`.
+## <a name="see-all-redis-cache-commands"></a>Просмотр всех команд кэша Redis
+Для просмотра всех команд кэша Redis и их параметров используйте команду `azure rediscache -h` .
 
     C:\>azure rediscache -h
     help:    Commands to manage your Azure Redis Cache(s)
@@ -86,12 +90,12 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Создание кэша Redis
+## <a name="create-a-redis-cache"></a>Создание кэша Redis
 Чтобы создать кэш Redis, используйте следующую команду:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache create -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache create -h` .
 
     C:\>azure rediscache create -h
     help:    Create a Redis Cache
@@ -119,12 +123,12 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Удаление существующего кэша Redis
+## <a name="delete-an-existing-redis-cache"></a>Удаление существующего кэша Redis
 Чтобы удалить кэш Redis, используйте следующую команду:
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache delete -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache delete -h` .
 
     C:\>azure rediscache delete -h
     help:    Delete an existing Redis Cache
@@ -142,12 +146,12 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Вывод списка всех кэшей Redis в подписке или группе ресурсов
+## <a name="list-all-redis-caches-within-your-subscription-or-resource-group"></a>Вывод списка всех кэшей Redis в подписке или группе ресурсов
 Чтобы вывести список всех кэшей Redis в подписке или группе ресурсов, используйте следующую команду:
 
     azure rediscache list [options]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache list -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache list -h` .
 
     C:\>azure rediscache list -h
     help:    List all Redis Caches within your Subscription or Resource Group
@@ -164,12 +168,12 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Отображение свойств существующего кэша Redis
+## <a name="show-properties-of-an-existing-redis-cache"></a>Отображение свойств существующего кэша Redis
 Чтобы отобразить свойства существующего кэша Redis, используйте следующую команду:
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache show -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache show -h` .
 
     C:\>azure rediscache show -h
     help:    Show properties of an existing Redis Cache
@@ -189,12 +193,12 @@ ms.author: sdanie
 
 <a name="scale"></a>
 
-## Изменение параметров существующего кэша Redis
+## <a name="change-settings-of-an-existing-redis-cache"></a>Изменение параметров существующего кэша Redis
 Чтобы изменить параметры существующего кэша Redis, используйте следующую команду:
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache set -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache set -h` .
 
     C:\>azure rediscache set -h
     help:    Change settings of an existing Redis Cache
@@ -214,7 +218,7 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Обновление ключа аутентификации для существующего кэша Redis
+## <a name="renew-the-authentication-key-for-an-existing-redis-cache"></a>Обновление ключа аутентификации для существующего кэша Redis
 Чтобы обновить ключ аутентификации для существующего кэша Redis, используйте следующую команду:
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
@@ -240,12 +244,12 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## Вывод первичного и вторичного ключей существующего кэша Redis
+## <a name="list-primary-and-secondary-keys-of-an-existing-redis-cache"></a>Вывод первичного и вторичного ключей существующего кэша Redis
 Чтобы вывести первичный и вторичный ключи существующего кэша Redis, используйте следующую команду:
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache list-keys -h`.
+Чтобы получить дополнительные сведения об этой команде, выполните команду `azure rediscache list-keys -h` .
 
     C:\>azure rediscache list-keys -h
     help:    Lists Primary and Secondary key of an existing Redis Cache
@@ -263,4 +267,8 @@ ms.author: sdanie
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

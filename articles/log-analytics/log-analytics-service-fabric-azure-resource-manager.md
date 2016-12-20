@@ -1,12 +1,12 @@
 ---
-title: Оптимизация среды с помощью решения Service Fabric в Log Analytics | Microsoft Docs
-description: Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric.
+title: "Оптимизация среды с помощью решения Service Fabric в Log Analytics | Документация Майкрософт"
+description: "Решение Service Fabric можно использовать для оценки риска и работоспособности приложений, микрослужб, узлов и кластеров Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Решение Service Fabric в Log Analytics)
@@ -33,7 +37,7 @@ ms.author: nini
 2. Если необходимо собрать счетчики производительности с узлов для использования других решений OMS (включая решение по обеспечению безопасности в кластере Service Fabric), выполните действия, описанные в разделе ***Развертывание кластера Service Fabric, подключенного к рабочей области OMS с установленным расширением виртуальной машины***.
 3. Если кластер Service Fabric уже развернут и его нужно подключить к Log Analytics, выполните действия, описанные в разделе ***Добавление существующей учетной записи хранения в Log Analytics***.
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Развертывание кластера Service Fabric, подключенного к рабочей области Log Analytics
 Этот шаблон делает следующее:
 
 1. Развертывает кластер Azure Service Fabric, уже подключенный к рабочей области Log Analytics. При развертывании шаблона можно создать новую рабочую область Log Analytics или указать имя существующей.
@@ -50,7 +54,7 @@ ms.author: nini
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>Развертывание кластера Service Fabric, подключенного к рабочей области OMS с установленным расширением виртуальной машины
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Развертывание кластера Service Fabric, подключенного к рабочей области OMS с установленным расширением виртуальной машины
 Этот шаблон делает следующее:
 
 1. Развертывает кластер Azure Service Fabric, уже подключенный к рабочей области Log Analytics. Вы можете создать новую рабочую область или использовать существующую.
@@ -72,7 +76,7 @@ ms.author: nini
 
 ![Service Fabric](./media/log-analytics-service-fabric/6.png)
 
-* Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
+* Перейдите к параметрам на левой панели и последовательно выберите "Данные" >> "Счетчики производительности Windows" >> "Добавить выбранные счетчики производительности": ![Service Fabric](./media/log-analytics-service-fabric/7.png).
 * В функции поиска по журналам используйте следующие запросы, чтобы получить основные метрики производительности узлов:
   </br>
   
@@ -118,14 +122,14 @@ ms.author: nini
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
 
 ## <a name="view-service-fabric-events"></a>Просмотр событий Service Fabric
-Когда развертывание будет завершено и решение Service Fabric будет включено в рабочей области, щелкните плитку **Service Fabric** на портале Log Analytics, чтобы запустить панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. В каждом столбце содержится десять основных событий, соответствующих таким указанным критериям, как диапазон времени. Чтобы выполнить поиск по журналам, который возвращает все записи, щелкните **Показать все** в нижней левой части столбца или щелкните заголовок столбца.
+Когда развертывание будет завершено и решение Service Fabric будет включено в рабочей области, щелкните плитку **Service Fabric** на портале Log Analytics, чтобы запустить панель мониторинга Service Fabric. Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. В каждом столбце содержится десять основных событий, соответствующих таким указанным критериям, как диапазон времени. Можно выполнить поиск по журналам, выводящий весь список, щелкнув элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
 
 | **Событие Service Fabric** | **description** |
 | --- | --- |
 | Важные проблемы |Отображение таких проблем, как сбои и отмены RunAsync, а также отключение узлов. |
 | Операционные события |Важные операционные события, такие как обновление и развертывание приложения. |
 | События надежных служб |Важные события надежных служб, например вызовы RunAsync. |
-| События субъектов |Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
+| События субъектов |Важные события субъектов, создаваемые микрослужбами, например исключения, вызываемые методом субъекта, включения и отключения субъекта и т. д. |
 | События приложений |Все пользовательские события ETW, создаваемые приложениями. |
 
 ![Панель мониторинга Service Fabric](./media/log-analytics-service-fabric/sf3.png)
@@ -139,13 +143,16 @@ ms.author: nini
 | Windows |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Да](./media/log-analytics-malware/oms-bullet-green.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |![Нет](./media/log-analytics-malware/oms-bullet-red.png) |10 минут |
 
 > [!NOTE]
-> Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
+> Область этих событий можно изменить в решении Service Fabric, щелкнув в верхней части панели мониторинга элемент **Data based on last 7 days** (Данные за последние 7 дней). Кроме того, можно отобразить события, созданные за последние 7 дней, 1 день или 6 часов. Можно также выбрать вариант **Custom** (Другое) и указать диапазон дат.
 > 
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные сведения о данных событий Service Fabric см. в статье [Поиск по журналам в Log Analytics](log-analytics-log-searches.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

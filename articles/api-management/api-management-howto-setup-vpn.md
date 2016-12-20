@@ -1,26 +1,30 @@
 ---
-title: Настройка VPN-подключений в службе управления API Azure
-description: Узнайте, как настроить VPN-подключение в службе управления API Azure и обращаться к веб-службам через него.
+title: "Настройка VPN-подключений в службе управления API Azure"
+description: "Узнайте, как настроить VPN-подключение в службе управления API Azure и обращаться к веб-службам через него."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: antonba
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 55a2a1e1-d07e-4111-9ce3-8837ed5040d6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: antonba
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3016778f22597921f716cfcf7845c550d6d822d5
+
 
 ---
-# Настройка VPN-подключений в службе управления API Azure
+# <a name="how-to-setup-vpn-connections-in-azure-api-management"></a>Настройка VPN-подключений в службе управления API Azure
 Поддержка VPN службой управления API позволяет подключить шлюз службы управления API к виртуальной сети Azure (классической). Это позволяет клиентам службы управления API безопасно подключаться к локальным серверным веб-службам, в противном случае они были бы недоступны для доступа через Интернет.
 
 > [!NOTE]
-> Управление API Azure работает с классическими виртуальными сетями. Дополнительные сведения о создании классической виртуальной сети см. в разделе [Создание классической виртуальной сети с помощью портала Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Сведения о подключении классических виртуальных сетей к виртуальным сетям ARM см. в разделе [Подключение классических виртуальных сетей к новым виртуальным сетям](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+> Управление API Azure работает с классическими виртуальными сетями. Дополнительные сведения о создании классической виртуальной сети см. в статье [Создание (классической) виртуальной сети с помощью портала Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Сведения о подключении классических виртуальных сетей к виртуальным сетям ARM см. в статье [Подключение классических виртуальных сетей к новым виртуальным сетям](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 > 
 > 
 
@@ -29,9 +33,9 @@ ms.author: antonba
 > 
 > 
 
-Чтобы включить VPN-подключения, откройте службу управления API на [классическом портале Azure][классическом портале Azure] и перейдите на вкладку **Настройка**.
+Чтобы включить VPN-подключения, откройте службу управления API на [классическом портале Azure][классическом портале Azure] и перейдите на вкладку **Настройки**. 
 
-В разделе VPN установите параметр **VPN-подключение** в значение **Вкл.**.
+В разделе VPN укажите для параметра **VPN-подключение** значение **Вкл.**
 
 ![Вкладка настройки экземпляра службы управления API][api-management-setup-vpn-configure]
 
@@ -41,7 +45,7 @@ ms.author: antonba
 
 ![Выбор VPN][api-management-setup-vpn-select]
 
-В нижней части экрана нажмите кнопку **Сохранить**. Во время обновления на классическом портале Azure невозможно выполнять другие операции в службе управления API. Шлюз службы будет оставаться доступным, и вызовы среды выполнения не будут затронуты.
+В нижней части экрана нажмите кнопку **Сохранить** . Во время обновления на классическом портале Azure невозможно выполнять другие операции в службе управления API. Шлюз службы будет оставаться доступным, и вызовы среды выполнения не будут затронуты.
 
 Обратите внимание, что виртуальный IP-адрес шлюза будет меняться при каждом включении или отключении VPN.
 
@@ -50,37 +54,41 @@ ms.author: antonba
 
 ![Добавление интерфейса API из VPN][api-management-setup-vpn-add-api]
 
-## Порты, необходимые для поддержки VPN управления API
+## <a name="required-ports-for-api-management-vpn-support"></a>Порты, необходимые для поддержки VPN управления API
 При размещении экземпляра службы управления API в виртуальной сети используются порты, указанные в следующей таблице. Если эти порты заблокированы, служба может работать неправильно. Блокировка одного или нескольких из этих портов является самой распространенной проблемой неправильной настройки при использовании управления API в виртуальной сети.
 
 | Порты | Направление | Транспортный протокол | Назначение | Ресурс и назначение |
 | --- | --- | --- | --- | --- |
-| 80, 443 |Входящий трафик |TCP |Подключения клиентов к службе управления API |INTERNET — VIRTUAL\_NETWORK |
-| 80, 443 |Исходящие |TCP |Зависимость управления API от службы хранилища Azure и служебной шины Azure |VIRTUAL\_NETWORK — INTERNET |
-| 1433 |Исходящие |TCP |Зависимости управления API от SQL |VIRTUAL\_NETWORK — INTERNET |
-| 9350, 9351, 9352, 9353, 9354 |Исходящие |TCP |Зависимости управления API от служебной шины |VIRTUAL\_NETWORK — INTERNET |
-| 5671 |Исходящие |AMQP |Зависимость управления API для политики ведения журнала концентратора событий |VIRTUAL\_NETWORK — INTERNET |
-| 6381, 6382, 6383 |Входящий и исходящий трафик |UDP |Зависимости управления API от кэша Redis |VIRTUAL\_NETWORK — VIRTUAL\_NETWORK |
-| 445 |Исходящие |TCP |Зависимость управления API от общей папки Azure для GIT |VIRTUAL\_NETWORK — INTERNET |
+| 80, 443 |Входящий трафик |TCP |Подключения клиентов к службе управления API |INTERNET — VIRTUAL_NETWORK |
+| 80, 443 |Исходящие |TCP |Зависимость управления API от службы хранилища Azure и служебной шины Azure |VIRTUAL_NETWORK — INTERNET |
+| 1433 |Исходящие |TCP |Зависимости управления API от SQL |VIRTUAL_NETWORK — INTERNET |
+| 9350, 9351, 9352, 9353, 9354 |Исходящие |TCP |Зависимости управления API от служебной шины |VIRTUAL_NETWORK — INTERNET |
+| 5671 |Исходящие |AMQP |Зависимость управления API для политики ведения журнала концентратора событий |VIRTUAL_NETWORK — INTERNET |
+| 6381, 6382, 6383 |Входящий и исходящий трафик |UDP |Зависимости управления API от кэша Redis |VIRTUAL_NETWORK — VIRTUAL_NETWORK |
+| 445 |Исходящие |TCP |Зависимость управления API от общей папки Azure для GIT |VIRTUAL_NETWORK — INTERNET |
 
 ## <a name="custom-dns"> </a>Настройка пользовательского DNS-сервера
-Управление API зависит от нескольких служб Azure. Когда экземпляр службы управления API размещается в виртуальной сети, в которой используется пользовательский DNS-сервер, необходимо иметь возможность разрешения имен узлов этих служб Azure. Следуйте [этим](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) рекомендациям по настройке пользовательского DNS-сервера.
+Управление API зависит от нескольких служб Azure. Когда экземпляр службы управления API размещается в виртуальной сети, в которой используется пользовательский DNS-сервер, необходимо иметь возможность разрешения имен узлов этих служб Azure. Следуйте [этим](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) рекомендациям по настройке пользовательского DNS-сервера.  
 
 ## <a name="related-content"> </a>Связанная информация
-* [Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure][Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]
+* [Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure][Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]
 * [Как использовать инспектор API для трассировки вызовов в службе управления API Azure][Как использовать инспектор API для трассировки вызовов в службе управления API Azure]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-add-api.png
 
-[Enable VPN connections]: #enable-vpn
-[Connect to a web service behind VPN]: #connect-vpn
-[Related content]: #related-content
+[Включение VPN-подключений]: #enable-vpn
+[Подключение к веб-службе за VPN]: #connect-vpn
+[Связанная информация]: #related-content
 
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-[Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Как использовать инспектор API для трассировки вызовов в службе управления API Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

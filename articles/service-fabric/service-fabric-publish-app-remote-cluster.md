@@ -1,12 +1,12 @@
 ---
-title: Публикация приложения в удаленный кластер с Visual Studio | Microsoft Docs
-description: Узнайте, как опубликовать приложение в удаленный кластер Service Fabric с помощью Visual Studio.
+title: "Публикация приложения в удаленный кластер с Visual Studio | Документация Майкрософт"
+description: "Узнайте, как опубликовать приложение в удаленный кластер Service Fabric с помощью Visual Studio."
 services: service-fabric
 documentationcenter: na
 author: cawams
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: faecd892-eb54-4d9c-8023-c67442afb8e8
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2dbf8ea0ddde2e308dc0e65dba701578cd2bce43
+
 
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Публикация приложения на удаленный кластер с помощью Visual Studio
@@ -28,7 +32,7 @@ ms.author: cawa
 Расширение Azure Service Fabric для Visual Studio предоставляет простой, воспроизводимый и реализуемый с помощью сценария способ публикации приложения в кластер Service Fabric.
 
 ## <a name="the-artifacts-required-for-publishing"></a>Артефакты, необходимые для публикации
-### <a name="deploy-fabricapplication.ps1"></a>Deploy-FabricApplication.ps1
+### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 Это скрипт PowerShell, который использует путь к профилю публикации в качестве параметра для публикации приложений Service Fabric. Так как этот сценарий является частью приложения, в него можно вносить изменения, необходимые для приложения.
 
 ### <a name="publish-profiles"></a>Профили публикации
@@ -84,10 +88,10 @@ ms.author: cawa
    > 
 6. Указав все необходимые параметры, нажмите кнопку **Опубликовать** , чтобы опубликовать приложение в выбранный кластер Service Fabric. Указанные параметры применяются к процессу публикации.
 
-## <a name="publish-to-an-arbitrary-cluster-endpoint-(including-party-clusters)"></a>Публикация в конечную точку произвольного кластера (включая общие кластеры)
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Публикация в конечную точку произвольного кластера (включая общие кластеры)
 Возможности публикации Visual Studio оптимизированы для публикации в удаленные кластеры, связанные с одной из подписок Azure. Тем не менее можно выполнить публикацию в произвольную конечную точку (например, в общие кластеры Service Fabric). Для этого нужно напрямую внести изменения в файл XML профиля публикации. Как было сказано ранее, по умолчанию предоставляются два профиля публикации (**Local.xml** и **Cloud.xml**), но можно также создать дополнительные профили для различных сред. Например, может понадобиться создать профиль для публикации в общие кластеры, которые условно называются **Party.xml**.
 
-При подключении к незащищенному кластеру все, что требуется, — это конечная точка подключения к кластеру, например `partycluster1.eastus.cloudapp.azure.com:19000`. В данном случае конечная точка подключения в профиле публикации будет выглядеть приблизительно так:
+При подключении к незащищенному кластеру все, что требуется, — это конечная точка подключения к кластеру, например `partycluster1.eastus.cloudapp.azure.com:19000`. В данном случае конечная точка подключения в профиле публикации будет выглядеть приблизительно так:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
@@ -112,6 +116,6 @@ ms.author: cawa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

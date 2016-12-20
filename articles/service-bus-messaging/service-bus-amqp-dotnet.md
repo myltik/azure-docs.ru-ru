@@ -1,33 +1,37 @@
 ---
-title: Служебная шина и .NET с протоколом AMQP 1.0 | Microsoft Docs
-description: Использование служебной шины на платформе .NET с протоколом AMQP
-services: service-bus
+title: "Служебная шина и .NET с протоколом AMQP 1.0 | Документация Майкрософт"
+description: "Использование служебной шины на платформе .NET с протоколом AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0cf8282d40c60fe9887dcbf43e2a526ffe34cc22
+
 
 ---
-# <a name="using-service-bus-from-.net-with-amqp-1.0"></a>Использование служебной шины на платформе .NET с протоколом AMQP 1.0
+# <a name="using-service-bus-from-net-with-amqp-10"></a>Использование служебной шины на платформе .NET с протоколом AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 ## <a name="downloading-the-service-bus-sdk"></a>Загрузка пакета SDK служебной шины.
-Поддержка AMQP 1.0 доступна в пакете SDK служебной шины версии 2.1 или более поздней. Чтобы гарантировать использование последней версии, скачайте части служебной шины с [NuGet][NuGet].
+Поддержка AMQP 1.0 доступна в пакете SDK служебной шины версии 2.1 или более поздней. Чтобы гарантировать использование последней версии, скачайте части служебной шины с [NuGet][NuGet].
 
-## <a name="configuring-.net-applications-to-use-amqp-1.0"></a>Настройка приложений .NET для использования протокола AMQP 1.0
-По умолчанию клиентская библиотеке служебной шины .NET взаимодействует со службой служебной шины, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, необходимо явно настроить строку подключения служебной шины, как описано в следующем разделе. Помимо этих изменений, код приложения остается без изменений при использовании AMQP 1.0.
+## <a name="configuring-net-applications-to-use-amqp-10"></a>Настройка приложений .NET для использования протокола AMQP 1.0
+По умолчанию клиентская библиотеке служебной шины .NET взаимодействует со службой служебной шины, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, необходимо явно настроить строку подключения служебной шины, как описано в следующем разделе. Помимо этих изменений, код приложения остается без изменений при использовании AMQP 1.0.
 
 Текущий выпуск содержит некоторые функции интерфейса API, не поддерживаемые при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе [Неподдерживаемые функции, ограничения и различия в поведении](#unsupported-features-restrictions-and-behavioral-differences). Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации.
 
-### <a name="configuration-using-app.config"></a>Настройка с помощью файла App.config
+### <a name="configuration-using-appconfig"></a>Настройка с помощью файла App.config
 Рекомендуется, чтобы приложения использовали для хранения настроек файл конфигурации App.config. Если вы используете приложения служебной шины, в файле App.config можно хранить значение параметра строки подключения **ConnectionString** служебной шины. Ниже приводится пример файла App.config:
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -38,13 +42,13 @@ ms.author: sethm
         </appSettings>
     </configuration>
 
-Значение параметра `Microsoft.ServiceBus.ConnectionString` — это строка подключения служебной шины, используемая для настройки подключения к шине. Используется следующий формат:
+Значение параметра `Microsoft.ServiceBus.ConnectionString` — это строка подключения служебной шины, используемая для настройки подключения к шине. Используется следующий формат:
 
     Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Здесь `[namespace]` и `SharedAccessKey` получены с [портала Azure][]. Дополнительные сведения см. в статье [Начало работы с очередями служебной шины][Начало работы с очередями служебной шины].
+Здесь `[namespace]` и `SharedAccessKey` получены с [портала Azure][портал Azure]. Дополнительные сведения см. в статье [Начало работы с очередями служебной шины][Начало работы с очередями служебной шины].
 
-Если вы используете AMQP, добавьте строку подключения с `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о создании подключения к служебной шине с помощью протокола AMQP 1.0.
+Если вы используете AMQP, добавьте строку подключения с `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о создании подключения к служебной шине с помощью протокола AMQP 1.0.
 
 ## <a name="message-serialization"></a>Сериализация сообщений
 Если вы используете протокол по умолчанию, в клиентской библиотеке .NET по умолчанию используется тип [DataContractSerializer][DataContractSerializer] для сериализации экземпляра [BrokeredMessage][BrokeredMessage]. Это делает возможным транспорт между клиентской библиотекой и службой служебной шины. При использовании транспортного режима AMQP клиентская библиотека применяет систему типов AMQP для сериализации [сообщения в брокере][BrokeredMessage] в сообщение AMQP. Сериализация позволяет получать и распознавать сообщение принимающим приложением, выполняемым на разных платформах. Например, это может быть приложение Java, которое использует JMS API для доступа к служебной шине.
@@ -87,7 +91,7 @@ ms.author: sethm
 | Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features,-restrictions,-and-behavioral-differences"></a>Неподдерживаемые функции, ограничения и различия в поведении
+## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Неподдерживаемые функции, ограничения и различия в поведении
 Следующие функции API служебной шины .NET в настоящее время не поддерживаются при использовании AMQP:
 
 * Транзакции
@@ -97,13 +101,14 @@ ms.author: sethm
 
 * Свойство [OperationTimeout][OperationTimeout] игнорируется.
 * `MessageReceiver.Receive(TimeSpan.Zero)` реализуется в виде `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* Завершать сообщения с помощью маркеров блокировки могут только получатели сообщений, первоначально получившие эти сообщения.
 
 ## <a name="controlling-amqp-protocol-settings"></a>Параметры управления протоколом AMQP
 API-интерфейсы .NET предоставляют несколько параметров для управления поведением протокола AMQP.
 
-* **MessageReceiver.PrefetchCount**: определяет начальные разрешения, которые применяются к ссылке. Значение по умолчанию — 0.
-* **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize**: определяет максимальный размер кадра AMQP, доступный во время согласования при открытии подключения. Значение по умолчанию: 65 536 байт.
-* **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: если передачу данных можно разбить на пакеты, это значение определяет максимальную задержку отправки стратегий обработки. По умолчанию наследуется отправителями и получателями. Отдельные отправители или получатели могут переопределить значение по умолчанию, составляющее 20 миллисекунд.
+* **MessageReceiver.PrefetchCount**: определяет начальные разрешения, которые применяются к ссылке. Значение по умолчанию — 0.
+* **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize**: определяет максимальный размер кадра AMQP, доступный во время согласования при открытии подключения. Значение по умолчанию: 65 536 байт.
+* **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: если передачу данных можно разбить на пакеты, это значение определяет максимальную задержку отправки стратегий обработки. По умолчанию наследуется отправителями и получателями. Отдельные отправители или получатели могут переопределить значение по умолчанию, составляющее 20 миллисекунд.
 * **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: определяет, устанавливаются ли AMQP-подключения с использованием протокола SSL. Значение по умолчанию — **true**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -126,6 +131,7 @@ API-интерфейсы .NET предоставляют несколько па
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

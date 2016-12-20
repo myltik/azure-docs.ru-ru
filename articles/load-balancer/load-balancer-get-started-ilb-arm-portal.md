@@ -3,8 +3,8 @@ title: "Приступая к созданию подсистемы баланс
 description: "Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью портала Azure."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -14,25 +14,30 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
-
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 6961255e4b1a269b3ac9bafb5f1b3ced7a2a8943
 
 ---
+
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Создание подсистема балансировки нагрузки на портале Azure
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [портале Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Интерфейс командной строки Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Шаблон](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[Классическая модель развертывания](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md).  В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо [классической](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Приступая к созданию внутреннего балансировщика нагрузки с помощью портала Azure
+
 Выполните следующие действия, чтобы создать внутреннюю подсистему балансировки нагрузки на портале Azure.
 
 1. Откройте браузер, перейдите на [портал Azure](http://portal.azure.com) и войдите в свою учетную запись.
@@ -40,32 +45,33 @@ ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
 3. В колонке **Создание подсистемы балансировки нагрузки** введите **имя** балансировщика нагрузки.
 4. В разделе **Схема** щелкните **Внутренний**.
 5. Щелкните **Виртуальная сеть**, а затем выберите виртуальную сеть, в которой вы хотите создать балансировщик нагрузки.
-   
+
    > [!NOTE]
    > Если нужная виртуальная сеть не отображается, проверьте значение в поле **Расположение** , используемое для балансировщика нагрузки, и соответствующим образом измените его.
-   > 
-   > 
+
 6. Щелкните **Подсеть**, а затем выберите подсеть, в которой вы хотите создать балансировщик нагрузки.
 7. В разделе **Назначение IP-адресов** щелкните **Динамический** или **Статический** в зависимости от того, какой тип IP-адреса балансировщика нагрузки вам необходим — фиксированный (статический) или нет.
-   
+
    > [!NOTE]
    > Если выбран статический IP-адрес, необходимо указать адрес для балансировщика нагрузки.
-   > 
-   > 
+
 8. В разделе **Группа ресурсов** укажите имя новой группы ресурсов для подсистемы балансировки нагрузки или щелкните **Выбрать существующую** и выберите существующую группу ресурсов.
 9. Щелкните **Создать**.
 
 ## <a name="configure-load-balancing-rules"></a>Настройка правил балансировки нагрузки
+
 После создания балансировщика нагрузки перейдите к ресурсу балансировщика нагрузки, чтобы его настроить.
 Перед настройкой правила балансировки нагрузки необходимо настроить серверный пул адресов и пробу.
 
-### <a name="step-1-configure-a-backend-pool"></a>Шаг 1. Настройка внутреннего пула
+### <a name="step-1-configure-a-back-end-pool"></a>Шаг 1. Настройка внутреннего пула
+
 1. На портале Azure щелкните **Обзор** > **Подсистемы балансировки нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Серверные пулы**.
 3. В колонке **Серверные пулы адресов** щелкните **Добавить**.
 4. В колонке **Добавить внутренний пул** введите **имя** серверного пула, а затем нажмите кнопку **ОК**.
 
 ### <a name="step-2-configure-a-probe"></a>Шаг 2. Настройка пробы
+
 1. На портале Azure щелкните **Обзор** > **Подсистемы балансировки нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Пробы**.
 3. В колонке **Пробы** щелкните **Добавить**.
@@ -78,6 +84,7 @@ ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
 10. Нажмите кнопку **ОК** , чтобы создать пробу.
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Шаг 3. Настройка правил балансировки нагрузки
+
 1. На портале Azure щелкните **Обзор** > **Подсистемы балансировки нагрузки** и выберите созданный ранее балансировщик нагрузки.
 2. В колонке **Параметры** щелкните **Правила балансировки нагрузки**.
 3. В колонке **Правила балансировки нагрузки** щелкните **Добавить**.
@@ -92,6 +99,7 @@ ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
 12. Нажмите кнопку **ОК**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
@@ -99,6 +107,6 @@ ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Поиск неуправляемых облачных приложений с помощью Cloud App Discovery | Microsoft Docs
-description: Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery.
+title: "Поиск неуправляемых облачных приложений с помощью Cloud App Discovery | Документация Майкрософт"
+description: "Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery."
 services: active-directory
-keywords: cloud app discovery, управление приложениями
-documentationcenter: ''
+keywords: "cloud app discovery, управление приложениями"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Поиск неуправляемых облачных приложений с помощью Cloud App Discovery
 ## <a name="overview"></a>Обзор
 На современных предприятиях ИТ-специалисты часто не знают обо всех облачных приложениях, при помощи которых пользователи выполняют свои задачи. Легко понять, почему администраторов беспокоят несанкционированный доступ к корпоративным данным, возможная утечка данных и другие угрозы безопасности. Эта недостаточная осведомленность может сильно усложнить разработку плана по борьбе с этими угрозами безопасности.
 
-Cloud App Discovery — это функция службы Azure Active Directory (AD) уровня Премиум, которая позволяет обнаруживать облачные приложения, используемые сотрудниками организации.
+Cloud App Discovery — это функция службы Azure Active Directory (AD) уровня Премиум, которая позволяет обнаруживать облачные приложения, используемые сотрудниками организации.
 
 **С помощью Cloud App Discovery вы сможете:**
 
@@ -48,6 +52,9 @@ Cloud App Discovery — это функция службы Azure Active Director
 * [Часто задаваемые вопросы по Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

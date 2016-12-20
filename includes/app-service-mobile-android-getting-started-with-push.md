@@ -31,26 +31,26 @@
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
 
-1. В файле MyHandler замените объявление класса на
+9. В файле MyHandler замените объявление класса на
    
         public class MyHandler extends NotificationsHandler {
-2. Добавьте следующие операторы импорта для класса `MyHandler` :
+10. Добавьте следующие операторы импорта для класса `MyHandler` :
    
-       import com.microsoft.windowsazure.notifications.NotificationsHandler;
-       import android.app.NotificationManager;
-       import android.app.PendingIntent;
-       import android.content.Context;
-       import android.content.Intent;
-       import android.os.AsyncTask;
-       import android.os.Bundle;
-       import android.support.v4.app.NotificationCompat;
-3. Затем добавьте в класс `MyHandler` следующий член.
+        import com.microsoft.windowsazure.notifications.NotificationsHandler;
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.support.v4.app.NotificationCompat;
+11. Затем добавьте в класс `MyHandler` следующий член.
    
-       public static final int NOTIFICATION_ID = 1;
-4. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered** , который регистрирует устройство в Центре уведомлений мобильной службы.
+        public static final int NOTIFICATION_ID = 1;
+12. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered** , который регистрирует устройство в Центре уведомлений мобильной службы.
    
-       @Override
-       public void onRegistered(Context context,  final String gcmRegistrationId) {
+        @Override
+        public void onRegistered(Context context,  final String gcmRegistrationId) {
            super.onRegistered(context, gcmRegistrationId);
    
            new AsyncTask<Void, Void, Void>() {
@@ -67,10 +67,10 @@
                }
            }.execute();
        }
-5. В классе `MyHandler` добавьте следующий код для переопределения метода **onReceive** , который отображает уведомление при получении.
+13. В классе `MyHandler` добавьте следующий код для переопределения метода **onReceive** , который отображает уведомление при получении.
    
-       @Override
-       public void onReceive(Context context, Bundle bundle) {
+        @Override
+        public void onReceive(Context context, Bundle bundle) {
                String msg = bundle.getString("message");
    
                PendingIntent contentIntent = PendingIntent.getActivity(context,
@@ -90,13 +90,13 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-6. В файле TodoActivity.java обновите метод **onCreate** класса *ToDoActivity* , чтобы зарегистрировать класс обработчика уведомлений. Добавлять этот код нужно обязательно после кода создания экземпляра *MobileServiceClient* .
+14. В файле TodoActivity.java обновите метод **onCreate** класса *ToDoActivity* , чтобы зарегистрировать класс обработчика уведомлений. Добавлять этот код нужно обязательно после кода создания экземпляра *MobileServiceClient* .
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

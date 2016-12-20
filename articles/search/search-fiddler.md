@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Использование приложения Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
 > [!div class="op_single_selector"]
+>
 > * [Обзор](search-query-overview.md)
 > * [Обозреватель поиска](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 В этой статье рассказывается, как использовать приложение Fiddler, которое можно [бесплатно скачать с сайта компании Telerik](http://www.telerik.com/fiddler). Оно позволяет формировать HTTP-запросы и просматривать ответы с помощью REST API поиска Azure без необходимости написания кода. Поиск Azure — это полностью управляемая облачная служба поиска в Microsoft Azure с простым программным управлением через API-интерфейсы REST и .NET. На сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам REST API поиска Azure.
 
@@ -39,26 +40,26 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
 ## <a name="create-an-index"></a>Создание индекса
 1. Запустите Fiddler. В меню **File** (Файл) выключите параметр **Capture Traffic** (Фиксировать трафик), чтобы не показывать постороннюю активность HTTP, не связанную с текущей задачей.
 2. На вкладке **Composer** (Компоновщик) сформулируйте запрос, аналогичный приведенному ниже.
-   
+
       ![][1]
 3. Выберите **PUT**.
 4. Введите URL-адрес, который задает URL-адрес службы, атрибуты запроса и версию API. Не забывайте:
-   
+
    * Используйте префикс HTTPS.
    * Атрибут запроса: "/indexes/hotels". В этом случае Поиск создает индекс с именем hotels.
-   * Версия API вводится строчными буквами, в виде "?api-version=2015-02-28". Версии API имеют важное значение, так как обновления Поиска Azure разворачиваются на регулярной основе. В редких случаях обновление службы может привести к нарушению функционирования API. Поэтому службе поиска Azure требуется версия API каждого запроса, чтобы вы могли полностью контролировать используемый запрос.
-     
+   * Версия API вводится строчными буквами, в виде "?api-version=2016-09-01". Версии API имеют важное значение, так как обновления Поиска Azure разворачиваются на регулярной основе. В редких случаях обновление службы может привести к нарушению функционирования API. Поэтому службе поиска Azure требуется версия API каждого запроса, чтобы вы могли полностью контролировать используемый запрос.
+
      Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. Укажите заголовок запроса, заменив адрес узла и ключ API значениями, соответствующими вашей службе.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. В теле запроса скопируйте их в поля, формирующие определение индекса.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
    ![][2]
 
 1. Выберите **POST**.
-2. Введите URL-адрес, начинающийся с HTTPS, далее URL-адрес вашей службы, а затем "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. Введите URL-адрес, начинающийся с HTTPS, далее URL-адрес вашей службы, а затем "/indexes/<'indexname'>/docs/index?api-version=2016-09-01". Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. Заголовок запроса должен остаться таким же, как прежде. Не забывайте, что вы заменили адрес узла и ключ API (строчные буквы) значениями, соответствующими вашей службе.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. Тело запроса содержит четыре документа, которые нужно добавить в индекс отелей.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
 
 1. Выберите **GET**.
 2. Введите URL, начинающийся с HTTPS, далее URL вашей службы, далее "/indexes/<'indexname'>/docs?", далее параметры запроса. В качестве примера используйте этот URL, заменив имя узла на имя, соответствующее вашей службе.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    Запрос ищет термин "мотель" и возвращает плоский список категорий для рейтинга.
 3. Заголовок запроса должен остаться таким же, как прежде. Не забывайте, что вы заменили адрес узла и ключ API (строчные буквы) значениями, соответствующими вашей службе.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
 
 **До замены пробелов:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **После замены пробелов символом +:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>Запрос к системе
 Также можно формировать запросы к системе для получения количества документов и занятого объема хранилища. На вкладке **Composer** (Компоновщик) ваш запрос будет выглядеть примерно так, как показано ниже. В ответе будет указано количество документов и объем занятого пространства.
@@ -200,11 +201,11 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
  ![][5]
 
 1. Выберите **GET**.
-2. Введите URL, включающий URL-адрес вашей службы, а затем "/indexes/hotels/stats?api-version=2015-02-28":
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. Введите URL, включающий URL-адрес вашей службы, а затем "/indexes/hotels/stats?api-version=2016-09-01":
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. Укажите заголовок запроса, заменив адрес узла и ключ API значениями, соответствующими вашей службе.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

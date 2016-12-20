@@ -1,12 +1,12 @@
 ---
-title: Управление аналитикой озера данных Azure с помощью Azure PowerShell | Microsoft Docs
-description: 'Узнайте, как управлять заданиями аналитики озера данных, источниками данных и пользователями. '
+title: "Управление Azure Data Lake Analytics с помощью Azure PowerShell | Документация Майкрософт"
+description: "Узнайте, как управлять заданиями аналитики озера данных, источниками данных и пользователями. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+
 
 ---
-# Управление аналитикой озера данных Azure с помощью Azure PowerShell
+# <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Управление аналитикой озера данных Azure с помощью Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Узнайте, как управлять учетными записями, источниками данных, пользователями и заданиями аналитики озера данных Azure с помощью Azure PowerShell. Для просмотра статей, посвященных управлению с помощью других инструментов, щелкните селектор вкладок выше.
@@ -25,19 +29,19 @@ ms.author: edmaca
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 <!-- ################################ -->
 <!-- ################################ -->
 
 
-## Установка Azure PowerShell 1.0 или более поздней версии
+## <a name="install-azure-powershell-10-or-greater"></a>Установка Azure PowerShell 1.0 или более поздней версии
 См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md#prerequisites).
 
-## Управление учетными записями
-Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется. Вы платите только за время, когда выполняется задание. Дополнительные сведения см. в разделе [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+## <a name="manage-accounts"></a>Управление учетными записями
+Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется.  Вы платите только за время, когда выполняется задание.  Дополнительные сведения см. в разделе [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).  
 
-### Создание учетных записей
+### <a name="create-accounts"></a>Создание учетных записей
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeStoreName = "<DataLakeAccountName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -66,7 +70,7 @@ ms.author: edmaca
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeAnalyticsAccountName  
 
-Также можно использовать шаблон группы ресурсов Azure. Шаблон для создания учетной записи аналитики озера данных и зависимой от нее учетной записи хранилища озера данных доступен в [приложении A](#appendix-a). Сохраните шаблон в файл с шаблоном .json, а затем воспользуйтесь следующим скриптом PowerShell, чтобы вызвать его.
+Также можно использовать шаблон группы ресурсов Azure. Шаблон для создания учетной записи Data Lake Analytics и зависимой от нее учетной записи Data Lake Store доступен в [приложении A](#appendix-a). Сохраните шаблон в файл с шаблоном .json, а затем воспользуйтесь следующим скриптом PowerShell, чтобы вызвать его.
 
     $AzureSubscriptionID = "<Your Azure Subscription ID>"
 
@@ -90,7 +94,7 @@ ms.author: edmaca
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### Список учетных записей
+### <a name="list-account"></a>Список учетных записей
 Вывод списка учетных записей Data Lake Analytics в текущей подписке
 
     Get-AzureRmDataLakeAnalyticsAccount
@@ -118,7 +122,7 @@ ms.author: edmaca
 
 Командлет возвращает значение **True** или **False**.
 
-### Удаление учетных записей аналитики озера данных
+### <a name="delete-data-lake-analytics-accounts"></a>Удаление учетных записей аналитики озера данных
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -135,21 +139,21 @@ ms.author: edmaca
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Управление источниками данных учетной записи
+## <a name="manage-account-data-sources"></a>Управление источниками данных учетной записи
 Аналитика озера данных в настоящее время поддерживает следующие источники данных:
 
-* [Хранилище озера данных Azure](data-lake-storage-overview.md)
+* [Хранилище озера данных Azure](../data-lake-store/data-lake-store-overview.md)
 * [Хранилище Azure](../storage/storage-introduction.md)
 
-При создании учетной записи аналитики необходимо указать учетную запись хранения озера данных Azure в качестве учетной записи хранения по умолчанию. Учетная запись хранения озера данных по умолчанию используется для хранения метаданных задания и журналов аудита задания. После создания учетной записи аналитики можно добавить дополнительные учетные записи хранения озера данных и учетные записи хранения Azure.
+При создании учетной записи аналитики необходимо указать учетную запись хранения озера данных Azure в качестве учетной записи хранения по умолчанию. Учетная запись хранения озера данных по умолчанию используется для хранения метаданных задания и журналов аудита задания. После создания учетной записи аналитики можно добавить дополнительные учетные записи хранения озера данных и учетные записи хранения Azure. 
 
-### Поиск учетной записи хранения озера данных по умолчанию
+### <a name="find-the-default-data-lake-store-account"></a>Поиск учетной записи хранения озера данных по умолчанию
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
-### Добавление дополнительных учетных записей хранения больших двоичных объектов Azure
+### <a name="add-additional-azure-blob-storage-accounts"></a>Добавление дополнительных учетных записей хранения больших двоичных объектов Azure
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureStorageAccountName = "<AzureStorageAccountName>"
@@ -157,14 +161,14 @@ ms.author: edmaca
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
-### Добавление дополнительных учетных записей хранения озера данных
+### <a name="add-additional-data-lake-store-accounts"></a>Добавление дополнительных учетных записей хранения озера данных
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureDataLakeName = "<DataLakeStoreName>"
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
-### Список источников данных
+### <a name="list-data-sources"></a>Список источников данных
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -175,10 +179,10 @@ ms.author: edmaca
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Управление заданиями
-Для создания любого задания требуется учетная запись аналитики озера данных. Дополнительные сведения см. в разделе [Управление учетными записями аналитики озера данных](#manage-data-lake-analytics-accounts).
+## <a name="manage-jobs"></a>Управление заданиями
+Для создания любого задания требуется учетная запись аналитики озера данных.  Дополнительные сведения см. в разделе [Управление учетными записями Data Lake Analytics](#manage-data-lake-analytics-accounts).
 
-### Список заданий
+### <a name="list-jobs"></a>Список заданий
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
@@ -208,11 +212,11 @@ ms.author: edmaca
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -SubmittedAfter (Get-Date).AddHours(-1)
 
-### Получение сведений о задании
+### <a name="get-job-details"></a>Получение сведений о задании
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 
-### Отправка заданий
+### <a name="submit-jobs"></a>Отправка заданий
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     #Pass script via path
@@ -226,19 +230,19 @@ ms.author: edmaca
         -Script $scriptContents
 
 > [!NOTE]
-> Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
+> Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
 > 
 > 
 
-### Отмена задания
+### <a name="cancel-jobs"></a>Отмена задания
     Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -JobID $jobID
 
 
-## Управление элементами каталога
+## <a name="manage-catalog-items"></a>Управление элементами каталога
 Каталог U-SQL используется для структурирования данных и кода, чтобы их могли совместно использовать сценарии U-SQL. Каталог обеспечивает максимальную производительность, возможную с данными в озере данных Azure. Дополнительные сведения см. в разделе [Использование каталога U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-### Список элементов каталога
+### <a name="list-catalog-items"></a>Список элементов каталога
     #List databases
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -252,7 +256,7 @@ ms.author: edmaca
         -ItemType Table `
         -Path "master.dbo"
 
-### Получение сведений об элементе каталога
+### <a name="get-catalog-item-details"></a>Получение сведений об элементе каталога
     #Get a database
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -265,19 +269,19 @@ ms.author: edmaca
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### Проверка наличия элемента каталога
+### <a name="test-existence-of-catalog-item"></a>Проверка наличия элемента каталога
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
         -Path "master"
 
-### Создание секрета каталога
+### <a name="create-catalog-secret"></a>Создание секрета каталога
     New-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
             -Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
-### Изменение секрета каталога
+### <a name="modify-catalog-secret"></a>Изменение секрета каталога
     Set-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
@@ -285,14 +289,14 @@ ms.author: edmaca
 
 
 
-### Удаление секрета каталога
+### <a name="delete-catalog-secret"></a>Удаление секрета каталога
     Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master"
 
 
-## Использование групп диспетчера ресурсов Azure
-Обычно приложения состоят из множества компонентов, например веб-приложения, базы данных, сервера базы данных, хранилища и служб сторонних поставщиков. Диспетчер ресурсов Azure (ARM) позволяет работать с ресурсами в приложении в виде группы, которая называется группой ресурсов Azure. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции. Для развертывания вы используете шаблон, который можно использовать для разных сред, в том числе для тестовой, промежуточной и рабочей. Вы можете уточнить счета для своей организации, просмотрев сведенные затраты для всей группы. Дополнительную информацию см. в разделе [Обзор диспетчера ресурсов Azure](../resource-group-overview.md).
+## <a name="use-azure-resource-manager-groups"></a>Использование групп диспетчера ресурсов Azure
+Обычно приложения состоят из множества компонентов, например веб-приложения, базы данных, сервера базы данных, хранилища и служб сторонних поставщиков. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции. Для развертывания вы используете шаблон, который можно использовать для разных сред, в том числе для тестовой, промежуточной и рабочей. Вы можете уточнить счета для своей организации, просмотрев сведенные затраты для всей группы. Дополнительные сведения см. в статье [Обзор диспетчера ресурсов Azure](../azure-resource-manager/resource-group-overview.md). 
 
 Служба аналитики озера данных может включать следующие компоненты:
 
@@ -305,16 +309,17 @@ ms.author: edmaca
 
 ![Аналитика озера данных Azure: учетная запись и хранилище](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-Учетная запись аналитики озера данных и зависимые учетные записи хранения должны находиться в одном центре обработки данных Azure. Однако группа ARM может находиться в другом центре обработки данных.
+Учетная запись аналитики озера данных и зависимые учетные записи хранения должны находиться в одном центре обработки данных Azure.
+Однако группа ARM может находиться в другом центре обработки данных.  
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
 * [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-## Приложение А. Шаблон ARM аналитики озера данных
-Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных. Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделе [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md#deploy-with-powershell) и [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+## <a name="appendix-a---data-lake-analytics-arm-template"></a>Приложение А. Шаблон ARM аналитики озера данных
+Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных.  Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделах [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md#deploy-with-powershell) (Развертывание приложения с использованием шаблона Azure Resource Manager) и [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -369,4 +374,9 @@ ms.author: edmaca
       }
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

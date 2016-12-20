@@ -3,7 +3,7 @@ title: "Azure Active Directory B2C: вызов веб-API из приложен
 description: "В этой статье показано, как создать приложение iOS &quot;Список дел&quot;, вызывающее веб-API Node.js с помощью токенов носителей OAuth 2.0 при использовании сторонней библиотеки."
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
@@ -28,9 +28,9 @@ ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
 Если вы еще не работали с OAuth2 или OpenID Connect, вы не поймете большую часть примера конфигурации. Для начала мы рекомендуем просмотреть [общие сведения о протоколе](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Чтобы использовать функции платформы, которые имеют выражения в этих стандартах, такие как управление политикой условного доступа и Intune, требуются библиотеки Microsoft Azure Identity с открытым исходным кодом. 
-> 
-> 
+> Чтобы использовать функции платформы, которые имеют выражения в этих стандартах, такие как управление политикой условного доступа и Intune, требуются библиотеки Microsoft Azure Identity с открытым исходным кодом.
+>
+>
 
 Не все сценарии и компоненты Azure Active Directory поддерживаются платформой B2C.  Чтобы определить, следует ли вам использовать платформу B2C, ознакомьтесь с [ограничениями этой платформы](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Создание политик
-В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Наше приложение предусматривает одну процедуру идентификации, сочетающую в себе вход и регистрацию. Вам нужно создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании политики обязательно сделайте следующее:
+В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Наше приложение предусматривает одну процедуру идентификации, сочетающую в себе вход и регистрацию. Вам нужно создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). При создании политики обязательно сделайте следующее:
 
 * Укажите **отображаемое имя** и атрибуты входа для политики.
 * Выберите утверждения приложения **Отображаемое имя** и **Идентификатор объекта** для каждой политики. Можно также выбрать другие утверждения.
@@ -63,7 +63,7 @@ ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Можно также просто скачать готовый код и немедленно приступить к работе. 
+Можно также просто скачать готовый код и немедленно приступить к работе.
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ $ open SampleforB2C.xcworkspace
 
 На этом этапе необходимо учесть некоторые моменты, касающиеся службы B2C. Это поможет сделать код более понятным.
 
-1. Для обработки запроса Azure AD B2C использует *политику* в соответствии с параметрами запроса. Таким образом Azure Active Directory может выступать в качестве независимой службы только для вашего приложения. Чтобы предоставить эти дополнительные параметры, необходимо указать метод `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` с пользовательскими параметрами политики. 
+1. Для обработки запроса Azure AD B2C использует *политику* в соответствии с параметрами запроса. Таким образом Azure Active Directory может выступать в качестве независимой службы только для вашего приложения. Чтобы предоставить эти дополнительные параметры, необходимо указать метод `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` с пользовательскими параметрами политики.
 2. Azure AD B2C использует области практически так же, как другие серверы OAuth2. Однако, так как B2C предназначен не только для проверки подлинности пользователя, но и для доступа к ресурсам, некоторые области крайне важны для правильной работы потока. Одна из таких областей — `openid` . Пакеты SDK для Microsoft Identity автоматически предоставляют область `openid` , поэтому она не указывается в конфигурации пакета SDK. Однако, так как мы используем стороннюю библиотеку, нам необходимо указать эту область.
 
 ```objc
@@ -274,7 +274,7 @@ $ open SampleforB2C.xcworkspace
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Далее нам понадобится вызвать ее в AppDelegate под методом `didFinishLaunchingWithOptions:` . 
+Далее нам понадобится вызвать ее в AppDelegate под методом `didFinishLaunchingWithOptions:` .
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ $ open SampleforB2C.xcworkspace
 
 > [!NOTE]
 > Привяжите представление `loginView` к веб-представлению в раскадровке. В противном случае веб-представление, которое должно всплывать при проверке подлинности, не будет настроено.
-> 
-> 
+>
+>
 
 * Создайте класс `LoginViewController.m` .
 * Добавьте переменные, которые будут содержать значение состояния при проверке подлинности.
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ NSURL *authcode; \\ A placeholder for our auth code.
 
 * Написание кода для обработки результатов запроса OAuth2
 
-Нам потребуется код, обрабатывающий URL-адрес перенаправления, который возвращается из веб-представления. Мы будем совершать попытки, пока не достигнем желаемого результата. В то же время в библиотеке возникнет ошибка, которую можно просмотреть в консоли или обработать асинхронно. 
+Нам потребуется код, обрабатывающий URL-адрес перенаправления, который возвращается из веб-представления. Мы будем совершать попытки, пока не достигнем желаемого результата. В то же время в библиотеке возникнет ошибка, которую можно просмотреть в консоли или обработать асинхронно.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ NSURL *authcode; \\ A placeholder for our auth code.
 Мы настроили все, что нужно для базового взаимодействия с приложением при входе в систему. После выполнения входа нам потребуется использовать полученные токены. Для этого мы создадим вспомогательный код, который будет вызывать интерфейсы REST API с использованием сторонней библиотеки.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Создание класса `GraphAPICaller` для обработки запросов к REST API
-При каждой загрузке приложения загружается соответствующая конфигурация. Теперь, когда у нас есть токен, нам нужно внести некоторые изменения. 
+При каждой загрузке приложения загружается соответствующая конфигурация. Теперь, когда у нас есть токен, нам нужно внести некоторые изменения.
 
 * Создайте файл `GraphAPICaller.h`.
 
@@ -511,7 +511,7 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock;
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock;
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

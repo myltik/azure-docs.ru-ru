@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Novatus | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and LearnUpon.
+title: "Учебник. Интеграция Azure Active Directory с Novatus | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в LearnUpon."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b11c6315-c79d-4f34-9610-bd17070ab7c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,235 +14,239 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 872d4dd72029d26f9b98ad1a0fd6d33da63879a6
+
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Azure Active Directory integration with LearnUpon
-The objective of this tutorial is to show you how to integrate LearnUpon with Azure Active Directory (Azure AD).  
-Integrating LearnUpon with Azure AD provides you with the following benefits:
+# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Руководство. Интеграция Azure Active Directory с LearnUpon
+Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением LearnUpon.  
+Интеграция Azure AD с приложением LearnUpon обеспечивает следующие преимущества:
 
-* You can control in Azure AD who has access to LearnUpon
-* You can enable your users to automatically get signed-on to LearnUpon (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure Active Directory classic 
+* С помощью Azure AD вы можете контролировать доступ к LearnUpon.
+* Вы можете включить автоматический вход пользователей в LearnUpon (единый вход) с учетной записью Azure AD.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory. 
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with LearnUpon, you need the following items:
+## <a name="prerequisites"></a>Предварительные требования
+Чтобы настроить интеграцию Azure AD с LearnUpon, вам потребуется:
 
-* An Azure AD subscription
-* A LearnUpon single-sign on enabled subscription
+* подписка Azure AD;
+* подписка LearnUpon с поддержкой единого входа.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Не следует использовать рабочую среду при отсутствии необходимости.
+* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+## <a name="scenario-description"></a>Описание сценария
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Adding LearnUpon from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Добавление LearnUpon из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-learnupon-from-the-gallery"></a>Adding LearnUpon from the gallery
-To configure the integration of LearnUpon into Azure AD, you need to add LearnUpon from the gallery to your list of managed SaaS apps.
+## <a name="adding-learnupon-from-the-gallery"></a>Добавление LearnUpon из коллекции
+Чтобы настроить интеграцию LearnUpon с Azure AD, необходимо добавить LearnUpon из коллекции в список управляемых приложений SaaS.
 
-**To add LearnUpon from the gallery, perform the following steps:**
+**Чтобы добавить LearnUpon из коллекции, выполните следующие действия.**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
    
     ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
+    ![Приложения][2]
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+    ![Приложения][3]
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-    ![Applications][4]
-6. In the search box, type **LearnUpon**.
+    ![Приложения][4]
+6. В поле поиска введите **LearnUpon**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)
-7. In the results pane, select **LearnUpon**, and then click **Complete** to add the application.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)
+7. В области результатов выберите **LearnUpon** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-signon"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with LearnUpon based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в LearnUpon с использованием тестового пользователя Britta Simon.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in LearnUpon to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in LearnUpon needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in LearnUpon.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в LearnUpon соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в LearnUpon.  
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в LearnUpon.
 
-To configure and test Azure AD single sign-on with LearnUpon, you need to complete the following building blocks:
+Чтобы настроить и проверить единый вход Azure AD в LearnUpon, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a LearnUpon test user](#creating-a-learnupon-test-user)** - to have a counterpart of Britta Simon in LearnUpon that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя LearnUpon](#creating-a-learnupon-test-user)** требуется для создания в LearnUpon пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-signon"></a>Configuring Azure AD Single Sign-On
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your LearnUpon application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении LearnUpon.
 
-**To configure Azure AD single sign-on with LearnUpon, perform the following steps:**
+**Чтобы настроить единый вход Azure AD в LearnUpon, выполните следующие действия.**
 
-1. In the Azure classic portal, on the **LearnUpon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. На странице интеграции с приложением **LearnUpon** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to LearnUpon** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Настройка единого входа][6] 
+2. На странице **Как пользователи должны входить в LearnUpon?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png) 
+3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png) 
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png) 
 
-    a. In the **Reply URL** textbox, type the Assertion Consumer Service URL using the following pattern: `https://\<companyname\>.learnupon.com/saml/consumer`
+    а. В текстовое поле **URL-адрес ответа** введите URL-адрес службы Assertion Consumer Service в следующем формате: `https://\<companyname\>.learnupon.com/saml/consumer`.
 
-    b. Click **Next**. 
+    b. Нажмите кнопку **Далее**. 
 
 
-1. On the **Configure single sign-on at LearnUpon** page, perform the following steps:
+1. На странице **Настройка единого входа в LearnUpon** выполните следующие действия.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png) 
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png) 
    
-    a. Click **Download certificate**, and then save the file on your computer. We will need this certificate and Metadata URLs (Entity ID, SSO Sign In URL and Sign Out URL) to set up SSO on LearnUpon side.
+    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер. Этот сертификат и URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода) понадобятся для настройки единого входа на стороне LearnUpon.
    
-    b. Click **Next**.
-2. Open another browser instance and login into LearnUpon with an administrator account. 
-3. Click the **settings** tab.
+    b. Нажмите кнопку **Далее**.
+2. Откройте другую страницу браузера и войдите в LearnUpon с учетной записью администратора. 
+3. Перейдите на вкладку **Settings** (Параметры).
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) 
-4. Click **Single Sign On - SAML**, and then click **General Settings** to configure SAML settings.
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) 
+4. Щелкните **Single Sign On - SAML** (Единый вход — SAML), а затем нажмите кнопку **General Settings** (Общие параметры) для настройки SAML.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) 
-5. In the **General Settings** section, perform the following steps:
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) 
+5. В разделе **General Settings** (Общие параметры) выполните следующие действия.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) 
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) 
    
-    a. Select **Enabled**.
+    а. Щелкните **Включено**.
    
-    b. As **Version**, select **2.0**.
+    b. Для параметра **Version** (Версия) выберите значение **2.0**.
    
-    c. As **Skip conditions**, select **No**.
+    В. Для параметра **Skip conditions** (Пропустить условия) выберите значение **No** (Нет).
    
-    d. In the **SAML Token Post param name** textbox, type the name of request post parameter to the SAML consumer URL indicated above that contains the SAML Assertion to be verified and authenticated - for example **SAMLResponse**.
+    d. В текстовое поле **SAML Token Post param name** (Имя параметра POST для токена SAML) введите имя параметра POST, передаваемого в запросе на указанный выше URL-адрес клиента SAML (в нем содержится требующее проверки и аутентификации утверждение SAML, например **SAMLResponse**).
    
-    e. In the **Name Identifier Format** textbox, type the value that indicates where in your SAML Assertion the users identifier (Email address) resides - for example **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    д. В текстовое поле **Name Identifier Format** (Формат идентификатора имени) введите значение, которое определяет позицию идентификатора пользователя (адрес электронной почты) в утверждении SAML (например, **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**).
    
-    f. In the **Identify Provider Location** textbox, type the value that indicates where the users are sent to if they click on your uploaded icon from your Azure classic portal login screen.
+    Е. В текстовое поле **Identity Provider Location** (Расположение поставщика удостоверений) введите значение, которое определяет адрес для перенаправления пользователей, щелкнувших значок переданных элементов на экране входа на классическом портале Azure.
    
-    g.in the Azure classic portal, copy the **Single Sign-Out Service URL**, and then paste it into the **Sign out URL** textbos.
+    На классическом портале Azure скопируйте значение поля **URL-адрес службы единого выхода** и вставьте его в текстовое поле **Sign out URL** (URL-адрес для выхода).
    
-    h. Click **Manage finger prints**, and then upload the finger print of your downloaded certificate. 
-6. Click **User Settings**, and then perform the following steps:
+    h. Щелкните **Manage finger prints**(Управление отпечатками) и отправьте отпечаток загруженного сертификата. 
+6. Перейдите в раздел **User Settings**(Параметры пользователя) и выполните следующее.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) 
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) 
    
-    a. In the **First Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users firstname resides - for example: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/   givenname**.
+    а. В текстовое поле **First Name Identifier Format** (Формат идентификатора имени) введите значение, которое обозначает расположение имени пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/    givenname**.
    
-    b. In the **Last Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users lastname resides - for example: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ surname**.
-7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    b. В текстовое поле **Last Name Identifier Format** (Формат идентификатора фамилии) введите значение, которое обозначает расположение фамилии пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/    surname**.
+7. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![Azure AD Single Sign-On][10]
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+    ![единого входа Azure AD][10]
+8. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![Azure AD Single Sign-On][11]
+    ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
-![Create Azure AD User][20]
+![Создание пользователя Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_09.png) 
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_03.png) 
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_04.png) 
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_05.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_05.png) 
    
-    a. As Type Of User, select New user in your organization.
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
+    c. Нажмите кнопку **Далее**.
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_06.png) 
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+   b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+   d. В списке **Роль** выберите **Пользователь**.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
+   д. Нажмите кнопку **Далее**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_07.png) 
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_08.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
+    а. Запишите значение поля **Новый пароль**.
    
-    b. Click **Complete**.   
+    b. Нажмите **Завершено**.   
 
-### <a name="creating-a-learnupon-test-user"></a>Creating a LearnUpon test user
-The objective of this section is to create a user called Britta Simon in LearnUpon. LearnUpon supports just-in-time provisioning, which is by default enabled.
+### <a name="creating-a-learnupon-test-user"></a>Создание тестового пользователя LearnUpon
+Цель этого раздела — создать пользователя с именем Britta Simon в LearnUpon. Приложение LearnUpon поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
-There is no action item for you in this section. A new user will be created during an attempt to access LearnUpon if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к приложению LearnUpon (если он еще не создан). [Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the LearnUpon support team.
+> Если вам нужно вручную создать пользователя, необходимо обратиться в службу поддержки LearnUpon.
 > 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to LearnUpon.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступа к LearnUpon.
 
-![Assign User][200] 
+![Назначение пользователя][200] 
 
-**To assign Britta Simon to LearnUpon, perform the following steps:**
+**Чтобы назначить пользователя Britta Simon в LearnUpon, выполните следующие действия.**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
    
-    ![Assign User][201] 
-2. In the applications list, select **LearnUpon**.
+    ![Назначение пользователя][201] 
+2. В списке приложений выберите **LearnUpon**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_50.png) 
-3. In the menu on the top, click **Users**.
+    ![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_50.png) 
+3. В меню в верхней части страницы щелкните **Пользователи**.
    
-    ![Assign User][203] 
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
+    ![Назначение пользователя][203] 
+4. В списке пользователей выберите **Britta Simon**.
+5. На панели инструментов внизу щелкните **Назначить**.
    
-    ![Assign User][205]
+    ![Назначение пользователя][205]
 
-### <a name="testing-single-signon"></a>Testing Single Sign-On
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the LearnUpon tile in the Access Panel, you should get automatically signed-on to your LearnUpon application.
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+Щелкнув элемент LearnUpon на панели доступа, вы автоматически войдете в приложение LearnUpon.
 
-## <a name="additional-resources"></a>Additional Resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>дополнительные ресурсы.
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -264,6 +268,6 @@ When you click the LearnUpon tile in the Access Panel, you should get automatica
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Sending Secure Push Notifications with Azure Notification Hubs
-description: Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#.
+title: "Отправка безопасных push-уведомлений с помощью Центров уведомлений Azure"
+description: "Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#."
 documentationcenter: android
-keywords: push notification,push notifications,push messages,android push notifications
+keywords: "push-уведомление, push-уведомления, push-сообщения, push-уведомления android"
 author: ysxu
 manager: erikre
-editor: ''
+editor: 
 services: notification-hubs
-
+ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android
@@ -15,9 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce4bc214d4428393d8130831d628c324ad3485e8
+
 
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Sending Secure Push Notifications with Azure Notification Hubs
+# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Отправка безопасных push-уведомлений с помощью Центров уведомлений Azure
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -25,47 +29,47 @@ ms.author: yuaxu
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Обзор
 > [!IMPORTANT]
-> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, scaled-out push message infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании мультиплатформенной масштабируемой инфраструктуре для обмена push-сообщениями, которая значительно упрощает реализацию push-уведомлений для пользовательских и корпоративных приложений для мобильных платформ.
 
-Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client Android device and the app backend.
+Из-за ограничений, связанных с правовыми нормами или обеспечением безопасности, иногда в уведомлении могут присутствовать данные, которые нельзя передать через стандартную инфраструктуру push-уведомлений. В руководстве описывается, как реализовать этот принцип при отправке конфиденциальной информации через защищенное соединение с проверкой подлинности между клиентским устройством Android и серверной частью приложения.
 
-At a high level, the flow is as follows:
+На высоком уровне поток можно представить следующим образом.
 
-1. The app back-end:
-   * Stores secure payload in back-end database.
-   * Sends the ID of this notification to the Android device (no secure information is sent).
-2. The app on the device, when receiving the notification:
-   * The Android device contacts the back-end requesting the secure payload.
-   * The app can show the payload as a notification on the device.
+1. Серверная часть приложения:
+   * Сохраняет полезную нагрузку в базе данных серверной части.
+   * Отправляет идентификатор этого уведомления на устройство Android (защищаемые сведения не передаются).
+2. Приложение на устройстве при получении уведомления:
+   * Устройство Android связывается с серверной частью и запрашивает полезные данные.
+   * Приложение может показывать полезную нагрузку в виде уведомления на устройстве.
 
-It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the push notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
+Стоит отметить: в предыдущем потоке (и в этом учебнике) мы предположили, что устройство сохраняет маркер проверки подлинности в локальном хранилище после входа пользователя. Таким образом обеспечивается удобство работы, так как с помощью этого маркера устройство способно получать безопасные полезные данные уведомлений. Если приложение не сохраняет маркеры проверки подлинности на устройстве, или если срок действия маркеров истек, приложение для устройства, получив уведомление, должно отобразить общее уведомление, предлагая пользователю запустить приложение. Затем приложение выполняет проверку подлинности пользователя и отображает полезную нагрузку уведомления.
 
-This tutorial shows how to send secure push notifications. It builds on the [Notify Users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) tutorial, so you should complete the steps in that tutorial first if you haven't already.
+В этом руководстве описывается, как отправлять безопасные push-уведомления. Так как данный учебник продолжает начатый цикл, вам сначала нужно ознакомиться с предыдущим учебником об [уведомлении пользователей](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) .
 
 > [!NOTE]
-> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-android-project"></a>Modify the Android project
-Now that you modified your app back-end to send just the *id* of a push notification, you have to change your Android app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
-To achieve this goal, you have to make sure that your Android app knows how to authenticate itself with your back-end when it receives the push notifications.
+## <a name="modify-the-android-project"></a>Внесение изменений в проект Android
+Вы изменили серверную часть приложения для отправки только *идентификатора* push-уведомления. Теперь вам нужно изменить приложение Android для обработки этого уведомления и выполнения обратного вызова к серверной части. Это необходимо для извлечения защищенного сообщения, которое будет показано пользователю.
+Для этого убедитесь, что приложение Android может пройти проверку подлинности на вашем сервере при получении push-уведомлений.
 
-We will now modify the *login* flow in order to save the authentication header value in the shared preferences of your app. Analogous mechanisms can be used to store any authentication token (e.g. OAuth tokens) that the app will have to use without requiring user credentials.
+Мы внесем изменения в процесс *входа* для того, чтобы сохранить заголовок проверки подлинности в общих настройках приложения. Аналогичные механизмы можно использовать для хранения любых маркеров проверки подлинности (например маркеры OAuth), которые потребуются приложению без необходимости ввода данных пользователя.
 
-1. In your Android app project, add the following constants at the top of the **MainActivity** class:
+1. В проекте приложения Android добавьте следующие константы в начало класса **MainActivity** :
    
         public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
         public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
-2. Still in the **MainActivity** class, update the `getAuthorizationHeader()` method to contain the following code:
+2. Там же, в классе **MainActivity** добавьте в метод `getAuthorizationHeader()` следующий код:
    
         private String getAuthorizationHeader() throws UnsupportedEncodingException {
             EditText username = (EditText) findViewById(R.id.usernameText);
@@ -78,20 +82,20 @@ We will now modify the *login* flow in order to save the authentication header v
    
             return basicAuthHeader;
         }
-3. Add the following `import` statements at the top of the **MainActivity** file:
+3. Добавьте инструкцию `import` в верхнюю часть файла **MainActivity** :
    
         import android.content.SharedPreferences;
 
-Now we will change the handler that is called when the notification is received.
+Теперь мы изменим обработчик, который вызывается при получении уведомления.
 
-1. In the **MyHandler** class change the `OnReceive()` method to contain:
+1. В классе **MyHandler** добавьте в метод `OnReceive()` этот код:
    
         public void onReceive(Context context, Bundle bundle) {
             ctx = context;
             String secureMessageId = bundle.getString("secureId");
             retrieveNotification(secureMessageId);
         }
-2. Then add the `retrieveNotification()` method, replacing the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
+2. Затем добавьте метод `retrieveNotification()`, заменив заполнитель `{back-end endpoint}` на конечную точку серверной части, полученную во время развертывания серверной части:
    
         private void retrieveNotification(final String secureMessageId) {
             SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -120,18 +124,21 @@ Now we will change the handler that is called when the notification is received.
             }.execute(null, null, null);
         }
 
-This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences and displays it as a normal notification. The notification looks to the app user exactly like any other push notification.
+Этот метод вызывает серверную часть вашего приложения для извлечения содержимого уведомления с использованием учетных данных, хранящихся в общих настройках, и отображения в виде обычного уведомления. Для пользователя приложения уведомление ничем не отличается от других уведомлений.
 
-Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
+Обратите внимание, что случаи отсутствующего свойства заголовки проверки подлинности или отклонения предпочтительнее обрабатывать на серверной части. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
 
-## <a name="run-the-application"></a>Run the Application
-To run the application, do the following:
+## <a name="run-the-application"></a>Запуск приложения
+Для запуска приложения выполните следующие действия:
 
-1. Make sure **AppBackend** is deployed in Azure. If using Visual Studio, run the **AppBackend** Web API application. An ASP.NET web page is displayed.
-2. In Eclipse, run the app on a physical Android device or the emulator.
-3. In the Android app UI, enter a username and password. These can be any string, but they must be the same value.
-4. In the Android app UI, click **Log in**. Then click **Send push**.
+1. Убедитесь, что **AppBackend** развернут в Azure. При использовании Visual Studio, запустите приложение веб-API **AppBackend** . Отобразится веб-страница ASP.NET.
+2. В Eclipse запустите приложение на физическом устройстве Android или на эмуляторе.
+3. В пользовательском интерфейсе приложения Android введите имя пользователя и пароль. Это могут быть любые совпадающие строки.
+4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите **Отправить push-уведомление**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

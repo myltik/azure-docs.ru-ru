@@ -1,12 +1,12 @@
 ---
-title: Экспорт данных Log Analytics в Power BI | Microsoft Docs
-description: Power BI — это облачная служба бизнес-аналитики от Майкрософт, предоставляющая расширенную визуализацию данных и отчеты по анализу различных наборов данных.  Log Analytics может непрерывно экспортировать данные из репозитория OMS в Power BI, чтобы вы могли использовать предоставляемые службой визуализации и средства анализа.  В этой статье описывается настройка запросов в службе Log Analytics, которые автоматически экспортируются в Power BI с регулярной периодичностью.
+title: "Экспорт данных Log Analytics в Power BI | Документация Майкрософт"
+description: "Power BI — это облачная служба бизнес-аналитики от Майкрософт, предоставляющая расширенную визуализацию данных и отчеты по анализу различных наборов данных.  Log Analytics может непрерывно экспортировать данные из репозитория OMS в Power BI, чтобы вы могли использовать предоставляемые службой визуализации и средства анализа.  В этой статье описывается настройка запросов в службе Log Analytics, которые автоматически экспортируются в Power BI с регулярной периодичностью."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
+
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Экспорт данных Log Analytics в Power BI
@@ -114,6 +118,9 @@ ms.author: bwren
 * Узнайте больше о [запросах поиска по журналам](log-analytics-log-searches.md) , чтобы создавать запросы, которые можно экспортировать в Power BI.
 * Узнайте больше о [Power BI](http://powerbi.microsoft.com), чтобы создавать визуализации на основе экспорта Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

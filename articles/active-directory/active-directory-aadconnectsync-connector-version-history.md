@@ -1,12 +1,12 @@
 ---
-title: История выпусков версий соединителей | Microsoft Docs
-description: В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM).
+title: "История выпусков версий соединителей | Документация Майкрософт"
+description: "В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM)."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/17/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 58c89833330d8dbb1147b42c086ca2c86be3e94d
+
 
 ---
 # <a name="connector-version-release-history"></a>История выпусков версий соединителей
@@ -35,7 +39,7 @@ ms.author: billmath
 * [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
 * [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
 
-## <a name="1.1.117.0"></a>1.1.117.0
+## <a name="111170"></a>1.1.117.0
 Дата выпуска: март 2016 г.
 
 **Новый соединитель**  
@@ -97,6 +101,9 @@ ms.author: billmath
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

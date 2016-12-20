@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Halogen Software
-description: Узнайте, как настроить единый вход между Azure Active Directory и Halogen Software.
+title: "Учебник. Интеграция Azure Active Directory с Halogen Software"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Halogen Software."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21d31eb33a838d42b4ba8f4191b89e6094206f6e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-halogen-software"></a>Учебник. Интеграция Azure Active Directory с Halogen Software
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Учебник. Интеграция Azure Active Directory с Halogen Software
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Halogen Software.
 
 Интеграция Halogen Software с Azure AD обеспечивает следующие преимущества: 
 
 * С помощью Azure AD вы можете контролировать доступ к Halogen Software. 
 * Вы можете включить автоматический вход пользователей в Halogen Software (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Halogen Software, вам потребуется следующее:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -63,7 +67,7 @@ ms.author: jeedes
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** . 
+4. В нижней части страницы нажмите кнопку **Добавить** .    
    
     ![Приложения][3]
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
@@ -75,7 +79,7 @@ ms.author: jeedes
 7. В области результатов выберите **Halogen Software** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать вам, как настроить и проверить единый вход в Azure AD с Halogen Software с использованием тестового пользователя с именем "Britta Simon".
+Цель этого раздела — показать вам, как настроить и проверить единый вход в Azure AD с Halogen Software с использованием тестового пользователя с именем "Britta Simon".
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Halogen Software соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в Halogen Software.
 
@@ -99,7 +103,7 @@ ms.author: jeedes
     ![Настройка единого входа][8]
 2. На странице **Как пользователи должны входить в Halogen Software?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][9]
+    ![единого входа Azure AD][9]
 3. На странице диалогового окна **Настроить параметры приложения** выполните следующие действия.  ![Настройка параметров приложения][10]
    
      а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Halogen Software по следующей схеме: *https://global.hgncloud.com/fabrikam/welcome.jsp*.
@@ -141,7 +145,7 @@ ms.author: jeedes
     ![Что такое Azure AD Connect?][16]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
@@ -188,7 +192,7 @@ ms.author: jeedes
     b. В нижней части страницы нажмите кнопку **Завершить**.   
 
 ### <a name="creating-a-halogen-software-test-user"></a>Создание тестового пользователя Halogen Software
-Цель этого раздела — создать пользователя с именем Britta Simon в Halogen Software.
+Цель этого раздела — создать пользователя с именем Britta Simon в Halogen Software.
 
 **Чтобы создать пользователя с именем Britta Simon в Halogen Software, выполните следующие действия:**
 
@@ -234,7 +238,7 @@ ms.author: jeedes
     ![Что такое Azure AD Connect?][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Нажав элемент Halogen Software на панели доступа, вы автоматически войдете в приложение Halogen Software.
 
@@ -276,6 +280,7 @@ ms.author: jeedes
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

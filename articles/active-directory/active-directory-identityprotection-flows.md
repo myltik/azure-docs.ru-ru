@@ -1,13 +1,13 @@
 ---
-title: Sign-in experiences with Azure AD Identity Protection| Microsoft Docs
-description: Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy.
+title: "Процедуры входа с защитой идентификации Azure AD | Документация Майкрософт"
+description: "Содержит обзор того, как система взаимодействует с пользователем, когда защита идентификации уменьшает риск или восстанавливает скомпрометированного пользователя либо когда многофакторная проверка подлинности установлена политикой."
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
+keywords: "защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,98 +15,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
+
 
 ---
-# <a name="signin-experiences-with-azure-ad-identity-protection"></a>Sign-in experiences with Azure AD Identity Protection
-With Azure Active Directory Identity Protection, you can:
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Процедуры входа с защитой идентификации Azure AD
+С помощью защиты идентификации Azure Active Directory можно:
 
-* require users to register for multi-factor authentication
-* handle risky sign-ins and compromised users
+* требовать от пользователей регистрации для многофакторной проверки подлинности;
+* контролировать рискованные входы в систему и скомпрометированных пользователей.
 
-The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
+Реакция системы на подобные проблемы влияет на возможности входа пользователя в систему, потому что войти, просто указав имя пользователя и пароль, уже будет невозможно. Чтобы безопасно вернуть функциональность пользователя, требуются дополнительные действия.
 
-This topic gives you an overview of a user's sign-in experience for all cases that can occur.
+В этом разделе описываются возможности входа пользователя в систему во всех возможных случаях.
 
-**Multi-factor authentication**
+**Многофакторная проверка подлинности**
 
-* Multi-factor authentication registration
+* Регистрация с многофакторной проверкой подлинности
 
-**Sign-in at risk**
+**Вход, представляющий риск**
 
-* Risky sign-in recovery
-* Risky sign-in blocked
-* Multi-factor authentication registration during a risky sign-in
+* Восстановление входа, представлявшего риск
+* Блокировка входа, представляющего риск
+* Регистрация с многофакторной проверкой подлинности во время входа, представляющего риск
 
-**User at risk**
+**Пользователь под угрозой**
 
-* Compromised account recovery
-* Compromised account blocked
+* Восстановление скомпрометированной учетной записи
+* Скомпрометированная учетная запись заблокирована
 
-## <a name="multifactor-authentication-registration"></a>Multi-factor authentication registration
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If users are registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
+## <a name="multi-factor-authentication-registration"></a>Регистрация с многофакторной проверкой подлинности
+Самым лучшим выходом и при восстановлении скомпрометированной учетной записи, и при восстановлении входа, представлявшего риск, будет самостоятельное восстановление. Если пользователи зарегистрированы для многофакторной проверки подлинности, значит, они связали со своей учетной записью номер телефона, который можно использовать для проверки безопасности. При восстановлении скомпрометированной учетной записи не требуется вмешательство службы технической поддержки или администратора. Поэтому настоятельно рекомендуется обеспечить регистрацию пользователей для многофакторной проверки подлинности. 
 
-Administrators can:
+Администраторы могут:
 
-* set a policy that requires users to set up their accounts for additional security verification. 
-* allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
+* установить политику, согласно которой от пользователей будет требоваться настройка дополнительной проверки безопасности учетных записей; 
+* разрешить пропускать регистрацию с многофакторной проверкой подлинности в течение 30 дней, если пользователям нужно предоставить льготный период перед регистрацией.
 
-**The multi-factor authentication registration has three steps:**
+**Регистрация с многофакторной проверкой подлинности происходит в три этапа.**
 
-1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
+1. На первом шаге пользователь получает уведомление о необходимости настроить учетную запись для использования многофакторной проверки подлинности. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
-2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
+    ![Исправление](./media/active-directory-identityprotection-flows/140.png "Remediation")
+2. Для этого необходимо указать системе, как ей следует связываться с вами.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
-3. The system submits a challenge to you and you need to respond.
+    ![Исправление](./media/active-directory-identityprotection-flows/141.png "Remediation")
+3. Система отправляет запрос, на который вы должны ответить.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/142.png "Remediation")
 
-## <a name="risky-signin-recovery"></a>Risky sign-in recovery
-When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
+## <a name="risky-sign-in-recovery"></a>Восстановление входа, представлявшего риск
+Если администратор настроил политику для риска при входе, пользователи, на которых она распространяется, будут уведомлены об этом при попытке входа. 
 
-**The risky sign-in flow has two steps:** 
+**Процесс входа, представляющего риск, состоит из двух шагов.** 
 
-1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
+1. Пользователя информируют о том, что при входе обнаружена подозрительная активность, например, вход выполнен из нового расположения, с помощью нового устройства или приложения. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round-trip a security code to their phone number. Since this is a just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
+    ![Исправление](./media/active-directory-identityprotection-flows/120.png "Remediation")
+2. Пользователю нужно пройти идентификацию в ответ на запрос защиты. Если пользователь зарегистрирован для многофакторной проверки подлинности, ему нужно будет принять код безопасности и предать его, используя свой номер телефона. Так как риск создается только при входе и учетная запись пользователя не скомпрометирована, пользователю не нужно менять пароль. 
    
-    ![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/121.png "Remediation")
 
-## <a name="risky-signin-blocked"></a>Risky sign-in blocked
-Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
+## <a name="risky-sign-in-blocked"></a>Блокировка входа, представляющего риск
+При наличии прав администратора в политике риска входа также можно задать блокировку входа на основе уровня риска. Чтобы разблокировать вход, пользователям необходимо обратиться к администратору или в службу технической поддержки. Кроме того, можно попробовать войти из знакомого расположения или с помощью знакомого устройства. В этом случае не поможет самостоятельное восстановление путем многофакторной проверки подлинности.
 
-![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/200.png "Remediation")
 
-## <a name="compromised-account-recovery"></a>Compromised account recovery
-When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign-in. 
+## <a name="compromised-account-recovery"></a>Восстановление скомпрометированной учетной записи
+Если настроена политика безопасности в отношении риска, пользователям, уровень риска которых отвечает уровню в политике (и поэтому предполагается, что их учетная запись скомпрометирована), нужно пройти процедуру восстановления, чтобы они могли входить. 
 
-**The user compromise recovery flow has three steps:**
+**Восстановление скомпрометированного пользователя предусматривает три шага.**
 
-1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
+1. Пользователя информируют о риске для безопасности учетной записи из-за подозрительной активности или утери учетных данных.
    
-    ![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round-trip a security code to their phone number. 
+    ![Исправление](./media/active-directory-identityprotection-flows/101.png "Remediation")
+2. Пользователю нужно пройти идентификацию в ответ на запрос защиты. Если пользователь зарегистрирован для многофакторной проверки подлинности, он может самостоятельно восстановить скомпрометированные учетные данные. Для этого нужно принять и передать код безопасности, используя свой номер телефона. 
    
-   ![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
-3. Finally, the user is forced to change their password since someone else may have had access to their account. Screenshots of this experience are below.
+   ![Исправление](./media/active-directory-identityprotection-flows/110.png "Remediation")
+3. Наконец, пароль пользователя принудительно изменяется, так как его учетную запись использовал другой пользователь. 
+   На снимках экрана ниже показан этот процесс.
    
-   ![Remediation](./media/active-directory-identityprotection-flows/111.png "Remediation")
+   ![Исправление](./media/active-directory-identityprotection-flows/111.png "Remediation")
 
-## <a name="compromised-account-blocked"></a>Compromised account blocked
-To get a user that was blocked by a user risk security policy unblocked, the user must contact an administrator or help desk. Self-recovering by solving multi-factor authentication is not an option in this case.
+## <a name="compromised-account-blocked"></a>Скомпрометированная учетная запись заблокирована
+Если пользователь заблокирован согласно политике безопасности в отношении рисков, ему нужно обратиться к администратору или в службу технической поддержки. В этом случае не поможет самостоятельное восстановление путем многофакторной проверки подлинности.
 
-![Remediation](./media/active-directory-identityprotection-flows/104.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/104.png "Remediation")
 
-## <a name="reset-password"></a>Reset password
-If compromised users are blocked from signing in, an administrator can generate a temporary password for them. The users will have to change their password during a next sign-in.
+## <a name="reset-password"></a>Сброс пароля
+Если для скомпрометированных пользователей заблокирован вход, администратор может создать для них временный пароль. Пользователям нужно будет изменить пароль при следующем входе.
 
-![Remediation](./media/active-directory-identityprotection-flows/160.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/160.png "Remediation")
 
-## <a name="see-also"></a>See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+## <a name="see-also"></a>Дополнительные материалы
+* [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -6,11 +6,8 @@
 * HighPerformance.
 * UltraPerformance
 
-> [!IMPORTANT]
-> Шлюз ExpressRoute UltraPerformance в настоящее время доступен в западно-центральной части США и центральной части США, поэтому его можно подключить к каналам ExpressRoute, расположенным в Чикаго и Далласе. Дополнительные регионы Azure и расположения ExpressRoute будут доступны в ближайшие недели. 
-> 
-> 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

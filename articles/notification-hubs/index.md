@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
 
 ---
-#<a name="notification-hubs-documentation"></a>Документация по концентраторам уведомлений
+#<a name="notification-hubs-documentation"></a>Документация по центрам уведомлений
 
 Центры уведомлений Azure — это простая в использовании масштабируемая многоплатформенная инфраструктура для отправки push-уведомлений на мобильные устройства с любой серверной части (облачной или локальной).
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,7 +77,7 @@ ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с Центрами уведомлений с помощью Baidu</h3>
+                        <h3>Начало работы с центрами уведомлений с помощью Baidu</h3>
                     </div>
                 </div>
             </div>
@@ -160,52 +160,45 @@ ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Командлеты PowerShell центров уведомлений</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Справочник центров уведомлений API .NET</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник центров уведомлений REST API</p>
+                        <p><a href="/rest/api/notificationhubs">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
@@ -219,6 +212,6 @@ ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

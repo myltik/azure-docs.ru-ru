@@ -1,13 +1,13 @@
 ---
-title: How to add multiple VPN gateway Site-to-Site connections to a virtual network for the Resource Manager deployment model using the Azure portal | Microsoft Docs
-description: Add multi-site S2S connections to a VPN gateway that has an existing connection
+title: "Добавление нескольких подключений типа &quot;точка — сеть&quot; через VPN-шлюз к виртуальной сети с помощью модели развертывания Resource Manager и портала Azure | Документация Майкрософт"
+description: "Добавление многосайтовых подключений типа &quot;сеть — сеть&quot; к VPN-шлюзу с имеющимся подключением"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,82 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9906602e0a154c2dc3d6e458179c7e9346df2852
+
 
 ---
-# <a name="add-a-sitetosite-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Classic - PowerShell](vpn-gateway-multi-site.md)
+> * [Resource Manager: портал](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Классическая модель: PowerShell](vpn-gateway-multi-site.md)
 > 
 > 
 
-This article walks you through using the Azure portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. 
+В этой статье рассматривается использование портала Azure для добавления подключений типа "сеть — сеть" (S2S) к VPN-шлюзу с имеющимся подключением. Этот тип подключения часто называется "многосайтовым". 
 
-You can use this article to add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
+В этой статье вы узнаете, как добавить подключение типа "сеть — сеть" к виртуальной сети, которая уже имеет подключение типа "сеть — сеть", "точка — сеть" или "виртуальная сеть — виртуальная сеть". При добавлении подключения есть некоторые ограничения. Прежде чем начать настройку, просмотрите раздел [Перед началом работы](#before) в этой статье. 
 
-This article applies to VNets created using the Resource Manager deployment model that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
+Сведения в этой статье применимы к виртуальным сетям, созданным с помощью модели развертывания Resource Manager, с VPN-шлюзом типа RouteBased. Эти действия не применяются к параллельно существующим конфигурациям подключений ExpressRoute и "сеть — сеть". Сведения о параллельно существующих подключениях см. в разделе [Параллельно существующие подключения ExpressRoute и "сеть — сеть"](../expressroute/expressroute-howto-coexist-resource-manager.md).
 
-### <a name="deployment-models-and-methods"></a>Deployment models and methods
+### <a name="deployment-models-and-methods"></a>Модели и методы развертывания
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-We update this table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from this table.
+Мы обновляем эту таблицу по мере выпуска новых статей и дополнительных инструментов для этой конфигурации. При появлении статьи мы указываем прямую ссылку на нее в этой таблице.
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="a-namebeforeabefore-you-begin"></a><a name="before"></a>Before you begin
-Verify the following items:
+## <a name="a-namebeforeabefore-you-begin"></a><a name="before"></a>Перед началом работы
+Проверьте следующее.
 
-* You are not creating an ExpressRoute/S2S coexisting connection.
-* You have a virtual network that was created using the Resource Manager deployment model with an existing connection.
-* The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RoutBased.
-* None of the address ranges overlap for any of the VNets that this VNet is connecting to.
-* You have compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
-* You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+* Убедитесь, что не создаете параллельно действующие подключения ExpressRoute и "сеть — сеть".
+* У вас должна быть виртуальная сеть, созданная с помощью модели развертывания Resource Manager, с имеющимся подключением.
+* Тип шлюза виртуальной сети — RouteBased. При наличии VPN-шлюза типа PolicyBased необходимо удалить шлюз виртуальной сети и создать новый VPN-шлюз типа RoutBased.
+* Ни один из диапазонов адресов не должен перекрываться ни в одной из виртуальных сетей, к которой подключается эта виртуальная сеть.
+* У вас есть совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md). Если вы не умеете настраивать VPN-устройство или не знаете диапазоны IP-адресов в своей локальной сети, вам следует найти того, кто сможет предоставить вам нужную информацию.
+* Имеется внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 
-## <a name="a-namepart1apart-1-configure-a-connection"></a><a name="part1"></a>Part 1 - Configure a connection
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
-3. On the **Virtual network gateway** blade, click **Connections**.
+## <a name="a-namepart1apart-1---configure-a-connection"></a><a name="part1"></a>Часть 1. Настройка подключения
+1. В браузере откройте [портал Azure](http://portal.azure.com) и при необходимости войдите с помощью учетной записи Azure.
+2. Щелкните **Все ресурсы**, а затем найдите в списке ресурсов **Шлюз виртуальной сети** и щелкните его.
+3. В колонке **шлюза виртуальной сети** щелкните **Подключения**.
    
-    ![Connections blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
-4. On the **Connections** blade, click **+Add**.
+    ![Колонка "Подключения"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+4. В колонке **Подключения** нажмите кнопку **Добавить**.
    
-    ![Add connection button](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
-5. On the **Add connection** blade, fill out the following fields:
+    ![Кнопка "Добавить подключение"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+5. В колонке **Добавление подключения** заполните следующие поля.
    
-   * **Name:** The name you want to give to the site you are creating the connection to.
-   * **Connection type:** Select **Site-to-site (IPsec)**.
+   * **Имя.** Имя, назначаемое сайту, к которому создается подключение.
+   * **Тип подключения.** Выберите **Сеть — сеть (IPSec)**.
      
-     ![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Колонка "Добавление подключения"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
 
-## <a name="a-namepart2apart-2-add-a-local-network-gateway"></a><a name="part2"></a>Part 2 - Add a local network gateway
-1. Click **Local network gateway** ***Choose a local network gateway***. This will open the **Choose local network gateway** blade.
+## <a name="a-namepart2apart-2---add-a-local-network-gateway"></a><a name="part2"></a>Часть 2. Добавление шлюза локальной сети
+1. Щелкните **Шлюз локальной сети**, а затем ***Выберите шлюз локальной сети***. Откроется колонка **Выберите шлюз локальной сети**.
    
-    ![Choose local network gateway](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
-2. Click **Create new** to open the **Create local network gateway** blade.
+    ![Выбор шлюза локальной сети](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+2. Щелкните **Создать**, чтобы открыть колонку **Создание шлюза локальной сети**.
    
-    ![Create local network gateway blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
-3. On the **Create local network gateway** blade, fill out the following fields:
+    ![Колонка "Создание шлюза локальной сети"](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+3. В колонке **Создание шлюза локальной сети** заполните следующие поля.
    
-   * **Name:** The name you want to give to the local network gateway resource.
-   * **IP address:** The public IP address of the VPN device on the site that you want to connect to.
-   * **Address space:** The address space that you want to be routed to the new local network site.
-4. Click **OK** on the **Create local network gateway** blade to save the changes.
+   * **Имя.** Имя, которое будет использоваться для шлюза локальной сети.
+   * **IP-адрес.** Общедоступный IP-адрес VPN-устройства сайта, к которому необходимо подключиться.
+   * **Пространство адресов.** Пространство адресов, к которому будет направляться новый сайт локальной сети.
+4. Чтобы сохранить изменения, в колонке **Создание шлюза локальной сети** нажмите кнопку **ОК**.
 
-## <a name="a-namepart3apart-3-add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Part 3 - Add the shared key and create the connection
-1. On the **Add connection** blade, add the shared key that you want to use to create your connection. You can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
+## <a name="a-namepart3apart-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Часть 3. Добавление общего ключа и создание подключения
+1. В колонке **Добавление подключения** добавьте общий ключ, который будет использоваться для создания подключения. Можно получить общий ключ из VPN-устройства или создать его в этой колонке, а затем настроить использование этого ключа для VPN-устройства. Важно, чтобы ключи полностью совпадали.
    
-    ![Shared key](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
-2. At the bottom of the blade, click **OK** to create the connection.
+    ![Общий ключ](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+2. В нижней части колонки нажмите кнопку **ОК**, чтобы создать подключение.
 
-## <a name="a-namepart4apart-4-verify-the-vpn-connection"></a><a name="part4"></a>Part 4 - Verify the VPN connection
-You can verify your VPN connection either in the portal, or by using PowerShell.
+## <a name="a-namepart4apart-4---verify-the-vpn-connection"></a><a name="part4"></a>Часть 4. Проверка VPN-подключения
+VPN-подключение можно проверить на портале или с помощью PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="next-steps"></a>Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
+## <a name="next-steps"></a>Дальнейшие действия
+* Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию о виртуальных машинах см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/virtual-machines).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

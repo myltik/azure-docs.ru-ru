@@ -1,13 +1,13 @@
 ---
-title: Перемещение каналов ExpressRoute из классической модели развертывания в модель Resource Manager | Microsoft Docs
-description: В этой статье описывается перемещение классического канала в модель развертывания Resource Manager.
+title: "Перемещение каналов ExpressRoute из классической модели развертывания в модель Resource Manager | Документация Майкрософт"
+description: "В этой статье описывается перемещение классического канала в модель развертывания Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Перемещение каналов ExpressRoute из классической модели развертывания в модель Resource Manager
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Перемещение канала ExpressRoute в модель развертывания Resource Manager
 Канал ExpressRoute необходимо переместить в модель развертывания Resource Manager, чтобы его можно было использовать в классической модели и в модели Resource Manager. Для этого можно выполнить следующие команды PowerShell:
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>Шаг 1. Соберите сведения о канале из классической модели развертывания
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Шаг 1. Соберите сведения о канале из классической модели развертывания
 Сначала необходимо собрать сведения о канале ExpressRoute.
 
 Войдите в классическую среду Azure и получите ключ службы. Для сбора информации можно использовать следующий фрагмент кода PowerShell:
@@ -48,7 +52,7 @@ ms.author: ganesr
 
 Скопируйте **ключ службы** канала, который требуется перенести в модель развертывания Resource Manager.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>Шаг 2. Вход в среду Resource Manager и создание новой группы ресурсов
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Шаг 2. Вход в среду Resource Manager и создание новой группы ресурсов
 Чтобы создать группу ресурсов, можно выполнить следующий фрагмент кода:
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ ms.author: ganesr
 
 Также можно использовать существующую группу ресурсов, если она имеется.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Шаг 3. Перемещение канала ExpressRoute в модель развертывания Resource Manager
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Шаг 3. Перемещение канала ExpressRoute в модель развертывания Resource Manager
 Теперь все готово для перемещения канала ExpressRoute из классической модели развертывания в модель Resource Manager. Просмотрите сведения в разделе [Перемещение канала ExpressRoute из классической модели развертывания в модель Resource Manager](expressroute-move.md) , прежде чем продолжать работу.
 
 Для этого можно выполнить следующий фрагмент кода:
@@ -119,6 +123,9 @@ ms.author: ganesr
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

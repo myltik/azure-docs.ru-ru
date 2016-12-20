@@ -1,12 +1,12 @@
 ---
-title: Запуск модуля Runbook в службе автоматизации Azure | Microsoft Docs
-description: Кратко рассматриваются различные методы, которые позволяют запускать модуль Runbook в службе автоматизации Azure с помощью портала Azure и Windows PowerShell.
+title: "Запуск модуля Runbook в службе автоматизации Azure | Документация Майкрософт"
+description: "Кратко рассматриваются различные методы, которые позволяют запускать модуль Runbook в службе автоматизации Azure с помощью портала Azure и Windows PowerShell."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2016
 ms.author: magoedte;bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0bacd2ccb08d20c4e0457d9fc83468e747cde870
+
 
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Запуск модуля Runbook в службе автоматизации Azure
@@ -73,7 +77,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Если для модуля Runbook требуются параметры, то необходимо указать их в виде [хэш-таблицы](http://technet.microsoft.com/library/hh847780.aspx), где ключ в хэш-таблице совпадает с именем параметра, а значение — это значение параметра. В следующем примере показано, как запустить модуль Runbook с двумя строковыми параметрами FirstName и LastName, целочисленным параметром RepeatCount и логическим параметром Show. Дополнительные сведения о параметрах см. в разделе [Параметры Runbook](#Runbook-parameters) ниже.
+Если для модуля Runbook требуются параметры, то необходимо указать их в виде [хэш-таблицы](http://technet.microsoft.com/library/hh847780.aspx), где ключ в хэш-таблице совпадает с именем параметра, а значение — это значение параметра. В следующем примере показано, как запустить модуль Runbook с двумя строковыми параметрами FirstName и LastName, целочисленным параметром RepeatCount и логическим параметром Show. Дополнительные сведения о параметрах см. в разделе [Параметры Runbook](#Runbook-parameters) ниже.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -177,7 +181,7 @@ Workflow Test-Parameters
 My Credential
 ```
 
-Если имя пользователя в параметре credential — *jsmith*, будет получен следующий результат.
+Если имя пользователя в параметре credential — *jsmith*, будет получен следующий результат.
 
 ```
 jsmith
@@ -187,6 +191,9 @@ jsmith
 * В текущей статье описана общая архитектура Runbook для управления ресурсами в Azure и локальной среде с помощью гибридной рабочей роли Runbook.  Дополнительные сведения о выполнении модулей Runbook службы автоматизации Azure в центре обработки данных см. в статье о [гибридных рабочих ролях Runbook](automation-hybrid-runbook-worker.md).
 * Чтобы узнать больше о создании модульных Runbook, используемых другими модулями Runbook для выполнения конкретных или общих функций, ознакомьтесь с [дочерними модулями Runbook](automation-child-runbooks.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

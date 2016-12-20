@@ -1,21 +1,13 @@
 ---
-title: Введение в функции окна Stream Analytics | Microsoft Docs
-description: Узнайте о трех функциях окна в Stream Analytics (
-переворачивающееся",: ''
-"\"прыгающее\"": ''
-и: ''
-"\"скользящее\"": ''
-окно).": ''
-keywords: ''
-переворачивающееся": ''
-окно,: ''
-окно": ''
-documentationcenter: ''
+title: "Введение в функции окна Stream Analytics | Документация Майкрософт"
+description: "Узнайте о трех функциях окна в Stream Analytics (&quot;переворачивающееся&quot;, &quot;прыгающее&quot; и &quot;скользящее&quot; окно)."
+keywords: "&quot;переворачивающееся&quot; окно, &quot;скользящее&quot; окно, &quot;прыгающее&quot; окно"
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -23,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 561a3b3f9c90274cfff95ab27c6cd745582f15e0
+
 
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Введение в функции окна Stream Analytics
@@ -55,6 +51,9 @@ ms.author: jeffstok
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

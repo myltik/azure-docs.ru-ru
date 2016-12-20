@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
+ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Узнайте, как создавать кластеры HBase в HDInsight, создавать таблицы HBase и запрашивать таблицы с помощью Hive. Общие сведения об HBase см. в статье об [HBase в HDInsight][hdinsight-hbase-overview].
@@ -95,7 +95,7 @@ ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![оболочка hbase hdinsight hadoop][img-hbase-shell]
+    ![Оболочка HDInsight Hadoop HBase][img-hbase-shell]
 4. Получите одну строку
    
         get 'Contacts', '1000'
@@ -113,16 +113,16 @@ HBase включает несколько методов загрузки дан
 
 Образец файла данных загружен в общедоступный контейнер больших двоичных объектов *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Файл данных содержит:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Можно создать текстовый файл и отправить его на собственную учетную запись хранения, если потребуется. Инструкции см. в статье [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
 
@@ -142,10 +142,18 @@ HBase включает несколько методов загрузки дан
 ## <a name="use-hive-to-query-hbase"></a>Использование Hive для создания запросов к HBase
 Можно запросить данные в таблицах HBase с помощью Hive. В данном разделе будет создана таблица Hive, которая сопоставляется с существующей таблицей HBase и используется для формирования запросов данных таблицы HBase.
 
+> [!NOTE]
+> Если Hive и HBase находятся в разных кластерах одной виртуальной сети, при вызове оболочки Hive необходимо передать кворум Zookeeper:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Откройте **PuTTY** и подключитесь к кластеру.  См. инструкции в приведенной выше процедуре.
 2. Откройте оболочку Hive.
    
        hive
+       
 3. Выполните приведенный ниже скрипт HiveQL, чтобы создать таблицу Hive, сопоставляемую с таблицей HBase. Перед выполнением этого оператора убедитесь, что вы создали упомянутый в этом учебнике пример таблицы с помощью оболочки HBase.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -221,53 +229,21 @@ HBase включает несколько методов загрузки дан
 ## <a name="check-cluster-status"></a>Проверка состояния кластера
 HBase на HDInsight поставляется с веб-интерфейсом для наблюдения за кластерами. С помощью веб-интерфейса вы можете запросить статистику или сведения о регионах.
 
-SSH может также использоваться для туннелирования локальных запросов, например веб-запросов, к кластеру HDInsight. Запрос будет затем перенаправлен к запрошенному ресурсу, как если бы исходил от головного узла кластера HDInsight. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**Доступ к основному интерфейсу HBase**
 
-**Создание сеанса туннелирования SSH**
+1. Откройте веб-интерфейс Ambari по ссылке https://&lt;имя_кластера>.azurehdinsight.net
+2. В меню слева щелкните **HBase**.
+3. В верхней части страницы щелкните **Быстрые ссылки**, выберите ссылку на активный узел Zookeeper, а затем щелкните **HBase Master UI** (Основной интерфейс HBase).  Интерфейс откроется в новой вкладке браузера.
 
-1. Откройте **PuTTY**.  
-2. Если при создании учетной записи пользователя вы указали ключ SSH, выполните следующий шаг, чтобы выбрать закрытый ключ, который будет использоваться при проверке подлинности в кластере.
-   
-    В разделе **Категория** последовательно разверните **Подключение**, **SSH** и выберите **Проверка подлинности**. Наконец, нажмите кнопку **Обзор** и выберите PPK-файл, содержащий закрытый ключ.
-3. В разделе **Категория** щелкните **Сеанс**.
-4. На экране "Основные параметры вашего сеанса PuTTY" введите следующие значения:
-   
-   * **Имя узла**: адрес SSH вашего сервера HDInsight в поле «Имя узла» (или «IP-адрес»). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
-   * **Порт**: 22. Для основного головного узла используется порт SSH 22.  
-5. В разделе **Категория** в левой части диалогового окна последовательно разверните узлы **Подключение** и **SSH**, а затем щелкните **Туннели**.
-6. Введите следующую информацию в форме "Параметры, управляющие перенаправлением портов SSH":
-   
-   * **Порт источника** — порт на стороне клиента, трафик которого нужно перенаправлять. Например, 9876.
-   * **Динамическая** — включает динамическую маршрутизацию прокси-сервера SOCKS.
-7. Щелкните **Добавить** , чтобы добавить параметры.
-8. Щелкните **Открыть** в нижней части диалогового окна, чтобы открыть подключение SSH.
-9. При появлении запроса войдите на сервер, используя учетную запись SSH. При этом будет установлен сеанс SSH и включен туннель.
+  ![Основной интерфейс HDInsight HBase](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Поиск FQDN для Zookeeper с помощью Ambari**
+  Основной интерфейс HBase состоит из таких разделов:
 
-1. Перейдите по адресу https://<ClusterName>.azurehdinsight.net/.
-2. Дважды введите данные учетной записи кластера пользователя.
-3. В меню слева выберите пункт **Zookeeper**.
-4. Щелкните одну из трех ссылок **Сервер Zookeeper** в списке «Сводка».
-5. Скопируйте **имя узла**. Например, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Настройка клиента (Firefox) и проверка состояния кластера**
-
-1. Откройте Firefox.
-2. Нажмите кнопку **Open Menu** (Открыть меню).
-3. Щелкните по элементу **Параметры**.
-4. Щелкните **Дополнительные**, **Сеть** и **Настроить**.
-5. Выберите параметр **Manual proxy configuration**(Настройка прокси-сервера вручную).
-6. Введите следующие значения.
-   
-   * **Socks Host**(Хост Socks): localhost.
-   * **Порт**: порт, указанный для туннелирования SSH с использованием PuTTY.  Например, 9876.
-   * **SOCKS v5**: (выбрано).
-   * **Remote DNS**(Удаленный DNS): (выбрано).
-7. Нажмите кнопку **Сохранить** , чтобы сохранить изменения.
-8. Перейдите по адресу http://&lt;полное_доменное_имя_ZooKeeper>:60010/master-status.
-
-В высокодоступном кластере вы найдете ссылку на текущий активный главный узел HBase, где размещается веб-интерфейс.
+  - региональные серверы;
+  - главные узлы резервного копирования;
+  - таблицы;
+  - задачи;
+  - атрибуты ПО.
 
 ## <a name="delete-the-cluster"></a>Удаление кластера
 Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы избежать несогласованности.
@@ -310,6 +286,6 @@ SSH может также использоваться для туннелиро
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

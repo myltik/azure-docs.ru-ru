@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
+ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
+ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
 
 ---
 #<a name="redis-cache-documentation"></a>Документация по кэшу Redis
@@ -11,7 +11,7 @@ ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/redis-cache/cache-premium-tier-intro/">
+        <a href="/azure/redis-cache/cache-premium-tier-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -82,7 +82,7 @@ ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/documentdb-nodejs-get-started">
+        <a href="/azure/redis-cache/cache-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,81 +139,49 @@ ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="/cli/azure/redis">Azure CLI 2.0 (предварительная версия)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/redis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Кэш Redis с использованием Azure CLI</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
+                        <p><a href="http://redis.io/clients">Клиенты Redis</a></p>
+                        <p><a href="http://redis.io/commands#">Команды Redis</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по API кэша Redis</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Пакет Azure SDK для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API кэша Redis</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
@@ -225,6 +193,6 @@ ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect sync: расширения каталогов | Microsoft Docs'
-description: В этой статье описывается функция расширений каталогов в Azure AD Connect.
+title: "Синхронизация Azure AD Connect: расширения каталогов | Документация Майкрософт"
+description: "В этой статье описывается функция расширений каталогов в Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/19/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+
 
 ---
-# <a name="azure-ad-connect-sync:-directory-extensions"></a>Синхронизация Azure AD Connect: расширения каталогов
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Синхронизация Azure AD Connect: расширения каталогов
 Расширения каталогов позволяет расширять схему в Azure AD с помощью собственных атрибутов из локального каталога Active Directory. Эта функция позволяет создавать бизнес-приложения, использующие атрибуты, которыми вы по-прежнему можете управлять локально. Эти атрибуты могут быть использованы через [расширения каталогов Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) или [Microsoft Graph](https://graph.microsoft.io/). Просмотреть доступные атрибуты можно с помощью [проводника Azure AD Graph](https://graphexplorer.cloudapp.net) и [проводника Microsoft Graph](https://graphexplorer2.azurewebsites.net/) соответственно.
 
 В настоящее время рабочие нагрузки Office 365 не используют эти атрибуты.
@@ -45,6 +49,9 @@ ms.author: billmath
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

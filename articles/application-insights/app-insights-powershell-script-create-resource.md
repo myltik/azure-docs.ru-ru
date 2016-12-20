@@ -1,36 +1,45 @@
 ---
-title: Сценарий PowerShell для создания ресурса Application Insights
-description: Автоматизация создания ресурсов Application Insights.
+title: "Сценарий PowerShell для создания ресурса Application Insights | Документация Майкрософт"
+description: "Автоматизация создания ресурсов Application Insights."
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
 manager: douge
-
+ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 11/19/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
+
 
 ---
-# Сценарий PowerShell для создания ресурса Application Insights
-*Доступна только предварительная версия Application Insights.*
+# <a name="powershell-script-to-create-an-application-insights-resource"></a>Сценарий PowerShell для создания ресурса Application Insights
 
-Если вам требуется отслеживать новое приложение или новую версию приложения с помощью [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), настройте новый ресурс в Microsoft Azure. В этом ресурсе будут анализироваться и отображаться данные телеметрии из вашего приложения.
+
+Если вам требуется отслеживать новое приложение или новую версию приложения с помощью [Application Insights](https://azure.microsoft.com/services/application-insights/), настройте новый ресурс в Microsoft Azure. В этом ресурсе будут анализироваться и отображаться данные телеметрии из вашего приложения. 
 
 Вы можете автоматизировать создание нового ресурса с помощью PowerShell.
 
 Например, если вы разрабатываете приложение для мобильных устройств, вполне вероятно, что в одно и то же время клиенты будут использовать несколько опубликованных версий вашего приложения. Вам, наверняка, не нужно получать смешанные результаты телеметрии по разным версиям. Поэтому вам доступен процесс сборки, позволяющий создавать новый ресурс для каждой сборки.
 
-## Сценарий для создания ресурса Application Insights
+> [!NOTE]
+> Если вы хотите сразу создать набор ресурсов, рассмотрите возможность [использования шаблона Azure Resource Manager](app-insights-powershell.md).
+> 
+> 
+
+## <a name="script-to-create-an-application-insights-resource"></a>Сценарий для создания ресурса Application Insights
 См. спецификацию соответствующего командлета:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
-*Сценарий PowerShell*
+*Сценарий PowerShell*  
 
 ```PowerShell
 
@@ -49,7 +58,7 @@ ms.author: awills
 $appInsightsName = "TestApp"
 
 # Set the application name used for the value of the Tag "AppInsightsApp" 
-# - http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-tags/
+
 $applicationTagName = "MyApp"
 
 # Set the name of the Resource Group to use.  
@@ -65,13 +74,14 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 
 # Create the App Insights Resource
 
+
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
-  -ResourceGroupName $resourceGroupName `
-  -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} `
-  -ResourceType "Microsoft.Insights/Components" `
-  -Location "Central US" `
-  -PropertyObject @{"Type"="ASP.NET"} `
+  -ResourceGroupName Fabrikam `
+  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceType "Microsoft.Insights/components" `
+  -Location "East US" `  // or North Europe, West Europe, South Central US
+  -PropertyObject @{"Application_Type"="web"} `
   -Force
 
 # Give owner access to the team
@@ -88,7 +98,7 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## Что делать с iKey
+## <a name="what-to-do-with-the-ikey"></a>Что делать с iKey
 Каждый ресурс определяется по ключу инструментирования (iKey). Этот ключ iKey выводит сценарий создания ресурса. Сценарий сборки должен предоставлять iKey для пакета SDK для Application Insights, внедренного в приложение.
 
 Есть два способа сделать iKey доступным для пакета SDK:
@@ -99,9 +109,14 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## См. также
+## <a name="see-also"></a>Дополнительные материалы
 * [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
 * [Настройка мониторинга диагностики Azure с помощью PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Настройка оповещений с помощью PowerShell](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

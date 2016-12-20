@@ -1,36 +1,50 @@
 ---
-title: Вызов программы MapReduce из фабрики данных Azure
-description: Узнайте, как обрабатывать данные путем выполнения программ MapReduce в кластере Azure HDInsight из фабрики данных Azure.
+title: "Вызов программы MapReduce из фабрики данных Azure"
+description: "Узнайте, как обрабатывать данные путем выполнения программ MapReduce в кластере Azure HDInsight из фабрики данных Azure."
 services: data-factory
-documentationcenter: ''
-author: spelluru
+documentationcenter: 
+author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
-ms.author: spelluru
+ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
+ms.openlocfilehash: 6c290b3925b2e3a6fdc7fbc639d0db3017233328
+
 
 ---
-# Вызов программы MapReduce из фабрики данных
-Действие MapReduce HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы MapReduce Hadoop [самостоятельно](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или в кластере HDInsight на базе Windows/Linux [по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md), в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+# <a name="invoke-mapreduce-programs-from-data-factory"></a>Вызов программы MapReduce из фабрики данных
+> [!div class="op_single_selector"]
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Хранимая процедура](data-factory-stored-proc-activity.md)
+> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
+> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
 
-## Введение
+Действие MapReduce HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы MapReduce для [вашего собственного](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластера HDInsight или кластера HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+
+## <a name="introduction"></a>Введение
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается использование действия MapReduce в HDInsight.
 
-Дополнительную информацию о выполнении сценариев Pig и Hive в кластере HDInsight на основе Windows или Linux из конвейера с помощью действий Pig и Hive в HDInsight см. в статьях [Pig](data-factory-pig-activity.md) и [Hive](data-factory-hive-activity.md).
+Дополнительную информацию о выполнении сценариев Pig и Hive в кластере HDInsight на основе Windows или Linux из конвейера с помощью действий Pig и Hive в HDInsight см. в статьях [Действие Pig](data-factory-pig-activity.md) и [Действие Hive](data-factory-hive-activity.md). 
 
-## JSON для действия MapReduce в HDInsight
-В определении JSON для действия HDInsight:
+## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON для действия MapReduce в HDInsight
+В определении JSON для действия HDInsight: 
 
-1. В поле **тип** для **действия** задайте значение **HDInsightActivity**.
-2. Укажите имя класса для свойства **className**.
-3. Укажите путь к JAR-файлу, включив в него имя файла для свойства **jarFilePath**.
-4. Укажите связанную службу, которая обращается к хранилищу больших двоичных объектов Azure, содержащему JAR-файл для свойства **jarLinkedService**.
+1. В поле **тип** для **действия** задайте значение **HDInsight**.
+2. Укажите имя класса для свойства **className** .
+3. Укажите путь к JAR-файлу, включив в него имя файла для свойства **jarFilePath** .
+4. Укажите связанную службу, которая обращается к хранилищу больших двоичных объектов Azure, содержащему JAR-файл для свойства **jarLinkedService** .   
 5. Укажите необходимые аргументы для программы MapReduce в разделе **аргументы**. Во время выполнения вы увидите несколько дополнительных аргументов (например, mapreduce.job.tags) платформы MapReduce. Чтобы отличать свои аргументы от аргументов MapReduce, вы можете использовать параметр и значение в качестве аргументов, как показано в следующем примере (-s, --input, --output и т. д — параметры, за которыми сразу следуют их значения).
    
         {
@@ -91,16 +105,16 @@ ms.author: spelluru
 
 С помощью действия MapReduce можно выполнить JAR-файл MapReduce в кластере HDInsight. В приведенном ниже образце определения конвейера JSON действие HDInsight настроено на запуск JAR-файла Mahout.
 
-## Пример на GitHub
-Вы можете скачать пример использования действия MapReduce в HDInsight на странице [примеров фабрики данных на сайте GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).
+## <a name="sample-on-github"></a>Пример на GitHub
+Вы можете скачать пример использования действия MapReduce в HDInsight на странице [примеров фабрики данных на сайте GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
-## Выполнение программы подсчета слов
-Конвейер в этом примере запускает в кластере Azure HDInsight программу подсчета слов MapReduce.
+## <a name="running-the-word-count-program"></a>Выполнение программы подсчета слов
+Конвейер в этом примере запускает в кластере Azure HDInsight программу подсчета слов MapReduce.   
 
-### Связанные службы
-Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить **имя** и **ключ учетной записи** на имя и ключ службы хранилища Azure.
+### <a name="linked-services"></a>Связанные службы
+Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить **имя** и **ключ учетной записи** именем и ключом хранилища Azure. 
 
-#### Связанная служба хранения Azure
+#### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
     {
         "name": "StorageLinkedService",
         "properties": {
@@ -111,8 +125,8 @@ ms.author: spelluru
         }
     }
 
-#### Связанная служба Azure HDInsight
-Далее необходимо создать связанную службу для связи кластера Azure HDInsight с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить **имя кластера HDInsight** на имя вашего кластера HDInsight и изменить значения имени пользователя и пароля.
+#### <a name="azure-hdinsight-linked-service"></a>Связанная служба Azure HDInsight
+Далее необходимо создать связанную службу для связи кластера Azure HDInsight с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить **имя кластера HDInsight** на имя вашего кластера HDInsight и изменить значения имени пользователя и пароля.   
 
     {
         "name": "HDInsightLinkedService",
@@ -127,9 +141,9 @@ ms.author: spelluru
         }
     }
 
-### Наборы данных
-#### Выходной набор данных
-Конвейер в этом примере не принимает никаких входных данных. Следует указать выходной набор данных для действия MapReduce в HDInsight. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера.
+### <a name="datasets"></a>Наборы данных
+#### <a name="output-dataset"></a>Выходной набор данных
+Конвейер в этом примере не принимает никаких входных данных. Следует указать выходной набор данных для действия MapReduce в HDInsight. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера.  
 
     {
         "name": "MROutput",
@@ -151,13 +165,13 @@ ms.author: spelluru
         }
     }
 
-### Конвейер
-Конвейер в этом примере имеет только одно действие с типом HDInsightMapReduce. Ниже приведены некоторые важные свойства в JSON.
+### <a name="pipeline"></a>Конвейер
+Конвейер в этом примере имеет только одно действие с типом HDInsightMapReduce. Ниже приведены некоторые важные свойства в JSON. 
 
 | Свойство | Примечания |
 |:--- |:--- |
 | type |Должен быть задан тип **HDInsightMapReduce**. |
-| className |Имя класса: **wordcount**. |
+| className |Имя класса: **wordcount** |
 | jarFilePath |Путь к JAR-файлу, содержащему этот класс. Если вы копируете и вставляете приведенный код, не забудьте изменить имя кластера. |
 | jarLinkedService |Служба, связанная со службой хранилища Azure, содержащая JAR-файл. Эта связанная служба ссылается на хранилище, связанное с кластером HDInsight. |
 | arguments |Программа подсчета слов принимает два аргумента, входной и выходной. Входной файл — davinci.txt. |
@@ -203,24 +217,29 @@ ms.author: spelluru
         }
     }
 
-## Запуск программ Spark
-Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в разделе [Invoke Spark programs from Azure Data Factory (Вызов программ Spark из фабрики данных Azure](data-factory-spark.md).
+## <a name="run-spark-programs"></a>Запуск программ Spark
+Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в разделе [Вызов программ Spark из фабрики данных](data-factory-spark.md).  
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[adfgetstartedmonitoring]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines
+[adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Справочник разработчика]: http://go.microsoft.com/fwlink/?LinkId=516908
+[Портал Azure]: http://portal.azure.com
 
-## См. также
+## <a name="see-also"></a>См. также
 * [Действие Hive](data-factory-hive-activity.md)
 * [Действие Pig](data-factory-pig-activity.md)
 * [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Вызов программ Spark](data-factory-spark.md)
 * [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

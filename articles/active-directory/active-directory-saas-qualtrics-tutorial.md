@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Qualtrics | Microsoft Docs
-description: Узнайте, как использовать Qualtrics вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с Qualtrics | Документация Майкрософт"
+description: "Узнайте, как использовать Qualtrics вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 4df889ab-2685-4d15-a163-1ba26567eeda
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3fb6227aaa50816d49372e9b43fdf5faadf1bded
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-qualtrics"></a>Учебник. Интеграция Azure Active Directory с Qualtrics
+# <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Учебник. Интеграция Azure Active Directory с Qualtrics
 Цель данного учебника — показать интеграцию Azure и Qualtrics.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Включение интеграции приложений для Qualtrics
 В этом разделе показано, как включить интеграцию приложений для Qualtrics.
 
-### <a name="to-enable-the-application-integration-for-qualtrics,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Qualtrics, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-qualtrics-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Qualtrics, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ ms.author: jeedes
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Qualtrics со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **Qualtrics** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configure Single Sign-On")
@@ -93,7 +97,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-qualtrics,-perform-the-following-steps:"></a>Чтобы назначить пользователей Qualtrics, выполните следующие действия:
+### <a name="to-assign-users-to-qualtrics-perform-the-following-steps"></a>Чтобы назначить пользователей Qualtrics, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Qualtrics** щелкните **Назначить пользователей**.
    
@@ -104,6 +108,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

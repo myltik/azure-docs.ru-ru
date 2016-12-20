@@ -1,31 +1,34 @@
 ---
-title: Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Microsoft Docs
-description: Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания.
+title: "Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Документация Майкрософт"
+description: "Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания."
 services: application-gateway
 documentationcenter: na
 author: georgewallace
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
+ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
+
 
 ---
-# Создание пользовательской проверки для шлюза приложений (классического) Azure с помощью PowerShell
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Создание пользовательской проверки для шлюза приложений (классического) Azure с помощью PowerShell
+
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
-> * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 > 
 > 
-
-.<BR>
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -35,102 +38,112 @@ ms.author: gwallace
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Создание шлюза приложений
+## <a name="create-an-application-gateway"></a>Создание шлюза приложений
+
 Создание шлюза приложений:
 
 1. Создайте ресурс шлюза приложений.
 2. Создайте XML-файл конфигурации или объект конфигурации.
 3. Применить конфигурацию к созданному ресурсу шлюза приложений.
 
-### Создание ресурса шлюза приложений
+### <a name="create-an-application-gateway-resource"></a>Создание ресурса шлюза приложений.
+
 Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
 В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```powershell
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
-Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
+Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway** .
 
-    Get-AzureApplicationGateway AppGwTest
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
 
 > [!NOTE]
-> Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
+> Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
 > 
 > 
 
- Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
+Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
-## Настройка шлюза приложений
+## <a name="configure-an-application-gateway"></a>Настройка шлюза приложений
+
 Можно настроить шлюз приложений с помощью XML-файла или объекта конфигурации.
 
-## Настройка шлюза приложений с помощью XML-файла
-В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.
+## <a name="configure-an-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
 
-### Шаг 1
+В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.  
+
+### <a name="step-1"></a>Шаг 1
+
 Скопируйте следующий текст в Блокнот.
 
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-    <FrontendIPConfigurations>
-        <FrontendIPConfiguration>
-            <Name>fip1</Name>
-            <Type>Private</Type>
-        </FrontendIPConfiguration>
-    </FrontendIPConfigurations>    
-    <FrontendPorts>
-        <FrontendPort>
-            <Name>port1</Name>
-            <Port>80</Port>
-        </FrontendPort>
-    </FrontendPorts>
-    <Probes>
-        <Probe>
-            <Name>Probe01</Name>
-            <Protocol>Http</Protocol>
-            <Host>contoso.com</Host>
-            <Path>/path/custompath.htm</Path>
-            <Interval>15</Interval>
-            <Timeout>15</Timeout>
-            <UnhealthyThreshold>5</UnhealthyThreshold>
-        </Probe>
-      </Probes>
-     <BackendAddressPools>
-        <BackendAddressPool>
-            <Name>pool1</Name>
-            <IPAddresses>
-                <IPAddress>1.1.1.1</IPAddress>
-                <IPAddress>2.2.2.2</IPAddress>
-            </IPAddresses>
-        </BackendAddressPool>
-    </BackendAddressPools>
-    <BackendHttpSettingsList>
-        <BackendHttpSettings>
-            <Name>setting1</Name>
-            <Port>80</Port>
-            <Protocol>Http</Protocol>
-            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            <RequestTimeout>120</RequestTimeout>
-            <Probe>Probe01</Probe>
-        </BackendHttpSettings>
-    </BackendHttpSettingsList>
-    <HttpListeners>
-        <HttpListener>
-            <Name>listener1</Name>
-            <FrontendIP>fip1</FrontendIP>
-        <FrontendPort>port1</FrontendPort>
-            <Protocol>Http</Protocol>
-        </HttpListener>
-    </HttpListeners>
-    <HttpLoadBalancingRules>
-        <HttpLoadBalancingRule>
-            <Name>lbrule1</Name>
-            <Type>basic</Type>
-            <BackendHttpSettings>setting1</BackendHttpSettings>
-            <Listener>listener1</Listener>
-            <BackendAddressPool>pool1</BackendAddressPool>
-        </HttpLoadBalancingRule>
-    </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
-
+```xml
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<FrontendIPConfigurations>
+    <FrontendIPConfiguration>
+        <Name>fip1</Name>
+        <Type>Private</Type>
+    </FrontendIPConfiguration>
+</FrontendIPConfigurations>    
+<FrontendPorts>
+    <FrontendPort>
+        <Name>port1</Name>
+        <Port>80</Port>
+    </FrontendPort>
+</FrontendPorts>
+<Probes>
+    <Probe>
+        <Name>Probe01</Name>
+        <Protocol>Http</Protocol>
+        <Host>contoso.com</Host>
+        <Path>/path/custompath.htm</Path>
+        <Interval>15</Interval>
+        <Timeout>15</Timeout>
+        <UnhealthyThreshold>5</UnhealthyThreshold>
+    </Probe>
+    </Probes>
+    <BackendAddressPools>
+    <BackendAddressPool>
+        <Name>pool1</Name>
+        <IPAddresses>
+            <IPAddress>1.1.1.1</IPAddress>
+            <IPAddress>2.2.2.2</IPAddress>
+        </IPAddresses>
+    </BackendAddressPool>
+</BackendAddressPools>
+<BackendHttpSettingsList>
+    <BackendHttpSettings>
+        <Name>setting1</Name>
+        <Port>80</Port>
+        <Protocol>Http</Protocol>
+        <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        <RequestTimeout>120</RequestTimeout>
+        <Probe>Probe01</Probe>
+    </BackendHttpSettings>
+</BackendHttpSettingsList>
+<HttpListeners>
+    <HttpListener>
+        <Name>listener1</Name>
+        <FrontendIP>fip1</FrontendIP>
+    <FrontendPort>port1</FrontendPort>
+        <Protocol>Http</Protocol>
+    </HttpListener>
+</HttpListeners>
+<HttpLoadBalancingRules>
+    <HttpLoadBalancingRule>
+        <Name>lbrule1</Name>
+        <Type>basic</Type>
+        <BackendHttpSettings>setting1</BackendHttpSettings>
+        <Listener>listener1</Listener>
+        <BackendAddressPool>pool1</BackendAddressPool>
+    </HttpLoadBalancingRule>
+</HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
 
 Измените значения в скобках для элементов конфигурации. Сохраните файл с расширением XML.
 
@@ -141,65 +154,81 @@ ms.author: gwallace
 > 
 > 
 
-Новый элемент конфигурации <Probe> добавляется для настройки пользовательских проверок работоспособности.
+Новый элемент конфигурации \<Probe\> добавляется для настройки пользовательских проверок работоспособности.
 
 Используются следующие параметры конфигурации:
 
 * **Name** — имя пользовательской пробы.
 * **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
-* **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
+* **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
 * **Interval** — задает интервал между пробами в секундах.
 * **Timeout** — определяет время ожидания для проверки ответа HTTP.
 * **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
 
-Имя пробы указывается в конфигурации <BackendHttpSettings> для назначения внутреннего пула, который будет использовать параметры пользовательской пробы.
+Имя проверки указывается в конфигурации <BackendHttpSettings> для назначения пула внутренних серверов, который использует параметры пользовательской проверки.
 
-## Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
+## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
+
 Изменение текущей конфигурации шлюза приложений состоит из трех шагов: получение XML-файла конфигурации, внесение изменений для пользовательской проверки и настройка шлюза приложений с использованием новых параметров XML.
 
-### Шаг 1
+### <a name="step-1"></a>Шаг 1
+
 Получите XML-файл с помощью командлета Get-AzureApplicationGatewayConfig. Он экспортирует XML-файл конфигурации, который можно изменить, чтобы добавить параметры пробы.
 
-    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+```powershell
+Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+```
 
+### <a name="step-2"></a>Шаг 2
 
-### Шаг 2
 Откройте XML-файл в текстовом редакторе. Добавьте раздел `<probe>` после `<frontendport>`.
 
-    <Probes>
-        <Probe>
-            <Name>Probe01</Name>
-            <Protocol>Http</Protocol>
-            <Host>contoso.com</Host>
-            <Path>/path/custompath.htm</Path>
-            <Interval>15</Interval>
-            <Timeout>15</Timeout>
-            <UnhealthyThreshold>5</UnhealthyThreshold>
-        </Probe>
-    </Probes>
+```xml
+<Probes>
+    <Probe>
+        <Name>Probe01</Name>
+        <Protocol>Http</Protocol>
+        <Host>contoso.com</Host>
+        <Path>/path/custompath.htm</Path>
+        <Interval>15</Interval>
+        <Timeout>15</Timeout>
+        <UnhealthyThreshold>5</UnhealthyThreshold>
+    </Probe>
+</Probes>
+```
 
 В разделе backendHttpSettings XML-файла добавьте имя пробы, как показано в следующем примере.
 
-        <BackendHttpSettings>
-            <Name>setting1</Name>
-            <Port>80</Port>
-            <Protocol>Http</Protocol>
-            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            <RequestTimeout>120</RequestTimeout>
-            <Probe>Probe01</Probe>
-        </BackendHttpSettings>
+```xml
+    <BackendHttpSettings>
+        <Name>setting1</Name>
+        <Port>80</Port>
+        <Protocol>Http</Protocol>
+        <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        <RequestTimeout>120</RequestTimeout>
+        <Probe>Probe01</Probe>
+    </BackendHttpSettings>
+```
 
 Сохраните XML-файл.
 
-### Шаг 3.
+### <a name="step-3"></a>Шаг 3.
+
 Обновите конфигурацию шлюза приложений с использованием нового XML-файла, выполнив командлет **Set-AzureApplicationGatewayConfig**. Он команда обновит шлюз приложений с учетом новой конфигурации.
 
-    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+```powershell
+Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+```
 
+## <a name="next-steps"></a>Дальнейшие действия
 
-## Дальнейшие действия
-Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
+Указания по настройке разгрузки SSL см. в статье о [настройке шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
 Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

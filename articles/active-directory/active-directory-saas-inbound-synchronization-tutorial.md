@@ -1,11 +1,11 @@
 ---
-title: Руководство. Настройка Workday для входящей синхронизации | Microsoft Docs
-description: Узнайте, как использовать входящую синхронизацию вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Учебник. Настройка Workday для входящей синхронизации | Документация Майкрософт"
+description: "Узнайте, как использовать входящую синхронизацию вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 8fe96f0a-f142-4d66-b53d-3ac3eb41a661
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7f45241e96df7e0381d775afc9a5cfa36fca49c4
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>Руководство. Настройка Workday для входящей синхронизации
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Руководство. Настройка Workday для входящей синхронизации
 > [!NOTE]
 > Azure Active Directory (AD) Premium доступен для клиентов в Китае, использующих доступный по всему миру экземпляр Azure AD.    
 > Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium.    
@@ -41,7 +45,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-workday"></a>Включение интеграции приложений для Workday
 В этом разделе показано, как включить интеграцию приложений для Salesforce.    
 
-### <a name="to-enable-the-application-integration-for-workday,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Workday, выполните следующие действия.
+### <a name="to-enable-the-application-integration-for-workday-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Workday, выполните следующие действия.
 1. На портале управления Azure в левой области навигации нажмите **Active Directory**.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -138,11 +142,11 @@ ms.author: jeedes
 ## <a name="configuring-user-import-in-microsoft-azure-ad"></a>Настройка импорта пользователей в Microsoft Azure AD
 Цель этого раздела — описать настройку Microsoft Azure AD для импорта пользователей из Workday.    
 
-### <a name="to-configure-user-import-in-microsoft-azure-ad,-perform-the-following-steps:"></a>Чтобы настроить импорт пользователей в Microsoft Azure AD, выполните следующие действия.
+### <a name="to-configure-user-import-in-microsoft-azure-ad-perform-the-following-steps"></a>Чтобы настроить импорт пользователей в Microsoft Azure AD, выполните следующие действия.
 1. На странице интеграции с приложением **Workday** щелкните **Настроить импорт пользователей**, чтобы открыть диалоговое окно **Настройка подготовки к работе**.    
-2. На странице **Параметры и учетные данные администратора** выполните следующие действия и нажмите кнопку "Далее".    
+2. На странице **Параметры и учетные данные администратора** выполните следующие действия и нажмите кнопку "Далее".    
    
-   ![Параметры и учетные данные администратора](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Settings and admin credentials")    
+   ![Параметры и учетные данные администратора](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Settings and admin credentials")    
    
    1. В текстовом поле **Имя пользователя администратора Workday** введите имя пользователя, созданного в разделе [Создание пользователя системы интеграции](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) .    
    2. В текстовом поле **Пароль администратора Workday** введите пароль пользователя, созданного в разделе [Создание пользователя системы интеграции](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) .    
@@ -159,6 +163,9 @@ ms.author: jeedes
 
 Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.    
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

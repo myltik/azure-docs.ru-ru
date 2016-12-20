@@ -1,13 +1,13 @@
 ---
-title: Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10 | Microsoft Docs
-description: Описание настройки групповой политики, которая позволяет присоединять устройства к домену в корпоративной сети.
+title: "Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10 | Документация Майкрософт"
+description: "Описание настройки групповой политики, которая позволяет присоединять устройства к домену в корпоративной сети."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 2ff29f3e-5325-4f43-9baa-6ae8d6bad3e3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+
 
 ---
 # <a name="connect-domain-joined-devices-to-azure-ad-for-windows-10-experiences"></a>Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10
-Организации уже более 15 лет используют присоединение к домену для подключения устройств. Оно позволяет пользователям входить на устройства с помощью рабочих учетных записей Windows Server Active Directory (Active Directory), а ИТ-специалистам — полностью управлять этими устройствами. Организации обычно полагаются на создание образов для подготовки устройств для пользователей и используют для управления ими System Center Configuration Manager (SCCM) или групповые политики.
+Организации уже более 15 лет используют присоединение к домену для подключения устройств. Оно позволяет пользователям входить на устройства с помощью рабочих учетных записей Windows Server Active Directory (Active Directory), а ИТ-специалистам — полностью управлять этими устройствами. Организации обычно полагаются на создание образов для подготовки устройств для пользователей и используют для управления ими System Center Configuration Manager (SCCM) или групповые политики.
 
-Присоединение к домену в Windows 10 обеспечивает следующие преимущества после подключения устройств к Azure Active Directory (Azure AD):
+Присоединение к домену в Windows 10 обеспечивает следующие преимущества после подключения устройств к Azure Active Directory (Azure AD):
 
 * единый вход для доступа к ресурсам Azure AD из любого расположения;
 * доступ к корпоративному хранилищу Windows с помощью рабочих учетных записей (не требуется учетная запись Майкрософт);
@@ -33,7 +37,7 @@ ms.author: femila
 
 * Подписка Azure AD
 * Azure AD Connect для расширения локального каталога до Azure AD;
-* политика, настроенная для подключения к Azure AD устройств, присоединенных к домену;
+* политика, настроенная для подключения к Azure AD устройств, присоединенных к домену;
 * сборка Windows 10 (сборка 10551 или более поздней версии) для устройств.
 
 Для включения Microsoft Passport for Work и Windows Hello также потребуется следующее:
@@ -50,10 +54,10 @@ ms.author: femila
 * System Center Configuration Manager (ознакомительная техническая версия 1509) для сценариев с использованием Microsoft Passport.
 
 ## <a name="deployment-instructions"></a>Инструкции по развертыванию
-### <a name="step-1:-deploy-azure-active-directory-connect"></a>Шаг 1. Развертывание Azure Active Directory Connect
+### <a name="step-1-deploy-azure-active-directory-connect"></a>Шаг 1. Развертывание Azure Active Directory Connect
 Azure AD Connect позволяет выполнять подготовку локальных компьютеров как объектов устройств в облаке. Сведения о развертывании Azure AD Connect см. в разделе "Установка Azure AD Connect" в статье [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
-* Если вы выполнили [выборочную установку Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (не экспресс-установку), то необходимо выполнить процедуру **Создание точки подключения службы в локальном каталоге Active Directory**, описанную далее в этом разделе.
+* Если вы выполнили [выборочную установку Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md) (не экспресс-установку), то необходимо выполнить процедуру **Создание точки подключения службы в локальном каталоге Active Directory**, описанную далее в этом разделе.
 * При наличии федеративной конфигурации с Azure AD перед установкой Azure AD Connect (например в случае предварительного развертывания служб федерации Active Directory) потребуется выполнить процедуру **Настройка правил утверждений служб федерации Active Directory** , описанную далее в этом разделе.
 
 #### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>Создание точки подключения службы в локальном каталоге Active Directory
@@ -73,14 +77,14 @@ Azure AD Connect позволяет выполнять подготовку ло
 При выполнении командлета Initialize-ADSyncDomainJoinedComputerSync… замените [*connector account name*] учетной записью домена, которая используется в качестве учетной записи соединителя Active Directory.
 
 #### <a name="configure-ad-fs-claim-rules"></a>Настройка правил утверждений служб федерации Active Directory
-Настройка правил утверждений служб AD FS позволяет мгновенно выполнять регистрацию компьютеров с помощью службы регистрации Azure, позволяя компьютерам проходить проверку подлинности с помощью протокола Kerberos или NTLM через службы AD FS. Если не выполнить эту настройку, компьютеры будут медленнее получать доступ к Azure AD, так как подключение будет выполняться в соответствии с расписанием синхронизации Azure AD Connect.
+Настройка правил утверждений служб AD FS позволяет мгновенно выполнять регистрацию компьютеров с помощью службы регистрации Azure, позволяя компьютерам проходить проверку подлинности с помощью протокола Kerberos или NTLM через службы AD FS. Если не выполнить эту настройку, компьютеры будут медленнее получать доступ к Azure AD, так как подключение будет выполняться в соответствии с расписанием синхронизации Azure AD Connect.
 
 > [!NOTE]
-> Если вы не используете службы AD FS в качестве локального сервера федерации, следуйте инструкциям поставщика для создания правил утверждений.
+> Если вы не используете службы AD FS в качестве локального сервера федерации, следуйте инструкциям поставщика для создания правил утверждений.
 > 
 > 
 
-На сервере AD FS (или в сеансе подключения к серверу AD FS) выполните следующие команды PowerShell:
+На сервере AD FS (или в сеансе подключения к серверу AD FS) выполните следующие команды PowerShell:
 
       <#----------------------------------------------------------------------
      |   Modify the Azure AD Relying Party to include the claims needed
@@ -117,7 +121,7 @@ Azure AD Connect позволяет выполнять подготовку ло
 > 
 > 
 
-### <a name="step-2:-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Шаг 2. Настройка автоматической регистрации устройств с помощью групповой политики в Active Directory
+### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Шаг 2. Настройка автоматической регистрации устройств с помощью групповой политики в Active Directory
 Вы можете использовать групповую политику Active Directory, чтобы настроить автоматическую регистрацию присоединенных к домену устройств Windows 10 в Azure AD.
 
 > [!NOTE]
@@ -131,12 +135,15 @@ Azure AD Connect позволяет выполнять подготовку ло
 > 
 
 ## <a name="additional-information"></a>Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

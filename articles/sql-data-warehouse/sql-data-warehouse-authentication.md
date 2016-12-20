@@ -1,13 +1,13 @@
 ---
-title: Аутентификация в хранилище данных SQL Azure | Microsoft Docs
-description: Применение аутентификации Azure Active Directory (AAD) и SQL Server для подключения к хранилищу данных SQL Azure.
+title: "Аутентификация в хранилище данных SQL Azure | Документация Майкрософт"
+description: "Применение аутентификации Azure Active Directory (AAD) и SQL Server для подключения к хранилищу данных SQL Azure."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: byham
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/24/2016
 ms.author: rickbyh;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
+
 
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
@@ -50,7 +54,7 @@ ms.author: rickbyh;barbkess
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Аутентификация Azure Active Directory (AAD)
-[Проверка подлинности Azure Active Directory](\[Что такое Microsoft Azure Active Directory\].md) — это механизм подключения к хранилищу данных SQL Microsoft Azure с помощью удостоверений в Azure Active Directory (Azure AD). С помощью аутентификации Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями хранилища данных SQL и упрощает управление разрешениями. 
+[Проверка подлинности Azure Active Directory]([Что такое Microsoft Azure Active Directory]) — это механизм подключения к хранилищу данных SQL Microsoft Azure с помощью удостоверений в Azure Active Directory (Azure AD). С помощью аутентификации Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями хранилища данных SQL и упрощает управление разрешениями. 
 
 ### <a name="benefits"></a>Преимущества
 Преимущества Azure Active Directory:
@@ -86,7 +90,7 @@ ms.author: rickbyh;barbkess
 * Создайте пользовательские роли базы данных и назначьте их пользователям. Затем предоставьте ролям управляемые разрешения. Дополнительные сведения см. в разделе [Приступая к работе с разрешениями Database Engine](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь с разделом [Запросы к хранилищу данных SQL Azure (Visual Studio)][Запросы к хранилищу данных SQL Azure (Visual Studio)].
+Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь со статьей [Запросы к хранилищу данных SQL Azure (Visual Studio)][Запросы к хранилищу данных SQL Azure (Visual Studio)].
 
 <!-- Article references -->
 [Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
@@ -96,6 +100,6 @@ ms.author: rickbyh;barbkess
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

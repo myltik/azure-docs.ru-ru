@@ -1,12 +1,12 @@
 ---
-title: Драйверы для хранилища данных SQL Azure | Microsoft Docs
-description: Строки подключения и драйверы для хранилища данных SQL.
+title: "Драйверы для хранилища данных SQL Azure | Документация Майкрософт"
+description: "Строки подключения и драйверы для хранилища данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99be9d9b840e3d8cfbb24a76fc3dc8d5e041f63d
+
 
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Драйверы для хранилища данных SQL Azure
@@ -45,7 +49,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь с разделом [Запросы к хранилищу данных SQL Azure (Visual Studio)][Запросы к хранилищу данных SQL Azure (Visual Studio)].
+Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь со статьей [Запросы к хранилищу данных SQL Azure (Visual Studio)][Запросы к хранилищу данных SQL Azure (Visual Studio)].
 
 <!--Image references-->
 
@@ -62,6 +66,6 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

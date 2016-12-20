@@ -1,19 +1,23 @@
 ---
-title: Перемещение данных из локальной системы HDFS | Microsoft Docs
-description: Узнайте, как перемещать данные из локальной системы HDFS с помощью фабрики данных Azure.
+title: "Перемещение данных из локальной системы HDFS | Документация Майкрософт"
+description: "Узнайте, как перемещать данные из локальной системы HDFS с помощью фабрики данных Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 0f0eaaa927ea73cec845dbb369dc2c4a7a8466ba
+
 
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure
@@ -22,31 +26,31 @@ ms.author: jingwang
 Сейчас фабрика данных поддерживает перемещение данных из локальной системы HDFS в другие хранилища данных, но не наоборот.
 
 ## <a name="enabling-connectivity"></a>Включение соединения
-Служба фабрики данных поддерживает подключение к локальной системе HDFS с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке. Шлюз используется для подключения к HDFS, даже если он размещен на виртуальных машинах Azure IaaS. 
+Служба фабрики данных поддерживает подключение к локальной системе HDFS с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке. Шлюз используется для подключения к HDFS, даже если он размещен на виртуальных машинах Azure IaaS.
 
-Хотя шлюз можно установить на тот же локальный компьютер или виртуальную машину Azure, где находится HDFS, мы рекомендуем устанавливать шлюз на отдельный компьютер или отдельную виртуальную машину Azure IaaS. Если для шлюза будет выделен отдельный компьютер, это минимизирует вероятность конфликта ресурсов и повысит производительность. При установке шлюза на отдельный компьютер у компьютера должен быть доступ к машине с HDFS. 
+Хотя шлюз можно установить на тот же локальный компьютер или виртуальную машину Azure, где находится HDFS, мы рекомендуем устанавливать шлюз на отдельный компьютер или отдельную виртуальную машину Azure IaaS. Если для шлюза будет выделен отдельный компьютер, это минимизирует вероятность конфликта ресурсов и повысит производительность. При установке шлюза на отдельный компьютер у компьютера должен быть доступ к машине с HDFS.
 
 ## <a name="copy-data-wizard"></a>Мастер копирования данных
-Самый простой способ создать конвейер, копирующий данные из локальной системы HDFS, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных. 
+Самый простой способ создать конвейер, копирующий данные из локальной системы HDFS, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из локальной файловой системы HDFS в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из локальной файловой системы HDFS в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
 
-## <a name="sample:-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Пример копирования данных из локальной системы HDFS в хранилище BLOB-объектов Azure
-Из этого примера вы узнаете, как копировать данные из локальной файловой системы HDFS в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.  
+## <a name="sample-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Пример копирования данных из локальной системы HDFS в хранилище BLOB-объектов Azure
+Из этого примера вы узнаете, как копировать данные из локальной файловой системы HDFS в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.  
 
 Образец состоит из следующих сущностей фабрики данных.
 
 1. Связанная служба типа [OnPremisesHdfs](#hdfs-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Входной [набор данных](data-factory-create-datasets.md) типа [FileShare](#hdfs-dataset-type-properties).
 4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [FileSystemSource](#hdfs-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-В примере данные из локальной системы HDFS копируются в BLOB-объект Azure каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами. 
+В примере данные из локальной системы HDFS копируются в BLOB-объект Azure каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) . 
+Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Связанная служба HDFS**. В этом примере используется аутентификация Windows. Сведения о различных типах аутентификации, которые можно использовать, см. в разделе [Свойства связанной службы HDFS](#hdfs-linked-service-properties). 
+**Связанная служба HDFS**. В этом примере используется аутентификация Windows. Сведения о различных типах аутентификации, которые можно использовать, см. в разделе [Свойства связанной службы HDFS](#hdfs-linked-service-properties).
 
     {
         "name": "HDFSLinkedService",
@@ -76,7 +80,7 @@ ms.author: jingwang
       }
     }
 
-**Входной набор данных HDFS**. Этот набор данных ссылается на папку в файловой системе HDFS DataTransfer/UnitTest/. Конвейер копирует все файлы из этой папки в целевое расположение. 
+**Входной набор данных HDFS**. Этот набор данных ссылается на папку в файловой системе HDFS DataTransfer/UnitTest/. Конвейер копирует все файлы из этой папки в целевое расположение.
 
 Если параметру external присвоить значение true, фабрика данных воспримет этот набор данных как внешний и созданный не в результате какого-либо действия в этой службе.
 
@@ -214,7 +218,7 @@ ms.author: jingwang
 | authenticationType |Windows или анонимная. |Да |
 | gatewayName |Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной системе HDFS. |Да |
 
-Дополнительные сведения о настройке учетных данных для локальной файловой системы HDFS см. в разделе [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Дополнительные сведения о настройке учетных данных для локальной системы HDFS см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### <a name="using-anonymous-authentication"></a>Использовать анонимную проверку подлинности
     {
@@ -268,32 +272,32 @@ ms.author: jingwang
 
 > [!NOTE]
 > Свойства filename и fileFilter нельзя использовать одновременно.
-> 
-> 
+>
+>
 
 ### <a name="using-partionedby-property"></a>Использование свойства partionedBy
-Как сказано выше, для временных рядов данных путь к папке и имя файла можно указывать динамически. Это делается с помощью свойства partitionedBy. Вы можете это сделать при помощи макроса фабрики данных и системных переменных SliceStart и SliceEnd, которые определяют логический период имеющегося среза данных. 
+Как сказано выше, для временных рядов данных путь к папке и имя файла можно указывать динамически. Это делается с помощью свойства partitionedBy. Вы можете это сделать при помощи макроса фабрики данных и системных переменных SliceStart и SliceEnd, которые определяют логический период имеющегося среза данных.
 
-Чтобы узнать больше о наборах данных временных рядов, планировании и срезах, ознакомьтесь со статьями [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md), [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) и [Конвейеры и действия в фабрике данных Azure: создание конвейеров, цепочки действий и расписаний для них](data-factory-create-pipelines.md). 
+Чтобы узнать больше о наборах данных временных рядов, планировании и срезах, ознакомьтесь со статьями [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md), [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) и [Конвейеры и действия в фабрике данных Azure: создание конвейеров, цепочки действий и расписаний для них](data-factory-create-pipelines.md).
 
-#### <a name="sample-1:"></a>Пример 1
+#### <a name="sample-1"></a>Пример 1
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy": 
+    "partitionedBy":
     [
         { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
     ],
 
 В этом примере {Slice} заменяется значением SliceStart (системная переменная фабрики данных) в формате ГГГГММДДЧЧ. SliceStart указывает время начала среза. Значение folderPath отличается для каждого среза. Например: wikidatagateway/wikisampledataout/2014100103 или wikidatagateway/wikisampledataout/2014100104.
 
-#### <a name="sample-2:"></a>Пример 2
+#### <a name="sample-2"></a>Пример 2
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
-    "partitionedBy": 
+    "partitionedBy":
      [
         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
     ],
 
 В этом примере год, месяц, день и время SliceStart извлекаются в отдельные переменные, используемые в свойствах folderPath и fileName.
@@ -303,7 +307,7 @@ ms.author: jingwang
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## <a name="hdfs-copy-activity-type-properties"></a>Свойства типа "Действие копирования HDFS"
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (такие как имя, описание, входные и выходные таблицы, политики и т. д.) доступны для всех типов действий. 
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (такие как имя, описание, входные и выходные таблицы, политики и т. д.) доступны для всех типов действий.
 
 С другой стороны, свойства, доступные в разделе typeProperties действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
 
@@ -322,6 +326,8 @@ ms.author: jingwang
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

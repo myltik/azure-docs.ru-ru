@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с YouEarnedIt | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и YouEarnedIt.
+title: "Руководство по интеграции Azure Active Directory с YouEarnedIt | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и YouEarnedIt."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0965d6b12e556be60e25a8880432572ee3dceae7
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-youearnedit"></a>Руководство. Интеграция Azure Active Directory с YouEarnedIt
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Руководство. Интеграция Azure Active Directory с YouEarnedIt
 В этом руководстве описано, как интегрировать YouEarnedIt с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением YouEarnedIt дает следующие преимущества.
 
 * C помощью Azure AD вы можете контролировать доступ к YouEarnedIt.
 * Вы можете включить автоматический вход пользователей в YouEarnedIt (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с YouEarnedIt, вам потребуется следующее:
@@ -126,10 +130,10 @@ ms.author: jeedes
     • **URL-адрес единого входа SAML**
 6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -235,6 +239,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

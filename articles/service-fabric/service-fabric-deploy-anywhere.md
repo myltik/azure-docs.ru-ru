@@ -1,12 +1,12 @@
 ---
-title: Создание кластеров Service Fabric в Windows Server и Linux | Microsoft Docs
-description: Кластеры Service Fabric выполняются в Windows Server и Linux, позволяя разворачивать и размещать приложения Service Fabric везде, где можно запустить Windows Server или Linux.
+title: "Создание кластеров Service Fabric в Windows Server и Linux | Документация Майкрософт"
+description: "Кластеры Service Fabric выполняются в Windows Server и Linux, позволяя разворачивать и размещать приложения Service Fabric везде, где можно запустить Windows Server или Linux."
 services: service-fabric
 documentationcenter: .net
 author: Chackdan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3885733b67933f331f65760474649fba18adce12
+
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Создание кластеров Service Fabric в Windows Server или Linux
@@ -34,7 +38,7 @@ Azure Service Fabric позволяет создавать кластеры Serv
 
 Дополнительные сведения о настройке автономных кластеров Service Fabric в Windows Server см. в статье [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md).
 
-### <a name="any-cloud-deployments-vs.-on-premises-deployments"></a>Сравнение локальных и облачных развертываний
+### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Сравнение локальных и облачных развертываний
 Процесс создания локального кластера Service Fabric аналогичен созданию кластера в любом облаке с набором виртуальных машин. Начальные действия по подготовке виртуальных машин выполняются поставщиком облачных служб или управляются используемой локальной средой. После создания набора виртуальных машин с сетевым подключением между ними выполните действия по установке пакета Service Fabric, затем измените параметры кластера и запустите сценарии создания кластера и управления им, которые похожи друг на друга. Это гарантирует, что ваши знания и опыт эксплуатации кластеров Service Fabric останутся актуальными при выборе новых сред размещения.
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>Преимущества создания автономных кластеров Service Fabric
@@ -67,6 +71,9 @@ Azure Service Fabric позволяет создавать кластеры Serv
 
 Создание кластера на основе виртуальных машин или компьютеров под управлением Linux: [Service Fabric в Linux](service-fabric-linux-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

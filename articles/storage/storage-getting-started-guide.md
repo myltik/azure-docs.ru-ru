@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
 
 
 ---
@@ -47,10 +47,9 @@ ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
 3. В диалоговом окне **Новый проект** щелкните поочередно **Установлено** > **Шаблоны** > **Visual C#** > **Облако** > **Примеры использования** > **Службы данных**.
     а. Выберите один из следующих шаблонов: **Хранилище Azure. Большие двоичные объекты**, **Хранилище Azure. Файлы**, **Хранилище Azure. Очереди** и **Хранилище Azure. Таблицы**.
     b. Убедитесь, что в качестве целевой платформы выбрана версия **.NET Framework 4.5**.
-   
-   * 3в. Укажите имя для проекта и создайте новое решение Visual Studio, как показано ниже:
+    c. Укажите имя для проекта и создайте новое решение Visual Studio, как показано ниже:
      
-     ![Шаблоны быстрого запуска Azure][Image1]
+    ![Шаблоны быстрого запуска Azure][Image1]
 
 Можно просмотреть исходный код перед запуском приложения. Чтобы просмотреть код, выберите **Обозреватель решений** в меню **Вид** в Visual Studio. Дважды щелкните файл Program.cs.
 
@@ -59,7 +58,10 @@ ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
 1. В Visual Studio выберите **Обозреватель решений** в меню **Вид**. Откройте файл App.config и закомментируйте строку подключения для эмулятора хранения Azure:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Раскомментируйте строку подключения для службы хранилища Azure и предоставьте имя и ключ доступа учетной записи хранения в файле App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Раскомментируйте строку подключения для службы хранилища Azure и введите имя учетной записи хранения и ключ доступа в файл App.config.
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Для получения ключа доступа учетной записи хранения обратитесь к статье [Управление ключами доступа к хранилищу](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. После предоставления имени и ключа доступа учетной записи хранения в файле App.config в меню **Файл** щелкните **Сохранить все**, чтобы сохранить все файлы проекта.
@@ -79,6 +81,7 @@ ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
     c. Укажите имя для проекта и создайте новое решение Visual Studio, как показано ниже:
    
     ![Шаблоны быстрого запуска Azure][Image1]
+
 4. В Visual Studio выберите **Обозреватель решений** в меню **Вид**. Откройте файл App.config и закомментируйте строку подключения для учетной записи хранения Azure, если вы ее уже добавили. Затем раскомментируйте строку подключения для эмулятора хранения Azure:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

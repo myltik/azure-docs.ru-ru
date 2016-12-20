@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с аудитом базы данных SQL | Microsoft Docs
-description: Приступая к работе с аудитом базы данных SQL
+title: "Приступая к работе с аудитом базы данных SQL | Документация Майкрософт"
+description: "Приступая к работе с аудитом базы данных SQL"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ronitr
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
+translationtype: Human Translation
+ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
+ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Приступая к работе с аудитом базы данных SQL
@@ -27,7 +31,7 @@ ms.author: CarlRabeler; ronitr; giladm
 * [Настройка аудита базы данных]
 * [Анализ журналов и отчетов аудита]
 
-## <a name="<a-id="subheading-1"></a>azure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Обзор аудита баз данных SQL Azure
+## <a name="a-idsubheading-1aazure-sql-database-auditing-overview"></a><a id="subheading-1"></a>Обзор аудита баз данных SQL Azure
 Аудит базы данных SQL позволяет:
 
 * **Сохранить** журнал аудита выбранных событий. Вы можете указать, какие категории действий базы данных должны проходить аудит.
@@ -45,10 +49,10 @@ ms.author: CarlRabeler; ronitr; giladm
 
 Политику аудита можно определить для конкретной базы данных или как политику сервера по умолчанию. Политика аудита сервера по умолчанию применяется ко всем существующим и вновь создаваемым базам данных на сервере.
 
-## <a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
 В следующих разделах описывается настройка аудита на портале Azure.
 
-### <a name="<a-id="subheading-2-1">i.-blob-auditing</a>"></a><a id="subheading-2-1">i. Аудит BLOB-объектов</a>
+### <a name="a-idsubheading-2-1blob-auditinga"></a><a id="subheading-2-1">Аудит больших двоичных объектов</a>
 1. Откройте [портал Azure](https://portal.azure.com) по адресу https://portal.azure.com.
 2. Перейдите в колонку параметров базы данных SQL или SQL Server, где нужно выполнить аудит. В колонке "Параметры" выберите **Аудит и обнаружение угроз**.
    
@@ -71,7 +75,7 @@ ms.author: CarlRabeler; ronitr; giladm
 6. Если вы хотите настроить события аудита, это можно сделать с помощью PowerShell или REST API. Дополнительные сведения см. в разделе [Автоматизация (PowerShell или REST API)](#subheading-7).
 7. Щелкните **Сохранить**.
 
-### <a name="<a-id="subheading-2-2">ii.-table-auditing</a>"></a><a id="subheading-2-2">ii. Аудит таблиц</a>
+### <a name="a-idsubheading-2-2table-auditinga"></a><a id="subheading-2-2">Аудит таблиц</a>
 > [!NOTE]
 > Перед настройкой **аудита таблиц** проверьте, пользуетесь ли вы ["клиентом нижнего уровня"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Кроме того, если установлены строгие параметры брандмауэра, учтите, что при включении аудита таблиц [IP-адрес конечной точки базы данных изменится](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 > 
@@ -96,14 +100,14 @@ ms.author: CarlRabeler; ronitr; giladm
 7. После настройки параметров аудита можно включить новую функцию **Обнаружение угроз** (предварительная версия) и указать адреса электронной почты для получения предупреждений системы безопасности. Функция "Обнаружение угроз" позволяет настроить упреждающие оповещения об аномальной активности в базах данных, которая может указывать на потенциальные угрозы безопасности. Дополнительные сведения см. в статье [Приступая к работе с системой обнаружения угроз](sql-database-threat-detection-get-started.md).
 8. Щелкните **Сохранить**.
 
-## <a name="<a-id="subheading-3"></a>analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Анализ журналов и отчетов аудита
+## <a name="a-idsubheading-3aanalyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Анализ журналов и отчетов аудита
 Журналы аудита объединяются в учетной записи хранения Azure, выбранной на этапе настройки.
 
 Журналы аудита можно просматривать с помощью таких инструментов, как [обозреватель хранилищ Azure](http://storageexplorer.com/).
 
 Особенности анализа журналов аудита **таблиц** и **BLOB-объектов** описаны ниже.
 
-### <a name="<a-id="subheading-3-1">i.-blob-auditing</a>"></a><a id="subheading-3-1">i. Аудит BLOB-объектов</a>
+### <a name="a-idsubheading-3-1blob-auditinga"></a><a id="subheading-3-1">Аудит больших двоичных объектов</a>
 Журналы аудита BLOB-объектов сохраняются в виде коллекции файлов BLOB-объектов в контейнере с именем **sqldbauditlogs**.
 
 Дополнительные сведения об иерархии папок для хранения журналов аудита BLOB-объектов, соглашении об именовании BLOB-объектов и формате журнала см. в [Справочнике по формату журнала аудита (скачать DOC-файл)](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -127,7 +131,7 @@ ms.author: CarlRabeler; ronitr; giladm
      * **Библиотека C#** для считывания расширенных событий ([дополнительные сведения](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Запросы к файлам расширенных событий с помощью **PowerShell** ([дополнительные сведения](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
 
-### <a name="<a-id="subheading-3-2">ii.-table-auditing</a>"></a><a id="subheading-3-2">ii. Аудит таблиц</a>
+### <a name="a-idsubheading-3-2table-auditinga"></a><a id="subheading-3-2">Аудит таблиц</a>
 Журналы аудита таблиц сохраняются в виде коллекции таблиц службы хранилища Azure с префиксом **SQLDBAuditLogs**.
 
 Дополнительные сведения о формате журнала аудита таблиц см. в [Справочнике по формату журнала аудита таблиц (скачать DOC-файл)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -148,10 +152,10 @@ ms.author: CarlRabeler; ronitr; giladm
    
     ![Область навигации][9]
 
-## <a name="<a-id="subheading-5"></a>practices-for-usage-in-production"></a><a id="subheading-5"></a>Рекомендации по использованию в рабочей среде
+## <a name="a-idsubheading-5apractices-for-usage-in-production"></a><a id="subheading-5"></a>Рекомендации по использованию в рабочей среде
 <!--The description in this section refers to screen captures above.-->
 
-### <a name="<a-id="subheading-6">auditing-geo-replicated-databases</a>"></a><a id="subheading-6">Аудит географически реплицированных баз данных</a>
+### <a name="a-idsubheading-6auditing-geo-replicated-databasesa"></a><a id="subheading-6">Аудит географически реплицированных баз данных</a>
 При использовании географически реплицированных баз данных можно настроить аудит для базы данных-источника, базы данных-получателя или для обеих баз данных в зависимости от типа аудита.
 
 **Аудит таблиц**: вы можете настроить отдельную политику на уровне базы данных или на уровне сервера для каждой из двух баз данных (источника и получателя). Дополнительные сведения см. в разделе [Настройка аудита базы данных](#subheading-2-2).
@@ -167,7 +171,7 @@ ms.author: CarlRabeler; ronitr; giladm
 
 <br>
 
-### <a name="<a-id="subheading-6">storage-key-regeneration</a>"></a><a id="subheading-6">Повторное создание ключа хранилища</a>
+### <a name="a-idsubheading-6storage-key-regenerationa"></a><a id="subheading-6">Повторное создание ключа хранилища</a>
 Обычно в рабочей среде приходится периодически обновлять ключи хранилища. При обновлении ключей необходимо повторно сохранить политику аудита. Процесс таков:
 
 1. В колонке "Сведения об аудите" измените значение параметра **Ключ доступа к хранилищу** с *Источник* на *Получатель* и нажмите кнопку **OK**. Затем щелкните **СОХРАНИТЬ** в верхней части колонки настройки аудита.
@@ -179,7 +183,7 @@ ms.author: CarlRabeler; ronitr; giladm
 3. Вернитесь в колонку настройки аудита, измените значение параметра **Ключ доступа к хранилищу** с *Получатель* на *Источник* и нажмите кнопку **ОК** внизу. Затем щелкните **СОХРАНИТЬ** в верхней части колонки настройки аудита.
 4. Вернитесь в колонку настройки хранилища и **повторно создайте***ключ доступа получателя* (для подготовки к следующему циклу обновления ключей).
 
-## <a name="<a-id="subheading-7"></a>automation-(powershell-/-rest-api)"></a><a id="subheading-7"></a>Автоматизация (PowerShell или REST API)
+## <a name="a-idsubheading-7aautomation-powershell-rest-api"></a><a id="subheading-7"></a>Автоматизация (PowerShell или REST API)
 Аудит в базе данных SQL Azure также можно настроить с помощью следующих средств автоматизации:
 
 1. **Командлеты PowerShell**
@@ -237,6 +241,6 @@ ms.author: CarlRabeler; ronitr; giladm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

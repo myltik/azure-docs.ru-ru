@@ -1,19 +1,23 @@
 ---
-title: Мониторинг устройств Surface Hub с помощью Log Analytics | Microsoft Docs
-description: Решение Surface Hub позволяет отслеживать работоспособность устройств Surface Hub и понимать, как они используются.
+title: "Мониторинг устройств Surface Hub с помощью Log Analytics | Документация Майкрософт"
+description: "Решение Surface Hub позволяет отслеживать работоспособность устройств Surface Hub и понимать, как они используются."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics"></a>Мониторинг устройств Surface Hub с помощью Log Analytics
@@ -38,7 +42,7 @@ ms.author: banders
 ## <a name="connect-surface-hubs-to-oms-through-intune"></a>Подключение устройств Surface Hub к OMS через InTune
 Вам потребуется идентификатор и ключ для рабочей области OMS, которая будет управлять устройствами Surface Hub. Их можно получить на портале OMS.
 
-InTune — это продукт Microsoft, который позволяет централизованно управлять параметрами конфигурации OMS, применяемыми к одному или нескольким устройствам. Для настройки устройств через InTune выполните следующие действия.
+InTune — это продукт Microsoft, который позволяет централизованно управлять параметрами конфигурации OMS, применяемыми к одному или нескольким устройствам. Для настройки устройств через InTune выполните следующие действия.
 
 1. Войдите в InTune.
 2. Перейдите в раздел **Settings (Параметры)** > **Connected Sources (Подключенные источники)**.
@@ -46,7 +50,7 @@ InTune — это продукт Microsoft, который позволяет ц
 4. Перейдите к разделу OMS (оперативной аналитики Azure) политики и добавьте *идентификатор рабочей области* и *ключ рабочей области* в политику.
 5. Сохраните политику.
 6. Свяжите политику с соответствующей группой устройств.
-   
+
    ![Политика InTune](./media/log-analytics-surface-hubs/intune.png)
 
 Затем InTune синхронизирует настройки OMS с устройствами в целевой группе, регистрируя их в рабочей области OMS.
@@ -72,7 +76,7 @@ InTune — это продукт Microsoft, который позволяет ц
 1. Войдите на портал OMS.
 2. Перейдите на панель мониторинга пакета решений Surface Hub.
 3. Отобразится состояние работоспособности устройства.
-   
+
    ![Панель мониторинга Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
 Можно создавать [оповещения](log-analytics-alerts.md) на основе существующих или настраиваемых поисковых запросов к журналу. Используя данные, собираемые службой OMS с устройств Surface Hubs, можно выполнять поиск проблем и получать оповещения, которые отправляются при выполнении условий, заданных вами для устройств.
@@ -81,6 +85,8 @@ InTune — это продукт Microsoft, который позволяет ц
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о Surface Hub.
 * Создайте [оповещения](log-analytics-alerts.md), которые будут уведомлять вас о возникновении проблем с устройствами Surface Hub.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Список доступных размеров виртуальных машин в Azure см. в [этой статье](virtual-machines-windows-sizes.md).
+    Список доступных размеров виртуальных машин в Azure см. в [этой статье](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Настройте параметры операционной системы для виртуальной машины. Следующая команда задает имя компьютера, тип операционной системы и учетные данные учетной записи для виртуальной машины.
    
     ```powershell
@@ -128,13 +128,13 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Дополнительные сведения о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-windows-cli-ps-findimage.md).
+    Дополнительные сведения о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Добавьте в конфигурацию созданный сетевой интерфейс.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Определите имя и расположение жесткого диска виртуальной машины. Файл виртуального жесткого диска сохраняется в контейнере. Следующая команда создает диск в контейнере с именем **vhds/WindowsVMosDisk.vhd** в созданной учетной записи хранения.
+6. Определите имя и расположение жесткого диска виртуальной машины. Файл виртуального жесткого диска сохраняется в контейнере. Следующая команда создает диск в контейнере с именем **vhds/myOsDisk1.vhd** в созданной учетной записи хранения.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
 7. Добавьте в конфигурацию виртуальной машины сведения о диске операционной системы. Замените значение **$diskName** именем диска операционной системы. Создайте переменную и добавьте в конфигурацию сведения о диске.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Наконец создайте виртуальную машину.
    
@@ -153,12 +153,12 @@ ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-* Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
-* Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md)
+* Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

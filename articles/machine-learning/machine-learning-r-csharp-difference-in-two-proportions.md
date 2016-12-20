@@ -1,12 +1,12 @@
 ---
-title: Проверка различия долей | Microsoft Docs
-description: Проверка различия долей
+title: "Проверка различия долей | Документация Майкрософт"
+description: "Проверка различия долей"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: aniedea
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: aniedea
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
+
 
 ---
-# Проверка различия долей
-Существует ли между двумя долями статистическая разница? Предположим, что пользователь хочет сравнить два видеоролика и определить, действительно ли у одного из них доля положительных оценок значимо больше, чем у другого. При большом размере выборки возможна статистически значительная разница между пропорциями 0,50 и 0,51. При малом размере выборки может быть недостаточно данных, чтобы определить, отличаются ли эти пропорции на самом деле.
+# <a name="difference-in-proportions-test"></a>Проверка различия долей
+Существует ли между двумя долями статистическая разница? Предположим, что пользователь хочет сравнить два видеоролика и определить, действительно ли у одного из них доля положительных оценок значимо больше, чем у другого. При большом размере выборки возможна статистически значительная разница между пропорциями 0,50 и 0,51. При малом размере выборки может быть недостаточно данных, чтобы определить, отличаются ли эти пропорции на самом деле. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,8 +31,8 @@ ms.author: aniedea
 > 
 > 
 
-## Использование веб-службы
-Эта служба принимает 4 аргумента и выполняет проверку гипотезы для долей.
+## <a name="consumption-of-web-service"></a>Использование веб-службы
+Эта служба принимает 4 аргумента и выполняет проверку гипотезы для долей.
 
 Входные аргументы:
 
@@ -39,13 +43,13 @@ ms.author: aniedea
 
 На выходе служба выдает результат проверки гипотезы, а также статистику хи-квадрат, значение df, значение p, долю в выборках 1 и 2 и границы доверительного интервала.
 
-> Эта служба, размещенная в Azure Marketplace, основана на OData. Вызвать ее можно методами POST и GET.
+> Эта служба, размещенная в Azure Marketplace, является службой на основе OData. Вызвать ее можно методами POST и GET. 
 > 
 > 
 
 Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
-### Начало кода C# для использования веб-службы:
+### <a name="starting-c-code-for-web-service-consumption"></a>Начало кода C# для использования веб-службы:
     public class Input
     {
             public string successes1;
@@ -76,24 +80,24 @@ ms.author: aniedea
     }
 
 
-## Создание веб-службы
+## <a name="creation-of-web-service"></a>Создание веб-службы
 > Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 > 
 > 
 
-В системе машинного обучения Azure был создан новый пустой эксперимент с двумя модулями [Выполнение сценария R][execute-r-script]. В первом из них определяется схема данных, а второй использует команду prop.test языка R для проверки гипотезы в отношении двух долей.
+В системе машинного обучения Azure был создан пустой эксперимент с двумя модулями [Выполнение скрипта R][execute-r-script]. В первом из них определяется схема данных, а второй использует команду prop.test языка R для проверки гипотезы в отношении двух долей. 
 
-### Ход эксперимента:
+### <a name="experiment-flow"></a>Ход эксперимента:
 ![Ход эксперимента][2]
 
-#### Модуль 1:
+#### <a name="module-1"></a>Модуль 1:
     ####Schema definition  
     data.set=data.frame(successes1=50,successes2=60,total1=100,total2=100);
     maml.mapOutputPort("data.set"); #send data to output port
     dataset1 = maml.mapInputPort(1) #read data from input port
 
 
-#### Модуль 2:
+#### <a name="module-2"></a>Модуль 2:
     test=prop.test(c(dataset1$successes1[1],dataset1$successes2[1]),c(dataset1$total1[1],dataset1$total2[1])) #conduct hypothesis test
 
     result=data.frame(
@@ -109,10 +113,10 @@ ms.author: aniedea
     maml.mapOutputPort("result"); #output port
 
 
-## Ограничения
+## <a name="limitations"></a>Ограничения
 Это очень простой пример проверки различия двух долей. Как видно из приведенного выше образца кода, в нем не отслеживаются ошибки, а служба предполагает, что все переменные являются непрерывными.
 
-## Часто задаваемые вопросы
+## <a name="faq"></a>Часто задаваемые вопросы
 Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Azure Marketplace можно [здесь](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
@@ -123,4 +127,8 @@ ms.author: aniedea
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

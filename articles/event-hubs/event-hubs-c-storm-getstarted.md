@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с концентраторами событий в C и Apache Storm | Microsoft Docs
-description: Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C, и их получению в кластере Apache Storm.
+title: "Приступая к работе с концентраторами событий в C и Apache Storm | Документация Майкрософт"
+description: "Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C, и их получению в кластере Apache Storm."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3b15825e-c53c-471b-870c-686bff46885a
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,6 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Приступая к работе с концентраторами событий
@@ -28,7 +32,7 @@ ms.author: jotaub;sethm
 
 Для работы с этим учебником необходимо следующее.
 
-* Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
+* Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
 * Среда разработки Java, настроенная для запуска [Maven](http://maven.apache.org/). Для этого учебника предполагается использование среды [Eclipse](https://www.eclipse.org/).
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -54,8 +58,8 @@ ms.author: jotaub;sethm
 ## <a name="next-steps"></a>Дальнейшие действия
 Для разработки приложений с интеграцией концентраторов событий и Storm доступны следующие ресурсы.
 
-* [Анализ данных датчиков в Storm и HDInsight][Анализ данных датчиков в Storm и HDInsight] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
-* [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight] — это учебник по написанию конвейеров Storm на C#.
+* [Анализ данных датчиков в Storm и HDInsight][Анализ данных датчиков в Storm и HDInsight] — это полное руководство, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
+* [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight] — это руководство по написанию конвейеров Storm на C#.
 
 <!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
@@ -63,15 +67,15 @@ ms.author: jotaub;sethm
 <!-- Links -->
 [классический портал Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Обзор концентраторов событий]: event-hubs-overview.md
+[Общие сведения о концентраторах событий]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Обзор HDinsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
+[Обзор HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [Анализ данных датчиков в Storm и HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

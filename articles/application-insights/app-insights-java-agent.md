@@ -1,11 +1,11 @@
 ---
-title: Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
-description: Расширенный мониторинг веб-сайта Java с помощью Application Insights
+title: "Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java"
+description: "Расширенный мониторинг веб-сайта Java с помощью Application Insights"
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
-
+ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,21 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+
 
 ---
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
-*Доступна только предварительная версия компонента Application Insights.*
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
+
 
 [Инструментирование веб-приложения Java с помощью Application Insights][java] позволяет получать более подробную информацию без изменения кода, используя для этого агент для Java.
 
 * **Зависимости** — данные о вызовах других компонентов в вашем приложении, включая:
   * **вызовы REST** через HttpClient, OkHttp и RestTemplate (Spring);
   * **Redis** через клиент Jedis. Если вызов выполняется дольше 10 с, агент также получает аргументы вызова.
-  * **[Вызовы JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** — MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB или Apache Derby DB. Поддерживаются вызовы "executeBatch". Если для MySQL и PostgreSQL вызов выполняется дольше 10 с, агент сообщает о плане запроса. 
+  * **[Вызовы JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** — MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB или Apache Derby DB. Поддерживаются вызовы "executeBatch". Если для MySQL и PostgreSQL вызов выполняется дольше 10 с, агент сообщает о плане запроса.
 * **Перехваченные исключения:** данные об исключениях, обработанных вашим кодом.
 * **Время выполнения метода:** данные о времени, которое потребовалось для выполнения определенных методов.
 
-Чтобы использовать агент для Java, его необходимо установить на сервере. Веб-приложения необходимо оснастить [пакетом SDK для Java Application Insights][java].
+Чтобы использовать агент для Java, его необходимо установить на сервере. Веб-приложения необходимо оснастить [пакетом SDK для Java Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Установка агента Application Insights для Java
 1. [Скачайте агент](https://aka.ms/aijavasdk) на компьютер с сервером Java.
@@ -43,7 +47,7 @@ ms.author: awills
 ## <a name="configure-the-agent"></a>Настройка агента
 Создайте файл с именем `AI-Agent.xml` и поместите его в ту же папку, где находится JAR-файл агента.
 
-Настройка содержимого XML-файла. Измените приведенный ниже пример, включив необходимые функции или убрав ненужные. 
+Настройка содержимого XML-файла. Измените приведенный ниже пример, включив необходимые функции или убрав ненужные.
 
 ```XML
 
@@ -61,11 +65,11 @@ ms.author: awills
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
-        <!-- Collect data about caught exceptions 
+        <!-- Collect data about caught exceptions
              and method execution times -->
 
         <Class name="com.myCompany.MyClass">
-           <Method name="methodOne" 
+           <Method name="methodOne"
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
@@ -87,13 +91,13 @@ ms.author: awills
 По умолчанию `reportExecutionTime` имеет значение true, а `reportCaughtExceptions` — значение false.
 
 ## <a name="view-the-data"></a>Просмотр данных
-В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов отображаются [под элементом производительности][metrics]. 
+В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов отображаются [под элементом производительности][metrics].
 
-Для поиска отдельных экземпляров отчетов по зависимостям, исключениям и методам откройте [Поиск][diagnostic]. 
+Для поиска отдельных экземпляров отчетов по зависимостям, исключениям и методам откройте [Поиск][diagnostic].
 
-[Дополнительные сведения о диагностировании проблем зависимостей](app-insights-dependencies.md#diagnosis).
+[Дополнительные сведения о диагностировании проблем зависимостей](app-insights-asp-net-dependencies.md#diagnosis).
 
-## <a name="questions?-problems?"></a>Вопросы? Проблемы?
+## <a name="questions-problems"></a>Вопросы? Проблемы?
 * Данные отсутствуют? [Настройте исключения брандмауэра](app-insights-ip-addresses.md)
 * [Устранение неполадок Java](app-insights-java-troubleshoot.md)
 
@@ -111,8 +115,6 @@ ms.author: awills
 
 
 
-
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

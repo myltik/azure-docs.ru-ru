@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: порты | Microsoft Docs'
-description: Эта страница является страницей технического справочника по портам, которые должны быть открыты для Azure AD Connect.
+title: "Azure AD Connect: порты | Документация Майкрософт"
+description: "Эта страница является страницей технического справочника по портам, которые должны быть открыты для Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bc48cac1f7e361df7f80f1dbf5a438484d4137c9
+
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Порты и протоколы, необходимые для гибридной идентификации
@@ -43,7 +47,7 @@ ms.author: billmath
 
 Список URL-адресов и IP-адресов, которые необходимо открыть в брандмауэре, см. в статье [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="table-3---azure-ad-connect-and-federation-servers/wap"></a>Таблица 3. Azure AD Connect и серверы федерации и WAP
+## <a name="table-3---azure-ad-connect-and-federation-serverswap"></a>Таблица 3. Azure AD Connect и серверы федерации и WAP
 В этой таблице описываются порты и протоколы, необходимые для взаимодействия между сервером Azure AD Connect и серверами федерации и WAP.  
 
 | Протокол | порты; | Описание |
@@ -67,10 +71,10 @@ ms.author: billmath
 | HTTPS |443 (TCP или UDP) |Используется для проверки подлинности устройств. |
 | TCP |49443 (TCP) |Используется для проверки подлинности с помощью сертификата. |
 
-## <a name="table-6a-&-6b---azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Таблица 6а и 6б. Агент Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
+## <a name="table-6a-6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица 6а и 6б. Агент Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 В следующих таблицах описываются конечные точки, порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.
 
-### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Таблица 6а. Порты и протоколы для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
+### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Таблица 6а. Порты и протоколы для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 В этой таблице описываются следующие исходящие порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.  
 
 | Протокол | порты; | Описание |
@@ -78,9 +82,12 @@ ms.author: billmath
 | HTTPS |443 (TCP или UDP) |Исходящие |
 | Azure Service Bus |5671 (TCP или UDP) |Исходящие |
 
-### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>6б. Конечные точки для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
+### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>6б. Конечные точки для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

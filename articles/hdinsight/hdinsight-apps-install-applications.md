@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Установка приложений HDInsight
 Пользователи могут устанавливать приложения HDInsight в кластере HDInsight под управлением Linux. Разработчиками этих приложений могут быть корпорация Майкрософт, независимые поставщики программного обеспечения или вы сами. Из этой статьи вы узнаете, как установить опубликованное приложение. Дополнительные сведения об установке собственного приложения см. в статье [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md). 
 
-В настоящее время существует одно опубликованное приложение.
+В настоящее время опубликовано три приложения:
 
 * **Datameer**. [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) предоставляет аналитикам возможность находить, анализировать и визуализировать результаты по большим данным в интерактивном режиме. С его помощью вы можете с легкостью обнаруживать новые связи и быстро получать необходимые ответы, используя дополнительные источники данных.
+* **Streamsets Data Collector for HDnsight**. Это полнофункциональная интегрированная среда разработки, которая позволяет разрабатывать, тестировать, развертывать и контролировать конвейеры приема типа "любой к любому", которые объединяют потоковые и пакетные данные и включают множество различных внутрипотоковых преобразований. И все это без необходимости писать собственный код. 
+* **Cask CDAP 3.5 for HDInsight**. Первая унифицированная интеграционная платформа для больших данных, которая на 80 % ускоряет запуск озер данных и приложений для работы с данными в производственную среду. Это приложение поддерживает только стандартные кластеры HBase 3.4.
 
-> [!NOTE]
-> В настоящее время Datameer поддерживается в кластерах Azure HDInsight версии 3.2.
-> 
-> 
 
 В этой статье используется портал Azure. Вы можете экспортировать шаблон Azure Resource Manager с портала или получить его копию у поставщиков, а затем развернуть его с помощью Azure PowerShell и интерфейса командной строки Azure.  Дополнительные сведения см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,14 +44,14 @@ ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. В меню слева щелкните **Кластеры HDInsight** .  Если меню не отображается, нажмите кнопку **Обзор**, а затем щелкните **Кластеры HDInsight**.
 3. Щелкните кластер HDInsight.  Если у вас нет кластера, сначала его необходимо создать.  См. [этот раздел](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. В колонке **Параметры** в категории **Общие** щелкните **Приложения**. В колонке **Установленные приложения** перечислены все установленные приложения. 
+4. В категории **Конфигурации** щелкните **Приложения**. Отобразится список установленных приложений (если они есть).
    
     ![меню портала для приложений HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. В меню колонки щелкните **Добавить** . 
    
     ![установленные приложения HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
-    Откроется список всех доступных приложений HDInsight.
+    Отобразится список существующих приложений HDInsight.
    
     ![доступные приложения HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Щелкните необходимое приложение, примите условия использования и нажмите кнопку **Выбрать**.
@@ -120,6 +118,6 @@ ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

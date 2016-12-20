@@ -1,12 +1,12 @@
 ---
-title: Решение для анализа сетей Azure в Log Analytics | Microsoft Docs
-description: Решение для анализа сетей Azure можно использовать в Log Analytics для просмотра журналов групп безопасности сети Azure и шлюза приложений Azure.
+title: "Решение для анализа сетей Azure в Log Analytics | Документация Майкрософт"
+description: "Решение для анализа сетей Azure можно использовать в Log Analytics для просмотра журналов групп безопасности сети Azure и шлюза приложений Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+
 
 ---
-# <a name="azure-networking-analytics-(preview)-solution-in-log-analytics"></a>Решение для анализа сетей Azure (предварительная версия) в Log Analytics
+# <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Решение для анализа сетей Azure (предварительная версия) в Log Analytics
 > [!NOTE]
 > Это [предварительная версия решения](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -96,6 +100,9 @@ ms.author: richrund
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных анализа сетей Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

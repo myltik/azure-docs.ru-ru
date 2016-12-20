@@ -1,12 +1,12 @@
 ---
-title: Функции и конфигурация службы синхронизации Azure AD Connect | Microsoft Docs
-description: Описываются функциональные возможности службы синхронизации Azure AD Connect.
+title: "Функции и конфигурация синхронизации Azure AD Connect | Документация Майкрософт"
+description: "Описываются функциональные возможности службы синхронизации Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70f6596ec85f8662efecd99679fde6b7e9a29aae
+
 
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Функции службы синхронизации Azure AD Connect
@@ -50,7 +54,7 @@ ms.author: andkjell;markvi
 
 | DirSyncFeature | Комментарий |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) |
+| DeviceWriteback |[Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | PasswordSync |[Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback) |
@@ -104,6 +108,9 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 * [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

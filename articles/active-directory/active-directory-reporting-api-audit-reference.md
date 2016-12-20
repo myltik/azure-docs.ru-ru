@@ -1,19 +1,23 @@
 ---
-title: Справочник по API аудита Azure Active Directory | Microsoft Docs
-description: Как начать работу с API аудита Azure Active Directory
+title: "Справочник по API аудита Azure Active Directory | Документация Майкрософт"
+description: "Как начать работу с API аудита Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
+ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Справочник по API аудита Azure Active Directory
@@ -28,7 +32,7 @@ ms.author: dhanyahk;markvi
 
 Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, обратитесь в [службу поддержки по инструментам создания отчетов AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-data?"></a>Кто может получить доступ к данным?
+## <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
 * Пользователи с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
 * Любое приложение с разрешением на доступ к API (авторизацию приложения можно настроить только на основе разрешения глобального администратора)
@@ -86,7 +90,7 @@ ms.author: dhanyahk;markvi
 
 **Пример**:
 
-    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago    
+    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago    
 
 **Примечания**
 
@@ -98,7 +102,7 @@ ms.author: dhanyahk;markvi
 
 **Пример**:
 
-    $filter=activityType eq 'User'  
+    $filter=activityType eq 'User'    
 
 **Примечания**
 
@@ -110,26 +114,26 @@ ms.author: dhanyahk;markvi
 
 **Пример**:
 
-    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')   
+    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')    
 
 **Примечания**
 
 Учитывает регистр.
 
 - - -
-### <a name="actor/name"></a>actor/name
+### <a name="actorname"></a>actor/name
 **Поддерживаемые операторы**: eq, contains, startsWith
 
 **Пример**:
 
-    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')  
+    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')    
 
 **Примечания**
 
 Не учитывает регистр.
 
 - - -
-### <a name="actor/objectid"></a>actor/objectid
+### <a name="actorobjectid"></a>actor/objectid
 **Поддерживаемые операторы**: eq
 
 **Пример**:
@@ -137,24 +141,24 @@ ms.author: dhanyahk;markvi
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
 
 - - -
-### <a name="target/name"></a>target/name
+### <a name="targetname"></a>target/name
 **Поддерживаемые операторы**: eq, contains, startsWith
 
 **Пример**:
 
-    $filter=targets/any(t: t/name eq 'some name')   
+    $filter=targets/any(t: t/name eq 'some name')    
 
 **Примечания**
 
 Не учитывает регистр.
 
 - - -
-### <a name="target/upn"></a>target/upn
+### <a name="targetupn"></a>target/upn
 **Поддерживаемые операторы**: eq, startsWith
 
 **Пример**:
 
-    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc')) 
+    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc'))    
 
 **Примечания**
 
@@ -162,7 +166,7 @@ ms.author: dhanyahk;markvi
 * При запросе Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity необходимо добавить полное пространство имен.
 
 - - -
-### <a name="target/objectid"></a>target/objectid
+### <a name="targetobjectid"></a>target/objectid
 **Поддерживаемые операторы**: eq
 
 **Пример**:
@@ -170,12 +174,12 @@ ms.author: dhanyahk;markvi
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actor/upn"></a>actor/upn
+### <a name="actorupn"></a>actor/upn
 **Поддерживаемые операторы**: eq, startsWith
 
 **Пример**:
 
-    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')  
+    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')    
 
 **Примечания**
 
@@ -187,6 +191,9 @@ ms.author: dhanyahk;markvi
 * Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,27 +1,31 @@
 ---
-title: Устранение неполадок в настройке кластера локальной службы Service Fabric | Microsoft Docs
-description: В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки.
+title: "Устранение неполадок в настройке локального кластера Service Fabric | Документация Майкрософт"
+description: "В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/08/2016
+ms.date: 10/29/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
+
 
 ---
-# Устранение неполадок в работе кластера локальной разработки
+# <a name="troubleshoot-your-local-development-cluster-setup"></a>Устранение неполадок в работе кластера локальной разработки
 Если у вас возникли проблемы при взаимодействии с кластером локальной разработки Azure Service Fabric, ознакомьтесь со следующими возможностями для решения.
 
-## Ошибки настройки кластера
-### Не удается очистить журналы Service Fabric
-#### Проблема
+## <a name="cluster-setup-failures"></a>Ошибки настройки кластера
+### <a name="cannot-clean-up-service-fabric-logs"></a>Не удается очистить журналы Service Fabric
+#### <a name="problem"></a>Проблема
 При выполнении сценария DevClusterSetup появляется следующее сообщение об ошибке:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
@@ -31,15 +35,15 @@ ms.author: seanmck
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### Решение
+#### <a name="solution"></a>Решение
 Закройте текущее и откройте новое окно PowerShell от имени администратора. Теперь можно успешно запустить сценарий.
 
-## Ошибки подключения к кластеру
-### Командлеты Service Fabric PowerShell не распознаются в Azure PowerShell
-#### Проблема
+## <a name="cluster-connection-failures"></a>Ошибки подключения к кластеру
+### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Командлеты Service Fabric PowerShell не распознаются в Azure PowerShell
+#### <a name="problem"></a>Проблема
 Попытка запустить командлеты Service Fabric PowerShell, например `Connect-ServiceFabricCluster` в окне Azure PowerShell, не удается, с сообщением о том, что командлет не распознан. Причина в том, что Azure PowerShell использует 32-разрядную версию Windows PowerShell (даже на 64-разрядной версии ОС), а командлеты Service Fabric работают только в 64-разрядной среде.
 
-#### Решение
+#### <a name="solution"></a>Решение
 Всегда запускайте командлеты Service Fabric непосредственно из Windows PowerShell.
 
 > [!NOTE]
@@ -47,15 +51,15 @@ ms.author: seanmck
 > 
 > 
 
-### Исключение типа инициализации
-#### Проблема
+### <a name="type-initialization-exception"></a>Исключение типа инициализации
+#### <a name="problem"></a>Проблема
 При подключении к кластеру в PowerShell отображается ошибка TypeInitializationException для System.Fabric.Common.AppTrace.
 
-#### Решение
+#### <a name="solution"></a>Решение
 При установке была неправильно настроена переменная пути. Выйдите из Windows и снова выполните вход. Путь будет полностью обновлен.
 
-### Сбой подключения к кластеру с сообщением об ошибке "Объект закрыт"
-#### Проблема
+### <a name="cluster-connection-fails-with-object-is-closed"></a>Сбой подключения к кластеру с сообщением об ошибке "Объект закрыт"
+#### <a name="problem"></a>Проблема
 Вызов Connect-ServiceFabricCluster завершается со следующей ошибкой:
 
     Connect-ServiceFabricCluster : The object is closed.
@@ -65,14 +69,14 @@ ms.author: seanmck
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### Решение
+#### <a name="solution"></a>Решение
 Закройте текущее и откройте новое окно PowerShell от имени администратора. Теперь можно успешно подключиться.
 
-### Исключение Fabric Connection Denied
-#### Проблема
+### <a name="fabric-connection-denied-exception"></a>Исключение Fabric Connection Denied
+#### <a name="problem"></a>Проблема
 При отладке в Visual Studio отображается ошибка FabricConnectionDeniedException.
 
-#### Решение
+#### <a name="solution"></a>Решение
 Эта ошибка обычно возникает, если вы пытаетесь запустить процесс узла службы вручную, а не указываете среде выполнения Service Fabric запустить его автоматически.
 
 Убедитесь, что в решении нет проектов служб, настроенных в качестве запускаемых проектов. В качестве запускаемых проектов можно настраивать только проекты приложений Service Fabric.
@@ -82,8 +86,13 @@ ms.author: seanmck
 > 
 > 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор и диагностика кластера с помощью системных отчетов о работоспособности](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

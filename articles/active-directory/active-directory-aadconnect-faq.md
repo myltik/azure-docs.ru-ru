@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: вопросы и ответы | Microsoft Docs'
-description: На этой странице изложены часто задаваемые вопросы об Azure AD Connect.
+title: "Azure AD Connect: вопросы и ответы | Документация Майкрософт"
+description: "На этой странице изложены часто задаваемые вопросы об Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d0433f7f2e88dcbf5e0969f0a6c8d2689816b2d1
+
 
 ---
 # <a name="azure-ad-connect-faq"></a>Azure AD Connect: вопросы и ответы
@@ -84,6 +88,9 @@ ms.author: billmath
 
 * Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

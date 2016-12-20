@@ -1,65 +1,85 @@
 ### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Практическое руководство. Проверка подлинности с помощью поставщика (серверный поток)
 Чтобы мобильные приложения могли выполнять процесс проверки подлинности в вашем приложении, необходимо зарегистрировать приложение у поставщика удостоверений. Затем в службе приложений Azure необходимо настроить код приложения и секретный код, предоставленный поставщиком.
-Дополнительные сведения см. в учебнике [Добавление проверки подлинности в приложение](../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md).
+Дополнительные сведения см. в учебнике [Добавление проверки подлинности в приложение](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-После регистрации у поставщика удостоверений просто вызовите метод .login() с указанием имени вашего поставщика. Например, для входа в систему через Facebook используйте следующий код.
+После регистрации у поставщика удостоверений вызовите метод `.login()` с указанием имени вашего поставщика. Например, для входа в систему через Facebook используйте следующий код:
 
 ```
 client.login("facebook").done(function (results) {
      alert("You are now logged in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
-});app-service-mobile
-app-service-mobile-ios-get-started-users value passed to the login method above to one of
-the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
-
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
-provider and generating a App Service authentication token after successful login with the identity provider. The login
-function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
-in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
-
-###<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
-
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for
-authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
-user data from the identity provider.
-
-#### Social Authentication basic example
-
-This example uses Facebook client SDK for authentication:
-
-```
-client.login( "facebook", {"access_token": token}) .done(function (results) { alert("You are now logged in as: " + results.userId); }, function (err) { alert("Error: " + err); });
-
-```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.
-
-#### Microsoft Account example
-
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) { client.login( "microsoftaccount", {"authenticationToken": result.session.authentication_token}) .done(function(results){ alert("You are now logged in as: " + results.userId); }, function(error){ alert("Error: " + err); }); });
-
+});
 ```
 
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
+Допустимые для поставщика значения: aad, facebook, google, microsoftaccount и twitter.
 
-###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+> [!NOTE]
+> Сейчас проверка подлинности Google не выполняется через серверный поток.  Для проверки подлинности с помощью Google необходимо использовать [метод клиентского потока](#client-auth).
 
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
-is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
+В этом случае служба приложений Azure управляет потоком проверки подлинности согласно протоколу OAuth 2.0.  Она отображает страницу входа выбранного поставщика и создает маркер проверки подлинности службы приложений после успешного входа с помощью поставщика удостоверений. Функция login после завершения работы возвращает объект JSON, который содержит и идентификатор пользователя, и маркер проверки подлинности службы приложений в полях userId и authenticationToken соответственно. Этот маркер можно поместить в кэш и повторно использовать, пока не истечет срок его действия.
+
+###<a name="a-nameclient-authahow-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>Практическое руководство. Аутентификация с помощью поставщика (клиентский поток)
+
+Приложение может также независимо связаться с поставщиком удостоверений и сообщить возвращаемый маркер вашей службе приложений для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений.
+
+#### <a name="social-authentication-basic-example"></a>Простой пример проверки подлинности на основе учетной записи социальной сети
+
+В этом примере используется пакет SDK для клиента Facebook для проверки подлинности:
 
 ```
-var url = client.applicationUrl + '/.auth/me'; var headers = new Headers(); headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken); fetch(url, { headers: headers }) .then(function (data) { return data.json() }).then(function (user) { // The user object contains the claims for the authenticated user });
+client.login(
+     "facebook",
+     {"access_token": token})
+.done(function (results) {
+     alert("You are now logged in as: " + results.userId);
+}, function (err) {
+     alert("Error: " + err);
+});
+
+```
+В этом примере предполагается, что маркер, предоставленный соответствующим поставщиком SDK, сохраняется в переменной token.
+
+#### <a name="microsoft-account-example"></a>Пример учетной записи Майкрософт
+
+В следующем примере используется пакет SDK Live, поддерживающий единый вход в приложения Магазина Windows с использованием учетной записи Майкрософт:
+
+```
+WL.login({ scope: "wl.basic"}).then(function (result) {
+      client.login(
+            "microsoftaccount",
+            {"authenticationToken": result.session.authentication_token})
+      .done(function(results){
+            alert("You are now logged in as: " + results.userId);
+      },
+      function(error){
+            alert("Error: " + err);
+      });
+});
+
 ```
 
-Fetch is available as an npm package or for browser download from CDNJS. You could also use
-jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+Этот пример получает маркер из Live Connect, который предоставляется вашей службе приложений путем вызова функции login.
+
+###<a name="a-nameauth-getinfoahow-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>Практическое руководство. Получение сведений о пользователе, прошедшем аутентификацию
+
+Сведения о проверке подлинности можно получить из конечной точки `/.auth/me`, выполнив вызов HTTP с помощью любой библиотеки AJAX.  Обязательно настройте заголовок `X-ZUMO-AUTH` для маркера аутентификации.  Маркер аутентификации хранится в `client.currentUser.mobileServiceAuthenticationToken`.  Например, чтобы использовать API выборки:
+
+```
+var url = client.applicationUrl + '/.auth/me';
+var headers = new Headers();
+headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
+fetch(url, { headers: headers })
+    .then(function (data) {
+        return data.json()
+    }).then(function (user) {
+        // The user object contains the claims for the authenticated user
+    });
+```
+
+Компонент выборки предоставляется в виде [пакета NPM](https://www.npmjs.com/package/whatwg-fetch) или для скачивания браузером из [CDNJS](https://cdnjs.com/libraries/fetch). Для получения информации можно также использовать jQuery или другой API AJAX.  Данные получаются в виде объекта JSON.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

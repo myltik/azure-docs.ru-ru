@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования**.
-* Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) . В этом руководстве PowerShell используется для развертывания сущностей фабрики данных. 
+* Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) . В этом руководстве PowerShell используется для развертывания сущностей фабрики данных. 
 * Сведения о шаблонах Azure Resource Manager см. в [этой статье](../resource-group-authoring-templates.md) (необязательно).
 
 ## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
@@ -401,7 +401,7 @@ ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
 Для connectionString используются параметры sqlServerName, databaseName, sqlServerUserName и sqlServerPassword, значения которых передаются с помощью файла конфигурации. В определении также используются переменные azureSqlLinkedServiceName dataFactoryName из шаблона.
 
 #### <a name="azure-blob-dataset"></a>Набор данных большого двоичного объекта Azure
-Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
 
     {
         "type": "datasets",
@@ -548,6 +548,6 @@ ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

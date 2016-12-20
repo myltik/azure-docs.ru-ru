@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с приложением Bynder | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Bynder.
+title: "Руководство. Интеграция Azure Active Directory с приложением Bynder | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Bynder."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4fb0ab26-b3b9-420a-8072-a0be80ea021e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01ce02974d18d56421f161126e3541ac7d4997fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-bynder"></a>Руководство. Интеграция Azure Active Directory с Bynder
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Руководство. Интеграция Azure Active Directory с Bynder
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Bynder.
 
 Интеграция Azure AD с приложением Bynder обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к Bynder.
 * Вы можете включить автоматический вход пользователей в Bynder (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Bynder, вам потребуется:
@@ -129,10 +133,10 @@ ms.author: jeedes
 2. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Bynder. Присоедините к сообщению скачанный файл метаданных, чтобы специалисты Bynder смогли настроить единый вход со своей стороны.
 3. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -244,6 +248,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

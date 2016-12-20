@@ -1,19 +1,23 @@
 ---
-title: Единицы запросов в DocumentDB | Microsoft Docs
-description: Узнайте о том, как понять факторы, задать количество запросов и оценить количество необходимых единиц запросов в DocumentDB.
+title: "Единицы запроса в DocumentDB | Документация Майкрософт"
+description: "Узнайте о том, как понять факторы, задать количество запросов и оценить количество необходимых единиц запросов в DocumentDB."
 services: documentdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
+ms.date: 11/16/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
+ms.openlocfilehash: 39b4ccba7ad3ba6734dd23548db3c506c8095759
+
 
 ---
 # <a name="request-units-in-documentdb"></a>Единицы запросов в DocumentDB
@@ -35,6 +39,12 @@ ms.author: syamk
 DocumentDB обеспечивает высокую прогнозируемую производительность за счет *резервирования* ресурсов для удовлетворения требований к пропускной способности приложения.  Так как нагрузка приложения и шаблоны доступа могут со временем меняться, DocumentDB позволяет легко увеличивать или уменьшать зарезервированную пропускную способность для приложения.
 
 В DocumentDB зарезервированная пропускная способность указывается в обрабатываемых единицах запросов в секунду.  Так как пропускная способность зависит от единиц запросов, вы можете *зарезервировать* для приложения гарантированное количество единиц запросов в секунду.  Каждая операция в DocumentDB (например создание документа, выполнение запроса, обновление документа) сопровождается потреблением ресурсов ЦП, объема памяти и выполнением операций ввода-вывода.  Иными словами, при выполнении каждой операции взимается *плата за запрос*, которая выражается в *единицах запроса*.  Зная факторы, которые влияют на затраты единиц запросов, и требования приложения к пропускной способности, вы сможете значительно снизить затраты на работу приложения. 
+
+Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик, в котором Аравинд Рамачандран (Aravind Ramachandran) объясняет, что такое единицы запросов и прогнозируемая производительность в DocumentDB.
+
+> [!ВИДЕО https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> 
+> 
 
 ## <a name="specifying-request-unit-capacity"></a>Указание количества единиц запросов
 При создании коллекции DocumentDB нужно указать количество единиц запросов в секунду (ЕЗ), которое вы хотите зарезервировать.  После создания коллекции для нее выделяются все зарезервированные единицы запросов.  Для каждой коллекции гарантированно выделяется и изолируется определенная пропускная способность.  
@@ -114,50 +124,50 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
     {
      "id": "08259",
-    "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-    "tags": [
+      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+      "tags": [
         {
-        "name": "cereals ready-to-eat"
+          "name": "cereals ready-to-eat"
         },
         {
-        "name": "kellogg"
+          "name": "kellogg"
         },
         {
-        "name": "kellogg's crispix"
+          "name": "kellogg's crispix"
         }
     ],
-    "version": 1,
-    "commonName": "Includes USDA Commodity B855",
-    "manufacturerName": "Kellogg, Co.",
-    "isFromSurvey": false,
-    "foodGroup": "Breakfast Cereals",
-    "nutrients": [
+      "version": 1,
+      "commonName": "Includes USDA Commodity B855",
+      "manufacturerName": "Kellogg, Co.",
+      "isFromSurvey": false,
+      "foodGroup": "Breakfast Cereals",
+      "nutrients": [
         {
-        "id": "262",
-        "description": "Caffeine",
-        "nutritionValue": 0,
-        "units": "mg"
+          "id": "262",
+          "description": "Caffeine",
+          "nutritionValue": 0,
+          "units": "mg"
         },
         {
-        "id": "307",
-        "description": "Sodium, Na",
-        "nutritionValue": 611,
-        "units": "mg"
+          "id": "307",
+          "description": "Sodium, Na",
+          "nutritionValue": 611,
+          "units": "mg"
         },
         {
-        "id": "309",
-        "description": "Zinc, Zn",
-        "nutritionValue": 5.2,
-        "units": "mg"
+          "id": "309",
+          "description": "Zinc, Zn",
+          "nutritionValue": 5.2,
+          "units": "mg"
         }
-    ],
-    "servings": [
+      ],
+      "servings": [
         {
-        "amount": 1,
-        "description": "cup (1 NLEA serving)",
-        "weightInGrams": 29
+          "amount": 1,
+          "description": "cup (1 NLEA serving)",
+          "weightInGrams": 29
         }
-    ]
+      ]
     }
 
 > [!NOTE]
@@ -199,7 +209,7 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
 В этом случае ожидается, что для средней пропускной способности необходимо 1,275 единиц запросов в секунду.  Если округлить значение до сотен, получается, что для коллекции этого приложения мы должны подготовить 1300 единиц запросов в секунду.
 
-## <a name="<a-id="requestratetoolarge"></a>-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Превышение лимита зарезервированной пропускной способности
+## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Превышение лимита зарезервированной пропускной способности
 Обратите внимание, что удельный расход единиц запросов оценивается в расчете на одну секунду. Для приложений, которые превышают подготовленный показатель единиц запросов для коллекции, будет применяться функция регулирования запросов до тех пор, пока их значение не станет ниже зарезервированного уровня. При регулировании сервер заблаговременно завершит запрос с ошибкой RequestRateTooLargeException (код состояния HTTP: 429) и вернет заголовок x-ms-retry-after-ms, указывая время в миллисекундах, спустя которое можно повторно выполнить запрос.
 
     HTTP Status 429
@@ -230,6 +240,6 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

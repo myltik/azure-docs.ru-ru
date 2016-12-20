@@ -1,12 +1,12 @@
 ---
-title: Стек связи WCF Reliable Services | Microsoft Docs
-description: Встроенный стек связи WCF в Service Fabric обеспечивает связь со службой клиента WCF для Reliable Services.
+title: "Стек связи WCF Reliable Services | Документация Майкрософт"
+description: "Встроенный стек связи WCF в Service Fabric обеспечивает связь со службой клиента WCF для Reliable Services."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
 manager: timlt
 editor: vturecek
-
+ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/26/2016
 ms.author: bharatn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3b0362f0c3b42e4a61348abe306c3beaa6f0c86
+
 
 ---
-# Коммуникационный стек WCF для надежных служб
-Платформа надежных служб Reliable Services позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Любой стек связи можно подключить с помощью интерфейса **ICommunicationListener**, возвращаемого методом [CreateServiceReplicaListeners или CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). Платформа предоставляет реализацию стека связи на основе Windows Communication Foundation (WCF) для разработчиков служб, которым требуется использовать связь на основе WCF.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Коммуникационный стек WCF для надежных служб
+Платформа надежных служб Reliable Services позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Любой стек связи можно подключить с помощью интерфейса **ICommunicationListener** , возвращаемого методом [CreateServiceReplicaListeners или CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . Платформа предоставляет реализацию стека связи на основе Windows Communication Foundation (WCF) для разработчиков служб, которым требуется использовать связь на основе WCF.
 
-## Прослушиватель связи WCF
+## <a name="wcf-communication-listener"></a>Прослушиватель связи WCF
 Реализация интерфейса **ICommunicationListener**, ориентированная на WCF, обеспечивается классом **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
 
-Допустим, имеется контракт службы типа `ICalculator`.
+Допустим, имеется контракт службы типа `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -59,7 +63,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## Написание клиентов для стека связи WCF
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Написание клиентов для стека связи WCF
 Для написания клиентов для взаимодействия со службами с помощью WCF платформа предоставляет объект **WcfClientCommunicationFactory**, который является ориентированной на WCF реализацией [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
@@ -86,7 +90,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Клиентский код может использовать **WcfCommunicationClientFactory** вместе с **WcfCommunicationClient**, который реализует **ServicePartitionClient**, для определения конечной точки службы и взаимодействия со службой.
+Клиентский код может использовать **WcfCommunicationClientFactory** вместе с клиентом **WcfCommunicationClient**, который реализует **ServicePartitionClient**, для определения конечной точки службы и взаимодействия со службой.
 
 ```csharp
 // Create binding
@@ -118,9 +122,14 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 > 
 > 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Удаленный вызов процедур с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Веб-интерфейс API с OWIN в Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Защита обмена данными для Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

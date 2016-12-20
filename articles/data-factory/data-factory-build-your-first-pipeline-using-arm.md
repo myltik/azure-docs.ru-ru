@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
-* Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) .
+* Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Сведения о шаблонах Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md). 
 
 ## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
@@ -45,7 +45,7 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 | Связанная служба кластера HDInsight по запросу |Связывает кластер HDInsight по запросу с фабрикой данных. Кластер создается автоматически для обработки данных и удаляется после ее завершения. |
 | Входной набор данных BLOB-объекта Azure |Относится к связанной службе хранилища Azure. Связанная служба указывает на учетную запись хранения Azure, а набор данных большого двоичного объекта Azure указывает имя контейнера, папки и файла в хранилище, содержащем входные данные. |
 | Выходной набор данных BLOB-объекта Azure |Относится к связанной службе хранилища Azure. Связанная служба указывает на учетную запись хранения Azure, а набор данных большого двоичного объекта Azure указывает контейнер, папку и имя файла в хранилище, содержащем выходные данные. |
-| Конвейер данных |Конвейер содержит одно действие типа HDInsightHive, которое использует входной набор данных и создает выходной набор данных. |
+| Конвейер данных |Конвейер содержит одно действие типа HDInsightHive, использующее входной набор данных и создающее выходной набор данных. |
 
 Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Есть два типа действий: [действия перемещения данных](data-factory-data-movement-activities.md) и [действия преобразования данных](data-factory-data-transformation-activities.md). В этом руководстве описывается создание конвейера с одним действием (действием копирования).
 
@@ -359,7 +359,7 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 * [Конвейер данных с действием копирования](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
-В этом разделе вы укажите имя и ключ вашей учетной записи хранения Azure. Дополнительные сведения о свойствах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
+В этом разделе вы укажете имя и ключ вашей учетной записи хранения Azure. Дополнительные сведения о свойствах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
       {
         "type": "linkedservices",
@@ -379,7 +379,7 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 
 Для **connectionString** используются параметры storageAccountName и storageAccountKey. Значения для этих параметров передаются с помощью файла конфигурации. В этом определении также используются переменные azureStroageLinkedService и dataFactoryName, заданные в шаблоне. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>Связанная служба кластера HDInsight по запросу
+#### <a name="hdinsight-on-demand-linked-service"></a>Связанная служба кластера HDInsight по запросу
 Дополнительные сведения о свойствах JSON, используемых для определения связанной службы кластера HDInsight по запросу, см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
 
       {
@@ -591,6 +591,6 @@ ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

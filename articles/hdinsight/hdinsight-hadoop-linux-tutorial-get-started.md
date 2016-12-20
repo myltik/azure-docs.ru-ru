@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/30/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux
+# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux
 > [!div class="op_single_selector"]
 > * [На основе Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [На основе Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-Узнайте, как создавать кластеры [Hadoop](http://hadoop.apache.org/) в HDInsight под управлением Linux и запускать задания Hive в HDInsight. [Apache Hive](https://hive.apache.org/) — это самый популярный компонент экосистемы Hadoop. Сейчас служба HDInsight поставляется в комплекте с 4 разными типами кластеров: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) и [Storm](hdinsight-storm-overview.md).  Каждый тип кластера поддерживает свой набор компонентов. Все 4 типа кластеров поддерживают инфраструктуру Hive. Дополнительные сведения о поддерживаемых компонентах в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)  
+Узнайте, как создавать кластеры [Hadoop](http://hadoop.apache.org/) в HDInsight под управлением Linux и запускать задания Hive в HDInsight. [Apache Hive](https://hive.apache.org/) — это самый популярный компонент экосистемы Hadoop. Сейчас в HDInsight предусмотрено шесть разных типов кластеров: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (предварительная версия)](hdinsight-hadoop-use-interactive-hive.md) и [R Server](hdinsight-hadoop-r-server-overview.md).  Каждый тип кластера поддерживает свой набор компонентов. Все шесть типов кластеров поддерживают инфраструктуру Hive. Дополнительные сведения о поддерживаемых компонентах в HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,36 +41,48 @@ ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Создание кластера
-Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе мы создадим в HDInsight кластер Hadoop под управлением Linux, используя [шаблон Azure Resource Manager](../resource-group-template-deploy.md). Полностью настраиваемый шаблон Resource Manager упрощает создание таких ресурсов Azure, как HDInsight. Знакомство с шаблонами Resource Manager не является обязательным для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Шаблон Resource Manager, используемый в этом руководстве, расположен в общедоступном контейнере больших двоичных объектов — [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Нажмите следующую кнопку, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. 
+Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе вы создадите в HDInsight кластер Hadoop под управлением Linux, используя [шаблон Azure Resource Manager](../resource-group-template-deploy.md). Полностью настраиваемый шаблон Resource Manager упрощает создание таких ресурсов Azure, как HDInsight. Знакомство с шаблонами Resource Manager не является обязательным для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Воспользуйтесь селектором в верхней части страницы, чтобы выбрать параметры создания кластера.
+
+Шаблон Resource Manager, используемый в этом руководстве, расположен в общедоступном контейнере больших двоичных объектов — [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+
+1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. В колонке **Параметры** заполните следующие поля.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Введите или выберите следующие значения:
    
     ![Шаблон Resource Manager для начала работы с HDInsight под управлением Linux на портале](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
    
-   * **Имя кластера**: введите имя создаваемого кластера Hadoop.
-   * **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
-   * **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**.  Это имя можно изменить. 
+    * **Подписка**. Выберите подписку Azure.
+    * **Группа ресурсов.** Создайте группу ресурсов Azure или выберите имеющуюся.  Группа ресурсов — это контейнер компонентов Azure.  В этом случае группа ресурсов содержит кластер HDInsight и зависимую учетную запись службы хранилища Azure. 
+    * **Расположение.** Выберите расположение Azure для создания кластера.  Выберите ближайшее к себе расположение для повышения производительности. 
+    * **Имя кластера**: введите имя создаваемого кластера Hadoop.
+    * **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
+    * **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**.  Это имя можно изменить. 
      
-     При работе с этим руководством другие параметры являются необязательными. Их можно не изменять. 
-     
+    Некоторые свойства жестко заданы в шаблоне.  Эти значения можно настроить из шаблона.
+
+    * **Расположение.** Кластер и зависимая учетная запись хранения используют то же расположение, что и группа ресурсов.
+    * **Версия кластера**: 3.4.
+    * **Тип ОС**: Linux.
+    * **Тип кластера**: Hadoop.
+    * **Количество рабочих узлов**: 2.
+
      У каждого кластера есть зависимость учетной записи хранения для хранилища BLOB-объектов Azure. Обычно она называется учетной записью хранения по умолчанию. Кластер HDInsight должен находиться в том же регионе Azure, что и его учетная запись хранения, используемая по умолчанию. Удаление кластеров не приведет к удалению учетной записи хранения. Имя учетной записи хранения в шаблоне — это имя кластера, к которому добавлено слово store. 
-3. Нажмите кнопку **ОК** , чтобы сохранить параметры.
-4. В колонке **Настраиваемое развертывание** введите **имя новой группы ресурсов**, чтобы создать группу ресурсов.  Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и т. Расположение группы ресурсов может отличаться от расположения кластера.
-5. Щелкните **Условия использования**, а затем — кнопку **Создать**.
-6. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Вы увидите новый элемент под названием **Развертывание для развертывания шаблона**. Процесс создания кластера занимает около 20 минут. 
-7. После создания кластера заголовок элемента меняется на имя группы ресурсов, которое вы указали. Портал автоматически открывает две колонки с кластером и параметрами кластера. 
+
+3. Установите флажок **Я принимаю указанные выше условия** и **Закрепить на панели мониторинга** и нажмите кнопку **Приобрести**. На панели мониторинга портала появится новый элемент под названием **Deploying Template deployment** (Развертывание для развертывания шаблона). Процесс создания кластера занимает около 20 минут. После создания кластера заголовок элемента меняется на имя группы ресурсов, которое вы указали. Кроме того, на портале группа ресурсов автоматически откроется в новой колонке. Отобразятся кластер и хранилище по умолчанию.
    
-   ![Параметры кластера при начале работы с HDInsight под управлением Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
-   
-   Отображаются два ресурса: кластер и учетная запись хранения по умолчанию.
+    ![Группа ресурсов при начале работы с HDInsight под управлением Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+
+4. Щелкните имя кластера, чтобы открыть его в колонке.
+
+   ![Параметры кластера при начале работы с HDInsight под управлением Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+
 
 ## <a name="run-hive-queries"></a>Выполнение запросов Hive
 [Apache Hive](hdinsight-use-hive.md) — это самый популярный компонент службы HDInsight. Существует множество способов выполнения заданий Hive в HDInsight. В этом руководстве для выполнения некоторых заданий Hive вы будете использовать представление Hive Ambari из портала. Другие способы отправки заданий Hive описаны в статье [Использование Hive в HDInsight](hdinsight-use-hive.md).
 
-1. Чтобы открыть Ambari, перейдите по ссылке **https://&lt;ClusterName>.azurehdinsight.net**, где &lt;ClusterName> — это кластер, который вы создали в предыдущем разделе.
+1. Щелкните **Панель мониторинга кластера** и **Панель мониторинга кластера HDInsight**, как показано на предыдущем снимке экрана.  Чтобы открыть Ambari, можно также перейти по ссылке **https://&lt;ClusterName>.azurehdinsight.net**, где &lt;ClusterName> — это кластер, созданный в предыдущем разделе.
 2. Введите имя пользователя Hadoop и пароль, указанные в предыдущем разделе. Имя пользователя по умолчанию — **admin**.
 3. Откройте **представление Hive** , как показано на снимке экрана ниже:
    
@@ -119,15 +131,15 @@ ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
 
 Дополнительные сведения об анализе данных с помощью HDInsight см. в следующих статьях.
 
-* Дополнительные сведения об использовании Hive с HDInsight, включая выполнение запросов Hive из Visual Studio, см. в статье [Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j][hdinsight-use-hive].
-* Дополнительные сведения о Pig, языке, который используется для преобразования данных, см. в статье [Использование Pig с Hadoop в HDInsight][hdinsight-use-pig].
-* Дополнительные сведения о MapReduce, способе записи программ, которые обрабатывают данные в Hadoop, см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+* Дополнительные сведения об использовании Hive с HDInsight, включая выполнение запросов Hive из Visual Studio, см. в статье [Использование Hive с HDInsight][hdinsight-use-hive].
+* Дополнительные сведения о Pig, языке, который используется для преобразования данных, см. в статье [Использование Pig с HDInsight][hdinsight-use-pig].
+* Дополнительные сведения о MapReduce, способе записи программ, которые обрабатывают данные в Hadoop, см. в статье [Использование MapReduce с HDInsight][hdinsight-use-mapreduce].
 * Дополнительные сведения об анализе данных в HDInsight с помощью средств HDInsight для Visual Studio см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 Если вы готовы приступить к работе с собственными данными и хотите узнать больше о том, как HDInsight сохраняет данные или как получать данные в HDInsight, см. следующие статьи:
 
 * Информацию о том, как HDInsight использует хранилище BLOB-объектов Azure, см. в [этой статье](hdinsight-hadoop-use-blob-storage.md).
-* Сведения об отправке данных в HDInsight см. в статье [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
+* Сведения об отправке данных в HDInsight см. в статье [Отправка данных в HDInsight][hdinsight-upload-data].
 
 Дополнительные сведения о создании кластера HDInsight и управлении этим кластером см. в следующих статьях:
 
@@ -149,8 +161,8 @@ ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#Install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -163,6 +175,6 @@ ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

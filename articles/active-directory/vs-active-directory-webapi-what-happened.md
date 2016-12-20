@@ -1,57 +1,61 @@
 ---
-title: Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Microsoft Docs
-description: Описывает, что происходит с проектом WebApi при подключении к приложению Azure AD с помощью Visual Studio
+title: "Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Документация Майкрософт"
+description: "Описывает, что происходит с проектом WebApi при подключении к приложению Azure AD с помощью Visual Studio"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8abdacac444d3e77469e957dfe858647e1258c1d
+
 
 ---
-# Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Приступая к работе](vs-active-directory-webapi-getting-started.md)
 > * [Что произошло?](vs-active-directory-webapi-what-happened.md)
 > 
 > 
 
-## Добавлены ссылки
-### Ссылки на пакет NuGet
+## <a name="references-have-been-added"></a>Добавлены ссылки
+### <a name="nuget-package-references"></a>Ссылки на пакет NuGet
 * `Microsoft.Owin`
-* .`Microsoft.Owin.Host.SystemWeb`
-* .`Microsoft.Owin.Security`
-* .`Microsoft.Owin.Security.ActiveDirectory`
-* .`Microsoft.Owin.Security.Jwt`
-* .`Microsoft.Owin.Security.OAuth`
-* .`Owin`
+* `Microsoft.Owin.Host.SystemWeb`
+* `Microsoft.Owin.Security`
+* `Microsoft.Owin.Security.ActiveDirectory`
+* `Microsoft.Owin.Security.Jwt`
+* `Microsoft.Owin.Security.OAuth`
+* `Owin`
 * `System.IdentityModel.Tokens.Jwt`
 
-### Ссылки на .NET
+### <a name="net-references"></a>Ссылки на .NET
 * `Microsoft.Owin`
-* .`Microsoft.Owin.Host.SystemWeb`
-* .`Microsoft.Owin.Security`
-* .`Microsoft.Owin.Security.ActiveDirectory`
-* .`Microsoft.Owin.Security.Jwt`
-* .`Microsoft.Owin.Security.OAuth`
-* .`Owin`
+* `Microsoft.Owin.Host.SystemWeb`
+* `Microsoft.Owin.Security`
+* `Microsoft.Owin.Security.ActiveDirectory`
+* `Microsoft.Owin.Security.Jwt`
+* `Microsoft.Owin.Security.OAuth`
+* `Owin`
 * `System.IdentityModel.Tokens.Jwt`
 
-## Изменения в коде
-### В проект добавлены файлы с кодом
-К проекту добавлен класс запуска проверки подлинности **App\_Start/Startup.Auth.cs**, содержащий логику запуска для проверки подлинности на основе Azure AD.
+## <a name="code-changes"></a>Изменения в коде
+### <a name="code-files-were-added-to-your-project"></a>В проект добавлены файлы с кодом
+К проекту добавлен класс запуска проверки подлинности **App_Start/Startup.Auth.cs**, содержащий логику запуска для проверки подлинности на основе Azure AD.
 
-### В проект добавлен код запуска
+### <a name="startup-code-was-added-to-your-project"></a>В проект добавлен код запуска
 Если в проекте уже есть класс запуска, метод **Configuration** обновляется для добавления вызова `ConfigureAuth(app)`. В противном случае в проект добавляется класс запуска.
 
-### Один из файлов app.config или web.config имеет новое значение конфигурации.
+### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>Один из файлов app.config или web.config имеет новое значение конфигурации.
 Были добавлены следующие записи конфигурации.
 
 ```
@@ -62,36 +66,36 @@ ms.author: tarcher
     </appSettings>`
 ```
 
-### Создано приложение Azure AD
+### <a name="an-azure-ad-app-was-created"></a>Создано приложение Azure AD
 Было создано приложение Azure AD в указанно в мастере каталоге.
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-## Какие дополнительные изменения внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*?
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Какие дополнительные изменения внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*?
 Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
 
-### Ссылки на существующие пакеты NuGet удалены
+### <a name="nuget-package-references-removed-for-those-present"></a>Ссылки на существующие пакеты NuGet удалены
 * `Microsoft.AspNet.Identity.Core`
-* .`Microsoft.AspNet.Identity.EntityFramework`
+* `Microsoft.AspNet.Identity.EntityFramework`
 * `Microsoft.AspNet.Identity.Owin`
 
-### Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
+### <a name="code-files-backed-up-and-removed-for-those-present"></a>Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
 Для каждого из следующих файлов создана резервная копия, а сами файлы удалены из проекта. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
 
 * `App_Start\IdentityConfig.cs`
-* .`Controllers\AccountController.cs`
-* .`Controllers\ManageController.cs`
-* .`Models\IdentityModels.cs`
+* `Controllers\AccountController.cs`
+* `Controllers\ManageController.cs`
+* `Models\IdentityModels.cs`
 * `Providers\ApplicationOAuthProvider.cs`
 
-### Для существующих файлов кода созданы резервные копии
+### <a name="code-files-backed-up-for-those-present"></a>Для существующих файлов кода созданы резервные копии
 Для каждого из следующих файлов создана резервная копия, после чего файлы были заменены. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
 
 * `Startup.cs`
 * `App_Start\Startup.Auth.cs`
 
-## Какие дополнительные изменения внесены в мой проект после установки флажка *Чтение данных каталога*?
-### В файл app.config или web.config внесены дополнительные изменения
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Какие дополнительные изменения внесены в мой проект после установки флажка *Чтение данных каталога*?
+### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>В файл app.config или web.config внесены дополнительные изменения
 Были добавлены следующие дополнительные записи настройки.
 
 ```
@@ -100,9 +104,14 @@ ms.author: tarcher
     </appSettings>`
 ```
 
-### Обновлено приложение Azure Active Directory
+### <a name="your-azure-active-directory-app-was-updated"></a>Обновлено приложение Azure Active Directory
 В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:Password* в файле `web.config`.
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

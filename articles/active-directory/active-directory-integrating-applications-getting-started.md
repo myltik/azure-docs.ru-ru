@@ -1,12 +1,12 @@
 ---
-title: Руководство по интеграции Azure Active Directory с приложениями | Microsoft Docs
-description: Эта статья представляет собой вводное руководство по интеграции Azure Active Directory (AD) с локальными приложениями и облачными приложениями.
+title: "Руководство по интеграции Azure Active Directory с приложениями | Документация Майкрософт"
+description: "Эта статья представляет собой вводное руководство по интеграции Azure Active Directory (AD) с локальными приложениями и облачными приложениями."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: ihenkel
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: inhenk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e35ac9ae791f7fa917cccbba5d06319f28b7033c
+
 
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Руководство по интеграции Azure Active Directory с приложениями
 ## <a name="overview"></a>Обзор
 В этой статье описан план интеграции приложений с Azure Active Directory (AD). Каждый из приведенных ниже разделов содержит краткое содержание более подробной статьи. Таким образом, вы сможете определить, какие части этого руководства по началу работы соответствуют вашим потребностям.  Для более подробного изучения каждой темы воспользуйтесь соответствующими ссылками.
 
-## <a name="before-you-begin,-take-inventory"></a>Инвентаризация перед началом работы
+## <a name="before-you-begin-take-inventory"></a>Инвентаризация перед началом работы
 Прежде чем перейти к интеграции приложений с Azure AD, нужно узнать, чем вы располагаете и что требуется сделать.  Перечисленные ниже вопросы помогут вам обдумать проект интеграции приложений с Azure AD.
 
 ### <a name="application-inventory"></a>Инвентаризация приложений
@@ -59,7 +63,7 @@ ms.author: inhenk
 Как было сказано выше, могут обнаружиться приложения, которые до сих пор были вне поля зрения вашей организации.  В процессе инвентаризации можно найти несанкционированные облачные приложения. См. статью [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 
 ### <a name="authentication-types"></a>Типы проверки подлинности
-Каждое приложение может иметь разные требования к проверке подлинности. С помощью Azure AD сертификаты подписи можно использовать с приложениями, использующими SAML 2.0, WS-Federation или протоколы подключения OpenID, а также единый вход с паролем. Дополнительные сведения о типах аутентификации в приложениях для использования с Azure AD см. в статье [Управление сертификатами для федеративного единого входа в Azure Active Directory](active-directory-sso-certs.md) и разделе [Единый вход на основе пароля](active-directory-appssoaccess-whatis.md).
+Каждое приложение может иметь разные требования к проверке подлинности. С помощью Azure AD сертификаты подписи можно использовать с приложениями, использующими SAML 2.0, WS-Federation или протоколы подключения OpenID, а также единый вход с паролем. Дополнительные сведения о типах аутентификации в приложениях для использования с Azure AD см. в статье [Управление сертификатами для федеративного единого входа в Azure Active Directory](active-directory-sso-certs.md) и разделе [Единый вход на основе пароля](active-directory-appssoaccess-whatis.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Включение единого входа с помощью прокси приложений Azure AD
 С помощью прокси приложений Microsoft Azure AD вы можете предоставлять безопасный доступ к приложениям, расположенным в частной сети, из любого места и с любого устройства. После установки в своей среде соединителя прокси-сервера приложения его можно легко настроить с Azure AD.
@@ -88,6 +92,9 @@ ms.author: inhenk
 ## <a name="see-also"></a>Дополнительные материалы
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

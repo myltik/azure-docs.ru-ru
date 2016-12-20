@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с приложением Icertis Contract Management Platform | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Icertis Contract Management Platform.
+title: "Учебник. Интеграция Azure Active Directory с Icertis Contract Management Platform | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Icertis Contract Management Platform."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2d2fba76850d6dfcff7545d6646f45c12e05c3f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Руководство. Интеграция Azure Active Directory с приложением Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Руководство. Интеграция Azure Active Directory с приложением Icertis Contract Management Platform
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с Icertis Contract Management Platform.
 
 Интеграция Icertis Contract Management Platform с Azure AD обеспечивает следующие преимущества.
 
 * С помощью Azure AD можно контролировать доступ к Icertis Contract Management Platform.
 * Вы можете включить автоматический вход пользователей в Icertis Contract Management Platform (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Icertis Contract Management Platform, вам потребуется следующее:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
@@ -130,10 +134,10 @@ ms.author: jeedes
     — **URL-адрес службы единого выхода**
 3. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -238,6 +242,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

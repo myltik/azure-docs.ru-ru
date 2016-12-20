@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 
 ---
@@ -38,17 +38,17 @@ ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
 * **Стандартный** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
 * **Премиум** — два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня "Стандартный", а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
 
-Каждый уровень отличается доступными возможностями и ценой. Дополнительные сведения о ценах см. на странице [цен на кэш Redis][Цены на кэш Redis].
+Каждый уровень отличается доступными возможностями и ценой. Дополнительные сведения о ценах на кэш см. на [этой странице][Cache Pricing Details].
 
-В этом руководстве показано, как использовать клиент [StackExchange.Redis][StackExchange.Redis] с помощью кода C\#. Рассматриваемые сценарии включают **создание и настройку кэша**, **настройку клиентов кэша**, а также **добавление объектов в кэш и их удаление**. Дополнительные сведения об использовании кэша Redis для Azure см. в разделе [Дальнейшие действия][Дальнейшие действия]. Пошаговое руководство по созданию веб-приложения MVC ASP.NET с помощью кэша Redis см. в статье [Как создать веб-приложение с использованием кэша Redis](cache-web-app-howto.md).
+В этом руководстве показано, как использовать клиент [StackExchange.Redis][StackExchange.Redis] с помощью кода C\#. Рассматриваемые сценарии включают **создание и настройку кэша**, **настройку клиентов кэша**, а также **добавление объектов в кэш и их удаление**. Дополнительные сведения об использовании кэша Redis для Azure см. в разделе [Дальнейшие действия][Next Steps]. Пошаговое руководство по созданию веб-приложения MVC ASP.NET с помощью кэша Redis см. в статье [Как создать веб-приложение с использованием кэша Redis](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Начало работы с кэшем Redis для Azure
 Начать работу с кэшем Azure Redis просто. Чтобы приступить к работе, подготовьте и настройте кэш. Затем следует настроить клиенты кэша, чтобы они могли обращаться к кэшу. Когда клиенты кэша настроены, с ними можно работать.
 
-* [Создание кэша][Создание кэша]
-* [Настройка клиентов кэша][Настройка клиентов кэша]
+* [Создание кэша][Create the cache]
+* [Настройка клиентов кэша][Configure the cache clients]
 
 <a name="create-cache"></a>
 
@@ -72,8 +72,8 @@ ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
 ## <a name="working-with-caches"></a>Работа с кэшами
 Действия, приведенные в этом разделе, описывают способы выполнения типовых задач при работе с кэшем.
 
-* [Подключение к кэшу][Подключение к кэшу]
-* [Добавление и извлечение объектов из кэша][Добавление и извлечение объектов из кэша]
+* [Подключение к кэшу][Connect to the cache]
+* [Добавление в кэш объектов и их извлечение][Add and retrieve objects from the cache]
 * [Работа с объектами .NET в кэше](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
@@ -121,7 +121,7 @@ ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
         }
     }
 
-Дополнительные сведения о вариантах расширенных настроек соединения см. в разделе о [модели конфигурации StackExchange.Redis][Модель конфигурации StackExchange.Redis].
+Дополнительные сведения по вариантам расширенных настроек соединения см. в статье [Модель конфигурации StackExchange.Redis][StackExchange.Redis configuration model].
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -202,30 +202,30 @@ Redis хранит большинство данных в строках Redis, 
   * [Поставщик состояний сеансов Redis для Azure](cache-aspnet-session-state-provider.md)
   * [Поставщик кэша вывода ASP.NET для кэша Redis для Azure](cache-aspnet-output-cache-provider.md)
 * [Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша. Вы можете просмотреть метрики на портале Azure. Кроме того, их можно [скачать и просмотреть](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) с помощью привычных вам инструментов.
-* Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][документация по клиенту кэша StackExchange.Redis].
-  * Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. по адресу [http://redis.io/clients][http://redis.io/clients].
+* Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][StackExchange.Redis cache client documentation].
+  * Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. на странице [http://redis.io/clients][http://redis.io/clients].
 * Кэш Redis для Azure можно также использовать со сторонними службами и средствами, например с Redsmin и Redis Desktop Manager.
-  * Дополнительные сведения о Redsmin см. в статье о [получении строки подключения Redis для Azure и ее использовании с Redsmin][Получение строки подключения Redis для Azure и ее использовании с Redsmin].
+  * Дополнительные сведения о Redsmin см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin].
   * Вы можете открыть и проверить свои данные в кэше Redis для Azure с помощью графического пользовательского интерфейса [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* См. документацию по [Redis][redis]: прочитайте статью о [типах данных Redis][типы данных Redis] и [пятнадцатиминутное введение в типы данных Redis][пятнадцатиминутное введение в типы данных Redis].
+* Ознакомьтесь с документацией по [Redis][redis]: прочитайте [статью о типах данных Redis][redis data types] и [пятнадцатиминутное введение в типы данных Redis][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
-[Дальнейшие действия]: #next-steps
-[Введение в кэш Redis для Azure (видео)]: #video
-[Описание кэша Redis для Azure]: #what-is
-[Создание кэша Azure]: #create-cache
-[Какой тип кэширования мне выбрать?]: #choosing-cache
-[Подготовка проекта Visual Studio для использования кэширования Azure]: #prepare-vs
-[Настройка приложения для использования кэширования]: #configure-app
-[Начало работы с кэшем Redis для Azure]: #getting-started-cache-service
-[Создание кэша]: #create-cache
-[Настройка кэша]: #enable-caching
-[Настройка клиентов кэша]: #NuGet
-[Работа с кэшами]: #working-with-caches
-[Подключение к кэшу]: #connect-to-cache
-[Добавление в кэш объектов и их извлечение]: #add-object
-[Указание срока действия объекта в кэше]: #specify-expiration
-[Сохранение состояния сеанса ASP.NET в кэше]: #store-session
+[Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
+[What is Azure Redis Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Get Started with Azure Redis Cache]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[Connect to the cache]: #connect-to-cache
+[Add and retrieve objects from the cache]: #add-object
+[Specify the expiration of an object in the cache]: #specify-expiration
+[Store ASP.NET session state in the cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -243,7 +243,7 @@ Redis хранит большинство данных в строках Redis, 
 
 [BrowseCaches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
 
-[Кэши]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
+[Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
 
 
 
@@ -253,52 +253,52 @@ Redis хранит большинство данных в строках Redis, 
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Разработка на других языках для кэша Redis для Azure]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[Получение строки подключения Redis для Azure и ее использование с Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Поставщик состояний сеансов Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
-[Практическое руководство. Настройка клиента кэша программным способом]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Поставщик состояний сеансов для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: кэширование состояния сеанса]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Поставщик кэша вывода для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Общий кэш Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Блог группы разработчиков]: http://blogs.msdn.com/b/windowsazure/
-[Кэширование Azure]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Настройка размера виртуальных машин]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Рекомендации по планированию загрузки кэширования Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Кэширование Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Практическое руководство. Задание возможности кэширования страницы программными средствами]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Настройка кэша в кэше Redis для Azure]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[Модель конфигурации StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Работа с объектами .NET в кэше]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
-[Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах на кэш]: http://www.windowsazure.com/pricing/details/cache/
-[Портал Azure]: https://portal.azure.com/
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
+[Azure Portal]: https://portal.azure.com/
 
-[Общие сведения о кэше Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
-[кэш Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=398247
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Переход на кэш Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Примеры кэша Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Использование групп ресурсов для управления ресурсами Azure]: ../azure-resource-manager/resource-group-overview.md
+[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[документацией по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[Типы данных Redis]: http://redis.io/topics/data-types
-[Пятнадцатиминутное введение в типы данных Redis]: http://redis.io/topics/data-types-intro
+[Redis data types]: http://redis.io/topics/data-types
+[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
-[Как работают строки приложения и строки подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-
-
+[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

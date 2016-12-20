@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Picturepark | Microsoft Docs
-description: Узнайте, как использовать Picturepark с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с Picturepark | Документация Майкрософт"
+description: "Узнайте, как использовать Picturepark с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98f2e5596a0af2fc9e633e005642cc3cd21621ce
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-picturepark"></a>Учебник. Интеграция Azure Active Directory с Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Учебник. Интеграция Azure Active Directory с Picturepark
 Цель данного учебника — показать интеграцию Azure и Picturepark.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-picturepark"></a>Включение интеграции приложений для Picturepark
 В этом разделе показано, как включить интеграцию приложений для Picturepark.
 
-### <a name="to-enable-the-application-integration-for-picturepark,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Picturepark, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-picturepark-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Picturepark, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
@@ -62,8 +66,8 @@ ms.author: jeedes
 Чтобы настроить единый вход для Picturepark, необходимо извлечь значение отпечатка из сертификата.  
 Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)..
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На классическом портале Azure на странице интеграции с приложением **Picturepark** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+1. На классическом портале Azure на странице интеграции с приложением **Picturepark** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
 2. На странице **Как пользователи должны входить в Picturepark?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
@@ -108,7 +112,7 @@ ms.author: jeedes
 Чтобы пользователи Azure AD могли выполнять вход в Picturepark, они должны быть подготовлены для Picturepark.  
 В случае с Picturepark подготовка выполняется вручную.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 1. Выполните вход в клиент **Picturepark** .
 2. Щелкните **Administrative tools** (Администрирование) на панели инструментов в верхней части страницы и выберите **Users** (Пользователи).
    
@@ -132,7 +136,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-picturepark,-perform-the-following-steps:"></a>Чтобы назначить пользователей Picturepark, выполните следующие действия:
+### <a name="to-assign-users-to-picturepark-perform-the-following-steps"></a>Чтобы назначить пользователей Picturepark, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Picturepark** щелкните **Назначить пользователей**.
    
@@ -143,6 +147,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

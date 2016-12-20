@@ -1,23 +1,27 @@
 ---
-title: Просмотр кода SAML, возвращаемого службой контроля доступа (Java)
-description: Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure.
+title: "Просмотр кода SAML, возвращаемого службой контроля доступа (Java)"
+description: "Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782b73f4a3d3bac5423412349a08edc5f60829da
+
 
 ---
-# Как просматривать SAML, возвращенный службой Azure Access Control
-В этом руководстве показано, как просмотреть базовый код SAML, который возвращается в ваше приложение службой контроля доступа Azure (ACS). В этом руководстве используются материалы статьи [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse], в частности, код, позволяющий отображать данные SAML. Ниже приводится пример завершенного приложения.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Как просматривать SAML, возвращенный службой Azure Access Control
+В этом руководстве показано, как просмотреть базовый код SAML, который возвращается в ваше приложение службой контроля доступа Azure (ACS). В этом руководстве используются материалы раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), в частности, код, позволяющий отображать данные SAML. Ниже приводится пример завершенного приложения.
 
 ![Пример выходных данных SAML][saml_output]
 
@@ -28,22 +32,22 @@ ms.author: robmcm
 > 
 > 
 
-## Предварительные требования
-Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse], и используйте его в качестве отправной точки для дальнейшей работы.
+## <a name="prerequisites"></a>Предварительные требования
+Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), и используйте его в качестве отправной точки для дальнейшей работы.
 
-## Добавление библиотеки JspWriter к пути построения и сборке развертывания
-Добавьте библиотеку, содержащую класс **javax.servlet.jsp.JspWriter**, к пути построения и сборке развертывания. Библиотека **jsp-api.jar** для сервера Tomcat размещается в папке Apache **lib**.
+## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Добавление библиотеки JspWriter к пути построения и сборке развертывания
+Добавьте библиотеку, содержащую класс **javax.servlet.jsp.JspWriter** , к пути построения и сборке развертывания. Библиотека **jsp-api.jar** для сервера Tomcat размещается в папке Apache **lib**.
 
-1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши по проекту **MyACSHelloWorld**, выберите **Путь построения**, затем щелкните **Настроить путь построения**, откройте вкладку **Библиотеки** и выберите **Добавить внешние JAR-файлы**.
-2. В диалоговом окне **Выбор JAR-файла** выберите нужный JAR-файл и нажмите кнопку **Открыть**.
-3. Не закрывайте диалоговое окно **Свойства MyACSHelloWorld** и щелкните **Сборка развертывания**.
-4. В диалоговом окне **Сборка веб-развертывания** нажмите кнопку **Добавить**.
-5. В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
+1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши проект **MyACSHelloWorld**, выберите **Build Path** (Путь сборки), затем щелкните **Configure Build Path** (Настроить путь сборки), откройте вкладку **Libraries** (Библиотеки) и выберите **Add External JARs** (Добавить внешние JAR-файлы).
+2. В диалоговом окне **JAR Selection** (Выбор JAR-файла) выберите нужный JAR-файл и нажмите кнопку **Open** (Открыть).
+3. Не закрывайте диалоговое окно **Свойства MyACSHelloWorld** и щелкните **Deployment Assembly** (Сборка развертывания).
+4. В диалоговом окне **Web Deployment Assembly** (Сборка веб-развертывания) нажмите кнопку **Add** (Добавить).
+5. В диалоговом окне **New Assembly Directive** (Новая директива сборки) щелкните **Java Build Path Entries** (Записи пути сборки Java) и нажмите кнопку **Next** (Далее).
 6. Выберите соответствующую библиотеку и нажмите кнопку **Готово**.
 7. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства MyACSHelloWorld**.
 
-## Изменение JSP-файла для отображения кода SAML
-Измените файл **index.jsp**, используя следующий код.
+## <a name="modify-the-jsp-file-to-display-saml"></a>Изменение JSP-файла для отображения кода SAML
+Измените файл **index.jsp** , используя следующий код.
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
@@ -127,7 +131,7 @@ ms.author: robmcm
                                      for (i=0; i < nChild; i++)
                                      {
                                         Node temp = list.item(i);
-                                        displaySAMLInfo(temp, parent + nodeName + "\", out);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
                                      }
                                }
                           }
@@ -142,7 +146,7 @@ ms.author: robmcm
         %>
 
         <%
-        try 
+        try
         {
             String data  = (String) request.getAttribute("ACSSAML");
 
@@ -153,7 +157,7 @@ ms.author: robmcm
             docBuilder = docBuilderFactory.newDocumentBuilder();
             byte[] xmlDATA = data.getBytes();
 
-            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA);
             doc = docBuilder.parse(in);
             doc.getDocumentElement().normalize();
 
@@ -165,7 +169,7 @@ ms.author: robmcm
                 displaySAMLInfo(list.item(i), "", out);
             }
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             out.println("Exception encountered.");
             e.printStackTrace();
@@ -175,21 +179,24 @@ ms.author: robmcm
     </body>
     </html>
 
-## Выполнение приложения
-1. Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse].
+## <a name="run-the-application"></a>Выполнение приложения
+1. Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md).
 2. Запустите браузер и откройте в нем свое веб-приложение. После того, как вы войдете в приложение, будут показаны данные SAML, включая утверждения безопасности, предоставляемые поставщиком удостоверений.
 
-## Дальнейшие действия
-Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. раздел [Служба Access Control 2.0][Служба Access Control 2.0].
+## <a name="next-steps"></a>Дальнейшие действия
+Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. раздел [Служба Access Control Service 2.0][Служба Access Control Service 2.0].
 
-[Prerequisites]: #pre
-[Modify the JSP file to display SAML]: #modify_jsp
-[Add the JspWriter library to your build path and deployment assembly]: #add_library
-[Run the application]: #run_application
-[Next steps]: #next_steps
-[Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Предварительные требования]: #pre
+[Изменение JSP-файла для отображения кода SAML]: #modify_jsp
+[Добавление библиотеки JspWriter к пути построения и сборке развертывания]: #add_library
+[Выполнение приложения]: #run_application
+[Дальнейшие действия]: #next_steps
+[Служба Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+
