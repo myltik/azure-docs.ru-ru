@@ -78,7 +78,7 @@
 #### [Распаковка, установка в стойку, подключение кабелей 8100](storsimple-8100-hardware-installation.md)
 
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
-#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Развернуть
 #### [Служба диспетчера StorSimple](storsimple-manage-service.md)
@@ -86,7 +86,7 @@
 ##### [Физическое устройство в Azure (обновление 1)](storsimple-deployment-walkthrough-u1.md)
 ##### [Физическое устройство в Azure (общая доступность)](storsimple-deployment-walkthrough.md)
 #### [Физическое устройство на портале для государственных организаций (текущая версия)](storsimple-deployment-walkthrough-gov-u2.md)
-##### [Физическое устройство на портале для государственных организаций (обновление 1)](storsimple-deployment-walkthrough-gov.md)
+##### [Физическое устройство на портале для государственных организаций (обновление 1)](storsimple-deployment-walkthrough-gov.md)
 #### [Виртуальное устройство в Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [Адаптер StorSimple для SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -138,6 +138,9 @@
 ##### [Использование действий MMC в StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Создание решений
+#### [StorSimple с Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple с Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple с Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Автоматизация восстановления данных сервера файлов в Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Использование StorSimple с Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple с VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
