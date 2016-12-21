@@ -1,77 +1,13 @@
 ---
-title: "Azure AD Connect: экземпляры службы синхронизации | Документация Майкрософт"
-description: "На этой странице приводятся специальные рекомендации для экземпляров Azure AD."
-services: active-directory
-documentationcenter: 
-author: andkjell
-manager: femila
-editor: 
-ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/27/2016
-ms.author: billmath
+redirect_url: /azure/active-directory/connect/active-directory-aadconnect-instances
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
-
+ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
+ms.openlocfilehash: 5388deb047ac7018bfb98f20cae0f4d3f5349f7d
 
 ---
-# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: специальные рекомендации для экземпляров
-Azure AD Connect чаще всего используется с доступным во всем мире экземпляром Azure AD и Office 365. Но существуют и другие экземпляры, и они имеют другие требования к URL-адресам и прочие особенности.
-
-## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany
-[Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) — это независимое облако, обслуживаемое управителем данными из Германии.
-
-В настоящее время это облако доступно в предварительной версии. Многие сценарии, которые обычно можно выполнить самостоятельно, такие как проверка доменов, должны выполняться оператором. Дополнительные сведения о том, как принять участие в оценке предварительной версии, можно получить у местного представителя корпорации Майкрософт.
-
-| URL-адреса для открытия на прокси-сервере |
-| --- |
-| \*.microsoftonline.de |
-| \*.windows.net |
-| +Списки отзыва сертификатов |
-
-При входе в каталог Azure AD необходимо использовать учетную запись в домене onmicrosoft.de.
-
-Функции, которые пока отсутствуют в Microsoft Cloud Germany:
-
-* Службы Azure AD Connect Health недоступны.
-* Автоматические обновления недоступны.
-* Компонент обратной записи паролей недоступен.
-
-## <a name="microsoft-azure-government-cloud"></a>Облако Microsoft Azure для государственных организаций
-[Облако Microsoft Azure для государственных организаций](https://azure.microsoft.com/features/gov/) — это облако для правительства США.
-
-Это облако поддерживается в более ранних выпусках DirSync. Начиная со сборки 1.1.180 Azure AD Connect поддерживается следующее поколение облака. Это поколение использует базирующиеся только в США конечные точки и имеет другой список URL-адресов для открытия на прокси-сервере.
-
-| URL-адреса для открытия на прокси-сервере |
-| --- |
-| \*.microsoftonline.com |
-| \*.gov.us.microsoftonline.com |
-| +Списки отзыва сертификатов |
-
-Azure AD Connect не сможет автоматически определять, что каталог Azure AD находится в облаке для государственных организаций. Вместо этого при установке Azure AD Connect необходимо выполнить следующие действия.
-
-1. Начните установку Azure AD Connect
-2. Как только отобразится первая страница, на которой предлагается принять условия лицензионного соглашения, не продолжайте, но и не прерывайте работу мастера установки.
-3. Запустите редактор реестра (regedit) и измените раздел реестра `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance`, присвоив ему значение `2`.
-4. Вернитесь в мастер установки Azure AD Connect, примите условия лицензионного соглашения и перейдите к следующему шагу. Во время установки убедитесь, что используется путь установки из **пользовательской конфигурации** (а не экспресс-установка). Затем продолжите обычную последовательность установки.
-
-Функции, которые пока отсутствуют в облаке Microsoft Azure для государственных организаций:
-
-* Службы Azure AD Connect Health недоступны.
-* Автоматические обновления недоступны.
-* Компонент обратной записи паролей недоступен.
-
-## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
