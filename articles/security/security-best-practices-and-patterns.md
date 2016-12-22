@@ -1,12 +1,12 @@
 ---
-title: Рекомендации и шаблоны для обеспечения безопасности в Azure | Microsoft Docs
-description: В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure.
+title: "Рекомендации и шаблоны для обеспечения безопасности в Azure | Документация Майкрософт"
+description: "В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
+ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+
 
 ---
-# Рекомендации и шаблоны для обеспечения безопасности в Azure
-Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.
+# <a name="azure-security-best-practices-and-patterns"></a>Рекомендации и шаблоны для обеспечения безопасности в Azure
+Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.  
 
 * [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
 * [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
 * [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
 * [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
+* [Security best practices for IaaS workloads in Azure] (Рекомендации по безопасности рабочих нагрузок IaaS в Azure) (azure-security-iaas.md)
 * [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
@@ -43,4 +48,9 @@ Azure — это безопасная платформа для создания
 
 Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

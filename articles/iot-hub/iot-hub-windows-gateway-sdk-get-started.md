@@ -1,22 +1,26 @@
 ---
-title: Приступая к работе с пакетом SDK для шлюза центра IoT | Microsoft Docs
-description: Пошаговое руководство по работе с пакетом SDK для шлюза IoT Azure под управлением Windows иллюстрирует основные понятия, которые нужно знать при работе с пакетом SDK для шлюза IoT Azure.
+title: "Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей | Документация Майкрософт"
+description: "Пошаговое руководство по работе с пакетом SDK для шлюза IoT Azure под управлением Windows иллюстрирует основные понятия, которые нужно учитывать при работе с пакетом SDK для шлюза IoT Azure."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9aff3724-5e4e-40ec-b95a-d00df4f590c5
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
+ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+
 
 ---
-# <a name="iot-gateway-sdk-(beta)---get-started-using-windows"></a>IoT Gateway SDK (beta) - Get started using Windows (Пакет SDK для шлюза IoT (бета-версия): приступая к работе с Windows)
+# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Пакет SDK для шлюза Интернета вещей Azure. Начало работы с Windows
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Сборка примера
@@ -29,41 +33,47 @@ ms.author: andbuc
 ## <a name="how-to-run-the-sample"></a>Запуск примера
 1. Сценарий **build.cmd** создает папку с именем **build** в локальной копии репозитория. Эта папка содержит два модуля, которые используются в данном примере.
    
-    Сценарий сборки размещает **logger_hl.dll** в папке **build\\modules\\logger\\Debug** и **hello_world_hl.dl** в папке **build\\modules\\hello_world\\Debug**. Используйте эти пути для настройки значения **module path** , как указано в приведенном ниже файле параметров JSON.
-2. Файл **hello_world_win.json** в папке **samplessamples\\hello_world\\src** представляет собой пример файла параметров JSON для Windows, который можно использовать для запуска примера. В представленном ниже примере параметров JSON предполагается, что вы клонировали репозиторий пакета SDK для шлюза в корневую папку **C:** . Если вы загрузили его в другое место, внесите соответствующие изменения в значения **module path** в файле **samples\\hello_world\\src\\hello_world_win.json**.
-3. Для модуля **logger_hl** в разделе **args** укажите в качестве значения **filename** имя и путь файла, который будет содержать данные журнала.
-   
-    Вот пример параметров JSON для Windows, который записывается в файл **log.txt** в корневой папке диска **C:**.
+    Сценарий сборки размещает **logger.dll** в папке **build\\modules\\logger\\Debug** и **hello_world.dll** в папке **build\\modules\\hello_world\\Debug**. Используйте эти пути для настройки значения **module path**, как указано в приведенном ниже файле параметров JSON.
+2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации как аргумент в командной строке. Следующий пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. Он будет работать как есть, если вы не измените сценарий сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях. 
+
+   > [!NOTE]
+   > Пути к модулям зависят от каталога, в котором находится файл hello_world_sample.exe. По умолчанию пример JSON-файла конфигурации предусматривает запись файла log.txt в текущем рабочем каталоге.
    
     ```
     {
-      "modules" :
-      [
+      "modules": [
         {
-          "module name" : "logger_hl",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
-          "args" : 
-          {
-            "filename":"C:\\log.txt"
-          }
+          "name": "logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+            }
+          },
+          "args": { "filename": "log.txt" }
         },
         {
-          "module name" : "hello_world",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
-          "args" : null
-        }
+          "name": "hello_world",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+            }
+          },
+          "args": null
+          }
       ],
-      "links" :
-      [
+      "links": [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. В командной строке перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
-5. Выполните следующую команду:
+3. Перейдите в корневую папку локальной копии репозитория **azure-iot-gateway-sdk**.
+
+4. Выполните следующую команду:
    
    ```
    build\samples\hello_world\Debug\hello_world_sample.exe samples\hello_world\src\hello_world_win.json
@@ -75,6 +85,7 @@ ms.author: andbuc
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 
