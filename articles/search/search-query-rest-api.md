@@ -11,31 +11,32 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 
 ---
+
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Отправка запросов в индекс службы поиска Azure с помощью REST API
 > [!div class="op_single_selector"]
+>
 > * [Обзор](search-query-overview.md)
 > * [Портал](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
-В этой статье показано, как отправлять запросы в индекс с помощью [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+В этой статье показано, как отправлять запросы в индекс с помощью [REST API службы поиска Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 Прежде чем приступать к выполнению инструкций из этого руководства, необходимо [создать индекс службы поиска Azure](search-what-is-an-index.md) и [заполнить его данными](search-what-is-data-import.md).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>1. Определение ключа API запроса службы поиска Azure
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>1. Определение ключа API запроса службы поиска Azure
 Ключевым компонентом каждой операции поиска с REST API службы поиска Azure является *ключ API* , созданный для службы, которую вы подготовили. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/)
+1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
 2. Перейдите к колонке службы поиска Azure.
 3. Щелкните значок "Ключи".
 
@@ -47,11 +48,11 @@ ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
 Для отправки запросов в индекс можно использовать один из ключей запросов. Для запросов можно использовать также ключи администратора, но в коде приложения следует использовать ключ запроса, так как этот вариант лучше соответствует [принципу предоставления минимальных прав](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## <a name="ii-formulate-your-query"></a>2. Формулировка запроса
-Существует два способа [поиска в индексе с помощью REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx). Один из них — отправка HTTP-запроса POST с текстом, содержащим объект JSON, в котором определены параметры запроса. Другой способ — отправка HTTP-запроса GET, содержащего URL-адрес, в котором определены параметры запроса. Обратите внимание, что в POST [менее жесткие ограничения](https://msdn.microsoft.com/library/azure/dn798927.aspx) на размер параметров запроса, чем в GET. Поэтому мы рекомендуем использовать запрос POST, за исключением особых случаев, когда удобнее использовать запрос GET.
+Существует два способа [поиска в индексе с помощью REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Один из них — отправка HTTP-запроса POST с текстом, содержащим объект JSON, в котором определены параметры запроса. Другой способ — отправка HTTP-запроса GET, содержащего URL-адрес, в котором определены параметры запроса. Обратите внимание, что в POST [менее жесткие ограничения](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) на размер параметров запроса, чем в GET. Поэтому мы рекомендуем использовать запрос POST, за исключением особых случаев, когда удобнее использовать запрос GET.
 
-Как для POST, так и для GET в URL-адресе запроса необходимо указать *имя службы*, *имя индекса*, а также правильную *версию API* (текущая версия API на момент публикации этого документа — `2015-02-28`). Если вы используете GET, параметры запроса указываются в *строке запроса* в конце URL-адреса. Ниже приведен формат URL-адреса.
+Как для POST, так и для GET в URL-адресе запроса необходимо указать *имя службы*, *имя индекса*, а также правильную *версию API* (текущая версия API на момент публикации этого документа — `2016-09-01`). Если вы используете GET, параметры запроса указываются в *строке запроса* в конце URL-адреса. Ниже приведен формат URL-адреса.
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
 Формат для POST такой же, но в параметрах в строке запроса указывается только версия API.
 
@@ -61,9 +62,9 @@ ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
 Здесь выполняется поиск термина budget по всему индексу и возвращается только поле `hotelName`.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "budget",
     "select": "hotelName"
@@ -73,9 +74,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Примените фильтр к индексу, чтобы найти гостиницы с номерами дешевле 150 долларов США за ночь, и получите значения `hotelId` и `description`.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -86,9 +87,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Здесь выполняются поиск по всему индексу и сортировка по полю `lastRenovationDate` в порядке убывания, выбираются два первых результата и отображаются только значения `hotelName` и `lastRenovationDate`.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -110,7 +111,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Ниже приведен HTTP-запрос GET для поиска по индексу hotels с помощью REST API службы поиска Azure и простого запроса, который ищет термин motel.
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
 Accept: application/json
 api-key: [query key]
 ```
@@ -118,7 +119,7 @@ api-key: [query key]
 Вот тот же пример запроса, но на этот раз используется HTTP-запрос POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]
@@ -161,11 +162,10 @@ api-key: [query key]
 }
 ```
 
-Дополнительные сведения см. в статье [Поиск документов (REST API службы поиска Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) в разделе "Ответ". Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск в Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Дополнительные сведения см. в статье [Поиск документов (REST API службы поиска Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) в разделе "Ответ". Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск в Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

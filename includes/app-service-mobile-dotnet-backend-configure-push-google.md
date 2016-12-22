@@ -1,9 +1,9 @@
-Используйте процедуру, которая соответствует типу вашего серверного проекта &mdash; [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
+Используйте процедуру, которая соответствует типу вашего серверного проекта: [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Серверный проект .NET
-1. В Visual Studio щелкните правой кнопкой мыши серверный проект, выберите пункт **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
+### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Серверный проект .NET
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект, выберите пункт **Управление пакетами NuGet**. Найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
 2. Разверните папку "Контроллеры", откройте файл TodoItemController.cs и добавьте следующие операторы `using` :
-   
+
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 3. Замените метод `PostTodoItem` следующим кодом:  
@@ -14,7 +14,7 @@
             // Get the settings for the server project.
             HttpConfiguration config = this.Configuration;
 
-            MobileAppSettingsDictionary settings = 
+            MobileAppSettingsDictionary settings =
                 this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
             // Get the Notification Hubs credentials for the Mobile App.
@@ -46,30 +46,30 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-1. Повторная публикация серверного проекта
+4. Повторная публикация серверного проекта
 
-### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Серверный проект Node.js
+### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Серверный проект Node.js
 1. [Скачайте проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
 2. Замените существующий код в файле todoitem.js следующим кодом:
-   
+
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
         logger = require('azure-mobile-apps/src/logger');
-   
+
         var table = azureMobileApps.table();
-   
+
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK, 
+        // For more information about the Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
-   
+
         // Define the GCM payload.
         var payload = {
             "data": {
                 "message": context.item.text
             }
         };   
-   
+
         // Execute the insert.  The insert returns the results as a Promise,
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
@@ -92,14 +92,13 @@
                 logger.error('Error while running context.execute: ', error);
             });
         });
-   
+
         module.exports = table;  
-   
-    При вставке нового элемента todo отправляется уведомление GCM, содержащее item.text. 
-3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект. 
+
+    При вставке нового элемента todo отправляется уведомление GCM, содержащее item.text.
+3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
