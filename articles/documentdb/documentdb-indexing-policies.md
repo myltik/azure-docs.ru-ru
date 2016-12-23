@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/11/2016
+ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
@@ -96,9 +96,8 @@ DocumentDB возвращает ошибку для запросов к колл
 
 В следующем примере кода показано, как создать коллекцию DocumentDB с помощью пакета SDK для .NET с согласованным индексированием всех операций вставки документа.
 
-     // Default collection creates a hash index for all string and numeric    
-     // fields. Hash indexes are compact and offer efficient
-     // performance for equality queries.
+     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
 
