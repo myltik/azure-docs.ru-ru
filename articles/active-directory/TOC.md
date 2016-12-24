@@ -65,8 +65,7 @@
 
 
 #### [События аудита](active-directory-reporting-audit-events.md)
-#### [Удержание](active-directory-reporting-retention.md)
-#### [Обратная засыпка](active-directory-reporting-backfill.md)
+#### [Сохранение](active-directory-reporting-retention.md)
 #### [Задержки](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### Чтение отчетов
@@ -203,6 +202,7 @@
 #### [Параметры групповой политики](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Параметры Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Часто задаваемые вопросы](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Интеграция партнеров с помощью Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Обзор](active-directory-b2b-collaboration-overview.md)
 #### [Принцип работы](active-directory-b2b-how-it-works.md)
@@ -297,6 +297,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

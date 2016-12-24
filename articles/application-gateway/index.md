@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как развертывать контроллер доставки облачных приложений. Документация, в которой показано, как настроить маршрутизацию на уровне приложений и балансировку нагрузки для веб-интерфейса."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Документация по шлюзу приложений
 
-Шлюз приложений Azure предоставляет контроллер доставки приложений (ADC) в виде службы.  Таким образом, пользователи могут оптимизировать производительность веб-фермы за счет выполнения операции завершения SSL-запросов, требующей интенсивного использования ЦП, в шлюзе приложений.  Это выделенное виртуальное устройство для вашего приложения с возможностью масштабирования и высоким уровнем доступности, а также широким набором средств диагностики и ведением журнала для более эффективного управления.
+Узнайте, как развертывать шлюз приложений, контроллер доставки приложений (ADC) в качестве службы. Руководства, справочники по API и другая документация, в которой показано, как настроить маршрутизацию на уровне приложений и службы балансировки нагрузки для создания масштабируемых веб-интерфейсов с высоким уровнем доступности.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +58,7 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе со шлюзом приложений Azure на портале Azure</h3>
+                        <h3>Начало работы со шлюзом приложений Azure на портале Azure</h3>
                     </div>
                 </div>
             </div>
@@ -75,7 +76,7 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе со шлюзом приложений Azure при помощи PowerShell</h3>
+                        <h3>Начало работы со шлюзом приложений Azure при помощи PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +94,7 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе со шлюзом приложений при помощи шаблона Resource Manager</h3>
+                        <h3>Начало работы со шлюзом приложений при помощи шаблона Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -104,81 +105,51 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Предварительная версия Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/cli/azure/network/application-gateway">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Интерфейс командной строки Azure</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.js</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Справочник по API .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по API для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt684939.aspx">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>справочник по API REST</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">справочник по API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Справочник по REST API (классическая модель)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>   
-    </ul>
-    
+    </li>
+</ul>   
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
@@ -190,6 +161,6 @@ ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

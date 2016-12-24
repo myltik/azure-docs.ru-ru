@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать диспетчер ресурсов для развертывания и администрирования ресурсов решений в качестве группы, а также как создавать шаблоны для согласованного и воспроизводимого развертывания ресурсов."
 translationtype: Human Translation
-ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
-ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Документация по Azure Resource Manager
 
-Обычно инфраструктура приложения состоит из ряда компонентов, например из виртуальной машины, учетной записи хранения и виртуальной сети или веб-приложения, базы данных, сервера базы данных и служб сторонних поставщиков. Эти компоненты не отображаются как отдельные сущности, вместо этого они воспринимаются как связанные и взаимозависимые части одной сущности. Их нужно развертывать, контролировать и отслеживать в виде группы. Azure Resource Manager позволяет работать с ресурсами решения как с группой. Вы можете развертывать, обновлять или удалять все ресурсы решения в рамках одной скоординированной операции. Развертывание осуществляется на основе шаблона, используемого для разных сред, в том числе для тестовой, промежуточной и рабочей. Resource Manager предоставляет функции безопасности, аудита и добавления тегов, помогающие управлять ресурсами после развертывания
+Узнайте, как использовать диспетчер ресурсов для развертывания, отслеживания и администрирования ресурсов решения в качестве группы. Руководства, справочники по API и другая документация, в которой показано, как настраивать группы ресурсов и создавать шаблоны для согласованного и воспроизводимого развертывания.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,109 +104,50 @@ ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Командлеты PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/cli/azure/resource">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/cli/azure">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Интерфейс командной строки Azure</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Схемы шаблонов</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управление ресурсами и группами ресурсов Azure с помощью .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/resources/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Начало работы с ресурсами: управление ресурсами на Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Управление ресурсами и группами ресурсов Azure с помощью Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Управление ресурсами и группами ресурсов Azure на Python</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Ruby</h3>
-                        <p>Управление ресурсами и группами ресурсов Azure на Ruby</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
 
 ---
 <div class="downloadHolder">
@@ -217,6 +159,7 @@ ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

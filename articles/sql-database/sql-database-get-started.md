@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 * создадим логический сервер SQL Azure;
 * просмотрим свойства логического сервера SQL Azure;
 * создадим правило брандмауэра на уровне сервера;
-* создадим пример автономной базы данных Adventure Works LT;
+* создадим пример отдельной базы данных Adventure Works LT;
 * просмотрим свойства примера базы данных Adventure Works LT в Azure.
 
 В этом руководстве мы также будем использовать последнюю версию SQL Server Management Studio. Этот продукт нам понадобится для:
@@ -208,7 +208,7 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
     ![Учетные данные для сервера](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Базу данных можно добавить на сервер как автономную базу данных (по умолчанию) или в составе пула эластичных БД. Дополнительные сведения о пулах эластичных БД см. в статье [Что такое пул эластичных БД Azure](sql-database-elastic-pool.md).
+    > Базу данных можно добавить на сервер как отдельную базу данных (по умолчанию) или в составе пула эластичных БД. Дополнительные сведения о пулах эластичных БД см. в статье [Что такое пул эластичных БД Azure](sql-database-elastic-pool.md).
     >
 
 7. В разделе "Ценовая категория" выберите уровень **Базовый**. При необходимости ценовую категорию можно будет изменить позже, но для учебных целей мы рекомендуем использовать категорию с наименьшей стоимостью.
@@ -299,11 +299,13 @@ ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 * Сведения о том, как создавать таблицы и другие объекты, см. в разделе "Создание таблицы" в статье [Создание таблицы (Учебник)](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Что такое база данных SQL?](sql-database-technical-overview.md)
+
+- Технический обзор см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md).
+- Сведения о ценах см. на [странице с ценами на базы данных SQL Azure](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

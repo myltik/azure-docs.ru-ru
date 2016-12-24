@@ -46,6 +46,7 @@
 #### [Монитор производительности сети](log-analytics-network-performance-monitor.md)
 #### [Аудит безопасности](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Схема услуги](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Оценка SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
@@ -61,12 +62,15 @@
 ### [API поиска по журналам](log-analytics-log-search-api.md)
 ### [API оповещений](log-analytics-api-alerts.md)
 
+# Справочные материалы
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Ресурсы
 ## [Анализ обновлений](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

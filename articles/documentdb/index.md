@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать DocumentDB — базу данных документов NoSQL без схемы. В руководствах показана интеграция с приложениями и использование SQL-запросов к документам JSON."
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
+ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
 
 ---
 #<a name="documentdb-documentation"></a>Документация по DocumentDB
 
-Azure DocumentDB — это полностью управляемая служба баз данных NoSQL, созданная для быстрой и прогнозируемой работы, высокой доступности, гибкого масштабирования, глобального распространения данных и простоты разработки. DocumentDB — это служба баз данных NoSQL без схемы, обеспечивающая широкие возможности запросов SQL со знакомым синтаксисом и постоянно низкую продолжительность задержек для данных JSON.
+Узнайте, как использовать DocumentDB в высокопроизводительных приложениях для браузеров, мобильных устройств, игр и Интернета вещей. В руководствах и другой документации описано сохранение данных JSON и выполнение запросов SQL по гибкой схеме в этой службе базы данных NoSQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -75,7 +76,7 @@ Azure DocumentDB — это полностью управляемая служб
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с DocumentDB с использованием .NET</h3>
+                        <h3>Начало работы с DocumentDB с использованием .NET</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +112,7 @@ Azure DocumentDB — это полностью управляемая служб
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с DocumentDB с использованием Node.js</h3>
+                        <h3>Начало работы с DocumentDB с использованием Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -176,27 +177,38 @@ Azure DocumentDB — это полностью управляемая служб
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
-### <a name="java"></a>Java
-[Справочник по пакету SDK для Java](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[Управляемый справочник по .NET](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Узел
-[Справочник по пакету SDK для Node](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Справочник по Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[Справочник по SQL](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[Справочник по REST API](/rest/api/documentdb)
-
-[Справочник API поставщика ресурсов](/rest/api/documentdbresourceprovider)
+<h2>Справочные материалы</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">REST API поставщика ресурсов</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 
@@ -210,6 +222,6 @@ Azure DocumentDB — это полностью управляемая служб
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

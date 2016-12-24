@@ -13,7 +13,7 @@
 ### [Портал](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Управление
 ### Управление учетными записями
 #### [PowerShell](media-services-manage-with-powershell.md)
@@ -44,7 +44,7 @@
 ##### [Схема Media Encoder Standard](media-services-mes-schema.md)
 ##### [Входные метаданные](media-services-input-metadata-schema.md)
 ##### [Выходные метаданные](media-services-output-metadata-schema.md)
-#### Предустановки стандартного кодировщика мультимедиа 
+#### [Предустановки Media Encoder Standard](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -77,11 +77,11 @@
 #### [Расширенное кодирование с помощью MES](media-services-advanced-encoding-with-mes.md)
 ##### [Создание эскизов с помощью Media Encoder Standard c использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md)
-### Расширенный рабочий процесс кодировщика мультимедиа
-#### [Форматы и кодеки рабочего процесса Premium Media Encoder](media-services-premium-workflow-encoder-formats.md)
-#### Кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа
+### Рабочий процесс Media Encoder Premium
+#### [Форматы и кодеки рабочего процесса Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
+#### Кодирование с помощью рабочего процесса Media Encoder Premium
 ##### [Рабочий процесс Media Encoder Premium](media-services-encode-with-premium-workflow.md)
-##### [Учебники по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [Руководства по рабочему процессу Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Создание рабочих процессов кодирования Advanced с помощью конструктора рабочих процессов](media-services-workflow-designer.md)
 ##### [Рабочий процесс Premium с несколькими элементами входных данных](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### Обработчики мультимедиа
@@ -181,7 +181,7 @@
 ### [Использование castLabs для доставки лицензий Widevine в службы мультимедиа Azure](media-services-castlabs-integration.md)
 ### [Общие сведения о шаблоне лицензии Widevine](media-services-widevine-license-template-overview.md)
 
-## Монитор
+## Мониторинг
 ### Проверка хода выполнения задания
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Портал](media-services-portal-check-job-progress.md)
@@ -195,16 +195,18 @@
 ### [Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
-## [Заметки о выпуске](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (управление службами)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Ресурсы
+## [Заметки о выпуске](media-services-release-notes.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

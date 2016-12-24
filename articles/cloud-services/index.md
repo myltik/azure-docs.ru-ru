@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "В руководствах, справочниках по API и другой документации показано, как использовать облачные службы для размещения и выполнения облачных приложений и API-интерфейсов с высоким уровнем доступности и масштабируемости."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
-#<a name="cloud-services-documentation"></a>Документация по облачным службам
+# <a name="cloud-services-documentation"></a>Документация по облачным службам
 
-Облачные службы являются примером платформы как услуги (PaaS). Эти технология предназначена для поддержки масштабируемых, надежных и недорогих в эксплуатации приложений. Облачные службы позволяют использовать преимущества виртуализации. Кроме того, вы можете управлять виртуальной машиной, т. е. настраивать ее, исправлять и устанавливать на нее программное обеспечение.  
+Узнайте, как использовать облачные службы для размещения и выполнения облачных приложений и API-интерфейсов с высоким уровнем доступности и масштабируемости.  В руководствах, справочниках по API и другой документации описано управление компьютерами виртуальных машин, а также настройка, исправление и установка программного обеспечения.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,48 +87,32 @@ ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">Схема XML в CSDEF-файле</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">Схема XML в CSCFG-файле</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API облачных служб</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Схемы</h3>
-                        <p>Схема определения облачных служб</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Схема настройки облачных служб</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -141,6 +126,6 @@ ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

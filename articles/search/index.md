@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как добавлять надежные средства поиска (включая мониторинг действий) в пользовательские веб-приложения и мобильные приложения. Справочники по API и другая документация."
 translationtype: Human Translation
-ms.sourcegitcommit: 3273e748265fa23efadd010bb5f0bc9ce43223b6
-ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
+ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
+ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
 
 ---
 # <a name="azure-search-documentation"></a>Документация по поиску Azure
 
-Поиск Azure — это управляемая облачная служба поиска, которая помогает реализовать мощные возможности поиска в пользовательских приложениях, и затем отслеживать операции с участием служб, индексов и запросов в представлениях на портале. Ключевые возможности включают в себя масштабируемый полнотекстовый поиск на нескольких языках, геопространственный поиск, фильтрацию и фасетную навигацию, опережающий ввод, выделение вхождений и пользовательские анализаторы.
+Узнайте, как добавлять средства поиска в пользовательские веб-приложения и мобильные приложения с использованием поиска Azure, управляемой облачной службы поиска. Руководства, справочники по API и другая документация, в которой показано, как добавлять масштабируемый полнотекстовый поиск на нескольких языках, геопространственный поиск, фильтрацию и фасетную навигацию, опережающий ввод, выделение вхождений и пользовательские анализаторы.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=search">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,69 +121,38 @@ ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
     </li>
 </ul>
 
-
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api/microsoft.azure.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API .NET службы</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">Управление .NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/microsoft.azure.management.search">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET API управления</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/searchservice/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST службы</p>
+                        <p><a href="/rest/api/searchservice">справочник по API REST</a></p>
+                        <p><a href="/rest/api/searchmanagement">Справочник по REST API для управления</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/searchmanagement/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Интерфейс API REST для управления.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
@@ -194,6 +164,6 @@ ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

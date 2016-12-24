@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать хранилище данных SQL для объединения SQL Server и вычислений с массовым параллелизмом. В документации описывается загрузка, анализ, контроль и экспорт данных."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
+ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
+ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
 
 ---
+
 # <a name="sql-data-warehouse-documentation"></a>Документация по хранилищу данных SQL
 
-Хранилище данных SQL Azure объединяет возможности реляционной базы данных SQL Server и возможности развертывания в облаке Azure.  Опираясь на архитектуру вычислений с массовым параллелизмом (MPP), хранилище данных SQL может обрабатывать рабочую нагрузку целого предприятия.
+Узнайте, как использовать хранилище данных SQL, в котором объединена реляционная база данных SQL Server и вычисления с массовым параллелизмом. В руководствах и другой документации показано, как загрузить данные в хранилище, а затем анализировать, экспортировать их и управлять ими.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -53,7 +55,8 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,36 +70,35 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
 </ul>
 
 ---
-## <a name="reference"></a>Справочные материалы
 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Командлеты PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Справочник по T-SQL</p>
+                        <h3>Языки</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Ограничения емкости</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">Элементы языка T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">Инструкции T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">Системные представления T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -110,6 +112,6 @@ ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

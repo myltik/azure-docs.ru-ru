@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать подсистему балансировки нагрузки для повышения сетевой производительности приложений. Управляйте трафиком на виртуальных машинах, в облачных ресурсах и в распределенных виртуальных сетях."
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
-ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
+ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
+ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
 
 ---
-#<a name="load-balancer-documentation"></a>Документация по подсистемам балансировки нагрузки
+#<a name="load-balancer-documentation"></a>Документация по подсистеме балансировки нагрузки
 
-Azure Load Balancer обеспечивает высокую доступность и производительность сети для приложений.  Подсистему балансировки нагрузки можно настроить для регулирования входящего трафика Интернета для виртуальных машин, трафика между облачными ресурсами, трафика в виртуальной сети между организациями или внешнего трафика к определенной виртуальной машине.
+Узнайте, как настроить подсистему балансировки нагрузки, чтобы обеспечить высокую доступность и сетевую производительность для приложений. В документации показано, как сбалансировать нагрузку для трафика, направляемого на виртуальные машины, облачные ресурсы и распределенные виртуальные сети и обратно.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,82 +87,48 @@ Azure Load Balancer обеспечивает высокую доступност
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по PowerShell для подсистемы балансировки нагрузки</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2.0 (предварительная версия)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/cli/azure/network/lb">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Интерфейс командной строки Azure для подсистемы балансировки нагрузки</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Справочник по API .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по API для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API балансировщика нагрузки</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -169,12 +136,12 @@ Azure Load Balancer обеспечивает высокую доступност
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
-Скачать документацию по балансировщику нагрузки </div>
+Скачать документацию по подсистеме балансировки нагрузки </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
