@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать Log Analytics для сбора и анализа данных, создаваемых ресурсами в облачных и локальных средах, независимо от физического расположения."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: a70f352a076f0d018856c1bdf5c326515405d154
+ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
+ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
 
 ---
+
 # <a name="log-analytics-documentation"></a>Документация по Log Analytics
 
-Log Analytics — это служба в Operations Management Suite (OMS), которая помогает собирать и анализировать данные, формируемые ресурсами в облачных и локальных средах. Она предоставляет аналитические данные в режиме реального времени, используя встроенный поиск и настраиваемые панели мониторинга для быстрого анализа миллионов записей по всем рабочим нагрузкам и серверам независимо от их физического местонахождения.
+Узнайте, как использовать Log Analytics в Operations Management Suite для сбора и анализа данных, создаваемых ресурсами в облачных и локальных средах. Руководства и другая документация, в которой показано, как получать аналитику в режиме реального времени для рабочих нагрузок и серверов независимо от физического расположения.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,22 +70,19 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 ---
 
-## <a name="automation"></a>Служба автоматизации
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -97,6 +96,6 @@ Log Analytics — это служба в Operations Management Suite (OMS), ко
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

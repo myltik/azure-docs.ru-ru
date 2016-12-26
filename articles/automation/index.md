@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать службу автоматизации для автоматизации процессов и управления конфигурацией, экономии времени и повышении надежности выполнения стандартных административных задач."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Документация по службе автоматизации
 
-Служба автоматизации Microsoft Azure позволяет пользователям автоматизировать задачи, типичные для выполнения в облачных средах. Такие задачи обычно выполняются вручную, занимают много времени, подвержены ошибкам и часто повторяются. Она позволяет экономить время и повышает надежность обычных административных задач и даже планирует их автоматическое выполнение через определенные интервалы.
+Узнайте, как использовать службу автоматизации для экономии времени и повышения надежности выполнения стандартных административных задач в облачной среде. Руководства, справочники по API и другая документация, в которой показано, как автоматизировать процессы, используя модули Runbook, или автоматизировать управление конфигурацией, используя службу настройки требуемого состояния.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -123,53 +124,47 @@ ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Классическая модель и PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по API Azure</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API службы автоматизации</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Классический интерфейс REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
@@ -181,6 +176,6 @@ ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

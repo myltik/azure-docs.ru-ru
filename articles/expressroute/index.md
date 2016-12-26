@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как настроить и администрировать частное подключение ExpressRoute к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы."
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
+ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
 
 ---
 #<a name="expressroute-documentation"></a>Документация по ExpressRoute
 
-Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по выделенному закрытому соединению, которое обеспечивается поставщиком услуг подключения. Это может быть подключение типа "любой к любому" (IP VPN), подключение Ethernet типа "точка-точка" или виртуальное кросс-подключение через поставщика услуг подключения на совместно используемом сервере.
-
+Узнайте, как с помощью ExpressRoute настроить быстрое частное подключение к облачным службам Майкрософт из локальной инфраструктуры или из среды для совместной работы. Настроить канал ExpressRoute и управлять им вам помогут руководства, справочники по REST API и другая документация.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -69,37 +69,32 @@ Azure ExpressRoute позволяет переносить локальные с
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API ExpressRoute</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">справочник по API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Справочник по REST API (классическая модель)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -113,6 +108,6 @@ Azure ExpressRoute позволяет переносить локальные с
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание пула эластичных баз данных с помощью PowerShell | Документация Майкрософт"
-description: "Узнайте, как создать масштабируемый пул эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления несколькими базами данных SQL Azure."
+title: "Создание эластичного пула с помощью PowerShell | Документация Майкрософт"
+description: "Сведения о создании масштабируемого эластичного пула с помощью PowerShell для горизонтального масштабирования ресурсов и управления несколькими базами данных SQL Azure."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 8bf8f24db6b543ec1161cf499e6fc116514f85cb
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Создание пула эластичных баз данных с помощью PowerShell
+# <a name="create-a-new-elastic-pool-with-powershell"></a>Создание эластичного пула с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
 >
 >
 
-Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью командлетов PowerShell.
+Здесь содержатся сведения о том, как создать [пул эластичных БД](sql-database-elastic-pool.md) с помощью командлетов PowerShell.
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 

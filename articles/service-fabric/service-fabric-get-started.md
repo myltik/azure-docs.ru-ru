@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/13/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: 2c4a92fadaa845fc0d14e5101a87aabe8f8d2891
+ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
+ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 
 
 ---
@@ -45,10 +45,30 @@ ms.openlocfilehash: 2c4a92fadaa845fc0d14e5101a87aabe8f8d2891
 > 
 
 ## <a name="install-the-runtime-sdk-and-tools"></a>Установка среды выполнения, пакета SDK и инструментов
-Установщик веб-платформы предлагает две конфигурации для разработки в Service Fabric:
+Установщик веб-платформы предлагает две конфигурации для разработки в Service Fabric.
 
-* [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015 (требуется Visual Studio 2015 с обновлением версии 2 или выше)][full-bundle-vs2015]
+Visual Studio 2017 (требуется установка рабочей нагрузки разработки и управления Azure).
+
+* [Установка среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+
+Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии).
+
+* [Установка среды выполнения Service Fabric, пакета SDK и средств][full-bundle-vs2015]
 * [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+
+> [!WARNING]
+> Во время установки с использованием этих ссылок для запуска или при использовании этих ссылок в браузере Chrome у клиентов возникают ошибки. Это известные проблемы в установщике веб-платформы. Идет работа над их устранением.  В качестве обходного решения воспользуйтесь одной из следующих рекомендаций.
+>- Перейдите по приведенным выше ссылкам с помощью браузеров Internet Explorer или Edge.
+>- Запустите установщик веб-платформы из меню "Пуск", найдите Service Fabric и установите пакет SDK.
+> 
+> Приносим извинения за неудобства. 
+
+Текущие версии:
+* пакет SDK для Service Fabric 2.4.145;
+* среда выполнения Service Fabric 5.4.145;
+* средства Visual Studio 2015 1.4.41209.
+
+Список поддерживаемых версий см. в статье [Azure Service Fabric support options](service-fabric-support.md) (Варианты поддержки Azure Service Fabric).
 
 ## <a name="enable-powershell-script-execution"></a>Включение сценариев PowerShell
 Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию ОС Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
@@ -66,16 +86,17 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [Ознакомление с примерами кода Service Fabric на GitHub](https://aka.ms/servicefabricsamples)
 * [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 * [Используйте схему обучения Service Fabric, чтобы получить общие сведения о платформе](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* [Сведения о вариантах поддержки Service Fabric](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ссылка на WebPI VS 2015"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка на WebPI Dev15"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Ссылка на WebPI Core SDK"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

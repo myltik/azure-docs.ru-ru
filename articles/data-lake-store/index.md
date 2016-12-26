@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как настраивать, администрировать и обращаться к гипермасштабируемому совместимому с Hadoop репозиторию Data Lake для анализа данных любого объема и типа с любой скоростью приема."
 translationtype: Human Translation
-ms.sourcegitcommit: 5ddeaf6f2049983f80618d9e2294f82c60fe9af5
-ms.openlocfilehash: 2948011d1d321d0371928bbdf7a9a9414036589c
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Документация по Data Lake Store
 
-Azure Data Lake Store — это гипермасштабируемый репозиторий для рабочих нагрузок аналитики больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.  Хранилище Azure Data Lake Store доступно из Hadoop (имеется в кластере HDInsight) с помощью сценариев, совместимых с WebHDFS. Оно включает все возможности корпоративного уровня — безопасность, управляемость, масштабируемость, надежность и доступность.
+Узнайте, как использовать Data Lake Store для создания гипермасштабируемого совместимого с Hadoop репозитория и анализа данных любого объема и типа с любой скоростью приема. Руководства, справочники по API и другая документация, в которой показано, как настраивать, администрировать и вызывать репозиторий Data Lake для оперативной и произвольной аналитики.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,68 +158,48 @@ Azure Data Lake Store — это гипермасштабируемый реп�
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по .NET</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (управление учетными записями)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (управление файловой системой)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по пакету SDK для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/datalakestore">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API для Data Lake Store</p>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -231,6 +212,6 @@ Azure Data Lake Store — это гипермасштабируемый реп�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

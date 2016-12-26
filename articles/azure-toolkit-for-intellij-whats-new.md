@@ -1,12 +1,12 @@
 ---
-title: Новые возможности набора средств Azure для IntelliJ | Microsoft Docs
-description: Сведения о новых функциях набора средств Azure для IntelliJ.
-services: ''
+title: "Новые возможности набора средств Azure для IntelliJ | Документация Майкрософт"
+description: "Сведения о новых функциях набора средств Azure для IntelliJ."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ed0ef3d245ff8b5cddc2e26bc8574bf4ae67bec
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Новые возможности набора средств Azure для IntelliJ
@@ -34,7 +38,7 @@ ms.author: robmcm;asirveda;martinsawicki
 * **Усовершенствования в представлении Azure Explorer**.
   * Поддержка управления виртуальными машинами с помощью новой модели Resource Manager: можно выводить список, создавать и удалять виртуальные машины на основе Resource Manager, не выходя из интегрированной среды разработки.
   * Поддержка управления большими двоичными объектами учетной записи хранения с помощью Azure Resource Manager, который дополняет существующие функциональные возможности управления "классическими" учетными записями хранения.
-* **Microsoft JDBC Driver 6.0 для SQL Server**. Это обновление включает в себя последнюю версию драйвера JDBC для Microsoft SQL Server (версии 6.0), включенную в виде библиотеки, которую можно легко добавить в свои проекты Java, заменив предыдущую версию.
+* **Microsoft JDBC Driver 6.0 для SQL Server**. Это обновление включает в себя последнюю версию драйвера JDBC для Microsoft SQL Server (версии 6.0), включенную в виде библиотеки, которую можно легко добавить в свои проекты Java, заменив предыдущую версию.
 
 ### <a name="june-29-2016"></a>29 июня 2016 г.
 Набор средств Azure для IntelliJ, выпущенный в июне 2016 г., включает в себя следующие улучшения.
@@ -78,12 +82,12 @@ ms.author: robmcm;asirveda;martinsawicki
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[Подключаемый модуль средств HDInsight для IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
+[Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

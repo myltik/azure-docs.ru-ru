@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как создать виртуальную машину с помощью дистрибутива Linux на свой выбор. В справочной документации показаны различные способы создания шаблонов виртуальных машин."
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Документация по виртуальным машинам Linux
+# <a name="linux-virtual-machine-documentation"></a>Документация по виртуальным машинам Linux
 
-Используйте виртуальные машины Azure для создания и запуска виртуальных машин Linux в инфраструктуре вычислений, хранения и сетей Azure.  Вы можете не только создавать свои глобальные интернет-развертывания с тысячами виртуальных машин, но и использовать уже готовые решения для выполнения сложных расчетов. Скорость работы и неизменное качество услуг гарантированы.
+Узнайте, как запускать виртуальные машины в Azure с помощью дистрибутива Linux на свой выбор. В документации, справочниках по API и примерах показаны различные способы создания и развертывания шаблонов виртуальных машин.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,110 +86,50 @@ ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
 </ul>
 
 ---
-
-##<a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Командлеты Powershell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Инфраструктура CLI Azure</h3>
-                        <p>Установка Azure CLI</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по API .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Пакет SDK для Java</h3>
-                        <p>Справочник по API для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (вычисления)</h3>
-                        <p>Справочник по REST API для вычислений</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (сеть)</h3>
-                        <p>Справочник по REST API для сети</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (хранилище)</h3>
-                        <p>Справочник по REST API службы хранилища</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
@@ -200,6 +141,6 @@ ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

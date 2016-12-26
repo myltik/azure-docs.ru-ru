@@ -64,7 +64,7 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>

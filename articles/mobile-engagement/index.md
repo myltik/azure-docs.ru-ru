@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как получить ценную информацию об использовании мобильного приложения и пользовательской сегментации в режиме реального времени, а также включить зависящие от контекста push-уведомления и обмен сообщениями в приложении."
 translationtype: Human Translation
-ms.sourcegitcommit: 23e9c07934b0f4e74fa365de4c13fb978c8b6b84
-ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
+ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
+ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
 
 ---
 # <a name="mobile-engagement-documentation"></a>Документация по службам мобильного взаимодействия
 
-Службы мобильного взаимодействия Azure — предоставляемая по принципу SaaS платформа вовлечения пользователей, которая обеспечивает анализ использования приложения на основе данных, позволяет сегментировать пользователей и выдает push-уведомления и сообщения в приложениях.
+Узнайте, как повысить показатели использования, хранения и окупаемости мобильных приложений с помощью Mobile Engagement. Руководства, пакеты SDK и другая документация, в которой показано, как получить ценную информацию об использовании приложения и пользовательской сегментации в режиме реального времени, а также включить зависящие от контекста push-уведомления и обмен сообщениями в приложении.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=mobile-engagement">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=mobile-engagement">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -176,6 +177,24 @@ ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
 
 ---
 
+<h2>Справочные материалы</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+---
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
         <div class="img"></div>
@@ -187,6 +206,6 @@ ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

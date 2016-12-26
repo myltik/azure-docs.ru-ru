@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
 
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -82,7 +82,7 @@ ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
 * Веб-камера и кодировщик, который передает динамический односкоростной поток данных.
 
 ## <a name="configure-streaming-endpoints"></a>Настройка конечных точек потоковой передачи данных
-Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять MP4-файлы с поддержкой нескольких скоростей в форматах потоковой передачи (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости повторной упаковки в эти форматы потоковой передачи. С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента.
+Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять MP4-файлы с поддержкой нескольких скоростей в форматах потоковой передачи (MPEG DASH, HLS, Smooth Streaming) без необходимости повторной упаковки в эти форматы потоковой передачи. С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента.
 
 Для использования динамической упаковки потребуется получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой планируется передавать содержимое.  
 
@@ -229,6 +229,6 @@ ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

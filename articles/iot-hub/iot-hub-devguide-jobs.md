@@ -1,12 +1,12 @@
 ---
-title: Developer guide - jobs | Microsoft Docs
-description: Azure IoT Hub developer guide - scheduling jobs to run on multiple devices connected to your hub
+title: "Руководство разработчика. Задания | Документация Майкрософт"
+description: "Руководство разработчика по Центру Интернета вещей, где объясняется, как запланировать выполнение заданий на нескольких устройствах, подключенных к Центру"
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,35 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
+
 
 ---
-# <a name="schedule-jobs-on-multiple-devices-(preview)"></a>Schedule jobs on multiple devices (preview)
-## <a name="overview"></a>Overview
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [cloud-to-device methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+# <a name="schedule-jobs-on-multiple-devices"></a>Планирование заданий на нескольких устройствах
+## <a name="overview"></a>Обзор
+Как описано в предыдущих статьях, Центр Интернета вещей Azure включает ряд стандартных блоков ([свойства и теги двойников устройств][lnk-twin-devguide] и [прямые методы][lnk-dev-methods]).  Как правило, серверные приложения Интернета вещей позволяют администраторам и операторам массово и в запланированное время обновлять устройства Интернета вещей и взаимодействовать с ними.  На запланированное время задания инкапсулируют выполнение обновлений двойников устройств и прямых методов для ряда устройств.  Например, оператор использует серверное приложение, которое инициирует задание перезапуска ряда устройств на третьем этаже в здании №43 в определенное время и отслеживает ход его выполнения. При этом задание не будет нарушать выполнение других операций в здании.
 
-### <a name="when-to-use"></a>When to use
-Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
+### <a name="when-to-use"></a>Сценарии использования
+Используйте задания, если в серверной части решения необходимо запланировать выполнение задания на ряде устройств, а также настроить отслеживание выполнения действий:
 
-* Update device twin desired properties
-* Update device twin tags
-* Invoke C2D methods
+* Обновление требуемых свойств
+* Обновление тегов
+* Вызов прямых методов
 
-## <a name="job-lifecycle"></a>Job lifecycle
-Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Once a job is initiated, querying for jobs will enable the back end application to refresh the status of running jobs.
+## <a name="job-lifecycle"></a>Жизненный цикл задания
+Задания инициируются в серверной части решения, а осуществляются с помощью Центра Интернета вещей.  Вы можете инициировать задание, используя обращенный к службе универсальный код ресурса (URI) `{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview` и запросить данные о выполнении задания, используя аналогичный URI `{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`.  Если запросить задание после запуска, серверное приложение обновит состояние выполняемых заданий.
 
 > [!NOTE]
-> When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> При запуске задания в именах и значениях свойств должны содержаться только печатаемые буквенно-цифровые символы US-ASCII, кроме следующих: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-## <a name="reference"></a>Reference
-For all HTTP requests, see the following references:
+## <a name="reference-topics"></a>Справочные материалы
+Далее предоставлены дополнительные сведения об использовании заданий.
 
-* Query condition: [Details for querying of twins][lnk-query]
-* Method details: [Details for C2D methods][lnk-dev-methods]
-
-## <a name="jobs-to-execute-c2d-methods"></a>Jobs to execute C2D methods
-The following is the HTTP 1.1 request details for executing a C2D method on a set of devices using a job:
+## <a name="jobs-to-execute-direct-methods"></a>Задания для выполнения прямого метода
+Приведенный ниже запрос HTTP 1.1 предназначен для выполнения [прямого метода][lnk-dev-methods] с использованием задания на ряде устройств:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
@@ -67,8 +68,8 @@ The following is the HTTP 1.1 request details for executing a C2D method on a se
     }
     ```
 
-## <a name="jobs-to-update-device-twin-properties"></a>Jobs to update device twin properties
-The following is the HTTP 1.1 request details for updating device twin properties using a job:
+## <a name="jobs-to-update-device-twin-properties"></a>Задания для обновления свойств устройств-двойников
+Запрос HTTP 1.1 ниже предполагает обновление свойств устройства-двойника с использованием задания:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
@@ -88,8 +89,8 @@ The following is the HTTP 1.1 request details for updating device twin propertie
     }
     ```
 
-## <a name="querying-for-progress-on-jobs"></a>Querying for progress on jobs
-The following is the HTTP 1.1 request details for querying for jobs:
+## <a name="querying-for-progress-on-jobs"></a>Запрос на отслеживание выполнения заданий
+Приведенный ниже запрос HTTP 1.1 предусматривает [получение данных о ходе выполнения заданий][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -100,51 +101,51 @@ The following is the HTTP 1.1 request details for querying for jobs:
     User-Agent: <sdk-name>/<sdk-version>
     ```
 
-The continuationToken is provided from the response.  
+Объект continuationToken получен в рамках ответа.  
 
-## <a name="jobs-properties"></a>Jobs Properties
-The following is a list of properties and corresponding descriptions, which can be used when querying for jobs or job results.
+## <a name="jobs-properties"></a>Свойства заданий
+В таблице ниже содержится список свойств, которые можно использовать при выполнении запросов на задания и их результаты, а также описание этих свойств.
 
-| Property | Description |
+| Свойство | Description (Описание) |
 | --- | --- |
-| **jobId** |Application provided ID for the job. |
-| **startTime** |Application provided start time (ISO-8601) for the job. |
-| **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
-| **type** |Types of jobs: |
-| **scheduledUpdateTwin**: A job used to update a set of twin desired properties or tags. | |
-| **scheduledDeviceMethod**: A job used to invoke a device method on a set of twin. | |
-| **status** |Current state of the job. Possible values for status: |
-| **pending** : Scheduled and waiting to be picked up by the job service. | |
-| **scheduled** : Scheduled for a time in the future. | |
-| **running** : Currently active job. | |
-| **cancelled** : Job has been cancelled. | |
-| **failed** : Job failed. | |
-| **completed** : Job has completed. | |
-| **deviceJobStatistics** |Statistics about the job's execution. |
+| **jobId** |Идентификатор задания, указанный в приложении. |
+| **startTime** |Время начала задания (ISO-8601), указанное в приложении. |
+| **endTime** |Дата завершения задания (ISO-8601), указанная в Центре Интернета вещей. Она допустима только после перехода задания в завершенное состояние. |
+| **type** |Типы заданий: |
+| **scheduledUpdateTwin** — задание по обновлению набора требуемых свойств или тегов. | |
+| **scheduledDeviceMethod** — задание по вызову метода устройства для набора двойников устройств. | |
+| **состояние** |Текущее состояние задания. Возможные значения состояния: |
+| **pending** — задание запланировано и ожидает действий от службы заданий. | |
+| **scheduled** — задание запланировано на будущее. | |
+| **running** — задание сейчас активно. | |
+| **cancelled** — задание отменено. | |
+| **failed** — произошел сбой задания. | |
+| **completed** — задание завершено. | |
+| **deviceJobStatistics** |Статистика задания. |
 
-During the preview, the deviceJobStatistics object is available only after the job is completed.
+При предварительном просмотре объект deviceJobStatistics доступен только после завершения задания.
 
-| Property | Description |
+| Свойство | Description (Описание) |
 | --- | --- |
-| **deviceJobStatistics.deviceCount** |Number of devices in the job. |
-| **deviceJobStatistics.failedCount** |Number of devices where the job failed. |
-| **deviceJobStatistics.succeededCount** |Number of devices where the job succeeded. |
-| **deviceJobStatistics.runningCount** |Number of devices that are currently running the job. |
-| **deviceJobStatistics.pendingCount** |Number of devices that are pending to run the job. |
+| **deviceJobStatistics.deviceCount** |Количество устройств в задании. |
+| **deviceJobStatistics.failedCount** |Количество устройств, на которых произошел сбой задания. |
+| **deviceJobStatistics.succeededCount** |Количество устройств, на которых задание выполнено успешно. |
+| **deviceJobStatistics.runningCount** |Количество устройств, на которых сейчас выполняется задание. |
+| **deviceJobStatistics.pendingCount** |Количество устройств, на которых сейчас ожидается выполнение задания. |
 
-### <a name="additional-reference-material"></a>Additional reference material
-Other reference topics in the Developer Guide include:
+### <a name="additional-reference-material"></a>Дополнительные справочные материалы
+Другие справочные статьи в руководстве для разработчиков:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-* [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
-* [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
+* Статья [IoT Hub endpoints][lnk-endpoints] (Конечные точки Центра Интернета вещей) содержит сведения о конечных точках, которые каждый Центр Интернета вещей предоставляет для операций управления и среды выполнения.
+* Статья [Throttling and quotas][lnk-quotas] (Регулирование и квоты) содержит сведения о квотах, применимых к службе Центра Интернета вещей, и ожидаемом поведении регулирования при использовании службы.
+* В статье [Azure IoT device and service SDKs][lnk-sdks] (Пакеты SDK для устройств и служб Azure IoT) указаны различные языковые пакеты SDK, которые можно использовать при разработке приложений для устройств и служб, взаимодействующих с Центром Интернета вещей.
+* В статье [Справочник по языку запросов для двойников и заданий][lnk-query] описывается язык запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
+* Статья [Поддержка MQTT в центре IoT][lnk-devguide-mqtt] содержит дополнительные сведения о поддержке протокола MQTT в Центре Интернета вещей.
 
-## <a name="next-steps"></a>Next steps
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+## <a name="next-steps"></a>Дальнейшие действия
+Если вы хотели бы применить на практике некоторые основные понятия, описанные в этой статье, можно просмотреть следующее руководство по Центру Интернета вещей:
 
-* [Schedule and broadcast jobs][lnk-jobs-tutorial]
+* [Планирование и трансляция заданий][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -153,14 +154,14 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-jobs-tutorial]: iot-hub-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
+[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать платформу ПО промежуточного слоя Service Fabric для упаковки и развертывания микрослужб для облачных приложений. Руководства, справочники по API и примеры кода."
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Документация по Service Fabric
 
-Azure Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими. Service Fabric также позволяет разрешить значительные трудности, возникающие при разработке облачных приложений и управлении ими. Получая гарантированную масштабируемость, надежность и управляемость, разработчики и администраторы могут сосредоточиться на реализации критически важных и ресурсоемких рабочих нагрузок вместо того, чтобы тратить силы на решение сложных проблем с инфраструктурой. 
+Узнайте, как использовать Service Fabric для упаковки, развертывания и администрирования надежных масштабируемых микрослужб. В руководствах, справочниках по API и примерах кода показано, как использовать эту платформу ПО промежуточного слоя для создания облачных приложений и управления ими.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,64 +107,44 @@ Azure Service Fabric — это платформа распределенных 
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник PowerShell для Service Fabric</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по API для Java</p>
+                        <h3>Языки</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">API Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по API .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API Service Fabric</p>
+                        <p><a href="/rest/api/servicefabric">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
@@ -178,6 +159,6 @@ Azure Service Fabric — это платформа распределенных 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -11,11 +11,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 > 
 > 
 
-В этой статье показано, как отправлять запросы в индекс с помощью [пакета SDK .NET для службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+В этой статье показано, как отправлять запросы в индекс с помощью [пакета SDK .NET для службы поиска Azure](https://aka.ms/search-sdk).
 
 Прежде чем приступать к выполнению инструкций из этого руководства, необходимо [создать индекс службы поиска Azure](search-what-is-an-index.md) и [заполнить его данными](search-what-is-data-import.md).
 
@@ -37,7 +37,7 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 ## <a name="i-identify-your-azure-search-services-query-api-key"></a>1. Определение ключа API запроса службы поиска Azure
 Теперь, когда вы создали индекс службы поиска Azure, вы почти готовы отправлять запросы с помощью пакета SDK для .NET. Для этого сначала нужно получить один из ключей API запроса, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/)
+1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
 2. Перейдите к колонке службы поиска Azure.
 3. Щелкните значок "Ключи".
 
@@ -162,7 +162,6 @@ Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 Search the entire index for the term 'motel':
 
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-
 ```
 
 Приведенный выше пример кода выводит результаты поиска в консоль. Таким же образом вам нужно будет показывать результаты поиска и в вашем приложении. Сведения о том, как отображать результаты поиска в веб-приложении ASP.NET с использованием схемы MVC, см. в [этом примере на сайте GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).

@@ -1,39 +1,43 @@
 ---
-title: Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager | Microsoft Docs
-description: Описывается создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager.
+title: "Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Описывается создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager."
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/14/2016
-ms.author: ShubhaVijayasarathy
+ms.date: 11/21/2016
+ms.author: shvija;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 188e3638393262a8406f322a5720e7e3eadf3e49
+ms.openlocfilehash: 6fb396063f4944a3043314cfbc58121f45a5c0c6
+
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager
 Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен концентраторов событий с концентратором событий и включить архив для этого концентратора событий. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
-Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Создание шаблонов Azure Resource Manager].
+Дополнительные сведения о создании шаблонов Azure Resource Manager см. в [этой статье][Создание шаблонов Azure Resource Manager].
 
-Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в разделе [Recommended naming conventions for Azure resources][](Рекомендуемые соглашения об именовании ресурсов Azure.md).
+Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в [этой статье][Соглашения об именовании ресурсов Azure].
 
-Полный шаблон для создания концентратора событий и включения архива приведен [на сайте GitHub][] .
+Полный [Шаблон концентратора событий с включением архивации][Шаблон концентратора событий с включением архивации] приведен на сайте GitHub.
 
 > [!NOTE]
-> Чтобы узнать о новых шаблонах, посетите коллекцию [Шаблоны быстрого запуска Azure][Шаблоны быстрого запуска Azure] и выполните поиск по запросу "концентраторы событий".
+> Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][шаблонов быстрого запуска Azure] выполните поиск по запросу "концентраторы событий".
 > 
 > 
 
-## <a name="what-you-deploy?"></a>Что будет развернуто?
+## <a name="what-will-you-deploy"></a>Что вы развернете?
 С помощью этого шаблона вы развернете пространство имен концентраторов событий с концентратором событий и включите архив.
 
-[Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью. Архив концентраторов событий позволяет автоматически доставлять потоковые данные из концентраторов событий в выбранное хранилище BLOB-объектов Azure с указанным интервалом времени или размеров.
+[Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью. Архив концентраторов событий позволяет автоматически доставлять потоковые данные из концентраторов событий в выбранное хранилище BLOB-объектов Azure с указанным интервалом времени или размеров.
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
@@ -47,7 +51,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 Имя создаваемого пространства имен концентраторов событий.
 
-```
+```json
 "eventHubNamespaceName":{  
      "type":"string",
      "metadata":{  
@@ -59,7 +63,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="eventhubname"></a>eventHubName
 Имя концентратора событий, создаваемого в пространстве имен концентраторов событий.
 
-```
+```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
@@ -71,7 +75,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 Число дней хранения сообщений в концентраторе событий. 
 
-```
+```json
 "messageRetentionInDays":{
     "type":"int",
     "defaultValue": 1,
@@ -86,7 +90,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="partitioncount"></a>partitionCount
 Число секций в концентраторе событий.
 
-```
+```json
 "partitionCount":{
     "type":"int",
     "defaultValue":2,
@@ -101,7 +105,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="archiveenabled"></a>archiveEnabled
 Позволяет включить архив для концентратора событий.
 
-```
+```json
 "archiveEnabled":{
     "type":"string",
     "defaultValue":"true",
@@ -116,7 +120,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="archiveencodingformat"></a>archiveEncodingFormat
 Формат кодировки, указываемый для сериализации данных событий.
 
-```
+```json
 "archiveEncodingFormat":{
     "type":"string",
     "defaultValue":"Avro",
@@ -131,7 +135,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="archivetime"></a>archiveTime
 Интервал времени, согласно которому архив начинает архивировать данные в хранилище BLOB-объектов Azure.
 
-```
+```json
 "archiveTime":{
     "type":"int",
     "defaultValue":300,
@@ -146,7 +150,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="archivesize"></a>archiveSize
 Интервал размеров, согласно которому архив начинает архивировать данные в хранилище BLOB-объектов Azure.
 
-```
+```json
 "archiveSize":{
     "type":"int",
     "defaultValue":314572800,
@@ -159,9 +163,9 @@ ms.author: ShubhaVijayasarathy
 ```
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
-Архиву потребуется идентификатор ресурса учетной записи хранения для включения архивации в нужной службе хранилища Azure.
+Архиву требуется идентификатор ресурса учетной записи хранения Azure для включения архивации в нужной учетной записи хранения.
 
-```
+```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
@@ -173,11 +177,11 @@ ms.author: ShubhaVijayasarathy
 ### <a name="blobcontainername"></a>blobContainerName
 Контейнер больших двоичных объектов для архивации данных событий.
 
-```
+```json
  "blobContainerName":{
     "type":"string",
     "metadata":{
-        "description":"Your existing storage Container that you want the blobs archived in"
+        "description":"Your existing storage container that you want the blobs archived in"
     }
 }
 ```
@@ -186,7 +190,7 @@ ms.author: ShubhaVijayasarathy
 ### <a name="apiversion"></a>версия_API
 Версия API шаблона.
 
-```
+```json
  "apiVersion":{  
     "type":"string",
     "defaultValue":"2015-08-01",
@@ -197,9 +201,9 @@ ms.author: ShubhaVijayasarathy
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
-Создает пространство имен типа **EventHub**с концентратором событий и включает архив.
+Создает пространство имен типа **EventHub** с концентратором событий и включает архив.
 
-```
+```json
 "resources":[  
       {  
          "apiVersion":"[variables('ehVersion')]",
@@ -248,7 +252,7 @@ ms.author: ShubhaVijayasarathy
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json
 ```
 
@@ -260,7 +264,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 [Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Шаблоны быстрого запуска Azure]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[шаблонов быстрого запуска Azure]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Использование Azure PowerShell с Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure]: ../xplat-cli-azure-resource-manager.md
 [Шаблон группы потребителей и концентратора событий]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
@@ -269,6 +273,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

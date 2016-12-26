@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
+ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
 
 ---
 #<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
 
-Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью решения.  Она также обеспечивает расширенные возможности наблюдения за подключением устройств и предлагает библиотеки устройств для самых популярных языков и платформ. 
+Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы помогут вам установить надежную двустороннюю связь между устройствами IoT и серверной частью решения. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -103,68 +104,51 @@ ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Центр Интернета вещей с использованием Azure CLI</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/cli/azure/iot">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по API .NET</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (служба)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (устройства)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (служба)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (устройства)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">Пакеты SDK для Центра Интернета вещей Azure</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Пакет SDK для шлюза</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по пакету SDK для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API Центра Интернета вещей</p>
+                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (поставщик ресурсов)</a></p>
+                        <p><a href="/rest/api/iothub/device-identities-rest">REST API (удостоверения устройств)</a></p>
+                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API (передача сообщений на устройства)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -178,6 +162,6 @@ ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

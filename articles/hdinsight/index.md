@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте о Hadoop в HDInsight. Документация, в которой показано, как использовать Hadoop, Spark, HBase, R-Server и другие службы для обработки и анализа больших данных."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1513c4d2b658efff20095a293cec2a9687ebeabf
+ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
+ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Документация по Azure HDInsight
 
-Azure HDInsight представляет собой расширение Apache Hadoop на основе облачных технологий.  С помощью Azure HDInsight можно сделать компоненты Hadoop из дистрибутива платформы Hortonworks Data Platform (HDP) доступными в облаке, а также развернуть и подготовить управляемые кластеры с высокой степенью надежности и доступности.  Azure HDInsight предоставляет конфигурации кластера для Apache Hadoop, Spark, HBase и Storm.  Кроме того, можно настроить кластеры с помощью действий сценария.  
+Узнайте, как использовать Hadoop в облаке в HDInsight для анализа данных потоковой передачи или исторических данных. Руководства и другая документация, в которой показано, как создавать кластеры, обрабатывать и анализировать большие данные, а также разрабатывать решения с помощью Hadoop, Spark, HBase, R-Server, Storm и других технологий в экосистеме Hadoop.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,7 +76,7 @@ Azure HDInsight представляет собой расширение Apache 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с R Server в HDInsight (предварительная версия)</h3>
+                        <h3>Начало работы с R Server в HDInsight (предварительная версия)</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +94,7 @@ Azure HDInsight представляет собой расширение Apache 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight</h3>
+                        <h3>Руководство по HBase. Начало работы с Apache HBase на Hadoop под управлением Linux в HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -122,64 +123,47 @@ Azure HDInsight представляет собой расширение Apache 
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/rest/api/hdinsight">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
+                        <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API HDInsight</p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-         <a href="/rest/api/hdinsightspark">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Справочник по Spark для REST API HDInsight</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt271028">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по HDInsight</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -193,6 +177,6 @@ Azure HDInsight представляет собой расширение Apache 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
