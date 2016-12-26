@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как добавить в приложения интеллектуальные возможности, такие как распознавание образов, речь и анализ языка. Ознакомьтесь с краткими руководствами по началу работы и справочниками по API."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Документация по службам Cognitive Services
 
-Cognitive Services (предварительная версия) — это ряд интерфейсов API, который можно использовать для поддержки естественного и контекстного взаимодействия внутри приложений.  Cognitive Services предоставляет API языка, речи, зрения, поиска и знаний.
+Узнайте, как организовать естественное, соответствующее контексту взаимодействие пользователей с вашими приложениями при помощи Cognitive Services. Краткие руководства по началу работы и справочники по API помогут вам включить в приложения возможности искусственного интеллекта для работы с текстом, речью, распознаванием образов и поиском. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -68,52 +69,31 @@ Cognitive Services (предварительная версия) — это р�
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по Cognitive Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API служб Cognitive Services</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -127,6 +107,6 @@ Cognitive Services (предварительная версия) — это р�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

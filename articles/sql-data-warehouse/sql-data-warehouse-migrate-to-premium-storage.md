@@ -1,157 +1,129 @@
 ---
-title: Migrate your existing Azure SQL Data Warehouse to premium storage | Microsoft Docs
-description: Instructions for migrating an existing SQL Data Warehouse to premium storage
+title: "Перенос существующего хранилища данных SQL Azure в хранилище класса Premium | Документация Майкрософт"
+description: "Инструкции по переносу существующего хранилища данных SQL в хранилище уровня &quot;Премиум&quot;."
 services: sql-data-warehouse
 documentationcenter: NA
 author: happynicolle
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: nicw;barbkess
+ms.date: 11/29/2016
+ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: b676630e44c49c2ab4006f04408b01cc90c4dc28
+ms.openlocfilehash: ef20cf90b54c9b28c70341d7545bb55474feb39f
+
 
 ---
-# <a name="migration-to-premium-storage-details"></a>Migration to Premium Storage Details
-SQL Data Warehouse recently introduced [Premium Storage for greater performance predictability][Premium Storage for greater performance predictability].  We are now ready to migrate existing Data Warehouses currently on Standard Storage to Premium Storage.  Read on for more details about how and when automatic migrations occur and how to self-migrate if you prefer to control when the downtime occurs.
+# <a name="migration-to-premium-storage-details"></a>Сведения о миграции в хранилище класса Premium
+В хранилище данных SQL недавно введена возможность использования [хранилища класса Premium, обеспечивающего более предсказуемую производительность][Premium Storage for greater performance predictability].  Теперь мы можем переместить хранилища данных, расположенные в стандартном хранилище, в хранилище класса Premium.  В этой статье содержатся сведения о том, как и когда происходит автоматический перенос и как выполнить перенос самостоятельно, если вы предпочитаете управлять простоем.
 
-If you have more than one Data Warehouse, use the [automatic migration schedule][automatic migration schedule] below to determine when it will also be migrated.
+Если у вас есть несколько хранилищ данных, используйте приведенное ниже [расписание автоматического переноса][automatic migration schedule], чтобы определить время их переноса.
 
-## <a name="determine-storage-type"></a>Determine storage type
-If you created a DW before the dates below, you are currently using Standard Storage.  Each Data Warehouse on Standard Storage that is subject to automatic migration has a notice at the top of the Data Warehouse blade in the [Azure Portal][Azure Portal] that says "*An upcoming upgrade to premium storage will require an outage.  Learn more ->*."
+## <a name="determine-storage-type"></a>Определение типа хранилища
+Если вы создали хранилище данных ранее приведенных ниже дат, то в настоящий момент вы используете стандартное хранилище.
 
-| **Region** | **DW Created Before This Date** |
+| **Регион** | **Хранилище данных, созданное до указанной даты** |
 |:--- |:--- |
-| Australia East |Premium Storage Not Yet Available |
-| Australia Southeast |August 5, 2016 |
-| Brazil South |August 5, 2016 |
-| Canada Central |May 25, 2016 |
-| Canada East |May 26, 2016 |
-| Central US |May 26, 2016 |
-| China East |Premium Storage Not Yet Available |
-| China North |Premium Storage Not Yet Available |
-| East Asia |May 25, 2016 |
-| East US |May 26, 2016 |
-| East US2 |May 27, 2016 |
-| India Central |May 27, 2016 |
-| India South |May 26, 2016 |
-| India West |Premium Storage Not Yet Available |
-| Japan East |August 5, 2016 |
-| Japan West |Premium Storage Not Yet Available |
-| North Central US |Premium Storage Not Yet Available |
-| North Europe |August 5, 2016 |
-| South Central US |May 27, 2016 |
-| Southeast Asia |May 24, 2016 |
-| West Europe |May 25, 2016 |
-| West Central US |August 26, 2016 |
-| West US |May 26, 2016 |
-| West US2 |August 26, 2016 |
+| Восточная часть Австралии |Хранилище класса Premium пока недоступно |
+| Восток Китая |1 ноября 2016 г. |
+| Север Китая |1 ноября 2016 г. |
+| Центральная Германия |1 ноября 2016 г. |
+| Северо-восточная Германия |1 ноября 2016 г. |
+| Западная Индия |Хранилище класса Premium пока недоступно |
+| Западная часть Японии |Хранилище класса Premium пока недоступно |
+| Северо-центральный регион США |10 ноября 2016 г. |
 
-## <a name="automatic-migration-details"></a>Automatic migration details
-By default, we will migrate your database for you during 6pm and 6am in your region's local time during the [automatic migration schedule][automatic migration schedule] below.  Your existing Data Warehouse will be unusable during the migration.  We estimate that the migration will take around one hour per TB of storage per Data Warehouse.  We will also ensure that you are not charged during any portion of the automatic migration.
+## <a name="automatic-migration-details"></a>Сведения об автоматической миграции
+По умолчанию база данных будет перенесена автоматически в период с 18:00 до 06:00 по местному времени соответствующего региона в рамках [расписания автоматического переноса][automatic migration schedule], приведенного ниже.  Во время переноса имеющееся хранилище данных использовать нельзя.  По нашим оценкам, для миграции 1 ТБ емкости хранилища данных требуется около 1 часа.  Мы также гарантируем, что в процессе автоматического переноса независимо от этапа плата не взимается.
 
 > [!NOTE]
-> You will not be able to use your existing Data Warehouse during the migration.  Once the migration is complete, your Data Warehouse will be back online.
-> 
-> 
+> Вы не сможете использовать имеющееся хранилище данных во время миграции.  По завершении миграции оно снова переходит в оперативный режим.
+>
+>
 
-The details below are steps that Microsoft is taking on your behalf to complete the migration and does not require any involvement on your part.  In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
+Ниже приведены шаги, которые корпорация Майкрософт выполняет от вашего имени, чтобы осуществить миграцию без вашего вмешательства.  В данном примере имеющемуся хранилищу данных в хранилище уровня "Стандартный" присвоено имя MyDW.
 
-1. Microsoft renames “MyDW” to “MyDW_DO_NOT_USE_[Timestamp]”
-2. Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].”  During this time, a backup is taken.  You may see multiple pause/resumes if we encounter any issues during this process.
-3. Microsoft creates a new DW named “MyDW” on Premium Storage from the backup taken in step 2.  “MyDW” will not appear until after the restore is complete.
-4. Once the restore is complete, “MyDW” returns to the same DWUs and paused or active state it was before the migration.
-5. Once the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”
+1. Корпорация Майкрософт переименовывает MyDW в MyDW_DO_NOT_USE_[метка_времени].
+2. Корпорация Майкрософт приостанавливает MyDW_DO_NOT_USE_[метка_времени].  В это время создается резервная копия.  Этот процесс может быть несколько раз приостановлен и возобновлен, если во время него возникнут проблемы.
+3. Корпорация Майкрософт создает новое хранилище данных MyDW в хранилище уровня "Премиум", используя резервную копию, созданную на шаге 2.  Хранилище MyDW не будет отображаться до завершения восстановления.
+4. По завершении восстановления хранилище MyDW вернется к прежнему уровню единиц DWU и состоянию (приостановлено или активно), в котором оно пребывало до переноса.
+5. По завершении миграции корпорация Майкрософт удалит MyDW_DO_NOT_USE_[метка_времени].
 
 > [!NOTE]
-> These settings do not carry over as part of the migration:
-> 
-> * Auditing at the Database level needs to be re-enabled
-> * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+> Не переносятся следующие параметры:
+>
+> * Необходимо снова включить аудит на уровне базы данных.
+> * Необходимо снова добавить правила брандмауэра на уровне **базы данных**.  Это не повлияет на правила брандмауэра на уровне **сервера**.
+>
+>
 
-### <a name="automatic-migration-schedule"></a>Automatic migration schedule
-Automatic migrations occur from 6pm – 6am (local time per region) during the following outage schedule.
+### <a name="automatic-migration-schedule"></a>расписание автоматического переноса
+Автоматический перенос осуществляется в период с 18:00 до 06:00 по местному времени соответствующего региона согласно приведенному ниже расписанию простоев.
 
-| **Region** | **Estimated Start Date** | **Estimated End Date** |
+| **Регион** | **Предполагаемая дата начала** | **Предполагаемая дата окончания** |
 |:--- |:--- |:--- |
-| Australia East |Not determined yet |Not determined yet |
-| Australia Southeast |August 10, 2016 |August 24, 2016 |
-| Brazil South |August 10, 2016 |August 24, 2016 |
-| Canada Central |June 23, 2016 |July 1, 2016 |
-| Canada East |June 23, 2016 |July 1, 2016 |
-| Central US |June 23, 2016 |July 4, 2016 |
-| China East |Not determined yet |Not determined yet |
-| China North |Not determined yet |Not determined yet |
-| East Asia |June 23, 2016 |July 1, 2016 |
-| East US |June 23, 2016 |July 11, 2016 |
-| East US2 |June 23, 2016 |July 8, 2016 |
-| India Central |June 23, 2016 |July 1, 2016 |
-| India South |June 23, 2016 |July 1, 2016 |
-| India West |Not determined yet |Not determined yet |
-| Japan East |August 10, 2016 |August 24, 2016 |
-| Japan West |Not determined yet |Not determined yet |
-| North Central US |Not determined yet |Not determined yet |
-| North Europe |August 10, 2016 |August 31, 2016 |
-| South Central US |June 23, 2016 |July 2, 2016 |
-| Southeast Asia |June 23, 2016 |July 1, 2016 |
-| West Europe |June 23, 2016 |July 8, 2016 |
-| West Central US |August 14, 2016 |August 31, 2016 |
-| West US |June 23, 2016 |July 7, 2016 |
-| West US2 |August 14, 2016 |August 31, 2016 |
+| Восточная часть Австралии |Еще не определено |Еще не определено |
+| Восток Китая |9 января 2017 г. |13 января 2017 г. |
+| Север Китая |9 января 2017 г. |13 января 2017 г. |
+| Центральная Германия |9 января 2017 г. |13 января 2017 г. |
+| Северо-восточная Германия |9 января 2017 г. |13 января 2017 г. |
+| Западная Индия |Еще не определено |Еще не определено |
+| Западная часть Японии |Еще не определено |Еще не определено |
+| Северо-центральный регион США |9 января 2017 г. |13 января 2017 г. |
 
-## <a name="selfmigration-to-premium-storage"></a>Self-migration to Premium Storage
-If you would like to control when your downtime will occur, you can use the following steps to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][automatic migration schedule]).
+## <a name="self-migration-to-premium-storage"></a>Самостоятельная миграция в хранилище класса Premium
+Если вы хотите управлять временем простоя, то можно выполнить приведенные ниже шаги, чтобы перенести существующее хранилище данных из хранилища уровня "Стандартный" в хранилище уровня "Премиум".  Если вы решили выполнить миграцию самостоятельно, то это необходимо сделать до начала автоматической миграции в соответствующем регионе. Так вы избежите риска конфликтов (см. раздел [Расписание автоматической миграции][automatic migration schedule]).
 
-### <a name="selfmigration-instructions"></a>Self-migration instructions
-If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around one hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps for [steps to rename during migration][steps to rename during migration]. 
+### <a name="self-migration-instructions"></a>Инструкции по самостоятельной миграции
+Если вы хотите управлять простоем, то самостоятельно перенести хранилище данных можно с помощью резервного копирования и восстановления.  Предполагается, что для этапа восстановления при переносе требуется около 1 часа на 1 ТБ емкости хранилища данных.  Если вы хотите сохранить то же имя по завершении переноса, следуйте описанным ниже указаниям, чтобы [выполнить переименование во время переноса][steps to rename during migration].
 
-1. [Pause][Pause] your DW which takes an automatic backup
-2. [Restore][Restore] from your most recent snapshot
-3. Delete your existing DW on Standard Storage. **If you fail to do this step, you will be charged for both DWs.**
+1. [Приостановите работу][Pause] хранилища данных для автоматической архивации.
+2. [Восстановите][Restore] данные из последнего моментального снимка.
+3. Удалите имеющееся хранилище данных в стандартном хранилище. **Если не выполнить этот шаг, с вас будет взиматься плата за оба хранилища данных.**
 
 > [!NOTE]
-> These settings do not carry over as part of the migration:
-> 
-> * Auditing at the Database level needs to be re-enabled
-> * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+> Не переносятся следующие параметры:
+>
+> * Необходимо снова включить аудит на уровне базы данных.
+> * Необходимо снова добавить правила брандмауэра на уровне **базы данных**.  Это не повлияет на правила брандмауэра на уровне **сервера**.
+>
+>
 
-#### <a name="optional-steps-to-rename-during-migration"></a>Optional: steps to rename during migration
-Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
+#### <a name="optional-steps-to-rename-during-migration"></a>Необязательно: действия для переименования во время миграции
+У двух баз данных на одном логическом сервере не может быть одинаковое имя. В настоящее время в хранилище данных SQL поддерживается возможность переименования хранилища данных.
 
-In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
+В данном примере имеющемуся хранилищу данных в хранилище уровня "Стандартный" присвоено имя MyDW.
 
-1. Rename "MyDW" using the ALTER DATABASE command that follows to something like "MyDW_BeforeMigration."  This command kills all existing transactions and must be done in the master database to succeed.
+1. С помощью приведенной ниже команды ALTER DATABASE переименуйте MyDW, например, в MyDW_BeforeMigration.  Эта команда завершит все существующие транзакции, и она должна быть выполнена в базе данных master.
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Pause][Pause] "MyDW_BeforeMigration" which takes an automatic backup
-3. [Restore][Restore] from your most recent snapshot a new database with the name you used to have (ex: "MyDW")
-4. Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
+2. [Приостановите работу][Pause] MyDW_BeforeMigration для автоматической архивации.
+3. [Восстановите][Restore] новую базу данных с прежним именем (например, MyDW) из последнего моментального снимка.
+4. Удалите хранилище данных MyDW_BeforeMigration.  **Если не выполнить этот шаг, с вас будет взиматься плата за оба хранилища данных.**
 
 > [!NOTE]
-> These settings do not carry over as part of the migration:
-> 
-> * Auditing at the Database level needs to be re-enabled
-> * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+> Не переносятся следующие параметры:
+>
+> * Необходимо снова включить аудит на уровне базы данных.
+> * Необходимо снова добавить правила брандмауэра на уровне **базы данных**.  Это не повлияет на правила брандмауэра на уровне **сервера**.
+>
+>
 
-## <a name="next-steps"></a>Next steps
-With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  To maximize the performance benefits of this change, we recommend that you rebuild your Clustered Columnstore Indexes using the following script.  The script below works by forcing some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
+## <a name="next-steps"></a>Дальнейшие действия
+Это изменение в хранилище класса Premium также увеличивает количество файлов больших двоичных объектов базы данных в базовой архитектуре хранилища данных.  Чтобы получить максимальный прирост производительности от этого преимущества, рекомендуется перестроить кластеризованные индексы columnstore с помощью приведенного ниже сценария.  Этот сценарий принудительно переносит некоторые данные в дополнительные большие двоичные объекты.  Если не предпринимать никаких действий, данные со временем будут естественным образом перераспределены по мере загрузки данных в таблицы хранилища данных.
 
-**Pre-requisites:**
+**Предварительные требования**
 
-1. Data Warehouse should run with 1,000 DWUs or higher (see [scale compute power][scale compute power])
-2. User executing the script should be in the [mediumrc role][mediumrc role] or higher
-   1. To add a user to this role, execute the following: 
+1. Хранилище данных должно располагать 1000 DWU или больше (см. раздел [Масштабирование вычислительных ресурсов][scale compute power]).
+2. Пользователь, выполняющий скрипт, должен быть участником [роли mediumrc][mediumrc role] или роли более высокого уровня.
+   1. Чтобы добавить пользователя в эту роль, выполните следующую команду:
       1. ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
@@ -161,10 +133,10 @@ With the change to Premium Storage, we have also increased the number of databas
 --------------------------------------------------------------------------------
 create table sql_statements
 WITH (distribution = round_robin)
-as select 
+as select
     'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
     row_number() over (order by s.name, t.name) as sequence
-from 
+from
     sys.schemas s
     inner join sys.tables t
         on s.schema_id = t.schema_id
@@ -196,7 +168,7 @@ drop table sql_statements;
 go
 ````
 
-If you encounter any issues with your Data Warehouse, [create a support ticket][create a support ticket] and reference “Migration to Premium Storage” as the possible cause.
+Если возникнут проблемы с хранилищем данных, [создайте запрос в службу поддержки][create a support ticket] и укажите "Перенос в хранилище класса Premium" в качестве возможной причины.
 
 <!--Image references-->
 
@@ -206,11 +178,11 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 
@@ -221,6 +193,6 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

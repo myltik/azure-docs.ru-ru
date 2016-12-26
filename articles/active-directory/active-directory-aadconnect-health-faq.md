@@ -1,110 +1,13 @@
 ---
-title: "Часто задаваемые вопросы об Azure AD Connect Health"
-description: "Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
-services: active-directory
-documentationcenter: 
-author: billmath
-manager: samueld
-editor: curtand
-ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2016
-ms.author: vakarand
+redirect_url: /azure/active-directory/connect-health/active-directory-aadconnect-health-faq
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 907a4e73d47005d13151387b851e5640912e8cce
-
+ms.sourcegitcommit: 7e50376af82d88328c62d8aa1f4e1e94965790ad
+ms.openlocfilehash: 8d163a40a78a7be1e282e78b083a723b37086fca
 
 ---
-# <a name="azure-ad-connect-health-frequently-asked-questions-faq"></a>Часто задаваемые вопросы об Azure AD Connect Health
-Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
-
-## <a name="general-questions"></a>Общие вопросы
-**Вопрос. Я управляю несколькими каталогами Azure AD. Как выполнить переключение на один из них с помощью Azure Active Directory Premium?**
-
-Можно переключиться между различными клиентами Azure AD, щелкнув имя выполнившего вход пользователя в правом верхнем углу и выбрав соответствующую учетную запись. Если учетной записи нет в списке, выполните выход, а затем войдите, используя учетные данные каталога, для которого включено предложение Azure Active Directory Premium.
-
-## <a name="installation-questions"></a>Вопросы, связанные с установкой
-**Какое влияние оказывает установка агента Azure AD Connect Health на отдельных серверах?**
-
-Установка агентов Microsoft Azure AD Connect Health AD FS, прокси-серверов веб-приложений, серверов синхронизации Azure AD Connect и контроллеров домена оказывает минимальное влияние с точки зрения использования ЦП, потребления памяти, пропускной способности сети и хранилища.
-
-Приведенные ниже значения являются приближенными.
-
-* Загрузка ЦП: увеличение примерно на 1 %
-* Потребление памяти: до 10 % от общего объема системной памяти
-
-> [!NOTE]
-> В случае если агент не может связаться с Azure, он сохраняет данные локально, не превышая заданного максимального лимита. Агент записывает данные поверх кэшированных по принципу давности обслуживания.
-> 
-> 
-
-* Хранилище локального буфера для агентов Azure AD Connect Health: около 20 МБ.
-* Для серверов AD FS мы советуем выделить 1024 МБ (1 ГБ) дискового пространства для канала аудита AD FS, чтобы агенты Azure AD Connect Health могли обработать все данные аудита до того, как они будут перезаписаны.
-
-**Потребуется ли перезагружать серверы во время установки агентов Azure AD Connect Health?**
-
-Нет. При установке агентов перезагрузка сервера не требуется. Однако перезагрузка сервера может потребоваться при установке некоторых необходимых компонентов.
-
-Например, при установке платформы .Net 4.5 Framework на Windows Server 2008 R2 требуется перезагрузка сервера.
-
-**Работают ли службы Azure AD Connect Health через сквозной прокси-сервер HTTP?**
-
-Да.  Для текущих операций можно настроить агент Health, чтобы пересылать исходящие HTTP-запросы, используя HTTP-прокси. Подробнее см. в разделе [Настройка агентов Azure AD Connect Health для использования HTTP-прокси](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
-Если необходимо настроить прокси-сервер во время регистрации агента, следует заранее изменить параметры прокси-сервера для Internet Explorer.
-
-1. Последовательно выберите «Internet Explorer -> Параметры-> Свойства обозревателя ->Подключения -> Настройка сети».
-2. Установите флажок "Использовать прокси-сервер для локальной сети".
-3. Выберите "Дополнительно", если для HTTP и HTTPS/Secure используются различные порты прокси.
-
-**Поддерживают ли службы Azure AD Connect Health обычную проверку подлинности при подключении к прокси-серверам HTTP?**
-
-Нет. В настоящее время механизм указания произвольного имени пользователя и пароля для обычной проверки подлинности не поддерживается.
-
-**Какие версии службы AD DS поддерживаются в Azure AD Connect Health для AD DS?**
-
-Мониторинг AD DS поддерживается при установке в следующих версиях ОС:
-
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
-
-## <a name="operations-questions"></a>Вопросы, связанные с работой
-**Требуется ли включать аудит на прокси-серверах приложений AD FS или прокси-серверах веб-приложений?**
-
-Нет, включать аудит на прокси-серверах веб-приложений не требуется. Необходимо включить его на серверах AD FS.
-
-**Как разрешаются оповещения Azure AD Connect Health?**
-
-Оповещения Azure AD Connect Health разрешаются при условии успешного завершения. Агенты Azure AD Connect Health периодически обнаруживают условия успешного завершения и сообщают о них службе. Для нескольких оповещений подавление осуществляется на основе времени. Иными словами, если одно и то же условие ошибки не наблюдается в течение 72 часов с момента создания оповещения, оповещение разрешается автоматически.
-
-**Какие порты брандмауэра следует открыть для работы агента Azure AD Connect Health?**
-
-Чтобы агент Azure AD Connect Health мог взаимодействовать с конечными точками службы Azure AD Health, необходимо открыть порты TCP/UDP 443 и 5671.
-
-**Вопрос. Почему на портале Azure AD Connect Health отображается два сервера с одинаковым именем?**
-
-Когда с сервера удаляется агент, сервер не удаляется с портала Azure AD Connect автоматически.  Поэтому, если вы вручную удалили агент с сервера или удалили сам сервер, потребуется вручную удалить запись сервера на портале Azure AD Connect Health. Дополнительные сведения см. в разделе [Удаление экземпляра службы или сервера](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance).
-
-Кроме того, если вы переустановили сервер из образа или создали новый сервер с теми же данными (например, именем компьютера), но не удалили зарегистрированный сервер на портале Azure AD Connect Health с последующей установкой агента на новом сервере, то вы увидите две записи с таким же именем.  
-В этом случае следует вручную удалить запись, относящуюся к старому серверу. Данные для этого сервера устарели.
-
-## <a name="related-links"></a>Связанные ссылки
-* [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
-* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
-* [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
-* [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
-* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

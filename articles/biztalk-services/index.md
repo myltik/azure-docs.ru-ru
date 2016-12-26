@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать службы BizTalk для интеграции облачных приложений, размещенных локально, а также бизнес-приложений с SAP, Oracle EBS, SQL Server и PeopleSoft."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>Документация по службам BizTalk
 
-Службы BizTalk предоставляют возможности для интеграции облачных приложений, размещенных локально, а также бизнес-приложений с SAP, Oracle EBS, SQL Server и PeopleSoft. Они позволяют подключаться к любому источнику данных (HTTP, FTP, SFTP или REST). Вы можете маршрутизировать сообщения с помощью различных артефактов Azure, таких как очереди и разделы служебной шины, база данных SQL и хранилище больших двоичных объектов.   
+Узнайте, как использовать службы BizTalk для интеграции облачных приложений, размещенных локально, а также бизнес-приложений с SAP, Oracle EBS, SQL Server и PeopleSoft. В приведенных здесь руководствах и другой документации описывается интеграция предприятия с облаком.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

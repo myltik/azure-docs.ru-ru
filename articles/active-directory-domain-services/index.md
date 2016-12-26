@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как с помощью доменных служб Active Directory присоединять к домену виртуальные машины Azure, не используя контроллеры домена, и управлять ими посредством групповых политик."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Документация по доменным службам Active Directory
 
-Доменные службы Azure AD предоставляют управляемые доменные службы, отвечающие за присоединение к домену, применение групповой политики, использование протокола LDAP, выполнение аутентификации Kerberos или NTLM, которые полностью совместимы с Windows Server Active Directory.  Эта служба позволяет пользователям выполнять гибкое развертывание разнообразных вычислительных решений.
+Узнайте, как с помощью доменных служб Active Directory присоединять к домену виртуальные машины Azure, не используя контроллеры домена. В приведенных здесь руководствах и другой документации показано, как управлять виртуальными машинами с помощью групповых политик.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

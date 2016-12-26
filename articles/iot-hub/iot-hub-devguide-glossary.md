@@ -1,12 +1,12 @@
 ---
-title: Developer guide - glossary | Microsoft Docs
-description: A glossary of common terms relating to IoT Hub
+title: "Руководство разработчика. Глоссарий | Документация Майкрософт"
+description: "Глоссарий общепринятых терминов, связанных с Центром Интернета вещей"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,77 +14,229 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
+
 
 ---
-# <a name="glossary-of-iot-hub-terms"></a>Glossary of IoT Hub terms
-This article lists some of the common terms associated with IoT Hub.
+# <a name="glossary-of-iot-hub-terms"></a>Глоссарий терминов, связанных с Центром Интернета вещей
+В этой статье перечислены некоторые распространенные термины, используемые в статьях на тему Центра Интернета вещей.
 
-## <a name="advanced-message-queueing-protocol-(amqp)"></a>Advanced Message Queueing Protocol (AMQP)
-[AMQP](https://www.amqp.org/) is one of the messaging protocols that IoT Hub supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+## <a name="advanced-message-queueing-protocol"></a>Протокол AMQP
+[Протокол AMQP](https://www.amqp.org/) (Advanced Message Queueing Protocol) — один из протоколов обмена сообщениями, поддерживаемых [Центром Интернета вещей](#iot-hub) для взаимодействия с устройствами. Дополнительные сведения о протоколах обмена сообщениями, которые поддерживает Центр Интернета вещей, см. в статье [Отправка и получение сообщений в Центре Интернета вещей](iot-hub-devguide-messaging.md).
 
-## <a name="cloud-to-device-(c2d)"></a>Cloud-to-device (C2D)
-Usually used to refer to messages sent from IoT Hub to a connected device. Often, these messages are commands that instruct the device to take some action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+## <a name="azure-cli"></a>Инфраструктура CLI Azure
+[Интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md) — это кроссплатформенный инструмент командной строки с открытым кодом для создания ресурсов и управления ими в среде Microsoft Azure.
 
-## <a name="condition"></a>Condition
-Refers to device state information, such as the connectivity method currently in use, as reported by a device app. Devices can also report their capabilities. You can query condition and capability using the device twin.
+## <a name="azure-iot-device-sdks"></a>Пакеты SDK для устройств Azure IoT
+Для нескольких языков доступны _пакеты SDK для устройств_, которые позволяют создавать [приложения для устройств](#device-app), взаимодействующие с Центром Интернета вещей. Учебники, посвященные Центру Интернета вещей, демонстрируют, как использовать эти пакеты SDK. Исходный код и дополнительные сведения о пакетах SDK для устройств можно найти в этом [репозиторий](https://github.com/Azure/azure-iot-sdks) на сайте GitHub.
 
-## <a name="data-point-message"></a>Data-point message
-A data-point message is a cloud-to-device message that contains telemetry data such as wind speed or temperature.
+## <a name="azure-iot-gateway-sdk"></a>Пакет SDK для шлюза IoT Azure
+С помощью этого пакета SDK можно создавать приложения, которые позволяют устройствам, подключенным к шлюзу, взаимодействовать с [Центром Интернета вещей](#iot-hub). Учебники, посвященные шлюзу Центра Интернета вещей, демонстрируют, как использовать этот пакет SDK. Исходный код и дополнительные сведения о пакете SDK для шлюза Azure IoT можно найти в этом [репозиторий](https://github.com/Azure/azure-iot-gateway-sdk) на сайте GitHub.
 
-## <a name="desired-properties"></a>Desired properties
-In the context of device twins, desired properties are used in conjunction with *reported properties* to synchronize device configuration or condition. Desired properties can only be set by the application back end and are observed by the device app. 
+## <a name="azure-iot-service-sdks"></a>Пакеты SDK для служб Azure IoT
+Для нескольких языков доступны _пакеты SDK для служб_, которые позволяют создавать [внутренние приложения](#back-end-app), взаимодействующие с Центром Интернета вещей. Учебники, посвященные Центру Интернета вещей, демонстрируют, как использовать эти пакеты SDK. Исходный код и дополнительные сведения о пакетах SDK для служб можно найти в этом [репозиторий](https://github.com/Azure/azure-iot-sdks) на сайте GitHub.
 
-## <a name="device-to-cloud-(d2c)"></a>Device-to-cloud (D2C)
-Usually used to refer to messages sent from a connected device to IoT Hub. These messages may be [data point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+## <a name="azure-portal"></a>Портал Azure
+[Портал Microsoft Azure](https://portal.azure.com) — это централизованное место, где можно подготавливать ресурсы Azure и управлять ими. Содержимое портала упорядочено с помощью _колонок_. В некоторых учебниках, посвященных Центру Интернета вещей, также может упоминаться [классический портал Azure](https://manage.windowsazure.com).
 
-## <a name="device-identity-registry"></a>Device identity registry
-The [device identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to a hub.
+## <a name="azure-powershell"></a>Azure PowerShell
+[Azure PowerShell](../powershell-install-configure.md) — это коллекция командлетов, с помощью которых можно управлять Azure, используя Windows PowerShell. Эти командлеты можно использовать для создания, тестирования, развертывания решений и служб на платформе Azure и управления ими.
 
-## <a name="device"></a>Device
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example a device might be, an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse.
+## <a name="azure-resource-manager"></a>Диспетчер ресурсов Azure
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) дает вам возможность работать с ресурсами своего решения как с группой. Вы можете развертывать, обновлять или удалять ресурсы решения в рамках одной скоординированной операции.
 
-## <a name="device-twin"></a>Device twin
-A [device twin](iot-hub-devguide-device-twins.md) is a copy in  IoT Hub of the condition and configuration settings of a physical device. You can use a device twin to manage the configuration of the physical device.
+## <a name="azure-service-bus"></a>Azure Service Bus
+[Служебная шина](../service-bus/index.md) обеспечивает обмен данными через облако с корпоративными службами обмена сообщениями и обмена данными с помощью ретранслятора. Такая конфигурация позволяет подключаться к локальным решениям с помощью облака. В некоторых учебниках, посвященных Центру Интернета вещей, упоминаются [очереди](../service-bus-messaging/service-bus-messaging-overview.md) служебной шины.
 
-## <a name="direct-method"></a>Direct method
-A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
+## <a name="azure-storage"></a>Хранилище Azure
+[Служба хранилища Azure](../storage/storage-introduction.md) — это решение облачного хранилища. Она включает в себя службу хранилища BLOB-объектов, которую можно использовать для хранения объектов с неструктурированными данными. В некоторых учебниках, посвященных Центру Интернета вещей, используется хранилище BLOB-объектов.
 
-## <a name="event-hub-compatible-endpoint"></a>Event hub-compatible endpoint
-To read device-to-cloud messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event hub-compatible method to read those messages. Event Hub-compatible methods include using the Event Hubs SDKs and Azure Stream Analytics.
+## <a name="back-end-app"></a>Внутреннее приложение
+В контексте [Центра Интернета вещей](#iot-hub) внутреннее приложение является приложением, которое подключается к одной из конечных точек, доступных службе, в Центре Интернета вещей. Например, внутреннее приложение может извлекать сообщения, отправляемые [с устройства в облако](#device-to-cloud), или управлять [реестром удостоверений](#identity-registry). Как правило, внутреннее приложении выполняется в облаке, но во многих учебниках внутренние приложения являются консольными и работают на локальном компьютере разработки.
 
-## <a name="field-gateway"></a>Field gateway
-A field gateway enables connectivity for devices that cannot connect directly to IoT Hub and is typically deployed locally with your devices. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md).
+## <a name="cloud-gateway"></a>Облачный шлюз
+Облачный шлюз позволяет устройствам, которые нельзя напрямую подключить к [Центру Интернета вещей](#iot-hub), устанавливать подключение к нему. Облачный шлюз размещается в облаке в отличие от [полевого шлюза](#field-gateway), который выполняться локально на устройствах. Типичный случай использования облачного шлюза — это реализация преобразования протоколов для устройств.
 
-## <a name="job"></a>Job
-Your solution back end can use jobs to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin desired properties, updating device twin tags, and invoking direct methods.
+## <a name="cloud-to-device"></a>Из облака на устройство
+Относится к сообщениям, отправленным из Центра Интернета вещей на подключенное устройство. Эти сообщения зачастую являются командами, указывающими устройству выполнить какое-то действие. Дополнительные сведения см. в статье [Отправка и получение сообщений в Центре Интернета вещей](iot-hub-devguide-messaging.md).
 
-## <a name="protocol-gateway"></a>Protocol gateway
-A protocol gateway is typically deployed in the cloud and provides protocol translation services for devices connecting to IoT Hub. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md).
+## <a name="connection-string"></a>Строка подключения
+Строки подключения используются в коде приложения для инкапсуляции сведений, необходимых для подключения к конечной точке. Строка подключения обычно содержит адрес конечной точки и сведения о безопасности, но ее формат отличается в зависимости от службы.
 
-## <a name="interactive-message"></a>Interactive message
-An interactive message is a cloud-to-device message that triggers an immediate action in the application back end. For example, a device might send an alarm about a failure that should be logged automatically into a CRM system.
+## <a name="custom-gateway"></a>Настраиваемый шлюз
+Шлюз позволяет устройствам, которые нельзя напрямую подключить к [Центру Интернета вещей](#iot-hub), устанавливать подключение к нему. Можно воспользоваться [пакетом SDK для шлюза Azure IoT](#azure-iot-gateway-sdk) и создать настраиваемые шлюзы, которые реализуют настраиваемую логику для обработки сообщений и преобразования протоколов.
 
-## <a name="iot-hub"></a>IoT Hub
-IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md).
+## <a name="data-point-message"></a>Сообщение точки данных
+Это сообщение, отправляемое [из устройства в облако](#device-to-cloud). В нем содержатся данные [телеметрии](#telemetry), такие как сведения о скорости ветра или температуре.
+
+## <a name="desired-configuration"></a>Требуемая конфигурация
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) требуемая конфигурация обозначает полный набор свойств и метаданных двойника устройства, который должен синхронизироваться с устройством.
+
+## <a name="desired-properties"></a>Требуемые свойства
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) требуемые свойства — это подраздел двойника устройства, который используется вместе с [сообщаемыми свойствами](#reported-properties) для синхронизации конфигурации или условий устройства. Требуемые свойства задаются только во [внутреннем приложении](#back-end-app), а просмотреть их можно в [приложении для устройства](#device-app).
+
+## <a name="device-to-cloud"></a>С устройства в облако
+Относится к сообщениям, отправляемым из подключенного устройства в [Центр Интернета вещей](#iot-hub). Эти сообщения могут представлять собой [точки данных](#data-point-message) или [интерактивные](#interactive-message) сообщения. Дополнительные сведения см. в статье [Отправка и получение сообщений в Центре Интернета вещей](iot-hub-devguide-messaging.md).
+
+## <a name="device"></a>Устройство
+В контексте Центра Интернета вещей устройство — это обычно автономные вычислительные устройства небольшого масштаба, которые могут собирать данные или использоваться для управления другими устройствами. Например, им может быть устройство мониторинга среды или контроллер систем полива и вентиляции в теплице. В [каталоге устройств](https://catalog.azureiotsuite.com/) представлен список оборудования, сертифицированного для работы с [Центром Интернета вещей](#iot-hub).
+
+## <a name="device-app"></a>Приложение для устройства
+Приложение для устройства выполняется на вашем [устройстве](#device) и обрабатывает взаимодействие с [Центром Интернета вещей](#iot-hub). Как правило, при реализации приложения для устройства используется один из [пакетов SDK для устройств Azure IoT](#azure-iot-device-sdks). Во многих учебниках, посвященных Интернету вещей, для удобства используется [имитация устройства](#simulated-device).
+
+## <a name="device-condition"></a>Условие устройства
+Относится к сведениям о состоянии устройства, таким как текущий используемый способ подключения, данные о котором отправило [приложение для устройства](#device-app). [Приложение](#device-app) для устройства также может предоставлять сведения о своих возможностях. Сведения об условиях и возможностях можно запросить с помощью двойника устройства.
+
+## <a name="device-data"></a>Данные устройства
+Данными устройства называются данные отдельного устройства, хранящиеся в [реестре удостоверений](#identity-registry) Центра Интернета вещей. Эти данные можно импортировать и экспортировать.
+
+## <a name="device-explorer"></a>Обозреватель устройств
+[Обозреватель устройств](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md) — это инструмент, который работает в среде Windows и позволяет управлять устройствами в [реестре удостоверений](#identity-registry), а также отправлять сообщения и получать их с устройств.
+
+## <a name="device-identities-rest-api"></a>REST API удостоверений устройств
+Интерфейс [REST API удостоверений устройств](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) позволяет управлять устройствами, зарегистрированными в [реестре удостоверений](#identity-registry), с помощью REST API. Как правило, рекомендуется использовать один из [пакетов SDK для служб](#azure-iot-service-sdks) высокого уровня, как показано в учебниках, посвященных Центру Интернета вещей.
+
+## <a name="device-identity"></a>Удостоверение устройства
+Удостоверение устройства — это уникальный идентификатор, назначаемый каждому устройству, зарегистрированному в [реестре удостоверений](#identity-registry).
+
+## <a name="device-management"></a>Управление устройствами
+Управление устройствами охватывает весь жизненный цикл, связанный с управлением устройствами в решении Интернета вещей, включая планирование, подготовку, настройку, мониторинг и изъятие из эксплуатации.
+
+## <a name="device-management-patterns"></a>Шаблоны управления устройствами
+[Центр Интернета вещей](#iot-hub) предоставляет общие шаблоны управления устройствами, включающие в себя перезагрузку, сброс к параметрам по умолчанию и выполнение обновлений встроенного ПО устройств.
+
+## <a name="device-messaging-rest-api"></a>REST API обмена сообщениями между устройствами
+Вы можете воспользоваться интерфейсом [REST API обмена сообщениями между устройствами](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis) для отправки в Центр Интернета вещей сообщений, передаваемых с устройства в облако, а также для получения из Центра Интернета вещей сообщений, передаваемых [из облака на устройство](#cloud-to-device). Как правило, рекомендуется использовать один из [пакетов SDK для устройств](#azure-iot-device-sdks) высокого уровня, как показано в учебниках, посвященных Центру Интернета вещей.
+
+## <a name="device-provisioning"></a>Подготовка устройств
+Подготовка устройств — это процесс добавления исходных [данных устройства](#device-data) в хранилища решения. Чтобы предоставить новому устройству доступ к центру, необходимо добавить идентификатор и ключи устройства в [реестр удостоверений](#identity-registry) Центра Интернета вещей. В рамках процесса подготовки может потребоваться инициализировать данные устройства в других хранилищах решения.
+
+## <a name="device-twin"></a>"Двойник" устройства
+[Двойник устройства](iot-hub-devguide-device-twins.md) — это документ JSON, в котором хранятся сведения о состоянии устройства, такие как метаданные, конфигурации и условия. В [Центре Интернета вещей](#iot-hub) сохраняется двойник устройства для каждого устройства, подготавливаемого в Центре Интернета вещей. Двойники устройств позволяют синхронизировать конфигурации и [условия устройств](#device-condition) между устройством и серверной частью решения. Можно запросить двойник устройства найти определенные устройства и запросить состояние длительных операций.
+
+## <a name="device-twin-queries"></a>Запросы двойника устройства
+[Запросы двойника устройства](iot-hub-devguide-query-language.md) используют похожий на SQL язык запросов Центра Интернета вещей, чтобы получить из двойника устройства определенные сведения. Этот же язык запросов Центра Интернета вещей можно использовать для получения сведений о [заданиях](#job), выполняемых в Центре Интернета вещей.
+
+## <a name="device-twin-synchronization"></a>Синхронизация двойников устройств
+Синхронизация двойников устройств использует [требуемые свойства](#desired-properties) в двойниках устройств для настройки устройств и получения из них [сообщаемых свойств](#reported-properties) для хранения в двойнике устройства.
+
+## <a name="direct-method"></a>Прямой метод
+[Прямой метод](iot-hub-devguide-direct-methods.md) — это метод выполнения действий на устройстве путем вызова API в Центре Интернета вещей.
+
+## <a name="endpoint"></a>Конечная точка
+Центр Интернета вещей предоставляет несколько [конечных точек](iot-hub-devguide-endpoints.md), которые дают приложению возможность подключаться к Центру Интернета вещей. Конечные точки для устройств позволяют устройствам выполнять операции, такие как отправка сообщений [из устройства в облако](#device-to-cloud) и получение сообщений, отправленных [из облака на устройство](#cloud-to-device). Конечные точки для служб позволяют [внутренним приложениям](#back-end-app) выполнять операции, такие как управление [удостоверениями устройств](#device-identity) и управление двойниками устройств.
+
+## <a name="event-hubs-service"></a>Служба концентраторов событий
+[Концентраторы событий](../event-hubs/event-hubs-what-is-event-hubs.md) — это служба приема данных с высоким уровнем масштабируемости, которая может принимать миллионы событий в секунду. Эта служба позволяет осуществлять обработку и анализ большого объема данных, принимаемых с ваших подключенных устройств и из ваших приложений. Сравнение со службой Центра Интернета вещей см. в статье [Сравнение центра IoT и концентраторов событий](iot-hub-compare-event-hubs.md).
+
+## <a name="event-hub-compatible-endpoint"></a>Конечная точка, совместимая с концентраторами событий
+Чтобы прочитать сообщения, отправляемые [с устройства в облако](#device-to-cloud) и получаемые Центром Интернета вещей, можно подключиться к конечной точке центра и воспользоваться любым методом, который поддерживает концентратор событий. Методы, совместимые с концентраторами событий, предусматривают использование [пакетов SDK для концентраторов событий](../event-hubs/event-hubs-programming-guide.md) и службы [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
+
+## <a name="field-gateway"></a>Полевой шлюз
+Полевой шлюз позволяет устройствам, которые нельзя напрямую подключить к [Центру Интернета вещей](#iot-hub), устанавливать подключение к нему. Обычно этот шлюз развертывается локально на устройствах. Дополнительные сведения см. в статье [Что такое центр IoT в Azure?](iot-hub-what-is-iot-hub.md)
+
+## <a name="free-account"></a>Бесплатная учетная запись
+Для работы с учебниками, посвященными Центру Интернета вещей, можно создать [бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/). Также с ее помощью можно попрактиковаться в использовании службы Центра Интернета вещей (и других служб Azure).
+
+## <a name="gateway"></a>Шлюз
+Шлюз позволяет устройствам, которые нельзя напрямую подключить к [Центру Интернета вещей](#iot-hub), устанавливать подключение к нему. Ознакомьтесь также с терминами [Полевой шлюз](#field-gateway), [Облачный шлюз](#cloud-gateway) и [Настраиваемый шлюз](#custom-gateway).
+
+## <a name="identity-registry"></a>Реестр удостоверений
+[Реестр удостоверений](iot-hub-devguide-identity-registry.md) — это встроенный компонент Центра Интернета вещей, где хранятся сведения об отдельных устройствах, которым разрешено подключаться к Центру Интернета вещей.
+
+## <a name="interactive-message"></a>Интерактивные сообщения
+Это сообщения, отправляемые [из облака на устройство](#cloud-to-device) и вызывающие немедленные действия в серверной части приложения. Например, устройство может отправлять оповещение о сбое, которое подлежит автоматической регистрации в системе управления отношениями с клиентами (CRM).
+
+## <a name="iot-hub"></a>Центр IoT
+Центр Интернета вещей — это полностью управляемая служба Azure, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств и серверной частью решения. Дополнительные сведения см. в статье [Что такое центр IoT в Azure?](iot-hub-what-is-iot-hub.md) С помощью своей [подписки Azure](#subscription) вы можете создавать Центры Интернета вещей, которые будут обрабатывать ваши нагрузки по обмену сообщениями Интернета вещей.
+
+## <a name="iot-hub-metrics"></a>Метрики Центра Интернета вещей
+[Метрики Центра Интернета вещей](iot-hub-metrics.md) предоставляют данные о состоянии Центров Интернета вещей в вашей [подписке Azure](#subscription). Метрики позволяют оценивать общую работоспособность службы и подключенных к ней устройств. Метрики помогут вам увидеть, что происходит с Центром Интернета вещей, а также помогут исследовать основные проблемы без обращения в службу поддержки Azure.
+
+## <a name="iot-hub-query-language"></a>Язык запросов Центра Интернета вещей
+[Язык запросов Центра Интернета вещей](iot-hub-devguide-query-language.md) — это похожий на SQL язык, который позволяет запрашивать [задания](#job) и двойники устройств.
+
+## <a name="iot-hub-resource-provider-rest-api"></a>REST API поставщика ресурсов Центра Интернета вещей
+С помощью [REST API поставщика ресурсов Центра Интернета вещей](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) можно управлять Центрами Интернета вещей в [подписке Azure](#subscription), выполняя различные операции, такие как создание, обновление и удаление центров.
 
 ## <a name="iot-suite"></a>IoT Suite
-Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md).
+IoT Suite представляет собой пакет из нескольких служб Azure с предварительно настроенными решениями. Эти решения позволяют быстро начать работу с комплексными реализациями стандартных сценариев Интернета вещей. Дополнительные сведения см. в статье [Что такое Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## <a name="job"></a>Job
-A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations such as a firmware upgrade across multiple devices connected to your hub.
+## <a name="iothub-explorer"></a>iothub-explorer
+[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) — это кроссплатформенная программа командной строки. Эта программа позволяет управлять устройствами в [реестре удостоверений](#identity-registry), отправлять сообщения и файлы и получать их с устройств, а также отслеживать операции Центра Интернета вещей.
+
+## <a name="job"></a>Задание
+В серверной части решения можно использовать [задания](iot-hub-devguide-jobs.md), чтобы планировать и отслеживать действия, выполняемые на ряде устройств, зарегистрированных в Центре Интернета вещей. Эти действия включают в себя обновление [требуемых свойств](#desired-properties) и [тегов](#tags) двойников устройств, а также вызовы [прямых методов](#direct-method). [Центр Интернета вещей](#iot-hub) также использует задания для [импорта и экспорта](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) из [реестра удостоверений](#identity-registry).
+
+## <a name="module"></a>модуль
+[Модуль](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) в [пакете SDK для шлюза Azure IoT](iot-hub-linux-gateway-sdk-get-started.md) — это компонент, который выполняет определенную задачу. Такой задачей может быть прием сообщения с устройства, преобразование или отправка сообщения в Центр Интернета вещей. Брокер отвечает за пересылку сообщений между модулями. Пакет SDK для шлюза Azure IoT включает набор образцов модулей. Также можно создать собственный настраиваемый модуль.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) is one of the messaging protocols that IoT Hub supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+[MQTT](http://mqtt.org/) — один из протоколов обмена сообщениями, поддерживаемых [Центром Интернета вещей](#iot-hub) для взаимодействия с устройствами. Дополнительные сведения о протоколах обмена сообщениями, которые поддерживает Центр Интернета вещей, см. в статье [Отправка и получение сообщений в Центре Интернета вещей](iot-hub-devguide-messaging.md).
 
-## <a name="reported-properties"></a>Reported properties
-In the context of device twins, reported properties are used in conjunction with *desired properties* to synchronize device configuration or condition. Reported properties can only be set by the device app and can be read and queried by the application back end.
+## <a name="operations-monitoring"></a>Мониторинг операций
+[Мониторинг операций](iot-hub-operations-monitoring.md) Центра Интернета вещей позволяет отслеживать состояние операций в Центре Интернета вещей в режиме реального времени. [Центр Интернета вещей](#iot-hub) отслеживает события по нескольким категориям операций. Вы можете выбрать отправку событий из одной или нескольких категорий в конечную точку Центра Интернета вещей для обработки. Вы можете отслеживать данные на наличие ошибок или настроить более сложную обработку на основе закономерностей в данных.
 
-## <a name="tags"></a>Tags
-In the context of devcie twins, tags are device meta-data stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+## <a name="physical-device"></a>Физическое устройство
+Физическое устройство — это реальное устройство (например, Raspberry Pi), которое подключается к Центру Интернета вещей. Во многих учебниках, посвященных Центру Интернета вещей, для удобства используются [имитации устройств](#simulated-device), которые позволяют запускать примеры на локальном компьютере.
 
-## <a name="system-properties"></a>System properties
-In the context of device twins, system properties are read-only and include information regarding the device usage such as last activity time and connection state.
+## <a name="primary-and-secondary-keys"></a>Первичный и вторичный ключи
+Когда в Центре Интернета вещей выполняется подключение к конечной точке, доступной устройству или службе, [строка подключения](#connection-string) содержит ключ, необходимый для получения доступа. Когда вы добавляете устройство в [реестр удостоверений](#identity-registry) или [политику общего доступа](#shared-access-policy) в центр, служба создает первичный и вторичный ключи. Наличие двух ключей позволяет выполнять смену с одного ключа на другой при обновлении ключа без потери доступа к Центру Интернета вещей.
 
-<!--HONumber=Oct16_HO2-->
+## <a name="protocol-gateway"></a>Шлюз протокола
+Обычно этот шлюз развертывают в облаке. Он обеспечивает преобразование протоколов для устройств, подключаемых к [Центру Интернета вещей](#iot-hub). Дополнительные сведения см. в статье [Что такое центр IoT в Azure?](iot-hub-what-is-iot-hub.md)
+
+## <a name="quotas-and-throttling"></a>Квоты и регулирование
+При использовании [Центра Интернета вещей](#iot-hub) применяются различные [квоты](iot-hub-devguide-quotas-throttling.md). Многие из них зависят от ценовой категории Центра Интернета вещей. В [Центре Интернета вещей](#iot-hub) к использованию службы также применяется [регулирование](iot-hub-devguide-quotas-throttling.md) во время выполнения.
+
+## <a name="reported-configuration"></a>Сообщаемая конфигурация
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) сообщаемая конфигурация обозначает полный набор свойств и метаданных двойника устройства, который устройство должно сообщать серверной части решения.
+
+## <a name="reported-properties"></a>Сообщаемые свойства
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) сообщаемые свойства — это подраздел двойника устройства, который используется вместе с [требуемыми свойствами](#desired-properties) для синхронизации конфигурации или условий устройства. Сообщаемые свойства задаются только в [приложении для устройства](#device-app), а их чтение и запрос осуществляется во [внутреннем приложении](#back-end-app).
+
+## <a name="resource-group"></a>Группа ресурсов
+[Azure Resource Manager](#azure-resource-manager) использует группы ресурсов для объединения связанных ресурсов в группы. Группы ресурсов можно использовать для выполнения операций по отношению ко всем ресурсам в группе одновременно.
+
+## <a name="retry-policy"></a>Политика повтора
+Политика повтора используется для обработки [временных ошибок](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) при подключении к облачной службе.
+
+## <a name="sasl-plain"></a>SASL PLAIN
+SASL PLAIN — это протокол, который используется протоколом [AMQP](#advanced-message-queue-protocol) для передачи маркеров безопасности.
+
+## <a name="shared-access-signature"></a>Подписанный URL-адрес
+Подписанные URL-адреса (SAS) представляют собой механизм аутентификации на базе алгоритма безопасного хэширования SHA-256 или URI. Аутентификация SAS состоит из двух компонентов: _политики общего доступа_ и _подписанного URL-адреса_ (который часто называется маркером). Устройство использует SAS для аутентификации в Центре Интернета вещей. [Внутренние приложения](#back-end-app) также используют SAS для аутентификации в конечных точках, доступных службе, в Центре Интернета вещей. Как правило, маркер SAS включается в [строку подключения](#connection-string), которая используется приложением для установления подключения к Центру Интернета вещей.
+
+## <a name="shared-access-policy"></a>Политика общего доступа
+Политика общего доступа определяет разрешения, предоставляемые всем, кто имеет действительный [первичный или вторичный ключ](#primary-and-secondary-keys), связанный с этой политикой. Вы можете управлять политиками общего доступа и ключами своего центра на [портале](#azure-portal).
+
+## <a name="simulated-device"></a>Виртуальное устройство
+Во многих учебниках, посвященных Центру Интернета вещей, для удобства используются имитации устройств, которые позволяют запускать примеры на локальном компьютере. В свою очередь, [физическое устройство](#physical-device) — это реальное устройство (например, Raspberry Pi), которое подключается к Центру Интернета вещей.
+
+## <a name="solution"></a>Решение
+_Решение_ может обозначать решение Visual Studio, которое включает в себя один или несколько проектов. _Решение_ может также обозначать решение Интернета вещей, которое включает в себя такие элементы, как устройства, [приложения для устройств](#device-app), Центр Интернета вещей, другие службы Azure и [внутренние приложения](#back-end-app).
+
+## <a name="subscription"></a>Подписки
+Подписка Azure — это расположение, в котором происходит выставление счетов. Все создаваемые ресурсы Azure и используемые службы Azure связываются с определенной подпиской. На уровне подписки также применяются многие квоты.
+
+## <a name="system-properties"></a>Свойства системы
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) свойства системы доступны только для чтения. В них содержатся сведения об использовании устройства, такие как время выполнения последнего действия и состояние подключения.
+
+## <a name="tags"></a>Теги
+В контексте [двойника устройства](iot-hub-devguide-device-twins.md) теги — это метаданные устройства, хранящиеся в серверной части приложения и извлекаемые ею в виде документа JSON. Теги не видны для приложений на устройствах.
+
+## <a name="telemetry"></a>Телеметрия
+Устройства собирают данные телеметрии, такие как скорость ветра или температура, и с помощью [сообщений точки данных](#data-point-messages) отправляют телеметрию в Центр Интернета вещей.
+
+## <a name="token-service"></a>Служба маркеров
+Службу маркеров можно использовать для реализации на устройствах механизма аутентификации. Она использует [политику общего доступа](#shared-access-policy) Центра Интернета вещей с разрешениями **DeviceConnect** для создания маркеров *уровня устройства*. Эти маркеры позволяют устройству подключиться к центру IoT. Устройство использует механизм настраиваемой аутентификации с применением службы маркеров. Если устройство успешно проходит аутентификацию, то служба маркеров выдает ему маркер SAS для доступа к Центру Интернета вещей.
+
+## <a name="x509-client-certificate"></a>Сертификат клиента X.509
+Устройство может использовать сертификат X.509 для аутентификации в [Центре Интернета вещей](#iot-hub). Сертификат X.509 можно использовать вместо [маркера SAS](#shared-access-signature).
+
+
+<!--HONumber=Nov16_HO5-->
 
 

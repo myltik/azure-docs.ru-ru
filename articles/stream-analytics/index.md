@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Узнайте, как выполнять в облаке аналитику IoT с помощью полностью управляемого модуля обработки событий. Анализируйте в реальном времени данные, поступающие от приложений, датчиков, устройств и из других источников."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
+ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
+ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
 
 ---
-#<a name="stream-analytics-documentation"></a>Документация по Stream Analytics
 
-Azure Stream Analytics — это полностью управляемый модуль обработки событий в реальном времени, позволяющий получать ценную информацию из данных.  Stream Analytics позволяет без усилий настроить аналитические вычисления потоковых данных, поступающих от устройств, датчиков, веб-сайтов, социальных сетей, приложений, систем инфраструктуры и пр., в режиме реального времени.
+# <a name="stream-analytics-documentation"></a>Документация по Stream Analytics
+
+Узнайте, как выполнять аналитику Интернета вещей (IoT) в облаке с помощью Stream Analytics — полностью управляемого модуля обработки событий. В руководствах и другой документации показано, как анализировать в реальном времени данные, поступающие от приложений, датчиков, устройств, социальных сетей и из других источников. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -122,66 +124,43 @@ Azure Stream Analytics — это полностью управляемый мо
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по .NET</p>
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Язык запросов</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>Язык запросов</h3>
-                        <p>Справочник по языку запросов Stream Analytics</p>
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Справочник по REST API Stream Analytics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -193,6 +172,6 @@ Azure Stream Analytics — это полностью управляемый мо
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

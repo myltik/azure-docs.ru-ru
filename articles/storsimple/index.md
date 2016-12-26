@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать Azure StorSimple — решение интегрированного хранилища, которое управляет задачами хранилища на локальных устройствах и в облачном хранилище Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: 24d70182b209126a71c6a9846136d4d31ab3b7ce
+ms.openlocfilehash: 4eb0e15f1030b4b1e987edc4fc2fa64e302b5851
 
 ---
 #<a name="storsimple-documentation"></a>Документация по StorSimple
 
-StorSimple и Microsoft Azure представляют собой уникальную и интегрированную систему архивации для основного хранилища и аварийного восстановления; Azure выступает в качестве продолжения локального хранилища. Сведения о развертывании решения StorSimple и управлении им.
+Узнайте, как использовать Azure StorSimple — решение интегрированного хранилища, которое управляет задачами хранилища на локальных устройствах и в облачном хранилище Azure. В руководствах и другой документации объясняется, как настроить управление хранилищем, не зависящее от расположения резервное копирование и аварийное восстановление.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -147,6 +148,6 @@ StorSimple и Microsoft Azure представляют собой уникаль
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

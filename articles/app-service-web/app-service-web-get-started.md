@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
+ms.sourcegitcommit: 4e86c1c1460f7b6eb312f10a0666f92b33697763
+ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
 
 
 ---
@@ -31,14 +31,19 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
 * просматривать код, выполняющийся в рабочей среде в реальном времени;
 * обновлять веб-приложение так же, как вы [отправляете фиксации Git](https://git-scm.com/docs/git-push).
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
+
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) — наш интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started.md) —следующее поколение нашего интерфейса командной строки для модели развертывания Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
-* [Интерфейс командной строки Azure](../xplat-cli-install.md).
-* Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* [Azure CLI 2.0 (предварительная версия)](/cli/azure/install-az-cli2).
+* Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
@@ -50,25 +55,40 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
 
 1. Откройте новое окно командной строки Windows, окно PowerShell, оболочку Linux или терминал OS X. Выполните команды `git --version` и `azure --version`, чтобы убедиться, что система GIT и интерфейс командной строки Azure установлены на компьютере.
    
-    ![Тестирование установки средств интерфейса командной строки для первого веб-приложения в Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![Тестирование установки средств интерфейса командной строки для первого веб-приложения в Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
     Если вы еще не установили необходимые инструменты, то ссылки для их скачивания доступны в разделе [Предварительные требования](#Prerequisites).
+
 2. Войдите в Azure:
    
-        azure login
+        az login
    
     Следуйте инструкциям из справочного сообщения, чтобы продолжить процесс входа в систему.
    
-    ![Вход в Azure для создания первого веб-приложения](./media/app-service-web-get-started/3-azure-login.png)
-3. Измените Azure CLI на режим ASM, а затем задайте пользователя развертывания для службы приложений. Вы развернете код позже с помощью учетных данных.
+    ![Вход в Azure для создания первого веб-приложения](./media/app-service-web-get-started/3-azure-login-2.0.png)
+
+3. Укажите пользователя развертывания для службы приложений. Вы развернете код позже с помощью этих учетных данных.
    
-        azure config mode asm
-        azure site deployment user set --username <username> --pass <password>
-4. Перейдите в рабочий каталог (`CD`) и клонируйте пример приложения следующим образом:
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этого руководства по использованию службы приложений вам не обязательно знать, что это такое.
+
+        az group create --location "<location>" --name my-first-app-group
+
+    Чтобы увидеть доступные значения для `<location>`, используйте команду `az appservice list-locations` интерфейса командной строки.
+
+3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". В рамках этого руководства по использованию службы приложений вам достаточно знать, что это план не предусматривает выставление счетов за веб-приложения.
+
+        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
+
+4. Создайте веб-приложение с уникальным именем в `<app_name>`.
+
+        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+
+4. Затем получите образец кода, который необходимо развернуть. Перейдите в рабочий каталог (`CD`) и клонируйте пример приложения следующим образом:
    
+        cd <working_directory>
         git clone <github_sample_url>
-   
-    ![Клонирование примера кода для первого веб-приложения в Azure](./media/app-service-web-get-started/2-clone-sample.png)
    
     В качестве значения для *&lt;пример_url-адреса_github>* используйте один из следующих URL-адресов в зависимости от выбранной платформы:
    
@@ -78,18 +98,28 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
    * Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
    * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
    * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
+
+    ![Клонирование примера кода для первого веб-приложения в Azure](./media/app-service-web-get-started/2-clone-sample.png)
+   
 5. Перейдите в репозиторий примера приложения. Например:
    
         cd app-service-web-html-get-started
-6. Создайте ресурс приложения службы приложений в Azure с уникальным именем приложения и пользователем развертывания, которого вы создали ранее. При появлении запроса укажите номер нужного региона.
+
+5. Настройте локальное развертывание Git для веб-приложения службы приложений с помощью следующей команды:
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
+
+    Если вы получите приблизительно следующие выходные данные JSON, это значит, что удаленный репозиторий Git настроен:
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. Добавьте URL-адрес в JSON в качестве удаленного репозитория Git для локального репозитория (для простоты называется `azure`).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
-        azure site create <app_name> --git --gitusername <username>
-   
-    ![Клонирование ресурса Azure для первого веб-приложения в Azure](./media/app-service-web-get-started/4-create-site.png)
-   
-    В Azure сейчас создается ваше приложение, а также выполняется Git-инициализация текущего каталога и его подключение к новому приложению службы приложений как удаленного репозитория Git.
-    Вы можете перейти по URL-адресу приложения (http://&lt;app_name>.azurewebsites.net), чтобы увидеть красивую HTML-страницу по умолчанию, но лучше создать свой собственный код.
-7. Разверните пример кода в приложении Azure так же, как вы отправляете любой код с помощью Git. При появлении запроса введите пароль, который вы настроили ранее.
+7. Разверните образец кода в удаленном репозитории Git `azure`. При появлении запроса используйте учетные данные для развертывания, настроенные ранее.
    
         git push azure master
    
@@ -100,11 +130,13 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
 Поздравляем, вы развернули свое приложение в службе приложений Azure.
 
 ## <a name="see-your-app-running-live"></a>Наблюдение за работой приложения в реальном времени
-Чтобы увидеть работу приложения в Azure в реальном времени, выполните в любом каталоге репозитория следующую команду:
 
-    azure site browse
+Чтобы увидеть работу приложения в Azure в реальном времени, выполните следующую команду:
 
-## <a name="make-updates-to-your-app"></a>Обновление приложения
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
+
+## <a name="make-updates-to-your-app"></a>Внесение изменений в приложение
+
 Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Для этого нужно выполнить те же действия, что и при первом развертывании кода. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
 
     git add .
@@ -112,6 +144,7 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
     git push azure master
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Определите предпочтительный способ разработки и этапы развертывания приложений в соответствии с используемой языковой платформой:
 
 > [!div class="op_single_selector"]
@@ -131,6 +164,6 @@ ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

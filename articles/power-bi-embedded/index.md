@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как внедрять в приложения визуализации данных и интерактивные отчеты Power BI. Руководства, справочники по API и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: d5a00a2035660bfd5c9d1fbf79d630d2a0231f41
+ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
+ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Документация по Power BI Embedded
 
-Power BI Embedded — это служба Azure, которая позволяет разработчикам приложений добавлять интерактивные отчеты Power BI в свои приложения. Power BI Embedded работала с существующими приложениями, вам не нужно изменять способ входа пользователей в систему.
+Узнайте, как добавлять в приложения визуализации данных и интерактивные отчеты с помощью Power BI Embedded. В руководствах, справочниках по API и другой документации показано, как можно легко внедрять в приложения отчеты и панели мониторинга Power BI.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Power BI Embedded — это служба Azure, которая позволя
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=power-bi-embedded">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +58,7 @@ Power BI Embedded — это служба Azure, которая позволя
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Начало работы с Power BI Embedded</h3>
+                        <h3>Начало работы с Power BI Embedded</h3>
                     </div>
                 </div>
             </div>
@@ -86,54 +87,47 @@ Power BI Embedded — это служба Azure, которая позволя
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Командлеты PowerShell для Power BI Embedded</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по Power BI Embedded</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://www.nuget.org/profiles/powerbi">Скачивание пакета SDK для .NET</a></p>
+                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API Power BI Embedded</p>
+                        <p><a href="/rest/api/powerbiembedded/">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
@@ -144,6 +138,7 @@ Power BI Embedded — это служба Azure, которая позволя
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

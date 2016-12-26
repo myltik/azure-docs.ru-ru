@@ -15,7 +15,7 @@
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
 ## [Обработка результатов поиска](search-pagination-page-layout.md)
-## Учебники
+## Руководства
 ### [.NET](search-howto-dotnet-sdk.md)
 ### [Портал](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
@@ -25,6 +25,8 @@
 ### [Ограничения служб](search-limits-quotas-capacity.md)
 ### [Масштабируемость службы](search-capacity-planning.md)
 ### [Конструктивные шаблоны для мультитенантности](search-modeling-multitenant-saas-applications.md)
+
+
 ## Разработка
 ### [Обновление пакета SDK](search-dotnet-sdk-migration.md)
 ### [Обновление REST API](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Многоязычный поиск](search-language-support.md)
 
 # Справочные материалы
-## [Версии API](search-api-versions.md)
-## [.NET для службы](/dotnet/api/microsoft.azure.search)
-## [.NET для управления](/dotnet/api/microsoft.azure.management.search)
-## [REST для службы](/rest/api/searchservice/)
-## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
-## [REST для управления](/rest/api/searchmanagement/)
-## [Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323)
-## [Простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [Управление .NET](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (управление)](/rest/api/searchmanagement)
 
 # Ресурсы
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
+## Использование API-интерфейсов службы поиска
+## [Версии API](search-api-versions.md)
+## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/search/)
 ## Сайты с демоверсиями
 ### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

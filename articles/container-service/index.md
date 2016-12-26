@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать службу контейнеров для развертывания контейнеров приложений и управления ими с помощью DC/OS, Docker Swarm или Kubernetes. Руководства, справочники по API и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 9bb2c847b6e7b87b58fee04a6fe33edb801f9558
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
-#<a name="azure-container-service-documentation"></a>Документация по службе контейнеров Azure
+# <a name="azure-container-service-documentation"></a>Документация по службе контейнеров Azure
 
-Служба контейнеров Azure позволяет упростить создание и настройку кластера виртуальных машин, настроенных для запуска контейнерных приложений, а также управление такими машинами. Служба контейнеров использует оптимизированную конфигурацию популярных средств планирования и оркестрацию с открытым исходным кодом. Это позволяет использовать имеющиеся навыки либо положиться на опыт обширного и постоянно увеличивающегося сообщества при развертывании приложений на основе контейнера в Microsoft Azure и управлении ими.
+Узнайте, как использовать службу контейнеров для развертывания портативных контейнеров приложений и управления ими. В руководствах, справочниках по API и другой документации показано, как масштабировать и упорядочивать контейнеры с помощью DC/OS, Docker Swarm или Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -51,55 +52,45 @@ ms.openlocfilehash: 9bb2c847b6e7b87b58fee04a6fe33edb801f9558
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Справочник по API .NET управления службами</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST (вычисления)</h3>
-                        <p>Справочник по REST API для вычислений</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
@@ -110,6 +101,7 @@ ms.openlocfilehash: 9bb2c847b6e7b87b58fee04a6fe33edb801f9558
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

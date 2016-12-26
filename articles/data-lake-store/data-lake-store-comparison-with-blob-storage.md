@@ -1,22 +1,26 @@
 ---
-title: Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure | Microsoft Docs
-description: Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
+title: "Сравнение Azure Data Lake Store с Azure Storage Blob | Документация Майкрософт"
+description: "Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2016
+ms.date: 11/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 267b281c33049e65e82a5e5b2453ff1a80983453
+ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
+
 
 ---
-# Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
+# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
 В таблице ниже приведены различия между Azure Data Lake Store и хранилищем BLOB-объектов Azure, а также некоторые ключевые аспекты обработки больших данных. Хранилище BLOB-объектов Azure является универсальным масштабируемым хранилищем объектов, предназначенным для разнообразных сценариев хранения. Azure Data Lake Store — это гипермасштабируемый репозиторий, оптимизированный для рабочих нагрузок, относящихся к аналитике больших данных.
 
 |  | Хранилище озера данных Azure | Хранилище больших двоичных объектов Azure |
@@ -28,22 +32,27 @@ ms.author: nitinme
 | API |REST API по протоколу HTTPS |REST API по протоколу HTTP/HTTPS |
 | API серверной части |[REST API, совместимый с WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API хранилища BLOB-объектов Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Клиент файловой системы Hadoop |Да |Да |
-| Операции с данными — аутентификация |Основана на [удостоверениях Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Основана на общих секретах — [ключи доступа к учетным записям](../storage/storage-create-storage-account.md#manage-your-storage-account) и [ключи подписанных URL-адресов](../storage/storage-dotnet-shared-access-signature-part-1.md). |
+| Операции с данными — аутентификация |Основана на [удостоверениях Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Основана на общих секретах — [ключи доступа к учетным записям](../storage/storage-create-storage-account.md#manage-your-storage-account) и [ключи подписанных URL-адресов](../storage/storage-dotnet-shared-access-signature-part-1.md). |
 | Операции с данными — протокол проверки подлинности |OAuth 2.0. Вызовы должны содержать допустимые веб-маркеры JSON (JWT), выданные Azure Active Directory. |Код проверки подлинности сообщения на основе хэша (HMAC). Вызовы должны содержать хэш SHA-256 с кодировкой Base64 для части HTTP-запроса. |
-| Операции с данными — авторизация |Списки управления доступом (ACL) POSIX. Списки ACL на основе удостоверений Azure Active Directory можно настроить на уровне файлов и папок. |Для авторизации на уровне учетной записи используйте [ключи доступа к учетным записям](../storage/storage-create-storage-account.md#manage-your-storage-account).<br>Для авторизации в учетной записи, контейнере или большом двоичном объекте используйте [ключи подписанных URL-адресов](../storage/storage-dotnet-shared-access-signature-part-1.md). |
-| Операции с данными — аудит |Доступен. Подробнее см. [здесь](data-lake-store-diagnostic-logs.md). |Доступна |
-| Шифрование неактивных данных |Прозрачное шифрование данных на стороне сервера (ожидается в ближайшее время)<ul><li>С помощью ключей, управляемых службой</li><li>С помощью ключей из хранилища ключей Azure, управляемых клиентом</li></ul> |<ul><li>Прозрачное шифрование данных на стороне сервера</li> <ul><li>С помощью ключей, управляемых службой</li><li>С помощью ключей из хранилища ключей Azure, управляемых клиентом (ожидается в ближайшее время)</li></ul><li>Шифрование на стороне клиента</li></ul> |
+| Операции с данными — авторизация |Списки управления доступом (ACL) POSIX.  Списки ACL на основе удостоверений Azure Active Directory можно настроить на уровне файлов и папок. |Для авторизации на уровне учетной записи используйте [ключи доступа к учетным записям](../storage/storage-create-storage-account.md#manage-your-storage-account),<br>а для авторизации в учетной записи, контейнере или большом двоичном объекте — [ключи подписанных URL-адресов](../storage/storage-dotnet-shared-access-signature-part-1.md). |
+| Операции с данными — аудит |Доступен. Дополнительные сведения см. [здесь](data-lake-store-diagnostic-logs.md). |Доступна |
+| Шифрование неактивных данных |Прозрачное шифрование данных на стороне сервера (ожидается в ближайшее время)<ul><li>С помощью ключей, управляемых службами</li><li>С помощью ключей из хранилища ключей Azure, управляемых клиентом</li></ul> |<ul><li>Прозрачное шифрование данных на стороне сервера</li> <ul><li>С помощью ключей, управляемых службами</li><li>С помощью ключей из хранилища ключей Azure, управляемых клиентом (ожидается в ближайшее время)</li></ul><li>шифрования на стороне клиента</li></ul> |
 | Операции управления (например, создание учетной записи) |[Контроль доступа на основе ролей](../active-directory/role-based-access-control-what-is.md) (RBAC), предоставляемый Azure для управления учетными записями |[Контроль доступа на основе ролей](../active-directory/role-based-access-control-what-is.md) (RBAC), предоставляемый Azure для управления учетными записями |
 | Пакеты SDK для разработчиков |.NET, Java, Node.js |.NET, Java, Python, Node.js, C++, Ruby |
 | Производительность рабочих нагрузок аналитики |Оптимизированная производительность для параллельных рабочих нагрузок аналитики. Высокие показатели пропускной способности и операций ввода-вывода в секунду. |Не оптимизирована для рабочих нагрузок аналитики |
 | Ограничения размера |Нет ограничений на размер учетных записей, размер и количество файлов |Определенные ограничения описаны [здесь](../azure-subscription-service-limits.md#storage-limits) |
-| Геоизбыточность |Локальная избыточность (несколько копий данных в одном регионе Azure) |Локальная избыточность (LRS), глобальная избыточность (GRS), геоизбыточность с доступом на чтение (RA-GRS). Подробнее см. [здесь](../storage/storage-redundancy.md). |
-| Состояние службы |Общедоступная предварительная версия |Общедоступная версия |
-| Доступ по регионам |См. [здесь](https://azure.microsoft.com/regions/#services) |См. [здесь](https://azure.microsoft.com/regions/#services) |
-| Цена |См. раздел [Цены](https://azure.microsoft.com/pricing/details/data-lake-store/) |См. раздел [Цены](https://azure.microsoft.com/pricing/details/storage/) |
+| Геоизбыточность |Локальная избыточность (несколько копий данных в одном регионе Azure) |Локальная избыточность (LRS), глобальная избыточность (GRS), геоизбыточность с доступом на чтение (RA-GRS). Дополнительные сведения см. [здесь](../storage/storage-redundancy.md). |
+| Состояние службы |Общедоступная версия |Общедоступная версия |
+| Доступ по регионам |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |
+| Цена |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/data-lake-store/). |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/storage/). |
 
-### Дальнейшие действия
+### <a name="next-steps"></a>Дальнейшие действия
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как с помощью пакетной службы Azure эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений. Руководства, справочники по API и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 5b9948f59fad542ce488f7682aef2cc57b1a0b55
-ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
+ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
+ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
 
 ---
 #<a name="batch-documentation"></a>Документация по пакетной службе
 
-Пакетная служба Azure позволяет эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. С помощью пакетной службы вы можете определять вычислительные ресурсы Azure, необходимые для параллельного выполнения приложений в нужном масштабе. Задания можно запускать по требованию или по расписанию без необходимости создавать или администрировать инфраструктуру вручную.
+Узнайте, как с помощью пакетной службы Azure эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений в облаке. В руководствах, справочниках по API и другой документации показано, как определить вычислительные ресурсы Azure для выполнения приложений в параллельном режиме или с масштабированием без необходимости настраивать инфраструктуру и управлять ею вручную.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -93,7 +94,7 @@ ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с пакетной службой с использованием Python</h3>
+                        <h3>Начало работы с пакетной службой с использованием Python</h3>
                     </div>
                 </div>
             </div>
@@ -104,112 +105,46 @@ ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Справочник по Azure PowerShell</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/azure/batch/batch-cli-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки Azure</h3>
-                        <p>Использование пакетной службы с Azure CLI</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по пакетной службе</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Справочник по пакету SDK для Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Справочник по Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Справочник по пакету SDK для Python</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/batchservice">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по API REST пакетной службы</p>
+                        <p><a href="/rest/api/batchservice">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -223,6 +158,6 @@ ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

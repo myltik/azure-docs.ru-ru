@@ -8,6 +8,7 @@
 # Начало работы
 ## [Краткое руководство](security-center-get-started.md)
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
+## [Разрешения](security-center-permissions.md)
 ## [Часто задаваемые вопросы](security-center-faq.md)
 
 # Практическое руководство
@@ -69,6 +70,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

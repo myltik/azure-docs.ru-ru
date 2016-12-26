@@ -10,11 +10,11 @@
 
 # Начало работы
 ## [Начало работы с Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Начало работы с предварительной версией Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Приступая к работе с R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Начало работы с R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Начало работы со Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Начало работы с HBase и NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Начало работы со Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Начало работы с предварительной версией Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
 ## [Начало работы с предварительной версией Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Изолированная среда Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Использование инструментов Data Lake с изолированной средой Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
@@ -181,12 +181,12 @@
 #### [Производительность запросов Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Справочные материалы
-## [Командлеты PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [.NET SDK для Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK для Hadoop](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [Библиотеки .NET для Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [Справочник по REST API](/rest/api/hdinsight/)
-## [Spark REST API для удаленных заданий](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Сопутствующие материалы
 ## Кластеры Windows
@@ -199,7 +199,7 @@
 ### [Создание кластеров Hadoop](hdinsight-provision-clusters.md)
 #### [Использование портала Azure](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [Использование пакета SDK для .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Использование интерфейса командной строки Azure](hdinsight-hadoop-create-windows-clusters-cli.md)
+#### [Использование Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Использование Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
 #### [Использование шаблонов Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Использование Solr в кластерах](hdinsight-hadoop-solr-install-linux.md)
@@ -224,6 +224,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

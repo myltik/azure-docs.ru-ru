@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как создавать и настраивать каталог данных, используемые организацией для поиска, распознавания и использования источников данных. Руководства, справочники по API и другая документация."
 translationtype: Human Translation
-ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
-ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
+ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
+ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
 
 ---
 #<a name="data-catalog-documentation"></a>Документация по каталогу данных
 
-Каталог данных Azure представляет собой полностью управляемую облачную службу, которая предоставляет пользователям возможности для поиска необходимых источников данных и их анализа, а также помогает организациям повысить окупаемость существующих инвестиций. Возможности каталога данных позволяют любому пользователю — от аналитика и специалиста по обработке и анализу данных до разработчика — обнаруживать, анализировать и использовать источники данных. Каталог данных включает в себя краудсорсинговую модель метаданных и аннотаций и позволяет всем пользователям делиться знаниями для формирования сообщества и культуры данных.
+Узнайте, как использовать каталог данных, чтобы помочь организации или команде находить, распознавать и использовать источники данных. Руководства, справочник по API REST и другая документация, в которой показано, как планировать и настраивать репозиторий данных, в котором пользователи могут искать доступные источники данных и использовать профильную информацию, предоставленную специалистами.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -21,7 +22,7 @@ ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Приступая к работе с каталогом данных Azure</h3>
+                        <h3>Начало работы с каталогом данных Azure</h3>
                     </div>
                 </div>
             </div>
@@ -49,26 +50,22 @@ ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по REST API каталога данных</p>
+                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
@@ -79,6 +76,7 @@ ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 
