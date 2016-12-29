@@ -1,23 +1,28 @@
 ---
-title: Наблюдение за журналами доступа и производительности и метриками для шлюза приложений | Microsoft Docs
-description: Узнайте, как включить журналы доступа и производительности для шлюза приложений и управлять ими.
+title: "Мониторинг журналов доступа и производительности, а также метрик для шлюза приложений | Документация Майкрософт"
+description: "Узнайте, как включить журналы доступа и производительности для шлюза приложений и управлять ими."
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/16/2016
 ms.author: amitsriva
+translationtype: Human Translation
+ms.sourcegitcommit: dfae00654129371f4ca78c53bacb7084a03ec946
+ms.openlocfilehash: e61234f5e8c3683f9ed67ca95d1692a572a68201
+
 
 ---
 # <a name="diagnostics-logging-and-metrics-for-application-gateway"></a>Журналы диагностики и метрики для шлюза приложений
+
 Azure предоставляет возможность наблюдать за ресурсом с помощью журналов и метрик.
 
 [**Ведение журнала**](#enable-logging-with-powershell). Можно сохранять или использовать журналы производительности, доступа и другие журналы, относящиеся к ресурсу, чтобы наблюдать за ним.
@@ -26,18 +31,19 @@ Azure предоставляет возможность наблюдать за 
 
 В Azure можно использовать различные виды журналов для управления шлюзами приложений и устранения возникающих в них неполадок. Доступ к некоторым из этих журналов можно получить через портал. Все журналы можно извлекать из хранилища BLOB-объектов Azure и просматривать с помощью разных инструментов, включая [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel и PowerBI. В списке ниже приведены дополнительные сведения о разных типах журналов.
 
-* **Журналы аудита.** В [журналах аудита Azure](../azure-portal/insights-debugging-with-events.md) (прежнее название — операционные журналы) можно просматривать все операции, отправляемые в вашу подписку Azure, и состояние этих операций. По умолчанию журналы аудита включены, и их можно просмотреть на портале предварительной версии Azure.
+* **Журнал действий.** В [журнале действий Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (прежнее название — операционные журналы и журналы аудита) можно просматривать все операции, отправляемые в вашу подписку Azure, и состояние этих операций. Записи этого журнала собираются по умолчанию, и их можно просмотреть на портале Azure.
 * **Журналы доступа**. С помощью этих журналов можно просматривать схему доступа к шлюзу приложений и анализировать важную информацию, включая IP-адрес вызывающей стороны, запрошенный URL-адрес, сведения о задержке отклика, возвращаемом коде и переданных и полученных байтах. Данные для журнала доступа собираются каждые 300 секунд. Этот журнал содержит одну запись для каждого экземпляра шлюза приложений. Экземпляр шлюза приложений определяется свойством instanceId.
 * **Журналы производительности**. С помощью этих журналов можно просматривать, как работают экземпляры шлюза приложений. Этот журнал записывает сведения о производительности каждого экземпляра, включая общее число обработанных запросов, пропускную способность в байтах, число неудачных запросов, а также число работоспособных и неработоспособных серверных экземпляров. Данные для журнала производительности собираются каждые 60 секунд.
 * **Журналы брандмауэра**. Эти журналы можно использовать для просмотра запросов, которые были зарегистрированы в режиме обнаружения или предотвращения на шлюзе приложений, на котором настроен брандмауэр веб-приложения.
 
 > [!WARNING]
-> Журналы доступны только для ресурсов, развернутых в модели развертывания диспетчера ресурсов. Журналы нельзя использовать для ресурсов в классической модели развертывания. Чтобы получить более полное представление об этих двух моделях, см. статью [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md).
+> Журналы доступны только для ресурсов, развернутых в модели развертывания диспетчера ресурсов. Журналы нельзя использовать для ресурсов в классической модели развертывания. Чтобы получить более полное представление об этих двух моделях, см. статью [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../azure-resource-manager/resource-manager-deployment-model.md).
 > 
 > 
 
 ## <a name="enable-logging-with-powershell"></a>Включение ведения журнала с помощью PowerShell
-Ведение журналов автоматически включается для каждого ресурса Resource Manager. Нужно включить ведение журналов доступа и производительности, чтобы начать сбор связанных данных. Вот как можно включить ведение журнала. 
+
+Ведение журнала действий автоматически включается для каждого ресурса Resource Manager. Нужно включить ведение журналов доступа и производительности, чтобы начать сбор связанных данных. Вот как можно включить ведение журнала.
 
 1. Запишите идентификатор ресурсов вашей учетной записи хранилища, где хранятся данные журнала, в формате: /subscriptions/\<идентификатор_подписки\>/resourceGroups/\<имя_группы_ресурсов\>/providers/Microsoft.Storage/storageAccounts/\<имя_учетной_записи_хранения\>. Можно использовать любую учетную запись хранения в подписке. Получить эти сведения можно на портале предварительной версии.
    
@@ -47,14 +53,17 @@ Azure предоставляет возможность наблюдать за 
     ![Портал предварительной версии — диагностика шлюза приложений](./media/application-gateway-diagnostics/diagnostics2.png)
 3. Включите ведение журнала диагностики с помощью следующего командлета PowerShell.
    
-        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true  
+        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
 
-> [AZURE.INFORMATION] Для журналов аудита отдельная учетная запись хранения не требуется. За использование хранилища для журналов доступа и производительности взимается плата.
+> [!TIP] 
+>Для журналов действий отдельная учетная запись хранения не требуется. За использование хранилища для журналов доступа и производительности взимается плата.
 > 
 > 
 
 ## <a name="enable-logging-with-azure-portal"></a>Включение ведения журнала с помощью портала Azure
-### <a name="step-1"></a>Шаг 1
+
+### <a name="step-1"></a>Шаг 1
+
 На портале Azure перейдите к своему ресурсу. Щелкните **Журналы диагностики**. Если вы настраиваете систему диагностики впервые, то колонка будет выглядеть следующим образом.
 
 Для шлюза приложений доступны 3 журнала:
@@ -67,98 +76,112 @@ Azure предоставляет возможность наблюдать за 
 
 ![Колонка параметров диагностики][1]
 
-### <a name="step-2"></a>Шаг 2
+### <a name="step-2"></a>Шаг 2
+
 В колонке **Параметры диагностики** можно настроить параметры журналов диагностики. В этом примере для хранения журналов используется Log Analytics. Щелкните **Настройка** в разделе **Log Analytics**, чтобы настроить рабочую область. Для хранения журналов диагностики можно также использовать концентраторы событий и учетную запись хранения.
 
 ![Колонка "Диагностика"][2]
 
-### <a name="step-3"></a>Шаг 3.
+### <a name="step-3"></a>Шаг 3.
+
 Выберите существующую или создайте новую рабочую область OMS. В этом примере используется существующая рабочая область.
 
 ![рабочие области oms][3]
 
-### <a name="step-4"></a>Шаг 4.
+### <a name="step-4"></a>Шаг 4.
+
 По завершении нажмите кнопку **Сохранить** , чтобы сохранить параметры.
 
 ![Подтверждение выбора][4]
 
-## <a name="audit-log"></a>Журнал аудита
-Этот журнал (прежнее название — «операционный журнал») создается в Azure по умолчанию.  Журналы хранятся в течение 90 дней в хранилище журналов событий Azure. Дополнительные сведения об этих журналах см. в статье [Просмотр журналов событий и аудита](../azure-portal/insights-debugging-with-events.md).
+## <a name="activity-log"></a>Журнал действий
+
+Этот журнал (прежнее название — «операционный журнал») создается в Azure по умолчанию.  Журналы хранятся в течение 90 дней в хранилище журналов событий Azure. Дополнительные сведения об этих журналах см. в статье [View events and activity  log](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Просмотр журналов событий и действий).
 
 ## <a name="access-log"></a>журнал доступа;
+
 Этот журнал создается, только если он включен для конкретного шлюза приложений, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. Каждая операция доступа шлюза приложений регистрируется в журнале в формате JSON, как показано ниже.
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-        "operationName": "ApplicationGatewayAccess",
-        "time": "2016-04-11T04:24:37Z",
-        "category": "ApplicationGatewayAccessLog",
-        "properties": {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIP":"37.186.113.170",
-            "clientPort":"12345",
-            "httpMethod":"HEAD",
-            "requestUri":"/xyz/portal",
-            "requestQuery":"",
-            "userAgent":"-",
-            "httpStatus":"200",
-            "httpVersion":"HTTP/1.0",
-            "receivedBytes":"27",
-            "sentBytes":"202",
-            "timeTaken":"359",
-            "sslEnabled":"off"
-        }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2016-04-11T04:24:37Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIP":"37.186.113.170",
+        "clientPort":"12345",
+        "httpMethod":"HEAD",
+        "requestUri":"/xyz/portal",
+        "requestQuery":"",
+        "userAgent":"-",
+        "httpStatus":"200",
+        "httpVersion":"HTTP/1.0",
+        "receivedBytes":"27",
+        "sentBytes":"202",
+        "timeTaken":"359",
+        "sslEnabled":"off"
     }
+}
+```
 
 ## <a name="performance-log"></a>журнал производительности;
+
 Этот журнал создается, только если он включен для конкретного шлюза приложений, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. В журнал записываются следующие данные:
 
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "operationName": "ApplicationGatewayPerformance",
+    "time": "2016-04-09T00:00:00Z",
+    "category": "ApplicationGatewayPerformanceLog",
+    "properties":
     {
-        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-        "operationName": "ApplicationGatewayPerformance",
-        "time": "2016-04-09T00:00:00Z",
-        "category": "ApplicationGatewayPerformanceLog",
-        "properties": 
-        {
-            "instanceId":"ApplicationGatewayRole_IN_1",
-            "healthyHostCount":"4",
-            "unHealthyHostCount":"0",
-            "requestCount":"185",
-            "latency":"0",
-            "failedRequestCount":"0",
-            "throughput":"119427"
-        }
+        "instanceId":"ApplicationGatewayRole_IN_1",
+        "healthyHostCount":"4",
+        "unHealthyHostCount":"0",
+        "requestCount":"185",
+        "latency":"0",
+        "failedRequestCount":"0",
+        "throughput":"119427"
     }
-
+}
+```
 
 ## <a name="firewall-log"></a>журнал брандмауэра.
+
 Этот журнал создается, только если он включен для конкретного шлюза приложений, как описано выше. Кроме того, на шлюзе приложений должен быть настроен брандмауэр веб-приложения. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. В журнал записываются следующие данные:
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
-## <a name="view-and-analyze-the-audit-log"></a>Просмотр и анализ журнала аудита
-Данные журнала аудита можно просматривать и анализировать с помощью любого из следующих методов.
+## <a name="view-and-analyze-the-activity-log"></a>Просмотр и анализ журнала действий
 
-* **Средства Azure.** Информацию из журналов аудита можно получать с помощью Azure PowerShell, интерфейса командной строки (CLI) Azure, интерфейса REST API Azure или портала предварительной версии Azure.  Пошаговые инструкции для каждого метода подробно описаны в статье [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md) .
-* **Power BI.** Если у вас еще нет учетной записи [Power BI](https://powerbi.microsoft.com/pricing) , ее можно опробовать бесплатно. Используя [пакет содержимого журналов аудита Azure для Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), можно анализировать данные с помощью предварительно настроенных панелей мониторинга, которые можно использовать как есть или дополнительно настроить.
+Данные журнала действий можно просматривать и анализировать с помощью любого из следующих методов:
 
-## <a name="view-and-analyze-the-access,-performance-and-firewall-log"></a>Просмотр и анализ журналов доступа, производительности и брандмауэра
+* **Инструменты Azure.** Информацию из журналов действий можно получать с помощью Azure PowerShell, интерфейса командной строки (CLI) Azure, интерфейса REST API Azure или портала предварительной версии Azure.  Пошаговые инструкции для каждого метода подробно описаны в статье [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Выполнение операций в журналах действий с помощью Resource Manager).
+* **Power BI.** Если у вас еще нет учетной записи [Power BI](https://powerbi.microsoft.com/pricing) , ее можно опробовать бесплатно. Используя [пакет содержимого журналов действий Azure для Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), можно анализировать данные с помощью предварительно настроенных панелей мониторинга, которые можно использовать "как есть" или дополнительно настроить.
+
+## <a name="view-and-analyze-the-access-performance-and-firewall-log"></a>Просмотр и анализ журналов доступа, производительности и брандмауэра
+
 Служба Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) собирает файлы журнала событий и счетчика из вашей учетной записи хранилища BLOB-объектов и включает в себя представления и мощные инструменты поиска для анализа журналов.
 
 Вы также можете подключиться к учетной записи хранения и извлечь записи журнала JSON для журналов доступа и производительности. После загрузки JSON-файлов их можно преобразовать в формат CSV и просматривать в Excel, PowerBI или другом средстве визуализации данных.
@@ -169,6 +192,7 @@ Azure предоставляет возможность наблюдать за 
 > 
 
 ## <a name="metrics"></a>Метрики
+
 Метрики — это функция определенных ресурсов Azure, позволяющая просмотреть счетчики производительности на портале. На момент написания данной статьи для шлюза приложений доступна одна метрика. Эта метрика измеряет пропускную способность, и ее можно просмотреть на портале. Перейдите к шлюзу приложений и щелкните **Метрики**.  Выберите "Throughput" (Пропускная способность) в разделе **Available metrics** (Доступные метрики), чтобы просмотреть значения. На следующем рисунке приведен пример с фильтрами, которые можно использовать для отображения данных за различные временные интервалы.
 
 Список текущих поддерживаемых метрик доступен на странице [Метрики, поддерживаемые Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
@@ -176,16 +200,19 @@ Azure предоставляет возможность наблюдать за 
 ![Представления метрик][5]
 
 ## <a name="alert-rules"></a>Правила оповещения
+
 Можно запустить правила генерации оповещений на основе метрик ресурса. Для шлюза приложений это означает, что оповещение может вызвать webhook или отправить электронное сообщение для администратора, если пропускная способность шлюза приложений станет больше, меньше или равна пороговому значению в указанный период времени.
 
 Приведенный ниже пример поможет вам создать правило генерации оповещений, которое отправляет администратору электронное сообщение после нарушения порогового значения пропускной способности.
 
-### <a name="step-1"></a>Шаг 1
+### <a name="step-1"></a>Шаг 1
+
 Для начала щелкните **Add metric alert** (Добавить оповещение метрики). Эту колонку можно также открыть из колонки метрик.
 
 ![Колонка "Правила генерации оповещений"][6]
 
-### <a name="step-2"></a>Шаг 2
+### <a name="step-2"></a>Шаг 2
+
 В колонке **Добавить правило** заполните разделы для имени, условия и уведомления. После этого нажмите кнопку **ОК**.
 
 С помощью селектора **Условие** можно выбрать одно из 4 значений: **Больше**, **Больше или равно**, **Меньше** или **Меньше или равно**.
@@ -204,14 +231,15 @@ Azure предоставляет возможность наблюдать за 
 
 ![Представление правила генерации оповещений][9]
 
-Чтобы больше узнать про уведомления об оповещениях, ознакомьтесь с [получением уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md)
+Чтобы больше узнать про уведомления об оповещениях, ознакомьтесь с [получением уведомлений об оповещениях](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 Чтобы лучше понять, как действуют веб-перехватчики webhook и как их использовать с оповещениями, ознакомьтесь с [настройкой webhook для оповещений метрик Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Визуализация счетчика и журналов событий с помощью [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 
-* [Визуализация журналов аудита Azure с помощью Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
-* [Просмотр и анализ журналов аудита Azure с помощью Power BI и других средств](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) .
+
+* Визуализация счетчика и журналов событий с помощью [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+* Ознакомьтесь с записью блога [Visualize your Azure Activity Log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Визуализация журналов действий Azure с помощью Power BI).
+* Ознакомьтесь с записью блога [View and analyze Azure Activity Log in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Журналы действий Azure в Power BI: просмотр, анализ и другие возможности).
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png
@@ -224,6 +252,7 @@ Azure предоставляет возможность наблюдать за 
 [9]: ./media/application-gateway-diagnostics/figure9.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

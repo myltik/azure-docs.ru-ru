@@ -1,12 +1,12 @@
 ---
-title: Моделирование устройства с помощью шлюза пакета SDK | Microsoft Docs
-description: Пошаговое руководство по работе с пакетом SDK для шлюза IoT Azure под управлением Windows показывает, как отправлять данные телеметрии с виртуального устройства, используя пакет SDK для шлюза IoT Azure.
+title: "Имитация устройства с помощью пакета SDK для шлюза Интернета вещей | Документация Майкрософт"
+description: "Пошаговое руководство по работе с пакетом SDK для шлюза Azure IoT под управлением Windows показывает, как отправлять данные телеметрии с имитации устройства, используя пакет SDK для шлюза Azure IoT."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6a2aeda0-696a-4732-90e1-595d2e2fadc6
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
+
 
 ---
-# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-simulated-device-using-windows"></a>IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Windows (Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Windows)
+# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-app-using-windows"></a>Пакет SDK для шлюза Интернета вещей (бета-версия): отправка сообщений с устройства в облако через приложение имитации устройства с помощью Windows
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Сборка и запуск примера
 Перед началом работы необходимо выполнить следующие действия:
 
 * [Настроить среду разработки][lnk-setupdevbox] для работы с пакетом SDK для Windows.
-* [Создать Центр Интернета вещей][lnk-create-hub] в подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас еще нет подписки Azure, получите [бесплатную учетную запись][lnk-free-trial].
-* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Для добавления устройств в Центр Интернета вещей, созданный при выполнении предыдущего шага, и получения их ключей можно использовать [обозреватель устройств или инструмент iothub-explorer][lnk-explorer-tools].
+* [Создать Центр Интернета вещей][lnk-create-hub] в подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
+* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Чтобы добавить устройства в Центр Интернета вещей, созданный на предыдущем шаге, и получить его ключи, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
 
 Сборка примера
 
@@ -40,70 +44,90 @@ ms.author: andbuc
 * Модуль **mapping** сопоставляет MAC-адреса имитаций устройств с идентификаторами устройств Центра Интернета вещей. Убедитесь в том, что значения **deviceId** совпадают с идентификаторами двух устройств, добавленных в Центр Интернета вещей, а значения **deviceKey** содержат ключи этих двух устройств.
 * Модули **BLE1** и **BLE2** — это имитации устройств. Обратите внимание на то, что их MAC-адреса совпадают с адресами в модуле **mapping** .
 * Модуль **Logger** регистрирует активность вашего шлюза в файл.
-* Указанные ниже значения **module path** предполагают, что вы клонировали репозиторий пакета SDK для шлюза в корневую папку диска **C:**. Если вы загрузили его в другое место, измените соответственно значения **module path** .
+* Указанные ниже значения **module path** предполагают, что вы клонировали репозиторий пакета SDK для шлюза IoT в корневую папку диска **C:**. Если вы загрузили его в другое место, измените соответственно значения **module path** .
 * Массив **links** в нижней части JSON-файла подключает модули **BLE1** и **BLE2** к модулю **mapping**, а модуль **mapping** — к модулю **IoTHub**. Это также гарантирует, что все сообщения будут зарегистрированы модулем **Logger** .
 
 ```
 {
     "modules" :
-    [ 
-        {
-            "module name" : "IoTHub",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll",
-            "args" : 
-            {
-                "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net",
-                "Transport": "HTTP"
-            }
+    [
+      {
+        "name": "IotHub",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\iothub\\Debug\\iothub.dll"
+          }
+          },
+          "args": {
+            "IoTHubName": "<<insert here IoTHubName>>",
+            "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
+            "Transport": "HTTP"
+          }
         },
-        {
-            "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll",
-            "args" : 
-            [
-                {
-                    "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID 1}",
-                    "deviceKey"  : "{Device key 1}"
-                },
-                {
-                    "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID 2}",
-                    "deviceKey"  : "{Device key 2}"
-                }
-            ]
-        },
-        {
-            "module name":"BLE1",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
-            "args":
+      {
+        "name": "mapping",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\identitymap\\Debug\\identity_map.dll"
+          }
+          },
+          "args": [
             {
-                "macAddress" : "01-01-01-01-01-01"
-            }
-        },
-        {
-            "module name":"BLE2",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
-            "args":
+              "macAddress": "01:01:01:01:01:01",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
+            },
             {
-                "macAddress" : "02-02-02-02-02-02"
+              "macAddress": "02:02:02:02:02:02",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
             }
+          ]
         },
-        {
-            "module name":"Logger",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
-            "args":
-            {
-                "filename":"C:\\azure-iot-gateway-sdk\\deviceCloudUploadGatewaylog.log"
-            }
+      {
+        "name": "BLE1",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "01:01:01:01:01:01"
+          }
+        },
+      {
+        "name": "BLE2",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "02:02:02:02:02:02"
+          }
+        },
+      {
+        "name": "Logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+          }
+        },
+        "args": {
+          "filename": "deviceCloudUploadGatewaylog.log"
         }
+      }
     ],
     "links" : [
         { "source" : "*", "sink" : "Logger" },
         { "source" : "BLE1", "sink" : "mapping" },
         { "source" : "BLE2", "sink" : "mapping" },
-        { "source" : "mapping", "sink" : "IoTHub" }
+        { "source" : "mapping", "sink" : "IotHub" }
     ]
 }
 ```
@@ -118,17 +142,17 @@ ms.author: andbuc
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. Для мониторинга сообщений, получаемых Центром Интернета вещей из шлюза, можно использовать [обозреватель устройств или инструмент iothub-explorer][lnk-explorer-tools].
+3. Для мониторинга сообщений, получаемых Центром Интернета вещей из шлюза, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вы хотите подробнее изучить возможности пакета SDK для шлюза и поэкспериментировать с примерами кода, см. следующие руководства и ресурсы для разработчиков.
+Если вы хотите подробнее изучить возможности пакета SDK для шлюза Интернета вещей и поэкспериментировать с примерами кода, то см. следующие учебники и ресурсы для разработчиков:
 
 * [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через реальное устройство с ОС Linux][lnk-physical-device]
-* [Azure IoT Gateway SDK][lnk-gateway-sdk] (Пакет SDK для шлюза Интернета вещей Azure)
+* [Пакет SDK для шлюза Azure IoT][lnk-gateway-sdk]
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Developer guide][lnk-devguide] (Руководство разработчика)
+* [Руководство разработчика][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -142,6 +166,7 @@ ms.author: andbuc
 [lnk-create-hub]: iot-hub-create-through-portal.md 
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

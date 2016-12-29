@@ -1,13 +1,13 @@
 ---
-title: Подключение классических виртуальных сетей к виртуальным сетям Resource Manager на портале | Microsoft Docs
-description: Узнайте, как создать VPN-подключение между классическими виртуальными сетями и виртуальными сетями Resource Manager с помощью VPN-шлюза и портала
+title: "Подключение классических виртуальных сетей к виртуальным сетям Resource Manager на портале | Документация Майкрософт"
+description: "Узнайте, как создать VPN-подключение между классическими виртуальными сетями и виртуальными сетями Resource Manager с помощью VPN-шлюза и портала"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
+ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-in-the-portal"></a>Создание подключения между виртуальными сетями из разных моделей развертывания с помощью портала
@@ -37,7 +41,8 @@ ms.author: cherylmc
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Пиринговая связь между виртуальными сетями
+**Пиринговая связь между виртуальными сетями**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Подготовка
@@ -50,7 +55,7 @@ ms.author: cherylmc
 * Диапазоны адресов для виртуальных сетей не перекрываются между собой или с другими диапазонами подключений, к которым могут быть подключены шлюзы.
 * В системе установлены последние командлеты Azure PowerShell (версии 1.0.2 или более поздней). Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Командлеты управления службой и Resource Manager должны быть установлены. 
 
-### <a name="<a-name="values"></a>example-settings"></a><a name="values"></a>Примеры настроек
+### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Примеры настроек
 Параметры из примера можно использовать в качестве ориентира.
 
 **Параметры классической виртуальной сети**
@@ -76,7 +81,7 @@ ms.author: cherylmc
 Тип VPN: на основе маршрутов <br>
 Шлюз локальной сети = ClassicVNetLocal <br>
 
-## <a name="<a-name="createsmgw"></a>section-1:-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Раздел 1. Настройка параметров классической виртуальной сети
+## <a name="a-namecreatesmgwasection-1-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Раздел 1. Настройка параметров классической виртуальной сети
 В этом разделе мы создадим локальную сеть и шлюз для классической виртуальной сети. Действия, описанные в этом разделе, выполняются на классическом портале. В настоящее время на портале Azure не предоставляются все параметры, которые относятся к классической виртуальной сети.
 
 ### <a name="part-1---create-a-new-local-network"></a>Часть 1. Создание локальной сети
@@ -95,10 +100,10 @@ ms.author: cherylmc
 1. После сохранения параметров в верхней части страницы щелкните **Панель мониторинга** , чтобы перейти к странице "Панель мониторинга". В нижней части страницы "Панель мониторинга" щелкните **Создать шлюз**, а затем — **Динамическая маршрутизация**. Нажмите кнопку **Да** , чтобы начать создание шлюза. Для этой конфигурации требуется шлюз динамической маршрутизации.
 2. Подождите, пока шлюз не будет создан. Этот процесс может занять 45 минут или больше.
 
-### <a name="<a-name="ip"></a>part-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Часть 4. Просмотр общедоступного IP-адреса шлюза
+### <a name="a-nameipapart-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Часть 4. Просмотр общедоступного IP-адреса шлюза
 После создания шлюза его IP-адрес можно просмотреть на странице **Панель мониторинга**. Это общедоступный IP-адрес вашего шлюза. Запишите или скопируйте это значение, так как оно понадобится позже при создании локальной сети для настройки виртуальной сети Resource Manager.
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a> Раздел 2. Настройка параметров виртуальной сети Resource Manager
+## <a name="a-namecreatermgwasection-2-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a> Раздел 2. Настройка параметров виртуальной сети Resource Manager
 В этом разделе мы создадим шлюз и локальную сеть для виртуальной сети Resource Manager. Не приступайте к выполнению следующих действий до получения общедоступного IP-адреса шлюза классической виртуальной сети.
 
 Снимки экрана приведены в качестве примеров. Обязательно подставьте собственные значения. Если вы создаете эту конфигурацию в качестве упражнения, можно использовать вот эти [значения](#values).
@@ -125,21 +130,21 @@ ms.author: cherylmc
 ### <a name="part-4---copy-the-public-ip-address"></a>Часть 4. Копирование общедоступного IP-адреса
 После создания шлюза виртуальной сети скопируйте общедоступный IP-адрес, связанный со шлюзом. Он понадобится при настройке параметров локальной сети для классической виртуальной сети. 
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Раздел 3. Изменение параметров локальной сети для классической виртуальной сети
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Раздел 3. Изменение параметров локальной сети для классической виртуальной сети
 Откройте [классический портал](https://manage.windowsazure.com).
 
 1. На классическом портале прокрутите вниз и в левой части выберите **Сети**. В верхней части страницы **Сети** щелкните **Локальные сети**. 
 2. Выберите локальную сеть, настроенную в разделе "Часть 1. Создание локальной сети". В нижней части страницы щелкните **Изменить**.
 3. На странице **Укажите сведения о локальной сети** замените заполнитель общедоступным IP-адресом шлюза Resource Manager, созданным в предыдущем разделе. Нажмите кнопку со стрелкой, чтобы перейти к следующему разделу. Убедитесь, что для параметра **Адресное пространство** задано правильное значение, а затем щелкните значок флажка, чтобы применить изменения.
 
-## <a name="<a-name="connect"></a>section-4:-create-the-connection"></a><a name="connect"></a>Раздел 4. Создание подключения
+## <a name="a-nameconnectasection-4-create-the-connection"></a><a name="connect"></a>Раздел 4. Создание подключения
 В этом разделе мы создадим подключение между виртуальными сетями. Для этого нам понадобится PowerShell. Это подключение невозможно создать на каком-либо из порталов. Убедитесь, что командлеты PowerShell Resource Manager и классические командлеты PowerShell установлены.
 
 1. В консоли PowerShell войдите в свою учетную запись Azure. Следующий командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он скачивает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Если у вас есть несколько подписок, запросите их список.
+     Если у вас есть несколько подписок, запросите их список.
    
         Get-AzureRmSubscription
    
@@ -172,11 +177,14 @@ ms.author: cherylmc
 
 [!INCLUDE [vpn-gateway-verify connection](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
 Дополнительные сведения см. в ответах на часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть".
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

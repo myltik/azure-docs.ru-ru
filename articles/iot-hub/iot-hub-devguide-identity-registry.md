@@ -1,12 +1,12 @@
 ---
-title: Developer guide - device identity registry | Microsoft Docs
-description: Azure IoT Hub developer guide - description of the device identity registry and how to use it to manage your devices
+title: "Руководство разработчика. Реестр удостоверений | Документация Майкрософт"
+description: "Руководство разработчика по Центру Интернета вещей. Описание реестра удостоверений, а также сведения о том, как с его помощью управлять своими устройствами."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,129 +14,135 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: 0e8145bfcf5d5cf40caad2d388cfb12f6a868c5d
+
 
 ---
-# <a name="manage-device-identities-in-iot-hub"></a>Manage device identities in IoT Hub
-## <a name="overview"></a>Overview
-Every IoT hub has a device identity registry that stores information about the devices that are permitted to connect to the hub. Before a device can connect to a hub, there must be an entry for that device in the hub's device identity registry. A device must also authenticate with the hub based on credentials stored in the device identity registry.
+# <a name="manage-device-identities-in-iot-hub"></a>Управление удостоверениями устройств в Центре Интернета вещей
+## <a name="overview"></a>Обзор
+Каждый Центр Интернета вещей имеет реестр удостоверений, в котором содержатся сведения об устройствах с разрешением на подключение к Центру Интернета вещей. Перед подключением устройства к Центру Интернета вещей в реестр удостоверений нужно добавить запись об этом устройстве. Устройство также должно пройти аутентификацию в Центре Интернета вещей на основе учетных данных, хранящихся в реестре удостоверений.
 
-At a high level, the device identity registry is a REST-capable collection of device identity resources. When you add an entry to the registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
+На высоком уровне реестр удостоверений является коллекцией с поддержкой REST, состоящей из ресурсов удостоверений устройств. Добавляя записи в реестр, Центр Интернета вещей создает в службе уникальные ресурсы устройства (например, очередь с сообщениями, отправленными из облака на устройство).
 
-### <a name="when-to-use"></a>When to use
-Use the device identity registry when you need to provision devices that connect to you IoT hub and when you need to control per-device access to the device-facing endpoints in your hub.
-
-> [!NOTE]
-> The device identity registry does not contain any application-specific metadata.
-> 
-> 
-
-## <a name="device-identity-registry-operations"></a>Device identity registry operations
-The IoT Hub device identity registry exposes the following operations:
-
-* Create device identity
-* Update device identity
-* Retrieve device identity by ID
-* Delete device identity
-* List up to 1000 identities
-* Export all identities to blob storage
-* Import identities from blob storage
-
-All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
-
-> [!IMPORTANT]
-> The only way to retrieve all identities in a hub's identity registry is to use the [Export][lnk-export] functionality.
-> 
-> 
-
-An IoT Hub device identity registry:
-
-* Does not contain any application metadata.
-* Can be accessed like a dictionary, by using the **deviceId** as the key.
-* Does not support expressive queries.
-
-An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
-
-> [!IMPORTANT]
-> Only use the device identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the device identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates][lnk-quotas] for the device identity registry, and the [device heartbeat][lnk-guidance-heartbeat] pattern.
-> 
-> 
-
-## <a name="disable-devices"></a>Disable devices
-You can disable devices by updating the **status** property of an identity in the registry. Typically, you use this property in two scenarios:
-
-* During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
-* If, for any reason, you consider a device is compromised or has become unauthorized.
-
-## <a name="import-and-export-device-identities"></a>Import and export device identities
-You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
-
-You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
-
-* For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
-* To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
-
-## <a name="device-provisioning"></a>Device provisioning
-The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as tables, blobs, or Azure DocumentDB to store any additional device data.
-
-*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a new device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
-
-## <a name="device-heartbeat"></a>Device heartbeat
-The IoT Hub identity registry contains a field called **connectionState**. You should only use the **connectionState** field during development and debugging, IoT solutions should not query the field at run time (for example, to check if a device is connected in order to decide whether to send a cloud-to-device message or an SMS).
-
-If your IoT solution needs to know if a device is connected (either at run time, or with more accuracy than the **connectionState** property provides), your solution should implement the *heartbeat pattern*.
-
-In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). This means that even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device, and assumes that there is a problem with a device if it does not receive a heartbeat message within the expected time.
-
-A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][lnk-quotas].
+### <a name="when-to-use"></a>Сценарии использования
+Реестр удостоверений можно использовать для подготовки устройств, подключаемых к Центру Интернета вещей, а также для управления доступом устройств к конечным точкам центра, доступным с устройства.
 
 > [!NOTE]
-> If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
+> Реестр удостоверений не содержит метаданные конкретного приложения.
 > 
 > 
 
-## <a name="reference"></a>Reference
-### <a name="device-identity-properties"></a>Device identity properties
-Device identities are represented as JSON documents with the following properties.
+## <a name="identity-registry-operations"></a>операции с реестром удостоверений.
+Реестр удостоверений Центра Интернета вещей поддерживает такие операции:
 
-| Property | Options | Description |
+* создание удостоверения устройства;
+* обновление удостоверения устройства;
+* получение удостоверения устройства по идентификатору;
+* удаление удостоверения устройства;
+* отображение списка, содержащего до 1000 удостоверений;
+* экспорт всех удостоверений в хранилище BLOB-объектов Azure;
+* импорт всех удостоверений из хранилища BLOB-объектов Azure.
+
+Все эти операции могут использовать оптимистичный параллелизм (согласно [RFC7232][lnk-rfc7232]).
+
+> [!IMPORTANT]
+> Единственный способ получить все удостоверения, которые содержит реестр удостоверений Центра Интернета вещей, — использовать функцию [Экспорт][lnk-export].
+> 
+> 
+
+Реестр удостоверений Центра Интернета вещей:
+
+* не содержит метаданные приложения;
+* доступен как словарь (в качестве ключа используется свойство **deviceId** );
+* не поддерживает выразительные запросы.
+
+Решение IoT обычно включает в себя отдельное хранилище, содержащее метаданные приложений. Например, в хранилище решения для интеллектуального здания будут записываться данные о комнате, где установлен датчик температуры.
+
+> [!IMPORTANT]
+> Реестр удостоверений следует использовать только для управления устройствами и операций подготовки. Выполнение операций в реестре удостоверений не должно влиять на пропускную способность операций в среде выполнения. Например, проверка состояния подключения устройства перед отправкой команды не является поддерживаемым шаблоном. Проверьте [уровни регулирования][lnk-quotas] реестра удостоверений и шаблон [пульса устройств][lnk-guidance-heartbeat].
+> 
+> 
+
+## <a name="disable-devices"></a>Отключение устройств
+Чтобы отключить устройства, обновите в реестре свойство **status** удостоверения. Обычно это свойство используется в двух сценариях.
+
+* В процессе оркестрации подготовки. Дополнительные сведения см. в разделе [Подготовка устройств][lnk-guidance-provisioning].
+* Если по какой-либо причине вы решите, что безопасность устройства нарушена или оно является неавторизованным.
+
+## <a name="import-and-export-device-identities"></a>Импорт и экспорт удостоверений устройств
+Можно выполнить массовый экспорт удостоверений устройств из реестра удостоверений Центра Интернета вещей, используя асинхронные операции в [конечной точке поставщика ресурсов Центра Интернета вещей][lnk-endpoints]. Экспорт — это долгосрочное задание, использующее предоставленный клиентом контейнер больших двоичных объектов, необходимых для сохранения идентификационных данных устройств, прочитанных из реестра удостоверений устройств.
+
+Можно выполнить массовый импорт удостоверений устройств в реестр удостоверений Центра Интернета вещей, используя асинхронные операции в [конечной точке поставщика ресурсов Центра Интернета вещей][lnk-endpoints]. Импорт — это долгосрочное задание, использующее данные в предоставленном клиентом контейнере больших двоичных объектов, необходимых для записи идентификационных данных об устройстве в реестр удостоверений.
+
+* Дополнительные сведения об интерфейсах API импорта и экспорта см. в статье [IoT Hub resource provider REST APIs][lnk-resource-provider-apis] (Интерфейсы REST API поставщика ресурсов Центра Интернета вещей).
+* Дополнительные сведения о выполнении заданий импорта и экспорта см. в статье [Массовое управление удостоверениями устройств центра IoT][lnk-bulk-identity].
+
+## <a name="device-provisioning"></a>Подготовка устройств
+Данные устройства, которые хранятся в заданном решении IoT, зависят от конкретных требований этого решения. Но в решении как минимум должны сохраняться удостоверения устройства и ключи проверки подлинности. Центр Интернета вещей Azure имеет реестр удостоверений, который может хранить значения для каждого устройства, например идентификаторы, ключи проверки подлинности и коды состояния. Для хранения любых дополнительных данных устройств решение может использовать другие службы Azure, такие как хранилище таблиц Azure, хранилище BLOB-объектов Azure или Azure DocumentDB.
+
+*Подготовка устройств* — это процесс добавления исходных данных устройства в хранилища в решении. Чтобы предоставить новому устройству доступ к центру, необходимо добавить новый идентификатор устройства и ключи в реестр удостоверений Центра Интернета вещей. В рамках процесса подготовки может потребоваться инициализировать данные устройства в других хранилищах решения.
+
+## <a name="device-heartbeat"></a>Пульс устройства
+Реестр удостоверений Центра Интернета вещей содержит поле **connectionState**. Поле **connectionState** используется только в процессе разработки и отладки. Во время выполнения решения Интернета вещей не должны запрашивать это поле (например, чтобы проверить подключение устройства и сделать выбор между сообщением из облака на устройство и SMS).
+
+Если решению Интернета вещей необходимо определять, подключено ли устройство (во время выполнения либо с более высокой точностью, чем позволяет свойство **connectionState**), в него необходимо внедрить *шаблон пульса*.
+
+При использовании шаблона пульса устройство отправляет сообщения с устройства в облака с заданной периодичностью (например не реже, чем каждый час). Если отправка данных при этом не требуется, устройство отправляет с устройства в облака пустое сообщение (обычно содержащее свойство, идентифицирующее его как пульс). На стороне службы решение хранит карту последнего пульса, полученного по каждому устройству, и сообщает о проблеме, если устройство не получает сообщение пульса в ожидаемое время.
+
+Более сложные варианты могут включать в себя данные [мониторинга операций][lnk-devguide-opmon], позволяющие определять, какие устройства пытаются, но не могут установить подключение. Внедряя в решение шаблон пульса, учитывайте [квоты и ограничения Центра Интернета вещей][lnk-quotas].
+
+> [!NOTE]
+> Если состояние подключения устройства нужно решению IoT исключительно для того, чтобы определить, отправлять ли сообщения из облака на устройство, и сообщения не вещаются на большие наборы устройств, то следует рассмотреть заметно более простой способ — использовать небольшое время окончания срока действия. Это позволяет добиться того же результата, что и обслуживание реестра состояний подключения устройств, действующего по принципу пульса, но со значительно большей эффективностью. Запрашивая подтверждения сообщений у центра IoT, также можно узнать, какие устройства могут получать сообщения, а какие находятся не в сети или в неработоспособны.
+> 
+> 
+
+## <a name="reference-topics"></a>Справочные материалы
+В следующих справочных материалах предоставлены дополнительные сведения о реестре удостоверений.
+
+## <a name="device-identity-properties"></a>Свойства удостоверений устройств
+Удостоверения устройств отображаются как JSON-документы с нижеуказанными свойствами.
+
+| Свойство | Параметры | Описание |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| generationId |required, read-only |A hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
-| etag |required, read-only |A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232]. |
-| auth |optional |A composite object containing authentication information and security materials. |
-| auth.symkey |optional |A composite object containing a primary and a secondary key, stored in base64 format. |
-| status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
-| statusReason |optional |A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
-| statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
-| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are actually disconnected. |
-| connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
-| lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
+| deviceId |Обязательно, при обновлениях доступно только для чтения |Строка с учетом регистра (длиной до 128 символов), состоящая из букв и цифр в 7-битовом формате ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| generationId |Обязательно, только для чтения |Созданная Центром Интернета вещей строка с учетом регистра (длиной до 128 знаков). Позволяет различать устройства с одинаковым свойством **deviceId**, которые были удалены, а затем созданы повторно. |
+| etag |Обязательно, только для чтения |Строка, выполняющая функцию ненадежного заголовка ETag для удостоверения устройства (согласно [RFC7232][lnk-rfc7232]). |
+| auth |необязательный |Составной объект, содержащий сведения об аутентификации и материалы безопасности. |
+| auth.symkey |необязательный |Составной объект, содержащий первичный и вторичный ключи, хранящиеся в формате base64. |
+| status |обязательно |Индикатор доступа. Доступно два значения: **Включено** или **Отключено**. Если указано значение **Включено**, устройство может подключаться. Если указано значение **Отключено**, устройство не может подключаться ни к одной конечной точке, обращенной к устройству. |
+| statusReason |необязательный |Строка длиной 128 знаков, указывающая причину, по которой выбран тот или иной статус удостоверения устройства. Разрешены все символы UTF-8. |
+| statusUpdateTime |Только для чтения |Временной индикатор, показывающий дату и время последнего обновления статуса. |
+| connectionState |Только для чтения |Поле, отображающее состояние подключения: **Подключено** или **Отключено**. Это поле отображает состояние подключения устройства для центра IoT. **Важно!**Используйте это поле только в целях разработки и отладки. Состояние подключения обновляется только для устройств, использующих протокол MQTT или AMQP. Кроме того, оно определяется по запросам проверки связи (по протоколу MQTT или AMQP) и может иметь максимальную задержку равную всего лишь 5 минутам. В связи с этим могут возникать ложно положительные результаты, например, когда отключенные устройства отображаются как подключенные. |
+| connectionStateUpdatedTime |Только для чтения |Временной индикатор, показывающий дату и время последнего обновления состояния подключения. |
+| lastActivityTime |Только для чтения |Временной индикатор, показывающий дату и время последнего подключения устройства, получения сообщения на устройство и отправки сообщения с него. |
 
 > [!NOTE]
-> Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
+> Статус подключения отображает статус подключения для центра IoT. При некоторых состояниях и конфигурациях сети обновления этого состояния могут задерживаться.
 > 
 > 
 
-### <a name="additional-reference-material"></a>Additional reference material
-Other reference topics in the Developer Guide include:
+## <a name="additional-reference-material"></a>Дополнительные справочные материалы
+Другие справочные статьи в руководстве для разработчиков:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-* [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
-* [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
+* Статья [IoT Hub endpoints][lnk-endpoints] (Конечные точки Центра Интернета вещей) содержит сведения о конечных точках, которые каждый Центр Интернета вещей предоставляет для операций управления и среды выполнения.
+* Статья [Throttling and quotas][lnk-quotas] (Регулирование и квоты) содержит сведения о квотах, применимых к службе Центра Интернета вещей, и ожидаемом поведении регулирования при использовании службы.
+* В статье [Azure IoT device and service SDKs][lnk-sdks] (Пакеты SDK для устройств и служб Azure IoT) указаны различные языковые пакеты SDK, которые можно использовать при разработке приложений для устройств и служб, взаимодействующих с Центром Интернета вещей.
+* В статье [Справочник по языку запросов для двойников и заданий][lnk-query] описывается язык запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
+* Статья [Поддержка MQTT в центре IoT][lnk-devguide-mqtt] содержит дополнительные сведения о поддержке протокола MQTT в Центре Интернета вещей.
 
-## <a name="next-steps"></a>Next steps
-Now you have learned how to use the IoT Hub device identity registry, you may be interested in the following Developer Guide topics:
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь вы знаете, как использовать реестр удостоверений Центра Интернета вещей. Возможно, вас заинтересуют следующие статьи руководства для разработчиков:
 
-* [Control access to IoT Hub][lnk-devguide-security]
-* [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
-* [Invoke a direct method on a device][lnk-devguide-directmethods]
-* [Schedule jobs on multiple devices][lnk-devguide-jobs]
+* [Управление доступом к Центру Интернета вещей][lnk-devguide-security]
+* [Основные сведения о двойниках устройств (предварительная версия)][lnk-devguide-device-twins]
+* [Вызов прямого метода на устройстве (предварительная версия)][lnk-devguide-directmethods]
+* [Schedule jobs on multiple devices][lnk-devguide-jobs] (Планирование заданий на нескольких устройствах)
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+Если вы хотели бы применить на практике некоторые основные понятия, описанные в этой статье, можно просмотреть следующее руководство по Центру Интернета вещей:
 
-* [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
+* [Приступая к работе с Центром Интернета вещей Azure][lnk-getstarted-tutorial]
 
 <!-- Links and images -->
 
@@ -161,6 +167,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

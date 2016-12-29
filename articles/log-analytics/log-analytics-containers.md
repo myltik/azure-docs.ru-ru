@@ -1,39 +1,27 @@
 ---
-title: 'Решение '
-контейнеры": ''
-в: ''
-log: ''
-analytics: ''
-'|': ''
-microsoft: ''
-azure": ''
-description: 'Решение '
-позволяет: ''
-централизованно: ''
-просматривать: ''
-узлы: ''
-контейнера: ''
-docker: ''
-и: ''
-управлять: ''
-ими.": ''
+title: "Решение &quot;Контейнеры&quot; в Log Analytics | Документация Майкрософт"
+description: "Решение &quot;Контейнеры&quot; в Log Analytics позволяет централизованно просматривать узлы контейнера Docker и управлять ими."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/28/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
+ms.openlocfilehash: 0bc5366417f08c63f5fd5588c94381faf6a2397d
+
 
 ---
-# <a name="containers-(preview)-solution-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
-В этой статье описано, как настроить и использовать решение "Контейнеры" в Log Analytics для централизованного просмотра узлов контейнеров Docker и управления ими. Docker — это система виртуализации программного обеспечения, с помощью которой можно создавать контейнеры, автоматизирующие развертывание программного обеспечения в соответствующей ИТ-инфраструктуре.
+# <a name="containers-preview-solution-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
+В этой статье описано, как настроить и использовать решение "Контейнеры" в Log Analytics для централизованного просмотра узлов контейнеров Docker и управления ими. Docker — это система виртуализации программного обеспечения, с помощью которой можно создавать контейнеры, автоматизирующие развертывание программного обеспечения в соответствующей ИТ-инфраструктуре.
 
 Благодаря этому решению можно видеть, какие контейнеры работают на узлах контейнеров и какие образы выполняются в контейнерах. Также можно просматривать подробные сведения аудита, в том числе команды, используемые в контейнерах. Кроме того, вы можете устранять неполадки контейнеров, просматривая централизованные журналы и выполняя в них поиск, без необходимости удаленного просмотра узлов Docker. Решение позволяет находить контейнеры, содержащие ошибки и использующие слишком много ресурсов на узле. Также у вас есть возможность централизованно просматривать сведения об использовании и производительности ЦП, памяти, хранилища и сети по контейнерам.
 
@@ -45,75 +33,42 @@ ms.author: banders
 Docker с OMS можно установить и использовать двумя способами:
 
 * В поддерживаемых операционных системах Linux: установите и запустите Docker, а затем установите и настройте агент OMS для Linux.
-* В CoreOS: установите и запустите Docker, а затем настройте агент OMS для запуска в контейнере.
+* В CoreOS невозможно запустить агент OMS для Linux. Вместо этого можно запустить контейнерную версию агента OMS для Linux.
 
 Ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера можно на портале [GitHub](https://github.com/Microsoft/OMS-docker).
 
 > [!IMPORTANT]
 > Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-linux-agents.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
-> 
-> 
+>
+>
 
 Для мониторинга контейнеров необходимо настроить указанные ниже параметры на узлах контейнера.
 
 ## <a name="configure-settings-for-the-linux-container-host"></a>Настройка параметров для узла контейнера Linux
-После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. CoreOS не поддерживает такой метод настройки.
 
-### <a name="to-configure-settings-for-the-container-host---systemd-(suse,-opensuse,-centos-7.x,-rhel-7.x,-and-ubuntu-15.x-and-higher)"></a>Настройка параметров для узла контейнера — systemd (SUSE, openSUSE, CentOS 7.x, RHEL 7.x, Ubuntu 15.x и более поздние версии)
-1. Добавьте в файл docker.service следующий код:
-   
-    ```
-    [Service]
-    ...
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ...
-    ```
-2. Добавьте $DOCKER\_OPTS в строку &quot;ExecStart=/usr/bin/docker daemon&quot; в файле docker.service. Используйте следующий пример:
-   
-    ```
-    [Service]
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ExecStart=/usr/bin/docker daemon -H fd:// $DOCKER_OPTS
-    ```
-3. Перезапустите службу Docker. Например:
-   
-    ```
-    sudo systemctl restart docker.service
-    ```
+В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
 
-### <a name="to-configure-settings-for-the-container-host---upstart-(ubuntu-14.x)"></a>Настройка параметров для узла контейнера — Upstart (Ubuntu 14.x)
-1. Добавьте в файл /etc/default/docker следующий код:
-   
-    ```
-    DOCKER_OPTS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Сохраните файл, а затем перезапустите службы Docker и OMS.
-   
-    ```
-    sudo service docker restart
-    ```
+- Ubuntu 14.04 LTS, 16.04 LTS;
+- CoreOS (стабильный выпуск);
+- Amazon Linux 2016.03;
+- openSUSE 13.2
+- CentOS 7
+- SLES 12
+- RHEL 7.2;
 
-### <a name="to-configure-settings-for-the-container-host---amazon-linux"></a>Настройка параметров для узла контейнера — Amazon Linux
-1. Добавьте в файл /etc/sysconfig/docker следующий код:
-   
-    ```
-    OPTIONS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Сохраните файл, а затем перезапустите службу Docker.
-   
-    ```
-    sudo service docker restart
-    ```
+После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-linux-agents.md).
 
-## <a name="configure-settings-for-coreos-containers"></a>Настройка параметров для контейнеров CoreOS
-После установки Docker используйте следующие параметры для CoreOS, чтобы запустить Docker и создать контейнер. С этим методом настройки можно использовать любую поддерживаемую версию Linux, включая CoreOS. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-linux-agents.md).
+### <a name="for-all-container-hosts-except-coreos"></a>Для всех узлов контейнера, за исключением CoreOS
 
-### <a name="to-use-oms-for-all-containers-with-coreos"></a>Использование OMS для всех контейнеров в CoreOS
-* Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
-  
-  ```
-  sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25224:25224/udp -p 127.0.0.1:25225:25225 --name="omsagent" --log-driver=none --restart=always microsoft/oms
-  ```
+- Дополнительные указания см. в разделе [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Инструкции по установке агента OMS для Linux).
+
+### <a name="for-all-container-hosts-including-coreos"></a>Для всех узлов контейнера, включая CoreOS
+
+Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
+
+```
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+```
 
 ### <a name="switching-from-using-an-installed-agent-to-one-in-a-container"></a>Переход от использования установленного агента к использованию агента в контейнере
 Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, необходимо сначала удалить агент OMS. См. раздел [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Шаги по установке агента OMS для Linux).
@@ -125,17 +80,17 @@ Docker с OMS можно установить и использовать дву
 
 | платформа | Агент OMS для Linux | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
+|  Linux |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
 
-В следующей таблице приведены примеры типов данных, собираемых решением "Контейнеры".
+В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типы данных, которые используются при поиске в журналах и в результатах.
 
-| Тип данных | Поля |
-| --- | --- |
-| Производительность узлов и контейнеров |Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Список контейнеров |TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Список образов контейнеров |TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Журнал контейнеров |TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Журнал службы контейнеров |TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Тип данных | Тип данных, используемый для поиска в журналах | Поля |
+| --- | --- | --- |
+| Производительность узлов и контейнеров | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Список контейнеров | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Список образов контейнеров | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Журнал контейнеров | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Журнал службы контейнеров | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 
 ## <a name="monitor-containers"></a>Мониторинг контейнеров
 Включив решение на портале OMS, вы увидите плитку **Контейнеры**, на которой отображаются сводные сведения об узлах контейнеров и контейнерах, запущенных на узлах.
@@ -153,7 +108,7 @@ Docker с OMS можно установить и использовать дву
 * списку образов контейнеров;
 * производительности ЦП и памяти.
 
-Каждая область на панели мониторинга — это визуальное представление поиска по собранным данным.
+Каждая область на панели мониторинга — это визуальное представление поиска по собранным данным.
 
 ![Панель мониторинга "Контейнеры"](./media/log-analytics-containers/containers-dash01.png)
 
@@ -188,15 +143,15 @@ OMS добавляет к контейнеру пометку **Сбой**, ес
 ## <a name="search-logs-for-container-data"></a>Поиск данных контейнера по журналам
 При устранении определенной ошибки эта функция помогает узнать, где именно в среде возникает эта ошибка. С помощью журналов следующих типов можно создавать запросы для получения нужных вам сведений.
 
-* **ContainerInventory** — этот тип используется для получения сведений о расположении контейнеров, их именах и образах, которые в них выполняются.
-* **ContainerImageInventory** — этот тип используется для поиска сведений, упорядоченных по образам, и для просмотра информации об образах, включая идентификаторы или размеры образов.
-* **ContainerLog** — этот тип используется, если требуется найти определенные сведения или записи в журнале ошибок.
-* **ContainerServiceLog** — этот тип используется для поиска в журнале аудита данных об управляющей программе Docker, включая команды для запуска, остановки и извлечения.
+* **ContainerInventory** — этот тип используется для получения сведений о расположении контейнеров, их именах и образах, которые в них выполняются.
+* **ContainerImageInventory** — этот тип используется для поиска сведений, упорядоченных по образам, и для просмотра информации об образах, включая идентификаторы или размеры образов.
+* **ContainerLog** — этот тип используется, если требуется найти определенные сведения или записи в журнале ошибок.
+* **ContainerServiceLog** — этот тип используется для поиска в журнале аудита данных об управляющей программе Docker, включая команды для запуска, остановки и извлечения.
 
 ### <a name="to-search-logs-for-container-data"></a>Поиск данных контейнера по журналам
 * Выберите образ, в котором недавно произошел сбой, и найдите журнал ошибок для этого образа. Сначала найдите имя контейнера, в котором выполняется этот образ, выполнив поиск в журнале **ContainerInventory**. Например, выполните поиск по запросу `Type=ContainerInventory ubuntu Failed`  
     ![Поиск контейнеров Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
-  
+
   Запишите имя контейнера в строке **Имя** и выполните поиск по журналам, указав это имя. В нашем примере поисковый запрос будет выглядеть так: `Type=ContainerLog adoring_meitner`.
 
 **Просмотр сведений о производительности**
@@ -229,13 +184,15 @@ Type=Perf <containerName>
 ![Запросы по контейнерам](./media/log-analytics-containers/containers-queries.png)
 
 ## <a name="saving-log-search-queries"></a>Сохранение запросов для поиска по журналам
-Сохранение запросов — это стандартная функция в Log Analytics. Она позволяет сохранять полезные запросы для использования в будущем.
+Сохранение запросов — это стандартная функция в Log Analytics. Она позволяет сохранять полезные запросы для использования в будущем.
 
 Создав запрос, который вы считаете полезным, сохраните его, щелкнув **Избранное** в верхней части страницы поиска по журналам. Позднее вы сможете легко открыть его на странице **Моя панель мониторинга**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Выполните поиск по журналам](log-analytics-log-searches.md), чтобы просмотреть подробные записи с данными контейнеров.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 
