@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2016
+ms.date: 12/02/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
+ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
+ms.openlocfilehash: 0fd15c1d01959194ff25ac7f93c015a8edd38057
 
 
 ---
@@ -63,19 +63,25 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
 1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory][1]
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
+
 6. В поле поиска введите **Blackboard Learn — Shibboleth**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_01.png)
+
 7. В области результатов выберите **Blackboard Learn — Shibboleth** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_02.png)
@@ -103,9 +109,11 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
 1. На классическом портале на странице интеграции с приложением **Blackboard Learn — Shibboleth** нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
+
 2. На странице **Как пользователи должны входить в Blackboard Learn — Shibboleth?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_03.png) 
+
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_04.png) 
@@ -116,12 +124,13 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
    
     В. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: **https://\<ваш_сервер_blackoardlearn\>.blackboardlearn.com/Shibboleth.sso/SAML2/POST**.
    
-   > [!NOTE]
-   > Все эти значения можно найти в документе метаданных федерации, предоставленном партнером Blackboard Learn.
-   > 
-   > 
+    > [!NOTE]
+    > Все эти значения можно найти в документе метаданных федерации, предоставленном партнером Blackboard Learn.
+    > 
+    > 
    
     d. click **Далее**
+
 4. На странице **Настройка единого входа в Blackboard Learn — Shibboleth** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_05.png)
@@ -129,6 +138,7 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
     а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
+
 5. Для настройки единого входа для своего приложения обратитесь в службу поддержки Blackboard Learn — Shibboleth и предоставьте следующие сведения:
    
     • скачанный файл **метаданных**
@@ -138,9 +148,11 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
     • **URL-адрес единого входа SAML**
    
     • **URL-адрес службы единого выхода**
+
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
+
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
     ![единого входа Azure AD][11]
@@ -155,34 +167,43 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_09.png) 
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_03.png) 
+
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_05.png) 
+
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_05.png) 
    
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_06.png) 
+
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_07.png) 
+
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_08.png) 
@@ -204,13 +225,17 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
    
     ![Назначение пользователя][201] 
+
 2. В списке приложений выберите **Blackboard Learn — Shibboleth**.
    
     ![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_50.png) 
+
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
     ![Назначение пользователя][203]
+
 4. В списке пользователей выберите **Britta Simon**.
+
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
@@ -244,6 +269,6 @@ ms.openlocfilehash: bdb422396ddde1d6f232173ad57551a1e9ccfc36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

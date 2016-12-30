@@ -1,12 +1,12 @@
 ---
-title: Взаимная проверка подлинности между службами Azure AD с помощью OAuth2.0 | Microsoft Docs
-description: В этой статье описывается, как использовать HTTP-сообщения для проверки подлинности между службами с помощью потока предоставления учетных данных клиента OAuth2.0.
+title: "Взаимная проверка подлинности между службами Azure AD с помощью OAuth 2.0 | Документация Майкрософт"
+description: "В этой статье описывается, как использовать HTTP-сообщения для проверки подлинности между службами с помощью потока предоставления учетных данных клиента OAuth2.0."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 3fdd561bba898b0e790f69a82ed731d7fd87d8c8
+ms.openlocfilehash: 7cf9fe659a91816e42394c1377232e122fe924a6
+
 
 ---
 # <a name="service-to-service-calls-using-client-credentials"></a>Служба обслуживания вызовов с помощью учетных данных клиента
@@ -30,7 +34,7 @@ ms.author: priyamo
 4. Данные из защищенного ресурса возвращаются в веб-приложение.
 
 ## <a name="register-the-services-in-azure-ad"></a>Регистрация служб в Azure AD
-Зарегистрируйте вызывающую службу и службу, принимающую вызов, в Azure Active Directory (Azure AD). Подробные инструкции см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md#BKMK_Native).
+Зарегистрируйте вызывающую службу и службу, принимающую вызов, в Azure Active Directory (Azure AD). Подробные инструкции см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="request-an-access-token"></a>Запрос маркера доступа
 Чтобы запросить маркер доступа, используйте запрос HTTP POST к конечной точке Azure AD конкретного клиента.
@@ -42,9 +46,9 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ## <a name="service-to-service-access-token-request"></a>Запрос маркера взаимного доступа между службами
 Запрос маркера взаимного доступа между службами содержит следующие параметры.
 
-| Параметр |  | Description (Описание) |
+| Параметр |  | Описание |
 | --- | --- | --- |
-| response_type |обязательно |Указывает запрашиваемый тип ответа. В потоке предоставления учетных данных клиента этот параметр должен иметь значение **client_credentials**. |
+| grant_type |обязательно |Указывает запрашиваемый тип ответа. В потоке предоставления учетных данных клиента этот параметр должен иметь значение **client_credentials**. |
 | client_id |обязательно |Указывает идентификатор клиента Azure AD вызывающей веб-службы. Чтобы узнать идентификатор клиента вызывающего приложения, на портале управления Azure щелкните **Active Directory**, выберите каталог и приложение, а затем щелкните **Настройка**. |
 | client_secret |обязательно |Введите ключ, зарегистрированный для вызывающей веб-службы в Azure AD. Чтобы создать ключ, на портале управления Azure щелкните **Active Directory**, выберите каталог и приложение, а затем щелкните **Настройка**. |
 | resource |обязательно |Введите URI идентификатора приложения принимающей вызов веб-службы. Чтобы узнать URI идентификатора приложения, на портале управления Azure щелкните **Active Directory**, выберите каталог и приложение, а затем щелкните **Настройка**. |
@@ -87,6 +91,8 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ## <a name="see-also"></a>Дополнительные материалы
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO4-->
 
 
