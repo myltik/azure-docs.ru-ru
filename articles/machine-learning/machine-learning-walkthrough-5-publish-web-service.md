@@ -1,12 +1,12 @@
 ---
-title: Шаг 5. Развертывание веб-службы машинного обучения | Microsoft Docs
-description: Шаг 5 пошагового руководства по разработке прогнозного решения. Развертывание прогнозного эксперимента в студии машинного обучения в качестве веб-службы.
+title: "Шаг 5. Развертывание веб-службы машинного обучения | Документация Майкрософт"
+description: "Шаг 5 пошагового руководства по разработке прогнозного решения. Развертывание прогнозного эксперимента в студии машинного обучения в качестве веб-службы."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: c7e5bf29aacbcb11bfa1db01738d234ae64b46b2
+ms.openlocfilehash: 141586d880e6a8f069ec26b3279d9787c5e046b4
+
 
 ---
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>Шаг 5. Развертывание веб-службы машинного обучения Azure
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Шаг 5. Развертывание веб-службы машинного обучения Azure
 Это пятый этап пошагового руководства [Разработка решения для прогнозной аналитики в машинном обучении Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -172,13 +176,11 @@ ms.author: garye
 6. Щелкните конечную точку "по умолчанию".
 
 Здесь можно отслеживать работу веб-службы и изменять настройки производительности путем изменения количества одновременных вызовов, которые может обрабатывать веб-служба.
-Вы можете даже опубликовать свою веб-службу в Azure Marketplace.
 
 Дополнительные сведения см. в статье
 
 * [Создание конечных точек](machine-learning-create-endpoint.md)
 * [Масштабирование веб-службы](machine-learning-scaling-webservice.md)
-* [Публикация веб-службы машинного обучения Azure в Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Управление веб-службой на портале веб-служб машинного обучения Azure**
 
@@ -215,6 +217,7 @@ ms.author: garye
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

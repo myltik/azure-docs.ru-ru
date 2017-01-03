@@ -1,32 +1,37 @@
 ---
-title: Выходные данные хранилища озера данных в Stream Analytics | Microsoft Docs
-description: Настройка проверки подлинности и авторизации хранилища озера данных в задании Stream Analytics
-keywords: ''
+title: "Выходные данные Data Lake Store в Stream Analytics | Документация Майкрософт"
+description: "Настройка проверки подлинности и авторизации хранилища озера данных в задании Stream Analytics"
+keywords: 
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 9c800007ccac453744937807f54aa003732aa6a9
+ms.openlocfilehash: 68b52e1e5b5b65a4690eedacd62806f4ee15d6df
+
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Выходные данные хранилища озера данных в Stream Analytics
 Задания Stream Analytics поддерживают несколько методов вывода, одним из которых является [хранилище озера данных Azure](https://azure.microsoft.com/services/data-lake-store/). Хранилище озера данных Azure — это крупномасштабный репозиторий корпоративного уровня для рабочих нагрузок анализа больших данных. Озеро данных Azure позволяет сохранять данные с любым размером, типом и скоростью приема в одном месте для эксплуатационной и исследовательской аналитики.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Авторизация учетной записи хранения озера данных Azure
-1. Если на портале управления Azure для вывода данных выбрано хранилище озера данных, вам будет предложено разрешить использование существующего хранилища озера данных или запросить доступ к предварительной версии хранилища озера данных на классическом портале Azure.
+1. Если на портале управления Azure для вывода данных выбрано Data Lake Store, вам будет предложено разрешить использование существующего Data Lake Store или запросить доступ к Data Lake Store на классическом портале Azure.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
+   
 2. Если у вас уже есть доступ к хранилищу озера данных, нажмите кнопку "Авторизовать сейчас", после чего на непродолжительное время откроется страница с сообщением "Перенаправление для авторизации...". Страница закроется автоматически, а затем появится страница для настройки выходных данных хранилища озера данных.
 
-Если вы не зарегистрировались для использования предварительной версии Data Lake Store, перейдите по ссылке "Зарегистрироваться", чтобы отправить запрос, или следуйте [инструкциям по началу работы](../data-lake-store/data-lake-store-get-started-portal.md).
+Если вы не зарегистрировались для использования Data Lake Store, перейдите по ссылке "Зарегистрируйтесь сейчас", чтобы отправить запрос, или следуйте [инструкциям по началу работы](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## <a name="configure-the-data-lake-store-output-properties"></a>Настройка свойств выходных данных хранилища озера данных
 После проверки подлинности учетной записи хранилища озера данных можно настроить свойства для выходных данных хранилища озера данных. В таблице ниже приведены имена и описание свойств для настройки выходных данных хранилища озера данных.
@@ -55,7 +60,7 @@ ms.author: jeffstok
 </tr>
 <tr>
 <td>Формат времени [<I>необязательное свойство</I>]</td>
-<td>Если в префиксе пути используется маркер времени, укажите формат времени для упорядочивания своих файлов. В настоящее время поддерживается только один формат — ЧЧ.</td>
+<td>Если в префиксе пути используется маркер времени, укажите формат времени для упорядочивания своих файлов. В настоящее время поддерживается только один формат — ЧЧ.</td>
 </tr>
 <tr>
 <td>Формат сериализации событий</td>
@@ -83,6 +88,9 @@ ms.author: jeffstok
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

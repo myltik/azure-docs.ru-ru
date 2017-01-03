@@ -1,22 +1,25 @@
-
 ---
-title: Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше | Microsoft Docs
-description: Протестируйте функции Azure RemoteApp, не устанавливая службу.
+title: "Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше | Документация Майкрософт"
+description: "Протестируйте функции Azure RemoteApp, не устанавливая службу."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 95e9fb49-78bb-4797-8d66-aeb42d00f208
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+
 
 ---
-# Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -27,17 +30,22 @@ ms.author: mbaldwin
 Заинтересовались?
 
 1. Перейдите по ссылке [http://remoteapp.azure.com](http://remoteapp.azure.com).
-2. Щелкните **Установить клиент** в правом верхнем углу.
+2. Щелкните **Установить клиент** в правом верхнем углу.  
 3. Система автоматически определит ваше устройство и перенаправит вас к клиенту для вашего устройства. Установите клиент.
-4. Вернитесь на сайт [http://remoteapp.azure.com](http://remoteapp.azure.com) и войдите по учетной записи Майкрософт.
+4. Вернитесь на сайт [http://remoteapp.azure.com](http://remoteapp.azure.com) и войдите с помощью учетной записи Майкрософт.
 
 Теперь вы можете получить доступ к выполняющимся приложениям в Azure RemoteApp.
 
 Нам важно ваше мнение. В конце каждого сеанса вы увидите диалоговое окно для отзыва. Если у вас найдется минутка, сообщите нам, может ли Майкрософт связаться с вами для получения дополнительных сведений.
 
 > [!NOTE]
-> Так как это управляемая среда демоверсии, внешний доступ к Интернету из опубликованных демоверсий приложений отключен. По этой причине такие службы, как OneDrive, недоступны. Также отключен общий доступ к буферу обмена (копирование и вставка), подключение по USB и перенаправление принтера.
+> Так как это управляемая среда демоверсии, внешний доступ к Интернету из опубликованных демоверсий приложений отключен. По этой причине такие службы, как OneDrive, недоступны. Также отключен общий доступ к буферу обмена (копирование и вставка), подключение по USB и перенаправление принтера.  
 > 
 > 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

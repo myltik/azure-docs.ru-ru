@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eac9090101728718b1a71c03dd2afd171e696093
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3741616d5cd680e2430a1b1a62e66cbfe1cf49ee
 
 
 ---
@@ -103,7 +103,7 @@ ms.openlocfilehash: eac9090101728718b1a71c03dd2afd171e696093
 1. На классическом портале на странице интеграции с приложением **&frankly** нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
-2. На странице **Как пользователи должны входить в &frankly?** выберите параметр **Единый вход Microsoft Azure AD** и щелкните **Далее**.
+2. На странице **How would you like users to sign on to &frankly** (Как пользователи должны входить в &frankly?) выберите параметр **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_03.png)
 3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то на странице диалогового окна **Настроить параметры приложения** выполните следующие действия и нажмите кнопку **Далее**.
@@ -245,6 +245,6 @@ ms.openlocfilehash: eac9090101728718b1a71c03dd2afd171e696093
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

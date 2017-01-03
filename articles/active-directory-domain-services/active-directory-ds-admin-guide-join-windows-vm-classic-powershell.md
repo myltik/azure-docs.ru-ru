@@ -1,32 +1,36 @@
 ---
-title: 'Доменные службы Azure Active Directory: руководство по администрированию | Microsoft Docs'
-description: Присоедините виртуальную машину Windows к управляемому домену, используя Azure PowerShell и классическую модель развертывания.
+title: "Доменные службы Azure Active Directory: руководство по администрированию | Документация Майкрософт"
+description: "Присоедините виртуальную машину Windows к управляемому домену, используя Azure PowerShell и классическую модель развертывания."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 9143b843-7327-43c3-baab-6e24a18db25e
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+
 
 ---
-# Присоединение виртуальной машины Windows Server к управляемому домену с помощью PowerShell
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Присоединение виртуальной машины Windows Server к управляемому домену с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Классический портал Azure — Windows](active-directory-ds-admin-guide-join-windows-vm.md)
-> * [PowerShell — Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+> * [PowerShell — Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 > 
 > 
 
 <br>
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Сейчас доменные службы Azure AD не поддерживают модель Resource Manager.
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Сейчас доменные службы Azure AD не поддерживают модель Resource Manager.
 > 
 > 
 
@@ -34,15 +38,15 @@ ms.author: maheshu
 
 Материал в этих шагах для создания наборов команд Azure PowerShell представлен таким образом, что достаточно лишь заполнить пробелы. Это удобно, если вы не работали с PowerShell или хотите знать, какие именно значения отвечают за работоспособность конфигурации. Опытные пользователи PowerShell могут подставить в команды собственные значения для переменных (строки, начинающиеся со знака "$").
 
-Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](../powershell-install-configure.md), чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
+Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs) , чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
 
-## Шаг 1. Добавление учетной записи
+## <a name="step-1-add-your-account"></a>Шаг 1. Добавление учетной записи
 1. В командной строке PowerShell введите **Add-AzureAccount** и нажмите клавишу **ВВОД**.
 2. Введите адрес электронной почты, связанный с подпиской Azure, и нажмите кнопку **Продолжить**.
 3. Введите пароль к учетной записи.
 4. Щелкните **Войти**.
 
-## Шаг 2. Выбор подписки и учетной записи хранения
+## <a name="step-2-set-your-subscription-and-storage-account"></a>Шаг 2. Выбор подписки и учетной записи хранения
 Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Windows PowerShell. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
 
     $subscr="<subscription name>"
@@ -50,9 +54,9 @@ ms.author: maheshu
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription**. Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** после выполнения команды **Select-AzureSubscription**.
+Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription** . Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** после выполнения команды **Select-AzureSubscription**.
 
-## Шаг 3. Пошаговое руководство — подготовка виртуальной машины и ее присоединение к управляемому домену
+## <a name="step-3-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Шаг 3. Пошаговое руководство — подготовка виртуальной машины и ее присоединение к управляемому домену
 Вот соответствующий набор команд Azure PowerShell для создания такой виртуальной машины, в котором для удобства чтения между блоками вставлены пустые строки.
 
 Укажите сведения о подготавливаемой виртуальной машине Windows.
@@ -84,7 +88,7 @@ ms.author: maheshu
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Получите учетные данные локального администратора для этой виртуальной машины. Укажите надежный пароль локального администратора. Чтобы проверить его надежность, см. раздел [Проверка надежности пароля. Использование надежных паролей](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Получите учетные данные локального администратора для этой виртуальной машины. Укажите надежный пароль локального администратора.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
@@ -110,7 +114,7 @@ ms.author: maheshu
 
 <br>
 
-## Сценарий для подготовки виртуальной машины Windows и ее автоматического присоединения к управляемому домену доменных служб AAD
+## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Сценарий для подготовки виртуальной машины Windows и ее автоматического присоединения к управляемому домену доменных служб AAD
 Этот набор команд PowerShell создает виртуальную машину для бизнес-сервера со следующими свойствами:
 
 * использует образ Windows Server 2012 R2 Datacenter;
@@ -149,8 +153,13 @@ ms.author: maheshu
 
 <br>
 
-## Похожий контент
-* [Доменные службы Azure AD (предварительная версия) — приступая к работе](active-directory-ds-getting-started.md)
+## <a name="related-content"></a>Похожий контент
+* [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

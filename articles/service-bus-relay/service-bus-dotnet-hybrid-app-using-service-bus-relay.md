@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 29ede770e6e63a50ba398cfb0bc8035cacdea392
-ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
+ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
+ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
 
 
 ---
@@ -52,7 +52,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 ## <a name="set-up-the-development-environment"></a>Настройка среды разработки
 Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
 
-1. Установите пакет Azure SDK для .NET с [Получить инструменты и пакет SDK][Получить инструменты и пакет SDK].
+1. Установите пакет Azure SDK для .NET с [этой страницы][Get Tools and SDK].
 2. Щелкните **Install the SDK** (Установить пакет SDK) для используемой версии Visual Studio. На описанных в этом учебнике шагах используется Visual Studio 2015.
 3. При появлении запроса на выполнение или сохранение файла установки щелкните **Выполнить**.
 4. В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить.
@@ -72,27 +72,27 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 1. Запустите Microsoft Visual Studio, используя привилегии администратора. Чтобы запустить Visual Studio, используя привилегии администратора, щелкните правой кнопкой мыши значок программы **Visual Studio** и выберите пункт **Запустить от имени администратора**.
 2. В меню **Файл** Visual Studio выберите **Создать**, а затем — **Проект**.
 3. В разделе **Visual C#** области **Установленные шаблоны** щелкните **Консольное приложение**. В поле **Имя** введите **ProductsServer**.
-   
+
    ![][11]
 4. Нажмите кнопку **ОК**, чтобы создать проект **ProductsServer**.
-5. Если диспетчер пакетов NuGet для Visual Studio уже установлен, пропустите следующий шаг. В противном случае посетите сайт [NuGet][NuGet] и щелкните [Установить NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Следуйте инструкциям на экране для установки диспетчера пакетов NuGet, а затем перезапустите Visual Studio.
+5. Если диспетчер пакетов NuGet для Visual Studio уже установлен, пропустите следующий шаг. В противном случае посетите сайт [NuGet][NuGet] и щелкните [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (Установить NuGet). Следуйте инструкциям на экране для установки диспетчера пакетов NuGet, а затем перезапустите Visual Studio.
 6. В обозревателе решений щелкните правой кнопкой мыши проект **ProductsServer** и выберите пункт **Управление пакетами NuGet**.
 7. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus`. Щелкните **Установить**и примите условия использования.
-   
+
    ![][13]
-   
+
    Обратите внимание, что на необходимые клиентские сборки теперь имеется ссылка.
 8. Добавьте новый класс для контракта на свою продукцию. В обозревателе решений щелкните правой кнопкой проект **ProductsServer**, а затем выберите **Добавить** и **Класс**.
 9. В поле **Имя** введите **ProductsContract.cs**. Нажмите кнопку **Добавить**.
 10. В **ProductsContract.cs** замените определение пространства имен на приведенный ниже код, определяющий контракт для службы.
-    
+
     ```
     namespace ProductsServer
     {
         using System.Collections.Generic;
         using System.Runtime.Serialization;
         using System.ServiceModel;
-    
+
         // Define the data contract for the service
         [DataContract]
         // Declare the serializable properties.
@@ -105,23 +105,23 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
             [DataMember]
             public string Quantity { get; set; }
         }
-    
+
         // Define the service contract.
         [ServiceContract]
         interface IProducts
         {
             [OperationContract]
             IList<ProductData> GetProducts();
-    
+
         }
-    
+
         interface IProductsChannel : IProducts, IClientChannel
         {
         }
     }
     ```
 11. В Program.cs замените определение пространства имен на следующий код, добавляющий службу профилей и узел для нее.
-    
+
     ```
     namespace ProductsServer
     {
@@ -129,11 +129,11 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
         using System.Linq;
         using System.Collections.Generic;
         using System.ServiceModel;
-    
+
         // Implement the IProducts interface.
         class ProductsService : IProducts
         {
-    
+
             // Populate array of products for display on website
             ProductData[] products =
                 new []
@@ -147,7 +147,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
                         new ProductData{ Id = "4", Name = "Well",
                                          Quantity = "2500"},
                     };
-    
+
             // Display a message in the service console application
             // when the list of products is retrieved.
             public IList<ProductData> GetProducts()
@@ -155,9 +155,9 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
                 Console.WriteLine("GetProducts called.");
                 return products;
             }
-    
+
         }
-    
+
         class Program
         {
             // Define the Main() function in the service application.
@@ -165,17 +165,17 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
             {
                 var sh = new ServiceHost(typeof(ProductsService));
                 sh.Open();
-    
+
                 Console.WriteLine("Press ENTER to close");
                 Console.ReadLine();
-    
+
                 sh.Close();
             }
         }
     }
     ```
 12. В обозревателе решений дважды щелкните файл **App.config**, чтобы открыть его в редакторе Visual Studio. В нижней части элемента **&lt;system.ServiceModel&gt;** (но в пределах &lt;system.ServiceModel&gt;) добавьте приведенный ниже код XML. Не забудьте заменить *yourServiceNamespace* именем пространства имен, а *yourKey* — ключом SAS, полученным ранее на портале.
-    
+
     ```
     <system.serviceModel>
     ...
@@ -197,8 +197,8 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
       </behaviors>
     </system.serviceModel>
     ```
-13. В файле App.config в элементе **&lt;appSettings&gt;** замените значение строки подключения значением, полученным ранее на портале. 
-    
+13. В файле App.config в элементе **&lt;appSettings&gt;** замените значение строки подключения значением, полученным ранее на портале.
+
     ```
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
@@ -215,27 +215,27 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 1. Убедитесь, что система Visual Studio запущена с правами администратора.
 2. В меню **Файл** Visual Studio выберите **Создать**, а затем — **Проект**.
 3. В разделе **Visual C#** области **Установленные шаблоны** щелкните **Веб-приложение ASP.NET**. Присвойте проекту имя **ProductsPortal**. Нажмите кнопку **ОК**.
-   
+
    ![][15]
-4. В списке **Выбор шаблона** выберите **MVC**. 
+4. В списке **Выбор шаблона** выберите **MVC**.
 5. Установите флажок **Разместить в облаке**.
-   
+
    ![][16]
 6. Нажмите кнопку **Изменить способ проверки подлинности**. В диалоговом окне **Изменить способ проверки подлинности** установите переключатель **Без проверки подлинности** и нажмите кнопку **ОК**. В этом учебнике выполняется развертывание приложения, для которого не требуется имя пользователя.
-   
+
     ![][18]
 7. В диалоговом окне **Новый проект ASP.NET** в разделе **Microsoft Azure** установите флажок **Разместить в облаке**, а в раскрывающемся списке выберите пункт **Служба приложений**.
-   
+
    ![][19]
-8. Нажмите кнопку **ОК**. 
-9. Теперь необходимо настроить ресурсы Azure для нового веб-приложения. Выполните действия, описанные в разделе [Настройка ресурсов Azure для нового веб-приложения](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Затем вернитесь к этому учебнику и перейдите к следующему шагу.
+8. Нажмите кнопку **ОК**.
+9. Теперь необходимо настроить ресурсы Azure для нового веб-приложения. Выполните все шаги по [созданию веб-приложения](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) и [созданию ресурсов Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Затем вернитесь к этому учебнику и перейдите к следующему шагу.
 10. В обозревателе решений щелкните правой кнопкой мыши **Модели**, а затем выберите **Добавить** и **Класс**. В поле **Имя** введите **Product.cs**. Нажмите кнопку **Добавить**.
-    
+
     ![][17]
 
 ### <a name="modify-the-web-application"></a>Изменение веб-приложения
 1. В Visual Studio замените существующее определение пространства имен в файле на следующий код.
-   
+
    ```
    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
@@ -250,14 +250,14 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
    ```
 2. В обозревателе решений разверните папку **Контроллеры** и дважды щелкните файл **HomeController.cs**, чтобы открыть его в Visual Studio.
 3. В файле **HomeController.cs** замените имеющееся определение пространства имен следующим кодом.
-   
+
     ```
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
         using System.Web.Mvc;
         using Models;
-   
+
         public class HomeController : Controller
         {
             // Return a view of the products inventory.
@@ -273,20 +273,20 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 4. В обозревателе решений разверните папку Views\Shared, а затем дважды щелкните файл **_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
 5. Замените все вхождения элемента **Мое приложение MVC ASP.NET** текстом **Продукты LITWARE**.
 6. Удалите ссылки **Главная**, **О программе** и **Контакт**. В следующем примере удалите выделенный код.
-   
+
     ![][41]
 7. В обозревателе решений разверните папку Views\Home, а затем дважды щелкните файл **Index.cshtml**, чтобы открыть его в редакторе Visual Studio.
    Замените все содержимое файла следующим кодом.
-   
+
    ```
    @model IEnumerable<ProductsWeb.Models.Product>
-   
+
    @{
             ViewBag.Title = "Index";
    }
-   
+
    <h2>Prod Inventory</h2>
-   
+
    <table>
              <tr>
                  <th>
@@ -297,7 +297,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
                      @Html.DisplayNameFor(model => model.Quantity)
                  </th>
              </tr>
-   
+
    @foreach (var item in Model) {
              <tr>
                  <td>
@@ -308,7 +308,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
                  </td>
              </tr>
    }
-   
+
    </table>
    ```
 8. Чтобы проверить текущий результат, нажмите клавиши **CTRL+SHIFT+B** для сборки проекта.
@@ -319,7 +319,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 1. **ProductsPortal** должен быть активным проектом. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Назначить запускаемым проектом**.
 2. В Visual Studio нажмите клавишу F5.
 3. Приложение должно начать выполняться в браузере.
-   
+
    ![][21]
 
 ## <a name="put-the-pieces-together"></a>Объединение элементов
@@ -330,10 +330,10 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 3. Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure** . Завершите установку и закройте это диалоговое окно.
 4. В обозревателе решений щелкните правой кнопкой мыши проект **ProductsPortal** и выберите пункт **Добавить**, а затем — **Существующий элемент**.
 5. Перейдите к файлу **ProductsContract.cs** в консольном проекте **ProductsServer**. Щелкните, чтобы выделить ProductsContract.cs. Щелкните стрелку вниз рядом с пунктом **Добавить**, затем нажмите кнопку **Добавить как связь**.
-   
+
    ![][24]
 6. Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен приведенным ниже кодом. Замените *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
-   
+
    ```
    namespace ProductsWeb.Controllers
    {
@@ -343,12 +343,12 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
        using Microsoft.ServiceBus;
        using Models;
        using ProductsServer;
-   
+
        public class HomeController : Controller
        {
            // Declare the channel factory.
            static ChannelFactory<IProductsChannel> channelFactory;
-   
+
            static HomeController()
            {
                // Create shared access signature token credentials for authentication.
@@ -358,7 +358,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
                    TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
                        "RootManageSharedAccessKey", "yourKey") });
            }
-   
+
            public ActionResult Index()
            {
                using (IProductsChannel channel = channelFactory.CreateChannel())
@@ -377,12 +377,12 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 8. Перейдите к проекту **ProductsServer**, а затем дважды щелкните файл решения **ProductsServer.csproj**, чтобы добавить его.
 9. Чтобы данные отобразились в решении **ProductsPortal**, нужно запустить проект **ProductsServer**. В обозревателе решений щелкните правой кнопкой мыши решение **ProductsPortal** и выберите пункт **Свойства**. Откроется диалоговое окно **Страницы свойств**.
 10. В левой части окна выберите **Запускаемый проект**. В правой части окна выберите **Несколько запускаемых проектов**. **ProductsServer** и **ProductsPortal** должны отображаться в указанном порядке с назначенным действием **Запустить**.
-    
+
       ![][25]
 11. В левой части диалогового окна **Свойства** щелкните **Зависимости проектов**.
 12. В списке **Проекты** выберите **ProductsServer**. **Снимите** флажок **ProductsPortal**.
-13. В списке **Проекты** выберите **ProductsPortal**. Установите флажок **ProductsServer**. 
-    
+13. В списке **Проекты** выберите **ProductsPortal**. Установите флажок **ProductsServer**.
+
     ![][26]
 14. В диалоговом окне **Страницы свойств** нажмите кнопку **ОК**.
 
@@ -396,16 +396,16 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 Прежде чем перейти к следующему шагу, закройте оба приложения.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Развертывание проекта ProductsPortal в веб-приложении Azure
-Следующий шаг — преобразование внешнего интерфейса **ProductsPortal** в веб-приложение Azure. Сначала разверните проект **ProductsPortal**, выполнив все инструкции из раздела [Развертывание веб-проекта в веб-приложении Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). По завершении развертывания вернитесь к этому руководству и перейдите к следующему шагу.
+Следующий шаг — преобразование внешнего интерфейса **ProductsPortal** в веб-приложение Azure. Сначала разверните проект **ProductsPortal**, выполнив все инструкции из раздела [о развертывании веб-проекта в Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). По завершении развертывания вернитесь к этому руководству и перейдите к следующему шагу.
 
 > [!NOTE]
 > Если веб-проект **ProductsPortal** запустится после развертывания автоматически, в окне браузера может появиться сообщение об ошибке. Это ожидаемое поведение, и означает, что приложение **ProductsServer** еще не запущено.
-> 
-> 
+>
+>
 
 Скопируйте URL-адрес развернутого веб-приложения, так как он понадобится для выполнения следующего шага. Кроме того, этот URL-адрес можно найти в окне "Действие службы приложений Azure" в Visual Studio.
 
-![][9] 
+![][9]
 
 ### <a name="set-productsportal-as-web-app"></a>Настройка ProductsPortal в качестве веб-приложения
 Перед запуском приложения в облаке необходимо, чтобы проект **ProductsPortal** в Visual Studio запускался как веб-приложение.
@@ -413,24 +413,24 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 1. В Visual Studio щелкните правой кнопкой мыши проект **ProjectsPortal** и выберите пункт **Свойства**.
 2. В столбце слева щелкните **Веб**.
 3. В разделе **Действие при запуске** нажмите кнопку **Начальный URL-адрес** и введите в текстовое поле URL-адрес развернутого ранее веб-приложения, например `http://productsportal1234567890.azurewebsites.net/`.
-   
+
     ![][27]
 4. В меню **Файл** Visual Studio выберите **Сохранить все**.
 5. В Visual Studio в меню "Сборка" выберите **Пересобрать решение**.
 
 ## <a name="run-the-application"></a>Выполнение приложения
-1. Нажмите клавишу F5, чтобы создать и запустить приложение. Первым должен запуститься локальный сервер (консольное приложение **ProductsServer**), затем в окне браузера должно запуститься приложение **ProductsPortal**, как показано на снимке экрана ниже. Обратите внимание, что в списке складских запасов продукции содержатся данные, полученные из локальной системы службы продукции, и они отображаются в веб-приложении. Проверьте URL-адрес. Приложение **ProductsPortal** должно запускаться в облаке как веб-приложение Azure. 
-   
+1. Нажмите клавишу F5, чтобы создать и запустить приложение. Первым должен запуститься локальный сервер (консольное приложение **ProductsServer**), затем в окне браузера должно запуститься приложение **ProductsPortal**, как показано на снимке экрана ниже. Обратите внимание, что в списке складских запасов продукции содержатся данные, полученные из локальной системы службы продукции, и они отображаются в веб-приложении. Проверьте URL-адрес. Приложение **ProductsPortal** должно запускаться в облаке как веб-приложение Azure.
+
    ![][1]
-   
+
    > [!IMPORTANT]
    > Консольное приложение **ProductsServer** должно запускаться с возможностью передачи данных в приложение **ProductsPortal**. Если в браузере появляется сообщение об ошибке, подождите несколько секунд, пока **ProductsServer** загрузит и отобразит следующее сообщение. Затем нажмите кнопку **Обновить** в браузере.
-   > 
-   > 
-   
+   >
+   >
+
    ![][37]
 2. В браузере на странице **ProductsPortal** нажмите кнопку **Обновить**. При каждом обновлении страницы после вызова `GetProducts()` из **ProductsServer** на сервере приложения будет отображаться сообщение.
-   
+
     ![][38]
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -441,7 +441,7 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Получить инструменты и пакет SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -468,7 +468,6 @@ ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

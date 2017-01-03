@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 1db24abb38ff28dd3535f527ef95a84abac5ea9c
-ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
 Каждая база данных в базе данных SQL Azure связана с логическим сервером. База данных может:
 
 - представлять собой отдельную базу данных с [собственным набором ресурсов](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU);
-- входить в состав [пула баз данных](sql-database-elastic-pool.md), в котором [набор ресурсов используется совместно](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU);
+- входить в состав [эластичного пула](sql-database-elastic-pool.md), в котором [набор ресурсов используется совместно](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU);
 - входить в состав [масштабируемого набора сегментированных баз данных](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), которые могут быть отдельными базами данных или частью пула;
 - входить в состав набора баз данных, использующихся в [шаблоне разработки для мультитенантных приложений SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), которые могут быть отдельными базами данных или частью пула (или этот набор может иметь смешанную конфигурацию). 
 
@@ -71,6 +71,6 @@ ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

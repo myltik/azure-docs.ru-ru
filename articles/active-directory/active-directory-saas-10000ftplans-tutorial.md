@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
+ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
+ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
 
 
 ---
@@ -111,7 +111,8 @@ ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
 
     b. В текстовом поле **Идентификатор** введите `https://app.10000ft.com/saml/metadata`.
 
-    > [AZURE.NOTE] Значение для **идентификатора** отличается, если у вас есть личный домен. Если вам требуется помощь, обратитесь в [службу поддержки 10,000ft Plans](mailto:support@10000ft.com).  
+    > [!NOTE] 
+    > Значение для **идентификатора** отличается, если у вас есть личный домен. Если вам требуется помощь, обратитесь в [службу поддержки 10,000ft Plans](mailto:support@10000ft.com).  
 
     c. Щелкните **Далее**
 
@@ -159,17 +160,18 @@ ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_07.png) 
@@ -240,6 +242,6 @@ ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

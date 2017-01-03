@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -51,7 +51,7 @@ CORS можно настроить на портале Azure или с помо�
    После нажатия кнопки **Сохранить**приложение API начнет принимать вызовы JavaScript с указанных URL-адресов.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Настройка CORS с помощью средств диспетчера ресурсов Azure
-CORS для приложения API можно также настроить с помощью [шаблонов Azure Resource Manager](../resource-group-authoring-templates.md), используя такие программы командной строки, как [Azure PowerShell](/powershell/azureps-cmdlets-docs) и [интерфейс командной строки Azure](../xplat-cli-install.md). 
+CORS для приложения API можно также настроить с помощью [шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md), используя такие программы командной строки, как [Azure PowerShell](/powershell/azureps-cmdlets-docs) и [интерфейс командной строки Azure](../xplat-cli-install.md). 
 
 Чтобы просмотреть пример шаблона Azure Resource Manager, который задает свойство CORS, откройте [в репозитории файл azuredeploy.json, пример приложения для этого руководства](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Найдите раздел шаблона, который выглядит так:
 
@@ -252,6 +252,6 @@ CORS для приложения API можно также настроить с
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

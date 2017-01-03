@@ -1,12 +1,12 @@
 ---
-title: Зарезервированный IP-адрес | Microsoft Docs
-description: Общие сведения о зарезервированных IP-адресах и о том, как ими управлять
+title: "Управление зарезервированными IP-адресами (классическая модель) с помощью PowerShell | Документация Майкрософт"
+description: "Сведения о зарезервированных IP-адресах (классическая модель) и управлении ими с помощью PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,44 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
+ms.openlocfilehash: 9b55a6e994e94257fd506a9d759a820dcd5d84e3
+
 
 ---
-# Обзор зарезервированных IP-адресов
+# <a name="reserved-ip-addresses-classic"></a>Зарезервированные IP-адреса (классическая модель)
+
+> [!div class="op_single_selector"]
+- [Портал Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Интерфейс командной строки Azure](virtual-network-deploy-static-pip-arm-cli.md)
+- [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
+
 IP-адреса в Azure делятся на две категории: динамические и зарезервированные. Общедоступные IP-адреса, управляемые Azure, являются динамическими по умолчанию. Это означает, что IP-адрес, используемый для заданной облачной службы (VIP) или для прямого доступа к виртуальной машине или экземпляру роли (ILPIP), время от времени может изменяться, при отключении или высвобождении ресурсов.
 
 Чтобы предотвратить изменение IP-адресов, можно зарезервировать IP-адрес. Зарезервированные IP-адреса можно использовать только в качестве виртуального IP-адреса (VIP), гарантируя, что IP-адрес облачной службы будет оставаться таким же даже при отключении или высвобождении ресурсов. Кроме того, можно преобразовать существующие динамические IP-адреса, используемые в качестве виртуального IP-адреса, в зарезервированный IP-адрес.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Сведения о том, как зарезервировать статический общедоступный IP-адрес, используя модель развертывания с помощью Resource Manager, см. [здесь](virtual-network-ip-addresses-overview-arm.md).
 
-Узнайте, как зарезервировать статический общедоступный IP-адрес, используя [модель развертывания с помощью Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+Дополнительные сведения об IP-адресах в Azure см. в [этой статье](virtual-network-ip-addresses-overview-classic.md).
 
-Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md).
-
-## Когда требуется зарезервированный IP-адрес?
-* **Необходимо обеспечить резервирование IP-адреса в подписке**. Если требуется зарезервировать IP-адрес, который не будет освобожден из подписки ни при каких обстоятельствах, следует использовать зарезервированный общедоступный IP-адрес.
+## <a name="when-do-i-need-a-reserved-ip"></a>Когда требуется зарезервированный IP-адрес?
+* **Необходимо обеспечить резервирование IP-адреса в подписке**. Если требуется зарезервировать IP-адрес, который не будет освобожден из подписки ни при каких обстоятельствах, следует использовать зарезервированный общедоступный IP-адрес.  
 * **Необходимо сохранять IP-адрес облачной службы даже в случае остановленного или высвобожденного состояния (виртуальных машин)**. Если требуется доступ к службе по IP-адресу, который не изменится даже в том случае, если виртуальные машины в облачной службе будут остановлены или высвобождены.
 * **Необходимо обеспечить предсказуемый IP-адрес для исходящего трафика из Azure**. Возможно, настройки локального брандмауэра разрешают трафик только с определенных IP-адресов. Резервирование IP-адреса позволяет знать исходный IP-адрес и избегать необходимости обновлять правила брандмауэра из-за его изменения.
 
-## Часто задаваемые вопросы
-1. Можно ли использовать зарезервированный IP-адрес для всех служб Azure?
+## <a name="faq"></a>Часто задаваемые вопросы
+1. Можно ли использовать зарезервированный IP-адрес для всех служб Azure?  
    * Зарезервированные IP-адреса можно использовать только для виртуальных машин и экземпляров ролей облачных служб, представляемых через виртуальный IP-адрес.
-2. Сколько зарезервированных IP-адресов можно установить?
-   * На данный момент все подписки Azure допускают использование 20 зарезервированных IP-адресов. Однако вы можете запросить дополнительные зарезервированные IP-адреса. Дополнительные сведения см. на странице [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
+2. Сколько зарезервированных IP-адресов можно установить?  
+   * См. сведения в разделе [Ограничения сети](../azure-subscription-service-limits.md#networking-limits).
 3. Взимается ли плата за зарезервированные IP-адреса?
-   * Информацию о ценах см. в разделе [Сведения о ценах на зарезервированные IP-адреса](http://go.microsoft.com/fwlink/?LinkID=398482).
+   * Сведения о ценах на зарезервированные IP-адреса см. на [этой странице](http://go.microsoft.com/fwlink/?LinkID=398482).
 4. Как зарезервировать IP-адрес?
-   * Для резервирования IP-адреса из определенного региона можно использовать PowerShell или интерфейс [REST API управления Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx). Этот зарезервированный IP-адрес связан с вашей подпиской. Зарезервировать IP-адрес с помощью портала управления нельзя.
+   * Для резервирования IP-адреса из определенного региона можно использовать PowerShell, интерфейс [REST API управления Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) или [портал Azure](https://portal.azure.com). Этот зарезервированный IP-адрес связан с вашей подпиской.
 5. Можно ли использовать эту возможность с виртуальными сетями на основе территориальной группы?
-   * Зарезервированные IP-адреса поддерживаются только в региональных виртуальных сетях. Они не поддерживаются для виртуальных сетей, которые связаны с территориальными группами. Дополнительные сведения о связывании виртуальной сети с регионом или территориальной группой см. в разделе [О региональных виртуальных сетях и территориальных группах](virtual-networks-migrate-to-regional-vnet.md).
+   * Зарезервированные IP-адреса поддерживаются только в региональных виртуальных сетях. Они не поддерживаются для виртуальных сетей, которые связаны с территориальными группами. Дополнительные сведения о связывании виртуальной сети с регионом или территориальной группой см. в статье [Переход от территориальных групп к региональной виртуальной сети](virtual-networks-migrate-to-regional-vnet.md).
 
-## Управление зарезервированными виртуальными IP-адресами
-Прежде чем можно будет использовать зарезервированные IP-адреса, их необходимо добавить в подписку. Чтобы создать зарезервированный IP-адрес из пула общедоступных IP-адресов в *центральной части США*, выполните следующую команду PowerShell:
+## <a name="manage-reserved-vips"></a>Управление зарезервированными виртуальными IP-адресами
 
-    New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
+Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](../powershell-install-configure.md). 
+
+Прежде чем можно будет использовать зарезервированные IP-адреса, их необходимо добавить в подписку. Чтобы создать зарезервированный IP-адрес из пула общедоступных IP-адресов в *центральной части США*, выполните следующую команду:
+
+```powershell
+New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
+```
 
 Обратите внимание, однако, что нельзя указать, какой IP-адрес будет зарезервирован. Чтобы просмотреть, какие IP-адреса зарезервированы в подписке, выполните следующую команду PowerShell и обратите внимание на значения *ReservedIPName* и *Address*.
 
-    Get-AzureReservedIP
+```powershell
+Get-AzureReservedIP
+```
+
+Ожидаемые выходные данные:
 
     ReservedIPName       : MyReservedIP
     Address              : 23.101.114.211
@@ -68,48 +88,59 @@ IP-адреса в Azure делятся на две категории: дина
 
 После того как IP-адрес будет зарезервирован, он останется связан с подпиской до тех пор, пока вы ее не удалите. Чтобы удалить показанный выше зарезервированный IP-адрес, выполните следующую команду PowerShell:
 
-    Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+```powershell
+Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+```
 
-## Как зарезервировать IP-адрес существующей облачной службы
-Можно зарезервировать IP-адрес существующей облачной службы, добавив параметр *-ServiceName*. Чтобы зарезервировать IP-адрес облачной службы *TestService* в расположении *центральная часть США*, выполните следующую команду PowerShell:
+## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>Резервирование IP-адреса существующей облачной службы
+Можно зарезервировать IP-адрес существующей облачной службы, добавив параметр `-ServiceName`. Чтобы зарезервировать IP-адрес облачной службы *TestService* в расположении *центральная часть США*, выполните следующую команду PowerShell:
 
-    New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
+```powershell
+New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
+```
 
-
-## Связывание зарезервированного IP-адреса с новой облачной службой
+## <a name="associate-a-reserved-ip-to-a-new-cloud-service"></a>Связывание зарезервированного IP-адреса с новой облачной службой
 Приведенный ниже сценарий создает новый зарезервированный IP-адрес, а затем связывает его с новой облачной службой с именем *TestService*.
 
-    New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
-    $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-    New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
-    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-    | New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
+```powershell
+New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
+
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
+| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
+```
 
 > [!NOTE]
-> При создании зарезервированного IP-адреса для использования с облачной службой по-прежнему необходимо будет обращаться к виртуальной машине по ссылке *VIP:&lt;номер порта>* для входящей связи. Резервирование IP-адреса не означает возможность прямого подключения к виртуальной машине. Зарезервированный IP-адрес назначается облачной службе, в которой развернута виртуальная машина. Если требуется подключиться непосредственно к виртуальной машине по IP-адресу, следует настроить общедоступный IP-адрес уровня экземпляра. Общедоступный IP-адрес уровня экземпляра — это тип общедоступного IP-адреса (называемый ILPIP), который назначается непосредственно вашей виртуальной машине. Его нельзя зарезервировать. См. [Общедоступный IP-адрес уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md) для получения дополнительных сведений.
-> 
+> При создании зарезервированного IP-адреса для использования с облачной службой по-прежнему необходимо будет обращаться к виртуальной машине по ссылке *VIP:&lt;номер порта>* для входящей связи. Резервирование IP-адреса не означает возможность прямого подключения к виртуальной машине. Зарезервированный IP-адрес назначается облачной службе, в которой развернута виртуальная машина. Если требуется подключиться непосредственно к виртуальной машине по IP-адресу, следует настроить общедоступный IP-адрес уровня экземпляра. Общедоступный IP-адрес уровня экземпляра — это тип общедоступного IP-адреса (называемый ILPIP), который назначается непосредственно вашей виртуальной машине. Его нельзя зарезервировать. Дополнительные сведения см. в статье [Общие сведения об общедоступных IP-адресах уровня экземпляра (классическая модель развертывания)](virtual-networks-instance-level-public-ip.md).
 > 
 
-## Удаление зарезервированного IP-адреса из работающей развернутой системы
+## <a name="remove-a-reserved-ip-from-a-running-deployment"></a>Удаление зарезервированного IP-адреса из работающей развернутой системы
 Чтобы удалить зарезервированный IP-адрес, назначенный новой службе, созданной в приведенном выше сценарии, выполните следующую команду PowerShell:
 
-    Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
+```powershell
+Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
+```
 
 > [!NOTE]
 > При удалении зарезервированного IP-адреса из работающей развернутой системы резервирование не удаляется из вашей подписки. IP-адрес просто освобождается для использования другим ресурсом в подписке.
 > 
-> 
 
-## Связывание зарезервированного IP-адреса с работающей развернутой системой
-Приведенный ниже сценарий создает новую облачную службу с именем *TestService2* с новой виртуальной машиной *TestVM2*, а затем связывает существующий зарезервированный IP-адрес, именуемый *MyReservedIP*, с облачной службой.
+## <a name="associate-a-reserved-ip-to-a-running-deployment"></a>Связывание зарезервированного IP-адреса с работающей развернутой системой
+Приведенный ниже код создает новую облачную службу с именем *TestService2* с новой виртуальной машиной *TestVM2*, а затем связывает существующий зарезервированный IP-адрес, именуемый *MyReservedIP*, с облачной службой.
 
-    $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-    New-AzureVMConfig -Name TestVM2 -InstanceSize Small -ImageName $image.ImageName `
-    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-    | New-AzureVM -ServiceName TestService2 -Location "Central US"
-    Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
+```powershell
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 
-## Связывание зарезервированного IP-адреса с облачной службой с помощью файла конфигурации службы
+New-AzureVMConfig -Name TestVM2 -InstanceSize Small -ImageName $image.ImageName `
+| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+| New-AzureVM -ServiceName TestService2 -Location "Central US"
+
+Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
+```
+
+## <a name="associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file"></a>Связывание зарезервированного IP-адреса с облачной службой с помощью файла конфигурации службы
 Зарезервированный IP-адрес можно также связать с облачной службой с помощью файла конфигурации службы (CSCFG). В XML-коде ниже показано, как настроить облачную службу для использования зарезервированного виртуального IP-адреса *MyReservedIP*.
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -129,9 +160,14 @@ IP-адреса в Azure делятся на две категории: дина
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-## Дальнейшие действия
-* Чтобы узнать, как IP-адрес работает в классической модели развертывания, см. статью [IP-адреса в Azure (классическая модель развертывания)](virtual-network-ip-addresses-overview-classic.md).
+## <a name="next-steps"></a>Дальнейшие действия
+* Общие сведения об IP-адресах в классической модели развертывания см. в [этой статье](virtual-network-ip-addresses-overview-classic.md).
 * Ознакомьтесь с информацией о [зарезервированных частных IP-адресах](virtual-networks-reserved-private-ip.md).
 * Ознакомьтесь с информацией об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

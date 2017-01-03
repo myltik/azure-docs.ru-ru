@@ -1,13 +1,13 @@
 ---
-title: Как создавать группы безопасности сети в диспетчере ресурсов Azure с помощью PowerShell | Microsoft Docs
-description: Узнайте, как создавать и развертывать группы безопасности сети в диспетчере ресурсов Azure с помощью PowerShell.
+title: "Создание групп безопасности сети с помощью PowerShell | Документация Майкрософт"
+description: "Сведения о создании групп безопасности сети с помощью PowerShell при использовании Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9cef62b8-d889-4d16-b4d0-58639539a418
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,46 +15,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 75dbe164bf0fb4b3aff95954ce619781bbafaa5c
+ms.openlocfilehash: 86fbb59564fa0d892f24da2c45d52099e645bfbd
+
 
 ---
-# <a name="how-to-create-nsgs-in-resource-manager-by-using-powershell"></a>Как создавать группы безопасности сети в диспетчере ресурсов с помощью PowerShell
+# <a name="create-nsgs-using-powershell"></a>Создание групп безопасности сети с помощью PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
+Azure предоставляет две модели развертывания: с помощью Azure Resource Manager и классическую. Для создания ресурсов корпорация Майкрософт рекомендует использовать модель развертывания с помощью Resource Manager. Дополнительные сведения о различиях между двумя моделями см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов). В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), нажмите **Deploy to Azure**(Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создавать сетевую группу безопасности для подсети переднего плана
-Чтобы создать группу безопасности сети под названием *NSG-FrontEnd* по описанному выше сценарию, выполните указанные ниже действия.
-
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+Чтобы создать группу безопасности сети под названием *NSG-FrontEnd* по описанному сценарию, выполните следующие действия:
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 2. Создайте правило безопасности, разрешающее доступ из Интернета к порту 3389.
-   
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-            -SourceAddressPrefix Internet -SourcePortRange * `
-            -DestinationAddressPrefix * -DestinationPortRange 3389
+
+    ```powershell
+    $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+    -SourceAddressPrefix Internet -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 3389
+    ```
+
 3. Создайте правило безопасности, разрешающее доступ из Интернета к порту 80.
-   
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
-            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
-            -DestinationPortRange 80
+
+    ```powershell
+    $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+    -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
+    -DestinationPortRange 80
+    ```
+
 4. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-FrontEnd**.
-   
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
-        -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
-5. Проверьте правила, созданные в группе безопасности сети.
-   
-        $nsg
+
+    ```powershell
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
+    -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
+    ```
+
+5. Проверьте правила, созданные в группе безопасности сети, введя следующее:
+
+    ```powershell
+    $nsg
+    ```
    
     В выходных данных отображаются только правила безопасности:
    
@@ -91,12 +102,14 @@ ms.author: jdial
                                  }
                                ]
 6. Свяжите созданную выше группу безопасности сети с подсетью *FrontEnd* .
-   
-                    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-                    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
-                        -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
-   
-                Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
+
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+    -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
+    ```
+
+    В выходных данных отображаются только параметры подсети *FrontEnd* (обратите внимание на значение свойства **NetworkSecurityGroup** ):
    
                     Subnets           : [
                                           {
@@ -124,39 +137,55 @@ ms.author: jdial
    > 
    > 
 7. Сохраните новые параметры виртуальной сети в Azure.
-   
-        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-   
+
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
+
     В выходных данных отображается только часть, относящаяся к группе безопасности сети:
    
         "NetworkSecurityGroup": {
           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
         }
 
-## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Как создать группу безопасности сети для внутренней подсети
-Чтобы создать сетевую группу безопасности под названием *NSG-BackEnd* по описанному выше сценарию, выполните следующие действия:
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Как создать группу безопасности сети для серверной подсети
+Чтобы создать группу безопасности сети под названием *NSG-BackEnd* по описанному ранее сценарию, выполните следующие действия:
 
-1. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (используемому по умолчанию в SQL Server).
-   
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
-            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
-            -DestinationAddressPrefix * -DestinationPortRange 1433
+1. Создайте правило безопасности, которое разрешает доступ из интерфейсной подсети к порту 1433 (используемому по умолчанию в SQL Server).
+
+    ```powershell
+    $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule `
+    -Description "Allow FE subnet" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 1433
+    ```
+
 2. Создайте правило безопасности, блокирующее доступ к Интернету.
-   
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
-            -Access Deny -Protocol * -Direction Outbound -Priority 200 `
-            -SourceAddressPrefix * -SourcePortRange * `
-            -DestinationAddressPrefix Internet -DestinationPortRange *
+
+    ```powershell
+    $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule `
+    -Description "Block Internet" `
+    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
+    -SourceAddressPrefix * -SourcePortRange * `
+    -DestinationAddressPrefix Internet -DestinationPortRange *
+    ```
+
 3. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-BackEnd**.
-   
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
-            -SecurityRules $rule1,$rule2
+
+    ```powershell
+    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
+    -Location westus -Name "NSG-BackEnd" `
+    -SecurityRules $rule1,$rule2
+    ```
+
 4. Свяжите созданную выше группу безопасности сети с подсетью *BackEnd* .
-   
-        Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd
-            -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
-   
+
+    ```powershell
+    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
+    -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
+    ```
+
     В выходных данных отображаются только параметры подсети *BackEnd* (обратите внимание на значение свойства **NetworkSecurityGroup** ):
    
         Subnets           : [
@@ -173,18 +202,23 @@ ms.author: jdial
                         "ProvisioningState": "Succeeded"
                       }
 5. Сохраните новые параметры виртуальной сети в Azure.
-   
-        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+
+    ```powershell
+    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
 ## <a name="how-to-remove-an-nsg"></a>Удаление группы безопасности сети
 Для удаления существующей группы безопасности сети (в данном случае это *NSG-Frontend*) выполните следующие шаги:
 
 Выполните команду **Remove-AzureRmNetworkSecurityGroup**, показанную ниже, и обязательно укажите группу ресурсов, в которой находится группа безопасности сети.
 
-            Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
+```powershell
+Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
+```
 
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

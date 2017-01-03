@@ -55,6 +55,6 @@ Cloud App Discovery — это функция службы Azure Active Directo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
