@@ -1,29 +1,33 @@
 ---
-title: Использование PowerShell для создания и настройки рабочей области Log Analytics | Microsoft Docs
-description: Log Analytics использует данные с серверов в вашей локальной или облачной инфраструктуре. При генерировании системой диагностики Azure можно брать данные компьютера из хранилища Azure.
+title: "Использование PowerShell для создания и настройки рабочей области Log Analytics | Документация Майкрософт"
+description: "Log Analytics использует данные с серверов в вашей локальной или облачной инфраструктуре. При генерировании системой диагностики Azure можно брать данные компьютера из хранилища Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/21/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: b39cd142925be91bd7a90183cada7ba040a344c0
+ms.openlocfilehash: b8ebf6a2b3c8d2e5b173e429f39c9836e7d214ac
+
 
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Управление Log Analytics с помощью PowerShell
-[Командлеты PowerShell Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) можно использовать для выполнения различных функций в Log Analytics как из командной строки, так и в составе сценария.  Примеры задач, которые можно выполнять с помощью PowerShell.
+[Командлеты PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) можно использовать для выполнения различных функций в Log Analytics как из командной строки, так и в составе сценария.  Примеры задач, которые можно выполнять с помощью PowerShell.
 
 * Создание рабочей области
 * Добавление или удаление решения
 * Импорт и экспорт сохраненных поисков
 * Создание группы компьютеров
-* Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+* Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
 * Сбор счетчиков производительности с компьютеров под управлением Linux и Windows
 * Сбор событий из системного журнала с компьютеров Linux 
 * Сбор событий из журналов событий Windows
@@ -31,7 +35,7 @@ ms.author: richrund
 * Добавление агента Log Analytics в виртуальную машину Azure
 * Настройка Log Analytics для индексирования данных, собранных системой диагностики Azure
 
-Эта статья содержит два примера кода, иллюстрирующих некоторые доступные в PowerShell функции.  Сведения о других функциях см. в [справочнике по командлетам PowerShell Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx).
+Эта статья содержит два примера кода, иллюстрирующих некоторые доступные в PowerShell функции.  Сведения о других функциях см. в [справочнике по командлетам PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx).
 
 > [!NOTE]
 > Компонент Log Analytics раньше назывался Operational Insights, поэтому именно такое имя используется в командлетах.
@@ -39,16 +43,8 @@ ms.author: richrund
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы использовать PowerShell с рабочей областью Log Analytics, необходимо следующее.
+Эти примеры работают с версией 2.3.0 или более поздней версией модуля AzureRm.OperationalInsights.
 
-* Подписка Azure. 
-* Рабочая область Azure Log Analytics, связанная с вашей подпиской Azure.
-
-Если вы создали рабочую область OMS, но еще не привязали ее к подписке Azure, такую связь можно создать:
-
-* На портале Azure
-* На портале OMS 
-* С помощью командлетов Get-AzureRmOperationalInsightsLinkTargets и New-AzureRmOperationalInsightsWorkspace.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Создание и настройка рабочей области Log Analytics
 Этот пример сценария иллюстрирует следующие задачи.
@@ -59,7 +55,7 @@ ms.author: richrund
 4. Импорт сохраненных поисков
 5. Экспорт сохраненных поисков
 6. Создание группы компьютеров
-7. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
+7. Включение сбора журналов IIS с компьютеров, на которых установлен агент Windows
 8. Сбор счетчиков производительности логического диска с компьютеров под управлением Linux ("Процент использования индексных дескрипторов"; "Свободно мегабайт"; "Процент используемого места"; "Количество обращений к диску (в секунду)"; "Количество обращений чтения или записи (в секунду))"
 9. Сбор событий из системного журнала с компьютеров Linux
 10. Сбор событий (ошибок и предупреждений) из журнала событий приложений с компьютеров Windows
@@ -161,8 +157,12 @@ foreach ($search in $ExportedSearches) {
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
 
-# Create Computer Group
+# Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Create a computer group based on names (up to 5000)
+$computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
 # Enable IIS Log Collection using agent
 Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
@@ -187,15 +187,49 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Настройка Log Analytics для индексации системы диагностики Azure
-Для отслеживания ресурсов Azure без использования агента необходимо включить для этих ресурсов диагностику Azure и настроить ее для записи данных в учетную запись хранилища. Тогда Log Analytics сможет собирать нужные журналы из учетной записи хранилища. Ресурсы, для которых потребуется настроить такую конфигурацию:
+Для отслеживания ресурсов Azure без использования агента необходимо включить для этих ресурсов систему диагностики Azure и настроить ее для записи данных в рабочую область Log Analytics. Это позволяет отправлять данные непосредственно в Log Analytics, не записывая их в учетную запись хранения. Ниже перечислены поддерживаемые ресурсы.
+
+| Тип ресурса | Журналы | Метрики |
+| --- | --- | --- |
+| Шлюзы приложений    | Да | Да |
+| Учетные записи службы автоматизации     | Да | |
+| Учетные записи пакетной службы          | Да | Да |
+| Data Lake Analytics     | Да | | 
+| Data Lake Store         | Да | |
+| пул эластичных баз данных SQL;        |     | Да |
+| пространство имен концентратора событий;     |     | Да |
+| Центры Интернета вещей;                |     | Да |
+| Хранилище ключей               | Да | |
+| Балансировщики нагрузки          | Да | |
+| Приложения логики              | Да | Да |
+| группы сетевой безопасности; | Да | |
+| Кэш Redis             |     | Да |
+| Службы поиска         | Да | Да |
+| Пространство имен служебной шины   |     | Да |
+| SQL (версия 12)               |     | Да |
+| Веб-сайты               |     | Да |
+| Фермы веб-серверов        |     | Да |
+
+Дополнительные сведения о доступных метриках см. в разделе [Метрики, поддерживаемые Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+
+Дополнительные сведения о доступных журналах см. в разделе [Поддерживаемые службы и схемы для журналов диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+```
+
+Кроме того, вы можете использовать предыдущий командлет для сбора журналов из ресурсов, которые находятся в разных подписках. Этот командлет может работать в нескольких подписках, так как вы предоставляете идентификаторы ресурса, для которого создаются журналы, и рабочей области, в которую они отправляются.
+
+
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Настройка Log Analytics для индексации системы диагностики Azure из хранилища
+Для сбора данных журнала из работающего экземпляра классической облачной службы или кластера Service Fabric необходимо сначала записать данные в службу хранилища Azure. После этого следует настроить Log Analytics для сбора журналов из учетной записи хранения. Ниже перечислены поддерживаемые ресурсы:
 
 * классические облачные службы (рабочие и веб-роли);
 * кластеры Service Fabric;
-* Группы безопасности сети
-* хранилища ключей; 
-* Шлюзы приложений
-
-Можно также использовать PowerShell, чтобы настроить рабочую область Log Analytics в одной подписке Azure для сбора журналов из других подписок Azure.
 
 В приведенном ниже примере показано, как выполнить следующие задачи.
 
@@ -219,16 +253,22 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -StorageAccountResourceId $storageId -StorageAccountKey $key -Tables @("WADWindowsEventLogsTable") -Containers @("wad-iis-logfiles")
 
 # Update existing insight
-Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles", "insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO")
+Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об использовании PowerShell для настройки Log Analytics см. в [описании командлетов PowerShell Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx).
+Кроме того, вы можете использовать предыдущий сценарий для сбора журналов из учетных записей хранения, которые находятся в разных подписках. Этот сценарий может работать в нескольких подписках, так как вы предоставляете идентификатор ресурса учетной записи хранения и соответствующий ключ доступа. При изменении ключа доступа необходимо обновить данные хранилища с учетом нового ключа.
 
-<!--HONumber=Oct16_HO2-->
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Дополнительные сведения об использовании PowerShell для настройки Log Analytics см. в [описании командлетов PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx).
+
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

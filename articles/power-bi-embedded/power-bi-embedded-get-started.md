@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -70,7 +70,10 @@ ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
 Теперь, когда у вас есть экземпляр Power BI для приложения и **ключи доступа**, вы можете импортировать отчет в свое приложение. Прежде чем вы узнаете, как импортировать отчет, в следующем разделе мы расскажем о создании наборов данных и отчетов Power BI, которые будут внедрены в приложение.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Создание наборов данных и отчетов Power BI для внедрения в приложение
-Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [PBIX-файл с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547). Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [PBIX-файл с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 С помощью **Power BI Desktop** вы можете подключиться к источнику данных. Для этого импортируйте копию данных в **Power BI Desktop** или подключитесь непосредственно к источнику данных с помощью **DirectQuery**.
 
@@ -86,14 +89,11 @@ ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
 
 > [!NOTE]
 > **Power BI Embedded** предусматривает дополнительные API. С их помощью можно изменять сервер и базу данных, на которые указывает ваш набор данных, а также указывать данные учетной записи службы для подключения к базе данных. Дополнительные сведения см. в статьях [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) (Публикация SetAllConnections) и [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Исправление источника данных шлюза).
-> 
-> 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 С помощью приведенных выше инструкций вы создали коллекцию рабочей области, отчет и набор данных. Теперь пора переходить к написанию кода для **Power BI Embedded**. Чтобы помочь вам, мы создали пример веб-приложения. Он приведен в статье [Начало работы с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). Из статьи вы узнаете:
 
 * подготовить содержимое;
-  
   * создать рабочую область;
   * как импортировать файл PBIX;
   * как обновить строки подключения и указать учетные данные для наборов данных;
@@ -104,9 +104,11 @@ ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
 * [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+У вас имеются и другие вопросы? [Попробуйте задать их в сообществе Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,35 +1,63 @@
 ---
-title: Подключение к учетной записи DocumentDB с поддержкой протокола MongoDB | Microsoft Docs
-description: Узнайте, как подключиться к учетной записи DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии. Подключитесь с помощью строки подключения MongoDB.
-keywords: строка подключения MongoDB
+title: "Строка подключения MongoDB для учетной записи DocumentDB | Документация Майкрософт"
+description: "Здесь содержатся сведения о подключении приложения MongoDB к учетной записи Azure DocumentDB с помощью строки подключения MongoDB."
+keywords: "строка подключения MongoDB"
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/22/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
+ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+
 
 ---
-# <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Подключение к учетной записи DocumentDB с поддержкой протокола MongoDB
-Узнайте, как подключиться к учетной записи Azure DocumentDB с поддержкой протокола MongoDB, используя стандартный формат URI для строки подключения MongoDB.  
 
-## <a name="get-the-account's-connection-string-information"></a>Получение строки подключения для учетной записи
-1. В новом окне войдите на [портал Azure](https://portal.azure.com).
-2. На **левой панели** в колонке учетной записи щелкните **Строка подключения**. Чтобы перейти к **колонке учетной записи**, на навигационной панели щелкните **Больше служб**, затем — **DocumentDB (NoSQL)**. Выберите нужную учетную запись DocumentDB с поддержкой MongoDB.
-   
-    ![Снимок экрана, колонка "Все параметры"](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
-3. Откроется колонка **Сведения о строке подключения**, которая содержит все необходимые сведения для подключения к учетной записи с помощью драйвера для MongoDB, включая автоматически сформированную строку подключения.
-   
+# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Подключение приложения MongoDB к учетной записи DocumentDB с помощью строки подключения MongoDB
+Здесь содержатся сведения о подключении приложения MongoDB к учетной записи Azure DocumentDB с помощью строки подключения MongoDB. Подключив приложение MongoDB к базе данных Azure DocumentDB, вы сможете использовать базу данных в качестве хранилища данных для приложения MongoDB. 
+
+В этом руководстве описаны два способа получения строки подключения.
+
+- [Метод "Быстрый запуск"](#QuickStartConnection) для использования с драйверами .NET, Node.js, Java, Python или оболочкой MongoDB.
+- [Метод с использованием пользовательской строки подключения](#GetCustomConnection) для других драйверов.
+
+## <a name="prerequisites"></a>Предварительные требования
+
+- Учетная запись Azure. Если у вас нет учетной записи, вы можете создать [бесплатную учетную запись Azure](https://azure.microsoft.com/free/). 
+- Учетная запись DocumentDB. Дополнительные сведения см. в статье [Создание учетной записи DocumentDB с поддержкой протокола MongoDB с помощью портала Azure](documentdb-create-mongodb-account.md).
+
+## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Получение строки подключения MongoDB с помощью метода быстрого запуска
+1. В браузере войдите на [портал Azure](https://portal.azure.com).
+2. В колонке **NoSQL (DocumentDB)** выберите учетную запись DocumentDB с поддержкой протокола MongoDB. 
+3. На **левой панели навигации** в колонке учетной записи щелкните **Быстрый запуск**. 
+4. Выберите платформу (*драйвер .NET*, *Node.js*, *Java*, *Python* или *оболочка MongoDB*). Если соответствующего драйвера или средства нет в списке, не беспокойтесь, мы постоянно добавляем дополнительные фрагменты кода для подключения. В конце статьи оставьте комментарий о том, что, по вашему мнению, нужно добавить, и прочтите статью [Подключение к учетной записи DocumentDB с поддержкой протокола MongoDB](#GetCustomConnection), чтобы научиться создавать собственные подключения.
+5. Скопируйте и вставьте фрагмент кода в приложение MongoDB. Теперь все готово к работе.
+
+    ![Снимок экрана колонки "Быстрый запуск"](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
+
+## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Получение строки подключения MongoDB для настройки
+1. В браузере войдите на [портал Azure](https://portal.azure.com).
+2. В колонке **NoSQL (DocumentDB)** выберите учетную запись DocumentDB с поддержкой протокола MongoDB. 
+3. На **левой панели навигации** в колонке учетной записи щелкните **Строка подключения**. 
+4. Откроется колонка **Сведения о строке подключения**, которая содержит все необходимые сведения для подключения к учетной записи с помощью драйвера для MongoDB, включая автоматически сформированную строку подключения.
+
     ![Снимок экрана, колонка строки подключения](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Требования к строке подключения
+> [!Important]
+> У DocumentDB строгие требования к безопасности и стандарты. Для всех учетных записей DocumentDB требуется проверка подлинности и безопасный обмен данными через **SSL**.
+>
+>
+
 Важно отметить, что DocumentDB поддерживает стандартный формат URI для строки подключения MongoDB, налагая пару дополнительных условий. Для учетных записей DocumentDB требуется использовать проверку подлинности и безопасный обмен данными через SSL.  Таким образом, строка подключения имеет следующий вид:
 
     mongodb://username:password@host:port/[database]?ssl=true
@@ -50,32 +78,14 @@ ms.author: anhoh
 
 Рассмотрим в качестве примера учетную запись, сведения о которой приведены выше в строке подключения.  Допустимая строка подключения:
 
-    mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
-
-## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Подключение с использованием драйвера C# для MongoDB
-Как уже упоминалось, для всех учетных записей DocumentDB требуется проверка подлинности и безопасный обмен данными через SSL. Хотя формат URI для строки подключения MongoDB поддерживает параметр запроса ssl=true, для работы драйвера C# для MongoDB при создании MongoClient необходимо использовать объект MongoClientSettings.  В следующем фрагменте кода используются приведенные выше сведения об учетной записи для демонстрации подключения к учетной записи и работы с базой данных Tasks.
-
-            MongoClientSettings settings = new MongoClientSettings();
-            settings.Server = new MongoServerAddress("contoso123.documents.azure.com", 10250);
-            settings.UseSsl = true;
-            settings.SslSettings = new SslSettings();
-            settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
-            MongoIdentity identity = new MongoInternalIdentity("Tasks", "contoso123");
-            MongoIdentityEvidence evidence = new PasswordEvidence("<password>");
-
-            settings.Credentials = new List<MongoCredential>()
-            {
-                new MongoCredential("SCRAM-SHA-1", identity, evidence)
-            };
-            MongoClient client = new MongoClient(settings);
-            var database = client.GetDatabase("Tasks",);
-
+    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [использовать MongoChef](documentdb-mongodb-mongochef.md) с учетной записью DocumentDB с поддержкой протокола MongoDB.
 * Изучите [примеры](documentdb-mongodb-samples.md)использования DocumentDB с поддержкой протокола MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

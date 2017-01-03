@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 ## <a name="what-is-azure-sql-database"></a>Сведения о базе данных SQL Azure
 Каждая база данных в базе данных SQL Azure связана с логическим сервером. База данных может:
 
-- представлять собой автономную базу данных с [собственным набором ресурсов](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU);
+- представлять собой отдельную базу данных с [собственным набором ресурсов](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU);
 - входить в состав [эластичного пула](sql-database-elastic-pool.md), в котором [набор ресурсов используется совместно](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU);
 - входить в состав [масштабируемого набора сегментированных баз данных](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), которые могут быть отдельными базами данных или частью пула;
 - входить в состав набора баз данных, использующихся в [шаблоне разработки для мультитенантных приложений SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), которые могут быть отдельными базами данных или частью пула (или этот набор может иметь смешанную конфигурацию). 
@@ -71,6 +71,6 @@ ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

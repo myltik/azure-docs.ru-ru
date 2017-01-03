@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
 
 
 ---
@@ -169,7 +169,7 @@ ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
 
 ### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Присоединение устройства Windows 8.1 с помощью регистрации устройств в Active Directory Azure
 1. На устройстве Windows 8.1 последовательно выберите **Параметры компьютера** > **Сеть** > **Рабочая область**.
-2. Введите свое имя пользователя в формате имени участника-пользователя. Например, dan@contoso.com.
+2. Введите свое имя пользователя в формате имени участника-пользователя. Например, dan@contoso.com..
 3. Выберите **Присоединиться**.
 4. При появлении запроса введите свои учетные данные и выполните вход. Теперь устройство присоединено.
 
@@ -238,6 +238,6 @@ ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

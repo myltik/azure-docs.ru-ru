@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 > 
 
 ## <a name="prerequisites"></a>Предварительные требования
-Прежде чем выполнять действия из этого руководства, необходимо настроить экземпляр службы управления API с API и продуктом. Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Create an API Management service instance] в статье [Начало работы со службой управления Azure API][Get started with Azure API Management].
+Прежде чем выполнять действия из этого руководства, необходимо настроить экземпляр службы управления API с API и продуктом. Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Настройка операции для кэширования
 На этом этапе необходимо проверить параметры кэширования операции **GET Resource (cached)** примера Echo API.
@@ -41,7 +41,7 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 > 
 > 
 
-Для начала работы щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
+Чтобы начать работу, щелкните **Publisher portal** (Портал издателя) на портале Azure для службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -80,20 +80,22 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 
 Определение политики для этой операции содержит политики, определяющие конфигурацию кэширования, которые были проанализированы с помощью вкладки **Кэширование** на предыдущем этапе.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Изменения, внесенные в политики кэширования в редакторе политик, будут отражаться на вкладке **Кэширование** операции (и наоборот).
@@ -153,25 +155,25 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Мониторинг и аналитика]: api-management-monitoring.md
-[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
-[Публикация продукта]: api-management-howto-add-products.md#publish-product
-[Приступая к работе со службой управления API]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Справочник по политикам службы управления API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Политики кэширования]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Настройка операции для кэширования]: #configure-caching
-[Анализ политик кэширования]: #caching-policies
-[Вызов операции и проверка кэширования]: #test-operation
-[Дальнейшие действия]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
+ms.sourcegitcommit: e37e9aa4419929e91664ec1d70c9610de33e3b45
+ms.openlocfilehash: 4ee5a7df3398924f7f40e7cd0467a08c55f299e8
 
 
 ---
@@ -44,11 +44,11 @@ ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
 
 Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе вы создадите в HDInsight кластер Hadoop под управлением Linux, используя [шаблон Azure Resource Manager](../resource-group-template-deploy.md). Полностью настраиваемый шаблон Resource Manager упрощает создание таких ресурсов Azure, как HDInsight. Знакомство с шаблонами Resource Manager не является обязательным для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Воспользуйтесь селектором в верхней части страницы, чтобы выбрать параметры создания кластера.
 
-Шаблон Resource Manager, используемый в этом руководстве, расположен в общедоступном контейнере больших двоичных объектов — [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+Используемый в этом руководстве шаблон Resource Manager расположен на портале [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Введите или выберите следующие значения:
    
     ![Шаблон Resource Manager для начала работы с HDInsight под управлением Linux на портале](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
@@ -56,7 +56,8 @@ ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
     * **Подписка**. Выберите подписку Azure.
     * **Группа ресурсов.** Создайте группу ресурсов Azure или выберите имеющуюся.  Группа ресурсов — это контейнер компонентов Azure.  В этом случае группа ресурсов содержит кластер HDInsight и зависимую учетную запись службы хранилища Azure. 
     * **Расположение.** Выберите расположение Azure для создания кластера.  Выберите ближайшее к себе расположение для повышения производительности. 
-    * **Имя кластера**: введите имя создаваемого кластера Hadoop.
+    * **Тип кластера**. Для работы с этим руководством выберите **Hadoop**.
+    * **Имя кластера**. Введите имя создаваемого кластера Hadoop.
     * **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
     * **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**.  Это имя можно изменить. 
      
@@ -65,7 +66,6 @@ ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
     * **Расположение.** Кластер и зависимая учетная запись хранения используют то же расположение, что и группа ресурсов.
     * **Версия кластера**: 3.4.
     * **Тип ОС**: Linux.
-    * **Тип кластера**: Hadoop.
     * **Количество рабочих узлов**: 2.
 
      У каждого кластера есть зависимость учетной записи хранения для хранилища BLOB-объектов Azure. Обычно она называется учетной записью хранения по умолчанию. Кластер HDInsight должен находиться в том же регионе Azure, что и его учетная запись хранения, используемая по умолчанию. Удаление кластеров не приведет к удалению учетной записи хранения. Имя учетной записи хранения в шаблоне — это имя кластера, к которому добавлено слово store. 
@@ -175,6 +175,6 @@ ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -9,14 +9,14 @@ editor:
 ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 11/21/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
+ms.sourcegitcommit: 188e3638393262a8406f322a5720e7e3eadf3e49
+ms.openlocfilehash: 7b95616b4ce44865477d94452d9b3e646c9c0d1a
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
 В этой статье представлены сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK для Azure .NET. Предполагается, что вы уже имеете представление о концентраторах событий. Общие сведения о концентраторах событий см. в статье [Общие сведения о концентраторах событий Azure](event-hubs-overview.md).
 
 ## <a name="event-publishers"></a>Издатели событий
-Отправка событий в концентратор событий осуществляется с использованием HTTP POST или через подключение AMQP 1.0. Выбор способа зависит от определенного сценария, к которому выполняется обращение. Подключения AMQP 1.0 измеряются как подключения через посредника по служебной шине. Они больше всего подходят для сценариев с большими объемами сообщений и менее строгими требованиями к задержке, так как такие подключения обеспечивают постоянный канал обмена сообщениями.
+Отправка событий в концентратор событий осуществляется с использованием HTTP POST или через подключение AMQP 1.0. Выбор способа зависит от определенного сценария, к которому выполняется обращение. Подключения AMQP 1.0 измеряются как подключения через посредника по служебной шине. Они больше всего подходят для сценариев с большими объемами сообщений и менее строгими требованиями к задержке, так как такие подключения обеспечивают постоянный канал обмена сообщениями.
 
 Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) . При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) и [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) обеспечивает канал связи AMQP, по которому события отправляются в концентратор событий. Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) представляет собой событие и используется для публикации сообщений в концентратор событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере прохода объекта [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) через концентратор событий к объекту добавляются другие свойства.
 
@@ -38,14 +38,14 @@ Install-Package WindowsAzure.ServiceBus
 ## <a name="create-an-event-hub"></a>Создание концентратора событий
 Для создания концентраторов событий можно использовать класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) . Например:
 
-```
+```csharp
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
 В большинстве случаев рекомендуется использовать методы [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) , чтобы избежать возникновения исключений в случае перезапуска службы. Например:
 
-```
+```csharp
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
 ```
 
@@ -56,7 +56,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 ## <a name="create-an-event-hubs-client"></a>Создание клиента концентратора событий
 Основным классом для взаимодействия с концентраторами событий является класс [Microsoft.ServiceBus.Messaging.EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx). Этот класс предоставляет возможности отправителя и получателя. Можно создать экземпляр этого класса с помощью метода [Create](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) , как показано в следующем примере.
 
-```
+```csharp
 var client = EventHubClient.Create(description.Path);
 ```
 
@@ -64,19 +64,19 @@ var client = EventHubClient.Create(description.Path);
 
 Кроме того, можно создать клиент из строки подключения. Это удобно в случаях, когда используются рабочие роли Azure, поскольку строку можно хранить в свойствах конфигурации для исполнителя. Например:
 
-```
+```csharp
 EventHubClient.CreateFromConnectionString("your_connection_string");
 ```
 
 Строка подключения будет иметь тот же формат, в котором она представлена в файле App.config для предыдущих методов:
 
-```
-Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=Manage;SharedAccessKey=[key]
+```xml
+Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
 Наконец, можно также создать объект [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) из экземпляра [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx), как показано в следующем примере.
 
-```
+```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
@@ -95,7 +95,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 ## <a name="batch-event-send-operations"></a>Пакетные операции отправки событий
 Пакетная отправка событий позволяет значительно повысить пропускную способность. Метод [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) принимает параметр **IEnumerable** типа [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) и отправляет весь пакет в концентратор событий в виде атомарной операции.
 
-```
+```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
@@ -107,7 +107,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 ## <a name="create-a-partition-sender"></a>Создание отправителя секции
 Несмотря на то что наиболее распространена отправка событий в концентратор событий с ключом секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
 
-```
+```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
 ```
 
@@ -119,14 +119,14 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 ### <a name="direct-consumer"></a>Прямой потребитель
 Самый простой способ чтения из секции в группе потребителей — воспользоваться классом [EventHubReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.aspx) . Чтобы создать экземпляр этого класса, необходимо использовать экземпляр класса [EventHubConsumerGroup](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.aspx) . В следующем примере необходимо указать идентификатор секции при создании получателя для группы получателей.
 
-```
+```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
 Метод [CreateReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) имеет несколько перегрузок, которые облегчают контроль над созданием модуля чтения. Эти методы включают указание смещения в качестве строки или метки времени, а также возможность указать, следует ли включать это указанное смещение в возвращаемый поток или запустить после него. После создания получателя можно начать прием событий в возвращаемом объекте. Метод [Receive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) имеет четыре перегрузки, которые управляют параметрами операции приема, такими как размер пакета и время ожидания. Для увеличения пропускной способности потребителя можно использовать асинхронные версии этих методов. Например:
 
-```
+```csharp
 bool receive = true;
 string myOffset;
 while(receive)
@@ -175,6 +175,6 @@ while(receive)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

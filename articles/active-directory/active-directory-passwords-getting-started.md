@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -185,7 +185,7 @@ ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
   > При использовании более старой версии Windows Server 2008 или 2008 R2 эту функцию по-прежнему можно использовать, но перед принудительным включением локальной политики паролей AD в облаке необходимо будет [загрузить и установить обновление KB 2386717](https://support.microsoft.com/kb/2386717) .
   > 
   > 
-* Установлено средство Azure AD Connect и среда AD подготовлена к синхронизации с облаком.  Дополнительные сведения см. в статье [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+* Установлено средство Azure AD Connect и среда AD подготовлена к синхронизации с облаком.  Дополнительные сведения см. в статье [Интеграция локальных удостоверений с Azure Active Directory](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Прежде чем проверять компонент обратной записи паролей, выполните полный импорт и синхронизацию из Active Directory и Azure Active Directory в службе Azure AD Connect.
@@ -199,7 +199,7 @@ ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Шаг 1. Загрузка новейшей версии Azure AD Connect
-Обратная запись паролей доступна в выпусках Azure AD Connect или в средстве Azure AD Sync с номером версии **1.0.0419.0911** и выше.  Обратная запись паролей с автоматической разблокировкой учетной записи доступна в выпусках Azure AD Connect или в средстве Azure AD Sync с номером версии **1.0.0485.0222** и выше. Если вы используете старую версию, выполните обновление как минимум до указанной выше версии, прежде чем продолжить. [Щелкните здесь, чтобы загрузить новейшую версию Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+Обратная запись паролей доступна в выпусках Azure AD Connect или в средстве Azure AD Sync с номером версии **1.0.0419.0911** и выше.  Обратная запись паролей с автоматической разблокировкой учетной записи доступна в выпусках Azure AD Connect или в средстве Azure AD Sync с номером версии **1.0.0485.0222** и выше. Если вы используете старую версию, выполните обновление как минимум до указанной выше версии, прежде чем продолжить. [Щелкните здесь, чтобы загрузить новейшую версию Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Проверка версии Azure AD Sync
 1. Перейдите в папку **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -393,6 +393,6 @@ ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

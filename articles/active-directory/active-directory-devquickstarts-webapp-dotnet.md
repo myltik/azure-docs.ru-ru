@@ -1,12 +1,12 @@
 ---
-title: Приступая к работе с Azure AD для .NET | Microsoft Docs
-description: Как построить веб-приложение .NET MVC, которое интегрируется с Azure AD для входа.
+title: "Приступая к работе с Azure AD для .NET | Документация Майкрософт"
+description: "Как построить веб-приложение .NET MVC, которое интегрируется с Azure AD для входа."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: e15a41a4-dc5d-4c90-b3fe-5dc33b9a1e96
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
+ms.openlocfilehash: 4c66ce2996d3444d02b55bd0214398f69c45b6bd
+
 
 ---
-# <a name="asp.net-web-app-sign-in-&-sign-out-with-azure-ad"></a>Вход в веб-приложение ASP.NET и выход из него с использованием Azure AD
+# <a name="aspnet-web-app-sign-in--sign-out-with-azure-ad"></a>Вход в веб-приложение ASP.NET и выход из него с использованием Azure AD
 [!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
 Azure AD позволяет простым и удобным образом выполнять функции управления удостоверением вашего веб-приложения, обеспечивая единый вход и выход с помощью всего лишь нескольких строк кода.  В веб-приложениях Asp.NET это можно делать с помощью реализации общинного промежуточного слоя OWIN корпорации Microsoft, включенного в .NET Framework 4.5.  Мы будем использовать OWIN для следующего.
@@ -34,20 +38,19 @@ Azure AD позволяет простым и удобным образом вы
 
 Чтобы начать работу, [скачайте схему приложения](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) или [скачайте готовый пример](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).  Вам также потребуется клиент Azure AD для регистрации приложения.  Если у вас нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
 
-## <a name="*1.-register-an-application-with-azure-ad*"></a>*1.  Регистрация приложения с помощью Azure AD*
+## <a name="1----register-an-application-with-azure-ad"></a>*1.    Регистрация приложения с помощью Azure AD*
 Чтобы ваше приложение могло осуществлять проверку подлинности пользователей, сначала необходимо зарегистрировать новое приложение в своем клиенте.
 
-* Выполните вход на портале управления Azure.
-* В левой панели навигации нажмите **Active Directory**.
-* Выберите клиент, в котором нужно зарегистрировать приложение.
-* Перейдите во вкладку **Приложения** и нажмите кнопку Добавить в нижней панели.
+* Войдите на [портал Azure](https://portal.azure.com).
+* Выберите клиент, в котором нужно зарегистрировать приложение.
+* В левой панели навигации щелкните **Azure Active Directory**.
+* Щелкните вкладку **Регистрация приложений** и нажмите кнопку **Добавить**.
 * Следуйте инструкциям на экране, а затем создайте новое **веб-приложение и/или WebAPI**.
   * **Имя** приложения отображает его описание конечным пользователям.
   * **URL-адрес входа** — это базовый URL-адрес вашего приложения.  Схема по умолчанию — `https://localhost:44320/`.
-  * **URI идентификатора приложения** — это уникальный идентификатор вашего приложения.  Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app`
-* После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента.  Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
+* После завершения регистрации служба Azure AD присваивает приложению уникальный идентификатор приложения.  Это значение вам понадобится в следующих разделах, поэтому не забудьте скопировать его на странице приложения.
 
-## <a name="*2.-set-up-your-app-to-use-the-owin-authentication-pipeline*"></a>*2. Установка приложения для использования проверки подлинности OWIN*
+## <a name="2-set-up-your-app-to-use-the-owin-authentication-pipeline"></a>*2. Установка приложения для использования проверки подлинности OWIN*
 Здесь мы настроим промежуточный слой OWIN для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 * Чтобы начать, добавьте пакеты NuGet промежуточного слоя OWIN в проект с помощью консоли диспетчера пакетов.
@@ -95,7 +98,7 @@ public void ConfigureAuth(IAppBuilder app)
   * `ida:Tenant` — это имя вашего клиента Azure AD, например contoso.onmicrosoft.com.
   * Ваш `ida:PostLogoutRedirectUri` указывает системе Azure AD, куда должен перенаправляться пользователь после успешного выполнения запроса выхода.
 
-## <a name="*3.-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad*"></a>*3. Использование OWIN для выдачи запросов входа и выхода в Azure AD*
+## <a name="3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>*3. Использование OWIN для выдачи запросов входа и выхода в Azure AD*
 Теперь приложение правильно настроено для взаимодействия с Azure AD с использованием протокола проверки подлинности OpenID Connect.  OWIN полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя.  Остается лишь предоставить пользователям возможность выполнять вход и выход.
 
 * Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователя выполнять вход перед доступом к конкретной странице.  Откройте `Controllers\HomeController.cs` и добавьте тег `[Authorize]` в контроллер «О программе».
@@ -150,7 +153,7 @@ else
 }
 ```
 
-## <a name="*4.-display-user-information*"></a>*4.  Отображение сведений о пользователе*
+## <a name="4----display-user-information"></a>*4.    Отображение сведений о пользователе*
 При проверке подлинности пользователей с помощью OpenID Connect система Azure AD возвращает в приложение маркер id_token, который содержит "утверждения" о пользователе.  Эти утверждения можно использовать для настройки своего приложения:
 
 * Откройте файл `Controllers\HomeController.cs` .  Для доступа к утверждениям о пользователе в своих контроллерах можно использовать объект субъекта безопасности `ClaimsPrincipal.Current` .
@@ -178,6 +181,8 @@ public ActionResult About()
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO4-->
 
 

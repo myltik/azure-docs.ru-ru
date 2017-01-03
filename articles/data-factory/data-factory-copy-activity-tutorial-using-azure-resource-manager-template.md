@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
+ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
+ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
 
 
 ---
@@ -60,213 +60,216 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 ## <a name="data-factory-json-template"></a>Шаблон JSON фабрики данных
 Шаблон Resource Manager верхнего уровня для определения фабрики данных выглядит следующим образом: 
 
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": { ...
-        },
-        "variables": { ...
-        },
-        "resources": [
-            {
-                "name": "[parameters('dataFactoryName')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.DataFactory/datafactories",
-                "location": "westus",
-                "resources": [
-                    { ... },
-                    { ... },
-                    { ... },
-                    { ... }
-                ]
-            }
-        ]
-    }
-
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { ...
+    },
+    "variables": { ...
+    },
+    "resources": [
+        {
+            "name": "[parameters('dataFactoryName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.DataFactory/datafactories",
+            "location": "westus",
+            "resources": [
+                { ... },
+                { ... },
+                { ... },
+                { ... }
+            ]
+        }
+    ]
+}
+```
 Создайте в папке **C:\ADFGetStarted** файл JSON с именем **ADFCopyTutorialARM.json** со следующим содержимым:
 
-    {
-        "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "parameters": {
-          "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the data to be copied." } },
-          "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
-          "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
-          "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
-          "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
-          "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
-          "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
-          "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
-          "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
-          } 
-        },
-        "variables": {
-          "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]",
-          "azureSqlLinkedServiceName": "AzureSqlLinkedService",
-          "azureStorageLinkedServiceName": "AzureStorageLinkedService",
-          "blobInputDatasetName": "BlobInputDataset",
-          "sqlOutputDatasetName": "SQLOutputDataset",
-          "pipelineName": "Blob2SQLPipeline"
-        },
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+      "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the data to be copied." } },
+      "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
+      "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
+      "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
+      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
+      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
+      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
+      "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
+      "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
+      } 
+    },
+    "variables": {
+      "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]",
+      "azureSqlLinkedServiceName": "AzureSqlLinkedService",
+      "azureStorageLinkedServiceName": "AzureStorageLinkedService",
+      "blobInputDatasetName": "BlobInputDataset",
+      "sqlOutputDatasetName": "SQLOutputDataset",
+      "pipelineName": "Blob2SQLPipeline"
+    },
+    "resources": [
+      {
+        "name": "[variables('dataFactoryName')]",
+        "apiVersion": "2015-10-01",
+        "type": "Microsoft.DataFactory/datafactories",
+        "location": "West US",
         "resources": [
           {
-            "name": "[variables('dataFactoryName')]",
+            "type": "linkedservices",
+            "name": "[variables('azureStorageLinkedServiceName')]",
+            "dependsOn": [
+              "[variables('dataFactoryName')]"
+            ],
             "apiVersion": "2015-10-01",
-            "type": "Microsoft.DataFactory/datafactories",
-            "location": "West US",
-            "resources": [
-              {
-                "type": "linkedservices",
-                "name": "[variables('azureStorageLinkedServiceName')]",
-                "dependsOn": [
-                  "[variables('dataFactoryName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                  "type": "AzureStorage",
-                  "description": "Azure Storage linked service",
-                  "typeProperties": {
-                    "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                  }
-                }
-              },
-              {
-                "type": "linkedservices",
-                "name": "[variables('azureSqlLinkedServiceName')]",
-                "dependsOn": [
-                  "[variables('dataFactoryName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                  "type": "AzureSqlDatabase",
-                  "description": "Azure SQL linked service",
-                  "typeProperties": {
-                    "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-                  }
-                }
-              },
-              {
-                "type": "datasets",
-                "name": "[variables('blobInputDatasetName')]",
-                "dependsOn": [
-                  "[variables('dataFactoryName')]",
-                  "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                  "type": "AzureBlob",
-                  "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-                  "structure": [
-                    {
-                      "name": "Column0",
-                      "type": "String"
-                    },
-                    {
-                      "name": "Column1",
-                      "type": "String"
-                    }
-                  ],
-                  "typeProperties": {
-                    "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
-                    "fileName": "[parameters('sourceBlobName')]",
-                    "format": {
-                      "type": "TextFormat",
-                      "columnDelimiter": ","
-                    }
-                  },
-                  "availability": {
-                    "frequency": "Day",
-                    "interval": 1
-                  },
-                  "external": true
-                }
-              },
-              {
-                "type": "datasets",
-                "name": "[variables('sqlOutputDatasetName')]",
-                "dependsOn": [
-                  "[variables('dataFactoryName')]",
-                  "[variables('azureSqlLinkedServiceName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                  "type": "AzureSqlTable",
-                  "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
-                  "structure": [
-                    {
-                      "name": "FirstName",
-                      "type": "String"
-                    },
-                    {
-                      "name": "LastName",
-                      "type": "String"
-                    }
-                  ],
-                  "typeProperties": {
-                    "tableName": "[parameters('targetSQLTable')]"
-                  },
-                  "availability": {
-                    "frequency": "Day",
-                    "interval": 1
-                  }
-                }
-              },
-              {
-                "type": "datapipelines",
-                "name": "[variables('pipelineName')]",
-                "dependsOn": [
-                  "[variables('dataFactoryName')]",
-                  "[variables('azureStorageLinkedServiceName')]",
-                  "[variables('azureSqlLinkedServiceName')]",
-                  "[variables('blobInputDatasetName')]",
-                  "[variables('sqlOutputDatasetName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                  "activities": [
-                    {
-                      "name": "CopyFromAzureBlobToAzureSQL",
-                      "description": "Copy data frm Azure blob to Azure SQL",
-                      "type": "Copy",
-                      "inputs": [
-                        {
-                          "name": "[variables('blobInputDatasetName')]"
-                        }
-                      ],
-                      "outputs": [
-                        {
-                          "name": "[variables('sqlOutputDatasetName')]"
-                        }
-                      ],
-                      "typeProperties": {
-                        "source": {
-                          "type": "BlobSource"
-                        },
-                        "sink": {
-                          "type": "SqlSink",
-                          "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
-                        },
-                        "translator": {
-                          "type": "TabularTranslator",
-                          "columnMappings": "Column0:FirstName,Column1:LastName"
-                        }
-                      },
-                      "Policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 3,
-                        "timeout": "01:00:00"
-                      }
-                    }
-                  ],
-                  "start": "2016-10-02T00:00:00Z",
-                  "end": "2016-10-03T00:00:00Z"
-                }
+            "properties": {
+              "type": "AzureStorage",
+              "description": "Azure Storage linked service",
+              "typeProperties": {
+                "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
               }
-            ]
+            }
+          },
+          {
+            "type": "linkedservices",
+            "name": "[variables('azureSqlLinkedServiceName')]",
+            "dependsOn": [
+              "[variables('dataFactoryName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+              "type": "AzureSqlDatabase",
+              "description": "Azure SQL linked service",
+              "typeProperties": {
+                "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+              }
+            }
+          },
+          {
+            "type": "datasets",
+            "name": "[variables('blobInputDatasetName')]",
+            "dependsOn": [
+              "[variables('dataFactoryName')]",
+              "[variables('azureStorageLinkedServiceName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+              "type": "AzureBlob",
+              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+              "structure": [
+                {
+                  "name": "Column0",
+                  "type": "String"
+                },
+                {
+                  "name": "Column1",
+                  "type": "String"
+                }
+              ],
+              "typeProperties": {
+                "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
+                "fileName": "[parameters('sourceBlobName')]",
+                "format": {
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
+                }
+              },
+              "availability": {
+                "frequency": "Day",
+                "interval": 1
+              },
+              "external": true
+            }
+          },
+          {
+            "type": "datasets",
+            "name": "[variables('sqlOutputDatasetName')]",
+            "dependsOn": [
+              "[variables('dataFactoryName')]",
+              "[variables('azureSqlLinkedServiceName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+              "type": "AzureSqlTable",
+              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+              "structure": [
+                {
+                  "name": "FirstName",
+                  "type": "String"
+                },
+                {
+                  "name": "LastName",
+                  "type": "String"
+                }
+              ],
+              "typeProperties": {
+                "tableName": "[parameters('targetSQLTable')]"
+              },
+              "availability": {
+                "frequency": "Day",
+                "interval": 1
+              }
+            }
+          },
+          {
+            "type": "datapipelines",
+            "name": "[variables('pipelineName')]",
+            "dependsOn": [
+              "[variables('dataFactoryName')]",
+              "[variables('azureStorageLinkedServiceName')]",
+              "[variables('azureSqlLinkedServiceName')]",
+              "[variables('blobInputDatasetName')]",
+              "[variables('sqlOutputDatasetName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+              "activities": [
+                {
+                  "name": "CopyFromAzureBlobToAzureSQL",
+                  "description": "Copy data frm Azure blob to Azure SQL",
+                  "type": "Copy",
+                  "inputs": [
+                    {
+                      "name": "[variables('blobInputDatasetName')]"
+                    }
+                  ],
+                  "outputs": [
+                    {
+                      "name": "[variables('sqlOutputDatasetName')]"
+                    }
+                  ],
+                  "typeProperties": {
+                    "source": {
+                      "type": "BlobSource"
+                    },
+                    "sink": {
+                      "type": "SqlSink",
+                      "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+                    },
+                    "translator": {
+                      "type": "TabularTranslator",
+                      "columnMappings": "Column0:FirstName,Column1:LastName"
+                    }
+                  },
+                  "Policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 3,
+                    "timeout": "01:00:00"
+                  }
+                }
+              ],
+              "start": "2016-10-02T00:00:00Z",
+              "end": "2016-10-03T00:00:00Z"
+            }
           }
         ]
       }
+    ]
+  }
+```
 
 ## <a name="parameters-json"></a>JSON-файл параметров
 Создайте JSON-файл с именем **ADFCopyTutorialARM-Parameters.json**, содержащий параметры для шаблона Azure Resource Manager. 
@@ -276,23 +279,25 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 > 
 > 
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": { 
-            "storageAccountName": {    "value": "<Name of the Azure storage account>"    },
-            "storageAccountKey": {
-                     "value": "<Key for the Azure storage account>"
-            },
-            "sourceBlobContainer": { "value": "adftutorial" },
-            "sourceBlobName": { "value": "emp.txt" },
-            "sqlServerName": { "value": "<Name of the Azure SQL server>" },
-            "databaseName": { "value": "<Name of the Azure SQL database>" },
-            "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
-            "sqlServerPassword": { "value": "<password for the user>" },
-            "targetSQLTable": { "value": "emp" }
-        }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { 
+        "storageAccountName": { "value": "<Name of the Azure storage account>"    },
+        "storageAccountKey": {
+            "value": "<Key for the Azure storage account>"
+        },
+        "sourceBlobContainer": { "value": "adftutorial" },
+        "sourceBlobName": { "value": "emp.txt" },
+        "sqlServerName": { "value": "<Name of the Azure SQL server>" },
+        "databaseName": { "value": "<Name of the Azure SQL database>" },
+        "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
+        "sqlServerPassword": { "value": "<password for the user>" },
+        "targetSQLTable": { "value": "emp" }
     }
+}
+```
 
 > [!IMPORTANT]
 > Можно создать отдельные JSON-файлы параметров для сред разработки, тестирования и рабочей среды, которые можно использовать с одним и тем же шаблоном JSON фабрики данных. Скрипт PowerShell позволяет автоматизировать развертывание сущностей фабрики данных в этих средах.  
@@ -301,14 +306,26 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
 1. Запустите **Azure PowerShell** и выполните следующие команды:
-   * Выполните командлет `Login-AzureRmAccount` и введите имя пользователя и пароль, которые вы используете для входа на портал Azure.  
-   * Выполните командлет `Get-AzureRmSubscription` , чтобы просмотреть все подписки для этой учетной записи.
-   * Выполните командлет `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` , чтобы выбрать подписку, с которой вы собираетесь работать. 
+   * Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
+    ```PowerShell
+    Login-AzureRmAccount    
+    ```  
+   * Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```   
+   * Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. 
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+    ```    
 2. Чтобы развернуть сущности фабрики данных с помощью шаблона Resource Manager, созданного на шаге 1, выполните следующую команду.
-   
-        New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+
+    ```PowerShell   
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+    ```
 
 ## <a name="monitor-pipeline"></a>Отслеживание конвейера
+
 1. Войдите на [портал Azure](https://portal.azure.com), используя свою учетную запись Azure.
 2. Щелкните **Фабрики данных** в меню слева или выберите **Больше служб** и щелкните **Фабрики данных** в категории **АНАЛИТИКА**.
    
@@ -335,17 +352,21 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 ### <a name="define-data-factory"></a>Определение фабрики данных
 Фабрику данных следует определить в шаблоне Resource Manager, как показано в следующем примере.  
 
-    "resources": [
-    {
-        "name": "[variables('dataFactoryName')]",
-        "apiVersion": "2015-10-01",
-        "type": "Microsoft.DataFactory/datafactories",
-        "location": "West US"
-    }
+```json
+"resources": [
+{
+    "name": "[variables('dataFactoryName')]",
+    "apiVersion": "2015-10-01",
+    "type": "Microsoft.DataFactory/datafactories",
+    "location": "West US"
+}
+```
 
 Параметр dataFactoryName определяется следующим образом: 
 
-    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+```json
+"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+```
 
 Это уникальная строка благодаря идентификатору группы ресурсов.  
 
@@ -361,185 +382,199 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 #### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
 В этом разделе вы укажете имя и ключ вашей учетной записи хранения Azure. Дополнительные сведения о свойствах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
-    {
-        "type": "linkedservices",
-        "name": "[variables('azureStorageLinkedServiceName')]",
-        "dependsOn": [
-            "[variables('dataFactoryName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-            "type": "AzureStorage",
-            "description": "Azure Storage linked service",
-            "typeProperties": {
-                "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-            }
+```json
+{
+    "type": "linkedservices",
+    "name": "[variables('azureStorageLinkedServiceName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "AzureStorage",
+        "description": "Azure Storage linked service",
+        "typeProperties": {
+            "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
         }
     }
+}
+```
 
 Для connectionString используются параметры storageAccountName и storageAccountKey. Значения для этих параметров передаются с помощью файла конфигурации. В этом определении также используются переменные azureStroageLinkedService и dataFactoryName, заданные в шаблоне. 
 
 #### <a name="azure-sql-database-linked-service"></a>Связанная служба базы данных SQL Azure
 В этом разделе вы укажете имя сервера SQL Azure, имя базы данных, имя пользователя и пароль. Дополнительные сведения о свойствах JSON для определения связанной службы SQL Azure см. в разделе [Связанная служба SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
 
-    {
-        "type": "linkedservices",
-        "name": "[variables('azureSqlLinkedServiceName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-              "type": "AzureSqlDatabase",
-              "description": "Azure SQL linked service",
-              "typeProperties": {
-                "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-              }
-        }
+```json
+{
+    "type": "linkedservices",
+    "name": "[variables('azureSqlLinkedServiceName')]",
+    "dependsOn": [
+      "[variables('dataFactoryName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+          "type": "AzureSqlDatabase",
+          "description": "Azure SQL linked service",
+          "typeProperties": {
+            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+          }
     }
+}
+```
 
 Для connectionString используются параметры sqlServerName, databaseName, sqlServerUserName и sqlServerPassword, значения которых передаются с помощью файла конфигурации. В определении также используются переменные azureSqlLinkedServiceName dataFactoryName из шаблона.
 
 #### <a name="azure-blob-dataset"></a>Набор данных большого двоичного объекта Azure
 Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используюся для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
 
-    {
-        "type": "datasets",
-        "name": "[variables('blobInputDatasetName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]",
-          "[variables('azureStorageLinkedServiceName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-            "type": "AzureBlob",
-              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-            "structure": [
-            {
-                  "name": "Column0",
-                  "type": "String"
-            },
-            {
-                  "name": "Column1",
-                  "type": "String"
-            }
-              ],
-              "typeProperties": {
-                "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
-                "fileName": "[parameters('sourceBlobName')]",
-                "format": {
-                      "type": "TextFormat",
-                      "columnDelimiter": ","
-                }
-              },
-              "availability": {
-                "frequency": "Day",
-                "interval": 1
-              },
-              "external": true
+```json
+{
+    "type": "datasets",
+    "name": "[variables('blobInputDatasetName')]",
+    "dependsOn": [
+      "[variables('dataFactoryName')]",
+      "[variables('azureStorageLinkedServiceName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "AzureBlob",
+          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+        "structure": [
+        {
+              "name": "Column0",
+              "type": "String"
+        },
+        {
+              "name": "Column1",
+              "type": "String"
         }
+          ],
+          "typeProperties": {
+            "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
+            "fileName": "[parameters('sourceBlobName')]",
+            "format": {
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
+            }
+          },
+          "availability": {
+            "frequency": "Day",
+            "interval": 1
+          },
+          "external": true
     }
+}
+```
 
 #### <a name="azure-sql-dataset"></a>Набор данных SQL Azure
 В этом разделе нужно указать имя таблицы в базе данных SQL Azure, содержащей скопированные данные из хранилища BLOB-объектов Azure. Подробные сведения о свойствах JSON, которые используются для определения набора данных SQL Azure, см. в разделе [Свойства типа "Набор данных SQL Azure"](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
 
-    {
-        "type": "datasets",
-        "name": "[variables('sqlOutputDatasetName')]",
-        "dependsOn": [
-            "[variables('dataFactoryName')]",
-              "[variables('azureSqlLinkedServiceName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-              "type": "AzureSqlTable",
-              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
-              "structure": [
-            {
-                  "name": "FirstName",
-                  "type": "String"
-            },
-            {
-                  "name": "LastName",
-                  "type": "String"
-            }
-              ],
-              "typeProperties": {
-                "tableName": "[parameters('targetSQLTable')]"
-              },
-              "availability": {
-                "frequency": "Day",
-                "interval": 1
-              }
+```json
+{
+    "type": "datasets",
+    "name": "[variables('sqlOutputDatasetName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+          "[variables('azureSqlLinkedServiceName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+          "type": "AzureSqlTable",
+          "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+          "structure": [
+        {
+              "name": "FirstName",
+              "type": "String"
+        },
+        {
+              "name": "LastName",
+              "type": "String"
         }
+          ],
+          "typeProperties": {
+            "tableName": "[parameters('targetSQLTable')]"
+          },
+          "availability": {
+            "frequency": "Day",
+            "interval": 1
+          }
     }
+}
+```
 
 #### <a name="data-pipeline"></a>Конвейер данных
 Здесь вы определите конвейер, копирующий данные из набора данных большого двоичного объекта Azure в набор данных SQL Azure. В разделе [Конвейер JSON](data-factory-create-pipelines.md#pipeline-json) описаны элементы JSON, используемые для определения конвейера в этом примере. 
 
-    {
-        "type": "datapipelines",
-        "name": "[variables('pipelineName')]",
-        "dependsOn": [
-            "[variables('dataFactoryName')]",
-              "[variables('azureStorageLinkedServiceName')]",
-              "[variables('azureSqlLinkedServiceName')]",
-              "[variables('blobInputDatasetName')]",
-              "[variables('sqlOutputDatasetName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-              "activities": [
+```json
+{
+    "type": "datapipelines",
+    "name": "[variables('pipelineName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]",
+          "[variables('azureSqlLinkedServiceName')]",
+          "[variables('blobInputDatasetName')]",
+          "[variables('sqlOutputDatasetName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+          "activities": [
+        {
+              "name": "CopyFromAzureBlobToAzureSQL",
+              "description": "Copy data frm Azure blob to Azure SQL",
+              "type": "Copy",
+              "inputs": [
             {
-                  "name": "CopyFromAzureBlobToAzureSQL",
-                  "description": "Copy data frm Azure blob to Azure SQL",
-                  "type": "Copy",
-                  "inputs": [
-                {
-                      "name": "[variables('blobInputDatasetName')]"
-                }
-                  ],
-                  "outputs": [
-                {
-                      "name": "[variables('sqlOutputDatasetName')]"
-                }
-                  ],
-                  "typeProperties": {
-                    "source": {
-                          "type": "BlobSource"
-                    },
-                    "sink": {
-                          "type": "SqlSink",
-                          "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
-                    },
-                    "translator": {
-                          "type": "TabularTranslator",
-                          "columnMappings": "Column0:FirstName,Column1:LastName"
-                    }
-                  },
-                  "Policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 3,
-                    "timeout": "01:00:00"
-                  }
+                  "name": "[variables('blobInputDatasetName')]"
             }
               ],
-              "start": "2016-10-02T00:00:00Z",
-              "end": "2016-10-03T00:00:00Z"
+              "outputs": [
+            {
+                  "name": "[variables('sqlOutputDatasetName')]"
+            }
+              ],
+              "typeProperties": {
+                "source": {
+                      "type": "BlobSource"
+                },
+                "sink": {
+                      "type": "SqlSink",
+                      "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+                },
+                "translator": {
+                      "type": "TabularTranslator",
+                      "columnMappings": "Column0:FirstName,Column1:LastName"
+                }
+              },
+              "Policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 3,
+                "timeout": "01:00:00"
+              }
         }
+          ],
+          "start": "2016-10-02T00:00:00Z",
+          "end": "2016-10-03T00:00:00Z"
     }
+}
+```
 
 ## <a name="reuse-the-template"></a>Повторное использование шаблона
 В этом руководстве описывается создание шаблона для определения сущностей фабрики данных, а также шаблона, передающего значения для параметров. Конвейер копирует данные из учетной записи хранения Azure в базу данных SQL Azure, указанную с помощью параметров. Чтобы использовать один шаблон для развертывания сущностей фабрики данных в разных средах, нужно создать файл параметров для каждой среды и использовать его при развертывании в определенной среде.     
 
 Пример:  
 
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
-
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
-
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
+```PowerShell
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
+```
+```PowerShell
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
+```
+```PowerShell
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
+```
 
 Обратите внимание, что первая команда использует файл параметров для среды разработки, вторая — для среды тестирования, а третья — для рабочей среды.  
 
@@ -548,6 +583,6 @@ ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,54 +1,66 @@
 ---
-title: Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage | Microsoft Docs
-description: База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, sqlpackage
+title: "Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage | Документация Майкрософт"
+description: "База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, sqlpackage"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 7b9541c5-5590-4c70-ad36-73007389f6dc
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
+ms.openlocfilehash: 47c4c2e78432746a0a03f98692ddcd4602637212
+
 
 ---
-# Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage
+# <a name="export-a-sql-server-database-to-a-bacpac-file-using-sqlpackage"></a>Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage
 > [!div class="op_single_selector"]
+> * [Портал Azure](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-> 
+> * [PowerShell](sql-database-export-powershell.md)
 > 
 
-В этой статье показано, как экспортировать базу данных SQL Server в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл, используя программу командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Эта служебная программа поставляется вместе с последним версиями [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) и [SQL Server Data Tools для Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Кроме того, вы можете скачать последнюю версию [SqlPackage](https://www.microsoft.com/ru-RU/download/details.aspx?id=53876) непосредственно из Центра загрузки Майкрософт.
+В этой статье показано, как экспортировать базу данных SQL Server в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл, используя программу командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Эта служебная программа поставляется вместе с последними версиями [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) и [SQL Server Data Tools для Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Кроме того, вы можете скачать последнюю версию [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) непосредственно из Центра загрузки Майкрософт.
 
 1. Откройте окно командной строки и измените каталог, содержащий служебную программу командной строки sqlpackage.exe. Эта служебная программа поставляется в комплекте с Visual Studio и SQL Server. С помощью функции поиска на компьютере найдите путь к своей среде.
 2. Выполните следующую команду sqlpackage.exe со следующими аргументами для вашей среды:
    
-    'sqlpackage.exe /Action:Export /ssn:<имя\_сервера> /sdn:<имя\_БД> /tf:<целевой\_файл>
+```    sqlpackage.exe /Action:Export /ssn:<имя_сервера> /sdn:<имя_БД> /tf:<целевой_файл>
+```
    
-   | Аргумент | Описание |
+   | Argument | Description |
    | --- | --- |
-   | <имя\_сервера> |имя исходного сервера |
-   | <имя\_БД> |имя исходной базы данных |
-   | <целевой\_файл> |имя файла и расположение для файла BACPAC |
+   | < server_name > |source server name |
+   | < database_name > |source database name |
+   | < target_file > |file name and location for BACPAC file |
    
-    ![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
+   ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Дальнейшие действия
-* [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-* [Импорт BACPAC-файла в базу данных SQL Azure с помощью SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-* [Импорт BACPAC-файла в базу данных SQL Azure с помощью SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-* [Импорт BACPAC-файла в базу данных SQL Azure с помощью портала Azure](sql-database-import.md)
-* [Импорт BACPAC-файла в базу данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md)
+## Next steps
+* [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+* [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+* [Import a BACPAC to Azure SQL Database using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+* [Import a BACPAC to Azure SQL Database SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+* [Import a BACPAC to Azure SQL Database Azure portal](sql-database-import.md)
+* [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
 
-## Дополнительные ресурсы
-* [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-* [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
-* [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
+## Additional resources
+* [SQL Database features](sql-database-features.md)
+* [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+* [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

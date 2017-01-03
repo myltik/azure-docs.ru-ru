@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
+ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
+ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 
 
 ---
@@ -66,7 +66,7 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
     ![Обозреватель решений](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Создание связанных служб
-Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md##supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
+Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. См. список [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md#supported-data-stores-and-formats) для всех источников и приемников, которые поддерживаются действием копирования. См. список [связанных служб вычислений](data-factory-compute-linked-services.md), поддерживаемых фабрикой данных. В этом руководстве не рассматривается использование служб вычислений. 
 
 На этом шаге создаются две связанные службы: **AzureStorageLinkedService1** и **AzureSqlLinkedService1**. Связанная служба AzureStorageLinkedService1 связывает учетную запись хранения Azure, а служба AzureSqlLinkedService связывает базу данных SQL Azure с фабрикой данных **ADFTutorialDataFactory**. 
 
@@ -104,37 +104,38 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. Щелкните правой кнопкой мыши **Таблицы** в **обозревателе решений**, выберите **Добавить** и щелкните **Новый элемент**.
 2. В диалоговом окне **Добавление нового элемента** выберите **BLOB-объект Azure** и нажмите кнопку **Добавить**.   
 3. Замените текст JSON приведенным далее текстом и сохраните файл **AzureBlobLocation1.json** . 
-   
-       {
-         "name": "InputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureBlob",
-           "linkedServiceName": "AzureStorageLinkedService1",
-           "typeProperties": {
-             "folderPath": "adftutorial/",
-             "format": {
-               "type": "TextFormat",
-               "columnDelimiter": ","
-             }
-           },
-           "external": true,
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
-         }
-       }
-   
+
+  ```json   
+  {
+    "name": "InputDataset",
+    "properties": {
+      "structure": [
+        {
+          "name": "FirstName",
+          "type": "String"
+        },
+        {
+          "name": "LastName",
+          "type": "String"
+        }
+      ],
+      "type": "AzureBlob",
+      "linkedServiceName": "AzureStorageLinkedService1",
+      "typeProperties": {
+        "folderPath": "adftutorial/",
+        "format": {
+          "type": "TextFormat",
+          "columnDelimiter": ","
+        }
+      },
+      "external": true,
+      "availability": {
+        "frequency": "Hour",
+        "interval": 1
+      }
+    }
+  }
+  ``` 
     Обратите внимание на следующие моменты. 
    
    * Для параметра **type** набора данных задано значение **AzureBlob**.
@@ -149,16 +150,18 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
    Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.&lt;Guid\&gt;.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез создается для метки времени 2016-09-20T08:00:00, свойству folderName присваивается значение wikidatagateway/wikisampledataout/2016/09/20, а свойству fileName — значение 08.csv. 
-   
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-
+  
+    ```json   
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ```
+            
 > [!NOTE]
 > Дополнительные сведения о свойствах файлов JSON см. в статье [Перемещение данных в большой двоичный объект Azure и из него с помощью фабрики данных Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 > 
@@ -170,31 +173,33 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. Снова щелкните правой кнопкой мыши **Таблицы** в **обозревателе решений**, выберите **Добавить** и щелкните **Новый элемент**.
 2. В диалоговом окне **Добавление нового элемента** выберите **SQL Azure ** и нажмите кнопку **Добавить**. 
 3. Замените текст JSON приведенным далее кодом JSON и сохраните файл **AzureSqlTableLocation1.json** .
-   
-       {
-         "name": "OutputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureSqlTable",
-           "linkedServiceName": "AzureSqlLinkedService1",
-           "typeProperties": {
-             "tableName": "emp"
-           },
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
+
+    ```json
+    {
+     "name": "OutputDataset",
+     "properties": {
+       "structure": [
+         {
+           "name": "FirstName",
+           "type": "String"
+         },
+         {
+           "name": "LastName",
+           "type": "String"
          }
+       ],
+       "type": "AzureSqlTable",
+       "linkedServiceName": "AzureSqlLinkedService1",
+       "typeProperties": {
+         "tableName": "emp"
+       },
+       "availability": {
+         "frequency": "Hour",
+         "interval": 1
        }
+     }
+    }
+    ```
    
     Обратите внимание на следующие моменты. 
    
@@ -215,50 +220,51 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. Щелкните правой кнопкой мыши **Конвейеры** в **обозревателе решений**, выберите **Добавить** и щелкните **Новый элемент**.  
 2. В диалоговом окне **Добавление нового элемента** выберите **Конвейер копирования данных** и нажмите кнопку **Добавить**. 
 3. Замените JSON приведенным далее кодом JSON и сохраните файл **CopyActivity1.json** .
-   
-       {
-         "name": "ADFTutorialPipeline",
-         "properties": {
-           "description": "Copy data from a blob to Azure SQL table",
-           "activities": [
+
+    ```json   
+    {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
              {
-               "name": "CopyFromBlobToSQL",
-               "type": "Copy",
-               "inputs": [
-                 {
-                   "name": "InputDataset"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "OutputDataset"
-                 }
-               ],
-               "typeProperties": {
-                 "source": {
-                   "type": "BlobSource"
-                 },
-                 "sink": {
-                   "type": "SqlSink",
-                   "writeBatchSize": 10000,
-                   "writeBatchTimeout": "60:00:00"
-                 }
-               },
-               "Policy": {
-                 "concurrency": 1,
-                 "executionPriorityOrder": "NewestFirst",
-                 "style": "StartOfInterval",
-                 "retry": 0,
-                 "timeout": "01:00:00"
-               }
+               "name": "InputDataset"
              }
            ],
-           "start": "2015-07-12T00:00:00Z",
-           "end": "2015-07-13T00:00:00Z",
-           "isPaused": false
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
+           },
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
+           }
          }
-       }
-   
+       ],
+       "start": "2015-07-12T00:00:00Z",
+       "end": "2015-07-13T00:00:00Z",
+       "isPaused": false
+     }
+    }
+    ```   
    Обратите внимание на следующие моменты.
    
    * В разделе действий доступно только одно действие, параметр **type** которого имеет значение **Copy**.
@@ -307,18 +313,24 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 6. Просмотрите сводку и нажмите кнопку **Далее** для запуска процесса развертывания и просмотра **состояния развертывания**.
    
    ![Страница "Сводка публикации"](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-7. На странице **Состояние развертывания** вы увидите состояние процесса развертывания. После завершения развертывания нажмите кнопку "Готово". 
-   ![Страница "Состояние развертывания"](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) Обратите внимание на следующие моменты. 
+7. На странице **Состояние развертывания** вы увидите состояние процесса развертывания. После завершения развертывания нажмите кнопку "Готово".
+ 
+   ![Страница "Состояние развертывания"](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
+
+Обратите внимание на следующие моменты. 
 
 * Если появится сообщение об ошибке**Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации. 
   
   * В Azure PowerShell выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure: 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    Чтобы убедиться, что поставщик фабрики данных зарегистрирован, выполните следующую команду: 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      Чтобы убедиться, что поставщик фабрики данных зарегистрирован, выполните следующую команду: 
-    
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Войдите на [портал Azure](https://portal.azure.com) с использованием подписки Azure и откройте колонку фабрики данных или создайте на портале фабрику данных. Поставщик будет зарегистрирован автоматически.
 * В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 
@@ -340,9 +352,11 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 ## <a name="use-server-explorer-to-view-data-factories"></a>Использование обозревателя серверов для просмотра фабрик данных
 1. В **Visual Studio** щелкните **Вид** в меню и выберите **Обозреватель серверов**.
 2. В окне обозревателя серверов разверните элементы **Azure** и **Фабрика данных**. Когда отобразится окно **Выполните вход в Visual Studio**, введите данные **учетной записи**, связанной с вашей подпиской Azure, и нажмите кнопку **Продолжить**. Введите **пароль** и нажмите кнопку **Войти**. Visual Studio пытается получить сведения обо всех фабриках данных Azure в подписке. В окне **Data Factory Task List** (Список задач фабрики данных) будет отображено состояние операции.
+
     ![Обозреватель серверов](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. Чтобы создать проект Visual Studio на основе существующей фабрики данных, щелкните фабрику данных правой кнопкой мыши и выберите пункт «Экспорт фабрики данных в новый проект».
-    ![Экспорт фабрики данных в проект VS](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+
+    ![Экспорт фабрики данных для проекта VS](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Обновление средств фабрик данных для Visual Studio
 Чтобы обновить средства фабрики данных Azure для Visual Studio, сделайте следующее:
@@ -365,6 +379,6 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

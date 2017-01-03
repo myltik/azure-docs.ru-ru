@@ -1,20 +1,24 @@
 ---
-title: Копирование данных из хранилища BLOB-объектов в базу данных SQL | Microsoft Docs
-description: В этом учебнике рассказывается, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из хранилища BLOB-объектов в базу данных SQL.
-keywords: BLOB-объект, SQL, хранилище BLOB-объектов, копирование данных
+title: "Копирование данных из хранилища BLOB-объектов в базу данных SQL | Документация Майкрософт"
+description: "В этом учебнике рассказывается, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из хранилища BLOB-объектов в базу данных SQL."
+keywords: "BLOB-объект, SQL, хранилище BLOB-объектов, копирование данных"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 0c5ee903840ee10bf296038e10da11662a9e0fbb
+ms.openlocfilehash: 98a93b683da1bfdc28be1f6e21174f814dd65220
+
 
 ---
 # <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных
@@ -27,8 +31,8 @@ ms.author: spelluru
 > * [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
+>
+>
 
 В этом учебнике вы создадите фабрику данных с конвейером, чтобы скопировать данные из хранилища BLOB-объектов в базу данных SQL.
 
@@ -36,8 +40,8 @@ ms.author: spelluru
 
 > [!NOTE]
 > Подробный обзор службы фабрики данных см. в статье [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](data-factory-introduction.md).
-> 
-> 
+>
+>
 
 ## <a name="prerequisites-for-the-tutorial"></a>Предварительные требования для прохождения этого учебника
 Перед началом работы с этим учебником необходимо иметь следующее:
@@ -52,17 +56,17 @@ ms.author: spelluru
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. Щелкните **Больше служб** в меню слева и выберите **Учетные записи хранения**.
-   
+
     !["Обзор" — "Учетные записи хранения"](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
 3. В колонке **Учетные записи хранения** выберите **учетную запись хранения Azure**, которая будет использоваться в ходе изучения этого учебника.
 4. В разделе **Параметры** выберите ссылку **Ключи доступа**.
 5. Нажмите кнопку **Копировать** (изображение) рядом с текстовым полем **Имя учетной записи хранения**, вставьте скопированный текст, например, в текстовый файл, и сохраните его.
 6. Повторите предыдущий шаг для ключа **key1**.
-   
+
     ![Ключ доступа к хранилищу](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
 7. Закройте все колонки, нажав **X**.
 
-## <a name="collect-sql-server,-database,-user-names"></a>Получение имени сервера SQL, имени базы данных и имени пользователя
+## <a name="collect-sql-server-database-user-names"></a>Получение имени сервера SQL, имени базы данных и имени пользователя
 В ходе изучения этого учебника потребуются имена сервера Azure SQL Server, базы данных и пользователя. Запишите имена **сервера**, **базы данных** и **пользователя** базы данных SQL Azure.
 
 1. На **портале Azure** щелкните **Больше служб** слева и выберите **Базы данных SQL**.
@@ -75,7 +79,7 @@ ms.author: spelluru
 Убедитесь, что параметр **Разрешить доступ к службам Azure** имеет состояние **ВКЛ** для вашего сервера Azure SQL Server, чтобы служба фабрики данных могла иметь доступ к серверу Azure SQL Server. Чтобы проверить и при необходимости включить этот параметр, сделайте следующее.
 
 1. Щелкните **Больше служб** слева и выберите **Серверы SQL**.
-2. Выберите сервер и щелкните **Брандмауэр** в разделе **Параметры**. 
+2. Выберите сервер и щелкните **Брандмауэр** в разделе **Параметры**.
 3. В колонке **Параметры брандмауэра** щелкните **ВКЛ** для параметра **Разрешить доступ к службам Azure**.
 4. Закройте все колонки, нажав **X**.
 
@@ -83,37 +87,45 @@ ms.author: spelluru
 Теперь подготовьте хранилище больших двоичных объектов Azure и базу данных SQL Azure к изучению этого учебника, выполнив следующие действия.  
 
 1. Запустите блокнот, вставьте следующий текст и сохраните файл на жестком диске под именем **emp.txt** в папке **C:\ADFGetStarted**.
-   
-        John, Doe
-        Jane, Doe
+
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 2. При помощи таких инструментов, как [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и передайте файл **emp.txt** в этот контейнер.
-   
+
     ![Обозреватель хранилищ Azure Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    ```
 
-    **Если на вашем компьютере установлен SQL Server 2012/2014** , следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md#Step2) для подключения к серверу Azure SQL Server и запуска скрипта SQL. В этой статье для настройки брандмауэра сервера Azure SQL Server используется [классический портал Azure](http://manage.windowsazure.com), а не [новый портал Azure](https://portal.azure.com).
+    **Если на вашем компьютере установлен SQL Server 2012 или 2014**, выполните инструкции в статье [Управление базой данных SQL Azure с помощью SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md), чтобы подключиться к серверу Azure SQL Server и запустить скрипт SQL. В этой статье для настройки брандмауэра сервера Azure SQL Server используется [классический портал Azure](http://manage.windowsazure.com), а не [новый портал Azure](https://portal.azure.com).
 
     Если клиенту не разрешен доступ к серверу Azure SQL Server, то следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). В [этой статье](../sql-database/sql-database-configure-firewall-settings.md) описано, как настроить брандмауэр для сервера Azure SQL Server.
 
-Необходимые условия выполнены. Для создания фабрики данных можно использовать один из приведенных ниже способов. Щелкните одну из вкладок в верхней части страницы или приведенных ниже ссылок, чтобы приступить к изучению соответствующего учебника.     
+Необходимые условия выполнены. Для создания фабрики данных можно использовать один из приведенных ниже способов. Выберите в раскрывающемся списке в верхней части страницы один из вариантов или щелкните одну из следующих ссылок, чтобы изучить руководство.     
 
+* [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 * [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 
