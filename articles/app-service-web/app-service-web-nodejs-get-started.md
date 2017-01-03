@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с веб-приложениями Node.js в службе приложений Azure"
+title: "Начало работы с веб-приложениями Node.js в службе приложений Azure | Документация Майкрософт"
 description: "Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 07/01/2016
+ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
-ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
+ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
+ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
 
 
 ---
@@ -25,24 +25,35 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 В этом руководстве показано, как создать простое приложение [Node.js] и развернуть его в [службе приложений Azure] из командной строки, например cmd.exe или Bash. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, в которой может работать Node.js.
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
 <a name="prereq"></a>
+
+## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
+
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+- [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](app-service-web-nodejs-get-started.md) —следующее поколение интерфейса командной строки для модели развертывания Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Node.js]
 * [Bower]
 * [Yeoman]
 * [Git.]
-* [Интерфейс командной строки Azure]
+* [Предварительная версия Azure CLI 2.0](/cli/azure/install-az-cli2)
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию] или [активируйте преимущества для подписчиков Visual Studio].
 
-## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Создание и развертывание простого веб-приложения Node.js
+> [!NOTE]
+> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> 
+> 
+
+## <a name="create-and-configure-a-simple-nodejs-app-for-azure"></a>Создание и настройка простого приложения Node.js для Azure
 1. Откройте любой терминал командной строки и установите [генератор Express для Yeоman].
    
         npm install -g generator-express
+
 2. `CD` в рабочий каталог и создайте приложение Еxpress с использованием следующего синтаксиса:
    
         yo express
@@ -56,22 +67,13 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
     `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
     `? Select a database to use:` **None**  
     `? Select a build tool to use:` **Grunt**
+
 3. Перейдите с помощью команды `CD` в корневой каталог нового приложения и запустите его, чтобы проверить его работоспособность в среде разработки.
    
         npm start
    
     В браузере перейдите по адресу <http://localhost:3000>, чтобы проверить доступность домашней страницы Express. Убедившись в работоспособности приложения, остановите его с помощью команды `Ctrl-C` .
-4. Перейдите в режим ASM и войдите в Azure (с помощью [интерфейса командной строки Azure](#prereq)):
-   
-        azure config mode asm
-        azure login
-   
-    Следуйте указаниям, чтобы продолжить вход в браузере с помощью учетной записи Майкрософт в рамках своей подписки Azure.
-5. Убедитесь, что вы по-прежнему находитесь в корневом каталоге приложения, а затем создайте ресурс приложения службы приложений в Azure с уникальным именем приложения при помощи следующей команды. Например: http://{имя_приложения}.azurewebsites.net
-   
-        azure site create --git {appname}
-   
-    Следуйте указаниям, чтобы выбрать регион Azure для развертывания. Если вы еще не настроили учетные данные развертывания Git/FTP для своей подписки Azure, вам также будет предложено создать их.
+
 6. Откройте файл ./config/config.js в корневом каталоге приложения и измените рабочий порт на `process.env.port`. Свойство `production` объекта `config` должно выглядеть, как в следующем примере.
    
         production: {
@@ -82,23 +84,73 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
             port: process.env.port,
         }
    
-    Благодаря этому приложение Node.js сможет отвечать на веб-запросы с использованием порта по умолчанию, который прослушивается iisnode.
+    > [!NOTE] 
+    > По умолчанию служба приложений Azure запускает приложения Node.js с переменными среды `production` (`process.env.NODE_ENV="production"`).
+    > Такая конфигурация позволяет приложению Node.js в Azure отвечать на веб-запросы с использованием порта по умолчанию, который прослушивается iisnode.
+    >
+    >
+
 7. Откройте файл ./package.json и добавьте свойство `engines` , чтобы [указать нужную версию Node.js](#version).
    
         "engines": {
-            "node": "6.6.0"
+            "node": "6.9.1"
         }, 
-8. Сохраните изменения, а затем разверните приложение в Azure с помощью команды git:
+
+8. Сохраните изменения, а затем инициализируйте репозиторий в корневом каталоге приложения и зафиксируйте код:
    
         git add .
         git add -f config
         git commit -m "{your commit message}"
+
+## <a name="deploy-your-nodejs-app-to-azure"></a>Развертывание приложения Node.js в Azure
+
+1. Войдите в Azure (требуется [Azure CLI 2.0 (предварительная версия)](#prereq)):
+   
+        az login
+   
+    Следуйте указаниям, чтобы продолжить вход в браузере с помощью учетной записи Майкрософт в рамках своей подписки Azure.
+
+3. Укажите пользователя развертывания для службы приложений. Вы развернете код позже с помощью этих учетных данных.
+   
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md). В рамках этой версии руководства для PHP вам не обязательно знать, что это такое.
+
+        az group create --location "<location>" --name my-nodejs-app-group
+
+    Чтобы увидеть доступные значения для `<location>`, используйте команду `az appservice list-locations` интерфейса командной строки.
+
+3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный". В рамках этой версии руководства для PHP вам достаточно знать, что этот план не предусматривает выставление счетов за веб-приложения.
+
+        az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
+
+4. Создайте веб-приложение с уникальным именем в `<app_name>`.
+
+        az appservice web create --name <app_name> --resource-group my-nodejs-app-group --plan my-nodejs-appservice-plan
+
+5. Настройте локальное развертывание Git для веб-приложения с помощью следующей команды:
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-nodejs-app-group
+
+    Если вы получите приблизительно следующие выходные данные JSON, это значит, что удаленный репозиторий Git настроен:
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. Добавьте URL-адрес в JSON в качестве удаленного репозитория Git для локального репозитория (для простоты называется `azure`).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
+   
+7. Разверните образец кода в удаленном репозитории Git `azure`. При появлении запроса используйте учетные данные для развертывания, настроенные ранее.
+
         git push azure master
    
     В генератор Express уже входит GITIGNORE-файл, поэтому команда `git push` не будет использовать пропускную способность при попытках отправки данных в каталог node_modules/.
+
 9. Наконец, запустите живое приложение Azure в браузере.
    
-        azure site browse
+        az appservice web browse --name <app_name> --resource-group my-nodejs-app-group
    
     Теперь вы увидите веб-приложение Node.js, запущенное в службе приложений Azure в режиме реального времени.
    
@@ -108,9 +160,9 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 Чтобы обновить веб-приложение Node.js, запущенное в службе приложений, просто запустите `git add`, `git commit` и `git push` так же, как и при первом развертывании веб-приложения.
 
 ## <a name="how-app-service-deploys-your-nodejs-app"></a>Как служба приложений развертывает приложение Node.js
-Для запуска приложений Node.js служба приложений Azure использует [iisnode] . Совместное использование Azure CLI и ядра Kudu (развертывание Git) упрощает разработку и развертывание приложений Node.js из командной строки. 
+Для запуска приложений Node.js служба приложений Azure использует [iisnode] . Совместное использование Azure CLI 2.0 (предварительная версия) и ядра Kudu (развертывание Git) упрощает разработку и развертывание приложений Node.js из командной строки. 
 
-* Команда `azure site create --git` распознает общий шаблон Node.js (server.js или app.js) и создает файл iisnode.yml в корневом каталоге. Этот файл можно использовать для настройки iisnode.
+* Вы можете создать файл iisnode.yml в корневом каталоге и использовать его, чтобы настроить свойства iisnode. Все настраиваемые параметры описаны [здесь](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/iisnode.yml).
 * С помощью команды `git push azure master` Kudu автоматизирует следующие задачи развертывания:
   
   * Если файл package.json находится в корневой папке репозитория, выполните команду `npm install --production`.
@@ -133,7 +185,7 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 Например:
 
     "engines": {
-        "node": "6.6.0"
+        "node": "6.9.1"
     }, 
 
 Подсистема развертывания Kudu определяет, какой модуль Node.js будет использоваться, в следующем порядке:
@@ -141,6 +193,10 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 * Сначала проверьте, указан ли в файле iisnode.yml элемент `nodeProcessCommandLine`. Если элемент указан, используйте его.
 * Затем проверьте, указан ли в файле package.json элемент `"node": "..."` в объекте `engines`. Если элемент указан, используйте его.
 * Выберите версию Node.js по умолчанию.
+
+Обновленный список всех поддерживаемых версий Node.js (NPM) в службе приложений Azure доступен по следующему URL-адресу:
+
+    https://<app_name>.scm.azurewebsites.net/api/diagnostics/runtime
 
 > [!NOTE]
 > Рекомендуется явно определить нужный модуль Node.js. Версия Node.js по умолчанию может измениться, и в веб-приложении могут возникнуть ошибки, так как версия Node.js по умолчанию не подходит для вашего приложения.
@@ -157,7 +213,7 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 > 
 > 
 
-1. Откройте файл iisnode.yml, который предоставляет инфраструктура Azure CLI.
+1. Откройте файл iisnode.yml с помощью Azure CLI 2.0 (предварительная версия).
 2. Укажите следующие параметры: 
    
         loggingEnabled: true
@@ -221,7 +277,6 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 <!-- URL List -->
 
-[Интерфейс командной строки Azure]: ../xplat-cli-install.md
 [службе приложений Azure]: ../app-service/app-service-value-prop-what-is.md
 [активируйте преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
@@ -248,6 +303,6 @@ ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

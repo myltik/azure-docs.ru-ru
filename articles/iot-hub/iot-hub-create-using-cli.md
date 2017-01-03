@@ -1,12 +1,12 @@
 ---
-title: Создание Центра Интернета вещей с помощью интерфейса командной строки | Microsoft Docs
-description: Следуйте указаниям в этой статье, чтобы создать Центр Интернета вещей с помощью интерфейса командной строки Azure.
+title: "Создание Центра Интернета вещей с помощью интерфейса командной строки Azure | Документация Майкрософт"
+description: "Следуйте указаниям в этой статье, чтобы создать центр Интернета вещей с помощью интерфейса командной строки Azure."
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: boltean
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: 637cdc4763cd0caa9f75e25015c0c12e9db629cb
+
 
 ---
-# <a name="create-an-iot-hub-using-cli"></a>Создание Центра Интернета вещей с помощью интерфейса командной строки
+# <a name="create-an-iot-hub-using-azure-cli"></a>Создание центра Интернета вещей с помощью интерфейса командной строки Azure
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
-Интерфейс командной строки Azure можно использовать для создания Центров Интернета вещей Azure программным способом и для управления ими. В этой статье показано, как создать Центр Интернета вещей с помощью интерфейса командной строки Azure.
+Интерфейс командной строки Azure можно использовать для создания центров Интернета вещей Azure и управления ими с помощью программных средств. В этой статье показано, как создать Центр Интернета вещей с помощью интерфейса командной строки Azure.
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Вы можете создать [бесплатную пробную учетную запись Azure][lnk-free-trial] всего за несколько минут.
-* [Интерфейс командной строки Azure версии 0.10.4][lnk-Cli-install] или более поздней. При наличии интерфейса командной строки Azure можно проверить его текущую версию в командной строке, выполнив следующую команду:
+* Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
+* [Интерфейс командной строки Azure 0.10.4][lnk-CLI-install] или более поздней версии. При наличии интерфейса командной строки Azure можно проверить его текущую версию в командной строке, выполнив следующую команду:
   ```
     azure --version
   ```
 
 > [!NOTE]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Интерфейс командной строки Azure нужно переключить в режим Azure Resource Manager:
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). Интерфейс командной строки Azure нужно переключить в режим Azure Resource Manager:
 > 
 > ```
 > azure config mode arm
@@ -46,19 +50,19 @@ ms.author: boltean
     azure login
    ```
    Пройдите аутентификацию, используя предлагаемый браузер и код.
-2. Если у вас есть несколько подписок Azure, при подключении вы получаете доступ ко всем подпискам, связанным с вашими учетными данными. Вы можете просмотреть подписки, а также узнать, какая из них используется по умолчанию, с помощью команды
+2. Если у вас есть несколько подписок Azure, при подключении вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, с помощью команды
    
    ```
     azure account list 
    ```
 
-Чтобы задать контекст подписки, в котором будут выполняться остальные команды, используйте следующую команду:
+   Чтобы задать контекст подписки, в котором будут выполняться остальные команды, используйте следующую команду:
 
-```
+   ```
     azure account set <subscription name>
-```
+   ```
 
-1. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана: 
+3. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана: 
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -68,7 +72,7 @@ ms.author: boltean
 > 
 > 
 
-## <a name="create-and-iot-hub"></a>Создание Центра Интернета вещей
+## <a name="create-an-iot-hub"></a>Создание центра IoT
 Ниже перечислены необходимые параметры:
 
 ```
@@ -93,7 +97,7 @@ ms.author: boltean
 ```
 
 > [!NOTE]
-> Эта команда интерфейса командной строки создает стандартный Центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду: 
+> Эта команда интерфейса командной строки Azure создает стандартный центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду: 
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -109,7 +113,7 @@ ms.author: boltean
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Управление центрами IoT через портал Azure][lnk-portal]
+* [Управление Центра Интернета вещей через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -117,14 +121,13 @@ ms.author: boltean
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: ../xplat-cli-install.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
-[lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
+[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

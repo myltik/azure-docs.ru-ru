@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 Все действия, описанные в этой статье, необходимы для создания виртуальной машины. Их выполнение займет около 30 минут. Заменяйте значения параметров в командах значениями, соответствующими вашей среде.
 
 ## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-a-resource-group"></a>Шаг 2. Создание группы ресурсов
 Все ресурсы должны содержаться в группе ресурсов, поэтому ее нужно создать в первую очередь.  
@@ -159,6 +159,6 @@ ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

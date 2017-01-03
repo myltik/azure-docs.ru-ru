@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Чтобы узнать, как выполнить резервное копирование в облако, см. документацию о службе архивации. Сведения о резервном копировании приложений, сервера Windows Server и виртуальных машин Azure см. в руководствах и видеороликах."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
+ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
+ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
 
 ---
 #<a name="backup-documentation"></a>Документация по службе архивации
 
-Служба архивации Azure — это облачная служба для резервного копирования (защиты) и восстановления данных в Microsoft Cloud.  Служба архивации Azure позволяет заменить существующее локальное или автономное решение для резервного копирования на надежное, безопасное и экономичное облачное решение.  
+Узнайте, как использовать службу архивации Azure в облаке для защиты данных, предназначенных для долгосрочного хранения и восстановления. В руководствах, видеороликах и другой документации описывается создание резервных копий данных, приложений, серверов Windows Server и виртуальных машин Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -103,40 +104,34 @@ ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
 </ul>
 
 ---
-
-## <a name="reference"></a>Справочные материалы
-
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по .NET</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/recoveryservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Справочник по API REST службы архивации</p>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
@@ -148,6 +143,6 @@ ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

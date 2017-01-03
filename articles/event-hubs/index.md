@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать концентраторы событий для приема миллионов событий в секунду от подключенных устройств IoT и приложений на разных платформах."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Документация по концентраторам событий
 
-Концентраторы событий — это высокомасштабируемая служба для работы с данными. Она может принимать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромные объемы сведений, создаваемых подключенными устройствами и приложениями. Концентраторы событий — это аналог парадного входа для событий конвейера. Когда данные поступают в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика средств оперативной аналитики либо адаптера пакетной обработки или хранения.
+Узнайте, как использовать концентраторы событий для сбора миллионов событий в секунду от подключенных устройств IoT и приложений, а также управления ими. Руководства, справочники по API и другая документация, в которой показано, как настроить масштабируемый прием событий для разных платформ.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -86,52 +87,32 @@ ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
 
 ---
 
-## <a name="reference"></a>Справочные материалы
-
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Управляемый справочник по .NET</p>
-                    </div>
+                        <h3>Языки</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>AMQP</h3>
-                        <p>Руководство по использованию протокола AMQP 1.0</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/eventhub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Справочник по API REST концентраторов событий</p>
+                        <p><a href="/rest/api/eventhub">справочник по API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -145,6 +126,6 @@ ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Предварительные требования для доступа к API отчетов Azure AD. | Microsoft Docs
-description: Узнайте о предварительных требованиях для доступа к API отчетов Azure AD
+title: "Предварительные требования для доступа к API отчетов Azure AD. | Документация Майкрософт"
+description: "Узнайте о предварительных требованиях для доступа к API отчетов Azure AD"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Предварительные требования для доступа к API отчетов Azure AD
@@ -111,7 +115,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-application's-client-id"></a>Получение идентификатора клиента приложения
+### <a name="get-the-applications-client-id"></a>Получение идентификатора клиента приложения
 1. На [классическом портале Azure](https://manage.windowsazure.com)в области навигации слева щелкните **Active Directory**.
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -129,7 +133,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
    
     ![Регистрация приложения](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-application's-client-secret"></a>Получение секрета клиента приложения
+### <a name="get-the-applications-client-secret"></a>Получение секрета клиента приложения
 Чтобы получить секретный ключ клиента приложения, необходимо создать ключ и сохранить его значение при сохранении нового ключа, так как это значение невозможно получить позже.
 
 1. На [классическом портале Azure](https://manage.windowsazure.com)в области навигации слева щелкните **Active Directory**.
@@ -161,6 +165,9 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 * Хотите получать доступ к данным из API отчетов Azure AD программным образом? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

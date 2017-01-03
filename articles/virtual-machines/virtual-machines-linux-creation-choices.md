@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 8c7ea2e7131f69bc43f2e82b816efdfbda59e85d
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
 ## <a name="azure-cli"></a>Инфраструктура CLI Azure
 Интерфейс командной строки Azure доступен на разных платформах с использованием пакета npm, пакетов, предоставленных для дистрибутивов, или контейнера Docker. Дополнительные сведения об [установке и настройке интерфейса командной строки Azure](../xplat-cli-install.md). В приведенных ниже руководствах содержатся примеры использования интерфейса командной строки Azure. В каждой из этих статей подробно описана соответствующая команда быстрого запуска интерфейса командной строки.
 
-* [Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки](virtual-machines-linux-quick-create-cli.md)
+* [Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Следующий пример демонстрирует создание виртуальной машины CoreOS при помощи открытого ключа с именем `azure_id_rsa.pub`.
     
@@ -35,7 +35,7 @@ ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
-* [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * В следующем примере виртуальная машина создается на основе шаблона, который хранится на сайте GitHub.
     
@@ -43,10 +43,10 @@ ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
     azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
-* [Создание полной среды Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-create-cli-complete.md)
+* [Создание полной среды Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Включает создание балансировщика нагрузки и нескольких виртуальных машин в группе доступности.
-* [Добавление диска к виртуальной машине Linux](virtual-machines-linux-add-disk.md)
+* [Добавление диска к виртуальной машине Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * В следующем примере показано, как добавить диск объемом 5 ГБ к существующей виртуальной машине с именем `TestVM`.
     
@@ -58,8 +58,8 @@ ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
 ## <a name="azure-portal"></a>Портал Azure
 С помощью [портала Azure](https://portal.azure.com) можно быстро создать виртуальную машину, так как установка компонентов в локальной системе не требуется. Для создания виртуальной машины используйте портал Azure:
 
-* [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md) 
-* [Подключение диска данных к виртуальной машине Linux на портале Azure](virtual-machines-linux-attach-disk-portal.md)
+* [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [Подключение диска данных к виртуальной машине Linux на портале Azure](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>Операционная система и варианты образов
 При создании виртуальной машины можно выбрать образ для операционной системы, которую необходимо запустить. Azure и партнеры предлагают множество образов, некоторые из которых содержат предустановленные приложения и средства. Вы также можете передать один из созданных вами образов (см. [следующий раздел](#use-your-own-image)).
@@ -91,7 +91,7 @@ azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuS
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Дополнительные примеры просмотра и использования доступных образов см. в статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-cli-ps-findimage.md).
+Дополнительные примеры просмотра и использования доступных образов см. в статье [Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 С командами `azure vm quick-create` и `azure vm create` также можно использовать псевдонимы для быстрого доступа к самым распространенным дистрибутивам и их последним выпускам. Как правило, использовать псевдоним быстрее, чем указывать издателя, предложение, номер SKU и версию каждый раз при создании виртуальной машины.
 
@@ -108,9 +108,10 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 ### <a name="use-your-own-image"></a>Использование своего образа
 Если вам требуются особые настройки, используйте образ на основе имеющейся виртуальной машины Azure. Для этого *запишите* образ такой виртуальной машины. Вы также можете отправить собственный образ, созданный на локальном диске. Дополнительные сведения о поддерживаемых дистрибутивах и использовании собственных образов см. в следующих статьях.
 
-* [Linux on Azure-Endorsed Distributions (Linux на дистрибутивах, рекомендованных для Azure)](virtual-machines-linux-endorsed-distros.md)
-* [Information for Non-Endorsed Distributions (Информация о нерекомендованных дистрибутивах)](virtual-machines-linux-create-upload-generic.md)
-* [Как записать образ виртуальной машины Linux для его использования в качестве шаблона Resource Manager](virtual-machines-linux-capture-image.md).
+* [Linux on Azure-Endorsed Distributions (Linux на дистрибутивах, рекомендованных для Azure)](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Information for Non-Endorsed Distributions (Информация о нерекомендованных дистрибутивах)](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Передача пользовательского образа диска и создание виртуальной машины Linux на его основе](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Как записать образ виртуальной машины Linux для его использования в качестве шаблона Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
   * Примеры команд для быстрой записи существующей виртуальной машины.
     
@@ -121,13 +122,13 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Создайте виртуальную машину Linux с помощью [портала](virtual-machines-linux-quick-create-portal.md), [интерфейса командной строки](virtual-machines-linux-quick-create-cli.md) или [шаблона Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md).
-* После создания виртуальной машины Linux [добавьте диск данных](virtual-machines-linux-add-disk.md).
-* Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md)
+* Создайте виртуальную машину Linux с помощью [портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [интерфейса командной строки](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [шаблона Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* После создания виртуальной машины Linux [добавьте диск данных](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

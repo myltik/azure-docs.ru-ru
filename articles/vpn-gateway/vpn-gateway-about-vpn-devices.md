@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d85451d84f605f8472da66574cfec3ba212884ea
-ms.openlocfilehash: f7ecd6b2e590122c4794cd0a81754da9398ba320
+ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
+ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 
 
 ---
@@ -153,6 +153,6 @@ ms.openlocfilehash: f7ecd6b2e590122c4794cd0a81754da9398ba320
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Developer guide - quotas and throttling | Microsoft Docs
-description: Azure IoT Hub developer guide - description of quotas that apply to IoT Hub and expected throttling behavior
+title: "Руководство разработчика. Квоты и регулирование | Документация Майкрософт"
+description: "Руководство разработчика центра Интернета вещей Azure — описание квот, применимых к центру Интернета вещей, и ожидаемого поведения регулирования"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,50 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: c0f8c779d7f9552dc05ac3791b74c3d57cb1fe64
+
 
 ---
-# <a name="reference---quotas-and-throttling"></a>Reference - Quotas and throttling
-## <a name="quotas-and-throttling"></a>Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs.
+# <a name="reference---quotas-and-throttling"></a>Справочник: квоты и регулирование
+## <a name="quotas-and-throttling"></a>Квоты и регулирование
+Каждая подписка Azure может использовать не более 10 Центров Интернета вещей и не более 1 центра уровня "Бесплатный".
 
-Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
+Каждый Центр Интернета вещей подготавливается с определенным количеством единиц в определенной единице хранения (SKU). Дополнительные сведения см. на странице [Центр Интернета вещей Azure — Цены][lnk-pricing]. SKU и количество единиц определяют максимальную дневную квоту сообщений, которые вы можете отправить,
 
-The SKU also determines the throttling limits that IoT Hub enforces on all operations.
+а также лимиты регулирования, которые центр IoT применяет по отношению ко всем операциям.
 
-## <a name="operation-throttles"></a>Operation throttles
-Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
+## <a name="operation-throttles"></a>Регулирование операций
+Регулирование операции — это ограничение скорости, выражаемое в виде диапазона (в минутах). Оно нужно для того, чтобы избежать применения не по назначению. Центр IoT пытается избежать ошибок возврата, когда это возможно. Однако если регулирование нарушается слишком долго, он начинает возвращать исключения.
 
-The following is the list of enforced throttles. Values refer to an individual hub.
+Ниже приведен список случаев принудительного регулирования. Значения обозначают тот или иной концентратор.
 
-| Throttle | Per-hub value |
-| --- | --- |
-| Identity registry operations (create, retrieve, list, update, delete) |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
-| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Cloud-to-device sends |5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
-| Cloud-to-device receives |50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations |5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for a storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Регулирование | Центры уровня "Бесплатный" и S1 | Центры уровня S2 | Центры уровня S3 | 
+| -------- | ------- | ------- | ------- |
+| Операции с реестром удостоверений (создание, извлечение, перечисление, обновление и удаление) | 100/мин/единица | 100/мин/единица | 5000 в минуту на единицу |
+| Подключение устройств | Макс. 100 в секунду или 12 в секунду на единицу <br/> Например, для двух единиц S1 это 2\*12 = 24 в секунду, но в вашем случае для всех единиц это значение составляет не менее 100 в секунду. Для девяти единиц S1 мы получим 108/с (9\*12) для всех единиц. | 120 в секунду на единицу | 6000 в секунду на единицу |
+| Передачи с устройства в облако | Макс. 100 в секунду или 12 в секунду на единицу <br/> Например, для двух единиц S1 это 2\*12 = 24 в секунду, но в вашем случае для всех единиц это значение составляет не менее 100 в секунду. Для девяти единиц S1 мы получим 108/с (9\*12) для всех единиц. | 120 в секунду на единицу | 6000 в секунду на единицу |
+| Передачи из облака на устройство | 100/мин/единица | 100/мин/единица | 5000 в минуту на единицу |
+| Получение из облака на устройство <br/> (только если устройство использует HTTP)| 1000/мин/единица | 1000/мин/единица| 50 000 в минуту на единицу |
+| Передача файла | 100 уведомлений об отправке файлов в минуту на единицу | 100 уведомлений об отправке файлов в минуту на единицу | 5000 уведомлений об отправке файлов в минуту на единицу |
+| Прямые методы | 10 в секунду на единицу | 30 в секунду на единицу | 1500 в секунду на единицу | 
+| Операции чтения двойников | 10 в секунду | Максимум 10 в секунду или 1 в секунду на единицу | 50 в секунду на единицу |
+| Операции обновления двойников | 10 в секунду | Максимум 10 в секунду или 1 в секунду на единицу | 50 в секунду на единицу |
+| Операции заданий <br/> (создание, обновление, перечисление и удаление) | 100/мин/единица | 100/мин/единица | 5000 в минуту на единицу |
+| Пропускная способность для операций заданий на уровне отдельного устройства | 10 в секунду | Максимум 10 в секунду или 1 в секунду на единицу | 50 в секунду на единицу |
 
-It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the hub.
+Важно уточнить, что регулирование *подключений устройств* управляет скоростью, с которой могут устанавливаться новые подключения устройств к центру IoT, но не максимальным числом одновременно подключенных устройств. Регулирование зависит от числа единиц, подготовленных для Центра Интернета вещей.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. This means that to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
+Например, если вы приобретаете одну единицу S1, то получаете регулирование 100 соединений в секунду. Это означает, что для подключения 100 000 устройств потребуется по меньшей мере 1000 секунд (около 16 минут). Однако вы можете иметь столько одновременно подключенных устройств, сколько устройств зарегистрировано в вашем реестре удостоверений.
 
-For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
+В записи блога, посвященной [регулированию в Центре Интернета вещей][lnk-throttle-blog], приводится подробное описание стратегии регулирования в Центре Интернета вещей.
 
 > [!NOTE]
-> At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
+> В любой момент времени можно увеличить квоты или лимиты регулирования, увеличив количество подготовленных единиц в центре IoT.
 > 
 > [!IMPORTANT]
-> Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
+> Операции с реестром удостоверений следует использовать только для управления устройствами и в сценариях подготовки. Чтение или обновление большого количества удостоверений устройств поддерживается с помощью [заданий импорта и экспорта][lnk-importexport].
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-Other reference topics in this IoT Hub developer guide include:
+## <a name="other-limits"></a>Другие ограничения
 
-* [IoT Hub endpoints][lnk-devguide-endpoints]
-* [Query language for twins, methods, and jobs][lnk-devguide-query]
-* [IoT Hub MQTT support][lnk-devguide-mqtt]
+Центр Интернета вещей применяет по отношению к различным своим функциональным возможностям другие ограничения.
+
+| Операция | Ограничение |
+| --------- | ----- |
+| Коды URI передачи файлов | Допускается одновременная выдача 10 000 универсальных кодов ресурса (URI) SAS для учетной записи хранения. <br/>  Допускается одновременная выдача до 10 универсальных кодов ресурса (URI) SAS на устройство. |
+| Задания | Журнал заданий хранится до 30 дней <br/> Максимальное количество одновременных заданий: 1 (для уровней "Бесплатный" и S1), 5 (для S2), 10 (для S3). |
+
+## <a name="next-steps"></a>Дальнейшие действия
+Другие справочные статьи в руководстве для разработчиков Центра Интернета вещей:
+
+* [IoT Hub endpoints][lnk-devguide-endpoints] (Конечные точки Центра Интернета вещей)
+* [Справочник по языку запросов для двойников и заданий][lnk-devguide-query]
+* [Поддержка MQTT в центре IoT][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
@@ -68,6 +86,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

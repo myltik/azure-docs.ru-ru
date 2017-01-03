@@ -4,10 +4,10 @@
 
 | **Ресурс** | **Ограничение по умолчанию** | **Примечание.**
 | --- | --- | --- |
-| Общий объем данных в день | 100 ГБ | Можно уменьшить, задав ограничение.
+| Общий объем данных в день | 100 ГБ | Можно уменьшить, задав ограничение. Если вам необходимо больше, отправьте письмо по адресу AIDataCap@microsoft.com 
 | Бесплатный объем данных (в месяц)<br/> (ценовой план "Базовый") | 1 GB | Дополнительный объем оплачивается погигабайтно.
 | Хранение данных | 90 дней | Для [поиска](../articles/application-insights/app-insights-diagnostic-search.md), [аналитики](../articles/application-insights/app-insights-analytics.md) и [обозревателя метрик](../articles/application-insights/app-insights-metrics-explorer.md).
-| Хранение подробных результатов [многошагового теста доступности](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 30 дней | Подробные результаты каждого шага.
+| Хранение подробных результатов [многошагового теста доступности](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 дней | Подробные результаты каждого шага.
 | Количество имен [свойств](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) и [метрик](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
 | Длина имен свойств и метрик | 150 |
 | Длина строки значения свойства | 8192 |
@@ -23,6 +23,6 @@
 
 [Цены и квоты для Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

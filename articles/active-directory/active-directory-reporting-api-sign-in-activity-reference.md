@@ -1,12 +1,12 @@
 ---
-title: Справочник по API отчета о действиях при входе Azure Active Directory | Microsoft Docs
-description: Справочник по API отчета о действиях при входе Azure Active Directory
+title: "Справочник по API отчета о событии входа в Azure Active Directory | Документация Майкрософт"
+description: "Справочник по API отчета о действиях при входе Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Справочник по API отчета о действиях при входе Azure Active Directory
@@ -28,7 +32,7 @@ ms.author: dhanyahk;markvi
 
 Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, обратитесь в [службу поддержки по инструментам создания отчетов AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-api-data?"></a>Кто может получить доступ к данным API?
+## <a name="who-can-access-the-api-data"></a>Кто может получить доступ к данным API?
 * Пользователи с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
 * Любое приложение с разрешением на доступ к API (авторизацию приложения можно настроить только на основе разрешения глобального администратора)
@@ -94,7 +98,7 @@ ms.author: dhanyahk;markvi
 
 Использование определенной даты
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -177,6 +181,9 @@ ms.author: dhanyahk;markvi
 * Хотите увидеть примеры отфильтрованных действий при входе? Просмотрите [примеры для API отчета о действиях при входе Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

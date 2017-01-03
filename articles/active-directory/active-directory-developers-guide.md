@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -58,10 +58,12 @@ Azure Active Directory (AD) — это платформа для управле�
 
 * [Получение клиента Azure AD](active-directory-howto-tenant.md)
 * [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
+* [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/) (Проверка подлинности приложения службы или управляющей программы с помощью сертификата)
 * Включение единого входа для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md)
 * [How to get AppSource Certified for Azure Active Directory (AD)](active-directory-devhowto-appsource-certified.md)
 * [Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md)
 * [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Register your application with your Azure Active Directory tenant](active-directory-app-registration.md) (Регистрация приложения в Azure Active Directory с помощью портала Azure)
 * [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 * [Изучите рекомендации по фирменной символике для кнопок входа и приобретения приложения в клиентском приложении](active-directory-branding-guidelines.md)
 * [Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении](active-directory-appmodel-v2-overview.md)
@@ -121,7 +123,6 @@ Azure Active Directory (AD) — это платформа для управле�
 
 * [Сценарии AD FS для разработчиков](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): обзор компонентов и функций служб федерации Active Directory, а также подробные сведения о поддерживаемых сценариях проверки подлинности и авторизации.
 * [Руководства по использованию AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): список руководств с пошаговыми инструкциями по реализации связанных последовательностей проверки подлинности и авторизации.
-
 
 
 

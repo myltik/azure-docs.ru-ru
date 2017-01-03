@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 На этом шаге создается бесплатная пробная версия продукта, которая не требует утверждения подписки.
 
 > [!NOTE]
-> Если вы уже настроили продукт и хотите использовать его в этом руководстве, можно сразу перейти к разделу [Настройка политик ограничения скорости вызова и политик квот][Настройка политик ограничения скорости вызова и политик квот] и выполнить указания руководства с этого места, используя вместо бесплатной пробной версии продукта свой продукт.
+> Если вы уже настроили продукт и хотите использовать его в этом руководстве, можно сразу перейти к разделу [Настройка ограничений скорости вызова и политик квот][Configure call rate limit and quota policies] и выполнить указания руководства с этого места, используя вместо бесплатной пробной версии продукта свой продукт.
 > 
 > 
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 
 ![Портал издателя][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в руководстве [Начало работы со службой управления Azure API][Начало работы со службой управления Azure API].
+> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -67,7 +67,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 
 По умолчанию новые продукты могут видеть пользователи группы **Администраторы** . Мы добавим группу **Разработчики** . Щелкните **Бесплатная пробная версия** и выберите вкладку **Видимость**.
 
-> В службе управления API группы используются для управления видимостью продуктов для разработчиков. Продукты предоставляют видимость группам, и разработчики могут просматривать и подписываться на продукты, видимые для групп, к которым они принадлежат. Дополнительные сведения см. в статье [Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API][Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API].
+> В службе управления API группы используются для управления видимостью продуктов для разработчиков. Продукты предоставляют видимость группам, и разработчики могут просматривать и подписываться на продукты, видимые для групп, к которым они принадлежат. Дополнительные сведения см. в статье [Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 ## <a name="add-api"> </a>Добавление API к продукту
 На этом шаге руководства Echo API добавится для нового продукта Free Trial.
 
-> Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в статье [Начало работы со службой управления Azure API][Начало работы со службой управления Azure API].
+> Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в статье [Начало работы со службой управления Azure API][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 
 Поместив курсор в элемент политики **inbound**, щелкните стрелку рядом с политикой **Limit call rate per subscription** (Ограничение скорости вызова по подписке), чтобы вставить шаблон политики.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Ограничение скорости вызова по подписке** можно использовать на уровне продукта, а также на уровне API и на уровне имени отдельной операции. В этом руководстве используются только политики уровня продукта, поэтому удалите элементы **api** и **operation** из элемента **rate-limit**, чтобы остался только внешний элемент **rate-limit**, как показано в следующем примере.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 В бесплатной версии продукта "Бесплатная пробная версия" максимальная разрешенная скорость вызова — 10 вызовов в минуту, поэтому введите **10** в качестве значения атрибута **calls** и **60** в качестве значения атрибута **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Чтобы настроить политику **Set usage quota per subscription** (Установка квоты использования по подписке), поместите курсор под только что добавленным элементом **rate-limit** в элементе **inbound** и щелкните стрелку слева от политики **Set usage quota per subscription** (Установка квоты использования по подписке).
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Так как эта политика также предназначена для уровня продукта, удалите элементы **api** и **operation**, как показано в следующем примере.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Квоты могут основываться на количестве вызовов за интервал, пропускной способности или обоих факторах. В этом руководстве нет регулировки по пропускной способности, поэтому удалите атрибут **bandwidth** .
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 Для продукта Free Trial квота составит 200 вызовов в неделю. Укажите **200** в качестве значения атрибута **calls** и **604800** в качестве значения атрибута **renewal-period**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > Интервалы политики указываются в секундах. Для вычисления интервала в неделю можно умножить число дней (7) на число часов в дне (24), на число минут в часе (60) и на число секунд в минуте (60): 7 * 24 * 60 * 60 = 604 800.
 > 
@@ -158,21 +172,23 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 
 После окончания настройки политика должна соответствовать следующему примеру.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 После настройки желаемой политики нажмите кнопку **Сохранить**.
 
@@ -286,30 +302,30 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Мониторинг и аналитика]: ../api-management-monitoring.md
-[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
-[Публикация продукта]: api-management-howto-add-products.md#publish-product
-[Начало работы со службой управления Azure API]: api-management-get-started.md
-[Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API]: api-management-howto-create-groups.md
-[Просмотр подписчиков продукта]: api-management-howto-add-products.md#view-subscribers
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
-[Дальнейшие действия]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Создание продукта]: #create-product
-[Настройка политик ограничения скорости вызова и политик квот]: #policies
-[Добавление API к продукту]: #add-api
-[Публикация продукта]: #publish-product
-[Подписка учетной записи разработчика на продукт]: #subscribe-account
-[Вызов операции и тестирование ограничения скорости]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Ограничение скорости вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Установка квоты использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

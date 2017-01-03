@@ -3,7 +3,7 @@ title: "Руководство. Приступая к работе с клиен
 description: "Основные понятия пакетной службы Azure и использование пакетной службы в простом сценарии"
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -133,8 +133,8 @@ storage_account_key  = "";
 
 Учетные данные учетных записей пакетной службы и службы хранилища можно найти в колонке учетной записи каждой службы на [портале Azure][azure_portal]:
 
-![Batch credentials in the portal][9]
-![Storage credentials in the portal][10]<br/>
+![Учетные данные пакетной службы на портале][9]
+![Учетные данные службы хранилища на портале][10]<br/>
 
 В следующих разделах мы проанализируем шаги, выполняемые в скриптах для обработки рабочей нагрузки в пакетной службе. Во время работы с оставшейся частью статьи рекомендуем регулярно просматривать сценарии в редакторе.
 
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>Шаг 1. Создание контейнеров службы хранилища
-![Create containers in Azure Storage][1]
+![Создание контейнеров в службе хранилища Azure][1]
 <br/>
 
 Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют файлы, которые нужны для выполнения задач, запускаемых в вашей учетной записи пакетной службы. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала скрипт *python_tutorial_client.py* создает три контейнера в [хранилище BLOB-объектов Azure](../storage/storage-introduction.md#blob-storage):
@@ -181,7 +181,7 @@ if __name__ == '__main__':
 >
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Шаг 2. Отправка сценария задач и файлов данных
-![Upload task application and input (data) files to containers][2]
+![Отправка файлов приложения и входных данных в контейнеры][2]
 <br/>
 
 Во время отправки файлов скрипт *python_tutorial_client.py* сначала определяет коллекции путей к файлам **application** и **input** на локальном компьютере. Затем оно отправляет эти файлы в контейнеры, созданные в рамках предыдущего шага.
@@ -270,7 +270,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 >
 
 ## <a name="step-3-create-batch-pool"></a>Шаг 3. Создание пула пакетной службы
-![Create a Batch pool][3]
+![Создание пула пакетной службы][3]
 <br/>
 
 **Пул** пакетной службы — это коллекция вычислительных узлов (виртуальных машин), на которых пакетная служба выполняет задачи задания.
@@ -708,6 +708,6 @@ Press ENTER to exit...
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

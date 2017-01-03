@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 873335f5d27b6b52afb8519cbe461952a4e2d4fb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 686ff35a972e9489c01fbc6e0e68437428a9f4f4
 
 
 ---
@@ -39,7 +39,7 @@ Azure AD упрощает для разработчика процесс защ�
 
 Чтобы начать работу, [скачайте схему приложения](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) или [скачайте готовый пример](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Каждый из них является решением Visual Studio 2013.  Вам также потребуется клиент Azure AD для регистрации приложения.  Если у вас нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
 
-## <a name="1-register-an-application-with-azure-ad"></a>*1.    Регистрация приложения в Azure AD*
+## <a name="1----register-an-application-with-azure-ad"></a>*1.    Регистрация приложения в Azure AD*
 Для защиты приложения необходимо сначала создать приложение в клиенте и предоставить Azure AD некоторую важную информации.
 
 * Войдите на [Портал управления Azure](https://manage.windowsazure.com)
@@ -119,7 +119,7 @@ public IEnumerable<TodoItem> Get()
   *  `ida:Tenant` — это имя вашего клиента Azure AD, например "contoso.onmicrosoft.com".
   * Ваш `ida:Audience` — это URI идентификатора приложения, введенное на портале Azure.
 
-## <a name="3-configure-a-client-application-run-the-service"></a>*3.    Настройка клиентского приложения и запуск службы*
+## <a name="3----configure-a-client-application--run-the-service"></a>*3.    Настройка клиентского приложения и запуск службы*
 Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров Azure AD и выполнения вызовов службы.
 
 * Перейдите на [Портал управления Azure](https://manage.windowsazure.com)
@@ -143,6 +143,6 @@ public IEnumerable<TodoItem> Get()
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

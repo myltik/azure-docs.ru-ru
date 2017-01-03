@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e998c03f2d8ab56887f614cfce5db67402d36688
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f43e9fcfb8c1cabc9aeffd507eb1f106b7d64cf1
 
 
 ---
@@ -197,7 +197,7 @@ Restify предоставляет мощный механизм для трас
 
 * `npm install mongoose`
 
-## <a name="9-install-additional-modules"></a>9.  Установка дополнительных модулей
+## <a name="9--install-additional-modules"></a>9.  Установка дополнительных модулей
 Далее мы установим остальные необходимые модули.
 
 В окне командной строки перейдите в каталог **azuread** , если вы еще в нем не находитесь:
@@ -916,6 +916,6 @@ Transfer-Encoding: chunked
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -55,12 +55,15 @@
 ### [Отслеживание изменений с помощью веб-канала изменений](documentdb-change-feed.md)
 ### [Тестирование производительности](documentdb-performance-testing.md)
 ### [Советы по улучшению производительности](documentdb-performance-tips.md)
-### DocumentDB для разработчиков MongoDB
-#### [Протокол поддержки для MongoDB](documentdb-protocol-mongodb.md)
-#### [Создание учетной записи](documentdb-create-mongodb-account.md)
-#### [Подключение к учетной записи](documentdb-connect-mongodb-account.md)
-#### [Использование MongoChef](documentdb-mongodb-mongochef.md)
-#### [Примеры поддержки протокола](documentdb-mongodb-samples.md)
+
+## Поддержка DocumentDB для MongoDB
+### [Протокол поддержки для MongoDB](documentdb-protocol-mongodb.md)
+### [Создание учетной записи](documentdb-create-mongodb-account.md)
+### [Подключение к учетной записи](documentdb-connect-mongodb-account.md)
+### [Перенос данных](documentdb-mongodb-migrate.md)
+### [Использование Robomongo](documentdb-mongodb-robomongo.md)
+### [Использование MongoChef](documentdb-mongodb-mongochef.md)
+### [Примеры поддержки протокола](documentdb-mongodb-samples.md)
 
 ## Использование портала
 ### [Создание учетной записи базы данных](documentdb-create-account.md)
@@ -117,6 +120,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
+ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
 
 
 ---
@@ -37,6 +37,7 @@ ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 * Windows 7
 * Windows 8 и Windows 8.1;
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,17 +45,21 @@ ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Установка среды выполнения, пакета SDK и инструментов
-Установщик веб-платформы предлагает две конфигурации для разработки в Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Установка пакета SDK и инструментов
+### <a name="to-use-visual-studio-2017-rc"></a>Для использования версии-кандидата Visual Studio 2017
+Средства Service Fabric являются частью рабочей нагрузки по разработке и управлению в Azure в составе версии-кандидата Visual Studio 2017. Эту рабочую нагрузку необходимо включить при установке Visual Studio.
+Кроме того, необходимо установить пакет SDK Microsoft Azure Service Fabric, используя установщик веб-платформы.
 
-Visual Studio 2017 (требуется установка рабочей нагрузки разработки и управления Azure).
+* [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
-* [Установка среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Для использования Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии)
+Для Visual Studio 2015 средства Service Fabric устанавливаются вместе с пакетом SDK с помощью установщика веб-платформы:
 
-Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии).
+* [Установка пакета SDK и средств Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-* [Установка среды выполнения Service Fabric, пакета SDK и средств][full-bundle-vs2015]
-* [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Только установка пакета SDK
+Если вам требуется только пакет SDK, можно установить этот пакет:
+* [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
 > Во время установки с использованием этих ссылок для запуска или при использовании этих ссылок в браузере Chrome у клиентов возникают ошибки. Это известные проблемы в установщике веб-платформы. Идет работа над их устранением.  В качестве обходного решения воспользуйтесь одной из следующих рекомендаций.
@@ -97,6 +102,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
