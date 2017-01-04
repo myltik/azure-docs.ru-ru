@@ -23,12 +23,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 # <a name="encrypt-an-azure-virtual-machine"></a>Шифрование виртуальной машины Azure
 Если у вас есть незашифрованные виртуальные машины, центр безопасности Azure оповестит вас. Вы получите оповещение высокого уровня серьезности вместе рекомендацией о шифровании таких виртуальных машин.
 
-![Рекомендации по шифрованию дисков](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Рекомендации по шифрованию дисков](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > Сведения в этом документе относятся к предварительной версии Центра безопасности Azure.
-> 
-> 
+>
+>
 
 Для шифрования виртуальных машин Azure, которые определены центром безопасности Azure как требующие шифрования, мы рекомендуем выполнить следующие действия:
 
@@ -43,8 +43,8 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 > [!NOTE]
 > Дополнительные сведения об альтернативных подходах к настройке шифрования для виртуальных машин Azure см. в статье [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) (Шифрование дисков Azure для виртуальных машин Azure под управлением Windows и Linux).
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Установка и настройка Azure PowerShell
 На компьютере необходимо установить Azure PowerShell 1.2.1 или более поздней версии. В статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) описаны все действия, необходимые для подготовки компьютера для работы с Azure PowerShell. Самый простой способ — использовать установщик веб-платформы, который упоминается в этой статье. Даже если у вас уже установлен модуль Azure PowerShell, с помощью установщика веб-платформы выполните повторную установку, чтобы получить последнюю версию Azure PowerShell.
@@ -70,7 +70,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 Теперь вы должны увидеть что-то похожее:
 
-![Окно PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![Окно PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 Верхняя панель называется областью сценариев, а нижняя — консолью. Мы будем использовать эти термины далее в этой статье.
 
@@ -84,8 +84,8 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 > [!NOTE]
 > Если вам интересно, почему нужно создать приложение Azure Active Directory, см. раздел *Регистрация приложения в Azure Active Directory* статьи [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Зашифровать виртуальную машину Azure можно так.
 
@@ -94,12 +94,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 3. Задайте политику выполнения на компьютере, чтобы можно было выполнить скрипт. Введите в консоли **Set-ExecutionPolicy Unrestricted** и нажмите клавишу ВВОД. Если отобразится диалоговое окно, в котором сообщается о последствиях изменения политики выполнения, щелкните **Да для всех** или **Да** (если команда **Да для всех** отображается, выберите ее; в **противном случае** нажмите кнопку **Да**).
 4. Войдите в свою учетную запись Azure. В окне консоли введите **Login-AzureRmAccount** и нажмите клавишу **ВВОД**. Появится диалоговое окно, в котором можно ввести учетные данные. (Убедитесь, что у вас есть права на изменение виртуальных машин, иначе вы не сможете зашифровать виртуальные машины. Вы должны увидеть сведения о **среде**, **учетной записи**, а также **TenantId**, **SubscriptionId** и **CurrentStorageAccount**. Скопируйте значение **SubscriptionId** в Блокнот. Оно понадобится вам на этапе 6.
 5. Выясните, к какой подписке принадлежит ваша виртуальная машина и в каком расположении она находится. Перейдите по адресу [https://portal.azure.com](ttps://portal.azure.com) и выполните вход.  В левой части страницы щелкните **Виртуальные машины**. Отобразится список виртуальных машин и подписок, к которым они принадлежат.
-   
-   ![Виртуальные машины](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Виртуальные машины](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Вернитесь в среду PowerShell ISE. Задайте контекст подписки, в котором будет выполняться скрипт. В окне консоли введите **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (замените **< your_subscription_Id >** на фактический идентификатор подписки) и нажмите клавишу **ВВОД**. Вы должны увидеть сведения о среде, **учетной записи**, а также **TenantId**, **SubscriptionId** и **CurrentStorageAccount**.
 7. Теперь все готово к запуску скрипта. Нажмите кнопку **Выполнить сценарий** или клавишу **F5** на клавиатуре.
-   
-   ![Выполнение скрипта PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![Выполнение скрипта PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. Скрипт запросит значение **resourceGroupName**: введите имя *группы ресурсов*, которую вы хотите использовать, а затем нажмите клавишу **ВВОД**. Если у вас нет такой группы ресурсов, введите имя, которое будет использовано для создания новой группы. Если у вас уже есть *группа ресурсов* , которую вы хотите использовать (например, та, к которой относится ваша виртуальная машина), введите ее имя.
 9. Скрипт запросит значение **keyVaultName:** введите имя *хранилища ключей* , которое вы хотите использовать, а затем нажмите клавишу ВВОД. Если у вас нет такой группы ресурсов, введите имя, которое будет использовано для создания новой группы. Если у вас уже есть *хранилище ключей*, которое следует использовать, введите его имя.
 10. Скрипт запросит значение **location**: введите имя расположения виртуальной машины, которую требуется зашифровать, а затем нажмите клавишу **ВВОД**. Если вы не помните расположение, вернитесь к шагу 5.
@@ -110,7 +110,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 Выходные данные скрипта должны выглядеть примерно как на снимке экрана ниже:
 
-![Вывод PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Шифрование виртуальной машины Azure
 Теперь все готово к шифрованию виртуальной машины. Если виртуальная машина расположена в той же группе ресурсов, что и хранилище ключей, можно перейти к разделу, в котором описаны действия шифрования. Если же виртуальная машина расположена в другой группе ресурсов, в консоли PowerShell ISE введите следующее:
@@ -124,7 +124,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 Нажмите клавишу **ВВОД**. Должно отобразиться имя группы ресурсов, в которой расположены ваши виртуальные машины. Например:
 
-![Вывод PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Шаги шифрования
 Во-первых, в PowerShell необходимо указать имя виртуальной машины, которую вы хотите зашифровать. В окне консоли введите:
@@ -139,7 +139,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 Нажмите клавишу **ВВОД**. Должно отобразиться имя виртуальной машины, которую требуется зашифровать. Например:
 
-![Вывод PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 Есть два способа выполнить команду шифрования виртуальной машины. Первый способ — введите в консоли PowerShell ISE следующую команду:
 
@@ -151,25 +151,25 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 Второй способ — щелкните в области сценариев (в верхней области PowerShell ISE) и прокрутите вниз до конца скрипта. Выделите команду приведенную выше, а затем щелкните ее правой кнопкой мыши и выберите пункт **Выполнить выбранное** или нажмите клавишу **F8** на клавиатуре.
 
-![Интегрированная среда сценариев PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![Интегрированная среда сценариев PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 В любом случае должно появиться диалоговое окно с сообщением о том, что операция будет завершена через 10–15 минут. Щелкните **Да**.
 
 В ходе шифрования можно вернуться на портал Azure и просмотреть состояние виртуальной машины. В левой части страницы щелкните **Виртуальные машины**, затем в колонке **Виртуальные машины** щелкните имя виртуальной машины, для которой выполняется шифрование. В появившейся колонке отобразится ее **состояние** — **Обновление**. которое свидетельствует о выполнении шифрования.
 
-![Дополнительные сведения о виртуальной машине](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![Дополнительные сведения о виртуальной машине](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 Вернитесь в среду PowerShell ISE. Когда скрипт буде выполнен, вы увидите результат, показанный на рисунке ниже.
 
-![Вывод PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![Вывод PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Чтобы убедиться, что виртуальная машина зашифрована, вернитесь на портал Azure и щелкните **Виртуальные машины** в левой части страницы. Щелкните имя зашифрованной виртуальной машины. В колонке **Параметры** щелкните **Диски**.
 
-![Параметры](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Параметры](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 В колонке **Диски** вы увидите состояние **шифрования** — **Включено**.
 
-![Свойства дисков](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Свойства дисков](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого документа вы узнали, как зашифровать виртуальную машину Azure. Дополнительные сведения о Центре безопасности Azure см. в следующих статьях:
@@ -178,7 +178,6 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — сведения об управлении оповещениями системы безопасности и реагировании на них.
 * [Часто задаваемые вопросы о Центре безопасности Azure](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности Azure и соответствию требованиям.
-
 
 
 
