@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!NOTE]
 > Здесь рассматривается использование **классического портала Azure**. Сведения о настройке многофакторной идентификации Azure для пользователей Office 365 см. в статье [Настройка многофакторной идентификации для Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US).
-> 
-> 
 
 ![MFA в облаке](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!NOTE]
 > Лицензии доступны пользователям, у которых есть Azure MFA, Azure AD Premium или Enterprise Mobility Suite (EMS).  MFA входит в состав Azure AD Premium и EMS. Если у вас есть необходимые лицензии, вам не нужно создавать поставщик проверки подлинности.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Включение двухфакторной проверки подлинности для пользователей
 Чтобы включить двухфакторную проверку подлинности для пользователей, измените состояние пользователя с "Отключено" на "Включено".  Дополнительные сведения о состояниях пользователей см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
@@ -75,13 +71,11 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 > [!IMPORTANT]
 > Не рекомендуется менять состояние пользователя непосредственно с "Отключено" на "Принудительно". Приложения, не использующие браузер, перестанут работать, так как пользователь не прошел регистрацию многофакторной идентификации и не получил [пароль приложения](multi-factor-authentication-whats-next.md#app-passwords). Если вы используете приложения, работающие вне браузера, и вам требуются пароли приложения, рекомендуется переключаться с состояния "Отключено" на состояние "Включено". Так пользователи могут пройти регистрацию и получить пароли. После этого вы можете задать для них состояние "Принудительно".
-> 
-> 
 
 Для массового включения пользователей можно использовать PowerShell. В настоящее время на портале Azure невозможно массово включать пользователей и необходимо выбирать каждого пользователя отдельно. Это может быть сложной задачей, если у вас много пользователей. Создав скрипт PowerShell с помощью кода ниже, можно перебрать список пользователей и включить их.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
