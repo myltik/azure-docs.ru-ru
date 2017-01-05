@@ -48,10 +48,12 @@ ms.openlocfilehash: 370b2212be8d5f7a537b8fadbfa05355844dcb96
 
 В следующем примере свойству **sqlReaderQuery** в JSON-файле присваивается значение, возвращаемое функцией **Text.Format**. Кроме того, в этом примере используется системная переменная с именем **WindowStart**, которая отображает время начала для окна запуска действия.
 
-    {
-        "Type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-    }
+```JSON
+{
+    "Type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+}
+```
 
 ### <a name="functions"></a>Функции
 В приведенных ниже таблицах перечислены все функции фабрики данных Azure.
@@ -78,12 +80,15 @@ ms.openlocfilehash: 370b2212be8d5f7a537b8fadbfa05355844dcb96
 | текст |Format(X) |X: String (переменная) |Форматирует текст. |
 
 #### <a name="textformat-example"></a>Пример функции Text.Format
-    "defines": { 
-        "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-        "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-        "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-        "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-    }
+
+```JSON
+"defines": { 
+    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
+    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
+    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
+    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+}
+```
 
 В разделе [Строки настраиваемых форматов даты и времени](https://msdn.microsoft.com/library/8kb3ddd4.aspx) описаны различные варианты форматирования, которые можно использовать (пример: гг и гггг). 
 
