@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования**.
 * Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) . В этом руководстве PowerShell используется для развертывания сущностей фабрики данных. 
-* Сведения о шаблонах Azure Resource Manager см. в [этой статье](../resource-group-authoring-templates.md) (необязательно).
+* Сведения о шаблонах Azure Resource Manager см. в [этой статье](../azure-resource-manager/resource-group-authoring-templates.md) (необязательно).
 
 ## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
 В этом руководстве вы создадите фабрику данных со следующими сущностями.
@@ -583,6 +583,6 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

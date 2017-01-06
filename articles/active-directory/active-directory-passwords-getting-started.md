@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
-ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -236,7 +236,7 @@ ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Включение обратной записи паролей с помощью Windows PowerShell
 1. На **компьютере синхронизации каталогов** откройте новое **окно Windows PowerShell с повышенными привилегиями**.
 2. Если модуль не загружен, введите команду `import-module ADSync` для загрузки командлетов Azure AD Connect в текущий сеанс.
-3. Получите список соединителей Azure AD в системе, выполнив командлет `Get-ADSyncConnector` и сохранив результаты в `$aadConnectorName`, например `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
+3. Получите список соединителей Azure AD в системе, выполнив командлет `Get-ADSyncConnector` и сохранив результаты в `$aadConnectorName`, например `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
 4. Чтобы получить текущее состояние обратной записи для текущего соединителя, выполните следующий командлет: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Включите обратную запись паролей, выполнив командлет `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -393,6 +393,6 @@ ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

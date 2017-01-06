@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Начало работы
-## [Развертывание с помощью шаблона Resource Manager](../resource-group-template-deploy.md)
+## [Развертывание с помощью шаблона Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Практическое руководство
 ## Развертывание
-### [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md)
+### [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Управление
-### [Управление ресурсами с помощью портала предварительной версии](resource-group-portal.md)
+### [Управление ресурсами с помощью портала предварительной версии](../azure-resource-manager/resource-group-portal.md)
 ### [Управление доступом с помощью RBAC](../active-directory/role-based-access-control-configure.md)
-### [Организация ресурсов с помощью тегов](../resource-group-using-tags.md)
+### [Организация ресурсов с помощью тегов](../azure-resource-manager/resource-group-using-tags.md)
 ### [Как масштабировать свои ресурсы](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Создание субъекта-службы Azure](../resource-group-create-service-principal-portal.md)
+### [Создание субъекта-службы Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Монитор
 ### [Мониторинг метрик службы](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Включение мониторинга и диагностики](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Создание оповещений для служб Azure с помощью портала Azure](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Сопутствующие материалы
-## [Функции шаблона Azure Resource Manager](../resource-group-template-functions.md)
+## [Функции шаблона Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Рекомендации по автомасштабированию](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Общие метрики автомасштабирования](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Использование webhook для уведомлений об автомасштабировании](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

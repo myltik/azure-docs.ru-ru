@@ -30,7 +30,7 @@
 ### [Настройка webhook для оповещений о журнале действий](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Архивация журнала действий](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Потоковая передача журнала действий в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
+### [Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md)
 ## Управление журналами диагностики
 ### [Архив](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Потоковая передача в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -40,12 +40,15 @@
 
 
 # Справочные материалы
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Интерфейс командной строки Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [Список поддерживаемых метрик](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# Ресурсы
+## [Примеры для PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Примеры для Azure CLI 2.0 (предварительная версия)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Список поддерживаемых метрик](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Jan17_HO1-->
 
 

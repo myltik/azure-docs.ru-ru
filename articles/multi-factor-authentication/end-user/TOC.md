@@ -1,19 +1,19 @@
 # Обзор
 ## [Что такое двухфакторная проверка подлинности?](multi-factor-authentication-end-user.md)
-## [Как это влияет на меня?](../multi-factor-authentication-end-user-signin.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Как это влияет на меня?](multi-factor-authentication-end-user-signin.md)
 
 # Приступая к работе
-## [Настройка учетной записи](../multi-factor-authentication-end-user-first-time.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Настройка учетной записи](multi-factor-authentication-end-user-first-time.md)
 
 # Практическое руководство
-## [Управление параметрами](../multi-factor-authentication-end-user-manage-settings.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Устранение неполадок](../multi-factor-authentication-end-user-troubleshoot.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Настройка паролей приложений](../multi-factor-authentication-end-user-app-passwords.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Управление параметрами](multi-factor-authentication-end-user-manage-settings.md)
+## [Устранение неполадок](multi-factor-authentication-end-user-troubleshoot.md)
+## [Настройка паролей приложений](multi-factor-authentication-end-user-app-passwords.md)
 ## Использование приложения Microsoft Authenticator
-### [Приступая к работе](../multi-factor-authentication-microsoft-authenticator.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-### [Часто задаваемые вопросы](../multi-factor-authentication-app-faq.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+### [Приступая к работе](microsoft-authenticator-app-how-to.md)
+### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -4,7 +4,7 @@
 # Приступая к работе
 ## [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
-## [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adds.md)
+## [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 
 # Практическое руководство
 ## [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Руководство по проектированию гибридной идентификации](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Ресурсы
-##[Azure AD Connect: вопросы и ответы](active-directory-aadconnect-health-faq.md)
+##[Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
