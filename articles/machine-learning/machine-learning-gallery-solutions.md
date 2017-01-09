@@ -38,14 +38,14 @@ ms.openlocfilehash: d1020d153c283a7c0bcf71c479e6109f354de173
 
  Щелкнув любое решение, вы попадете на страницу с его описанием и дополнительными сведениями. На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденное вами решение.
 
-![Расскажите друзьям о том, что вы нашли](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавляйте свои комментарии](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Добавляйте свои комментарии](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Развертывание
 Если вы хотите использовать найденное решение, нажмите кнопку **Deploy** (Развернуть). Выполните описанные действия, чтобы настроить и развернуть решение в своей рабочей области.
 
-![Развертывание решения из коллекции](media\\machine-learning-gallery-solutions\\deploy-solution.png)
+![Развертывание решения из коллекции](media/machine-learning-gallery-solutions/deploy-solution.png)
 
 **[ПЕРЕЙТЕ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 

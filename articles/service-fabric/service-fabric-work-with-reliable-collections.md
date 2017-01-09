@@ -7,12 +7,12 @@ author: JeffreyRichter
 manager: timlt
 editor: 
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: multiple
+ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 03/28/2016
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
 ms.author: jeffreyr
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -23,14 +23,16 @@ ms.openlocfilehash: 5aa9b594da6b9f386f88c667106c735ed4fd233b
 # <a name="working-with-reliable-collections"></a>Работа с Reliable Collections
 Платформа Service Fabric предлагает модель программирования с отслеживанием состояния, которая доступна разработчикам .NET через API-интерфейсы Reliable Collections. В частности, Service Fabric предоставляет такие классы, как Reliable Dictionaries (далее — надежные словари) и Reliable Queues (далее — надежные очереди). При использовании этих классов состояние секционируется (для масштабируемости), реплицируется (для доступности) и обрабатывается в ходе транзакции в секции (для семантики ACID). Рассмотрим типичное использование объекта надежного словаря, чтобы узнать, какие функции этот объект выполняет.
 
-```
-retry:
+```csharp
+
+///retry:
+
 try {
    // Create a new Transaction object for this partition
    using (ITransaction tx = base.StateManager.CreateTransaction()) {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to  
+      // serialized, redo/undo record is logged & sent to
       // secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
@@ -41,8 +43,8 @@ try {
    // If CommitAsync not called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) { 
-   await Task.Delay(100, cancellationToken); goto retry; 
+catch (TimeoutException) {
+   await Task.Delay(100, cancellationToken); goto retry;
 }
 ```
 
@@ -52,7 +54,7 @@ catch (TimeoutException) {
 
 Для этого нужно написать код, который будет реагировать на исключение TimeoutException, перехватывая его и повторяя всю операцию (как показано в приведенном выше коде). Мой простой код вызывает передачу Task.Delay через каждые 100 миллисекунд. Но на самом деле, возможно, будет лучше использовать экспоненциальную задержку.
 
-После получения блокировки метод AddAsync добавляет ссылки на объект ключа и значения для внутренних временных словарей, связанных с объектом ITransaction. Это делается для обеспечения семантики, которая позволяет владельцу считывать собственные записи. То есть, если после вызова AddAsync вызвать метод TryGetValueAsync (с использованием того же объекта ITransaction), значение будет возвращено, даже если транзакция еще не зафиксирована. Затем метод AddAsync сериализует объекты ключа и значения в массивы байтов, а также добавляет эти массивы байтов в файл журнала на локальном узле. Наконец, метод AddAsync отправляет массивы байтов во все вторичные реплики, чтобы реплики имели ту же информацию о ключе и значении. Хотя информация о ключе и значении записана в файл журнала, эти сведения не считаются частью словаря, пока не будет зафиксирована связанная с ними транзакция. 
+После получения блокировки метод AddAsync добавляет ссылки на объект ключа и значения для внутренних временных словарей, связанных с объектом ITransaction. Это делается для обеспечения семантики, которая позволяет владельцу считывать собственные записи. То есть, если после вызова AddAsync вызвать метод TryGetValueAsync (с использованием того же объекта ITransaction), значение будет возвращено, даже если транзакция еще не зафиксирована. Затем метод AddAsync сериализует объекты ключа и значения в массивы байтов, а также добавляет эти массивы байтов в файл журнала на локальном узле. Наконец, метод AddAsync отправляет массивы байтов во все вторичные реплики, чтобы реплики имели ту же информацию о ключе и значении. Хотя информация о ключе и значении записана в файл журнала, эти сведения не считаются частью словаря, пока не будет зафиксирована связанная с ними транзакция.
 
 В приведенном выше коде вызов метода CommitAsync фиксирует все операции транзакции. В частности, этот вызов добавляет в файл журнала на локальном узле сведения о фиксации, а также отправляет запись о фиксации во все вторичные реплики. После получения ответа от большинства реплик все изменения данных считаются постоянными, и все блокировки, связанные с ключами, которые обрабатывались с помощью объекта ITransaction, отменяются. Теперь другие потоки или транзакции могут обрабатывать те же ключи и их значения.
 
@@ -61,9 +63,9 @@ catch (TimeoutException) {
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Типичные проблемы и способы их решения
 Теперь, когда вы понимаете принцип работы API-интерфейсов Reliable Collections, рассмотрим некоторые распространенные случаи их неправильного использования. Взгляните на этот код.
 
-```
+```csharp
 using (ITransaction tx = StateManager.CreateTransaction()) {
-   // AddAsync serializes the name/user, logs the bytes, 
+   // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
@@ -75,24 +77,27 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-Если вы работаете с обычным словарем .NET, вы можете добавить в словарь ключ и значение, а затем изменить значение свойства (например, LastLogin). Но этот код не будет правильно работать с надежным словарем. Как вы помните, вызов метода AddAsync сериализует объекты ключей и значений в массивы байтов, сохраняет эти массивы в локальный файл, а также отправляет их во вторичные реплики. Если впоследствии изменить свойство, изменится только значение свойства в памяти. Оно не повлияет на локальный файл или данные, отправленные в реплики. При сбое процесса все данные в памяти будут утеряны. Если запускается новый процесс или основной репликой становится другая реплика, доступным остается только старое значение свойства. 
+Если вы работаете с обычным словарем .NET, вы можете добавить в словарь ключ и значение, а затем изменить значение свойства (например, LastLogin). Но этот код не будет правильно работать с надежным словарем. Как вы помните, вызов метода AddAsync сериализует объекты ключей и значений в массивы байтов, сохраняет эти массивы в локальный файл, а также отправляет их во вторичные реплики. Если впоследствии изменить свойство, изменится только значение свойства в памяти. Оно не повлияет на локальный файл или данные, отправленные в реплики. При сбое процесса все данные в памяти будут утеряны. Если запускается новый процесс или основной репликой становится другая реплика, доступным остается только старое значение свойства.
 
 Допустить описанную выше ошибку очень просто. А узнаете вы о ней, только когда произойдет сбой. Чтобы получить правильный код, достаточно поменять местами две строки:
 
-```
+
+```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
-   await tx.CommitAsync(); 
+   await tx.CommitAsync();
 }
 ```
 
 Вот другой пример, демонстрирующий распространенную ошибку.
 
-```
+```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
-   ConditionalValue<User> user = 
+   ConditionalValue<User> user =
       await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -100,7 +105,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
-      await tx.CommitAsync(); 
+      await tx.CommitAsync();
    }
 }
 ```
@@ -111,10 +116,11 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 Следующий пример кода показывает, как правильно обновить значение в коллекции Reliable Collections.
 
-```
+```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
-   ConditionalValue<User> currentUser = 
+   ConditionalValue<User> currentUser =
       await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,13 +130,13 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       // immutable state can be shared by currentUser & updatedUser object graphs.
       User updatedUser = new User(currentUser);
 
-      // In the new object, modify any properties you desire 
+      // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
       // Update the key’s value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
 
-      await tx.CommitAsync(); 
+      await tx.CommitAsync();
    }
 }
 ```
@@ -140,7 +146,8 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 Тип UserInfo ниже демонстрирует, как определить неизменяемый тип, чтобы воспользоваться преимуществами упомянутых выше рекомендаций.
 
-```
+```csharp
+
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo {
@@ -160,7 +167,7 @@ public sealed class UserInfo {
    [DataMember]
    public readonly String Email;
 
-   // Ideally, this would be a readonly field but it can't be because OnDeserialized 
+   // Ideally, this would be a readonly field but it can't be because OnDeserialized
    // has to set it. So instead, the getter is public and the setter is private.
    [DataMember]
    public IEnumerable<ItemId> ItemsBidding { get; private set; }
@@ -175,7 +182,8 @@ public sealed class UserInfo {
 
 Тип ItemId также является неизменяемым, как показано ниже.
 
-```
+```csharp
+
 [DataContract]
 public struct ItemId {
 
@@ -191,24 +199,23 @@ public struct ItemId {
 ## <a name="schema-versioning-upgrades"></a>Управление версиями схемы (обновления)
 На внутреннем уровне коллекции Reliable Collections сериализуют объекты с помощью DataContractSerializer .NET. Сериализованные объекты сохраняются на локальном диске основной реплики и передаются во вторичные реплики. По мере роста службы вы, вероятно, захотите изменить тип данных (схему), которые требуются службе. Управлять версиями данных необходимо предельно осторожно. Первое и самое главное: у вас должна быть возможность десериализовать старые данные. Это означает, что код десериализации должен быть неограниченно обратно совместимым: версия 333 кода службы должна поддерживать обработку данных, которые версия 1 кода службы разместила в надежной коллекции 5 лет назад.
 
-Кроме того, код службы обновляет один домен обновления одновременно. Таким образом, во время обновления одновременно работают две различные версии кода службы. Проследите, чтобы новая версия кода службы не использовала новую схему, так как старые версии кода службы могут не работать с новой схемой. По возможности следует разрабатывать каждую новую версию службы так, чтобы она была совместима с версией 1. Это означает, что версия 1 кода службы должна просто игнорировать все элементы схемы, которые она явно не обрабатывает. Но она также должна обеспечивать хранение всех данных, которые ей явно неизвестны, просто записывая их обратно при обновлении ключа или значения словаря. 
+Кроме того, код службы обновляет один домен обновления одновременно. Таким образом, во время обновления одновременно работают две различные версии кода службы. Проследите, чтобы новая версия кода службы не использовала новую схему, так как старые версии кода службы могут не работать с новой схемой. По возможности следует разрабатывать каждую новую версию службы так, чтобы она была совместима с версией 1. Это означает, что версия 1 кода службы должна просто игнорировать все элементы схемы, которые она явно не обрабатывает. Но она также должна обеспечивать хранение всех данных, которые ей явно неизвестны, просто записывая их обратно при обновлении ключа или значения словаря.
 
 > [!WARNING]
 > Во время изменения схемы ключа проследите, чтобы хэш-код и алгоритмы ключа оставались постоянными. Если вы измените работу одного из этих алгоритмов, вы никогда больше не сможете искать ключ в надежном словаре.
-> 
-> 
+>
+>
 
 Кроме того, можно выполнить так называемое двухэтапное обновление. Используя двухэтапное обновление, вы обновите службу с версии 1 до версии 2. Версия 2 содержит код, который может обрабатывать изменения в новой схеме, но этот код не выполняется. Когда код версии 2 считывает данные версии 1, он работает с этими данными, а затем записывает их. Затем, когда обновление завершится на всех доменах обновления, вы можете сообщить запущенным экземплярам версии 2, что обновление завершено. Один из способов сообщить об этом — развернуть обновление конфигурации. Именно поэтому это обновление называется двухэтапным. Теперь экземпляры версии 2 могут читать данные версии 1, преобразовывать их в данные версии 2, работать с ними и записывать как данные версии 2. Когда другие экземпляры считывают данные версии 2, им не нужно преобразовывать их. Они могут работать с ними и записывать как данные версии 2.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о создании контрактов данных с прямой совместимостью см. в статье [Контракты данных, совместимые с любыми будущими изменениями](https://msdn.microsoft.com/library/ms731083.aspx).
 
-Рекомендации по управлению версиями контрактов данных см. в статье [Управление версиями контракта данных](https://msdn.microsoft.com/library/ms731138.aspx). 
+Рекомендации по управлению версиями контрактов данных см. в статье [Управление версиями контракта данных](https://msdn.microsoft.com/library/ms731138.aspx).
 
-Указания по реализации контрактов данных, которые не зависят от версий, см. в статье [Обратные вызовы сериализации, независимые от версий](https://msdn.microsoft.com/library/ms733734.aspx). 
+Указания по реализации контрактов данных, которые не зависят от версий, см. в статье [Обратные вызовы сериализации, независимые от версий](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Указания по предоставлению структуры данных, которые могут взаимодействовать в нескольких версиях, см. в статье [Интерфейс IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-
 
 
 

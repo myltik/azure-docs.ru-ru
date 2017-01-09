@@ -48,7 +48,7 @@ ms.openlocfilehash: db1ccf3a2dfecb7b30e38a614a1f5454c2a012ca
 
 Наконец, в разделе **[Конкурсы](machine-learning-gallery-competitions.md)** можно бросить вызов сообществу специалистов по обработке и анализу данных в решении сложных проблем с помощью пакета Cortana Intelligence Suite.
 
-![Домашняя страница коллекции Cortana Intelligence](media\\machine-learning-gallery-how-to-use-contribute-publish\\gallery-home-page.png)
+![Домашняя страница коллекции Cortana Intelligence](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Находите и изучайте
 В коллекции каждый пользователь может найти и изучить различные типы ресурсов, добавленных корпорацией Майкрософт и большим аналитическим сообществом.
@@ -60,25 +60,25 @@ ms.openlocfilehash: db1ccf3a2dfecb7b30e38a614a1f5454c2a012ca
 
 Чтобы просмотреть вклад конкретного автора, щелкните имя автора в любом из элементов.
 
-![Просмотр вклада автора](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-by-author.png)
+![Просмотр вклада автора](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
 На странице каждого ресурса в разделе "Комментарии" можно оставить комментарии, отзывы или задать вопросы.
 Интересным ресурсом можно даже поделиться с друзьями или коллегами в LinkedIn или Twitter.
 Ссылку на ресурс можно отправить по электронной почте, чтобы другие пользователи ознакомились с ним.
 
-![Расскажите друзьям о том, что вы нашли](media\\machine-learning-gallery-how-to-use-contribute-publish\\comment-and-share.png)
+![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Добавление в коллекцию
 Выполнив вход в систему, вы становитесь участником сообщества коллекции. Это позволяет вам делиться своими элементами коллекции, чтобы они приносили пользу и другим пользователям.
 
 Кроме того, в коллекции можно отслеживать, сколько пользователей просмотрели и скачали ваши вложения.
 
-![Расскажите друзьям о том, что вы нашли](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-and-download-counts.png)
+![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
 Пользователи также могут делиться вашими вложениями с другими участниками сообщества по обработке и анализу данных, а также комментировать их.
 В коллекцию можно войти с помощью средства для обсуждений, например Disqus. Это позволит вам получать уведомления о комментариях, добавленных к вашим ресурсам.
 
-![Просмотр комментариев пользователей](media\\machine-learning-gallery-how-to-use-contribute-publish\\follow-comments.png)
+![Просмотр комментариев пользователей](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
 Вы можете поделиться следующими элементами (откройте эти ссылки, чтобы получить дополнительные сведения):
 

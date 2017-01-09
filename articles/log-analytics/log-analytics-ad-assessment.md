@@ -4,7 +4,7 @@ description: "Решение оценки Active Directory можно испол
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -41,11 +41,11 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 * Агенты должны устанавливаться на контроллерах домена, являющихся членами домена, который будет оцениваться.
 * Для решения оценки Active Directory на каждом компьютере с агентом OMS должна быть установлена платформа .NET Framework 4.
 * Решение оценки Active Directory необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
-  
+
   > [!NOTE]
   > После добавления решения на серверы с агентами добавляется файл AdvisorAssessment.exe. Данные конфигурации считываются и отправляются на обработку в службу OMS в облаке. К полученным данным применяется логика и облачная служба записывает данные.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Сведения о сборе данных оценки Active Directory
 Оценка Active Directory собирает данные WMI, данные реестра и данные производительности с помощью включенных агентов.
@@ -99,11 +99,11 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Указание рекомендаций, которые нужно проигнорировать
 1. Войдите в рабочую область и откройте поиск по журналам. Выполните следующий запрос, чтобы получить список рекомендаций, не выполненных на компьютерах в вашей среде.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Вот снимок экрана с запросом на поиск по журналам: ![невыполненные рекомендации](./media/log-analytics-ad-assessment/ad-failed-recommendations.png).
 2. Выберите рекомендации, которые нужно проигнорировать. Эти значения будут использоваться для параметра RecommendationId в следующей процедуре.
 
@@ -118,7 +118,7 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 После выполнения следующей плановой оценки (по умолчанию выполняется раз в семь дней) указанные рекомендации помечаются как *игнорируемые* и больше не отображаются на панели мониторинга оценки.
 
 1. Для получения списка всех игнорируемых рекомендаций можно использовать следующие запросы поиска по журналам.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -170,7 +170,6 @@ ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по оценке AD и рекомендациям.
-
 
 
 

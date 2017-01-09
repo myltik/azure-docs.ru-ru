@@ -4,7 +4,7 @@ description: "Поиск по журналам позволяет объедин
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -180,8 +180,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > Необходимо использовать синтаксис диапазона, подразумевающий использование в качестве разделителя пары поле:значение двоеточия (:), а *не* знака равенства (=). Заключите нижнюю и верхнюю границу диапазона в квадратные скобки, разделив их двумя точками (..).
-> 
-> 
+>
+>
 
 ## <a name="manipulate-search-results"></a>работа с результатами поиска;
 При поиске данных может потребоваться уточнение поискового запроса и наличие высокого уровня контроля над результатами. При извлечении результатов можно применять команды для их преобразования.
@@ -574,7 +574,6 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 
 * Чтобы расширить возможности поиска по журналам, см. статью [Настраиваемые поля в службе Log Analytics](log-analytics-custom-fields.md).
 * Полный список полей и аспектов для поиска, доступных в Log Analytics, см. в [справочнике по поиску в журналах Log Analytics](log-analytics-search-reference.md).
-
 
 
 

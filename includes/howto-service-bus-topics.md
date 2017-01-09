@@ -14,8 +14,8 @@
 
 Создание пространства имен службы:
 
-1. Войдите на [портал Azure][портал Azure].
-2. На портале в области навигации слева щелкните последовательно **Создать**, **Интеграция Enterprise**, **Служебная шина**.
+1. Войдите на [портал Azure][Azure portal].
+2. В левой области навигации на портале щелкните **Создать**, **Интеграция Enterprise**, **Служебная шина**.
 3. В диалоговом окне **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
 4. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый", "Стандартный" или "Премиум".
 5. Выберите **подписку** Azure, в рамках которой будет создано пространство имен.
@@ -35,14 +35,14 @@
    
     ![Строка подключения][connection-string]
 
-[Портал Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
-[Строка подключения]: ./media/howto-service-bus-topics/Строка подключения.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

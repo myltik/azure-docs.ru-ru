@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -61,8 +61,8 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 Если вы хотите использовать уже установленную версию Visual Studio 2013, [скачайте пакет Azure SDK для Visual Studio 2013 последней версии](http://go.microsoft.com/fwlink/?LinkID=324322). Некоторые снимки экранов, приведенные здесь, могут отличаться от реальных.
 
-## <a name="configure-a-new-web-project"></a>Настройка нового веб-проекта
-Теперь нужно создать веб-проект в Visual Studio и веб-приложение в службе приложений Azure. В этом разделе руководства мы настроим новый веб-проект. 
+## <a name="create-a-web-application"></a>Создание веб-приложения
+Теперь нужно создать проект веб-приложения в Visual Studio и веб-приложение в службе приложений Azure. В этом разделе руководства мы настроим новый веб-проект. 
 
 1. Откройте Visual Studio 2015.
 2. Щелкните **Файл > Создать > Проект**.
@@ -87,9 +87,9 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
     ![Диалоговое окно "Новый проект ASP.NET"](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
    
     Эти параметры указывают, что Visual Studio создаст веб-приложение Azure для вашего веб-проекта.
-10. Щелкните **ОК**
+10. Нажмите кнопку **ОК**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Настройка ресурсов Azure для нового веб-приложения
+## <a name="create-the-azure-resources"></a>Создание ресурсов Azure
 Теперь в Visual Studio можно указать ресурсы Azure, которые требуется создать.
 
 1. В диалоговом окне **Создать службу приложений** щелкните **Добавить учетную запись**, а затем войдите в Azure с помощью идентификатора и пароля учетной записи, используемой для управления подпиской Azure.
@@ -128,14 +128,14 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 8. В диалоговом окне **Настроить план служб приложений** нажмите кнопку **ОК**.
 9. В диалоговом окне **Создать службу приложений** нажмите кнопку **Создать**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Создание проекта и веб-приложения в Visual Studio
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Проверка ресурсов Azure в Visual Studio
 За короткий промежуток времени, обычно не более минуты, Visual Studio создаст веб-проект и веб-приложение.  
 
 В окне **обозревателя решений** отображаются файлы и папки нового проекта.
 
 ![обозревателя решений](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-В окне **Действие службы приложений Azure** показывается, что веб-приложение было создано.
+В окне **Действие службы приложений Azure** будет показано, что ресурсы службы приложений созданы в Azure. Вы можете щелкнуть приведенную здесь ссылку, чтобы сразу же опубликовать новый проект. Далее в руководстве показано, как опубликовать файлы в любое время.
 
 ![Создание веб-приложения в окне "Действие службы приложений Azure"](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 ![Создание веб-приложения в Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Развертывание веб-проекта в веб-приложении Azure
-В этом разделе описывается развертывание веб-проекта в веб-приложении.
+## <a name="deploy-the-web-project-to-azure"></a>Развертывание веб-проекта в Azure
+В этом разделе мы развернем веб-проект в ресурсе веб-приложения, созданном в службе приложений Azure.
 
 1. В **Обозревателе решений** щелкните правой кнопкой проект и выберите пункт **Опубликовать**.
    
@@ -152,7 +152,10 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
    
     Через несколько секунд откроется окно **мастера веб-публикации** . В мастере откроется *профиль публикации* , содержащий параметры для развертывания веб-проекта в новом веб-приложении.
    
-    Профиль публикации содержит имя пользователя и пароль для развертывания.  Эти учетные данные созданы автоматически. Их не нужно вводить. Пароль хранится в зашифрованном виде в скрытом пользовательском файле в папке `Properties\PublishProfiles`.
+    > [!TIP] 
+    > Профиль публикации содержит имя пользователя и пароль для развертывания.  Эти учетные данные созданы автоматически. Их не нужно вводить. Пароль хранится в зашифрованном виде в скрытом пользовательском файле в папке `Properties\PublishProfiles`.
+    >
+    >
 2. На вкладке **Подключение** мастера **публикации веб-сайта** нажмите кнопку **Далее**.
    
     ![На вкладке "Подключение" мастера веб-публикации нажмите кнопку "Далее"](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
   * [Включение HTTPS для веб-приложения Azure](web-sites-configure-ssl-certificate.md)
 * Удаление группы ресурсов, содержащей веб-приложение и все связанные ресурсы Azure после завершения работы с ними.
   
-    Дополнительные сведения о работе с группами ресурсов на портале Azure см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).   
+    Дополнительные сведения о работе с группами ресурсов на портале Azure см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Дополнительные примеры создания веб-приложения ASP.NET в службе приложений см. в статьях [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Создание и развертывание веб-приложения ASP.NET в службе приложений Azure) и [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Создание и развертывание мобильного приложения в службе приложений Azure), описывающих [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

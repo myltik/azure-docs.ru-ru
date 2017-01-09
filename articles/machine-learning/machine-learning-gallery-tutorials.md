@@ -39,9 +39,9 @@ ms.openlocfilehash: dfeea14e412236b23f411fc4ad2a40223652a291
  Щелкнув любое руководство, вы попадете на страницу с его описанием и дополнительными сведениями.
 На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденное вами руководство.
 
-![Расскажите друзьям о том, что вы нашли](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Добавление комментариев](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Участие
 Вы можете добавлять в коллекцию свои руководства, которые помогут другим пользователям решить какую-то проблему или изучить ту или иную концепцию.
@@ -52,16 +52,16 @@ ms.openlocfilehash: dfeea14e412236b23f411fc4ad2a40223652a291
 * Войдите в коллекцию с помощью учетной записи Майкрософт.
 * Щелкните свое изображение в верхней части окна, а затем щелкните свое имя.
   
-    ![Щелкните имя своей учетной записи](media\\machine-learning-gallery-tutorials\\click-account-name.png)
+    ![Щелкните имя своей учетной записи](media/machine-learning-gallery-tutorials/click-account-name.png)
 * Щелкните **New Item**(Создать элемент)
   
-    ![Щелкните New Item](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Щелкните New Item](media/machine-learning-gallery-collections/click-new-item.png)
 * В раскрывающемся списке **Item Type** (Тип элемента) выберите значение **Collection** (Коллекция). Затем укажите имя коллекции, краткое описание, полное описание и любые ключевые слова, которые помогут пользователям найти коллекцию.
   
-    ![Укажите сведения о новой коллекции](media\\machine-learning-gallery-tutorials\\create-tutorial-page-1.png)
+    ![Укажите сведения о новой коллекции](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
 * Щелкните **Next** (Далее). В открывшемся окне можно загрузить на сайт свое изображение или выбрать одно из предложенных. Это изображение будет отображаться в коллекции. Выбирайте то, что поможет пользователям определить содержимое и назначение коллекции.
   
-    ![Укажите сведения о новой коллекции](media\\machine-learning-gallery-tutorials\\create-tutorial-page-2.png)
+    ![Укажите сведения о новой коллекции](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 * Щелкните **Next** (Далее). В открывшемся окне определите доступность руководства, выбрав **Public** (Общедоступное) или **Unlisted** (Частное). Частное руководство доступно только по прямой ссылке.
   
   > [!IMPORTANT]
@@ -69,7 +69,7 @@ ms.openlocfilehash: dfeea14e412236b23f411fc4ad2a40223652a291
   > 
   > 
   
-    ![Определите доступность руководства: общедоступное или частное](media\\machine-learning-gallery-tutorials\\create-tutorial-page-3.png)
+    ![Определите доступность руководства: общедоступное или частное](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 * Нажмите кнопку **Создать**.
 
 Теперь ваше руководство является частью коллекции Cortana Intelligence. Оно появится на странице вашей учетной записи на вкладке **Items** (Элементы).

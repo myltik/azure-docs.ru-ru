@@ -161,7 +161,7 @@
 ## REST
 ### [BLOB-объекты, очереди, таблицы и файлы](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Поставщик ресурсов](/rest/api/storagerp)
-### [Импорт и экспорт](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Импорт и экспорт](/rest/api/storageimportexport)
 
 # Сопутствующие материалы
 ## Классический портал
@@ -201,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

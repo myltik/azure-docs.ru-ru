@@ -57,13 +57,13 @@ ms.openlocfilehash: 98a93b683da1bfdc28be1f6e21174f814dd65220
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. Щелкните **Больше служб** в меню слева и выберите **Учетные записи хранения**.
 
-    !["Обзор" — "Учетные записи хранения"](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    !["Обзор" — "Учетные записи хранения"](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. В колонке **Учетные записи хранения** выберите **учетную запись хранения Azure**, которая будет использоваться в ходе изучения этого учебника.
 4. В разделе **Параметры** выберите ссылку **Ключи доступа**.
 5. Нажмите кнопку **Копировать** (изображение) рядом с текстовым полем **Имя учетной записи хранения**, вставьте скопированный текст, например, в текстовый файл, и сохраните его.
 6. Повторите предыдущий шаг для ключа **key1**.
 
-    ![Ключ доступа к хранилищу](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![Ключ доступа к хранилищу](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Закройте все колонки, нажав **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Получение имени сервера SQL, имени базы данных и имени пользователя

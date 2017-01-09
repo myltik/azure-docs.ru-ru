@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Общедоступная предварительная версия Azure AD Connect в Microsoft Cloud для Германии
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Общедоступная предварительная версия Azure AD Connect в Microsoft Cloud для Германии
 ## <a name="introduction"></a>Введение
 Azure AD Connect обеспечивает синхронизацию локальных каталогов Active Directory с каталогами Azure Active Directory.
 В настоящее время многие сценарии в [Microsoft Cloud для Германии](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) должны выполняться оператором. При использовании Microsoft Cloud для Германии важно придерживаться следующих рекомендаций.
@@ -49,7 +49,7 @@ Azure AD Connect обеспечивает синхронизацию локал�
 
 Вы увидите следующее:
 
-![Колонка Azure AD Connect](media\\active-directory-aadconnect-germany\\germany1.png)
+![Колонка Azure AD Connect](media/active-directory-aadconnect-germany/germany1.png)
 
 Следующая таблица содержит описание функций, представленных в колонке.
 
@@ -68,6 +68,6 @@ Azure AD Connect обеспечивает синхронизацию локал�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
