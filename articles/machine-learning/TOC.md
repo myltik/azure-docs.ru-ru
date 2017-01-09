@@ -26,7 +26,11 @@
 ### [3. Правильные вопросы](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4. Прогнозирование ответа](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5. Копирование работ других пользователей](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-# Практическое руководство:
+
+## [Быстрый запуск R](machine-learning-r-quickstart.md)
+
+
+# Практическое руководство
 ## Настройка инструментов и служебных программ
 ### [Настройка сред](machine-learning-data-science-environment-setup.md)
 ### [Настройка виртуальных машин](machine-learning-data-science-virtual-machines.md)
@@ -167,14 +171,14 @@
 #### [Набор нормального распределения](machine-learning-r-csharp-normal-distribution.md)
 #### [Набор биномиального распределения](machine-learning-r-csharp-binomial-distribution.md)
 #### [Часто задаваемые вопросы о Marketplace](machine-learning-marketplace-faq.md)
+
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Модуль PowerShell для машинного обучения](machine-learning-powershell-module.md)
-## [Справочник по алгоритмам](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Быстрый запуск R](machine-learning-r-quickstart.md)
-## [Язык нейронных сетей Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [Интерфейсы REST API управления](/rest/api/machinelearning/index)
+## [PowerShell](machine-learning-powershell-module.md)
+## [Справочник по алгоритмам и модулям](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Сопутствующие материалы
+
 ## Коллекция Cortana Intelligence
 ### [Обзор](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Отрасли](machine-learning-gallery-industries.md)
@@ -183,7 +187,7 @@
 ### [Записные книжки Jupyter](machine-learning-gallery-jupyter-notebooks.md)
 ### [Соревнования](machine-learning-gallery-competitions.md)
 ### [Вопросы и ответы по соревнованиям](machine-learning-competition-faq.md)
-### [Учебные материалы](machine-learning-gallery-tutorials.md)
+### [Руководства](machine-learning-gallery-tutorials.md)
 ### [Коллекции](machine-learning-gallery-collections.md)
 ### [Пользовательские модули](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
@@ -193,10 +197,10 @@
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Рекомендации
 ##### [Обзор](machine-learning-recommendation-api-sample-application.md)
-##### [Быстрый запуск](machine-learning-recommendation-api-quick-start-guide.md)
+##### [Краткое руководство](machine-learning-recommendation-api-quick-start-guide.md)
 ##### [Справочные материалы](machine-learning-recommendation-api-documentation.md)
 ##### [Использование JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](machine-learning-recommendation-api-faq.md)
+##### [Часто задаваемые вопросы](machine-learning-recommendation-api-faq.md)
 #### Диагностическое обслуживание
 ##### [Обзор](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Архитектура](cortana-analytics-architecture-predictive-maintenance.md)
@@ -205,7 +209,10 @@
 ##### [Обзор](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Сборник тренировочных заданий](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Настройка](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Ресурсы
+## [Коды ошибок REST в службе машинного обучения](/machine-learning/machine-learning-web-service-error-codes)
+## [Язык нейронных сетей Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Блог](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +221,7 @@
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

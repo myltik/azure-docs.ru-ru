@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Управление правилами брандмауэра на уровне сервера с помощью REST API
-1. Запрос на управление правилами брандмауэра с помощью REST API должен пройти проверку подлинности. Дополнительные сведения см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](../resource-manager-api-authentication.md).
+1. Запрос на управление правилами брандмауэра с помощью REST API должен пройти проверку подлинности. Дополнительные сведения см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. Правила на уровне сервера можно создавать, обновлять или удалять с помощью REST API
    
     Чтобы создать или обновить правило брандмауэра на уровне сервера, выполните метод PUT следующим образом:
@@ -79,7 +79,7 @@ ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
 Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Защита базы данных](sql-database-security.md)
+* [Защита базы данных](sql-database-security-overview.md)
 * [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

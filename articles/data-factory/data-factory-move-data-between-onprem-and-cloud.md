@@ -173,47 +173,53 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Подготовка локальной связанной службы SQL Server для учебника
 1. В базе данных SQL Server, которую вы указали для локальных связанных служб (**SqlServerLinkedService**), используйте следующий сценарий SQL, чтобы создать в базе данных таблицу **emp**.
-   
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL, 
-            FirstName varchar(50),
-            LastName varchar(50),
-            CONSTRAINT PK_emp PRIMARY KEY (ID)
-        )
-        GO 
+
+    ```SQL   
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL, 
+        FirstName varchar(50),
+        LastName varchar(50),
+        CONSTRAINT PK_emp PRIMARY KEY (ID)
+    )
+    GO
+    ``` 
 2. Вставьте несколько образцов в таблицу: 
    
-        INSERT INTO emp VALUES ('John', 'Doe')
-        INSERT INTO emp VALUES ('Jane', 'Doe')
+    ```SQL
+    INSERT INTO emp VALUES ('John', 'Doe')
+    INSERT INTO emp VALUES ('Jane', 'Doe')
+    ```
 
 ### <a name="create-input-dataset"></a>Создание входного набора данных
+
 1. В **редакторе фабрики данных** нажмите кнопку **... More** (...Дополнительно), на панели команд щелкните **Новый набор данных** и выберите **Таблица SQL Server**. 
 2. Замените сценарий JSON в области справа на следующий текст:
-   
-         {        
-             "name": "EmpOnPremSQLTable",
-             "properties": {
-                 "type": "SqlServerTable",
-                 "linkedServiceName": "SqlServerLinkedService",
-                 "typeProperties": {
-                     "tableName": "emp"
-                 },
-                 "external": true,
-                 "availability": {
-                     "frequency": "Hour",
-                     "interval": 1
-                 },
-                 "policy": {
-                     "externalData": {
-                         "retryInterval": "00:01:00",
-                         "retryTimeout": "00:10:00",
-                         "maximumRetry": 3
-                     }
-                 }
-             }
-         }     
-   
+
+    ```JSON   
+    {        
+        "name": "EmpOnPremSQLTable",
+        "properties": {
+            "type": "SqlServerTable",
+            "linkedServiceName": "SqlServerLinkedService",
+            "typeProperties": {
+                "tableName": "emp"
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }     
+    ```     
    Обратите внимание на следующие моменты. 
    
    * **type** имеет значение **SqlServerTable**.
@@ -225,28 +231,30 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
 3. Нажмите кнопку **Развернуть** на панели команд, чтобы развернуть набор данных.  
 
 ### <a name="create-output-dataset"></a>Создание выходного набора данных
+
 1. В **редакторе фабрики данных** щелкните на панели команд **Создать набор данных** и выберите **Хранилище BLOB-объектов Azure**.
 2. Замените сценарий JSON в области справа на следующий текст: 
-   
-         {
-             "name": "OutputBlobTable",
-             "properties": {
-                 "type": "AzureBlob",
-                 "linkedServiceName": "AzureStorageLinkedService",
-                 "typeProperties": {
-                       "folderPath": "adftutorial/outfromonpremdf",
-                       "format": {
-                         "type": "TextFormat",
-                         "columnDelimiter": ","
-                       }
-                 },
-                 "availability": {
-                       "frequency": "Hour",
-                       "interval": 1
-                 }
-               }
-         }
-   
+
+    ```JSON   
+    {
+        "name": "OutputBlobTable",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "folderPath": "adftutorial/outfromonpremdf",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+     }
+    ```   
    Обратите внимание на следующие моменты. 
    
    * **type** имеет значение **AzureBlob**.
@@ -258,20 +266,20 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
    
    Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство partitionedBy. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv. 
 
-```
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy": 
-[
+    ```JSON
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+    
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
+    ```
 
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-],
-```
-
-Дополнительные сведения о свойствах файлов JSON см. в статье [Перемещение данных в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure IaaS с помощью фабрики данных Azure](data-factory-azure-blob-connector.md).
+    Дополнительные сведения о свойствах файлов JSON см. в статье [Перемещение данных в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure IaaS с помощью фабрики данных Azure](data-factory-azure-blob-connector.md).
 3. Нажмите кнопку **Развернуть** на панели команд, чтобы развернуть набор данных. Оба набора данных должны отображаться в представлении в виде дерева.  
 
 ## <a name="create-pipeline"></a>Создание конвейера
@@ -279,50 +287,51 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
 
 1. В редакторе фабрики данных нажмите кнопку **... Дополнительно** и **Новый конвейер**. 
 2. Замените сценарий JSON в области справа на следующий текст:    
-   
-         {
-             "name": "ADFTutorialPipelineOnPrem",
-             "properties": {
-             "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-             "activities": [
+
+    ```JSON   
+     {
+         "name": "ADFTutorialPipelineOnPrem",
+         "properties": {
+         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "activities": [
+           {
+             "name": "CopyFromSQLtoBlob",
+             "description": "Copy data from on-prem SQL server to blob",
+             "type": "Copy",
+             "inputs": [
                {
-                 "name": "CopyFromSQLtoBlob",
-                 "description": "Copy data from on-prem SQL server to blob",
-                 "type": "Copy",
-                 "inputs": [
-                   {
-                     "name": "EmpOnPremSQLTable"
-                   }
-                 ],
-                 "outputs": [
-                   {
-                     "name": "OutputBlobTable"
-                   }
-                 ],
-                 "typeProperties": {
-                   "source": {
-                     "type": "SqlSource",
-                     "sqlReaderQuery": "select * from emp"
-                   },
-                   "sink": {
-                     "type": "BlobSink"
-                   }
-                 },
-                 "Policy": {
-                   "concurrency": 1,
-                   "executionPriorityOrder": "NewestFirst",
-                   "style": "StartOfInterval",
-                   "retry": 0,
-                   "timeout": "01:00:00"
-                 }
+                 "name": "EmpOnPremSQLTable"
                }
              ],
-             "start": "2016-07-05T00:00:00Z",
-             "end": "2016-07-06T00:00:00Z",
-             "isPaused": false
+             "outputs": [
+               {
+                 "name": "OutputBlobTable"
+               }
+             ],
+             "typeProperties": {
+               "source": {
+                 "type": "SqlSource",
+                 "sqlReaderQuery": "select * from emp"
+               },
+               "sink": {
+                 "type": "BlobSink"
+               }
+             },
+             "Policy": {
+               "concurrency": 1,
+               "executionPriorityOrder": "NewestFirst",
+               "style": "StartOfInterval",
+               "retry": 0,
+               "timeout": "01:00:00"
+             }
            }
-         }
-   
+         ],
+         "start": "2016-07-05T00:00:00Z",
+         "end": "2016-07-06T00:00:00Z",
+         "isPaused": false
+       }
+     }
+    ```   
    > [!IMPORTANT]
    > Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня.
    > 

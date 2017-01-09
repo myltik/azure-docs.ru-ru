@@ -69,7 +69,7 @@
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Создание шаблонов Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Создание шаблонов Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Шаблоны, созданные сообществом](https://azure.microsoft.com/documentation/templates)
 ## [REST для вычислений](/rest/api/compute)
 ## [REST для сети](/rest/api)
@@ -83,6 +83,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
 * Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/) . Она будет использоваться с командами REST для создания фабрики данных. 
-* Следуя инструкциям в [этой статье](../resource-group-create-service-principal-portal.md) , выполните следующее: 
+* Следуя инструкциям в [этой статье](../azure-resource-manager/resource-group-create-service-principal-portal.md) , выполните следующее: 
   1. Создайте веб-приложение с именем **ADFCopyTutorialApp** в Azure Active Directory.
   2. Получите **идентификатор клиента** и **секретный ключ**. 
   3. Получите значение для **tenant_id**. 
@@ -578,6 +578,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

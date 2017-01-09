@@ -1,6 +1,6 @@
 ---
-title: "Создание пула эластичных баз данных с помощью C# | Документация Майкрософт"
-description: "Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
+title: "Создание эластичного пула с помощью C# | Документация Майкрософт"
+description: "Используйте методы разработки баз данных на C# для создания масштабируемого эластичного пула в базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Создание пула эластичных баз данных с помощью C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Создание эластичного пула с помощью C#
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-elastic-pool-create-portal.md)
+> * [портал Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
 > 
 
-В этой статье показано, как создать пул эластичных баз данных SQL Azure с помощью C#, используя [библиотеку баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Дополнительные сведения см. в статье [Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET](sql-database-get-started-csharp.md).
+В этой статье показано, как создать эластичный пул SQL Azure с помощью C#, используя [библиотеку баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Дополнительные сведения см. в статье [Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET](sql-database-get-started-csharp.md).
 
 Библиотека базы данных SQL Azure для .NET предоставляет API на основе [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), который создает оболочку для [REST API базы данных SQL на основе Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -60,7 +60,7 @@ ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>Пример. Создание нового пула эластичных баз данных с помощью C#
+## <a name="create-a-sql-elastic-pool---c-example"></a>Пример создания эластичного пула с помощью C#
 В следующем примере создается группа ресурсов, сервер, правило брандмауэра, пул эластичных баз данных и входящая в него база данных SQL. Чтобы получить переменные `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, см. раздел [Создание субъекта-службы для доступа к ресурсам](#create-a-service-principal-to-access-resources).
 
 Замените содержимое файла **Program.cs** приведенным ниже кодом и обновите `{variables}`, используя значения для своего приложения (удалите `{}`).
@@ -260,7 +260,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Создание субъекта-службы для доступа к ресурсам
-Следующий сценарий PowerShell создает приложение Active Directory (AD) и субъект-службу, которые необходимы для проверки подлинности нашего приложения C#. Сценарий выводит значения, необходимые для предыдущего примера на C#. Дополнительные сведения см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../resource-group-authenticate-service-principal.md).
+Следующий сценарий PowerShell создает приложение Active Directory (AD) и субъект-службу, которые необходимы для проверки подлинности нашего приложения C#. Сценарий выводит значения, необходимые для предыдущего примера на C#. Дополнительные сведения см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -315,6 +315,6 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

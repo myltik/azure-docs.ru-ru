@@ -72,34 +72,37 @@ ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
 
 **Связанная служба DB2**
 
-    {
-        "name": "OnPremDb2LinkedService",
-        "properties": {
-            "type": "OnPremisesDb2",
-            "typeProperties": {
-                "server": "<server>",
-                "database": "<database>",
-                "schema": "<schema>",
-                "authenticationType": "<authentication type>",
-                "username": "<username>",
-                "password": "<password>",
-                "gatewayName": "<gatewayName>"
-            }
+```JSON
+{
+    "name": "OnPremDb2LinkedService",
+    "properties": {
+        "type": "OnPremisesDb2",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
         }
     }
-
+}
+```
 
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorageLinkedService",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorageLinkedService",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
         }
     }
+}
+```
 
 **Входной набор данных DB2**
 
@@ -107,132 +110,136 @@ ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
 
 Если параметру external присвоить значение true, фабрика данных воспримет этот набор данных как внешний и созданный не в результате какого-либо действия в этой службе. Обратите внимание, что параметру **type** присвоено значение **RelationalTable**.
 
-    {
-        "name": "Db2DataSet",
-        "properties": {
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremDb2LinkedService",
-            "typeProperties": {},
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "Db2DataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremDb2LinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
-
+}
+```
 
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-        "name": "AzureBlobDb2DataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/db2/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "AzureBlobDb2DataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/db2/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query** , выбирает данные из таблицы Orders.
 
-    {
-        "name": "CopyDb2ToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "select * from \"Orders\""
-                        },
-                        "sink": {
-                            "type": "BlobSink"
-                        }
+```JSON
+{
+    "name": "CopyDb2ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from \"Orders\""
                     },
-                    "inputs": [
-                        {
-                            "name": "Db2DataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobDb2DataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "Db2ToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Db2DataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDb2DataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "Db2ToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
     }
-
+}
+```
 
 ## <a name="db2-linked-service-properties"></a>Свойства связанной службы DB2
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе DB2.
@@ -277,7 +284,9 @@ ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
 
 **Пример**
 
-    "query": "select * from "DB2ADMIN"."Customers""
+```JSON
+"query": "select * from "DB2ADMIN"."Customers""
+```
 
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]

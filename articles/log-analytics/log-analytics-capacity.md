@@ -4,7 +4,7 @@ description: "Решение для планирования ресурсов в
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
@@ -27,8 +27,8 @@ ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
 
 > [!NOTE]
 > Решение "Управление ресурсами" пока нельзя добавлять в рабочие области. Клиенты, у которых решение "Управление ресурсами" уже установлено, могут продолжать его использовать.  
-> 
-> 
+>
+>
 
 Обновленное решение для определения емкости и производительности сейчас находится на стадии закрытой предварительной версии. Оно предназначено для устранения следующих проблем клиентов, возникших с исходным решением для управления ресурсами:
 
@@ -173,7 +173,6 @@ ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по управлению ресурсами.
-
 
 
 

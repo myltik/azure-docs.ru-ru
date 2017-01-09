@@ -12,7 +12,7 @@ ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

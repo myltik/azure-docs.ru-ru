@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Начало работы с частными шаблонами на портале Azure
-Шаблон [Azure Resource Manager](../resource-group-authoring-templates.md) — это декларативный шаблон, который используется для определения развертывания. С его помощью можно определить ресурсы для развертывания решения и указать параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
+Шаблон [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) — это декларативный шаблон, который используется для определения развертывания. С его помощью можно определить ресурсы для развертывания решения и указать параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
 
 Новую функцию **Шаблоны** на [портале Azure](https://portal.azure.com) можно использовать вместе с поставщиком ресурсов **Microsoft.Gallery** в дополнение к [Azure Marketplace](https://azure.microsoft.com/marketplace/), давая пользователям возможность создавать и развертывать частные шаблоны, а также управлять ими из личной библиотеки.
 
@@ -35,16 +35,16 @@ ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
 * **Шаблон** представляет собой инкапсулирующий ресурс, который содержит шаблон Resource Manager и дополнительные метаданные. По своему поведению он аналогичен элементам в Marketplace. Основное отличие заключается в том, что это закрытый элемент, тогда как элементы Marketplace являются общедоступными.
 * Библиотека **Шаблоны** подходит пользователям, которым требуется настроить свои развертывания.
 * **Шаблоны** хорошо подходят пользователям, которым необходим простой репозиторий в Azure.
-* Начните работу с существующего шаблона Resource Manager. Шаблоны можно найти на портале [GitHub](https://github.com/Azure/azure-quickstart-templates) или [экспортировать шаблон](../resource-manager-export-template.md) из имеющейся группы ресурсов.
+* Начните работу с существующего шаблона Resource Manager. Шаблоны можно найти на портале [GitHub](https://github.com/Azure/azure-quickstart-templates) или [экспортировать шаблон](../azure-resource-manager/resource-manager-export-template.md) из имеющейся группы ресурсов.
 * **Шаблоны** связаны с пользователем, который публикует их. Имя издателя отображается для всех, у кого есть доступ на чтение к шаблону.
 * **Шаблоны** — это ресурсы Resource Manager. Их нельзя переименовать после публикации.
 
 ## <a name="add-a-template-resource"></a>Добавление ресурса шаблона
 Ресурс **шаблона** на портале Azure можно создать двумя способами.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Способ 1. Создание нового ресурса шаблона из работающей группы ресурсов
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Способ 1. Создание нового ресурса шаблона из работающей группы ресурсов
 1. Перейдите в существующую группу ресурсов на портале Azure. В разделе **Параметры** выберите **Export template** (Экспорт шаблона).
-2. После экспорта шаблона Resource Manager нажмите кнопку **Save Template** (Сохранить шаблон), чтобы сохранить его в репозитории **Шаблоны**. Дополнительные сведения об экспорте шаблона см. [здесь](../resource-manager-export-template.md).
+2. После экспорта шаблона Resource Manager нажмите кнопку **Save Template** (Сохранить шаблон), чтобы сохранить его в репозитории **Шаблоны**. Дополнительные сведения об экспорте шаблона см. [здесь](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Resource group export](media/rg-export-portal1.PNG)  <br />
 3. Нажмите кнопку **Сохранить шаблон** .
@@ -62,7 +62,7 @@ ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Способ 2. Добавление нового ресурса шаблона с помощью команды "Обзор"
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>Способ 2. Добавление нового ресурса шаблона с помощью команды "Обзор"
 Новый **шаблон** также можно добавить с нуля, щелкнув **Обзор > Шаблоны > +Add** (+Добавить). Вам потребуется указать имя, описание и JSON-файл шаблона Resource Manager.
 
 ![Добавление шаблона](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Сведения о создании шаблонов Resource Manager см. в [этой статье](../resource-group-authoring-templates.md).
-* Функции, которые можно использовать в шаблоне Resource Manager, описаны в статье [Функции шаблонов Azure Resource Manager](../resource-group-template-functions.md)
-* Рекомендации по разработке шаблонов Azure Resource Manager см. в [этой статье](../best-practices-resource-manager-design-templates.md).
+* Сведения о создании шаблонов Resource Manager см. в [этой статье](../azure-resource-manager/resource-group-authoring-templates.md).
+* Функции, которые можно использовать в шаблоне Resource Manager, описаны в статье [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
+* Рекомендации по разработке шаблонов Azure Resource Manager см. в [этой статье](../azure-resource-manager/best-practices-resource-manager-design-templates.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

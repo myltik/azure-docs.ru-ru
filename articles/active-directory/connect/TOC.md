@@ -80,6 +80,7 @@
 
 
 # Сопутствующие материалы
+## [Мониторинг локальной инфраструктуры идентификации и служб синхронизации в облаке.](../connect-health/active-directory-aadconnect-health.md)
 ## [Руководство по проектированию гибридной идентификации](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Нерекомендуемая версия DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

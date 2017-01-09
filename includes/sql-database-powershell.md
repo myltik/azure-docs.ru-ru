@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Запуск сеанса PowerShell
-Сначала установите и запустите последнюю версию [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Сначала установите и запустите последнюю версию Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), поэтому в примерах используются соответствующие [командлеты Azure PowerShell для базы данных SQL](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx). Командлеты [управления службой базы данных SQL Azure](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) в классической модели развертывания для управления службой поддерживаются для обеспечения обратной совместимости, но мы рекомендуем использовать командлеты для Resource Manager.
@@ -16,6 +16,6 @@
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

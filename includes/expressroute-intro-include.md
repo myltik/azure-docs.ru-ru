@@ -5,6 +5,6 @@ Microsoft Azure ExpressRoute позволяет переносить локал�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

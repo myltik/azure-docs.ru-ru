@@ -1,4 +1,4 @@
-1. Войдите на [портале Azure](https://portal.azure.com/).
+1. В новом окне войдите на [портал Azure](https://portal.azure.com/).
 2. На навигационной панели щелкните **Создать**, выберите **Базы данных**, а затем щелкните **NoSQL (DocumentDB)**.
    
    ![Снимок экрана портала Azure, на котором выделены дополнительные службы и DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -20,13 +20,13 @@
 
    ![Снимок экрана: открытие учетной записи базы данных Azure DocumentDB на портале Azure](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   Согласованность учетной записи DocumentDB по умолчанию настроена на уровне **сеанса**.  Для настройки уровня согласованности по умолчанию выберите пункт **Согласованность по умолчанию** в меню ресурсов. Дополнительные сведения об уровнях согласованности в DocumentDB см. в статье [Уровни согласованности в DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   Согласованность учетной записи DocumentDB по умолчанию настроена на уровне **сеанса**.  Согласованность по умолчанию можно изменить, выбрав один из доступных вариантов согласованности. Дополнительные сведения об уровнях согласованности в DocumentDB см. в статье [Уровни согласованности в DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

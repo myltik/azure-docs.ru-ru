@@ -62,32 +62,35 @@ ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
 
 **Связанная служба Teradata**
 
-    {
-        "name": "OnPremTeradataLinkedService",
-        "properties": {
-            "type": "OnPremisesTeradata",
-            "typeProperties": {
-                "server": "<server>",
-                "authenticationType": "<authentication type>",
-                "username": "<username>",
-                "password": "<password>",
-                "gatewayName": "<gatewayName>"
-            }
+```JSON
+{
+    "name": "OnPremTeradataLinkedService",
+    "properties": {
+        "type": "OnPremisesTeradata",
+        "typeProperties": {
+            "server": "<server>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
         }
     }
+}
+```
 
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorageLinkedService",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorageLinkedService",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
         }
     }
-
+}
+```
 
 **Входной набор данных Teradata**
 
@@ -95,139 +98,141 @@ ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
 
 Если для параметра external задать значение true, то фабрика данных воспримет эту таблицу как внешнюю, которая создана не каким-либо действием в этой фабрике данных.
 
-    {
-        "name": "TeradataDataSet",
-        "properties": {
-            "published": false,
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremTeradataLinkedService",
-            "typeProperties": {
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "TeradataDataSet",
+    "properties": {
+        "published": false,
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremTeradataLinkedService",
+        "typeProperties": {
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
-
+}
+```
 
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-        "name": "AzureBlobTeradataDataSet",
-        "properties": {
-            "published": false,
-            "location": {
-                "type": "AzureBlobLocation",
-                "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ],
-                "linkedServiceName": "AzureStorageLinkedService"
+```JSON
+{
+    "name": "AzureBlobTeradataDataSet",
+    "properties": {
+        "published": false,
+        "location": {
+            "type": "AzureBlobLocation",
+            "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ],
+            "linkedServiceName": "AzureStorageLinkedService"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
-
+}
+```
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входные и выходные наборы данных и выполняется ежечасно. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query** , выбирает для копирования данные за последний час.
 
-    {
-        "name": "CopyTeradataToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```JSON
+{
+    "name": "CopyTeradataToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
                     },
-                    "inputs": [
-                        {
-                            "name": "TeradataDataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobTeradataDataSet"
-                        }
-                    ],                    
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "TeradataToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z",
-            "isPaused": false
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "TeradataDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobTeradataDataSet"
+                    }
+                ],                    
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "TeradataToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z",
+        "isPaused": false
     }
-
+}
+```
 
 ## <a name="teradata-linked-service-properties"></a>Свойства связанной службы Teradata
 В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Teradata.

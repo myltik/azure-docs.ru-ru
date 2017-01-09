@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
@@ -73,6 +73,7 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Каждая база данных в пуле также соответствует характеристикам отдельной базы данных для этого пула. Например, для пулов уровня "Базовый" установлено предельное количество сеансов (4800–28 800 на пул), но для отдельных баз данных в этом пуле установлено ограничение в 300 сеансов на базу данных.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

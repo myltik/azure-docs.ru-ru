@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
 
 Чтобы внедрить отчет Power BI в приложение, воспользуйтесь плавающим фреймом, размещенным как часть приложения. Как показано на рисунке ниже, плавающий фрейм выполняет роль границы между приложением и отчетом. 
 
-![Плавающий фрейм Power BI Embedded без интерфейса API JavaScript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Плавающий фрейм Power BI Embedded без интерфейса API JavaScript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 Плавающий фрейм значительно упрощает внедрение, но без интерфейса API JavaScript отчет и приложение не смогут взаимодействовать друг с другом. Из-за этого отчет не будет восприниматься как часть приложения. Между отчетом и приложением должен происходить обмен данными (см. рисунок ниже).
 
-![Плавающий фрейм Power BI Embedded c интерфейсом API JavaScript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Плавающий фрейм Power BI Embedded c интерфейсом API JavaScript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Интерфейс API JavaScript службы Power BI позволяет написать код, который может безопасно передаваться через границу плавающего фрейма. Это позволяет приложению программно выполнить действие в отчете и прослушать события, возникающие в результате действий пользователя в отчете.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Что можно сделать с помощью интерфейса API JavaScript службы Power BI?
 С помощью интерфейса API JavaScript вы можете управлять отчетами, переходить на те или иные страницы отчетов, фильтровать отчеты и управлять событиями внедрения. Структура интерфейса API показана на схеме ниже.
 
-![Схема интерфейса API JavaScript службы Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Схема интерфейса API JavaScript службы Power BI](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Управление отчетами
 Интерфейс API JavaScript дает возможность управлять поведением на уровне отчета и страницы.
@@ -139,6 +139,6 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

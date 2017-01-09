@@ -38,49 +38,51 @@ ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
 ## <a name="json-sample"></a>Образец JSON
 Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster. 
 
-    {
-        "name": "HadoopStreamingPipeline",
-        "properties": {
-            "description": "Hadoop Streaming Demo",
-            "activities": [
-                {
-                    "type": "HDInsightStreaming",
-                    "typeProperties": {
-                        "mapper": "cat.exe",
-                        "reducer": "wc.exe",
-                        "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-                        "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                        "filePaths": [
-                            "<nameofthecluster>/example/apps/wc.exe",
-                            "<nameofthecluster>/example/apps/cat.exe"
-                        ],
-                        "fileLinkedService": "StorageLinkedService",
-                        "getDebugInfo": "Failure"
-                    },
-                    "outputs": [
-                        {
-                            "name": "StreamingOutputDataset"
-                        }
+```JSON
+{
+    "name": "HadoopStreamingPipeline",
+    "properties": {
+        "description": "Hadoop Streaming Demo",
+        "activities": [
+            {
+                "type": "HDInsightStreaming",
+                "typeProperties": {
+                    "mapper": "cat.exe",
+                    "reducer": "wc.exe",
+                    "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+                    "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+                    "filePaths": [
+                        "<nameofthecluster>/example/apps/wc.exe",
+                        "<nameofthecluster>/example/apps/cat.exe"
                     ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "RunHadoopStreamingJob",
-                    "description": "Run a Hadoop streaming job",
-                    "linkedServiceName": "HDInsightLinkedService"
-                }
-            ],
-            "start": "2014-01-04T00:00:00Z",
-            "end": "2014-01-05T00:00:00Z"
-        }
+                    "fileLinkedService": "StorageLinkedService",
+                    "getDebugInfo": "Failure"
+                },
+                "outputs": [
+                    {
+                        "name": "StreamingOutputDataset"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "RunHadoopStreamingJob",
+                "description": "Run a Hadoop streaming job",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2014-01-04T00:00:00Z",
+        "end": "2014-01-05T00:00:00Z"
     }
+}
+```
 
 Обратите внимание на следующие моменты.
 
@@ -107,104 +109,111 @@ ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
 #### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
 Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя и ключ учетной записи на имя и ключ хранилища Azure. 
 
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
         }
     }
+}
+```
 
 #### <a name="azure-hdinsight-linked-service"></a>Связанная служба Azure HDInsight
 Далее необходимо создать связанную службу для связи кластера Azure HDInsight с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить имя кластера HDInsight на имя вашего кластера HDInsight и изменить значения имени пользователя и пароля. 
 
-    {
-        "name": "HDInsightLinkedService",
-        "properties": {
-            "type": "HDInsight",
-            "typeProperties": {
-                "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
-                "userName": "admin",
-                "password": "**********",
-                "linkedServiceName": "StorageLinkedService"
-            }
+```JSON
+{
+    "name": "HDInsightLinkedService",
+    "properties": {
+        "type": "HDInsight",
+        "typeProperties": {
+            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+            "userName": "admin",
+            "password": "**********",
+            "linkedServiceName": "StorageLinkedService"
         }
     }
+}
+```
 
 ### <a name="datasets"></a>Наборы данных
 #### <a name="output-dataset"></a>Выходной набор данных
 Конвейер в этом примере не принимает никаких входных данных. Вам нужно указать выходной набор данных для действия потоковой передачи HDInsight. Это просто фиктивный набор данных, необходимый для соблюдения расписания конвейера. 
 
-    {
-        "name": "StreamingOutputDataset",
-        "properties": {
-            "published": false,
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adftutorial/streamingdata/",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                },
+```JSON
+{
+    "name": "StreamingOutputDataset",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adftutorial/streamingdata/",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             },
-            "availability": {
-                "frequency": "Day",
-                "interval": 1
-            }
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": 1
         }
     }
+}
+```
 
 ### <a name="pipeline"></a>Конвейер
 В этом примере конвейер имеет только одно действие с типом **HDInsightStreaming**. 
 
 Кластер HDInsight автоматически заполняется примерами программ (wc.exe и cat.exe) и данных (davinci.txt). По умолчанию именем контейнера, используемым кластером HDInsight, является имя самого кластера. Например, если кластеру задано имя myhdicluster, именем связанного контейнера больших двоичных объектов будет myhdicluster.  
 
-    {
-        "name": "HadoopStreamingPipeline",
-        "properties": {
-            "description": "Hadoop Streaming Demo",
-            "activities": [
-                {
-                    "type": "HDInsightStreaming",
-                    "typeProperties": {
-                        "mapper": "cat.exe",
-                        "reducer": "wc.exe",
-                        "input": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-                        "output": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-                        "filePaths": [
-                            "<blobcontainer>/example/apps/wc.exe",
-                            "<blobcontainer>/example/apps/cat.exe"
-                        ],
-                        "fileLinkedService": "StorageLinkedService"
-                    },
-                    "outputs": [
-                        {
-                            "name": "StreamingOutputDataset"
-                        }
+```JSON
+{
+    "name": "HadoopStreamingPipeline",
+    "properties": {
+        "description": "Hadoop Streaming Demo",
+        "activities": [
+            {
+                "type": "HDInsightStreaming",
+                "typeProperties": {
+                    "mapper": "cat.exe",
+                    "reducer": "wc.exe",
+                    "input": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+                    "output": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+                    "filePaths": [
+                        "<blobcontainer>/example/apps/wc.exe",
+                        "<blobcontainer>/example/apps/cat.exe"
                     ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "RunHadoopStreamingJob",
-                    "description": "Run a Hadoop streaming job",
-                    "linkedServiceName": "HDInsightLinkedService"
-                }
-            ],
-            "start": "2014-01-04T00:00:00Z",
-            "end": "2014-01-05T00:00:00Z"
-        }
+                    "fileLinkedService": "StorageLinkedService"
+                },
+                "outputs": [
+                    {
+                        "name": "StreamingOutputDataset"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "name": "RunHadoopStreamingJob",
+                "description": "Run a Hadoop streaming job",
+                "linkedServiceName": "HDInsightLinkedService"
+            }
+        ],
+        "start": "2017-01-03T00:00:00Z",
+        "end": "2017-01-04T00:00:00Z"
     }
-
+}
+```
 ## <a name="see-also"></a>См. также
 * [Действие Hive](data-factory-hive-activity.md)
 * [Действие Pig](data-factory-pig-activity.md)

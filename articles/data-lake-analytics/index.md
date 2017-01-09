@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте, как выполнять анализ больших данных с помощью Data Lake Analytics. Руководства, в которых показано, как выполнять пакетный, оперативный и интерактивный анализ и как создавать запросы U-SQL."
 translationtype: Human Translation
-ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
-ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
+ms.sourcegitcommit: 003cc86e182c55621db9e41fa35d871f37245a91
+ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Документация по Data Lake Analytics
@@ -162,11 +162,29 @@ ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Начало работы с Azure Data Lake Analytics с помощью интерфейсов REST API</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Начало работы с Azure Data Lake Store с помощью Python</h3>
                     </div>
                 </div>
             </div>
@@ -232,6 +250,6 @@ ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

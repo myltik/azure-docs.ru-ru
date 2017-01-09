@@ -39,9 +39,9 @@ ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
  Щелкните любую коллекцию, чтобы открыть страницу с ее описанием и получить дополнительные сведения.
 На этой странице в разделе комментариев можно оставлять замечания, отзывы и задавать вопросы. Ссылку на страницу можно опубликовать в социальных сетях LinkedIn и Twitter для друзей и коллег. Кроме того, ссылку можно отправить по электронной почте, чтобы другие пользователи также могли просмотреть найденный вами эксперимент.
 
-![Расскажите друзьям о том, что вы нашли](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Расскажите друзьям о том, что вы нашли](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Добавление комментариев](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Добавление комментариев](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Участие
 Можно создать коллекцию, которая будет содержать собственные элементы или элементы, созданные сообществом. Это могут быть любые элементы коллекции, касающиеся определенного решения или понятия.
@@ -56,17 +56,17 @@ ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
 
 * Щелкните свое изображение в верхней части окна, а затем щелкните свое имя.
   
-    ![Щелкните имя своей учетной записи](media\\machine-learning-gallery-collections\\click-account-name.png)
+    ![Щелкните имя своей учетной записи](media/machine-learning-gallery-collections/click-account-name.png)
 
 1. Щелкните **New Item**(Создать элемент)
    
-    ![Щелкните New Item](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Щелкните New Item](media/machine-learning-gallery-collections/click-new-item.png)
 2. В раскрывающемся списке **Item Type** (Тип элемента) выберите значение **Collection** (Коллекция). Затем укажите имя коллекции, краткое описание, полное описание и любые ключевые слова, которые помогут пользователям найти коллекцию.
    
-    ![Укажите сведения о новой коллекции](media\\machine-learning-gallery-collections\\create-collection-page-1.png)
+    ![Укажите сведения о новой коллекции](media/machine-learning-gallery-collections/create-collection-page-1.png)
 3. Щелкните **Next** (Далее). В открывшемся окне можно загрузить на сайт свое изображение или выбрать одно из предложенных. Это изображение будет отображаться в коллекции. Выбирайте то, что поможет пользователям определить содержимое и назначение коллекции.
    
-    ![Укажите сведения о новой коллекции](media\\machine-learning-gallery-collections\\create-collection-page-2.png)
+    ![Укажите сведения о новой коллекции](media/machine-learning-gallery-collections/create-collection-page-2.png)
 4. Щелкните **Next** (Далее). В открывшемся окне определите доступность коллекции, выбрав **Public** (Общедоступная) или **Unlisted** (Частная). Частная коллекция доступна только по прямой ссылке.
    
    > [!IMPORTANT]
@@ -74,7 +74,7 @@ ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
    > 
    > 
    
-    ![Определите доступность коллекции: общедоступная или частная](media\\machine-learning-gallery-collections\\create-collection-page-3.png)
+    ![Определите доступность коллекции: общедоступная или частная](media/machine-learning-gallery-collections/create-collection-page-3.png)
 5. Нажмите кнопку **Создать**
 
 Теперь ваша коллекция является частью коллекции Cortana Intelligence. Она появится на вкладке **Collection** (Коллекция) на странице вашей учетной записи.
@@ -82,20 +82,20 @@ ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
 ### <a name="add-items-to-a-collection"></a>Добавление элементов в коллекцию
 Для добавления элементов в коллекцию откройте ее, выберите команду **Edit** (Изменить) и нажмите кнопку **Add Item** (Добавить элемент).
 
-![Добавление элементов в коллекцию на странице сведений](media\\machine-learning-gallery-collections\\add-to-collection-from-details-page.png)
+![Добавление элементов в коллекцию на странице сведений](media/machine-learning-gallery-collections/add-to-collection-from-details-page.png)
 
 Отобразится список элементов, добавленных в коллекцию. Вы также можете выполнить в коллекции поиск элементов для добавления. Щелкните элемент, чтобы выбрать его. Каждый выбранный элемент включается в набор элементов для добавления. На кнопке **Add** (Добавить) отображается количество выбранных элементов.
 
-![Добавление в коллекцию](media\\machine-learning-gallery-collections\\add-to-collection.png)
+![Добавление в коллекцию](media/machine-learning-gallery-collections/add-to-collection.png)
 
 Также если во время просмотра коллекции вы нашли элемент, который хотите добавить в коллекцию, просто откройте этот элемент, щелкните **Добавить в коллекцию**и укажите коллекцию, в которую хотите его добавить.
 
-![Добавление элементов в коллекцию на странице сведений](media\\machine-learning-gallery-collections\\add-to-collection-from-item-details.png)
+![Добавление элементов в коллекцию на странице сведений](media/machine-learning-gallery-collections/add-to-collection-from-item-details.png)
 
 Для изменения сводки, описания или тегов коллекции откройте ее и выберите команду **Edit** (Изменить).
 При изменении коллекции также можно изменить порядок элементов в коллекции. Для этого воспользуйтесь стрелками рядом с элементом для его перемещения в списке. К элементам в коллекции можно добавить примечания. Для этого щелкните в правом верхнем углу элемента и выберите команду **Add/Edit note** (Добавить/изменить примечание). Чтобы удалить элемент из коллекции, выберите команду **Remove** (Удалить).
 
-![Изменение сведений о коллекции](media\\machine-learning-gallery-collections\\change-collection-details.png)
+![Изменение сведений о коллекции](media/machine-learning-gallery-collections/change-collection-details.png)
 
 **[ПЕРЕЙТИ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 

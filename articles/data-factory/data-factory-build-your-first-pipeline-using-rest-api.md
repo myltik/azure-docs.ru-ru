@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 ## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
 * Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/) . Она будет использоваться с командами REST для создания фабрики данных.
-* Следуя инструкциям в [этой статье](../resource-group-create-service-principal-portal.md) , выполните следующее:
+* Следуя инструкциям в [этой статье](../azure-resource-manager/resource-group-create-service-principal-portal.md) , выполните следующее:
   1. Создайте веб-приложение с именем **ADFGetStartedApp** в Azure Active Directory.
   2. Получите **идентификатор клиента** и **секретный ключ**.
   3. Получите значение для **tenant_id**.
@@ -487,6 +487,6 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
