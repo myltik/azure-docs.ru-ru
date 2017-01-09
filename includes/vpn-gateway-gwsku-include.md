@@ -17,6 +17,6 @@ VPN-шлюз не использует номер SKU UltraPerformance. Свед
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
