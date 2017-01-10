@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -157,7 +157,6 @@ ms.openlocfilehash: 06c308f41444e7fa7b227911ff8542149790710a
 Организации, которые не уделяют достаточно внимания [классификации данных](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) и защите файлов, могут быть более уязвимыми к утечкам данных. Без правильной защиты файлов организация не сможет получать данные бизнес-аналитики, а также отслеживать нарушения и предотвращать неправомочный доступ к файлам.
 
 Дополнительные сведения об Azure RMS см. в статье [Начало работы со службой Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
-
 
 
 

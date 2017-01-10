@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -39,7 +39,6 @@ ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
 * [Реагирование на инциденты и последующее восстановление](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Дополнительные сведения](https://aka.ms/cyberserv) о консультативных услугах по обеспечению безопасности служб Майкрософт.
-
 
 
 

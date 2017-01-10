@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -39,7 +39,6 @@ ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
 Дополнительные сведения об этих программах см. на странице [программы поощрения Майкрософт](https://technet.microsoft.com/security/dn425036) и в [блоге центра MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Дополнительные сведения о центре MSRC см. на [домашней странице MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
 
 
 
