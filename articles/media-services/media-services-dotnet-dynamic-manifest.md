@@ -1,12 +1,12 @@
 ---
-title: Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure
-description: В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты.
+title: "Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure"
+description: "В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,32 +14,36 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: juliako;cenkdin
+translationtype: Human Translation
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 76ad2de236c4691523db9a897d99312b721b48d2
+
 
 ---
-# Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure
+# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-Начиная с версии 2.11, службы мультимедиа позволяют определять фильтры для активов. Эти фильтры представляют собой правила на стороне сервера, позволяющие пользователям выполнять следующие действия: воспроизведение только части видео (вместо целого) или указание подмножества представлений аудио и видео, которые может обрабатывать устройство клиента (вместо всех представлений, связанных с активом). Такая фильтрация активов достигается с помощью **динамических манифестов**, которые создаются по запросу клиента для потоковой передачи видео на основе указанных фильтров.
+Начиная с версии 2.11, службы мультимедиа позволяют определять фильтры для активов. Эти фильтры представляют собой правила на стороне сервера, позволяющие пользователям выполнять следующие действия: воспроизведение только части видео (вместо целого) или указание подмножества представлений аудио и видео, которые может обрабатывать устройство клиента (вместо всех представлений, связанных с активом). Такая фильтрация активов достигается с помощью **динамических манифестов**, которые создаются по запросу клиента для потоковой передачи видео на основе указанных фильтров.
 
-Более подробные сведения, относящиеся к фильтрам и динамическому манифесту, см. в разделе [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md).
+Подробные сведения о фильтрах и динамическом манифесте см. в статье [Фильтры и динамические манифесты](media-services-dynamic-manifest-overview.md).
 
-В этом разделе показано, как использовать пакет SDK .NET служб мультимедиа для создания, обновления и удаления фильтров.
+В этом разделе показано, как использовать пакет SDK .NET служб мультимедиа для создания, обновления и удаления фильтров. 
 
-Обратите внимание, что при обновлении фильтра может понадобиться до 2 минут на обновление правил конечной точкой потоковой передачи. Если содержимое было обработано с помощью данного фильтра (и кэшировано на прокси-серверах и в кэшах CDN), обновление этого фильтра может привести к сбоям проигрывателя. Рекомендуется очистить кэш после обновления фильтра. Если такой вариант невозможен, рассмотрите возможность использования другого фильтра.
+Обратите внимание, что при обновлении фильтра может понадобиться до 2 минут на обновление правил конечной точкой потоковой передачи. Если содержимое было обработано с помощью данного фильтра (и кэшировано на прокси-серверах и в кэшах CDN), обновление этого фильтра может привести к сбоям проигрывателя. Рекомендуется очистить кэш после обновления фильтра. Если такой вариант невозможен, рассмотрите возможность использования другого фильтра. 
 
-## Типы, используемые для создания фильтров
-При создании фильтров используются следующие типы:
+## <a name="types-used-to-create-filters"></a>Типы, используемые для создания фильтров
+При создании фильтров используются следующие типы: 
 
-* **IStreamingFilter**. В основе этого типа лежит следующий интерфейс API REST: [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx).
-* **IStreamingAssetFilter**. В основе этого типа лежит следующий интерфейс API REST: [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx).
-* **PresentationTimeRange**. В основе этого типа лежит следующий интерфейс API REST: [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx).
-* **FilterTrackSelectStatement** и **IFilterTrackPropertyCondition**. В основе этих типов лежат следующие интерфейсы API REST: [FilterTrackSelect и FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx).
+* **IStreamingFilter**.  В основе этого типа лежит следующий интерфейс API REST: [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+* **IStreamingAssetFilter**. В основе этого типа лежит следующий интерфейс API REST: [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+* **PresentationTimeRange**. В основе этого типа лежит следующий интерфейс API REST: [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+* **FilterTrackSelectStatement** и **IFilterTrackPropertyCondition**. В основе этих типов лежат следующие интерфейсы API REST: [FilterTrackSelect и FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
-## Создание, обновление, чтение и удаление глобальных фильтров
+## <a name="createupdatereaddelete-global-filters"></a>Создание, обновление, чтение и удаление глобальных фильтров
 Следующий код демонстрирует, как использовать .NET для создания, обновления, чтения и удаления фильтров ресурсов-контейнеров.
 
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
@@ -68,7 +72,7 @@ ms.author: juliako;cenkdin
     filter.Delete();
 
 
-## Создание, обновление, чтение и удаление фильтров ресурсов-контейнеров
+## <a name="createupdatereaddelete-asset-filters"></a>Создание, обновление, чтение и удаление фильтров ресурсов-контейнеров
 Следующий код демонстрирует, как использовать .NET для создания, обновления, чтения и удаления фильтров ресурсов-контейнеров.
 
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
@@ -99,12 +103,12 @@ ms.author: juliako;cenkdin
 
 
 
-## Построение URL-адресов потоковой передачи с использованием фильтров
-Сведения о публикации и доставке активов см. в разделе [Обзор доставки содержимого клиентам](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Построение URL-адресов потоковой передачи с использованием фильтров
+Сведения о публикации и доставке ресурсов см. в статье [Доставка содержимого клиентам](media-services-deliver-content-overview.md).
 
 Следующие примеры показывают, как добавлять фильтры к URL-адресам потоковой передачи.
 
-**MPEG DASH**
+**MPEG DASH** 
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
@@ -121,18 +125,18 @@ ms.author: juliako;cenkdin
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## См. также
+## <a name="see-also"></a>См. также
 [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
-ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
@@ -239,7 +239,7 @@ ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 По завершении теста на экране отобразится время ответа и число успешных попыток.
 
 ## <a name="automation"></a>Автоматизация
-* [Используйте сценарии PowerShell, чтобы настройка веб-теста](app-insights-powershell.md#add-an-availability-test) выполнялась автоматически.
+* [Используйте сценарии PowerShell, чтобы настройка веб-теста](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) выполнялась автоматически.
 * Настройте вызов [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), активируемый оповещением.
 
 ## <a name="questions-problems"></a>Вопросы? Проблемы?
@@ -294,6 +294,6 @@ ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

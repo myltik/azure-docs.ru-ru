@@ -1,12 +1,12 @@
 ---
-title: Создание фильтров с помощью API REST служб мультимедиа | Microsoft Docs
-description: В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты.
+title: "Создание фильтров с помощью REST API служб мультимедиа | Документация Майкрософт"
+description: "В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;cenkdin
+translationtype: Human Translation
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 5483304fd0f912dc2ab921253813f8fd6d3945f7
+
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Создание фильтров с помощью с помощью API REST служб мультимедиа
@@ -23,7 +27,7 @@ ms.author: juliako;cenkdin
 > 
 > 
 
-Начиная с версии 2.11, службы мультимедиа позволяют определять фильтры для активов. Эти фильтры представляют собой правила на стороне сервера, позволяющие пользователям выполнять следующие действия: воспроизведение только части видео (вместо целого) или указание подмножества представлений аудио и видео, которые может обрабатывать устройство клиента (вместо всех представлений, связанных с активом). Такая фильтрация активов достигается с помощью **динамических манифестов**, которые создаются по запросу клиента для потоковой передачи видео на основе указанных фильтров.
+Начиная с версии 2.11, службы мультимедиа позволяют определять фильтры для активов. Эти фильтры представляют собой правила на стороне сервера, позволяющие пользователям выполнять следующие действия: воспроизведение только части видео (вместо целого) или указание подмножества представлений аудио и видео, которые может обрабатывать устройство клиента (вместо всех представлений, связанных с активом). Такая фильтрация активов достигается с помощью **динамических манифестов**, которые создаются по запросу клиента для потоковой передачи видео на основе указанных фильтров.
 
 Подробные сведения о фильтрах и динамическом манифесте см. в статье [Фильтры и динамические манифесты](media-services-dynamic-manifest-overview.md).
 
@@ -153,7 +157,7 @@ ms.author: juliako;cenkdin
     . . . 
 
 ## <a name="list-filters"></a>Вывод списка фильтров
-### <a name="get-all-global-**filter**s-in-the-ams-account"></a>Получение всех глобальных фильтров ( **Filter**) в учетной записи AMS
+### <a name="get-all-global-filters-in-the-ams-account"></a>Получение всех глобальных фильтров ( **Filter**) в учетной записи AMS
 Для вывода списка фильтров используйте следующие запросы HTTP: 
 
 #### <a name="http-request"></a>HTTP-запрос
@@ -166,7 +170,7 @@ ms.author: juliako;cenkdin
     x-ms-version: 2.11 
     Host: media.windows.net 
 
-### <a name="get-**assetfilter**s-associated-with-an-asset"></a>Получение фильтров активов ( **AssetFilter**), связанных с тем или иным активом
+### <a name="get-assetfilters-associated-with-an-asset"></a>Получение фильтров активов ( **AssetFilter**), связанных с тем или иным активом
 #### <a name="http-request"></a>HTTP-запрос
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -178,7 +182,7 @@ ms.author: juliako;cenkdin
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-### <a name="get-an-**assetfilter**-based-on-its-id"></a>Получение фильтра активов ( **AssetFilter** ) по его идентификатору
+### <a name="get-an-assetfilter-based-on-its-id"></a>Получение фильтра активов ( **AssetFilter** ) по его идентификатору
 #### <a name="http-request"></a>HTTP-запрос
     GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -193,7 +197,7 @@ ms.author: juliako;cenkdin
 ## <a name="update-filters"></a>Обновление фильтров
 Для обновления фильтра новыми значениями свойства используйте операции PATCH, PUT или MERGE.  Дополнительные сведения об этих операциях см. [здесь](http://msdn.microsoft.com/library/dd541276.aspx).
 
-При обновлении фильтра может понадобиться до 2 минут на обновление правил конечной точкой потоковой передачи. Если содержимое было обработано с помощью данного фильтра (и кэшировано на прокси-серверах и в кэшах CDN), обновление этого фильтра может привести к сбоям проигрывателя. Рекомендуется очистить кэш после обновления фильтра. Если такой вариант невозможен, рассмотрите возможность использования другого фильтра.  
+При обновлении фильтра может понадобиться до 2 минут на обновление правил конечной точкой потоковой передачи. Если содержимое было обработано с помощью данного фильтра (и кэшировано на прокси-серверах и в кэшах CDN), обновление этого фильтра может привести к сбоям проигрывателя. Рекомендуется очистить кэш после обновления фильтра. Если такой вариант невозможен, рассмотрите возможность использования другого фильтра.  
 
 ### <a name="update-global-filters"></a>Обновление глобальных фильтров
 Чтобы обновить глобальный фильтр, используйте следующие запросы HTTP: 
@@ -324,12 +328,7 @@ ms.author: juliako;cenkdin
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
-
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
+    
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -339,6 +338,9 @@ ms.author: juliako;cenkdin
 ## <a name="see-also"></a>См. также
 [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 
