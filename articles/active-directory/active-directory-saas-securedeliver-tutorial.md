@@ -1,30 +1,34 @@
 ---
-title: Руководство по интеграции Azure Active Directory с Novatus | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в SECURE DELIVER.
+title: "Руководство по интеграции Azure Active Directory с Novatus | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в SECURE DELIVER."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fccd5668-fe6f-4e6d-a9ce-ba4f321c33d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ebb95d47e39b9ade3bc6ff5cac199ce5f552b335
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-secure-deliver"></a>Руководство. Интеграция Azure Active Directory с SECURE DELIVER
+# <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Руководство. Интеграция Azure Active Directory с SECURE DELIVER
 В данном руководстве рассказывается о том, как интегрировать SECURE DELIVER с Azure Active Directory (Azure AD).  
 Интеграция SECURE DELIVER с Azure AD имеет следующие преимущества.
 
 * С помощью Azure AD вы можете управлять доступом к SECURE DELIVER.
 * Вы можете включить автоматический вход пользователей в SECURE DELIVER (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с SECURE DELIVER, вам потребуется следующее.
@@ -43,7 +47,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление SECURE DELIVER из коллекции
@@ -57,19 +61,25 @@ ms.author: jeedes
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
+
 6. В поле поиска введите **SECURE DELIVER**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)
+
 7. В области результатов выберите **SECURE DELIVER** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
     ![Имя и логотип приложения в коллекции](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_06.png)
@@ -96,9 +106,11 @@ ms.author: jeedes
 1. На классическом портале Azure на странице интеграции с приложением **SECURE DELIVER** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
+
 2. На странице **Как пользователи должны входить в SECURE DELIVER?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) 
+
 3. На странице диалогового окна **Настроить параметры приложения** выполните описанные ниже действия, после чего нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) 
@@ -110,6 +122,7 @@ ms.author: jeedes
     c. В текстовом поле **Идентификатор** введите URL-адрес клиента. 
    
     d. Щелкните **Далее**
+
 4. На странице **Настройка единого входа в SECURE DELIVER** выполните приведенные ниже действия, после чего нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) 
@@ -117,6 +130,7 @@ ms.author: jeedes
     а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
+
 5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки SECURE DELIVER по адресу [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) и предоставьте следующие сведения:
    
     • скачанный файл сертификата;
@@ -126,15 +140,17 @@ ms.author: jeedes
     • **URL-адрес службы единого входа**;
    
     • **URL-адрес службы единого выхода**.
+
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
+
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -143,13 +159,17 @@ ms.author: jeedes
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_09.png) 
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_03.png) 
+
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_04.png) 
+
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_05.png) 
@@ -159,22 +179,25 @@ ms.author: jeedes
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
+
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_07.png) 
+
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_08.png) 
@@ -192,7 +215,7 @@ ms.author: jeedes
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к SECURE DELIVER.
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к SECURE DELIVER.
 
 ![Назначение пользователя][200] 
 
@@ -201,13 +224,17 @@ ms.author: jeedes
 1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
    
     ![Назначение пользователя][201] 
+
 2. В списке приложений выберите **SECURE DELIVER**.
    
     ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) 
+
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
     ![Назначение пользователя][203] 
+
 4. В списке пользователей выберите **Britta Simon**.
+
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
@@ -240,6 +267,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
