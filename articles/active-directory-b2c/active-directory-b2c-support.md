@@ -4,7 +4,7 @@ description: "Как регистрировать запросы на подде
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
 ms.service: active-directory-b2c
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 24a1e13b7865d25d56cb5a6f44ba3c9c097174a7
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9ee8b98d1643c83b38a33f7256a49b777ca135f0
 
 
 ---
@@ -69,6 +69,6 @@ ms.openlocfilehash: 24a1e13b7865d25d56cb5a6f44ba3c9c097174a7
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Nov16_HO3-->
 
 
