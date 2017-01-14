@@ -1,26 +1,31 @@
 ---
-title: Создание виртуальной машины Linux | Microsoft Docs
-description: Узнайте, как создать настраиваемую виртуальную машину под управлением Linux с помощью классической модели развертывания.
+title: "Создание классической виртуальной машины Linux с помощью интерфейса командной строки | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину Linux с помощью интерфейса командной строки Azure, используя классическую модель развертывания."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: f8071a2e-ed91-4f77-87d9-519a37e5364f
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/14/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: d3817e5e0f2c237375cb36993661968358c28b55
+
 
 ---
-# Создание настраиваемой виртуальной машины Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+# <a name="how-to-create-a-linux-vm-with-the-azure-cli"></a>Создание виртуальной машины Linux с помощью интерфейса командной строки Azure
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версия для модели развертывания с помощью Resource Manager доступна [здесь](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-В этой статье описано создание настраиваемой виртуальной машины с помощью интерфейса командной строки Azure и классической модели развертывания. Мы используем образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
+В этой статье описано создание виртуальной машины Linux с помощью интерфейса командной строки Azure и классической модели развертывания. Мы используем образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
 
 * Подключение виртуальной машины к виртуальной сети.
 * Добавление виртуальной машины к существующей облачной службе.
@@ -32,7 +37,12 @@ ms.author: iainfou
 > 
 > 
 
-## Создание виртуальной машины Linux с использованием классической модели развертывания
+## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Создание виртуальной машины Linux с использованием классической модели развертывания
 [!INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!-----HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

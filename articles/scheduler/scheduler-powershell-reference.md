@@ -1,27 +1,31 @@
 ---
-title: Справочник по командлетам PowerShell планировщика
-description: Справочник по командлетам PowerShell планировщика
+title: "Справочник по командлетам PowerShell планировщика"
+description: "Справочник по командлетам PowerShell планировщика"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 26eb1469bc508ef518103a955fa0fbc6db2be46d
+
 
 ---
-# Справочник по командлетам PowerShell планировщика
+# <a name="scheduler-powershell-cmdlets-reference"></a>Справочник по командлетам PowerShell планировщика
 В следующей таблице приведено описание и ссылки на справочную страницу для каждого из основных командлетов в планировщике Azure.
 
-Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
-Дополнительные сведения о [командлетах Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx) см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
+Дополнительные сведения о [командлетах Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx) см. в статье [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 | Командлет | Описание командлета |
 | --- | --- |
@@ -43,7 +47,7 @@ ms.author: krisragh
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Изменяет задание раздела служебной шины. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Изменяет задание очереди хранилища. |
 
-Для получения более подробных сведений можно выполнить следующие командлеты:
+Для получения более подробных сведений можно выполнить следующие командлеты: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## См. также
+## <a name="see-also"></a>См. также
  [Что такое планировщик?](scheduler-intro.md)
 
  [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

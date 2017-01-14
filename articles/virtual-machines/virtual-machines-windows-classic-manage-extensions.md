@@ -1,13 +1,13 @@
 ---
-title: Управление расширениями виртуальной машины | Microsoft Docs
-description: Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания.
+title: "Управление расширениями виртуальных машин | Документация Майкрософт"
+description: "Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 53f0543f-3217-4ad5-90ca-802810118ff9
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: e2de6eeb58bd3135032992d9fd0f69d026c0aecc
+
 
 ---
-# Управление расширениями виртуальной машины
+# <a name="manage-virtual-machine-extensions"></a>Управление расширениями виртуальной машины
 Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании расширений виртуальных машин с моделью Resource Manager см. [здесь](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

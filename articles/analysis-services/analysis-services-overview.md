@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 1f5bbbe4285c1635138d40af25cd0cb1d0177300
-ms.openlocfilehash: 76d0ba4334d647008b4b1508d231059d21d0f128
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a3380731657d151b8c6337764069890420927dfc
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 76d0ba4334d647008b4b1508d231059d21d0f128
 ## <a name="use-the-tools-you-already-know"></a>Использование знакомых инструментов
 ![Средства разработчика бизнес-аналитики](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Для создания и развертывания табличной модели можно использовать последние версии [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) или [Azure Powershell](../powershell-install-configure.md) и шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Для создания и развертывания табличной модели можно использовать последние версии [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) или [Azure Powershell](/powershell/azureps-cmdlets-docs) и шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="connect-to-data-sources"></a>Подключение к источникам данных
 Модели данных, развернутые на серверах в Azure, поддерживают подключение к локальным и облачным источникам данных. Вы также можете получить гибридное решение бизнес-аналитики, объединив данные из локальных и облачных источников.
@@ -123,6 +123,6 @@ Power BI Embedded пока не поддерживается в предвари
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
