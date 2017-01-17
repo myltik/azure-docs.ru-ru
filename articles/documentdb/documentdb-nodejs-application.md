@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
+ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
+ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 
 ---
@@ -30,24 +30,11 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 > 
 > 
 
-В этом учебнике по Node.js показано, как использовать службу Azure DocumentDB для хранения данных и обеспечения доступа к ним из приложения Node.js Express, размещенного на веб-сайтах Azure.
-
-Рекомендуется начать с просмотра следующего видеоматериала, где показано, как подготовить учетную запись базы данных Azure DocumentDB и сохранить документы JSON в приложении Node.js. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
-> 
-> 
-
-Затем вернитесь к этому учебнику по Node.js, где вы узнаете ответы на следующие вопросы:
-
-* Как работать со службой DocumentDB, используя модуль documentdb из npm
-* Как развернуть веб-приложение на веб-сайтах Azure
-
-В ходе учебного курса вы создадите простое веб-приложение для управления задачами, позволяющее создавать, извлекать и выполнять задачи. Задачи будут храниться в виде документов JSON в Azure DocumentDB.
+В этом руководстве по Node.js показано, как использовать Azure DocumentDB для хранения данных и обеспечения доступа к ним из приложения Node.js Express, размещенного на веб-сайтах Azure. Вы создадите простое веб-приложение для управления задачами (приложение ToDo), позволяющее создавать, извлекать и выполнять задачи. Задачи будут храниться в виде документов JSON в Azure DocumentDB. В этом руководстве описано, как создать и развернуть приложение, а также объясняется каждый фрагмент кода.
 
 ![Снимок экрана приложения "Мой список дел", созданного с помощью этого учебника](./media/documentdb-nodejs-application/image1.png)
 
-Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, получите полный пример решения на сайте [GitHub][GitHub].
+Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, получите полный пример решения на сайте [GitHub][GitHub]. Инструкции по запуску приложения см. в [файле сведений](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md).
 
 ## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Предварительные требования
 > [!TIP]
@@ -57,7 +44,7 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
    ИЛИ
 
@@ -76,20 +63,23 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 ## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
 Теперь создадим базовый проект Node.js «Привет, мир!» с помощью платформы [Express](http://expressjs.com/) .
 
-1. Откройте удобный для вас терминал.
-2. С помощью генератора Express создайте новое приложение с именем **todo**.
+1. Откройте предпочитаемый терминал, например командную строку Node.js.
+2. Перейдите в каталог, в котором будет сохранено новое приложение.
+3. С помощью генератора Express создайте новое приложение с именем **todo**.
    
         express todo
-3. Откройте новый каталог **todo** и установите зависимости.
+4. Откройте новый каталог **todo** и установите зависимости.
    
         cd todo
         npm install
-4. Запустите новое приложение.
+5. Запустите новое приложение.
    
         npm start
-5. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost: 3000](http://localhost:3000).
+6. Новое приложение можно просмотреть, перейдя в браузере по адресу [http://localhost: 3000](http://localhost:3000).
    
     ![Изучение Node.js — снимок экрана приложения "Привет, мир" в окне браузера](./media/documentdb-nodejs-application/image12.png)
+
+    Затем, чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и щелкните **Y** для завершения пакетного задания.
 
 ## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
 Файл **package.json** является одним из файлов, создаваемых в корневой папке проекта. Этот файл содержит список дополнительных модулей, необходимых для приложения Node.js. Позднее, при развертывании этого приложения на веб-сайтах Azure, этот файл будет использоваться для определения модулей, которые должны быть установлены в Azure для поддержки вашего приложения. Для этого учебного примера нам нужно установить еще два пакета.
@@ -102,7 +92,25 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
         npm install documentdb --save
 3. Быстрая проверка файла **package.json** приложения должна показать дополнительные модули. Этот файл сообщит Azure, какие пакеты следует загрузить и установить при запуске приложения. Он должен выглядеть подобно приведенному ниже примеру.
    
-    ![Снимок экрана вкладки package.json](./media/documentdb-nodejs-application/image17.png)
+        {
+          "name": "todo",
+          "version": "0.0.0",
+          "private": true,
+          "scripts": {
+            "start": "node ./bin/www"
+          },
+          "dependencies": {
+            "async": "^2.1.4",
+            "body-parser": "~1.15.2",
+            "cookie-parser": "~1.4.3",
+            "debug": "~2.2.0",
+            "documentdb": "^1.10.0",
+            "express": "~4.14.0",
+            "jade": "~1.11.0",
+            "morgan": "~1.7.0",
+            "serve-favicon": "~2.3.0"
+          }
+        }
    
     Это сообщает Node (и позже Azure), что ваше приложение зависит от указанных дополнительных модулей.
 
@@ -110,7 +118,7 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 После завершения начальной установки и настройки, давайте перейдем к, собственно, написанию кода приложения, использующего Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Создание модели
-1. В каталоге проекта создайте новый каталог с именем **models**.
+1. В каталоге проекта создайте каталог с именем **models** в том же каталоге, что и файл package.json.
 2. В каталоге **models** создайте новый файл с именем **taskDao.js**. Этот файл будет содержать модель для задач, создаваемых нашим приложением.
 3. В том же каталоге **models** создайте еще один новый файл с именем **docdbUtils.js**. Этот файл будет содержать некоторый полезный многократно используемый код, который будет задействован на протяжении нашего приложения. 
 4. Скопируйте следующий код в **docdbUtils.js**
@@ -387,7 +395,7 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
         config.collectionId = "Items";
    
         module.exports = config;
-3. В файле **config.js** обновите значения HOST и AUTH_KEY значениями, найденными в выноске Keys учетной записи DocumentDB на [портале Microsoft Azure](https://portal.azure.com):
+3. В файле **config.js** замените значения HOST и AUTH_KEY значениями, найденными в колонке "Ключи" учетной записи DocumentDB на [портале Microsoft Azure](https://portal.azure.com).
 4. Сохраните и закройте файл **config.js** .
 
 ### <a name="modify-appjs"></a>Изменение app.js
@@ -398,10 +406,10 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
         var config = require('./config');
         var TaskList = require('./routes/tasklist');
         var TaskDao = require('./models/taskDao');
-3. Этот код определяет используемый файл конфигурации и продолжает считывать значения из этого файла в ряд переменных, которыми мы вскоре воспользуемся.
+3. Этот код определяет используемый файл конфигурации, продолжая считывать из него значения в переменные, которыми мы вскоре воспользуемся.
 4. Замените следующие две строки в файле **app.js** :
    
-        app.use('/', routes);
+        app.use('/', index);
         app.use('/users', users); 
    
       следующим фрагментом:
@@ -424,64 +432,63 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 Теперь давайте обратим наше внимание на создание пользовательского интерфейса, чтобы пользователь смог взаимодействовать с нашим приложением. Созданное нами приложение Express использует в качестве обработчика представлений **Jade**. Дополнительные сведения о Jade см. на сайте [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Файл **layout.jade** в каталоге **views** используется как глобальный шаблон для других файлов **.jade**. На этом шаге он будет изменен для использования [Twitter Bootstrap](https://github.com/twbs/bootstrap)— набора средств, упрощающих разработку привлекательного веб-сайта. 
-2. Откройте файл **layout.jade **, расположенный в папке **views**, и замените его содержимое следующим:
+2. Откройте файл **layout.jade **, расположенный в папке **views**, и замените его содержимое следующим.
    
         doctype html
         html
-          head
-            title= title
-            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-            link(rel='stylesheet', href='/stylesheets/style.css')
-          body
-            nav.navbar.navbar-inverse.navbar-fixed-top
-              div.navbar-header
-                a.navbar-brand(href='#') My Tasks
-            block content
-            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+           head
+             title= title
+             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+             link(rel='stylesheet', href='/stylesheets/style.css')
+           body
+             nav.navbar.navbar-inverse.navbar-fixed-top
+               div.navbar-header
+                 a.navbar-brand(href='#') My Tasks
+             block content
+             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     Он позволяет эффективно сообщить подсистеме **Jade** о том, что необходимо выполнить прорисовку HTML-кода для нашего приложения, и создает **block** с именем **content**, где можно указать разметку для страниц содержимого.
     Сохраните и закройте файл **layout.jade** .
 
-1. Теперь откройте файл **index.jade** — представление, которое будет использоваться нашим приложением, — и замените содержимое файла следующим:
+3. Теперь откройте файл **index.jade** — представление, которое будет использоваться нашим приложением, — и замените содержимое файла следующим:
    
         extends layout
-   
         block content
-          h1 #{title}
-          br
-   
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
-              tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if (typeof tasks === "undefined")
-                tr
-                  td
-              else
-                each task in tasks
-                  tr
-                    td #{task.name}
-                    td #{task.category}
-                    - var date  = new Date(task.date);
-                    - var day   = date.getDate();
-                    - var month = date.getMonth() + 1;
-                    - var year  = date.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name:
-            input(name="name", type="textbox")
-            label Item Category:
-            input(name="category", type="textbox")
-            br
-            button.btn(type="submit") Add item
+           h1 #{title}
+           br
+        
+           form(action="/completetask", method="post")
+             table.table.table-striped.table-bordered
+               tr
+                 td Name
+                 td Category
+                 td Date
+                 td Complete
+               if (typeof tasks === "undefined")
+                 tr
+                   td
+               else
+                 each task in tasks
+                   tr
+                     td #{task.name}
+                     td #{task.category}
+                     - var date  = new Date(task.date);
+                     - var day   = date.getDate();
+                     - var month = date.getMonth() + 1;
+                     - var year  = date.getFullYear();
+                     td #{month + "/" + day + "/" + year}
+                     td
+                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+             button.btn(type="submit") Update tasks
+           hr
+           form.well(action="/addtask", method="post")
+             label Item Name:
+             input(name="name", type="textbox")
+             label Item Category:
+             input(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
    
     Этот код дополняет макет и предоставляет содержимое для заполнителя **content**, который мы ранее видели в файле **layout.jade**.
    
@@ -490,7 +497,7 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
     Вторая форма содержит два поля ввода и кнопку, позволяющую создать новый элемент путем POST-запроса к методу **/addtask** нашего контроллера.
    
     Этого должно быть достаточно для работы нашего приложения.
-2. Откройте файл **style.css** в каталоге **public\stylesheets** и замените код следующим:
+4. Откройте файл **style.css** в каталоге **public\stylesheets** и замените код следующим:
    
         body {
           padding: 50px;
@@ -513,14 +520,20 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
     Сохраните и закройте файл **style.css** .
 
 ## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Шаг 6. Локальный запуск приложения
-1. Чтобы протестировать приложение на локальном компьютере, выполните в терминале команду `npm start` для запуска приложения и откройте браузер со страницей, которая выглядит, как на следующем рисунке:
+1. Чтобы протестировать приложение на локальном компьютере, выполните `npm start` в терминале для запуска приложения, а затем обновите в браузере страницу [http://localhost:3000](http://localhost:3000). Страница должна выглядеть так, как на рисунке ниже:
    
     ![Снимок экрана приложения «Мой список дел» в окне браузера](./media/documentdb-nodejs-application/image18.png)
-2. Используйте предоставленные поля «Элемент», «Имя элемента» и «Категория» для ввода данных, а затем нажмите кнопку **Добавить элемент**.
+
+    > [!TIP]
+    > Если появляется сообщение об ошибке отступа в файле layout.jade или index.jade, выровняйте две первые строки в этих двух файлах по левому краю без пробелов. Если перед первыми двумя строками есть пробелы, удалите их, сохраните оба файла, а затем обновите окно браузера. 
+
+2. Используйте поля "Элемент", "Имя элемента" и "Категория", чтобы указать новую задачу, а затем щелкните **Добавить элемент**. Будет создан документ в DocumentDB с заданными свойствами. 
 3. Страница должна обновиться, чтобы отобразить только что созданный элемент в списке ToDo.
    
     ![Снимок экрана приложения с новым элементом в списке дел](./media/documentdb-nodejs-application/image19.png)
-4. Чтобы завершить задачу, просто установите флажок в столбце "Завершено" и нажмите кнопку **Обновить задачи**.
+4. Чтобы завершить задачу, просто установите флажок в столбце "Завершено" и нажмите кнопку **Обновить задачи**. Созданный документ будет обновлен.
+
+5. Чтобы остановить приложение, нажмите клавиши CTRL + C в окне терминала и нажмите клавишу **Y** для завершения пакетного задания.
 
 ## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Шаг 7. Развертывание проекта приложения на веб-сайтах Azure
 1. Если это еще не сделано, включите репозиторий git для веб-сайта Azure. Соответствующие инструкции см. в статье [Развертывание локального репозитория Git в службе приложений Azure](../app-service-web/app-service-deploy-local-git.md).
@@ -532,12 +545,16 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
         git push azure master
 4. Через несколько секунд Visual Studio завершит публикацию вашего веб-приложения и запустит браузер, где вы увидите свое творение, запущенное в Azure!
 
+    Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express с использованием Azure DocumentDB и опубликовали его на веб-сайтах Azure.
+
+    Если вы хотите скачать полный пример приложения или сослаться на него во время работы с этим руководством, файл примера приложения находится в репозитории [GitHub][GitHub].
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Дальнейшие действия
-Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express с использованием Azure DocumentDB и опубликовали его на веб-сайтах Azure.
 
-Исходный код полного справочного приложения можно скачать на сайте [GitHub][GitHub].
-
-Дополнительную информацию см. в [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/).
+* Хотите выполнить проверку масштабирования и производительности с помощью DocumentDB? См. статью [Проверка производительности и масштабирования с помощью Azure DocumentDB](documentdb-performance-testing.md).
+* Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
+* Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
+* Ознакомьтесь с [документацией по DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
@@ -546,6 +563,6 @@ ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
