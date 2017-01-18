@@ -49,6 +49,6 @@
 ## [Примеры для Azure CLI 2.0 (предварительная версия)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Список поддерживаемых метрик](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
