@@ -2,4 +2,7 @@
 
     azure feature register Microsoft.Compute vmssApiPreviewV2Access
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

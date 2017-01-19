@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
 ### <a name="azure-resource-manager-templates-json"></a>Шаблоны диспетчера ресурсов Azure (JSON)
 Каждый раз при создании веб-приложения, например, в службе приложений Azure диспетчер ресурсов Azure использует шаблон JSON для создания всей группы ресурсов с ресурсами компонентов. Сложный шаблон из [Azure Marketplace](/marketplace), такой как приложение [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/), может содержать базу данных MySQL, учетные записи хранения, план службы приложения, само веб-приложение, правила оповещений, параметры приложения, параметры автоматического масштабирования и др. Все эти шаблоны доступны через PowerShell. Дополнительные сведения о том, как скачивать и использовать эти шаблоны, см. в статье [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Дополнительные сведения о создании шаблонов Azure Resource Manager см. [здесь](../resource-group-authoring-templates.md).
+Дополнительные сведения о создании шаблонов Azure Resource Manager см. [здесь](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Пакет SDK для Azure 2.6 для Visual Studio
 Новейший пакет SDK содержит улучшения для поддержки шаблонов диспетчера ресурсов в редакторе JSON. Здесь можно быстро создать шаблон группы ресурсов с нуля или открыть существующий шаблон JSON (например, скачанный шаблон коллекции) для изменения, заполнения файла параметров и даже развертывания группы ресурсов непосредственно из решения для групп ресурсов Azure.
@@ -129,7 +129,7 @@ ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
 * Вложенные ресурсы в `“resources”: […]`, где определены база данных и правила брандмауэра, содержат элемент `dependsOn`, указывающий на идентификатор ресурса для ресурса SQLServer корневого уровня. Этим диспетчеру ресурсов Azure сообщается, что "перед созданием ресурса уже должен существовать другой ресурс и, если этот другой ресурс определен в шаблоне, сначала создайте его".
   
   > [!NOTE]
-  > Дополнительные сведения об использовании `resourceId()` см. в статье [Функции шаблонов Azure Resource Manager](../resource-group-template-functions.md).
+  > Дополнительные сведения об использовании `resourceId()` см. в статье [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
   > 
   > 
 * Результатом работы элемента `dependsOn` будет то, что диспетчер ресурсов Azure сможет узнать, какие ресурсы могут быть созданы в параллельном режиме и какие ресурсы должны быть созданы последовательно. 
@@ -265,16 +265,16 @@ ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
-* [Язык шаблонов в диспетчере ресурсов Azure](../resource-group-authoring-templates.md)
-* [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
-* [Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md)
-* [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
-* [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
-* [Устранение неполадок при развертывании групп ресурсов в Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* [Язык шаблонов в диспетчере ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Функции шаблонов в диспетчере ресурсов Azure](../azure-resource-manager/resource-group-template-functions.md)
+* [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md)
+* [Использование Azure PowerShell с диспетчером ресурсов Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Устранение неполадок при развертывании групп ресурсов в Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

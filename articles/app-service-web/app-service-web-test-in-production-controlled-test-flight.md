@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 152b08cf72c48109f17b5c4715e4ca5fafbb1b7b
 
 
 ---
@@ -351,7 +351,7 @@ ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
 * [Гибкая разработка программного обеспечения с помощью службы приложений Azure.](app-service-agile-software-development.md)
 * [Настройка промежуточных сред для веб-приложений в службе приложений Azure](web-sites-staged-publishing.md)
 * [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)
-* [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+* [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
 * [Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
@@ -359,6 +359,6 @@ ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

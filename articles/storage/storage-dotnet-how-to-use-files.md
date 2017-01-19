@@ -3,7 +3,7 @@ title: "Приступая к работе с хранилищем файлов 
 description: "Хранение данных (файлов) в облаке в хранилище файлов Azure и подключение к общей облачной папке из виртуальной машины Azure или из локального приложения под управлением Windows."
 services: storage
 documentationcenter: .net
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
@@ -12,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
-ms.author: minet
+/ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
 ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
 ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
@@ -667,6 +667,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [Inside Azure File Storage (Хранилище файлов Azure: взгляд изнутри)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+
 
 
 <!--HONumber=Dec16_HO1-->

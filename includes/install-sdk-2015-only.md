@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Настройка среды разработки
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Настройка среды разработки
 Для начала настройте среду разработки, установив [пакет SDK Azure для Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
 Если у вас не установлена служба Visual Studio, вместе с пакетом SDK будет установлена служба Visual Studio Express for Web.
@@ -8,4 +8,8 @@
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

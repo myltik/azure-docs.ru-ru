@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ab66e07f293b3efc156829659b805c17b06ebea6
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
 
 
 ---
@@ -263,7 +263,7 @@ ms.openlocfilehash: ab66e07f293b3efc156829659b805c17b06ebea6
 * [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)
 * [Практика гибкой разработки: советы и рекомендации для модернизированного цикла разработки](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Стратегии расширенного развертывания для веб-приложений Azure с помощью шаблонов диспетчера ресурсов](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+* [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
 * [ARMClient — настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
@@ -276,6 +276,6 @@ ms.openlocfilehash: ab66e07f293b3efc156829659b805c17b06ebea6
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
