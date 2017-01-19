@@ -1,13 +1,13 @@
 ---
-title: Управление Поиском Azure с помощью сценариев PowerShell | Microsoft Docs
-description: Управление службой поиска Azure с помощью сценариев PowerShell. Создание или обновление службы Поиска Azure и управление ключами администратора Поиска Azure
+title: "Управление поиском Azure с помощью сценариев PowerShell | Документация Майкрософт"
+description: "Управление службой поиска Azure с помощью сценариев PowerShell. Создание или обновление службы Поиска Azure и управление ключами администратора Поиска Azure"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: seansaleh
 manager: mblythe
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+
 
 ---
-# Управление службой поиска Azure с помощью PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Управление службой поиска Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -25,10 +29,11 @@ ms.author: seasa
 > 
 > 
 
-В этом разделе описаны команды PowerShell, предназначенные для выполнения многих задач управления служб Поиска Azure. Мы рассмотрим создание службы поиска, ее масштабирование и управления ее ключами API. Эти команды дублируют возможности управления, доступные в [API REST управления Поиском Azure](http://msdn.microsoft.com/library/dn832684.aspx).
+В этом разделе описаны команды PowerShell, предназначенные для выполнения многих задач управления служб Поиска Azure. Мы рассмотрим создание службы поиска, ее масштабирование и управления ее ключами API.
+Эти команды дублируют возможности управления, доступные в [API REST управления Поиском Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## Предварительные требования
-* Необходимо установить Azure PowerShell 1.0 или более поздней версии. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+## <a name="prerequisites"></a>Предварительные требования
+* Необходимо установить Azure PowerShell 1.0 или более поздней версии. Инструкции см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Вы должны войти в свою подписку Azure в PowerShell, как описано ниже.
 
 Сначала необходимо войти в Azure с помощью следующей команды.
@@ -47,7 +52,7 @@ ms.author: seasa
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## Команды, которые помогут приступить к работе
+## <a name="commands-to-help-you-get-started"></a>Команды, которые помогут приступить к работе
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -125,7 +130,7 @@ ms.author: seasa
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 После создания службы можно перейти к следующим шагам: создать [индекс](search-what-is-an-index.md), [отправить запросы в индекс](search-query-overview.md) и, наконец, создать приложение поиска, использующее службу поиска Azure, и управлять им.
 
 * [Создание индекса службы "Поиск Azure" на портале Azure](search-create-index-portal.md)
@@ -134,4 +139,9 @@ ms.author: seasa
 * [Как использовать Поиск Azure в приложении .NET](search-howto-dotnet-sdk.md)
 * [Анализ трафика Поиска Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

@@ -15,21 +15,19 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 83f2818873e2716193004bf1cc2b9da4da360f17
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 14419f36a9404202d6238d5825fb1ae77d46038a
 
 
 ---
 # <a name="using-azure-powershell-with-azure-resource-manager"></a>Использование Azure PowerShell с диспетчером ресурсов Azure
 > [!div class="op_single_selector"]
-> * [Портал](resource-group-portal.md) 
+> * [Портал](resource-group-portal.md)
 > * [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Azure Resource Manager реализует современный подход к управлению жизненным циклом ресурсов Azure. Вместо того чтобы создавать отдельные ресурсы и управлять ими, вы для начала представляете себе полное решение, такое как блог, коллекция фотографий, портал SharePoint или вики-страница. Вы используете шаблон (декларативное представление решения), чтобы определить группу ресурсов, содержащую все ресурсы, необходимые для поддержки решения. Затем вы развертываете группу ресурсов и управляете ею как логической единицей. 
+Azure Resource Manager реализует современный подход к управлению жизненным циклом ресурсов Azure. Вместо того чтобы создавать отдельные ресурсы и управлять ими, вы для начала представляете себе полное решение, такое как блог, коллекция фотографий, портал SharePoint или вики-страница. Вы используете шаблон (декларативное представление решения), чтобы определить группу ресурсов, содержащую все ресурсы, необходимые для поддержки решения. Затем вы развертываете группу ресурсов и управляете ею как логической единицей.
 
 В этом учебнике вы узнаете, как использовать Azure PowerShell с диспетчером ресурсов Azure. Здесь рассматривается процесс развертывания и использования решения. Мы будем использовать Azure PowerShell и шаблон Resource Manager, чтобы развернуть:
 
@@ -38,14 +36,14 @@ Azure Resource Manager реализует современный подход к
 * правила брандмауэра, чтобы разрешить веб-приложению подключаться к базе данных;
 * План службы приложений для определения возможностей и стоимости веб-приложения;
 * веб-сайт для запуска веб-приложения;
-* Файл web.config для хранения строки подключения к базе данных. 
+* Файл web.config для хранения строки подключения к базе данных.
 * правила создания оповещений для мониторинга производительности и отслеживания ошибок;
 * App Insights для настройки автоматического масштабирования.
 
-Сведения о том, как установить Azure PowerShell, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения о том, как установить Azure PowerShell, см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="get-help-for-cmdlets"></a>Справка по командлетам
-Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help. 
+Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
@@ -53,7 +51,7 @@ Azure Resource Manager реализует современный подход к
 
     Get-Help Get-AzureRmResource -Detailed
 
-Чтобы получить список командлетов в модуле ресурсов вместе с краткой справочной информацией, введите: 
+Чтобы получить список командлетов в модуле ресурсов вместе с краткой справочной информацией, введите:
 
     Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
@@ -78,21 +76,21 @@ Azure Resource Manager реализует современный подход к
 
     Add-AzureRmAccount
 
-Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он загружает параметры учетной записи, чтобы они были доступны в Azure PowerShell. 
+Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он загружает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
 
-Срок действия параметров учетной записи истекает, поэтому необходимо их периодически обновлять. Чтобы обновить параметры учетной записи, еще раз выполните командлет **Add-AzureRmAccount** . 
+Срок действия параметров учетной записи истекает, поэтому необходимо их периодически обновлять. Чтобы обновить параметры учетной записи, еще раз выполните командлет **Add-AzureRmAccount** .
 
 > [!NOTE]
-> Для модулей Resource Manager требуется командлет Add-AzureRmAccount. Файла параметров публикации недостаточно.     
-> 
-> 
+> Для модулей Resource Manager требуется командлет Add-AzureRmAccount. Файла параметров публикации недостаточно.
+>
+>
 
 Если у вас несколько подписок, укажите идентификатор той, которая будет использоваться для развертывания, с помощью командлета **Set-AzureRmContext** .
 
     Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
-Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать. 
+Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать.
 
 Чтобы создать группу ресурсов, используйте командлет **New-AzureRmResourceGroup** .
 
@@ -115,9 +113,10 @@ Azure Resource Manager реализует современный подход к
 
 У вас есть группа ресурсов и шаблон, поэтому вы можете развернуть инфраструктуру, определенную в шаблоне, в группу ресурсов. Разверните ресурсы, используя командлет **New-AzureRmResourceGroupDeployment**. Шаблон указывает множество значений по умолчанию, которые мы и будем использовать. Таким образом, вам не придется задавать значения для этих параметров. Базовый синтаксис выглядит вот так:
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-Укажите группу ресурсов и расположение шаблона. Если шаблон представляет собой локальный файл, используйте параметр **-TemplateFile** и укажите путь к нему. Для параметра **-Mode** можно задать значение **Добавочный** или **Полный**. По умолчанию Resource Manager выполняет добавочное обновление во время развертывания. Таким образом, не обязательно задавать для параметра **-Mode** значение **Добавочный**. Сведения об отличиях этих режимов развертывания см. в статье [Развертывание приложения с использованием шаблона Azure Resource Manager](resource-group-template-deploy.md). 
+Укажите группу ресурсов и расположение шаблона. Если шаблон представляет собой локальный файл, используйте параметр **-TemplateFile** и укажите путь к нему. Для параметра **-Mode** можно задать значение **Добавочный** или **Полный**. По умолчанию Resource Manager выполняет добавочное обновление во время развертывания. Таким образом, не обязательно задавать для параметра **-Mode** значение **Добавочный**.
+Сведения об отличиях этих режимов развертывания см. в статье [Развертывание приложения с использованием шаблона Azure Resource Manager](resource-group-template-deploy.md).
 
 ### <a name="dynamic-template-parameters"></a>Динамические параметры шаблона
 Если вы знакомы с PowerShell, вы знаете,что вы можете проходить по кругу все доступные параметры для командлета. Для этого введите знак минус (-) и нажмите клавишу TAB. Точно так же это работает с параметрами, которые вы определили в шаблоне. Сразу после ввода имени шаблона командлет выбирает шаблон, анализирует его и динамически добавляет параметры шаблона в команду. Таким образом можно легко указать значения параметров шаблона.
@@ -162,42 +161,40 @@ Azure Resource Manager реализует современный подход к
 
     DeploymentDebugLogLevel :
 
-Всего за несколько шагов мы создали и развернули ресурсы, необходимые для сложного веб-сайта. 
+Всего за несколько шагов мы создали и развернули ресурсы, необходимые для сложного веб-сайта.
 
 ### <a name="log-debug-information"></a>Ведение журнала отладочной информации
 При развертывании шаблона можно ввести журнал дополнительных сведений о запросах и ответах. Для этого во время выполнения команды **New-AzureRmResourceGroupDeployment** необходимо указать параметр **-DeploymentDebugLogLevel**. Эта информация может помочь устранить ошибки развертывания. По умолчанию задано значение **None**. В этом случае содержимое запросов и ответов не регистрируется. Можно задать ведение журнала содержимого запроса, ответа или и того, и другого.  Дополнительные сведения об устранении неполадок развертывания и ведении журнала отладочной информации см. в статье [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). В следующем примере для развертывания задан параметр ведения журнала содержимого запроса и ответа.
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 > [!NOTE]
-> При указании параметра DeploymentDebugLogLevel внимательно рассмотрите тип данных, передаваемых в ходе развертывания. При ведении журнала с информацией о запросе или ответе возможно раскрытие конфиденциальных данных, извлекаемых с помощью операций развертывания. 
-> 
-> 
+> При указании параметра DeploymentDebugLogLevel внимательно рассмотрите тип данных, передаваемых в ходе развертывания. При ведении журнала с информацией о запросе или ответе возможно раскрытие конфиденциальных данных, извлекаемых с помощью операций развертывания.
 
 ## <a name="get-information-about-your-resource-groups"></a>Получение сведений о ваших группах ресурсов
 После создания группы ресурсов, вы можете использовать командлеты в модуле диспетчера ресурсов для управления ими.
 
 * Чтобы получить группу ресурсов своей подписки, используйте командлет **Get-AzureRmResourceGroup** .
-  
+
         Get-AzureRmResourceGroup -ResourceGroupName TestRG1
-  
+
     Он возвратит следующую информацию:
-  
+
         ResourceGroupName : TestRG1
         Location          : westus
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
-  
+
         ...
-  
+
     Если не указать имя группы ресурсов, командлет возвратит все группы ресурсов в подписке.
 * Чтобы получить ресурсы, входящие в группу ресурсов, используйте командлет **Find-AzureRmResource** с параметром **ResourceGroupNameContains**. Без параметров командлет Find-AzureRmResource возвращает все ресурсы в подписке Azure.
-  
+
         Find-AzureRmResource -ResourceGroupNameContains TestRG1
-  
+
      Он возвращает список ресурсов в следующем виде:
-  
+
         Name              : sqlservers5wdai7p2k2g4
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/sqlservers5wdai7p2k2g4
         ResourceName      : sqlservers5wdai7p2k2g4
@@ -209,9 +206,9 @@ Azure Resource Manager реализует современный подход к
         Tags              : {System.Collections.Hashtable}
         ...
 * Используя теги, можно логически упорядочить ресурсы в подписке, а с помощью командлетов **Find-AzureRmResource** и **Find-AzureRmResourceGroup** — извлечь ресурсы.
-  
+
         Find-AzureRmResource -TagName displayName -TagValue Website
-  
+
         Name              : webSites5wdai7p2k2g4
         ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/webSites5wdai7p2k2g4
         ResourceName      : webSites5wdai7p2k2g4
@@ -219,7 +216,7 @@ Azure Resource Manager реализует современный подход к
         ResourceGroupName : TestRG1
         Location          : westus
         SubscriptionId    : {guid}
-  
+
       There is much more you can do with tags. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## <a name="add-to-a-resource-group"></a>Добавление ресурсов в группу
@@ -242,8 +239,7 @@ Azure Resource Manager реализует современный подход к
 
 > [!NOTE]
 > Сейчас доступна только предварительная версия функции экспорта шаблона, которая поддерживается не для всех типов ресурсов. При попытке экспорта шаблона может появиться сообщение о том, что некоторые ресурсы не экспортированы. При необходимости эти ресурсы можно определить вручную после скачивания шаблона.
-> 
-> 
+
 
 ### <a name="export-template-from-resource-group"></a>Экспорт шаблона из группы ресурсов
 Чтобы просмотреть шаблон для группы ресурсов, выполните командлет **Export-AzureRmResourceGroup** .
@@ -257,16 +253,16 @@ Azure Resource Manager реализует современный подход к
 
 ## <a name="delete-resources-or-resource-group"></a>Удаление ресурсов или группы ресурсов
 * Чтобы удалить ресурс из группы ресурсов, используйте командлет **Remove-AzureRmResource** . Этот командлет удаляет ресурс, но не удаляет группу ресурсов.
-  
+
     Эта команда удаляет веб-сайт TestSite из группы ресурсов TestRG1.
-  
+
         Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 * Чтобы удалить группу ресурсов, используйте командлет **Remove-AzureRmResourceGroup** . Этот командлет удаляет группу ресурсов и входящие в нее ресурсы.
-  
+
         Remove-AzureRmResourceGroup -Name TestRG1
-  
+
     Вам будет предложено подтвердить удаление.
-  
+
         Confirm
         Are you sure you want to remove resource group 'TestRG1'
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
@@ -325,7 +321,7 @@ Azure Resource Manager реализует современный подход к
 
     #******************************************************************************
     # Script body
-    # Execution begins here 
+    # Execution begins here
     #******************************************************************************
     $ErrorActionPreference = "Stop"
 
@@ -370,6 +366,6 @@ Azure Resource Manager реализует современный подход к
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

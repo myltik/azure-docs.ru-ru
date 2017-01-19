@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 22a8a7541da572445ab0d6a822b56bd9a03339b7
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
    > Эта учетная запись хранения *должна* находиться в том же регионе, что и учетная запись хранения Azure.
    >
    >
-3. Azure PowerShell с командлетами оперативной аналитики версии 1.0.8 или более поздней. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+3. Azure PowerShell с командлетами оперативной аналитики версии 1.0.8 или более поздней. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 4. Система диагностики Azure и PowerShell для Log Analytics.  Дополнительные сведения об этом выпуске и его установке см. в разделе [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1) (Система диагностики Azure и Log Analytics).  
 5. Скачайте сценарий PowerShell **Enable-AzureDiagnostics.ps1** из [коллекции PowerShell](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). Он настроит:
    * учетную запись хранения для хранения состояний и данных потока задания Runbook для указанной учетной записи службы автоматизации;
@@ -156,6 +156,6 @@ ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

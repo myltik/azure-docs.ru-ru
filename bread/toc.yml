@@ -14,7 +14,7 @@
         topicHref: /azure/active-directory/connect-health/
       - name: "Разработка"
         tocHref: /azure/active-directory/develop/
-        topicHref: azure/active-directory/develop/
+        topicHref: /azure/active-directory/develop/
       - name: "Управление привилегированными пользователями (PIM)"
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -66,7 +66,7 @@
     topicHref: /azure/azure-functions/functions-overview
   - name: "Государственные организации"
     tocHref: /azure/azure-government/
-    topicHref: /azure/azure-government/documentation-government-overview
+    topicHref: /azure/azure-government-overview
   - name: "Microsoft Azure"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
