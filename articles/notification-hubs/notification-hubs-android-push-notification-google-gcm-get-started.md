@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 ### <a name="create-a-new-android-project"></a>Создание нового проекта Android
 1. В Android Studio создайте новый проект Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio — новый проект][13]
 2. Выберите форм-фактор **Phone and Tablet** (Телефон и планшет) и минимальную версию пакета SDK (с помощью параметра **Minimum SDK**), которые нужно поддерживать. Нажмите кнопку **Далее**.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio — рабочий процесс создания проекта][14]
 3. Выберите для основного действия значение **Empty Activity** (Пустое действие), нажмите кнопку **Next** (Далее), а затем — **Finish** (Готово).
 
 ### <a name="add-google-play-services-to-the-project"></a>Добавление служб Google Play в проект
@@ -132,7 +132,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
     Обязательно обновите эти три заполнителя в следующем коде для класса `NotificationSettings` :
    
    * **SenderId**: укажите номер проекта, полученный ранее в [консоли Google Cloud](http://cloud.google.com/console).
-   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** центра на [портала Azure].
+   * **HubListenConnectionString** — укажите для Центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** Центра на [портала Azure].
    * **HubName**: используйте имя центра уведомлений, которое отображается на [портала Azure]в колонке центра.
      
      `NotificationSettings` :
@@ -426,7 +426,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
         <string name="notification_message_hint">Enter notification message text</string>
 3. В файле `NotificationSetting.java` добавьте приведенный ниже параметр в класс `NotificationSettings`.
    
-    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портала Azure], щелкните **Политики доступа** в колонке **Параметры** центра уведомлений.
+    Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature** . Чтобы скопировать эту строку подключения на [портала Azure], щелкните **Политики доступа** в колонке **Параметры** Центра уведомлений.
    
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 4. В файле `MainActivity.java` над классом `MainActivity` добавьте следующие операторы `import`:
@@ -530,7 +530,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
    
             return token;
         }
-8. В файле `MainActivity.java` добавьте в класс `MainActivity` метод, который обрабатывает событие нажатия кнопки **Send Notification** (Отправить уведомление) и отправляет push-уведомление в центр с помощью встроенного интерфейса REST API.
+8. В файле `MainActivity.java` добавьте в класс `MainActivity` метод, который обрабатывает событие нажатия кнопки **Send Notification** (Отправить уведомление) и отправляет push-уведомление в Центр с помощью встроенного интерфейса REST API.
    
         /**
          * Send Notification button click handler. This method parses the
@@ -614,7 +614,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 #### <a name="push-notifications-in-the-emulator"></a>Тестирование push-уведомлений в эмуляторе
 Если вы хотите проверить отправку push-уведомлений в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень API Google, выбранный для приложения. Если образ не поддерживает собственные API-интерфейсы Google, будет создано исключение **SERVICE\_NOT\_AVAILABLE**.
 
-Кроме того, убедитесь, что вы добавили учетную запись Google в запущенный эмулятор. Для этого щелкните **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к исключению **AUTHENTICATION\_FAILED**.
+Кроме того, добавьте учетную запись Google в запущенный эмулятор. Для этого щелкните **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к исключению **AUTHENTICATION\_FAILED**.
 
 #### <a name="running-the-application"></a>Запуск приложения
 1. Запустите приложение и убедитесь, что для успешной регистрации сообщается идентификатор регистрации.
@@ -632,7 +632,7 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 
 Если вы хотите разделить пользователей по группам интересов, изучите руководство по [использованию центров уведомлений для передачи экстренных новостей] .
 
-Дополнительные сведения о центрах уведомлений см. в [обзоре центров уведомлений].
+Дополнительные сведения о центрах уведомлений см. в [обзоре Центров уведомлений].
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
@@ -660,17 +660,17 @@ ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Классический портал Azure]: https://manage.windowsazure.com/
-[обзоре центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
+[обзоре Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [портала Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

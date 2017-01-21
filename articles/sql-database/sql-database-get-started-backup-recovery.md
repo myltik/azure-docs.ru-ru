@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ Sentence #2 Explains what users will learn and the benefit.
 
 * Вы изучили руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Если это не так, прежде чем продолжить, изучите предыдущее руководство или выполните сценарий PowerShell, приведенный в конце руководства по началу работы с использованием [PowerShell](sql-database-get-started-powershell.md).
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Вход с помощью существующей учетной записи
 Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
@@ -179,6 +178,11 @@ Sentence #2 Explains what users will learn and the benefit.
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Настройка долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure 
 
 При работе с этим разделом руководства вы [настроите более длительный срок хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure](sql-database-long-term-retention.md), чем для вашего уровня служб. 
+
+
+> [!TIP]
+> Сведения об удалении резервных копий с длительным периодом удержания см. в [этой статье](sql-database-long-term-retention-delete.md).
+
 
 1. Откройте колонку **SQL Server** для сервера **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ Sentence #2 Explains what users will learn and the benefit.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения о резервных копиях базы данных, создаваемых автоматически службой, см. в [этой статье](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD).
+- Дополнительные сведения о резервных копиях базы данных, создаваемых автоматически службой, см. в [этой статье](sql-database-automated-backups.md).
 - Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 - Дополнительные сведения о восстановлении из резервных копий см. в статье [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

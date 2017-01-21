@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
-ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 Ресурсы для **Microsoft Power BI Embedded** подготавливаются через [API-интерфейсы ARM Azure](https://msdn.microsoft.com/library/mt712306.aspx). В нашем примере подготавливаемый ресурс — это **коллекция рабочих областей Power BI**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Создание коллекции рабочей области
 **Коллекция рабочей области** — это ресурс и контейнер Azure верхнего уровня для содержимого, которое будет внедрено в приложение. **Коллекцию рабочей области** можно создать двумя способами:
@@ -39,16 +39,16 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 1. Войдите на **портал Azure**по адресу [http://portal.azure.com](http://portal.azure.com).
 2. На панели вверху щелкните **+Создать** .
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. В разделе **Данные+аналитика** щелкните **Power BI Embedded**.
 4. В **колонке создания** введите необходимые сведения. Дополнительные сведения о **ценообразовании** см. на странице с информацией о [ценах на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Щелкните **Создать**.
 
 Подготовка **коллекции рабочей области** займет несколько секунд. После этого откроется колонка **Коллекция рабочей области**.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 Эта **колонка создания** содержит сведения, необходимые для вызова API-интерфейсов, которые создают рабочие области и развертывают содержимое.
 
@@ -57,11 +57,11 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 ## <a name="view-power-bi-api-access-keys"></a>Просмотр ключей доступа для вызова API Power BI
 Сведения, необходимые для вызова REST API Power BI, включают в себя такой важный элемент, как **ключи доступа**. Эти ключи используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложений** см. в статье [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 Обратите внимание: у вас есть два ключа.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Скопируйте эти ключи и надежно сохраните их в приложении. Очень важно обращаться с этими ключами как с паролем, так как они предоставляют доступ ко всему содержимому в **коллекции рабочей области**.
 
@@ -109,6 +109,6 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

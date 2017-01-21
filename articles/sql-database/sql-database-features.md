@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: carlrab
+ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -26,12 +27,12 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Общие сведения о логическом сервере базы данных SQL Azure
 Логический сервер базы данных SQL Azure выступает в качестве центральной точки администрирования нескольких баз данных. В базе данных SQL сервер — это логическая конструкция, отличающаяся от экземпляра SQL Server, с которым вы могли работать в локальной среде. В частности, служба базы данных SQL не дает никаких гарантий, связанных с расположением баз данных относительно логических серверов, а также не предоставляет доступ или возможности на уровне экземпляра. Дополнительные сведения о логических серверах Azure SQL см. в [этой статье](sql-database-server-overview.md). 
 
-## <a name="what-is-azure-sql-database"></a>Сведения о базе данных SQL Azure
-Каждая база данных в Базе данных SQL связана с логическим сервером. База данных может:
+## <a name="what-is-an-azure-sql-database"></a>Сведения о базе данных SQL Azure
+Каждая база данных в базе данных SQL Azure связана с логическим сервером. База данных может:
 
 - представлять собой отдельную базу данных с [собственным набором ресурсов](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU);
 - входить в состав [пула баз данных](sql-database-elastic-pool.md), в котором [набор ресурсов используется совместно](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU);
-- входить в состав [масштабируемого набора сегментированных баз данных](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), которые могут быть отдельными базами данных или быть частью пула;
+- входить в состав [масштабируемого набора сегментированных баз данных](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), которые могут быть отдельными базами данных или частью пула;
 - входить в состав набора баз данных, использующихся в [шаблоне разработки для мультитенантных приложений SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md), которые могут быть отдельными базами данных или быть частью пула (или этот набор может иметь смешанную конфигурацию). 
 
 Дополнительные сведения о базах данных SQL Azure см. в [этой статье](sql-database-overview.md).
@@ -68,7 +69,7 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 | Отслеживание изменений | [Поддерживаются](https://msdn.microsoft.com/library/bb933875.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Инструкции параметров сортировки | [Поддерживаются](https://msdn.microsoft.com/library/ff848763.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Индексы columnstore | [Поддерживаются](https://msdn.microsoft.com/library/gg492088.aspx) | [Только в Premium Edition](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Среда CLR | [Поддерживаются](https://msdn.microsoft.com/library/ms131102.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Среда CLR | [Поддерживаются](https://msdn.microsoft.com/library/ms131102.aspx) | Не поддерживается |
 | автономные базы данных; | [Поддерживаются](https://msdn.microsoft.com/library/ff929071.aspx) | Встроены |
 | Автономные пользователи | [Поддерживаются](https://msdn.microsoft.com/library/ff929188.aspx) | [Поддерживаются](sql-database-manage-logins.md#non-administrator-users) |
 | Ключевые слова языка управления потоком | [Поддерживаются](https://msdn.microsoft.com/library/ms174290.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -89,7 +90,7 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 | Инструкции языка DML | [Поддерживаются](https://msdn.microsoft.com/library/ff848766.aspx) | [Большинство](https://msdn.microsoft.com/library/ff848766.aspx) |
 | Триггеры DML | [Поддерживаются](https://msdn.microsoft.com/library/ms178110.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMV | [Все](https://msdn.microsoft.com/library/ms188754.aspx) | [Некоторые](https://msdn.microsoft.com/library/ms188754.aspx) |
-| Пулы эластичных баз данных | Не поддерживается | [Поддерживаются](sql-database-elastic-pool.md) |
+| эластичные пулы | Не поддерживается | [Поддерживаются](sql-database-elastic-pool.md) |
 | Задания обработки эластичных БД | Не поддерживаются. Ознакомьтесь со статьей [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx). | [Поддерживаются](sql-database-elastic-jobs-getting-started.md) | 
 | Эластичные запросы | Не поддерживаются. Ознакомьтесь со статьей [Межбазовые запросы](https://msdn.microsoft.com/library/dn584627.aspx). | [Поддерживаются](sql-database-elastic-query-overview.md) |
 | Уведомления о событиях | [Поддерживаются](https://msdn.microsoft.com/library/ms186376.aspx) | [Поддерживаются](sql-database-insights-alerts-portal.md) |
@@ -122,7 +123,7 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 | Инструкции по безопасности | [Поддерживаются](https://msdn.microsoft.com/library/ff848791.aspx) | [Некоторые](https://msdn.microsoft.com/library/ff848791.aspx) |
 | Семантический поиск | [Поддерживаются](https://msdn.microsoft.com/library/gg492075.aspx) | Не поддерживается |
 | Порядковые номера | [Поддерживаются](https://msdn.microsoft.com/library/ff878058.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [Поддерживаются](https://msdn.microsoft.com/library/bb522893.aspx) | [Только в базе данных](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Service Broker | [Поддерживаются](https://msdn.microsoft.com/library/bb522893.aspx) | Не поддерживается |
 | Параметры конфигурации сервера | [Поддерживаются](https://msdn.microsoft.com/library/ms189631.aspx) | Не поддерживаются. Ознакомьтесь со статьей о [параметрах конфигурации базы данных](https://msdn.microsoft.com/library/mt629158.aspx). |
 | Инструкции SET | [Поддерживаются](https://msdn.microsoft.com/library/ms190356.aspx) | [Большинство](https://msdn.microsoft.com/library/ms190356.aspx) 
 | пространственный индекс | [Поддерживаются](https://msdn.microsoft.com/library/bb933790.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -131,7 +132,7 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 | SQL Server Integration Services (SSIS); | [Поддерживаются](https://msdn.microsoft.com/library/ms141026.aspx) | Не поддерживаются. Ознакомьтесь со страницей [Фабрика данных](https://azure.microsoft.com/services/data-factory/). |
 | SQL Server PowerShell | [Поддерживаются](https://msdn.microsoft.com/library/hh245198.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Поддерживаются](https://msdn.microsoft.com/library/ms181091.aspx) | Не поддерживается. Ознакомьтесь со статьей о [расширенных событиях](https://msdn.microsoft.com/library/ms181091.aspx). |
-| Репликация SQL Server | [Поддерживаются](https://msdn.microsoft.com/library/ms151198.aspx) | [Только для подписчиков транзакционной репликации](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Репликация SQL Server | [Поддерживаются](https://msdn.microsoft.com/library/ms151198.aspx) | [Только для подписчиков репликации транзакций и репликации моментального снимка](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services (SSRS) | [Поддерживаются](https://msdn.microsoft.com/library/ms159106.aspx) | Не поддерживается |
 | Хранимые процедуры | [Поддерживаются](https://msdn.microsoft.com/library/ms190782.aspx) | [Поддерживаются](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Системные хранимые функции | [Поддерживаются](https://msdn.microsoft.com/library/ff848780.aspx) | [Некоторые](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -154,12 +155,12 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 - Общие сведения о логических серверах Azure SQL см. в [этой статье](sql-database-server-overview.md).
 - Общие сведения о базах данных Azure SQL см. в [этой статье](sql-database-overview.md).
 - Сведения о поддержке функций Transact-SQL в базе данных SQL Azure см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
-- Ознакомьтесь со сведениями о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня службы**. Общие сведения об уровнях служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
-- Рекомендации по безопасности см. в статье [Безопасность в базе данных SQL Azure: рекомендации и ограничения](sql-database-security-guidelines.md).
+- Ознакомьтесь со сведениями о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб**. Общие сведения об уровнях служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
+- Общие сведения о методах защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
 - Сведения о доступности драйверов и поддержке для базы данных SQL см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

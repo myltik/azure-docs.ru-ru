@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
+ms.sourcegitcommit: f156e4d4c5ffddb7e93ebf21baa75864e0e260e9
+ms.openlocfilehash: d00792a4bb19e194dbbcee8b9c11e4a744891388
 
 ---
 
@@ -26,86 +26,31 @@ ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
 
-В этой статье описано, как создать зону DNS с помощью кроссплатформенного интерфейса командной строки Azure, доступного для Windows, Mac и Linux. Зону DNS также можно создать с помощью PowerShell или портала Azure.
+В этой статье описано, как создать зону DNS с помощью кроссплатформенного интерфейса командной строки Azure, доступного для Windows, Mac и Linux. Зону DNS также можно создать с помощью [Azure PowerShell](dns-getstarted-create-dnszone.md) или [портала Azure](dns-getstarted-create-dnszone-portal.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
+[!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 
-## <a name="before-you-begin"></a>Перед началом работы
 
-Перед началом настройки убедитесь, что у вас есть следующие компоненты.
-
-* Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Необходимо установить последнюю версию интерфейса командной строки Azure для Windows, Linux или Mac. Дополнительные сведения см. в статье [Установка Azure CLI](../xplat-cli-install.md).
-
-## <a name="step-1---sign-in-and-create-a-resource-group"></a>Шаг 1. Вход и создание группы ресурсов
-
-### <a name="switch-cli-mode"></a>Переключение режима интерфейса командной строки
-
-Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд ARM.
-
-```azurecli
-azure config mode arm
-```
-
-### <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
-
-Вам будет предложено указать свои учетные данные для проверки подлинности. Обратите внимание, что вы можете использовать только учетные записи OrgID.
-
-```azurecli
-azure login
-```
-
-### <a name="select-the-subscription"></a>Выбор подписки
-
-Просмотрите подписки учетной записи.
-
-```azurecli
-azure account list
-```
-
-Выберите подписку Azure.
-
-```azurecli
-azure account set "subscription name"
-```
-
-### <a name="create-a-resource-group"></a>Создание группы ресурсов
-
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.
-
-Если используется существующая группа ресурсов, можно пропустить этот шаг.
-
-```azurecli
-azure group create -n myresourcegroup --location "West US"
-```
-
-### <a name="register-resource-provider"></a>Регистрация поставщика ресурсов
-
-Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Эта операция выполняется один раз для каждой подписки.
-
-```azurecli
-azure provider register --namespace Microsoft.Network
-```
-
-## <a name="step-2---create-a-dns-zone"></a>Шаг 2. Создание зоны DNS
+## <a name="create-a-dns-zone"></a>Создание зоны DNS
 
 Зона DNS создается с помощью команды `azure network dns zone create`. Чтобы просмотреть справку для этой команды, введите `azure network dns zone create -h`.
 
-В примере ниже будет создана зона DNS *contoso.com* в группе ресурсов *MyResourceGroup*. Пример можно использовать для создания зоны DNS, заменив соответствующие значения собственными.
+В следующем примере будет создана зона DNS *contoso.com* в группе ресурсов *MyResourceGroup*. Пример можно использовать для создания зоны DNS, заменив соответствующие значения собственными.
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-## <a name="step-3---verify"></a>Шаг 3. Проверка
+## <a name="verify-your-dns-zone"></a>Проверка зоны DNS
 
 ### <a name="view-records"></a>Просмотр записей
 
 Одновременно с зоной DNS создаются следующие записи DNS:
 
-* Начальная запись зоны (SOA). Она находится в корне каждой зоны DNS.
-* Полномочные записи серверов имен (NS). Они показывают, на каких серверах размещается зона. Azure DNS использует пул серверов имен, поэтому разным зонам в Azure DNS могут назначаться различные серверы имен. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
+* *Начальная запись зоны* (SOA). Она находится в корне каждой зоны DNS.
+* Полномочные записи серверов имен (NS). Они показывают, на каких серверах размещается зона. Azure DNS использует пул серверов имен, поэтому разным зонам в Azure DNS могут быть назначены различные серверы имен. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
 Чтобы просмотреть эти записи, используйте `azure network dns-record-set list`.
 
@@ -144,10 +89,12 @@ info:    network dns record-set list command OK
 
 Зону DNS, представленную на серверах доменных имен Azure DNS, можно проверить с помощью таких средств DNS, как nslookup, dig или командлет PowerShell `Resolve-DnsName`.
 
-Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам нужно направить запрос DNS непосредственно одному из серверов доменных имен для вашей зоны. Серверы доменных имен для вашей зоны перечислены в записях NS (см. результат выполнения команды azure network dns-record-set show выше). Обязательно вставьте правильные значения для вашей зоны в следующую команду.
+Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам нужно направить запрос DNS непосредственно одному из серверов доменных имен для вашей зоны. Серверы доменных имен для вашей зоны перечислены в записях NS (см. результат выполнения команды `azure network dns record-set list`).
 
-В следующем примере мы выполним запрос dig к домену contoso.com, используя серверы доменных имен, назначенные зоне DNS. В запросе dig следует указать сервер доменных имен, использованный ранее (*@\<сервер доменных имен для зоны\>*), и имя зоны.
+В следующем примере мы выполним запрос dig к домену contoso.com, используя серверы доменных имен, назначенные зоне DNS. Обязательно вставьте правильные значения для вашей зоны.
 
+     > dig @ns1-01.azure-dns.com contoso.com
+     
      <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
@@ -171,11 +118,11 @@ info:    network dns record-set list command OK
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Создав зону DNS, создайте [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы создать записи DNS для домена Интернета.
+Создав зону DNS, [создайте набор записей и записи DNS](dns-getstarted-create-recordset-cli.md) в своей зоне.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

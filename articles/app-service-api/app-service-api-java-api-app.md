@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: rachelap;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
 
 
 ---
@@ -168,13 +168,11 @@ ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
         package io.swagger.api.impl;
    
         import io.swagger.api.*;
-        import io.swagger.model.*;
+        
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-        import java.io.InputStream;
-        import com.sun.jersey.core.header.FormDataContentDisposition;
-        import com.sun.jersey.multipart.FormDataParam;
+               
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
    
@@ -271,7 +269,7 @@ ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
     ![Использование REST API контактов Java в Azure в реальном времени][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Следуя инструкциям в этой статье, вы смогли выполнить требуемые задачи с JSON-файлом Swagger и определенным Java-кодом, сформированным на основе скаффолдинга и полученным при помощи редактора Swagger.io. В результате внесения простых изменений и развертывания Git вы получили рабочее приложение API, написанное на Java. Из следующего руководства вы узнаете, как [использовать приложения API в клиентах JavaScript с помощью CORS][CORS в API службы приложений]. В последующих учебниках серии демонстрируется, как реализовать проверку подлинности и авторизацию.
+Следуя инструкциям в этой статье, вы смогли выполнить требуемые задачи с JSON-файлом Swagger и определенным Java-кодом, сформированным на основе скаффолдинга и полученным при помощи редактора Swagger.io. В результате внесения простых изменений и развертывания Git вы получили рабочее приложение API, написанное на Java. Из следующего руководства вы узнаете, как [использовать приложения API в клиентах JavaScript с помощью CORS][App Service API CORS]. В последующих учебниках серии демонстрируется, как реализовать проверку подлинности и авторизацию.
 
 Далее рекомендуем вам ознакомиться с дополнительными сведениями о [пакете SDK для Java для службы хранилища]. С помощью этого пакета вы сможете сохранять большие двоичные объекты JSON. Кроме того, вы можете использовать [пакет SDK для Java для Document DB]. Он позволяет сохранять данные контактов в Azure Document DB. 
 
@@ -282,19 +280,19 @@ ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
 
 <!-- URL List -->
 
-[CORS в API службы приложений]: app-service-api-cors-consume-javascript.md
-[Портал Azure]: https://portal.azure.com/
-[Пакет SDK для Java для Document DB]: ../documentdb/documentdb-java-application.md
-[бесплатную пробную версию]: https://azure.microsoft.com/pricing/free-trial/
-[Git.]: http://www.git-scm.com/
-[центре разработчиков Java для Azure]: /develop/java/
-[Java Developer Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[App Service API CORS]: app-service-api-cors-consume-javascript.md
+[портале Azure]: https://portal.azure.com/
+[пакет SDK для Java для Document DB]: ../documentdb/documentdb-java-application.md
+[бесплатная пробная версия]: https://azure.microsoft.com/pricing/free-trial/
+[Git]: http://www.git-scm.com/
+[Центре разработчиков Java для Azure]: /develop/java/
+[Java Developer Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [онлайн-редактор Swagger]: http://editor.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Пакет SDK для Java для службы хранилища]: ../storage/storage-java-how-to-use-blob-storage.md
+[пакете SDK для Java для службы хранилища]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [редактора Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
@@ -319,6 +317,6 @@ ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
