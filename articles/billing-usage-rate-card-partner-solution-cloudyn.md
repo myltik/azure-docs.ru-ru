@@ -4,7 +4,7 @@ description: "В нем описан уникальный опыт Cloudyn — �
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: f1397397-7e92-4c20-9862-ab6b93afefb7
