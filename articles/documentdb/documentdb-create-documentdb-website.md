@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
 
 
 ---
@@ -73,6 +73,7 @@ ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
       
       ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Выберите существующую группу ресурсов или укажите имя и расположение для создания новой группы ресурсов.
+
     ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Выберите **Просмотр условий**, **Покупки** и нажмите кнопку **Создать**, чтобы начать развертывание.  Выберите **Закрепить на панели мониторинга** , чтобы развертывание отображалось на домашней странице портала Azure.
    ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -113,6 +114,7 @@ ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
       
       ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Выберите существующую группу ресурсов или укажите имя и расположение для создания новой группы ресурсов.
+
     ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Выберите **Просмотр условий**, **Покупки** и нажмите кнопку **Создать**, чтобы начать развертывание.  Выберите **Закрепить на панели мониторинга** , чтобы развертывание отображалось на домашней странице портала Azure.
    ![Снимок экрана пользовательского интерфейса развертывания шаблона](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -121,6 +123,7 @@ ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
 8. Выберите "Ресурс веб-приложения" из списка ресурсов и нажмите кнопку **Параметры приложения**.
     ![Снимок экрана группы ресурсов](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Обратите внимание на параметры приложения для конечной точки и всех главных ключей DocumentDB.
+
     ![Снимок экрана с параметрами приложения](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. Вы можете продолжить знакомство с порталом Azure либо воспользоваться одним из [примеров](http://go.microsoft.com/fwlink/?LinkID=402386) DocumentDB для создания собственного приложения DocumentDB.
 
@@ -145,6 +148,6 @@ ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,57 +1,61 @@
 ---
-title: Кодирование ресурса-контейнера с помощью Media Encoder Standard | Microsoft Docs
-description: Узнайте, как использовать стандартный кодировщик мультимедиа для кодировки мультимедийного содержимого в службах мультимедиа. В примерах кода используется REST API.
+title: "Как закодировать ресурс-контейнер с помощью Media Encoder Standard | Документация Майкрософт"
+description: "Узнайте, как использовать Media Encoder Standard для кодировки мультимедийного содержимого в службах мультимедиа. В примерах кода используется REST API."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
-manager: dwrede
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 6a0fcc28a3eadaba6bb28d23ab1f4632bea60652
+
 
 ---
-# Кодирование ресурса-контейнера с помощью стандартного кодировщика мультимедиа
+# <a name="how-to-encode-an-asset-using-media-encoder-standard"></a>Кодирование ресурса-контейнера с помощью стандартного кодировщика мультимедиа
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-encode-asset.md)
+> * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
 > * [Портал](media-services-portal-encode.md)
 > 
 > 
 
-## Обзор
+## <a name="overview"></a>Обзор
 Для поставки цифрового видео по Интернету необходимо сжать мультимедиа. Цифровые видеофайлы довольно объемные. Это затрудняет их доставку через Интернет и влияет на качество их отображения на устройствах клиентов. Кодирование — это процесс сжатия аудио- и видеофайлов, чтобы их могли просматривать клиенты.
 
-Задания кодирования — одни из самых распространенных операций обработки в службах мультимедиа. Они создаются для преобразования файлов мультимедиа из одного формата кодирования в другой. При кодировании можно использовать встроенный кодировщик служб мультимедиа (стандартный кодировщик мультимедиа). Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в Магазине Azure. Информацию о задачах кодировки можно указать с помощью строк предустановок, заданных для кодировщика, или файлов конфигурации. Типы доступных предустановок см. в разделе [Предустановки задач для MES (стандартный Media Encoder)](http://msdn.microsoft.com/library/mt269960).
+Задания кодирования — одни из самых распространенных операций обработки в службах мультимедиа. Они создаются для преобразования файлов мультимедиа из одного формата кодирования в другой. При кодировании можно использовать встроенный кодировщик служб мультимедиа (стандартный кодировщик мультимедиа). Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в Магазине Azure. Информацию о задачах кодировки можно указать с помощью строк предустановок, заданных для кодировщика, или файлов конфигурации. Типы доступных предустановок см. в разделе [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960) (Предустановки задач для Media Encoder Standard).
 
 Каждое задание может состоять из одной или нескольких задач в зависимости от типа обработки, которую необходимо выполнить. REST API позволяет создавать задания и связанные с ними задачи одним из двух способов:
 
 * встроенными средствами с помощью свойств навигации задач в сущностях Job или
 * с помощью пакетной обработки OData.
 
-Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с переменной скоростью, а затем преобразовывать его в нужный формат, используя [динамическую упаковку](media-services-dynamic-packaging-overview.md).
 
-Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительную информацию см. в разделе [Настройка политики доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
+Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительные сведения см. в статье [Настройка политик доставки ресурсов-контейнеров](media-services-rest-configure-asset-delivery-policy.md).
 
 > [!NOTE]
-> Прежде чем начать ссылаться на обработчики мультимедиа, убедитесь, что у вас есть правильный идентификатор обработчика мультимедиа. Дополнительные сведения см. в статье [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md).
+> Прежде чем начать ссылаться на обработчики мультимедиа, убедитесь, что у вас есть правильный идентификатор обработчика мультимедиа. Дополнительные сведения см. в статье, посвященной [получению обработчиков мультимедиа](media-services-rest-get-media-processor.md).
 > 
 > 
 
-## Создание задания с одной задачей кодирования
+## <a name="create-a-job-with-a-single-encoding-task"></a>Создание задания с одной задачей кодирования
 > [!NOTE]
 > При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 > 
-> При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
+> При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
-> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
+> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
 > 
-> Если вы используете JSON и указываете ключевое слово **\_\_metadata** в запросе (например, для ссылки на связанный объект), то вы ДОЛЖНЫ задать для заголовка **Accept** [подробный формат JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> Если вы используете JSON и указали ключевое слово **__metadata** в запросе (например, для ссылки на связанный объект), то вам НЕОБХОДИМО задать для заголовка **Accept** [подробный формат JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 > 
 > 
 
@@ -59,9 +63,17 @@ ms.author: juliako
 
 Запрос:
 
-POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;odata=verbose Accept: application/json;odata=verbose DataServiceVersion: 3.0 MaxDataServiceVersion: 3.0 x-ms-version: 2.11 Authorization: Bearer <значение маркера> x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 Host: media.windows.net
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.11
+    Authorization: Bearer <token value>
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
 
-    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Ответ:
 
@@ -69,23 +81,23 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
 
     . . . 
 
-### Задание имени выходного актива
+### <a name="set-the-output-assets-name"></a>Задание имени выходного актива
 В следующем примере показано, как установить атрибут assetName:
 
-    { "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
+    { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
-## Рекомендации
+## <a name="considerations"></a>Рекомендации
 * Чтобы определить количество входных или выходных ресурсов, используемых задачей, в свойствах TaskBody НЕОБХОДИМО использовать XML-литерал. В статье "Задача" приведено определение схемы XML.
 * В определении TaskBody каждое внутреннее значение <inputAsset> и <outputAsset> необходимо установить как JobInputAsset(value) или JobOutputAsset(value).
 * В задаче может содержаться несколько выходных ресурсов. Значение JobOutputAsset(x) может использоваться только один раз в качестве выходных данных задачи в задании.
 * В качестве входного ресурса задачи можно указать JobInputAsset или JobOutputAsset.
 * Задачи не должны образовывать цикл.
-* Значение параметра, которое передается в JobInputAsset или JobOutputAsset, — это значение индекса для ресурса. Фактические ресурсы определяются в свойствах навигации ресурсов InputMediaAsset и OutputMediaAsset в определении сущности Job.
-* Так как службы мультимедиа созданы на платформе OData версии 3, ссылки на отдельные ресурсы в коллекциях свойств навигации ресурсов InputMediaAsset и OutputMediaAsset добавляются в виде пары "имя-значение" \_\_metadata: uri.
+* Значение параметра, которое передается в JobInputAsset или JobOutputAsset, — это значение индекса для ресурса. Фактические ресурсы определяются в свойствах навигации ресурсов InputMediaAsset и OutputMediaAsset в определении сущности Job. 
+* Так как службы мультимедиа созданы на платформе OData версии 3, ссылки на отдельные ресурсы в коллекциях свойств навигации ресурсов InputMediaAsset и OutputMediaAsset добавляются в виде пары "имя-значение" __metadata: uri.
 * Ресурсы InputMediaAsset сопоставляются с одним или несколькими ресурсами, созданными в службах мультимедиа. Ресурсы OutputMediaAsset создаются системой. Они не ссылаются на существующий ресурс.
-* Ресурсам OutputMediaAsset можно присвоить имя с помощью атрибута assetName. Если этот атрибут отсутствует, именем ресурса OutputMediaAsset будет внутреннее текстовое значение элемента <outputAsset> с суффиксом, которым может быть значение параметра имени задания или параметра идентификатора задания (если свойство Name не определено). Например, если задать для атрибута assetName значение Sample, для свойства Name ресурса OutputMediaAsset будет задано значение Sample. Тем не менее, если значение атрибута assetName не задано, но в качестве имени задания задано NewJob, имя OutputMediaAsset будет выглядеть следующим образом: JobOutputAsset(значение)\_NewJob.
+* Ресурсам OutputMediaAsset можно присвоить имя с помощью атрибута assetName. Если этот атрибут отсутствует, именем ресурса OutputMediaAsset будет внутреннее текстовое значение элемента <outputAsset> с суффиксом, которым может быть значение параметра имени задания или параметра идентификатора задания (если свойство Name не определено). Например, если задать для атрибута assetName значение Sample, для свойства Name ресурса OutputMediaAsset будет задано значение Sample. Тем не менее, если значение атрибута assetName не задано, но в качестве имени задания задано NewJob, имя OutputMediaAsset будет выглядеть следующим образом: JobOutputAsset(значение)_NewJob. 
 
-## Создание задания с цепными задачами
+## <a name="create-a-job-with-chained-tasks"></a>Создание задания с цепными задачами
 Во многих сценариях приложений разработчикам необходимо создать серию задач обработки. В службах мультимедиа вы можете создавать серии цепных задач. Каждая задача выполняет разные шаги обработки. Эти задачи также могут использовать разные обработчики мультимедиа. Цепные задачи могут передать ресурсы из одной задачи в другую, следуя линейной последовательности задач ресурса. Тем не менее, в последовательность не должны быть включены задачи, выполняемые в задании. При создании цепной задачи цепные объекты **ITask** создаются в одном объекте **IJob**.
 
 > [!NOTE]
@@ -115,25 +127,25 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
           {  
              "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-             "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
           },
           {  
              "Configuration":"H264 Smooth Streaming 720p",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-             "TaskBody":"<?xml version="1.0" encoding="utf-16"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
           }
        ]
     }
 
 
-### Рекомендации
+### <a name="considerations"></a>Рекомендации
 Чтобы включить создание цепных задач:
 
 * в задании должно быть по крайней мере 2 задачи;
 * должна существовать хотя бы одна задача, входные данные которой являются выходными данными другой задачи в задании.
 
-## Использование пакетной обработки OData
-В следующем примере показано, как использовать пакетную обработку OData для создания задания и задач. Сведения о пакетной обработке см. в статье [Пакетная обработка по протоколу OData](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+## <a name="use-odata-batch-processing"></a>Использование пакетной обработки OData
+В следующем примере показано, как использовать пакетную обработку OData для создания задания и задач. Чтобы узнать больше о пакетной обработке, ознакомьтесь с [пакетной обработкой посредством протокола OData](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -185,7 +197,7 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
     {  
        "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
        "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-       "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="Custom output name">JobOutputAsset(0)</outputAsset></taskBody>"
+       "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"Custom output name\">JobOutputAsset(0)</outputAsset></taskBody>"
     }
 
     --changeset_122fb0a4-cd80-4958-820f-346309967e4d--
@@ -193,10 +205,10 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
 
 
 
-## Создание задания с помощью сущности JobTemplate
-При обработке нескольких ресурсов с помощью обычного набора задач сущности JobTemplate можно использовать для определения предустановленных наборов задач по умолчанию, порядка задач и т. д.
+## <a name="create-a-job-using-a-jobtemplate"></a>Создание задания с помощью сущности JobTemplate
+При обработке нескольких ресурсов с помощью обычного набора задач сущности JobTemplate можно использовать для определения предустановленных наборов задач по умолчанию, порядка задач и т. д.
 
-В следующем примере показано, как создать сущность JobTemplate, попутно определив сущность TaskTemplate. Сущность TaskTemplate кодирует файл ресурса, используя в качестве обработчика мультимедиа стандартный кодировщик мультимедиа. Но также можно использовать и другие обработчики.
+В следующем примере показано, как создать сущность JobTemplate, попутно определив сущность TaskTemplate. Сущность TaskTemplate кодирует файл ресурса, используя в качестве обработчика мультимедиа стандартный кодировщик мультимедиа. Но также можно использовать и другие обработчики. 
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -208,7 +220,7 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
     Host: media.windows.net
 
 
-    {"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version="1.0" encoding="utf-8"?><jobTemplate><taskBody taskTemplateId="nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
+    {"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><jobTemplate><taskBody taskTemplateId=\"nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789\"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
 
 
 > [!NOTE]
@@ -246,16 +258,21 @@ POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;
 
 
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Дальнейшие действия
-Вы узнали, как создать задание для кодирования ресурса-контейнера. Теперь вы можете приступить к изучению статьи [Практическое руководство. Проверка хода выполнения задания](media-services-rest-check-job-progress.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь вы знаете, как создать задание для кодирования ресурса-контейнера, и можете приступить к изучению статьи о том, [как проверить ход выполнения задания с помощью служб мультимедиа](media-services-rest-check-job-progress.md).
 
-## См. также
+## <a name="see-also"></a>См. также
 [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

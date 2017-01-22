@@ -1,12 +1,12 @@
 ---
-title: Шифрование содержимого с шифрованием хранилища, используя API REST AMS
-description: Узнайте, как шифровать содержимое с шифрованием хранилища, используя API REST AMS.
+title: "Шифрование содержимого с шифрованием хранилища, используя API REST AMS"
+description: "Узнайте, как шифровать содержимое с шифрованием хранилища, используя API REST AMS."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
+
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Шифрование содержимого с шифрованием хранилища, используя API REST AMS
@@ -55,7 +59,7 @@ ms.author: juliako
 1. Для шифрования хранилища случайным образом формируется 32-разрядный ключ AES. 
    
     Это будет ключ содержимого для ресурса, то есть для всех файлов, связанных с этим ресурсом, при расшифровке будет использоваться один и тот же ключ содержимого. 
-2. Вызовите методы [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
+2. Вызовите методы [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
 3. Зашифруйте ключ содержимого с помощью открытого ключа сертификата X.509. 
    
    Пакет SDK служб мультимедиа для .NET использует при выполнении шифрования RSA с OAEP.  Примером .NETможет служить [функция EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -92,7 +96,7 @@ ms.author: juliako
 
     Для шифрования хранилища в текст запроса необходимо включить указанные ниже свойства.
 
-    Свойство текста запроса   | Описание
+    Свойство текста запроса    | Описание
     ---|---
     Идентификатор | Идентификатор ContentKey, созданный нами в следующем формате "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Тип ключа содержимого, который в данном случае выражается целым числом. Для шифрования хранилища передается значение 1.
@@ -296,7 +300,7 @@ ms.author: juliako
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Создание сущности AssetFile
-Сущность [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) представляет собой аудио- или видеофайл, который хранится в контейнере больших двоичных объектов. Файл ресурса всегда связан с ресурсом, который, в свою очередь, может содержать один или несколько файлов ресурса. Задача кодировщика служб мультимедиа завершится с ошибкой, если объект файла ресурса не связан с цифровым файлом в контейнере больших двоичных объектов.
+Сущность [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) представляет собой аудио- или видеофайл, который хранится в контейнере больших двоичных объектов. Файл ресурса всегда связан с ресурсом, который, в свою очередь, может содержать один или несколько файлов ресурса. Задача кодировщика служб мультимедиа завершится с ошибкой, если объект файла ресурса не связан с цифровым файлом в контейнере больших двоичных объектов.
 
 Обратите внимание, что экземпляр **AssetFile** и фактический файл мультимедиа – это два разных объекта. Экземпляр AssetFile содержит метаданные о файле мультимедиа, а сам файл мультимедиа — фактическое мультимедийное содержимое.
 
@@ -364,6 +368,6 @@ ms.author: juliako
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

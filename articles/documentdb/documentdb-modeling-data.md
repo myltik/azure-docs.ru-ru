@@ -3,7 +3,7 @@ title: "Моделирование данных в Azure DocumentDB | Докум
 description: "Дополнительные сведения о моделировании данных для DocumentDB см. в базе данных документов NoSQL."
 keywords: "моделирование данных"
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
-ms.author: kipandya
+ms.date: 01/03/2016
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+ms.sourcegitcommit: 09f42bae67f794f12c7c37cd25c25f4c991fe893
+ms.openlocfilehash: 93d0d7276e4ff426e87bdc3dadd736de8d6525fb
 
 
 ---
@@ -119,11 +119,6 @@ ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
     }
 
 Так могла бы выглядеть сущность публикации с внедренными комментариями, если бы мы моделировали обычный блог или систему CMS. Проблема с данным примером заключается в том, что массив комментариев является **неограниченным**, то есть не существует (фактического) предела для количества комментариев, которое может иметь отдельная публикация. Это станет источником проблем, так как размер документа может значительно вырасти.
-
-> [!TIP]
-> Документы в DocumentDB имеют максимальный размер. Дополнительные сведения об этом можно найти в статье [Ограничения DocumentDB](documentdb-limits.md).
-> 
-> 
 
 По мере роста размера документа пропорционально ухудшается возможность передачи данных, а также чтения и обновления документа.
 
@@ -409,6 +404,6 @@ ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

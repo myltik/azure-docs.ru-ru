@@ -2,7 +2,7 @@
 title: "Как реализовать секционирование на стороне клиента с помощью пакетов SDK | Документация Майкрософт"
 description: "Узнайте, как использовать пакеты SDK Azure DocumentDB для .NET для секционирования (сегментирования) данных и маршрутизации запросов по нескольким коллекциям."
 services: documentdb
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: arramac
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c31763a9676ec45e493cdecc76997db8fe64c38a
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 5e7aa2ead3e9c5d55f7f4c372638c0ee9c485b98
+
 
 
 ---
@@ -145,7 +148,7 @@ foreach (UserProfile activeUser in query)
 Да, DocumentDB поддерживает [секционирование на стороне сервера](documentdb-partition-data.md). DocumentDB также поддерживает секционирование на стороне клиента через сопоставители секций на стороне клиента для более сложных случаев использования.
 
 **Когда следует использовать секционирование на стороне сервера, а когда — на стороне клиента?**
- В большинстве случаев мы рекомендуем использовать секционирование на стороне сервера, так как оно обрабатывает административные задачи секционирования данных и маршрутизации запросов. Однако если необходимо секционирование по диапазонам или имеется особый вариант использования для изоляции производительности между разными значениями ключей секций, то лучшим подходом может быть секционирование на стороне клиента.
+В большинстве случаев мы рекомендуем использовать секционирование на стороне сервера, так как оно обрабатывает административные задачи секционирования данных и маршрутизации запросов. Однако если необходимо секционирование по диапазонам или имеется особый вариант использования для изоляции производительности между разными значениями ключей секций, то лучшим подходом может быть секционирование на стороне клиента.
 
 **Как добавить или удалить коллекцию в схеме секционирования?**
 
@@ -165,12 +168,11 @@ foreach (UserProfile activeUser in query)
 * [Примеры кода секционирования на Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Документацию для DocumentDB .NET SDK на портале MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Примеры DocumentDB .NET](https://github.com/Azure/azure-documentdb-net)
-* [Ограничения DocumentDB](documentdb-limits.md)
 * [Блог с советами по повышению производительности DocumentDB](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

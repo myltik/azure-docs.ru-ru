@@ -16,8 +16,8 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
 
 
 ---
@@ -42,7 +42,7 @@ ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
 
 Укажите электронный адрес и пароль своей учетной записи Azure в диалоговом окне входа в Microsoft Azure.
 
-Вы также можете [войти в неинтерактивном режиме с помощью субъекта-службы](../resource-group-authenticate-service-principal.md).
+Вы также можете [войти в неинтерактивном режиме с помощью субъекта-службы](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 Если у вас несколько подписок Azure, необходимо выбрать одну из них. Чтобы просмотреть список текущих подписок, выполните следующую команду.
 
@@ -142,6 +142,6 @@ ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

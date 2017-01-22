@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,6 +43,7 @@ ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
 >
 
 ## <a name="requirements-and-considerations"></a>Требования и рекомендации
+
 * При использовании AMS для доставки HLS, зашифрованного с помощью FairPlay, и лицензий FairPlay необходимо следующее:
 
   * Учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -162,8 +163,7 @@ ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой вы планируете доставлять содержимое. Дополнительные сведения можно найти в разделе [Настройка конечной точки потоковой передачи](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Замените код в файле Program.cs кодом, приведенным в этом разделе.
+7. Замените код в файле Program.cs кодом, приведенным в этом разделе.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

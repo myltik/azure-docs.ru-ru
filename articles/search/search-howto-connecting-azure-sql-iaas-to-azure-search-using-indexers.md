@@ -1,12 +1,12 @@
 ---
-title: Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure | Microsoft Docs
-description: Активируйте зашифрованные подключения и настройте брандмауэр, чтобы разрешить подключения к SQL Server на виртуальной машине Azure из индексатора Поиска Azure.
+title: "Настройка подключения из индексатора поиска Azure к SQL Server на виртуальной машине Azure | Документация Майкрософт"
+description: "Активируйте зашифрованные подключения и настройте брандмауэр, чтобы разрешить подключения к SQL Server на виртуальной машине Azure из индексатора Поиска Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: jack4it
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -14,10 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/26/2016
 ms.author: jackma
+translationtype: Human Translation
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
+
 
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure
-Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md#frequently-asked-questions), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 
+Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#frequently-asked-questions), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 
 
 **Длительность выполнения задачи:** около 30 минут, если на виртуальной машине уже установлен сертификат.
 
@@ -46,12 +50,12 @@ ms.author: jackma
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Настройка подключения к SQL Server на виртуальной машине
 После настройки зашифрованного соединения, которое требуется для службы поиска Azure, необходимо выполнить дополнительные шаги, обязательные для настройки SQL Server на виртуальных машинах Azure. Если это еще не было сделано, то следующий шаг позволит вам завершить настройку. Воспользуйтесь одной из следующих статей:
 
-* Если вы используете виртуальную машину **Resource Manager** , то ознакомьтесь с разделом [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](../virtual-machines/virtual-machines-windows-sql-connect.md). 
-* Если вы используете **классическую** виртуальную машину, см. статью [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](../virtual-machines/virtual-machines-windows-classic-sql-connect.md).
+* Если вы используете виртуальную машину **Resource Manager** , то ознакомьтесь с разделом [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Если вы используете **классическую** виртуальную машину, см. статью [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
 
 В частности, в каждой из этих статей ознакомьтесь с разделом "Подключение к SQL Server через Интернет".
 
-## <a name="configure-the-network-security-group-(nsg)"></a>Настройка группы безопасности сети (NSG)
+## <a name="configure-the-network-security-group-nsg"></a>Настройка группы безопасности сети (NSG)
 Обычной практикой является настройка группы безопасности сети и соответствующей конечной точки Azure или списка управления доступом (ACL) таким образом, чтобы виртуальная машина Azure стала доступной для других сторон. Есть вероятность, что вы уже выполнили эту настройку, чтобы разрешить логике своего приложения подключаться к виртуальной машине SQL Azure. Такой же принцип применяется для подключения службы поиска Azure к виртуальной машине SQL Azure. 
 
 Приведенные ниже ссылки содержат инструкции по настройке групп безопасности сети для развертывания виртуальной машины. Воспользуйтесь этими инструкциями для внесения конечной точки службы поиска Azure в список управления доступом на основе ее IP-адреса.
@@ -82,8 +86,11 @@ ms.author: jackma
 Если для создания индексатора используется портал Azure, то в процессе создания логике портала службы поиска Azure также необходим доступ к виртуальной машине SQL Azure. Чтобы найти IP-адреса портала службы поиска Azure, можно выполнить проверку связи с `stamp2.search.ext.azure.com`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Когда настройка выполнена, SQL Server на виртуальной машине Azure можно указать в качестве источника данных для индексатора службы поиска Azure. Дополнительные сведения см. в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+Когда настройка выполнена, SQL Server на виртуальной машине Azure можно указать в качестве источника данных для индексатора службы поиска Azure. Дополнительные сведения см. в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

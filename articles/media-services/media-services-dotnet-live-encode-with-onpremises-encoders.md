@@ -1,37 +1,41 @@
 ---
-title: Потоковая трансляция с помощью локальных кодировщиков | Microsoft Docs
-description: В этой статье показано, как использовать .NET для кодирования в реальном времени с помощью локальных кодировщиков.
+title: "Потоковая трансляция с помощью локальных кодировщиков | Документация Майкрософт"
+description: "В этой статье показано, как использовать .NET для кодирования в реальном времени с помощью локальных кодировщиков."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/05/2017
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
+
 
 ---
-# Потоковая трансляция с помощью локальных кодировщиков
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>Потоковая трансляция с помощью локальных кодировщиков
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
-В этом учебнике рассматривается создание **канала**, настроенного для сквозной доставки, с помощью пакета SDK для .NET служб мультимедиа Azure.
+В этом учебнике рассматривается создание **канала** , настроенного для сквозной доставки, с помощью пакета SDK для .NET служб мультимедиа Azure. 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
 * Учетная запись Azure.
-* Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в разделе [Создание учетной записи служб мультимедиа](media-services-create-account.md).
-* Настройка среды разработки. Дополнительные сведения см. в разделе [Настройка среды](media-services-set-up-computer.md).
+* Учетная запись служб мультимедиа.    Инструкции по созданию учетной записи служб мультимедиа см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
+* Настройка среды разработки. Дополнительные сведения см. в статье [Настройка среды](media-services-set-up-computer.md).
 * Веб-камера, например [кодировщик Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 Рекомендуется ознакомиться со следующими разделами.
@@ -39,7 +43,7 @@ ms.author: cenkdin;juliako
 * [Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Потоковая трансляция с помощью локальных кодировщиков, создающих потоки с разными скоростями](media-services-live-streaming-with-onprem-encoders.md)
 
-## Пример
+## <a name="example"></a>Пример
 В следующем примере кода показано, как выполнить приведенные ниже задачи.
 
 * Подключение к службам мультимедиа
@@ -54,7 +58,10 @@ ms.author: cenkdin;juliako
 * Получение указателей для всех конечных точек потоковой передачи
 * Завершение работы ресурсов
 
-Чтобы узнать, как настроить динамический кодировщик, см. раздел [Поддержка RTMP в службах мультимедиа Azure и динамические кодировщики](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+>[!NOTE]
+>Убедитесь, что конечная точка потоковой передачи, из которой нужно передавать содержимое потоком, находится в состоянии **Выполняется**. 
+    
+Сведения о настройке динамического кодировщика см. в записи блога [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/) Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики.
 
     using System;
     using System.Collections.Generic;
@@ -382,12 +389,17 @@ ms.author: cenkdin;juliako
         }
     }
 
-## Дальнейшее действие
+## <a name="next-step"></a>Дальнейшее действие
 Схемы обучения работе со службами мультимедиа
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

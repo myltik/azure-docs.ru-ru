@@ -1,62 +1,12 @@
 ---
-title: "Вопросы безопасности SQL Server в Azure | Документация Майкрософт"
-description: "В этом разделе рассматриваются ресурсы, созданные в классическом развертывании, и предоставляются конкретные указания по защите сервера SQL Server на виртуальной машине Azure."
-services: virtual-machines-windows
-documentationcenter: na
-author: rothja
-manager: jhubbard
-editor: 
-tags: azure-service-management
-ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
-ms.service: virtual-machines-sql
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 11/15/2016
-ms.author: jroth
+redirect_url: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-security
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: d0f52a6f1cf7629eabad7962cb6dccb6ae1420e7
-
+ms.sourcegitcommit: 0e3948b2907ab178d39c898610106df33b4533aa
+ms.openlocfilehash: 07c6d07f544f37a0dfd052627d98e28fb2de1078
 
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Вопросы безопасности SQL Server на виртуальных машинах Azure
-Этот раздел содержит общие рекомендации по безопасности, которые помогут обеспечить безопасный доступ к экземплярам SQL Server на виртуальной машине Azure. Однако, чтобы обеспечить надежную защиту экземпляров Базы данных SQL Server в Azure, мы рекомендуем реализовать традиционные локальные меры безопасности в дополнение к лучшим методикам обеспечения безопасности для Azure.
-
-> [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
-
-Дополнительные сведения об обеспечении безопасности SQL Server см. в статье [Рекомендации по обеспечению безопасности в SQL Server 2008 R2 — рабочие и административные задачи](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx).
-
-Azure соответствует ряду отраслевых норм и стандартов, которые позволяют построить совместимое с SQL Server решение, работающее на виртуальной машине. Сведения о соответствии нормам Azure см. в [центре управления безопасностью Azure](https://azure.microsoft.com/support/trust-center/).
-
-Ниже приведен список рекомендаций по безопасности, которые следует иметь в виду при настройке и подключении к экземпляру SQL Server на виртуальной машине Azure.
-
-## <a name="considerations-for-managing-accounts"></a>Вопросы управления учетными записями:
-* Создайте уникальную локальную учетную запись администратора с именем, отличным от **Administrator**.
-* Используйте сложные надежные пароли для всех учетных записей. Дополнительные сведения о создании надежного пароля см. в статье [Советы по созданию надежных паролей](http://windows.microsoft.com/en-us/windows-vista/Tips-for-creating-a-strong-password).
-* По умолчанию во время настройки виртуальной машины SQL Server в Azure выбирается проверка подлинности Windows. Следовательно, имя для входа **SA** отключается, а пароль назначается в ходе настройки. Рекомендуем не использовать и не включать имя для входа **SA** . Ниже приведены альтернативные методы, если требуется использовать имя для входа SQL.
-  
-  * Создайте учетную запись SQL, являющуюся членом роли sysadmin.
-  * Если вам требуется использовать имя для входа **SA** , включите имя для входа и переименуйте его, затем назначьте новый пароль.
-  * Оба приведенных выше варианта требуют изменения режима аутентификации на режим **Проверка подлинности SQL Server и Windows**. Дополнительные сведения см. в статье [Изменение режима проверки подлинности сервера](https://msdn.microsoft.com/library/ms188670.aspx).
-
-## <a name="considerations-for-securing-connections-to-azure-virtual-machine"></a>Рекомендации по защите подключений к виртуальной машине Azure:
-* Рассмотрите вариант управления виртуальными машинами с помощью [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md) , а не общедоступных портов RDP.
-* Используйте [группу безопасности сети](../virtual-network/virtual-networks-nsg.md) (NSG), чтобы разрешить или запретить передачу сетевого трафика в виртуальную машину. Если вам нужна группа NSG, но у вас уже есть список ACL для конечных точек, сначала удалите этот список. Сведения о том, как это сделать, см. в статье [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
-* Если применяются конечные точки, удалите все неиспользуемые конечные точки в виртуальной машине. Инструкции по использованию списков ACL в конечных точках см. в разделе [Управление ACL для конечной точки](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
-* Включите шифрование подключения для экземпляра компонента SQL Server Database Engine на виртуальных машинах Azure. Настройте новый экземпляр SQL Server с подписанным сертификатом. Дополнительные сведения см. в статьях [Включение шифрования соединений в ядре СУБД](https://msdn.microsoft.com/library/ms191192.aspx) и [Синтаксис строки подключения](https://msdn.microsoft.com/library/ms254500.aspx).
-* Если доступ к виртуальным машинам должен осуществляться только из определенной сети, ограничьте доступ к определенным IP-адресам или подсетям с помощью брандмауэра Windows.
-
-## <a name="next-steps"></a>Дальнейшие действия
-Если вам также интересны рекомендации по повышению производительности, ознакомьтесь со статьей [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Приступая к работе с SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

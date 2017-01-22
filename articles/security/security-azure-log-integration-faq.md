@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 2f0dc39815e9fbed86e22109cdf7b289af1f836e
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
 
 
 ---
@@ -72,7 +72,7 @@ XML-файл события содержит метаданные, как пок
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-audit-log"></a>Где найти определения свойств в журнале аудита?
 См.:
 
-* [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
+* [Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md)
 * [Список событий управления в подписке — справочник по REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## <a name="where-can-i-find-details-on-azure-security-center-alerts"></a>Где найти подробные сведения об оповещениях центра безопасности Azure?
@@ -111,6 +111,6 @@ XML-файл события содержит метаданные, как пок
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

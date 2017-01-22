@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
+ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
+ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
 
 
 ---
@@ -255,12 +255,15 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 1. Запустите Windows PowerShell на компьютере шлюза.
 2. Перейдите в папку C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Выполните следующую команду, чтобы отключить функцию автоматического обновления.   
-
-        .\GatewayAutoUpdateToggle.ps1  -off
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off
+    ```
 4. Чтобы снова включить ее:
-
-        .\GatewayAutoUpdateToggle.ps1  -on  
-
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on  
+    ```
 ## <a name="configuration-manager"></a>Менеджер конфигураций
 После установки шлюза вы можете запустить диспетчер конфигурации шлюза управления данными одним из приведенных ниже способов.
 
@@ -349,25 +352,28 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
    4. Нажмите кнопку **ОК** , чтобы зашифровать учетные данные и закрыть диалоговое окно.
 8. Теперь в **connectionString** должно появиться свойство **encryptedCredential**.        
 
-         {
-             "name": "SqlServerLinkedService",
-             "properties": {
-                 "type": "OnPremisesSqlServer",
-                 "description": "",
-                 "typeProperties": {
-                     "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
-                     "gatewayName": "adftutorialgateway"
-                 }
-             }
-         }
-
+    ```JSON
+    {
+        "name": "SqlServerLinkedService",
+        "properties": {
+            "type": "OnPremisesSqlServer",
+            "description": "",
+            "typeProperties": {
+                "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+                "gatewayName": "adftutorialgateway"
+            }
+        }
+    }
+    ```
 Если для доступа к порталу используется компьютер, отличный от компьютера шлюза, необходимо убедиться в том, что диспетчер учетных данных может подключиться к компьютеру шлюза. Если приложению не удается подключиться к компьютеру шлюза, вы не сможете задать учетные данные для источника данных и проверить подключение к нему.  
 
 Когда вы используете приложение **настройки учетных данных**, портал шифрует учетные данные с помощью сертификата, который указан на вкладке **Сертификат** в **диспетчере конфигурации шлюза** на компьютере шлюза.
 
 Если вам нужен способ шифрования учетных данных на основе API, используйте командлет PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) . Командлет шифрует учетные данные с помощью сертификата, который настроен в шлюзе. Зашифрованные учетные данные добавляются в элемент **EncryptedCredential** в **connectionString** в JSON. JSON используется в командлете [New AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) или редакторе фабрики данных.
 
-    "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
 
 Для настройки учетных данных при помощи редактора фабрики данных существует еще один способ. Если при помощи редактора создать связанную службу SQL Server и ввести учетные данные в виде обычного текста, то эти учетные данные будут шифроваться с помощью сертификата, который принадлежит службе фабрики данных. Сертификат, который настроен для шлюза, НЕ используется. Хотя этот способ работает быстрее в некоторых случаях, он менее безопасен. Поэтому мы рекомендуем использовать его только для целей разработки и тестирования.
 
@@ -376,49 +382,64 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 
 1. Запустите модуль **Azure PowerShell** в режиме администратора.
 2. Войдите в учетную запись Azure, выполнив следующую команду и введя свои учетные данные Azure.
-
+    
+    ```PowerShell
     Login-AzureRmAccount
+    ```
 3. Используйте командлет **New-AzureRmDataFactoryGateway** для создания логического шлюза следующим образом:
 
-        $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
-
+    ```PowerShell
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    ```
     **Пример команды и выходных данных**:
 
-        PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    ```
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-        Name              : MyGateway
-        Description       : gateway for walkthrough
-        Version           :
-        Status            : NeedRegistration
-        VersionStatus     : None
-        CreateTime        : 9/28/2014 10:58:22
-        RegisterTime      :
-        LastConnectTime   :
-        ExpiryTime        :
-        ProvisioningState : Succeeded
-        Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
-
+    Name              : MyGateway
+    Description       : gateway for walkthrough
+    Version           :
+    Status            : NeedRegistration
+    VersionStatus     : None
+    CreateTime        : 9/28/2014 10:58:22
+    RegisterTime      :
+    LastConnectTime   :
+    ExpiryTime        :
+    ProvisioningState : Succeeded
+    Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
+    ```
 
 1. В Azure PowerShell перейдите в папку **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде. Этот сценарий регистрирует агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
-        PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
-
-        Agent registration is successful!
-
+    ```PowerShell
+    PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
+    ```
+    ```
+    Agent registration is successful!
+    ```
     С помощью параметра IsRegisterOnRemoteMachine можно зарегистрировать шлюз на удаленном компьютере. Пример:
 
-        .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```PowerShell
+    .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```
 2. Вы можете использовать командлет **Get-AzureRmDataFactoryGateway** , чтобы получить список шлюзов своей фабрики данных. Если в поле **Состояние** указано значение **Подключено**, то шлюз готов к использованию.
 
-        Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
-
+    ```PowerShell        
+    Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+    ```
 Вы можете удалить шлюз, используя командлет **Remove-AzureRmDataFactoryGateway**, или обновить описание шлюза, используя командлет **Set-AzureRmDataFactoryGateway**. Дополнительную информацию о синтаксисе и другую информацию об этих командлетах см. в "Справочных материалах по командлетам фабрики данных".  
 
 ### <a name="list-gateways-using-powershell"></a>Вывод списка шлюзов с помощью PowerShell
-    Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+    
+```PowerShell
+Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+```
 
 ### <a name="remove-gateway-using-powershell"></a>Удаление шлюза с помощью PowerShell
-    Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+    
+```PowerShell
+Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+```
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -426,6 +447,6 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
