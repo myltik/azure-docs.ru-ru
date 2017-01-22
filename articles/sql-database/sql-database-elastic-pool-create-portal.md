@@ -1,7 +1,7 @@
 ---
 title: "Создание пула эластичных баз данных на портале Azure | Документация Майкрософт"
 description: "Сведения о добавлении масштабируемого эластичного пула в конфигурацию баз данных SQL для упрощения администрирования и распределения ресурсов между несколькими базами данных."
-keywords: "эластичная база данных, конфигурация базы данных"
+keywords: "масштабируемая база данных, конфигурация базы данных"
 services: sql-database
 documentationcenter: 
 author: ninarn
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
 
     Если базы данных, с которыми вы работаете, содержат достаточно данных телеметрии об использовании за прошедший период, график **Estimated eDTU and GB usage** (Примерный объем использования eDTU и ГБ) и линейчатая диаграмма **Actual eDTU usage** (Фактический объем использования eDTU) будут обновляться, помогая вам принимать решения относительно конфигурации. Кроме того, служба может предоставить вам рекомендации, которые помогут выбрать правильный размер пула. В разделе [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Используя элементы управления на странице **Настройка пула**, изучите параметры и настройте пул. Дополнительные сведения об ограничениях для каждого уровня обслуживания см. в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Подробные рекомендации по выбору правильного размера пула см. в статье [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md) Дополнительные сведения о параметрах пула см. в разделе [Свойства пула эластичных БД и эластичной базы данных](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Используя элементы управления на странице **Настройка пула**, изучите параметры и настройте пул. Дополнительные сведения об ограничениях для каждого уровня обслуживания см. в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools). Подробные рекомендации по выбору правильного размера пула см. в статье [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md) Дополнительные сведения о параметрах пула см. в разделе [Свойства пула эластичных БД и эластичной базы данных](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Настройка эластичного пула](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -129,6 +129,6 @@ ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

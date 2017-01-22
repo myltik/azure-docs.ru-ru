@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Создание запроса в службу поддержки для хранилища данных SQL
 Если у вас возникли проблемы с хранилищем данных SQL, создайте запрос в службу поддержки, чтобы получить помощь от нашей команды разработчиков.
 
+> [!NOTE] 
+> Начиная с 20.12.2016 результаты проверки работоспособности ресурса на портале Azure не точны. Мы активно работаем над устранением этой проблемы. 
+
+
 ## <a name="create-a-support-ticket"></a>Создание запроса в службу поддержки
-1. Откройте [портал Azure][портал Azure].
+1. Откройте [портал Azure][Azure portal].
 2. На начальном экране щелкните элемент **Справка + поддержка** .
    
     ![Справка + поддержка](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -47,13 +51,13 @@ ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
 6. Выберите **хранилище данных SQL** в качестве ресурса.
    
     ![Ресурс](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Выберите свой [план поддержки Azure][план поддержки Azure].
+7. Выберите свой [план поддержки Azure][Azure support plan].
    
    * **вопросам, связанным с выставлением счетов, квотами и управлением подпиской** , доступна на всех уровнях.
-   * Поддержка по **замене или ремонту** обеспечивается на уровнях поддержки [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] и [Premier][Premier]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
+   * Поддержка по **замене или ремонту** обеспечивается на уровнях [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] и [Premier][Premier]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
    * Услуги **обучения** и **консультирования разработчиков** доступны на уровнях поддержки [Professional Direct][Professional Direct] и [Premier][Premier]. 
      
-     При наличии плана поддержки Premier можно также создавать отчеты по неполадкам хранилища данных SQL на [портале Microsoft Premier][портал Microsoft Premier].  Дополнительные сведения о доступной поддержке, включая области действия, время реагирования, цены и т. д., см. на странице [планов поддержки Azure][планы поддержки Azure].  Кроме того, см. страницу [Часто задаваемые вопросы о поддержке Azure][Часто задаваемые вопросы о поддержке Azure].  
+     При наличии плана поддержки Premier можно также создавать отчеты по проблемам с хранилищем данных SQL на [портале Microsoft Premier][Microsoft Premier online portal].  Дополнительные сведения о доступной поддержке, включая области действия, время ответа, цены и т. д., см. на странице [планов поддержки Azure][Azure support plan].  Часто задаваемые вопросы о поддержке Azure см. на [этой странице][Azure support FAQs].  
      
      ![План поддержки](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. Выберите **Тип проблемы** и **Категория**.
@@ -73,7 +77,7 @@ ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
 ![Проверка состояния](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Другие ресурсы
-Кроме того, вы можете присоединиться к сообществу пользователей хранилища данных SQL на странице [Stack Overflow][Stack Overflow] или обратиться на [форум MSDN, посвященный хранилищу данных SQL Azure][форум MSDN, посвященный хранилищу данных SQL Azure].
+Кроме того, вы можете присоединиться к сообществу пользователей хранилища данных SQL на странице [Stack Overflow][Stack Overflow] или обратиться на [форум MSDN, посвященный хранилищу данных SQL Azure][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Портал Azure]: https://portal.azure.com/
-[План поддержки Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
-[Разработчик]: https://azure.microsoft.com/support/plans/developer/  
-[Стандартный]: https://azure.microsoft.com/support/plans/standard/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
+[Standard]: https://azure.microsoft.com/support/plans/standard/  
 [Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
 [Premier]: https://azure.microsoft.com/support/plans/premier/  
-[Часто задаваемые вопросы о поддержке Azure]: https://azure.microsoft.com/support/faq/
-[Портал Microsoft Premier]: https://premier.microsoft.com/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[форум MSDN, посвященный хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
