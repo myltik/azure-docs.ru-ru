@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
   * Скрипты, подключающиеся к интерфейсам API, должны отправлять данные по крайней мере каждые 10 минут, в противном случае время ожидания подключения истечет (эта проблема особенно распространена в скриптах Monitor API, прослушивающих данные). Чтобы предотвратить возникновение задержки, ваш скрипт должен отправлять команду ping XMPP каждые 10 минут, чтобы сеанс работы с сервером не завершался.
 
 ### <a name="see-also"></a>Дополнительные материалы
-* [Документация по API][Link 4]
+* [Документация по API-интерфейсам][Link 4]
 * [Сведения о протоколе XMPP](http://xmpp.org/extensions/xep-0199.html)
 
 ## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>Не удается использовать API для выполнения действия, доступного в пользовательском интерфейсе Azure Mobile Engagement.
@@ -46,7 +46,7 @@ ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
 * Подтверждение того, что вы можете выполнять это действие в пользовательском интерфейсе Azure Mobile Engagement, свидетельствует о правильной интеграции этой функции Azure Mobile Engagement в пакет SDK.
 
 ### <a name="see-also"></a>Дополнительные материалы
-* [Документация по пользовательскому интерфейсу][Link 1]
+* [Управление существующими приложениями и проектами][Link 1]
 
 ## <a name="error-messages"></a>сообщения об ошибках
 ### <a name="issue"></a>Проблема
@@ -76,7 +76,7 @@ ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### <a name="see-also"></a>Дополнительные материалы
-* [Документация по API — подробная информация об ошибках для каждого конкретного интерфейса API][Link 4]
+* [Mobile Engagement][Link 4]
 
 ## <a name="silent-failures"></a>Автоматические сбои
 ### <a name="issue"></a>Проблема
@@ -87,7 +87,7 @@ ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
 * Служба Azure Mobile Engagement и множество дополнительных функций этой службы, которые вы намереваетесь применять, перед использованием необходимо отдельно интегрировать в приложение с помощью пакета SDK.
 
 ### <a name="see-also"></a>Дополнительные материалы
-* [Руководство по устранению неполадок — пакет SDK][Link 25]
+* [Руководство по поиску и устранению проблем с интеграцией при использовании SDK][Link 25]
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface-home.md
@@ -123,6 +123,6 @@ ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

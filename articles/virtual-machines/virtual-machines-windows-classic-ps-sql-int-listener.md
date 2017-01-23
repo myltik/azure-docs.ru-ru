@@ -1,60 +1,76 @@
 ---
-title: Настройка прослушивателя внутренней подсистемы балансировки нагрузки для групп доступности AlwaysOn | Microsoft Docs
-description: В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутренней подсистемы балансировки нагрузки.
+title: "Настройка прослушивателя внутреннего балансировщика нагрузки для групп доступности AlwaysOn | Документация Майкрософт"
+description: "В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутреннего балансировщика нагрузки."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/19/2016
+ms.date: 11/28/2016
 ms.author: MikeRayMSFT
+translationtype: Human Translation
+ms.sourcegitcommit: 304ba8b062e2bacb4cb41db67e1ff379d7e83cbf
+ms.openlocfilehash: 734add47d0fca072a9cfa4f9b066582258632730
+
 
 ---
-# Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure
+# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure
 > [!div class="op_single_selector"]
-> * [Внутренний прослушиватель](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Внешний прослушиватель](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Внутренний прослушиватель](virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Внешний прослушиватель](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
-## Обзор
+## <a name="overview"></a>Обзор
 В этой статье показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутреннего балансировщика нагрузки**.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
-Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Настройка прослушивателя внутреннего балансировщика нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), но еще не настроили прослушиватель.
+В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), но еще не настроили прослушиватель.
 
-## Рекомендации и ограничения для внутренних прослушивателей
+## <a name="guidelines-and-limitations-for-internal-listeners"></a>Рекомендации и ограничения для внутренних прослушивателей
 Обратите внимание на следующие рекомендации к прослушивателю группы доступности в Azure, использующему внутренний балансировщик нагрузки (ILB).
 
-* Прослушиватель группы доступности поддерживается в Windows Server 2008 R2, Windows Server 2012 и Windows Server 2012 R2.
-* Для одной облачной службы поддерживается только один внутренний прослушиватель группы доступности, так как он настраивается только на использование ILB, а в облачной службе только один ILB. Однако можно создать несколько внешних прослушивателей. Дополнительные сведения см. в статье [Настройка внешнего прослушивателя для групп доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
-* Создание внутреннего прослушивателя в той же облачной службе, что и внешний прослушиватель, использующий общедоступный виртуальный IP-адрес облачной службы, не поддерживается.
+* Прослушиватель группы доступности поддерживается в Windows Server 2008 R2, Windows Server 2012 и Windows Server 2012 R2.
+* Для одной облачной службы поддерживается только один внутренний прослушиватель группы доступности, так как он настраивается только на использование ILB, а в облачной службе только один ILB. Однако можно создать несколько внешних прослушивателей. Дополнительные сведения см. в статье [Настройка внешнего прослушивателя для групп доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## Определение доступности прослушивателя
+## <a name="determine-the-accessibility-of-the-listener"></a>Определение доступности прослушивателя
 [!INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-В этой статье рассматривается создание прослушивателя, использующего **внутреннюю подсистему балансировки нагрузки (ILB)**. Если вам требуется общедоступный (внешний) прослушиватель, см. другую версию этой статьи, где приведены пошаговые инструкции по настройке [внешнего прослушивателя](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+В этой статье рассматривается создание прослушивателя, использующего **внутренний балансировщик нагрузки (ILB)**. Если вам требуется общедоступный (внешний) прослушиватель, см. другую версию этой статьи, где приведены пошаговые инструкции по настройке [внешнего прослушивателя](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## Создание конечных точек балансировки нагрузки в ВМ со службой Direct Server Return
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Создание конечных точек балансировки нагрузки в ВМ со службой Direct Server Return
 Для создания конечных точек с ILB сначала необходимо создать внутреннюю подсистему балансировки нагрузки. Это делается в приведенном ниже сценарии.
 
-[!INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
+Для каждой виртуальной машины с репликой Azure необходимо создать конечную точку с балансировкой нагрузки. Все реплики одного региона должны быть в одной облачной службе и одной виртуальной сети. Чтобы создать реплики группы доступности, охватывающие несколько регионов Azure, необходимо настроить несколько виртуальных сетей. Дополнительные сведения о настройке подключения между виртуальными сетями см. в статье [Настройка подключения между виртуальными сетями для классической модели развертывания](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. Для **балансировщика нагрузки** вам потребуется назначить статический IP-адрес. Во-первых, изучите текущую конфигурацию виртуальной сети, выполнив следующую команду:
+1. На портале Azure перейдите к каждой виртуальной машине с репликой и просмотрите сведения.
+2. Перейдите на вкладку **Конечные точки** для каждой виртуальной машины.
+3. Убедитесь, что **имя** и **общий порт** необходимой конечной точки прослушивателя еще не используются. В следующем примере используется имя MyEndpoint и порт 1433.
+4. На локальном клиенте скачайте и установите [последнюю версию модуля PowerShell](https://azure.microsoft.com/downloads/).
+5. Запустите **Azure PowerShell**. Откроется новый сеанс PowerShell с загруженными административными модулями Azure.
+6. Выполните командлет **Get-AzurePublishSettingsFile**. Он перенаправит вас в браузер для скачивания файла параметров публикации в локальный каталог. Может потребоваться ввод учетных данных подписки Azure.
+7. Выполните команду **Import-AzurePublishSettingsFile** , указав путь к скачанному файлу параметров публикации:
+   
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+   
+    После импорта файла параметров публикации вы сможете управлять подпиской Azure в сеансе PowerShell.
+    
+1. Для **балансировщика нагрузки**вам потребуется назначить статический IP-адрес. Во-первых, изучите текущую конфигурацию виртуальной сети, выполнив следующую команду:
    
         (Get-AzureVNetConfig).XMLConfiguration
 2. Обратите внимание на имя **Subnet** для подсети, содержащей виртуальные машины с репликами. Его значение будет присвоено параметру **$SubnetName** в сценарии.
-3. Кроме того, обратите внимание на имя **VirtualNetworkSite** и начальный префикс подсети **AddressPrefix**, которая содержит виртуальные машины с репликами. Определите доступные IP-адреса. Для этого передайте оба значения в команду **Test-AzureStaticVNetIP** и изучите значение **AvailableAddresses**. Например, если виртуальная сеть называется *MyVNet*, а диапазон адресов подсети начинается с *172.16.0.128*, следующая команда выведет список доступных адресов:
+3. Кроме того, обратите внимание на имя **VirtualNetworkSite** и начальный префикс подсети **AddressPrefix**, содержащей виртуальные машины с репликами. Определите доступные IP-адреса. Для этого передайте оба значения в команду **Test-AzureStaticVNetIP** и изучите значение **AvailableAddresses**. Например, если виртуальная сеть называется *MyVNet*, а диапазон адресов подсети начинается с *172.16.0.128*, следующая команда выведет список доступных адресов:
    
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 4. Выберите один из доступных адресов и используйте его в качестве значения параметра **$ILBStaticIP** в приведенном ниже сценарии.
@@ -82,15 +98,20 @@ ms.author: MikeRayMSFT
 > 
 > 
 
-## Проверка наличия пакета KB2854082
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Проверка наличия пакета KB2854082
 [!INCLUDE [kb2854082](../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## Открытие портов брандмауэра в узлах групп доступности.
-[!INCLUDE [брандмауэр](../../includes/virtual-machines-ag-listener-open-firewall.md)]
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Открытие портов брандмауэра в узлах групп доступности.
+[!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## Создание прослушивателя группы доступности
-[!INCLUDE [брандмауэр](../../includes/virtual-machines-ag-listener-create-listener.md)]
+## <a name="create-the-availability-group-listener"></a>Создание прослушивателя группы доступности
 
+Создайте прослушиватель группы доступности в два этапа. Сначала создайте кластерный ресурс точки доступа клиента и настройте зависимости. Затем настройте кластерные ресурсы с помощью PowerShell.
+
+### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>Создание точки доступа клиента и настройка кластерных зависимостей
+[!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
+
+### <a name="configure-the-cluster-resources-in-powershell"></a>Настройка кластерных ресурсов в PowerShell
 1. Чтобы использовать внутреннюю балансировку нагрузки, вам потребуется указать IP-адрес ранее созданной внутренней подсистемы балансировки нагрузки. Этот IP-адрес можно получить при помощи PowerShell следующим образом.
    
         # Define variables
@@ -122,16 +143,21 @@ ms.author: MikeRayMSFT
 3. Присвоив значения переменным, откройте окно Windows PowerShell с повышенными правами. Затем скопируйте сценарий из текстового редактора, вставьте его в текущий сеанс Azure PowerShell и выполните сценарий. Если в командной строке отображается >>, нажмите клавишу ВВОД еще раз, чтобы начать выполнение сценария.
 4. Повторите эти действия на каждой виртуальной машине. Этот сценарий настраивает ресурс IP-адреса путем установки IP-адреса облачной службы и прочих параметров, таких как порт зонда. После подключения ресурс IP-адреса сможет отвечать на запросы, отправляемые на порт зонда из созданной ранее конечной точки балансировки нагрузки.
 
-## Подключение прослушивателя
+## <a name="bring-the-listener-online"></a>Подключение прослушивателя
 [!INCLUDE [Bring-Listener-Online](../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## Дальнейшие действия
+## <a name="follow-up-items"></a>Дальнейшие действия
 [!INCLUDE [Follow-up](../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## Проверьте прослушиватель группы доступности (в пределах одной виртуальной сети)
+## <a name="test-the-availability-group-listener-within-the-same-vnet"></a>Проверьте прослушиватель группы доступности (в пределах одной виртуальной сети)
 [!INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!----HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

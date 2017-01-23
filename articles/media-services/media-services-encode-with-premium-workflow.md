@@ -1,12 +1,12 @@
 ---
-title: Дополнительное кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа | Microsoft Docs
-description: Узнайте, как выполнять дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET.
+title: "Дополнительное кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа | Документация Майкрософт"
+description: "Узнайте, как выполнять дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,23 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcc79a2adf81c82d245c99116f28eb4db983396
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа
 > [!NOTE]
 > Обработчик мультимедиа расширенного рабочего процесса кодировщика мультимедиа, рассматриваемый в этом разделе, недоступен в Китае.
-> 
-> 
+>
+>
 
 Вопросы о кодировщике Premium направляйте по адресу mepd@microsoft.com.
 
 ## <a name="overview"></a>Обзор
-Службы мультимедиа Microsoft Azure представляют обработчик мультимедиа **Media Encoder Premium Workflow**. Данный обработчик предоставляет расширенные возможности кодирования для рабочих процессов уровня premium по требованию. 
+Службы мультимедиа Microsoft Azure представляют обработчик мультимедиа **Media Encoder Premium Workflow**. Данный обработчик предоставляет расширенные возможности кодирования для рабочих процессов уровня premium по требованию.
 
-В следующих разделах приводятся подробные сведения o **расширенном рабочем процессе кодировщика мультимедиа**: 
+В следующих разделах приводятся подробные сведения o **расширенном рабочем процессе кодировщика мультимедиа**:
 
 * [Форматы, которые поддерживаются рабочим процессом Premium кодировщика мультимедиа](media-services-premium-workflow-encoder-formats.md) — описание файла форматирования и поддерживаемые кодеки **рабочего процесса Premium кодировщика мультимедиа**.
-* В разделе [Сравнение кодировщиков](media-services-encode-asset.md#compare_encoders) сравниваются возможности кодирования **расширенного рабочего процесса кодировщика мультимедиа** и **стандартного кодировщика мультимедиа**.
+* В статье [Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md) сравниваются возможности шифрования **рабочего процесса Media Encoder Premium** и **Media Encoder Standard**.
 
 В этом разделе показаны способы кодирования с помощью **расширенного рабочего процесса кодировщика мультимедиа** с использованием .NET.
 
@@ -43,28 +47,29 @@ ms.author: juliako
 
 Файлы рабочего процесса должны быть отправлены в учетную запись служб мультимедиа в виде ресурса, и этот ресурс нужно передать в задачу кодирования.
 
-В следующем примере показано, как кодировать с помощью обработчика мультимедиа **Media Encoder Premium Workflow**. 
+В следующем примере показано, как кодировать с помощью обработчика мультимедиа **Media Encoder Premium Workflow**.
 
-Выполняются следующие шаги. 
+Выполняются следующие шаги.
 
-1. Создание ресурса и отправка файла рабочего процесса. 
+1. Создание ресурса и отправка файла рабочего процесса.
 2. Создание ресурса и отправка исходного файла мультимедиа.
 3. Получение обработчика мультимедиа "Рабочий процесс Premium кодировщика мультимедиа".
-4. Создание задания и задачи. 
-   
+4. Создание задания и задачи.
+
     В большинстве случаев строка конфигурации задачи будет пуста (как в следующем примере). В некоторых расширенных сценариях (включающих динамическую настройку свойств среды выполнения) XML-строка прописывается в задаче шифрования. Примеры таких сценариев: создание наложения, параллельное или последовательное совмещение мультимедиа, субтитры.
 5. Добавление двух входных ресурсов в задачу.
-   
+
     а. Первый – ресурс рабочего процесса.
-   
+
     b. Второй – ресурс видео.
-   
-    **Примечание**. Ресурс рабочего процесса необходимо добавить в задачу перед добавлением ресурса мультимедиа. Строка конфигурации для этой задачи должна быть пуста. 
+
+    **Примечание**. Ресурс рабочего процесса необходимо добавить в задачу перед добавлением ресурса мультимедиа.
+   Строка конфигурации для этой задачи должна быть пуста.
 6. Отправка задания кодирования.
 
 Ниже представлен завершенный пример. Сведения о настройке .NET для разработки служб мультимедиа см. в статье [Разработка для служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md).
 
-    using System; 
+     using System;
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -111,7 +116,7 @@ ms.author: juliako
 
                 var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
                 var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset); 
+                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
 
             }
 
@@ -146,7 +151,7 @@ ms.author: juliako
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
@@ -159,9 +164,9 @@ ms.author: juliako
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(workflow);
                 task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -172,12 +177,12 @@ ms.author: juliako
                 // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish. 
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                 progressJobTask.Wait();
 
-                // If job state is Error the event handling 
-                // method for job progress should log errors.  Here we check 
+                // If job state is Error the event handling
+                // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
                 {
@@ -272,6 +277,8 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

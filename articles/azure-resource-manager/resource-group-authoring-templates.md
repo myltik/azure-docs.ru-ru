@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5f810a46db4deed9c31db4f7c072c48b0817ebc4
-ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
+ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
+ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
 
 
 ---
@@ -32,17 +32,19 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 ## <a name="template-format"></a>Формат шаблона
 Шаблон с самой простой структурой содержит следующие элементы:
 
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
+```json
+{
+   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "",
+   "parameters": {  },
+   "variables": {  },
+   "resources": [  ],
+   "outputs": {  }
+}
+```
 
 | Имя элемента | Обязательно | Описание |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | $schema |Да |Расположение файла схемы JSON, который описывает версию языка шаблона. Используйте URL-адрес из предыдущего примера. |
 | contentVersion |Да |Версия шаблона (например, 1.0.0.0). Для этого элемента можно предоставить любое значение. При развертывании ресурсов с помощью шаблона это значение позволяет убедиться в том, что используется нужный шаблон. |
 | parameters |Нет |Значения, которые предоставляются при выполнении развертывания для настройки развертывания ресурсов. |
@@ -59,11 +61,13 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Вот пример использования нескольких функций во время создания значений.
 
-    "variables": {
-       "location": "[resourceGroup().location]",
-       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
-       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-    }
+```json
+"variables": {
+   "location": "[resourceGroup().location]",
+   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+}
+```
 
 Полный список функций шаблонов см. в статье [Функции шаблонов диспетчера ресурсов Azure](resource-group-template-functions.md). 
 
@@ -74,23 +78,25 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Параметры определяются с помощью следующей структуры.
 
-    "parameters": {
-       "<parameter-name>" : {
-         "type" : "<type-of-parameter-value>",
-         "defaultValue": "<default-value-of-parameter>",
-         "allowedValues": [ "<array-of-allowed-values>" ],
-         "minValue": <minimum-value-for-int>,
-         "maxValue": <maximum-value-for-int>,
-         "minLength": <minimum-length-for-string-or-array>,
-         "maxLength": <maximum-length-for-string-or-array-parameters>,
-         "metadata": {
-             "description": "<description-of-the parameter>" 
-         }
-       }
-    }
+```json
+"parameters": {
+   "<parameter-name>" : {
+     "type" : "<type-of-parameter-value>",
+     "defaultValue": "<default-value-of-parameter>",
+     "allowedValues": [ "<array-of-allowed-values>" ],
+     "minValue": <minimum-value-for-int>,
+     "maxValue": <maximum-value-for-int>,
+     "minLength": <minimum-length-for-string-or-array>,
+     "maxLength": <maximum-length-for-string-or-array-parameters>,
+     "metadata": {
+         "description": "<description-of-the parameter>" 
+     }
+   }
+}
+```
 
 | Имя элемента | Обязательно | Описание |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | имя_параметра |Да |Имя параметра. Должно быть допустимым идентификатором JavaScript. |
 | type |Да |Тип значения параметра. Ниже приведен список разрешенных типов. |
 | defaultValue |Нет |Значение параметра, используемое по умолчанию, если пользователь не задал иное значение. |
@@ -113,48 +119,53 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Чтобы указать параметр как необязательный, задайте defaultValue (это может быть пустая строка). 
 
-Если указать параметр, имя которого совпадает с именем одного из параметров в команде, с помощью которой развертывается шаблон, вам будет предложено указать значение для этого параметра с постфиксом **FromTemplate**. Например, если добавить в шаблон параметр с именем **ResourceGroupName**, который соответствует параметру **ResourceGroupName** в командлете [New AzureRmResourceGroupDeployment][deployment2cmdlet], вам будет предложено указать значение для **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+Если указать параметр, имя которого совпадает с именем одного из параметров в команде, с помощью которой развертывается шаблон, вам будет предложено указать значение для этого параметра с постфиксом **FromTemplate**. Например, если добавить в шаблон параметр с именем **ResourceGroupName**, который соответствует параметру **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment][deployment2cmdlet], то вам будет предложено указать значение для **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 > [!NOTE]
-> Все пароли, ключи и другие секреты данные должны использовать тип **secureString** . Параметры шаблона с типом secureString невозможно прочитать после развертывания ресурса. 
+> Все пароли, ключи и другие секреты данные должны использовать тип **secureString** . При передаче конфиденциальных данных в объекте JSON используйте тип **secureObject**. Параметры шаблона с типами secureString и secureObject невозможно прочитать после развертывания ресурса. 
 > 
-> 
+> Например, следующая запись в журнале развертывания содержит значения для строки и объекта, но не содержит значений для secureString и secureObject.
+>
+> ![показать значения развертывания](./media/resource-group-authoring-templates/show-parameters.png)  
+>
 
 В следующем примере показано, как определять параметры.
 
-    "parameters": {
-      "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-      },
-      "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-      },
-      "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-      },
-      "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-      }
-    }
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+  },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+  },
+  "skuName": {
+    "type": "string",
+    "defaultValue": "F1",
+    "allowedValues": [
+      "F1",
+      "D1",
+      "B1",
+      "B2",
+      "B3",
+      "S1",
+      "S2",
+      "S3",
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ]
+  },
+  "skuCapacity": {
+    "type": "int",
+    "defaultValue": 1,
+    "minValue": 1
+  }
+}
+```
 
 Сведения о том, как вводить значения параметров во время развертывания, см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md). 
 
@@ -163,75 +174,83 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Переменные определяются с помощью следующей структуры:
 
-    "variables": {
-       "<variable-name>": "<variable-value>",
-       "<variable-name>": { 
-           <variable-complex-type-value> 
-       }
-    }
+```json
+"variables": {
+   "<variable-name>": "<variable-value>",
+   "<variable-name>": { 
+       <variable-complex-type-value> 
+   }
+}
+```
 
 В следующем примере показано, как определить переменную, которая состоит из двух значений параметра.
 
-     "variables": {
-       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-    }
+```json
+"variables": {
+    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+}
+```
 
 В следующем примере показана переменная, которая является сложным типом JSON, и переменные, построенные на основе других переменных.
 
-    "parameters": {
-       "environmentName": {
-         "type": "string",
-         "allowedValues": [
-           "test",
-           "prod"
-         ]
-       }
-    },
-    "variables": {
-       "environmentSettings": {
-         "test": {
-           "instancesSize": "Small",
-           "instancesCount": 1
-         },
-         "prod": {
-           "instancesSize": "Large",
-           "instancesCount": 4
-         }
-       },
-       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-    }
+```json
+"parameters": {
+   "environmentName": {
+     "type": "string",
+     "allowedValues": [
+       "test",
+       "prod"
+     ]
+   }
+},
+"variables": {
+   "environmentSettings": {
+     "test": {
+       "instancesSize": "Small",
+       "instancesCount": 1
+     },
+     "prod": {
+       "instancesSize": "Large",
+       "instancesCount": 4
+     }
+   },
+   "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+   "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+   "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+}
+```
 
 ## <a name="resources"></a>Ресурсы
 В разделе resources определяются ресурсы, которые развертываются или обновляются. Этот раздел может еще больше усложниться, так как вы должны понимать принципы работы развертываемых типов для предоставления правильных значений. 
 
 Ресурсы определяются с помощью следующей структуры:
 
-    "resources": [
-       {
-         "apiVersion": "<api-version-of-resource>",
-         "type": "<resource-provider-namespace/resource-type-name>",
-         "name": "<name-of-the-resource>",
-         "location": "<location-of-resource>",
-         "tags": "<name-value-pairs-for-resource-tagging>",
-         "comments": "<your-reference-notes>",
-         "dependsOn": [
-           "<array-of-related-resource-names>"
-         ],
-         "properties": "<settings-for-the-resource>",
-         "copy": {
-           "name": "<name-of-copy-loop>",
-           "count": "<number-of-iterations>"
-         }
-         "resources": [
-           "<array-of-child-resources>"
-         ]
-       }
-    ]
+```json
+"resources": [
+   {
+     "apiVersion": "<api-version-of-resource>",
+     "type": "<resource-provider-namespace/resource-type-name>",
+     "name": "<name-of-the-resource>",
+     "location": "<location-of-resource>",
+     "tags": "<name-value-pairs-for-resource-tagging>",
+     "comments": "<your-reference-notes>",
+     "dependsOn": [
+       "<array-of-related-resource-names>"
+     ],
+     "properties": "<settings-for-the-resource>",
+     "copy": {
+       "name": "<name-of-copy-loop>",
+       "count": "<number-of-iterations>"
+     }
+     "resources": [
+       "<array-of-child-resources>"
+     ]
+   }
+]
+```
 
 | Имя элемента | Обязательно | Описание |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | версия_API |Да |Версия REST API, которая будет использована для создания ресурса. |
 | type |Да |Тип ресурса. Это значение представляет собой сочетание пространства имен поставщика ресурсов и типа ресурса (например, **Microsoft.Storage/storageAccounts**). |
 | name |Да |Имя ресурса. Имя должно соответствовать ограничениям компонентов URI, определенным в RFC3986. Кроме того, службы Azure, которые предоставляют имя ресурса внешним пользователям, проверяют это имя, чтобы убедиться, что это не попытка подделки другого удостоверения. Ознакомьтесь со статьей [Проверка имени ресурса](https://msdn.microsoft.com/library/azure/mt219035.aspx). |
@@ -247,19 +266,27 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Чтобы получить список всех поставщиков ресурсов с помощью **PowerShell**, используйте следующую команду:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 В возвращенном списке найдите интересующих поставщиков ресурсов. Чтобы получить список типов ресурсов для поставщика ресурсов (например, хранилище), используйте следующую команду:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```
 
 Чтобы получить список версий API для типа ресурса (например, учетные записи хранения), используйте следующую команду:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```
 
 Чтобы получить список поддерживаемых расположений для типа ресурса, используйте следующую команду:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```
 
 Чтобы получить список всех поставщиков ресурсов с помощью **интерфейса командной строки Azure**, используйте следующую команду:
 
@@ -277,111 +304,117 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 Раздел ресурсов содержит набор ресурсов для развертывания. Внутри каждого ресурса можно также определить набор дочерних ресурсов. Таким образом раздел ресурсов может иметь примерно следующую структуру:
 
-    "resources": [
-       {
-           "name": "resourceA",
-       },
-       {
-           "name": "resourceB",
-           "resources": [
-               {
-                   "name": "firstChildResourceB",
-               },
-               {   
-                   "name": "secondChildResourceB",
-               }
-           ]
-       },
-       {
-           "name": "resourceC",
-       }
-    ]
-
+```json
+"resources": [
+   {
+       "name": "resourceA",
+   },
+   {
+       "name": "resourceB",
+       "resources": [
+           {
+               "name": "firstChildResourceB",
+           },
+           {   
+               "name": "secondChildResourceB",
+           }
+       ]
+   },
+   {
+       "name": "resourceC",
+   }
+]
+```      
 
 В следующем примере показан ресурс **Microsoft.Web/serverfarms**, а также ресурс **Microsoft.Web/sites** с дочерним ресурсом **Extensions**. Обратите внимание, что сайт помечен как зависимый от фермы серверов, поскольку ферма серверов должна существовать перед развертыванием сайта. Кроме того, обратите внимание, что ресурс **Extensions** является дочерним для сайта.
 
+```json
+"resources": [
+  {
+    "apiVersion": "2015-08-01",
+    "name": "[parameters('hostingPlanName')]",
+    "type": "Microsoft.Web/serverfarms",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "displayName": "HostingPlan"
+    },
+    "sku": {
+      "name": "[parameters('skuName')]",
+      "capacity": "[parameters('skuCapacity')]"
+    },
+    "properties": {
+      "name": "[parameters('hostingPlanName')]",
+      "numberOfWorkers": 1
+    }
+  },
+  {
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[parameters('siteName')]",
+    "location": "[resourceGroup().location]",
+    "tags": {
+      "environment": "test",
+      "team": "Web"
+    },
+    "dependsOn": [
+      "[concat(parameters('hostingPlanName'))]"
+    ],
+    "properties": {
+      "name": "[parameters('siteName')]",
+      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+    },
     "resources": [
       {
         "apiVersion": "2015-08-01",
-        "name": "[parameters('hostingPlanName')]",
-        "type": "Microsoft.Web/serverfarms",
-        "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "HostingPlan"
-        },
-        "sku": {
-          "name": "[parameters('skuName')]",
-          "capacity": "[parameters('skuCapacity')]"
-        },
-        "properties": {
-          "name": "[parameters('hostingPlanName')]",
-          "numberOfWorkers": 1
-        }
-      },
-      {
-        "apiVersion": "2015-08-01",
-        "type": "Microsoft.Web/sites",
-        "name": "[parameters('siteName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-          "environment": "test",
-          "team": "Web"
-        },
+        "type": "extensions",
+        "name": "MSDeploy",
         "dependsOn": [
-          "[concat(parameters('hostingPlanName'))]"
+          "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
         ],
         "properties": {
-          "name": "[parameters('siteName')]",
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-        },
-        "resources": [
-          {
-            "apiVersion": "2015-08-01",
-            "type": "extensions",
-            "name": "MSDeploy",
-            "dependsOn": [
-              "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-            ],
-            "properties": {
-              "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-              "dbType": "None",
-              "connectionString": "",
-              "setParameters": {
-                "Application Path": "[parameters('siteName')]"
-              }
-            }
+          "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+          "dbType": "None",
+          "connectionString": "",
+          "setParameters": {
+            "Application Path": "[parameters('siteName')]"
           }
-        ]
+        }
       }
     ]
-
+  }
+]
+```
 
 ## <a name="outputs"></a>outputs
 В разделе выходных данных следует указать значения, которые возвращаются после развертывания. Например, можно возвращать URI для доступа к развернутому ресурсу.
 
 В следующем примере показана структура определения выходных данных:
 
-    "outputs": {
-       "<outputName>" : {
-         "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>"
-       }
-    }
+```json
+"outputs": {
+   "<outputName>" : {
+     "type" : "<type-of-output-value>",
+     "value": "<output-value-expression>"
+   }
+}
+```
 
 | Имя элемента | Обязательно | Описание |
-|:---:|:---:|:--- |
+|:--- |:--- |:--- |
 | outputName |Да |Имя выходного значения. Должно быть допустимым идентификатором JavaScript. |
 | type |Да |Тип выходного значения. Выходные значения поддерживает те же типы, что и входные параметры шаблона. |
 | value |Да |Выражение на языке шаблона, которое вычисляется и возвращается в качестве выходного значения. |
 
 В следующем примере показано значение, которое возвращается в разделе выходных данных.
 
-    "outputs": {
-       "siteUri" : {
-         "type" : "string",
-         "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-       }
-    }
+```json
+"outputs": {
+   "siteUri" : {
+     "type" : "string",
+     "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+   }
+}
+```
 
 Дополнительные сведения о работе с выходными данными см. в статье [Совместное использование состояния в шаблонах Resource Manager](best-practices-resource-manager-state.md).
 
@@ -395,6 +428,6 @@ ms.openlocfilehash: 091947c26bb0fa348f4de2f16c21c82affcefbd3
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
-ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
@@ -37,7 +37,7 @@ ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
 
 2. Для выполнения инструкций этого руководства требуется кластер HDInsight 3.4 Spark 1.6. Создайте его, выполнив инструкции в статье [Начало работы: создание кластера Apache Spark в Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Тип и версию кластера можно указать с помощью меню **Выбор типа кластера** . 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![Настройка кластера](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -107,11 +107,11 @@ ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Выполнение кода из записной книжки Jupyter в кластере Spark
 Записную книжку Jupyter можно запустить с портала Azure. Найдите кластер Spark на панели мониторинга и щелкните его, чтобы войти на страницу управления кластером. Последовательно выберите **Панели мониторинга кластера** -> **Записная книжка Jupyter**, чтобы открыть записную книжку, связанную с кластером Spark.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![Панели мониторинга кластера](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 Также записные книжки Jupyter можно просмотреть по адресу ***https://CLUSTERNAME.azurehdinsight.net/jupyter***. Замените в этом URL-адресе фрагмент CLUSTERNAME именем вашего кластера. Для доступа к записным книжкам необходим пароль к учетной записи администратора.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Просмотр записных книжек Jupyter](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Выберите PySpark, чтобы открыть каталог, содержащий несколько примеров предварительно подготовленных записных книжек на основе API PySpark. Записные книжки с примерами кода для этой группы статьей о Spark доступны в репозитории [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
@@ -154,6 +154,6 @@ ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

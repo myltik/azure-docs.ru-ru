@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68647c83f30fddd69aa920cae6f407f2728e14c8
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
 Кроме того, вам понадобится следующее:
 
 * Проводное или беспроводное подключение к устройству Pi.
-* Адаптер USB-SD или карта miniSD для записи образа ОС на карту microSD.
+* Адаптер USB-SD или карта miniSD для записи образа операционной системы на карту microSD.
 * Компьютер под управлением Windows, Mac или Linux. С помощью компьютера ОС Raspbian устанавливается на карту microSD.
 * Подключение к Интернету для скачивания необходимых инструментов и программного обеспечения.
 
@@ -117,6 +117,6 @@ ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,39 +1,43 @@
 ---
-title: Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager | Microsoft Docs
-description: С помощью шаблонов Azure Resource Manager можно автоматизировать создание ресурсов служебной шины.
-services: service-bus
+title: "Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager | Документация Майкрософт"
+description: "С помощью шаблонов Azure Resource Manager можно автоматизировать создание ресурсов служебной шины."
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 607786ef52e9f2a7c49e3d47e2d4cf590912710b
+
 
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager
-В этой статье показано, как создать и развернуть ресурсы служебной шины и концентраторов событий с помощью шаблонов Azure Resource Manager, PowerShell и поставщика ресурсов служебной шины.
+В этой статье описывается, как создать и развернуть ресурсы служебной шины с помощью шаблонов Azure Resource Manager, PowerShell и поставщика ресурсов служебной шины.
 
-В шаблонах Azure Resource Manager определяются ресурсы для развертывания решения и указываются параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Подробные сведения о создании шаблонов Azure Resource Manager и описание формата шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md). 
+В шаблонах Azure Resource Manager определяются ресурсы для развертывания решения и указываются параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Подробные сведения о создании шаблонов Azure Resource Manager и описание формата шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 
 > [!NOTE]
-> В примерах в этой статье показано, как использовать Azure Resource Manager для создания пространства имен и объекта обмена сообщениями (очереди) служебной шины. Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][] выполните поиск по запросу "служебная шина".
-> 
-> 
+> В примерах в этой статье показано, как использовать Azure Resource Manager для создания пространства имен и объекта обмена сообщениями (очереди) служебной шины. Чтобы узнать о новых шаблонах, в [коллекции шаблонов быстрого запуска Azure][Azure Quickstart Templates gallery] выполните поиск по запросу "служебная шина".
+>
+>
 
 ## <a name="service-bus-and-event-hubs-resource-manager-templates"></a>Шаблоны Resource Manager для служебной шины и концентраторов событий
-Эти шаблоны Azure Resource Manager для служебной шины и концентраторов событий доступны для скачивания и развертывания. Чтобы получить подробные сведения о каждом из них со ссылками на шаблоны в GitHub, щелкните приведенные ниже ссылки. 
+Эти шаблоны Azure Resource Manager для служебной шины доступны для скачивания и развертывания. Чтобы получить подробные сведения о каждом из них со ссылками на шаблоны в GitHub, щелкните приведенные ниже ссылки.
 
 * [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
 * [Создание пространства имен служебной шины с очередью](service-bus-resource-manager-namespace-queue.md)
 * [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
 * [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
-* [Создание пространства имен концентратора событий с концентратором событий и группой потребителей](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+* [Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
 Ниже описывается использование PowerShell для развертывания шаблона Azure Resource Manager, который создает пространство имен служебной шины уровня **Standard** и очередь в ней. Этот пример основан на шаблоне [Создание пространства имен служебной шины с очередью](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). Ниже приведена примерная последовательность действий.
@@ -46,10 +50,10 @@ ms.author: sethm
 6. Если необходимо, задайте режим развертывания.
 7. Разверните шаблон.
 
-Подробные сведения о развертывании шаблонов Azure Resource Manager см. в разделе [Развертывание ресурсов с использованием шаблонов Azure Resource Manager][Развертывание ресурсов с использованием шаблонов Azure Resource Manager].
+Подробные сведения о развертывании шаблонов Azure Resource Manager см. в статье [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates] (Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell).
 
 ### <a name="install-powershell"></a>Установка PowerShell
-Установите Azure PowerShell, следуя инструкциям по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
+Установите Azure PowerShell, следуя инструкциям по [установке и настройке Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="create-a-template"></a>Создание шаблона
 Клонируйте и скопируйте шаблон [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) из GitHub.
@@ -120,8 +124,8 @@ ms.author: sethm
 }
 ```
 
-### <a name="create-a-parameters-file-(optional)"></a>Создание файла параметров (необязательно)
-Чтобы использовать необязательный файл параметров, скопируйте файл [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Замените значение `serviceBusNamespaceName` на название пространства имен служебной шины, которое нужно создать в этом развертывании, а значение `serviceBusQueueName` — на имя очереди, которую нужно создать. 
+### <a name="create-a-parameters-file-optional"></a>Создание файла параметров (необязательно)
+Чтобы использовать необязательный файл параметров, скопируйте файл [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Замените значение `serviceBusNamespaceName` на название пространства имен служебной шины, которое нужно создать в этом развертывании, а значение `serviceBusQueueName` — на имя очереди, которую нужно создать.
 
 ```
 {
@@ -141,7 +145,7 @@ ms.author: sethm
 }
 ```
 
-Дополнительные сведения см. в статье [Файл параметров](../resource-group-template-deploy.md#parameter-file).
+Дополнительные сведения см. в статье [Файл параметров](../azure-resource-manager/resource-group-template-deploy.md#parameter-precedence).
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Вход в Azure и настройка подписки Azure
 В командной строке PowerShell выполните следующую команду:
@@ -187,7 +191,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 ```
 
 ### <a name="create-the-deployment"></a>Создание развертывания
-Чтобы создать развертывание, выполните команду `New-AzureRmResourceGroupDeployment` и укажите необходимые параметры при появлении запроса. Параметры включают в себя имя развертывания, имя группы ресурсов и путь к файлу шаблона или его URL-адрес. Если параметр **Режим** не указан, используется стандартное значение **Добавочный**. Дополнительные сведения см. в статье [Добавочные и полные развертывания](../resource-group-template-deploy.md#incremental-and-complete-deployments).
+Чтобы создать развертывание, выполните команду `New-AzureRmResourceGroupDeployment` и укажите необходимые параметры при появлении запроса. Параметры включают в себя имя развертывания, имя группы ресурсов и путь к файлу шаблона или его URL-адрес. Если параметр **Режим** не указан, используется стандартное значение **Добавочный**. Дополнительные сведения см. в статье [Добавочные и полные развертывания](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 Следующая команда запрашивает три параметра в окне PowerShell:
 
@@ -207,10 +211,10 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Чтобы выполнить [полное](../resource-group-template-deploy.md#incremental-and-complete-deployments) развертывание, установите для параметра **Режим** значение **Полный**.
+Чтобы выполнить [полное](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) развертывание, установите для параметра **Режим** значение **Полный**.
 
 ```
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Проверка развертывания
@@ -235,15 +239,16 @@ Parameters        :
 ## <a name="next-steps"></a>Дальнейшие действия
 Мы рассмотрели базовую процедуру и команды для развертывания шаблона Azure Resource Manager. Для получения более подробных сведений перейдите по следующим ссылкам:
 
-* [Общие сведения об Azure Resource Manager][Общие сведения об Azure Resource Manager]
-* [Развертывание ресурсов с использованием шаблонов Azure Resource Manager][Развертывание ресурсов с использованием шаблонов Azure Resource Manager]
+* [Общие сведения о диспетчере ресурсов Azure][Azure Resource Manager overview]
+* [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates] (Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell)
 * [Создание шаблонов](../resource-group-authoring-templates.md)
 
-[Общие сведения об Azure Resource Manager]: ../resource-group-overview.md
-[Развертывание ресурсов с использованием шаблонов Azure Resource Manager]: ../resource-group-template-deploy.md
-[Коллекция шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Deploy resources with Azure Resource Manager templates]: ../resource-group-template-deploy.md
+[Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
 
 
 ---
@@ -90,7 +90,7 @@ ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
 После ввода модели в эксплуатацию в службе машинного обучения Azure становится доступна веб-служба, позволяющая клиентам выполнять вызовы REST, которые передают входные параметры и получают прогнозы из модели в виде выходных данных.   
 
 > [!NOTE]
-> Если вы еще не зарегистрировались для использования службы машинного обучения Azure, вы можете получить бесплатную или стандартную рабочую область. Для этого на домашней странице [Студии машинного обучения Azure](https://studio.azureml.net/) щелкните "Приступая к работе".   
+> Если вы еще не зарегистрировались для использования службы машинного обучения Azure, можете получить бесплатную или стандартную рабочую область. Для этого на домашней странице [Студии машинного обучения Azure](https://studio.azureml.net/) щелкните "Приступая к работе".   
 > 
 > 
 
@@ -143,9 +143,9 @@ ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
 Ниже приведена процедура и фрагменты кода, которые могут использоваться для настройки, создания, публикации и использования модели как веб-службы в Машинном обучении Azure.
 
 #### <a name="setup"></a>Настройка
-1. Установите пакет AzureML R, набрав ```install.packages("AzureML")``` в интегрированной среде разработки Revolution R Enterprise 8.0 или вашей интегрированной среде разработки R IDE.
-2. Загрузите RTools [отсюда](https://cran.r-project.org/bin/windows/Rtools/). Чтобы начать использовать пакет R в службе AzureML, необходима служебная программа zip (с именем zip.exe).
-3. Создайте файл Settings.json в каталоге с именем ```.azureml``` , который находится в домашнем каталоге, и введите параметры из рабочей области машинного обучения Azure.
+1. Установите пакет R для машинного обучения, введя ```install.packages("AzureML")``` в интегрированной среде разработки Revolution R Enterprise 8.0 или в своей интегрированной среде разработки R.
+2. Загрузите RTools [отсюда](https://cran.r-project.org/bin/windows/Rtools/). Чтобы начать использовать пакет R в службе машинного обучения, необходима служебная программа zip (с именем zip.exe).
+3. Создайте файл Settings.json в каталоге с именем ```.azureml```, который находится в корневом каталоге, и введите параметры из рабочей области машинного обучения Azure.
 
 структура файла Settings.json:
 
@@ -155,7 +155,7 @@ ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
     }}
 
 
-#### <a name="build-a-model-in-r-and-publish-it-in-azure-ml"></a>Создайте модель на языке R и опубликуйте ее в службе машинного обучения Azure.
+#### <a name="build-a-model-in-r-and-publish-it-in-azure-machine-learning"></a>Создание модели на языке R и ее публикация в службе машинного обучения Azure
     library(AzureML)
     ws <- workspace(config="~/.azureml/settings.json")
 
@@ -172,7 +172,7 @@ ms.openlocfilehash: 211012d7c1a4ec3ad8f281bc758d2f91f452dc67
 
     ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
 
-#### <a name="consume-the-model-deployed-in-azure-ml"></a>Использование модели, развернутой в службе машинного обучения Azure
+#### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Использование модели, развернутой в службе машинного обучения Azure
 Для использования модели из клиентского приложения мы используем библиотеку службы машинного обучения Azure, чтобы найти опубликованную веб-службу по имени с помощью вызова API `services` для определения конечной точки. Затем нужно просто вызвать функцию `consume` и передать блок данных для прогноза.
 Приведенный ниже код позволяет использовать модель, опубликованную как веб-служба машинного обучения Azure.
 
@@ -295,10 +295,10 @@ DSVM уже поставляется с набором клиентских ср
 
 Отправить данные из локального файла в виртуальной машине можно также с помощью обозревателя хранилищ Azure.
 
-* Чтобы передать данные в контейнер, выберите целевой контейнер и нажмите кнопку **Передать**.![](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
-* Щелкните знак многоточия **…** справа от поля **Файлы**, выберите в файловой системе один или несколько файлов для передачи и нажмите кнопку **Передать**, чтобы начать их передачу.![](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
+* Чтобы передать данные в контейнер, выберите целевой контейнер и нажмите кнопку **Передать**.![Передача данных в обозревателе хранилищ](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
+* Щелкните знак многоточия **…** справа от поля **Файлы**, выберите в файловой системе один или несколько файлов для передачи и нажмите кнопку **Передать**, чтобы начать их передачу.![Передача файлов в большой двоичный объект](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
 
-**Чтение данных из BLOB-объекта Azure: модуль чтения AML**
+**Чтение данных из большого двоичного объекта Azure: модуль "Читатель" машинного обучения**
 
 Для чтения данных из большого двоичного объекта в Студии машинного обучения Azure можно использовать модуль **Импорт данных** .
 
@@ -377,11 +377,11 @@ DSVM уже поставляется с набором клиентских ср
 
 Если данные хранятся в хранилище BLOB-объектов Azure, их можно считывать непосредственно из BLOB-объекта хранилища Azure в запросе U-SQL. Перед построением запроса U-SQL убедитесь, что учетная запись хранения BLOB-объектов связана с озером данных Azure. На **портале Azure** найдите панель мониторинга для Azure Data Lake Analytics, щелкните **Добавить источник данных**, в качестве типа хранилища выберите **Служба хранилища Azure** и укажите имя и ключ учетной записи хранения Azure. Затем вы сможете ссылаться на данные, хранящиеся в учетной записи хранения.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Ввод имени учетной записи хранения и ключа](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 В Visual Studio можно читать данные из хранилища BLOB-объектов, выполнять обработку данных, проектировать характеристики и выводить полученные данные в озеро данных Azure или хранилище BLOB-объектов Azure. Ссылаясь на данные в хранилище BLOB-объектов, используйте **wasb://**, а на данные в Azure Data Lake — **swbhdfs://**.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Кадр данных](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 В Visual Studio можно использовать следующие запросы U-SQL:
 
@@ -427,7 +427,7 @@ DSVM уже поставляется с набором клиентских ср
 
 После отправки запроса на сервер будет отображена схема, демонстрирующая состояние задания.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
+![Схема состояния задания](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Запрос данных в озере данных: U-SQL**
 
@@ -435,11 +435,11 @@ DSVM уже поставляется с набором клиентских ср
 
 Вскоре после отправки запроса на сервер в **Azure Data Lake Explorer** появится файл tripdata_summary.CSV. Чтобы просмотреть данные, щелкните этот файл правой кнопкой мыши.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
+![Файл в Azure Data Lake Explorer](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
 
 Вот как выглядят сведения о файле:
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
+![Сведения о файле](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>Кластеры HDInsight Hadoop
 Azure HDInsight является управляемой службой Apache Hadoop, Spark, HBase и Storm в облаке. Вы можете легко работать с кластерами Azure HDInsight на виртуальной машине для обработки и анализа данных.
@@ -448,25 +448,25 @@ Azure HDInsight является управляемой службой Apache Ha
 
 * Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](https://portal.azure.com). Она используется для хранения данных кластеров HDInsight.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
+![Создание учетной записи хранения больших двоичных объектов Azure](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Настройте кластеры HDInsight Hadoop в Azure на [портале Azure](machine-learning-data-science-customize-hadoop-cluster.md)
   
   * Во время создания кластера HDInsight с ним необходимо связать созданную учетную запись хранения. Эта учетная запись хранения используется для доступа к данным, которые можно обработать в пределах кластера.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
+![Связывание созданной учетной записи хранения с кластером HDInsight](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
 * После создания кластера необходимо включить **удаленный доступ** к головному узлу кластера. Запомните указываемые здесь учетные данные для удаленного доступа (не те, которые были заданы при создании кластера), так как они потребуются ниже.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Включение удаленного доступа](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Создайте рабочую область машинного обучения Azure. Ваши эксперименты машинного обучения будут храниться в этой рабочей области машинного обучения. Выберите выделенные параметры на портале, как показано на следующем снимке экрана.
+* Создайте рабочую область машинного обучения Azure. В ней будут храниться эксперименты машинного обучения. Выберите выделенные параметры на портале, как показано на следующем снимке экрана.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
+![Создание рабочей области машинного обучения Azure](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
-* Затем введите параметры для рабочей области машинного обучения Azure.
+* Затем введите параметры для рабочей области машинного обучения.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
+![Ввод параметров рабочей области машинного обучения](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
 * Загрузите данные с помощью IPython Notebook. Сначала импортируйте необходимые пакеты, подключите учетные данные, создайте базу данных в своей учетной записи хранения, а затем загрузите данные в кластеры HDI.
 
@@ -577,7 +577,7 @@ Azure HDInsight является управляемой службой Apache Ha
     pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
+![Просмотр имеющихся таблиц](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 Давайте взглянем в таблице trip на количество записей по каждому месяцу и посмотрим данные по частоте поездок с чаевыми и без.
 
@@ -594,7 +594,7 @@ Azure HDInsight является управляемой службой Apache Ha
     df['trip_count'].plot(kind='bar')
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
+![Диаграмма количества записей за каждый месяц](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
 
     queryString = """
         SELECT tipped, COUNT(*) AS tip_freq
@@ -613,7 +613,7 @@ Azure HDInsight является управляемой службой Apache Ha
     df['trip_count'].plot(kind='bar')
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
+![Диаграмма частотности чаевых](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 Мы также можем вычислить расстояние между расположениями посадки и высадки, а затем сравнить это значение с дальностью поездки.
 
@@ -636,7 +636,7 @@ Azure HDInsight является управляемой службой Apache Ha
     results.head(5)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Таблица данных о посадке и высадке](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -645,9 +645,9 @@ Azure HDInsight является управляемой службой Apache Ha
     plt.scatter(df['direct_distance'], df['trip_distance'])
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
+![Диаграмма сравнения расстояний между расположениями посадки и высадки с дальностью поездки](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
-Подготовим сокращенный набор данных (1 %) для моделирования. Эти данные можно использовать в модуле чтения AML.
+Подготовим сокращенный набор данных (1 %) для моделирования. Эти данные можно использовать в модуле "Читатель" машинного обучения.
 
         queryString = """
         create  table if not exists nyctaxi_downsampled_dataset_testNEW (
@@ -780,19 +780,19 @@ Azure HDInsight является управляемой службой Apache Ha
     pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Таблицы данных](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**Чтение данных из HDI с использованием AML: модуль чтения AML**
+**Чтение данных из HDI с помощью машинного обучения: модуль "Читатель"**
 
-Чтобы получить доступ к базе данных в кластере Hadoop, в Студии машинного обучения Azure можно также использовать **модуль чтения** . Укажите учетные данные кластеров HDI и учетной записи хранения Azure, и вы сможете создавать модели машинного обучения с помощью базы данных в кластерах HDI.
+Чтобы получить доступ к базе данных в кластере Hadoop, в Студии машинного обучения можно также использовать **модуль "Читатель"**. Укажите учетные данные кластеров HDI и учетной записи хранения Azure, и вы сможете создавать модели машинного обучения с помощью базы данных в кластерах HDI.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
+![Свойства модуля "Читатель"](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
 Затем можно просмотреть оцененный набор данных.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
+![Просмотр оцененного набора данных](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
 
-### <a name="azure-sql-data-warehouse-databases"></a>Хранилище данных SQL Azure и базы данных
+### <a name="azure-sql-data-warehouse--databases"></a>Хранилище данных SQL Azure и базы данных
 Хранилище данных SQL Azure — это хранилище эластичных данных "как услуга" с возможностями SQL Server корпоративного класса.
 
 Хранилище данных SQL Azure можно подготовить, следуя инструкциям, приведенным в этой [статье](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). После подготовки хранилища данных SQL Azure вы можете использовать это [пошаговое руководство](machine-learning-data-science-process-sqldw-walkthrough.md) для передачи, просмотра и моделирования данных из хранилища данных SQL.
@@ -816,13 +816,13 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 
 1. Откройте Power BI Desktop и щелкните "Получение данных". Укажите URL-адрес, например https://cahandson.blob.core.windows.net/samples/volcano.json.
 2. Вы увидите, что записи JSON будут импортированы в виде списка.
-3. Преобразуйте список в таблицу, чтобы служба PowerBI могла работать с теми же данными.
+3. Преобразуйте список в таблицу, чтобы служба Power BI могла работать с теми же данными.
 4. Затем расширьте столбцы, щелкнув значок развертывания (значок с изображением стрелки влево и стрелки вправо, который находится справа от столбца).
 5. Обратите внимание, что расположение является полем "Запись". Разверните запись и выберите только координаты. Координаты указаны в столбце списка.
 6. Добавьте новый столбец для преобразования столбца координат в разделенный запятыми столбец LatLong, содержащий два сцепленных элемента в поле списка координат, используя формулу ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
 7. И наконец, преобразуйте столбец ```Elevation``` в столбец с десятичными значениями и щелкните **Закрыть** и **Применить**.
 
-Вместо выполнения описанных выше шагов можно вставить приведенный ниже код, который создает сценарий для шагов выше в расширенном редакторе в PowerBI, позволяющем писать преобразования данных на языке запросов.
+Вместо выполнения описанных выше шагов можно вставить приведенный ниже код, который создает сценарий для шагов выше в расширенном редакторе в Power BI, позволяющем писать преобразования данных на языке запросов.
 
     let
         Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
@@ -838,7 +838,7 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 
 Теперь ваши данные находятся в модели данных Power BI. Power BI Desktop должен выглядеть, как показано ниже.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
+![Power BI Desktop;](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
 Вы можете приступить к созданию отчетов и визуализации с помощью модели данных. Указания по созданию отчетов см. в этой [статье о Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports). Конечным результатом будет отчет, который выглядит следующим образом:
 
@@ -856,7 +856,7 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 
 Аналогично, если ваши потребности в вычислительной мощности виртуальной машины сократились (например, вы переместили основную рабочую нагрузку в кластер Hadoop или Spark), то вы можете уменьшить масштаб кластера на [портале Azure](https://portal.azure.com) и перейти к настройкам параметров экземпляра виртуальной машины. Ниже приведен снимок экрана.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
+![Параметры экземпляра виртуальной машины](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
 
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Установка дополнительных инструментов на виртуальной машине
 Мы упаковали несколько средств, которые, по нашему мнению, должны удовлетворить множество различных потребностей аналитики данных и сэкономить время благодаря отсутствию необходимости установки и последующей настройки среды, а также сэкономить деньги вследствие оплаты только используемых ресурсов.
@@ -869,6 +869,6 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
