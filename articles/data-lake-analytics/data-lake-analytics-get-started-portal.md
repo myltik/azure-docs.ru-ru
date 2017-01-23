@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 3810aa816b1734e56443754e34b2d7024ba571db
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 24b0a928967e6abf9f1eb4f085179a8cd6e82955
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 3810aa816b1734e56443754e34b2d7024ba571db
 **Создание учетной записи аналитики озера данных**
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. Выберите **Создать**, **Данные + аналитика**, а затем — **Data Lake Analytics**.
+2. Выберите **Создать**, **Аналитика**, а затем — **Data Lake Analytics**.
 3. Введите или выберите следующие значения:
 
     ![Аналитика озера данных Azure: колонка на портале](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
@@ -141,6 +141,6 @@ ms.openlocfilehash: 3810aa816b1734e56443754e34b2d7024ba571db
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

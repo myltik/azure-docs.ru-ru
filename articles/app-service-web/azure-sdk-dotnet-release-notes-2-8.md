@@ -1,13 +1,12 @@
-
 ---
-title: Заметки о выпуске пакета SDK Azure для .NET 2.8
-description: Заметки о выпуске пакета SDK Azure для .NET 2.8
+title: "Заметки о выпуске пакета SDK Azure для .NET 2.8"
+description: "Заметки о выпуске пакета SDK Azure для .NET 2.8"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -15,23 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 81772fb5801ec620d1c1996509a275e4bb29fb12
+
 
 ---
-# <a name="azure-sdk-for-.net-2.8,-2.8.1-and-2.8.2"></a>Пакеты SDK Azure для .NET 2.8, 2.8.1 и 2.8.2
+# <a name="azure-sdk-for-net-28-281-and-282"></a>Пакеты SDK Azure для .NET 2.8, 2.8.1 и 2.8.2
 ## <a name="overview"></a>Обзор
-Данная статья содержит заметки о выпусках пакета SDK Azure для .NET 2.8, 2.8.1 и 2.8.2 (включая известные проблемы и критические изменения). 
+Данная статья содержит заметки о выпусках пакета SDK Azure для .NET 2.8, 2.8.1 и 2.8.2 (включая известные проблемы и критические изменения). 
 
 Полный список новых функций и обновлений, реализованных в этом выпуске, см. в объявлении о [пакете SDK Azure 2.8 для Visual Studio 2013 и Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/). 
 
-## <a name="azure-sdk-for-.net-2.8"></a>Пакет SDK Azure для .NET 2.8
-### <a name="download-azure-sdk-for-.net-2.8"></a>Загрузить пакет SDK Azure для .NET 2.8
+## <a name="azure-sdk-for-net-28"></a>Пакет SDK Azure для .NET 2.8
+### <a name="download-azure-sdk-for-net-28"></a>Загрузить пакет SDK Azure для .NET 2.8
 [Пакет SDK Azure для .NET 2.8 и Visual Studio 2015](http://go.microsoft.com/fwlink/?LinkId=699285) 
 
 [Пакет SDK Azure для .NET 2.8 и Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=699287)
 
-### <a name=".net-4.5.2-support"></a>Поддержка .NET 4.5.2
+### <a name="net-452-support"></a>Поддержка .NET 4.5.2
 #### <a name="known-issues"></a>Известные проблемы
-Пакет SDK Azure для .NET 2.8 позволяет создавать пакеты облачной службы .NET 4.5.2. В то же время возможность установки .NET Framework 4.5.2 в образах гостевой ОС по умолчанию появится не раньше выхода гостевой ОС в январе 2016 года. До того момента .NET Framework 4.5.2 можно будет установить только с помощью отдельной версии гостевой ОС — ноябрь 2015-02. Проверить, когда был выпущен образ, можно на странице [Таблица выпусков гостевых ОС Azure и совместимости пакетов SDK](../cloud-services/cloud-services-guestos-update-matrix.md) .  Образ за ноябрь 2015-02 позволяет использовать его при обновлении файла конфигурации облачной службы (CSCFG). В файле конфигурации службы укажите в качестве атрибута osVersion элемента ServiceConfiguration строку WA-GUEST-OS-4.26_201511-02. Если вы выберете этот образ, то больше не будете получать автоматические обновления гостевой ОС. Для получения автоматических обновлений необходимо указать для параметра osVersion значение "*"; автоматическая установка обновлений для .NET 4.5.2 будет доступна только в январе 2016 года.
+Пакет SDK Azure для .NET 2.8 позволяет создавать пакеты облачной службы .NET 4.5.2. В то же время возможность установки .NET Framework 4.5.2 в образах гостевой ОС по умолчанию появится не раньше выхода гостевой ОС в январе 2016 года. До того момента .NET Framework 4.5.2 можно будет установить только с помощью отдельной версии гостевой ОС — ноябрь 2015-02. Проверить, когда был выпущен образ, можно на странице [Таблица выпусков гостевых ОС Azure и совместимости пакетов SDK](../cloud-services/cloud-services-guestos-update-matrix.md) .  Образ за ноябрь 2015-02 позволяет использовать его при обновлении файла конфигурации облачной службы (CSCFG). В файле конфигурации службы укажите в качестве атрибута osVersion элемента ServiceConfiguration строку WA-GUEST-OS-4.26_201511-02. Если вы выберете этот образ, то больше не будете получать автоматические обновления гостевой ОС. Для получения автоматических обновлений необходимо указать для параметра osVersion значение "*"; автоматическая установка обновлений для .NET 4.5.2 будет доступна только в январе 2016 года.
 
 ### <a name="azure-data-factory"></a>Фабрика данных Azure
 #### <a name="known-issues"></a>Известные проблемы
@@ -61,13 +64,13 @@ ms.author: juliako
 
 Чтобы узнать больше, ознакомьтесь с [пакетом SDK Azure 2.8 для Visual Studio 2013 и Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/). 
 
-## <a name="azure-sdk-for-.net-2.8.1"></a>Пакет SDK Azure для .NET 2.8.1
+## <a name="azure-sdk-for-net-281"></a>Пакет SDK Azure для .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Известные проблемы в Visual Studio 2013 и Visual Studio 2015
 1. При активации веб-задания выполняется публикация в слоты, отображается ошибка и не устанавливается расписание, но веб-задание передается в Azure. Пользователи, которым необходимо использовать запланированное задание, могут использовать портал Azure, чтобы настроить расписание для веб-задания. 
 2. Клиенты, использующие Python, могут столкнуться с проблемами отладчика. Группа поддержки выпускает соответствующее исправление, но если клиенты столкнулись с подобной проблемой, сообщите об этом Майкрософт на форумах, в блоге объявлений или в разделе комментариев к заметкам о выпуске. 
 3. Клиенты в определенных регионах (например, Южной Индии) могут столкнуться с ошибками подготовки службы приложений. Это связано с порталом, и клиенты, столкнувшиеся с данной проблемой, могут использовать портал Azure, чтобы запросить доступ для публикации в этих географических областях. После запроса доступа к этим областям с помощью портала Azure подготовка должна работать. 
 
-## <a name="azure-sdk-for-.net-2.8.2"></a>Пакет Azure SDK для .NET 2.8.2
+## <a name="azure-sdk-for-net-282"></a>Пакет Azure SDK для .NET 2.8.2
 После установки средств из пакета версии 2.8.2 у клиента может возникнуть следующая проблема.         
 
 * Если вы используете Windows 10 и Internet Explorer не установлен, может появиться ошибка "Internet Explorer не найден".
@@ -81,10 +84,13 @@ ms.author: juliako
 О других изменениях читайте в [публикации о пакете SDK Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
 ## <a name="also-see"></a>См. также:
-[Объявление о пакете SDK Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
+[Объявление о пакете SDK Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 
