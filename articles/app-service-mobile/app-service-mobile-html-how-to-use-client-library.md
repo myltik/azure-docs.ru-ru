@@ -1,19 +1,23 @@
 ---
-title: Как использовать пакет SDK JavaScript для мобильных приложений Azure
-description: Как использовать v для мобильных приложений Azure
+title: "Как использовать пакет SDK JavaScript для мобильных приложений Azure"
+description: "Как использовать v для мобильных приложений Azure"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
+ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
+
 
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Как использовать клиентскую библиотеку JavaScript для мобильных приложений Azure
@@ -26,19 +30,13 @@ ms.author: adrianha
 
 Этот пакет распространяется в виде универсального модуля JavaScript, поэтому он поддерживает глобальные переменные, AMD и форматы CommonJS.
 
-## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
+## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
 В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках.
 
 Установить пакет SDK JavaScript для мобильных приложений Azure можно с помощью команды `npm` .
 
 ```
 npm install azure-mobile-apps-client --save
-```
-
-После установки библиотека находится в `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Скопируйте этот файл в свою область Интернета.
-
-```
-<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 Библиотеку также можно использовать как модуль ES2015 в средах CommonJS, таких как Browserify и Webpack, а также как библиотеку AMD.  Например:
@@ -50,16 +48,22 @@ var WindowsAzure = require('azure-mobile-apps-client');
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
+Можно также использовать готовую версию пакета SDK, скачав ее непосредственно из нашей сети CDN.
+
+```html
+<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
+```
+
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
+## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
 Служба приложений Azure поддерживает аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетная запись Майкрософт и Twitter. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в учебнике [Приступая к работе с проверкой подлинности].
 
 Поддерживается два потока аутентификации: серверный и клиентский.  Серверный поток обеспечивает самый простой способ проверки подлинности, так как он использует веб-интерфейс проверки подлинности. Клиентский поток обеспечивает более тесную интеграцию с возможностями устройства, такими как единый вход, так как использует пакеты SDK конкретного поставщика.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
 Для обработки потоков пользовательского интерфейса OAuth некоторые типы приложений JavaScript используют функцию замыкания на себя.  К этим возможностям относятся следующие:
 
 * выполнение службы в локальной среде;
@@ -97,15 +101,15 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [портал Azure]: https://portal.azure.com/
 [пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Документация по объекту Query]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

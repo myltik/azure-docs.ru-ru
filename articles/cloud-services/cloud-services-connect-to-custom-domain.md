@@ -1,33 +1,39 @@
 ---
-title: Подключение облачной службы к настраиваемому контроллеру домена | Microsoft Docs
-description: Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью PowerShell и расширения домена AD
+title: "Подключение облачной службы к пользовательскому контроллеру домена | Документация Майкрософт"
+description: "Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью PowerShell и расширения домена AD"
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 10/21/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: f3b16dcb6f48a2c9f9784f677ca2133837a56ca6
+
 
 ---
-# Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
+# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
 Сначала настройте виртуальную сеть в Azure. Затем добавьте к ней контроллер домена Active Directory (размещенный на виртуальной машине Azure). После этого добавьте имеющиеся облачные роли служб в заранее созданную виртуальную сеть и последовательно подключите их к контроллеру домена.
 
 Прежде чем начать, пара моментов, которые стоит запомнить:
 
-1. В этом руководстве используется Azure PowerShell, поэтому убедитесь, что это средство установлено и готово к использованию. Справку об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+1. В этом руководстве используется Azure PowerShell, поэтому убедитесь, что это средство установлено и готово к использованию. Справку об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Экземпляры контроллера домена AD и веб-ролей или рабочих ролей должны быть в виртуальной сети.
 
 Следуйте этому пошаговому руководству и, если возникнут проблемы, оставьте нам комментарий ниже. Кто-нибудь из наших сотрудников вам ответит (да, мы читаем ваши комментарии).
 
-## Создайте виртуальную сеть
-Создать виртуальную сеть в Azure можно с помощью классического портала Azure или PowerShell. В этом руководстве используется PowerShell. Информацию о создании виртуальной сети с помощью классического портала Azure см. в разделе [Создание виртуальной сети](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Сеть, на которую ссылается облачная служба, должна быть **классической виртуальной сетью**.
+
+## <a name="create-a-virtual-network"></a>Создайте виртуальную сеть
+Создать виртуальную сеть в Azure можно с помощью классического портала Azure или PowerShell. В этом руководстве используется PowerShell. Сведения о создании виртуальной сети с помощью классического портала Azure см. в статье [Создание виртуальной сети](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ```powershell
 #Create Virtual Network
@@ -56,13 +62,14 @@ $vnetConfigPath = "<path-to-vnet-config>"
 Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
-## Создание виртуальной машины
+## <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 Выполнив настройку виртуальной сети, необходимо будет создать контроллер домена AD. В этом учебнике выполняется настройка контроллера домена AD на виртуальной машине Azure.
 
 Для этого создайте виртуальную машину с помощью PowerShell, используя следующую команду.
 
 ```powershell
 # Initialize variables
+# VNet and subnet must be classic virtual network resources, not Azure Resource Manager resources.
 
 $vnetname = '<your-vnet-name>'
 $subnetname = '<your-subnet-name>'
@@ -77,7 +84,7 @@ $affgrp = '<your- affgrp>'
 New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
-## Повысьте уровень виртуальной машины до контроллера домена
+## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>Повысьте уровень виртуальной машины до контроллера домена
 Чтобы настроить виртуальную машину в качестве контроллера домена AD, необходимо войти в нее и настроить.
 
 Чтобы войти в виртуальную машину, можно получить файл RDP через PowerShell, используя следующую команду.
@@ -89,7 +96,7 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 
 Войдя в виртуальную машину, настройте ее в качестве контроллера домена AD, следуя указаниям пошагового руководства [Настройка личного контроллера домена AD](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
-## Добавление облачной службы в виртуальную сеть
+## <a name="add-your-cloud-service-to-the-virtual-network"></a>Добавление облачной службы в виртуальную сеть
 Затем необходимо добавить развертывание облачной службы в созданную виртуальную сеть. Для этого измените файл CSCFG облачной службы, добавив в него соответствующие разделы с помощью Visual Studio или другого редактора.
 
 ```xml
@@ -105,7 +112,8 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
     </Dns>
     <!--optional-->
 
-    <!--VNet settings-->
+    <!--VNet settings
+        VNet and subnet must be classic virtual network resources, not Azure Resource Manager resources.-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -120,16 +128,16 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 </ServiceConfiguration>
 ```
 
-Затем создайте проект облачной службы и выполните его развертывание в Azure. Для получения справки о развертывании пакета облачных служб в Azure см. раздел [Создание и развертывание облачной службы](cloud-services-how-to-create-deploy.md#deploy).
+Затем создайте проект облачной службы и выполните его развертывание в Azure. Справку о развертывании пакета облачных служб в Azure см. в статье [Создание и развертывание облачной службы](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service).
 
-## Подключение веб-и рабочих ролей к домену
+## <a name="connect-your-webworker-roles-to-the-domain"></a>Подключение веб-и рабочих ролей к домену
 Выполнив развертывание проекта облачной службы в Azure, подключите экземпляры ролей к личному домену AD с помощью расширения доменов AD. Чтобы добавить расширение доменов AD к существующему развертыванию облачной службы и присоединить личный домен, выполните в PowerShell следующие команды:
 
 ```powershell
 # Initialize domain variables
 
 $domain = '<your-domain-name>'
-$dmuser = '$domain<your-username>'
+$dmuser = '$domain\<your-username>'
 $dmpswd = '<your-domain-password>'
 $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
 $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
@@ -148,6 +156,8 @@ help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
 
-Так же хотелось бы получить от вас отзыв по поводу того, будет ли полезным расширение, которое повышает уровень виртуальной машины до контроллера домена. Если думаете, что будет, дайте нам знать в разделе комментариев.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Dec16_HO2-->
+
+

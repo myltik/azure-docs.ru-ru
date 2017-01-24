@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 6871ab3bc25ab3ec7b3c60852aa06bee047d8e9a
 
 
 ---
@@ -27,32 +27,32 @@ ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
-Архитектура хранилища данных SQL разделяет хранилище и вычислительные ресурсы, что позволяет масштабировать их независимо друг от друга. Это позволяет масштабировать производительность и в то же время сокращать расходы, оплачивая производительность только тогда, когда она вам нужна. 
+Архитектура хранилища данных SQL разделяет хранилище и вычислительные ресурсы, что позволяет масштабировать их независимо друг от друга. Это позволяет масштабировать производительность и в то же время сокращать расходы, оплачивая производительность только тогда, когда она вам нужна.
 
-В этом обзоре описываются указанные ниже возможности масштабирования производительности для хранилища данных SQL и приводятся рекомендации о том, как и когда их следует использовать: 
+В этом обзоре описываются указанные ниже возможности масштабирования производительности для хранилища данных SQL и приводятся рекомендации о том, как и когда их следует использовать:
 
-* Масштабирование вычислительных ресурсов путем изменения числа [единиц использования хранилища данных (DWU)][единиц использования хранилища данных (DWU)].
+* Масштабирование вычислительных ресурсов путем изменения числа [единиц использования хранилища данных (DWU)][data warehouse units (DWUs)]
 * Приостановка или возобновление работы вычислительных ресурсов
 
 <a name="scale-performance-bk"></a>
 
 ## <a name="scale-performance"></a>Масштабирование производительности
-В хранилище данных SQL можно быстро увеличить или уменьшить производительность, настроив объем вычислительных ресурсов ЦП, памяти и пропускной способности ввода-вывода. Чтобы повысить или снизить производительность, достаточно настроить число [единиц DWU][единиц использования хранилища данных (DWU)], выделяемых хранилищем данных SQL для базы данных. Хранилище данных SQL быстро вносит изменения и применяет все базовые изменения в оборудовании или программном обеспечении.
+В хранилище данных SQL можно быстро увеличить или уменьшить производительность, настроив объем вычислительных ресурсов ЦП, памяти и пропускной способности ввода-вывода. Чтобы повысить или снизить производительность, достаточно настроить число [единиц использования хранилища данных (DWU)][data warehouse units (DWUs)], выделяемых хранилищем данных SQL для базы данных. Хранилище данных SQL быстро вносит изменения и применяет все базовые изменения в оборудовании или программном обеспечении.
 
-Прошло то время, когда для обеспечения высокой производительности хранилища данных необходимо было анализировать, какие типы процессоров, какой объем памяти и какой тип хранилища вам нужен. Разместив хранилище данных в облаке, вы больше не будете сталкиваться с проблемами, вызванными использованием оборудования, которое не является мощным. Вместо этого хранилище данных SQL задает вам вопрос о том, с какой скоростью необходимо анализировать данные. 
+Прошло то время, когда для обеспечения высокой производительности хранилища данных необходимо было анализировать, какие типы процессоров, какой объем памяти и какой тип хранилища вам нужен. Разместив хранилище данных в облаке, вы больше не будете сталкиваться с проблемами, вызванными использованием оборудования, которое не является мощным. Вместо этого хранилище данных SQL задает вам вопрос о том, с какой скоростью необходимо анализировать данные.
 
 ### <a name="how-do-i-scale-performance"></a>Как масштабировать производительность
-Чтобы добиться гибкого увеличения или уменьшения вычислительной мощности, просто измените число [единиц DWU][единиц использования хранилища данных (DWU)] для своей базы данных. При добавлении дополнительных DWU производительность будет повышаться линейно.  На более высоких уровнях DWU для заметного повышения производительности требуется добавление более чем 100 DWU. Чтобы помочь вам выбрать значимые шаги увеличения DWU, предлагаем уровни DWU, которые дадут вам наилучший результат.
+Чтобы добиться гибкого увеличения или уменьшения вычислительной мощности, просто измените число [единиц использования хранилища данных (DWU)][data warehouse units (DWUs)] для своей базы данных. При добавлении дополнительных DWU производительность будет повышаться линейно.  На более высоких уровнях DWU для заметного повышения производительности требуется добавление более чем 100 DWU. Чтобы помочь вам выбрать значимые шаги увеличения DWU, предлагаем уровни DWU, которые дадут вам наилучший результат.
 
 Для настройки DWU можно использовать любые из следующих отдельных методов:
 
-* [Масштабирование вычислительных ресурсов с помощью портала Azure][Масштабирование вычислительных ресурсов с помощью портала Azure]
-* [Масштабирование вычислительных ресурсов с помощью PowerShell][Масштабирование вычислительных ресурсов с помощью PowerShell]
-* [Масштабирование вычислительных ресурсов с помощью REST API][Масштабирование вычислительных ресурсов с помощью REST API]
-* [Масштабирование вычислительных ресурсов с помощью TSQL][Масштабирование вычислительных ресурсов с помощью TSQL]
+* [Масштабирование вычислительных ресурсов с помощью портала Azure][Scale compute power with Azure portal]
+* [Масштабирование вычислительных ресурсов с помощью PowerShell][Scale compute power with PowerShell]
+* [Масштабирование вычислительных ресурсов с помощью REST API][Scale compute power with REST APIs]
+* [Масштабирование вычислительных ресурсов с помощью TSQL][Scale compute power with TSQL]
 
 ### <a name="how-many-dwus-should-i-use"></a>Сколько DWU нужно использовать
 Производительность в хранилище данных SQL масштабируется линейно, и переход с одного уровня производительности к другому (например, с 100 DWU к 2000) происходит в считанные секунды. Это позволяет вам гибко экспериментировать с различными параметрами DWU, пока вы не подберете наиболее оптимальный сценарий.
@@ -68,7 +68,7 @@ ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
 5. Вносите изменения, пока не достигнете уровня производительности, который оптимально отвечает вашим бизнес-требованиям.
 
 ### <a name="when-should-i-scale-dwus"></a>Когда следует масштабировать DWU
-Если вы хотите получить результаты быстрее, увеличьте количество DWU за отдельную оплату.  Если вам не нужна большая вычислительная мощность, уменьшите количество DWU и оплачивайте только необходимые ресурсы. 
+Если вы хотите получить результаты быстрее, увеличьте количество DWU за отдельную оплату.  Если вам не нужна большая вычислительная мощность, уменьшите количество DWU и оплачивайте только необходимые ресурсы.
 
 Рекомендации по выборе времени для масштабирования DWU
 
@@ -82,9 +82,9 @@ ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
 
 Для приостановки базы данных можно использовать любые из следующих отдельных методов:
 
-* [Приостановка работы вычислительной системы на портале Azure][Приостановка работы вычислительной системы на портале Azure]
-* [Приостановка работы вычислительных ресурсов с помощью PowerShell][Приостановка работы вычислительных ресурсов с помощью PowerShell]
-* [Приостановка работы вычислительных ресурсов с помощью API REST][Приостановка работы вычислительных ресурсов с помощью API REST]
+* [Приостановка работы вычислительных ресурсов с помощью портала Azure][Pause compute with Azure portal]
+* [Приостановка работы вычислительных ресурсов с помощью PowerShell][Pause compute with PowerShell]
+* [Приостановка работы вычислительных ресурсов с помощью REST API][Pause compute with REST APIs]
 
 <a name="resume-compute-bk"></a>
 
@@ -93,65 +93,65 @@ ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
 
 Для возобновления базы данных можно использовать любые из следующих отдельных методов:
 
-* [Возобновление работы вычислительной системы на портале Azure][Возобновление работы вычислительной системы на портале Azure]
-* [Возобновление работы вычислительных ресурсов с помощью PowerShell][Возобновление работы вычислительных ресурсов с помощью PowerShell]
-* [Возобновление работы вычислительных ресурсов с помощью API REST][Возобновление работы вычислительных ресурсов с помощью API REST]
+* [Возобновление работы вычислительных ресурсов с помощью портала Azure][Resume compute with Azure portal]
+* [Возобновление работы вычислительных ресурсов с помощью PowerShell][Resume compute with PowerShell]
+* [Возобновление работы вычислительных ресурсов с помощью REST API][Resume compute with REST APIs]
 
 ## <a name="permissions"></a>Разрешения
-Для масштабирования базы данных потребуются разрешения, описанные в статье о синтаксисе [ALTER DATABASE][ALTER DATABASE].  Чтобы приостановить и возобновить работу, нужны разрешения [Участник базы данных SQL][Участник базы данных SQL], в частности Microsoft.Sql/servers/databases/action.
+Для масштабирования базы данных потребуются разрешения, описанные в статье о синтаксисе [ALTER DATABASE][ALTER DATABASE].  Чтобы приостановить и возобновить работу, нужны разрешения [Участник баз данных SQL][SQL DB Contributor], в частности Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Приведенные ниже статьи помогут вам разобраться с некоторыми дополнительными ключевыми понятиями, связанными с производительностью:
 
-* [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]
-* [Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)][Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)]
-* [Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)][Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)]
-* [Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)][Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)]
-* [Секционирование таблиц][Секционирование таблиц]
-* [Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)][Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)]
-* [Рекомендации по использованию хранилища данных SQL Azure][Рекомендации по использованию хранилища данных SQL Azure]
+* [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][Workload and concurrency managment]
+* [Общие сведения о таблицах в хранилище данных SQL][Table design overview]
+* [Распределение таблиц в хранилище данных SQL][Table distribution]
+* [Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)][Table indexing]
+* [Секционирование таблиц в хранилище данных SQL][Table partitioning]
+* [Управление статистикой таблиц в хранилище данных SQL][Table statistics]
+* [Рекомендации по использованию хранилища данных SQL Azure][Best practices]
 
 <!--Image reference-->
 
 <!--Article references-->
-[единиц использования хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
-[Масштабирование вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
-[Масштабирование вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Масштабирование вычислительных ресурсов с помощью REST API]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Масштабирование вычислительных ресурсов с помощью TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
+[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
-[Ограничения емкости]: ./sql-data-warehouse-service-capacity-limits.md
+[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Приостановка работы вычислительной системы на портале Azure]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
-[Приостановка работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Приостановка работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Возобновление работы вычислительной системы на портале Azure]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
-[Возобновление работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Возобновление работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
-[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: ./sql-data-warehouse-develop-concurrency.md
-[Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)]: ./sql-data-warehouse-tables-overview.md
-[Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-distribute.md
-[Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-index.md
-[Секционирование таблиц]: ./sql-data-warehouse-tables-partition.md
-[Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-statistics.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md 
-[Проектные решения и методики программирования для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[Workload and concurrency managment]: ./sql-data-warehouse-develop-concurrency.md
+[Table design overview]: ./sql-data-warehouse-tables-overview.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Table indexing]: ./sql-data-warehouse-tables-index.md
+[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Table statistics]: ./sql-data-warehouse-tables-statistics.md
+[Best practices]: ./sql-data-warehouse-best-practices.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
-[Участник базы данных SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
-[портал Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

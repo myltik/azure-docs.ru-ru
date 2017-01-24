@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a2971c3b66b31e2936ca7ebc95d103ff5daf5881
 
 
 ---
@@ -38,14 +38,14 @@ ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
 ## <a name="troubleshooting-with-monitor---events---details"></a>Устранение неполадок: раздел Monitor — Events — Details (Мониторинг — События — Сведения)
 Определить идентификатор тестового устройства и убедиться в правильной интеграции средств Azure Mobile Engagement с инструментами аналитики, мониторинга и сегментации из своего приложения очень просто. Для этого нужно создать событие в приложении с тестового устройства, а затем найти его в разделе Monitor — Events — Details (Мониторинг — События — Сведения). Определив идентификатор тестового устройства, вы можете добавить его в список тестовых устройств в разделе My Account — Devices (Моя учетная запись — Устройства). Если вам не удается создать событие, убедитесь, что средства Azure Mobile Engagement правильно интегрированы с вашим приложением для платформы Android, iOS, Windows, Windows Phone или браузера с помощью SDK.
 
-Дополнительные сведения см. в [документации по пакету SDK][Link 5].
+Дополнительные сведения см. в статье [Документация по службам мобильного взаимодействия][Link 5]
 
 ![Монитор2][15]  
 
 ## <a name="troubleshooting-with-monitor---crashes---details"></a>Устранение неполадок: раздел Monitor — Crashes — Details (Мониторинг — Сбои — Сведения)
 Определить причины, по которым в приложении возникают сбои, можно с помощью информации о сбоях в разделе Monitor — Crashes — Details (Мониторинг — Сбои — Сведения). Также следует изучить сведения об известных проблемах и неполадках в различных версиях SDK в соответствующих примечаниях к выпуску пакета SDK для платформ Android, iOS, Windows, Windows Phone и браузера.
 
-Дополнительные сведения см. в [разделе "Заметки о выпуске" документации по пакету SDK][Link 5].
+Дополнительные сведения см. в статье [Документация по службам мобильного взаимодействия][Link 5]
 
 ![Монитор3][16]
 
@@ -57,8 +57,8 @@ ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
 ![Монитор4][17]
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -157,6 +157,6 @@ ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

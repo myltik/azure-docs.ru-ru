@@ -12,40 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 12/01/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
+ms.sourcegitcommit: 5aae95a78e604acc5f0189d5df62620d65d29857
+ms.openlocfilehash: bb9ece6382c22f4c1b7905048647434fc7cee98a
 
 
 ---
-# <a name="azure-key-vault-preview-solution-in-log-analytics"></a>Решение хранилища ключей Azure (предварительная версия) в Log Analytics
-> [!NOTE]
-> Это [предварительная версия решения](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+# <a name="azure-key-vault-analytics-preview-solution-in-log-analytics"></a>Решение для анализа хранилища ключей Azure (предварительная версия) в Log Analytics
 
 Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы AuditEvent хранилища ключей Azure.
 
-В хранилище ключей Azure можно включить ведение журнала событий аудита. Эти журналы записываются в хранилище BLOB-объектов Azure, где их может проиндексировать Log Analytics для поиска и анализа.
+> [!NOTE]
+> Решение для анализа хранилища ключей Azure доступно в [предварительной версии](log-analytics-add-solutions.md#preview-management-solutions-and-features).
+> 
+> 
+
+Чтобы использовать решение, необходимо включить ведение журнала диагностики хранилища ключей Azure и направить диагностику в рабочую область Log Analytics. Необязательно записывать журналы в хранилище BLOB-объектов Azure.
 
 ## <a name="install-and-configure-the-solution"></a>Установка и настройка решения
 Установите и настройте решение хранилища ключей Azure, выполнив следующие указания:
 
-1. Включите [ведение журнала диагностики для ресурсов хранилища ключей](../key-vault/key-vault-logging.md), для которых требуется выполнять мониторинг.
-2. Настройте чтение журналов из хранилища BLOB-объектов в Log Analytics, как описано в [JSON-файлах в хранилище BLOB-объектов ](log-analytics-azure-storage-json.md).
-3. Включите решение хранилища ключей Azure, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  
+1. Используйте `Set-AzureRmDiagnosticSetting`, чтобы включить ведение журнала диагностики для ресурсов хранилища ключей, для которых требуется выполнять мониторинг: 
+2. Включите решение хранилища ключей Azure, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md). 
+
+Следующий сценарий PowerShell приведен в качестве примера того, как включить ведение журналов диагностики для хранилища ключей:
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+ 
+ 
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Просмотр сведений о сборе данных хранилища ключей Azure
-Решение хранилища ключей Azure собирает журналы диагностики из хранилища BLOB-объектов для хранилища ключей Azure.
-Для сбора данных агент не требуется.
+Решение хранилища ключей Azure собирает журналы диагностики напрямую из хранилища ключей.
+Необязательно записывать журналы в хранилище BLOB-объектов Azure. Для сбора данных агенты не требуются.
 
 В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для хранилища ключей Azure.
 
-| Платформа | Direct Agent | Агент Systems Center Operations Manager (SCOM) | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | Частота сбора |
+| Платформа | Direct Agent | Агент Systems Center Operations Manager | Таблицы Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-| Таблицы Azure |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Да](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |10 минут |
+| Таблицы Azure |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Да](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | при получении |
 
 ## <a name="use-azure-key-vault"></a>Использование хранилища ключей Azure
 После установки решения можно просмотреть сводку состояний запросов за определенный период для отслеживаемых хранилищ ключей на плитке **Хранилище ключей Azure** на странице **Обзор** в службе Log Analytics.
@@ -74,27 +85,25 @@ ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
 
 | Свойство | Описание |
 |:--- |:--- |
-| Тип |*KeyVaults* |
-| SourceSystem |*AzureStorage* |
+| Тип |*AzureDiagnostics* |
+| SourceSystem |*Таблицы Azure* |
 | CallerIpAddress |IP-адрес клиента, отправившего запрос. |
-| Категория |Для журналов хранилища ключей единственным доступным значением является AuditEvent. |
+| Категория | *AuditEvent* |
 | CorrelationId |Необязательный GUID, который клиент может передавать для сопоставления журналов на стороне клиента с журналами на стороне службы (хранилища ключей). |
 | DurationMs |Время обслуживания запроса REST API в миллисекундах. Сюда не входит задержка сети, поэтому время, зарегистрированное на стороне клиента, может не соответствовать этому значению. |
-| HttpStatusCode_d |Код состояния HTTP, возвращаемый запросом. |
-| Id_s |Уникальный идентификатор запроса. |
-| Identity_o |Удостоверение из маркера, предоставляемое при выполнении запроса REST API. Обычно это "пользователь", "субъект-служба" или комбинация "пользователь + идентификатор приложения" при запросе с помощью командлета Azure PowerShell. |
+| HttpStatusCode_d |Код состояния HTTP, возвращаемый запросом (например, *200*) |
+| id_s |Уникальный идентификатор запроса. |
+| identity_claim_appid_g | GUID для идентификатора приложения |
 | OperationName |Имя операции, как описано в статье [Ведение журнала хранилища ключей Azure](../key-vault/key-vault-logging.md) |
-| OperationVersion |Запрошенная клиентом версия REST API. |
-| RemoteIPLatitude |Широта клиента, отправившего запрос. |
-| RemoteIPLongitude |Долгота клиента, отправившего запрос. |
-| RemoteIPCountry |Страна клиента, отправившего запрос. |
-| RequestUri_s |URI запроса |
+| OperationVersion |Запрошенная клиентом версия REST API (например, *2015-06-01*) |
+| requestUri_s |URI запроса |
 | Ресурс |Имя хранилища ключей. |
 | ResourceGroup |Группа ресурсов хранилища ключей. |
-| ResourceId |Идентификатор ресурса диспетчера ресурсов Azure. Для журналов хранилища ключей это всегда идентификатор ресурса хранилища ключей. |
+| ResourceId |Идентификатор ресурса диспетчера ресурсов Azure. Для журналов хранилища ключей это идентификатор ресурса хранилища ключей. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResultSignature |Состояние HTTP. |
-| ResultType |Результат запроса REST API. |
+| ResourceType | *VAULTS* |
+| ResultSignature |Код состояния HTTP (например, *ОК*) |
+| ResultType |Результат запроса REST API (например, *Успешно*) |
 | SubscriptionId |Идентификатор подписки Azure, которая содержит хранилище ключей. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -103,6 +112,6 @@ ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

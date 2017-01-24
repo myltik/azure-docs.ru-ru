@@ -12,52 +12,75 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/1/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+ms.sourcegitcommit: a86819102797b0e243d28cd9ddb3d2c88c74bfca
+ms.openlocfilehash: 7ea593885c1b380236a49ec030c00ad19097e2fa
 
 
 ---
 # <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Решение для анализа сетей Azure (предварительная версия) в Log Analytics
+
+C помощью решения для анализа сетей Azure в Log Analytics можно просматривать такие элементы:
+
+* журналы шлюза приложений Azure;
+* метрику шлюза приложений Azure; 
+* журналы групп безопасности сети Azure.
+
 > [!NOTE]
-> Это [предварительная версия решения](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> Решение для сетей Azure доступно в [предварительной версии](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 > 
 > 
 
-Решения для анализа сетей Azure можно использовать в Log Analytics для просмотра журналов шлюза приложений Azure и групп безопасности сети Azure.
-
-Для журналов шлюза приложений Azure и сетевых групп безопасности Azure можно включить ведение журналов. Эти журналы записываются в хранилище BLOB-объектов, где их может проиндексировать Log Analytics для поиска и анализа.
+Чтобы использовать решение, включите диагностику для журналов шлюза приложений Azure и групп безопасности сети Azure и направьте диагностику в рабочую область Log Analytics. Необязательно записывать журналы в хранилище BLOB-объектов Azure.
 
 Шлюзы приложений поддерживают следующие журналы:
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
+* ApplicationGatewayFirewallLog
+
+Шлюзы приложений поддерживают следующие метрики:
+
+* пропускная способность за 5 минут.
 
 Группы безопасности сети поддерживают следующие журналы:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
+* NetworkSecurityGroupFlowEvent
 
 ## <a name="install-and-configure-the-solution"></a>Установка и настройка решения
 Установите и настройте решение для анализа сетей Azure, выполнив следующие указания:
 
 1. Включите ведение журнала диагностики для ресурсов, для которых требуется выполнять мониторинг:
-   * [Шлюз приложений](../application-gateway/application-gateway-diagnostics.md)
+   * [шлюз приложений](../application-gateway/application-gateway-diagnostics.md);
    * [группа безопасности сети](../virtual-network/virtual-network-nsg-manage-log.md).
-2. Настройте чтение журналов из хранилища BLOB-объектов в Log Analytics, как описано в [JSON-файлах в хранилище BLOB-объектов ](log-analytics-azure-storage-json.md).
-3. Включите решение для анализа сетей Azure, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  
+2. Включите решение для анализа сетей Azure, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  
+
+Следующий сценарий PowerShell приведен в качестве примера того, как включить ведение журналов диагностики для шлюзов приложений и групп безопасности сети: 
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+
+Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+
+Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
 
 Если не включить ведение журналов диагностики для определенного типа ресурсов, колонки панели мониторинга для этого ресурса будут пустыми.
 
 ## <a name="review-azure-networking-analytics-data-collection-details"></a>Просмотр сведений о сборе данных анализа сетей Azure
-Решение для анализа сетей Azure собирает журналы диагностики из хранилища BLOB-объектов для шлюзов приложений и групп безопасности сети Azure.
-Для сбора данных агент не требуется.
+Решение для управления анализом сетей Azure собирает журналы диагностики напрямую из шлюзов приложений и групп безопасности сети Azure. Необязательно записывать журналы в хранилище BLOB-объектов Azure. Для сбора данных агенты не требуются.
 
 В следующей таблице приведены методы сбора данных и другие сведения о сборе данных для анализа сетей Azure.
 
-| Платформа | Direct Agent | Агент Systems Center Operations Manager (SCOM) | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | Частота сбора |
+| Платформа | Direct Agent | Агент Systems Center Operations Manager | Таблицы Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
 | Таблицы Azure |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Да](./media/log-analytics-azure-networking/oms-bullet-green.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Нет](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 минут |
 
@@ -103,6 +126,6 @@ ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
