@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
+ms.sourcegitcommit: f1955e3e1618c6228bfa5439ca66155148ff1cb3
+ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для некоторых служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть в [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## <a name="manage-resource-groups"></a>Управление группами ресурсов
+
+Группа ресурсов — это контейнер, содержащий связанные ресурсы для решения Azure. В группу ресурсов могут входить все ресурсы приложения или только те, которыми необходимо управлять совместно. Кроме того, пользователи могут выбрать оптимальный для своей организации способ распределения ресурсов в группах ресурсов. Как правило, ресурсы с общим жизненным циклом добавляют в одну и ту же группу ресурсов, чтобы их можно было легко развертывать, обновлять и удалять в виде группы. 
+
+В группе ресурсов хранятся метаданные о ресурсах. Исходя из этого, при указании расположения группы ресурсов вы определяете расположение метаданных. В целях обеспечения соответствия необходимо убедиться, что данные хранятся в определенном регионе.
+
 1. Чтобы просмотреть все группы ресурсов в подписке, выберите раздел **Группы ресурсов**.
    
     ![просмотр групп ресурсов](./media/resource-group-portal/browse-groups.png)
@@ -128,7 +133,7 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 ![удаление группы](./media/resource-group-portal/delete-group.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
+* Сведения о просмотре журналов действий см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
 * Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
 * Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
 * Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
@@ -137,6 +142,6 @@ ms.openlocfilehash: 550ca15e68c2bb6bf1958e5a24417a3efa9532d0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

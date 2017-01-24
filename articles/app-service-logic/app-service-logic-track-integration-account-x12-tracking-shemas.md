@@ -1,0 +1,363 @@
+---
+title: "Схемы отслеживания Х12 | Документация Майкрософт"
+description: "Дополнительные сведения о схемах отслеживания X12"
+author: padmavc
+manager: erikre
+editor: 
+services: logic-apps
+documentationcenter: 
+ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: padmavc
+translationtype: Human Translation
+ms.sourcegitcommit: c4c1d4b27c8cfbcdf96f263525b09d20ed782dc4
+ms.openlocfilehash: 6d8a1ef2a4e9c551663b65cb72bb80f630d2e5f5
+
+
+---
+# <a name="x12-tracking-schemas"></a>Схемы отслеживания X12
+Схемы отслеживания X12 можно использовать в учетной записи интеграции Azure для мониторинга транзакций типа "бизнес-бизнес" (B2B):
+
+* схема отслеживания набора транзакций X12;
+* схема отслеживания подтверждения набора транзакций X12;
+* схема отслеживания обмена X12;
+* схема отслеживания подтверждения обмена X12;
+* схема отслеживания функциональной группы X12;
+* схема отслеживания подтверждения для функциональной группы X12.
+
+## <a name="x12-transaction-set-tracking-schema"></a>Схема отслеживания набора транзакций X12
+````java
+
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "functionalGroupControlNumber": "",
+                "transactionSetControlNumber": "",
+                "CorrelationMessageId": "",
+                "messageType": "",
+                "isMessageFailed": "",
+                "isTechnicalAcknowledgmentExpected": "",
+                "isFunctionalAcknowledgmentExpected": "",
+                "needAk2LoopForValidMessages":  "",
+                "segmentsCount": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | Строка | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | Строка | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | Строка | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | Строка | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | string | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | Строка | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | Строка | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | Строка | Контрольный номер обмена. (необязательный параметр) |
+| functionalGroupControlNumber | string | Функциональный контрольный номер. (необязательный параметр) |
+| transactionSetControlNumber | Строка | Контрольный номер набора транзакций. (необязательный параметр) |
+| CorrelationMessageId | Строка | Идентификатор сообщения корреляции. Сочетание свойств {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (необязательный параметр) |
+| messageType | string | Набор транзакций или тип документа. (необязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр) |
+| isTechnicalAcknowledgmentExpected | Логический | Указывает, настроено ли в соглашении X12 техническое подтверждение. (обязательный параметр) |
+| isFunctionalAcknowledgmentExpected | Логический | Указывает, настроено ли в соглашении X12 функциональное подтверждение. (обязательный параметр) |
+| needAk2LoopForValidMessages | Логический | Указывает, требуется ли цикл AK2 для допустимого сообщения. (обязательный параметр) |
+| segmentsCount | Целое число  | Число сегментов в наборе транзакций X12. (необязательный параметр) |
+
+## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>Схема отслеживания подтверждения набора транзакций X12
+````java
+
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "functionalGroupControlNumber": "",
+                "isaSegment": "",
+                "gsSegment": "",
+                "respondingfunctionalGroupControlNumber": "",
+                "respondingFunctionalGroupId": "",
+                "respondingtransactionSetControlNumber": "",
+                "respondingTransactionSetId": "",
+                "statusCode": "",
+                "processingStatus": "",
+                "CorrelationMessageId": ""
+                "isMessageFailed": "",
+                "ak2Segment": "",
+                "ak3Segment": "",
+                "ak5Segment": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | string | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | Строка | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | Строка | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | string | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | Строка | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | string | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | Строка | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | string | Контрольный номер обмена для функционального подтверждения. Значение заполняется только для отправляющей стороны при получении функционального подтверждения для сообщений, отправленных партнеру. (необязательный параметр) |
+| functionalGroupControlNumber | Строка | Контрольный номер функциональной группы для функционального подтверждения. Значение заполняется только для отправляющей стороны при получении функционального подтверждения для сообщений, отправленных партнеру. (необязательный параметр) |
+| isaSegment | string | Сегмент ISA сообщения. Значение заполняется только для отправляющей стороны при получении функционального подтверждения для сообщений, отправленных партнеру. (необязательный параметр) |
+| gsSegment | Строка | Сегмент GS сообщения. Значение заполняется только для отправляющей стороны при получении функционального подтверждения для сообщений, отправленных партнеру. (необязательный параметр) |
+| respondingfunctionalGroupControlNumber | Строка | Контрольный номер обмена в ответе. (необязательный параметр) |
+| respondingFunctionalGroupId | string | Идентификатор функциональной группы в ответе, сопоставляющийся с AK101 в подтверждении. (необязательный параметр) |
+| respondingtransactionSetControlNumber | string | Контрольный номер набора транзакций в ответе. (необязательный параметр) |
+| respondingTransactionSetId | Строка | Идентификатор набора транзакций в ответе, сопоставляющийся с AK201 в подтверждении. (необязательный параметр) |
+| statusCode | Логический | Код состояния подтверждения для набора транзакций. (обязательный параметр) |
+| segmentsCount | Перечисление. | Код состояния подтверждения. Допустимые значения: **Accepted**, **Rejected** и **AcceptedWithErrros**. (обязательный параметр) |
+| processingStatus | Перечисление. | Состояние обработки подтверждения. Допустимые значения: **Received**, **Generated** и **Sent**. (обязательный параметр) |
+| CorrelationMessageId | Строка | Идентификатор сообщения корреляции. Сочетание свойств {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (необязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр) |
+| ak2Segment | string | Подтверждение для набора транзакций в пределах полученной функциональной группы. (необязательный параметр) |
+| ak3Segment | Строка | Сообщает об ошибках в сегменте данных. (необязательный параметр) |
+| ak5Segment | Строка | Сообщает о том, принят ли определенный в сегменте AK2 набор транзакций, а также сообщает соответствующую причину. (необязательный параметр) |
+
+## <a name="x12-interchange-tracking-schema"></a>Схема отслеживания обмена X12
+````java
+
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "isaSegment": "",
+                "isTechnicalAcknowledgmentExpected": "",
+                "isMessageFailed": "",
+                "isa09": "",
+                "isa10": "",
+                "isa11": "",
+                "isa12": "",
+                "isa14": "",
+                "isa15": "",
+                "isa16": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | Строка | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | string | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | Строка | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | Строка | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | string | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | Строка | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | string | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | Строка | Контрольный номер обмена. (необязательный параметр) |
+| isaSegment | Строка | Сегмент ISA сообщения. (необязательный параметр) |
+| isTechnicalAcknowledgmentExpected | Логический | Указывает, настроено ли в соглашении X12 техническое подтверждение. (обязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр) |
+| isa09 | string | Дата обмена документа X12. (необязательный параметр) |
+| isa10 | Строка | Время обмена документа X12. (необязательный параметр) |
+| isa11 | Строка | Идентификатор стандартов управления обмена X12. (необязательный параметр) |
+| isa12 | string | Контрольный номер версии обмена X12. (необязательный параметр) |
+| isa14 | Строка | Запрос подтверждения X12. (необязательный параметр) |
+| isa15 | string | Индикатор для тестирования или работы. (необязательный параметр) |
+| isa16 | Строка | Разделитель элементов. (необязательный параметр) |
+
+## <a name="x12-interchange-acknowledgement-tracking-schema"></a>Схема отслеживания подтверждения обмена X12
+````java
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "isaSegment": "",
+                "respondingInterchangeControlNumber": "",
+                "isMessageFailed": "",
+                "statusCode": "",
+                "processingStatus": "",
+                "ta102": "",
+                "ta103": "",
+                "ta105": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | string | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | Строка | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | Строка | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | Строка | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | Строка | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | string | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | Строка | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | Строка | Контрольный номер обмена для технического подтверждения, полученного от партнеров. (необязательный параметр) |
+| isaSegment | string | Сегмент ISA для технического подтверждения, полученного от партнеров. (необязательный параметр) |
+| respondingInterchangeControlNumber |Строка | Контрольный номер обмена для технического подтверждения, полученного от партнеров. (необязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр) |
+| statusCode | Перечисление. | Код состояния подтверждения обмена. Допустимые значения: **Accepted**, **Rejected** и **AcceptedWithErrros**. (обязательный параметр) |
+| processingStatus | Перечисление. | Состояние подтверждения. Допустимые значения: **Received**, **Generated** и **Sent**. (обязательный параметр) |
+| ta102 | string | Дата обмена. (необязательный параметр) |
+| ta103 | string | Время обмена. (необязательный параметр) |
+| ta105 | Строка | Код примечания обмена. (необязательный параметр) |
+
+## <a name="x12-functional-group-tracking-schema"></a>Схема отслеживания функциональной группы X12
+````java
+
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "functionalGroupControlNumber": "",
+                "gsSegment": "",
+                "isTechnicalAcknowledgmentExpected": "",
+                "isFunctionalAcknowledgmentExpected": "",
+                "isMessageFailed": "",
+                "gs01": "",
+                "gs02": "",
+                "gs03": "",
+                "gs04": "",
+                "gs05": "",
+                "gs07": "",
+                "gs08": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | Строка | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | Строка | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | Строка | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | Строка | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | string | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | Строка | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | Строка | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | Строка | Контрольный номер обмена. (необязательный параметр) |
+| functionalGroupControlNumber | Строка | Функциональный контрольный номер. (необязательный параметр) |
+| gsSegment | Строка | Сегмент GS сообщения. (необязательный параметр) |
+| isTechnicalAcknowledgmentExpected | Логический | Указывает, настроено ли в соглашении X12 техническое подтверждение. (обязательный параметр) |
+| isFunctionalAcknowledgmentExpected | Логический | Указывает, настроено ли в соглашении X12 функциональное подтверждение. (обязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр)|
+| gs01 | Строка | Код функционального идентификатора. (необязательный параметр) |
+| gs02 | Строка | Код отправителя приложения. (необязательный параметр) |
+| gs03 | Строка | Код получателя приложения. (необязательный параметр) |
+| gs04 | Строка | Дата функциональной группы. (необязательный параметр) |
+| gs05 | Строка | Время функциональной группы. (необязательный параметр) |
+| gs07 | Строка | Код ответственного агентства. (необязательный параметр) |
+| gs08 | Строка | Код версии, выпуска и промышленного идентификатора. (необязательный параметр) |
+
+## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>схема отслеживания подтверждения для функциональной группы X12.
+````java
+    {
+            "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "senderQualifier": "",
+                "senderIdentifier": "",
+                "receiverQualifier": "",
+                "receiverIdentifier": "",
+                "agreementName": ""
+            },
+            "messageProperties": {
+                "direction": "",
+                "interchangeControlNumber": "",
+                "functionalGroupControlNumber": "",
+                "isaSegment": "",
+                "gsSegment": "",
+                "respondingfunctionalGroupControlNumber": "",
+                "respondingFunctionalGroupId": "",
+                "isMessageFailed": "",
+                "statusCode": "",
+                "processingStatus": "",
+                "ak903": "",
+                "ak904": "",
+                "ak9Segment": ""
+            }
+    }
+````
+
+| Свойство | Тип | Описание |
+| --- | --- | --- |
+| senderPartnerName | Строка | Имя партнера отправителя сообщения X12. (необязательный параметр) |
+| receiverPartnerName | Строка | Имя партнера получателя сообщения X12. (необязательный параметр) |
+| senderQualifier | string | Отправка квалификатора партнера. (обязательный параметр) |
+| senderIdentifier | Строка | Отправка идентификатора партнера. (обязательный параметр) |
+| receiverQualifier | string | Получение квалификатора партнера. (обязательный параметр) |
+| receiverIdentifier | Строка | Получение идентификатора партнера. (обязательный параметр) |
+| agreementName | Строка | Имя соглашения X12, в соответствии с которым разрешаются сообщения. (необязательный параметр) |
+| direction | Перечисление. | Направление потока получаемых или отправляемых сообщений. (обязательный параметр) |
+| interchangeControlNumber | string | Контрольный номер обмена, который заполняется для отправляющей стороны при получении технического подтверждения от партнеров. (необязательный параметр) |
+| functionalGroupControlNumber | Строка | Контрольный номер функциональной группы технического подтверждения, который заполняется для отправляющей стороны при получении технического подтверждения от партнеров. (необязательный параметр) |
+| isaSegment | Строка | Как и контрольный номер обмена, но заполняется только в определенных случаях. (необязательный параметр) |
+| gsSegment | string | Как и контрольный номер функциональной группы, но заполняется только в определенных случаях. (необязательный параметр) |
+| respondingfunctionalGroupControlNumber | Строка | Контрольный номер исходной функциональной группы. (необязательный параметр) |
+| respondingFunctionalGroupId | Строка | Сопоставляется с AK101 в идентификаторе функциональной группы подтверждения. (необязательный параметр) |
+| isMessageFailed | Логический | Указывает, произошел ли сбой сообщения X12. (обязательный параметр) |
+| statusCode | Перечисление. | Код состояния подтверждения. Допустимые значения: **Accepted**, **Rejected** и **AcceptedWithErrros**. (обязательный параметр) |
+| processingStatus | Перечисление. | Состояние обработки подтверждения. Допустимые значения: **Received**, **Generated** и **Sent**. (обязательный параметр) |
+| ak903 | Строка | Число полученных наборов транзакций. (необязательный параметр) |
+| ak904 | string | Число наборов транзакций, принятых в указанной функциональной группе. (необязательный параметр) |
+| ak9Segment | Строка | Указывает, принята ли определенная в сегменте AK1 функциональная группа, а также сообщает соответствующую причину. (необязательный параметр) |
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Дополнительные сведения о [мониторинге сообщений B2B](app-service-logic-monitor-b2b-message.md).
+* Дополнительные сведения о [схемах отслеживания AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md).
+* Дополнительные сведения о [настраиваемых схемах отслеживания B2B](app-service-logic-track-integration-account-custom-tracking-shema.md).
+* Дополнительные сведения об [отслеживании сообщений B2B на портале Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md).
+* Дополнительные сведения о [Пакете интеграции Enterprise](app-service-logic-enterprise-integration-overview.md).  
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

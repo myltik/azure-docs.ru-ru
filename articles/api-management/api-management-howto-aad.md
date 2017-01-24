@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 44d51c80dd7db16d16fa3aa44d6179bc539bb50a
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 
 ![Портал издателя][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -79,7 +79,7 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 
 ![Делегированные разрешения][api-management-aad-delegated-permissions]
 
-> Дополнительные сведения о приложении и делегированных разрешениях см. в статье [Доступ к Graph API][Доступ к Graph API].
+> Дополнительные сведения о приложении и делегированных разрешениях см. в разделе, посвященном [доступу к API Graph][Accessing the Graph API].
 > 
 > 
 
@@ -123,7 +123,7 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 
 ![Сохранить][api-management-client-allowed-tenants-save]
 
-После сохранения изменений пользователи в указанном каталоге Azure Active Directory смогут входить на портал разработчика, выполняя действия, приведенные в разделе [Вход на портал разработчика с помощью учетной записи Azure Active Directory][Вход на портал разработчика с помощью учетной записи Azure Active Directory].
+После сохранения изменений пользователи в указанной Azure Active Directory могут входить на портал разработчика, выполняя действия, приведенные в разделе [Вход на портал разработчика с помощью учетной записи Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Добавление внешней группы Active Directory Azure
 После включения доступа для пользователей в Azure Active Directory вы можете добавлять группы Azure Active Directory в управление API, чтобы упростить управление связью разработчиков в такой группе с требуемыми продуктами.
@@ -214,31 +214,31 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Мониторинг и аналитика]: api-management-monitoring.md
-[Добавление интерфейсов API к продукту]: api-management-howto-add-products.md#add-apis
-[Публикация продукта]: api-management-howto-add-products.md#publish-product
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Справочник по политикам службы управления API]: api-management-policy-reference.md
-[Политики кэширования]: api-management-policy-reference.md#caching-policies
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Доступ к Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
-[Предварительные требования]: #prerequisites
-[Настройка сервера авторизации OAuth 2.0 в управлении API]: #step1
-[Настройка API для авторизации пользователей по протоколу OAuth 2.0]: #step2
-[Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика]: #step3
-[Дальнейшие действия]: #next-steps
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
-[Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
+[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

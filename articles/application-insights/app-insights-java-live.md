@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
+ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
+ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
 
 
 ---
@@ -33,13 +33,13 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Получение ключа инструментирования Application Insights
 1. Войдите на [портал Microsoft Azure](https://portal.azure.com)
-2. Создание нового ресурса Application Insights
-   
-    ![Нажмите кнопку "+" и выберите пункт "Application Insights"](./media/app-insights-java-live/01-create.png)
-3. Задайте тип приложения: веб-приложение Java.
+2. Создайте ресурс Application Insights и задайте тип приложения "Веб-приложение Java".
    
     ![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-live/02-create.png)
-4. Найдите ключ инструментирования нового ресурса. Далее будет необходимо вставить его в проект кода.
+
+    Через несколько секунд ресурс будет создан.
+
+4. Откройте новый ресурс и получите его ключ инструментирования. Далее будет необходимо вставить его в проект кода.
    
     ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-live/03-key.png)
 
@@ -53,6 +53,8 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
 Создайте файл ApplicationInsights.xml в папке, в которую добавили пакет SDK. Вставьте в него следующий код XML.
 
 Замените ключ инструментирования на полученный в портале Azure.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -83,7 +85,7 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * Ключ инструментирования пересылается вместе с каждым элементом телеметрии; служба Application Insights отобразит его в ресурсе.
 * Компонент HTTP-запросов является необязательным. Он автоматически передает на портал телеметрию о запросах и значения времени ответа.
@@ -93,6 +95,8 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
 Найдите и откройте файл web.xml в проекте, добавьте следующий фрагмент кода в узел web-app, где настраиваются фильтры вашего приложения.
 
 Для получения наиболее точных результатов этот фильтр должен применяться до всех остальных фильтров.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -104,6 +108,7 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## <a name="5-check-firewall-exceptions"></a>5. Проверка исключений брандмауэра
 Вам может понадобиться [задать исключения для отправки исходящих данных](app-insights-ip-addresses.md).
@@ -135,6 +140,6 @@ ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

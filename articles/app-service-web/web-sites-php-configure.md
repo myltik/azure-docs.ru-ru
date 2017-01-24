@@ -1,19 +1,23 @@
 ---
-title: Настройка PHP в веб-приложениях службы приложений Azure | Microsoft Docs
-description: Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure.
+title: "Настройка PHP в веб-приложениях службы приложений Azure | Документация Майкрософт"
+description: "Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure."
 services: app-service
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
+
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Настройка PHP в веб-приложениях службы приложений Azure
@@ -22,7 +26,7 @@ ms.author: robmcm
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-builtin-php-version"></a>Практическое руководство. Изменение встроенной версии PHP
+## <a name="how-to-change-the-built-in-php-version"></a>Практическое руководство. Изменение встроенной версии PHP
 По умолчанию при создании веб-приложения службы приложений устанавливается среда PHP 5.4, которая будет сразу готова для использования. Оптимальный способ увидеть доступные версии, конфигурацию по умолчанию и поддерживаемые расширения заключается в развертывании сценария, который вызывает функцию [phpinfo()] .
 
 Версии PHP 5.5 и PHP 5.6 также доступны, но не включены по умолчанию. Чтобы обновить версию PHP, выполните следующие действия.
@@ -44,12 +48,12 @@ ms.author: robmcm
         PS C:\> Login-AzureRmAccount
 2. Укажите версию PHP для веб-приложения.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. После этого версия PHP будет установлена. Можно подтвердить эти параметры.
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-commandline-interface-linux-mac-windows"></a>Интерфейс командной строки Azure для Mac, Linux и Windows
+### <a name="azure-command-line-interface-linux-mac-windows"></a>Интерфейс командной строки Azure для Mac, Linux и Windows
 Для использования интерфейса командной строки Azure требуется установить на компьютер **Node.js** .
 
 1. Откройте терминал и войдите в свою учетную запись.
@@ -57,12 +61,22 @@ ms.author: robmcm
         azure login
 2. Укажите версию PHP для веб-приложения.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+
 3. После этого версия PHP будет установлена. Можно подтвердить эти параметры.
    
-        azure site show {site-name}
+        azure site show {app-name}
 
-## <a name="how-to-change-the-builtin-php-configurations"></a>Практическое руководство. Изменение встроенной конфигурации PHP
+> [!NOTE] 
+> Ниже указаны команды [Azure CLI 2.0 (предварительная версия)](https://github.com/Azure/azure-cli), которые эквивалентны приведенным выше.
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
+
+## <a name="how-to-change-the-built-in-php-configurations"></a>Практическое руководство. Изменение встроенной конфигурации PHP
 Для любой встроенной среды выполнения PHP можно изменить параметры конфигурации, для чего выполните следующие действия. (Дополнительные сведения о директивах php.ini см. в разделе [Список директив php.ini].)
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Изменение параметров конфигурации PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL
@@ -193,6 +207,6 @@ ms.author: robmcm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

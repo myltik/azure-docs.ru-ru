@@ -12,24 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: arramac
+ms.date: 12/13/2016
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db87e15ceb12238dd7b402cd04cfd36c62e3cab7
+ms.sourcegitcommit: d2728682d4fada23d884d0a6b7e2cf4cda38aa33
+ms.openlocfilehash: 32e8fb12e2b80260f7b4c5c6cf4b1b07ec766aca
 
 
 ---
 # <a name="default-quotas-for-documentdb"></a>Квоты по умолчанию для DocumentDB
-В следующей таблице описаны квоты по умолчанию на ресурсы базы данных Azure DocumentDB. 
 
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
-
-Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb-increase-limits.md). Увеличение квоты может занять до 24 часов после получения необходимых сведений. 
+DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

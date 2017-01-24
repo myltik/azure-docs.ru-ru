@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
 
 
 ---
@@ -71,28 +71,30 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 
 Прежде чем вызывать API, выполняющие резервное копирование и восстановление, необходимо получить маркер. В следующем примере для получения маркера используется пакет NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) .
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Замените `{tentand id}`, `{application id}` и `{redirect uri}`, следуя приведенным инструкциям.
 
@@ -112,14 +114,16 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 
 Прежде чем выполнять операции резервного копирования и восстановления, описанные в следующих разделах, задайте заголовок запроса проверки подлинности для вызова REST.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
-## <a name="step1"> </a>Резервное копирование службы управления API
-Чтобы выполнить резервное копирование службы API Management, отправьте следующий HTTP-запрос:
+## <a name="step1"> </a>Архивация службы управления API
+Чтобы выполнить архивацию службы управления API, отправьте следующий HTTP-запрос:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
-где:
+Описание:
 
 * `subscriptionId` — идентификатор подписки, включающей в себя службу управления API, резервное копирование которой вы пытаетесь выполнить;
 * `resourceGroupName` — строка в формате "Api-Default-{service-region}", где `service-region` — это регион Azure, в котором размещена служба управления API для резервного копирования (например, `North-Central-US`);
@@ -128,23 +132,25 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 
 В тексте запроса укажите целевую учетную запись хранения Azure, ключ доступа, имя контейнера BLOB-объектов и имя резервной копии:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Для заголовка запроса `Content-Type` установите значение `application/json`.
 
 Резервное копирование — это длительная операция, которая может занять много минут.  Если запрос выполнен успешно и процесс резервного копирования инициирован, вы получите код состояния ответа `202 Accepted` с заголовком `Location`.  Чтобы отслеживать состояние операции, отправляйте запросы GET на URL-адрес, указанный в заголовке `Location` . Пока резервное копирование выполняется, вы будете получать код состояния "202 Accepted". Код ответа `200 OK` указывает на то, что резервное копирование успешно завершено.
 
-**Примечание**.
+Обратите внимание на то, что к запросу на архивацию применяются приведенные ниже ограничения.
 
 * **Контейнер**, указанный в теле запроса, **должен существовать**.
 * Пока выполняется резервное копирование, **не предпринимайте никаких действий по управлению службами**, таких как повышение или понижение уровня SKU, смена доменного имени и т. д.
 * Восстановление **резервной копии гарантируется только в течение 7 дней** с момента ее создания.
-* **Данные об использовании**, применяемые при создании аналитических отчетов, **не включаются** в резервную копию. Чтобы периодически извлекать аналитические отчеты с целью их дальнейшего помещения на хранение, используйте [API REST Azure API Management][API REST Azure API Management].
+* **Данные об использовании**, применяемые при создании аналитических отчетов, **не включаются** в резервную копию. Для периодического извлечения аналитических отчетов с целью их дальнейшего помещения на хранение используйте интерфейс [REST API управления API Azure][Azure API Management REST API].
 * Частота резервного копирования службы влияет на цель точки восстановления. Чтобы максимально снизить этот показатель, мы советуем настроить регулярное резервное копирование, а также выполнять резервное копирование по требованию после внесения важных изменений в службу API Management.
 * **Изменения**, внесенные в конфигурацию службы (например, интерфейсы API, политики, внешний вид портала разработчика) во время резервного копирования, **возможно, не включены в резервную копию. В этом случае они будут утеряны**.
 
@@ -162,12 +168,14 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 
 В тексте запроса укажите расположение файла резервной копии, т. е. учетную запись хранения Azure, ключ доступа, имя контейнера BLOB-объектов и имя резервной копии:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Для заголовка запроса `Content-Type` установите значение `application/json`.
 
@@ -188,11 +196,11 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 * [Управление API Azure: резервное копирование и восстановление конфигурации](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   * Стюарт подробно описывает альтернативный подход, который не соответствует официальным рекомендациям, но тоже очень интересен.
 
-[Резервное копирование службы управления API]: #step1
-[Восстановление службы управления API]: #step2
+[Backup an API Management service]: #step1
+[Restore an API Management service]: #step2
 
 
-[API REST Azure API Management]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -206,6 +214,6 @@ ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

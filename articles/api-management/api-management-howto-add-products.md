@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 
 ![Портал издателя][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -42,7 +42,7 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 
 Продукты в службе управления API могут быть **открытыми** или **защищенными**. Прежде чем можно будет использовать защищенные продукты, на них необходимо подписаться, а открытые продукты могут использоваться без подписки. Установите флажок **Требуется подписка** , чтобы создать защищенный продукт, требующий подписки. Это значение по умолчанию.
 
-Установите флажок **Require subscription approval** (Требуется утверждение администратора), если вы хотите, чтобы администратор рассматривал и принимал или отклонял попытки подписки на этот продукт. Если флажок не установлен, попытки подписки получат автоматическое утверждение. Дополнительные сведения о подписках см. в разделе [Просмотр подписчиков продукта][Просмотр подписчиков продукта].
+Установите флажок **Require subscription approval** (Требуется утверждение администратора), если вы хотите, чтобы администратор рассматривал и принимал или отклонял попытки подписки на этот продукт. Если флажок не установлен, попытки подписки получат автоматическое утверждение. Дополнительные сведения о подписках см. в разделе [Просмотр подписчиков продукта][View subscribers to a product].
 
 Чтобы разрешить для учетных записей разработчика многократную подписку на продукт, установите флажок **Разрешить несколько подписок** . Если этот флажок не установлен, каждую учетную запись разработчика можно подписать на продукт только один раз.
 
@@ -98,7 +98,7 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 
 Чтобы включить или отключить видимость продукта для разработчиков в группе, установите или снимите флажок для группы, а затем щелкните **Сохранить**.
 
-> Дополнительные сведения см. в статье [Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API][Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API].
+> Дополнительные сведения см. в статье [Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API][How to create and use groups to manage developer accounts in Azure API Management].
 > 
 > 
 
@@ -108,7 +108,7 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 ![Разработчики][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
-Как только требуемые интерфейсы API добавлены, а продукт опубликован, разработчики могут подписаться на продукт и начать вызывать интерфейсы API. Руководство, в котором рассматриваются эти операции, а также подробно описывается конфигурация продукта, приведено в статье [Защита API путем ограничения скорости с помощью управления API Azure][Защита API путем ограничения скорости с помощью управления API Azure].
+Как только требуемые интерфейсы API добавлены, а продукт опубликован, разработчики могут подписаться на продукт и начать вызывать интерфейсы API. Руководство, в котором рассматриваются эти операции, а также подробно описывается конфигурация продукта, см. в статье [Защита API путем ограничения скорости с помощью управления API Azure][How create and configure advanced product settings in Azure API Management].
 
 Дополнительную информацию о работе с продуктами см. в следующем видео.
 
@@ -116,13 +116,13 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 > 
 > 
 
-[Создание продукта]: #create-product
-[Добавление интерфейсов API в продукт]: #add-apis
-[Добавление описательной информации в продукт]: #add-description
-[Публикация продукта]: #publish-product
-[Обеспечение видимости продукта для разработчиков]: #make-visible
-[Просмотр подписчиков продукта]: #view-subscribers
-[Дальнейшие действия]: #next-steps
+[Create a product]: #create-product
+[Add APIs to a product]: #add-apis
+[Add descriptive information to a product]: #add-description
+[Publish a product]: #publish-product
+[Make a product visible to developers]: #make-visible
+[View subscribers to a product]: #view-subscribers
+[Next steps]: #next-steps
 
 [api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
@@ -144,16 +144,16 @@ ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
 [api-management-]: ./media/api-management-howto-add-products/
 
 
-[Как добавлять операции в API]: api-management-howto-add-operations.md
-[Как создать и опубликовать продукт]: api-management-howto-add-products.md
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
-[Дальнейшие действия]: #next-steps
-[Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API]: api-management-howto-create-groups.md
-[Защита API путем ограничения скорости с помощью управления API Azure]: api-management-howto-product-with-rules.md 
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
+[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
+[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
+ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
+ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
 
 
 ---
@@ -35,9 +35,9 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 В это решение входит симулятор телематики автомобиля. Он выдает диагностическую информацию и сигналы, соответствующие состоянию автомобиля и манере вождения в определенный момент времени. Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717075) , чтобы скачать **решение Visual Studio симулятора телематики автомобиля** для настройки в соответствии со своими требованиями. Каталог автомобилей содержит справочный набор данных для сопоставления идентификационного номера (VIN) с моделью автомобиля.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
+![Симулятор телематики автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
-*Рис. 2. Симулятор телематики автомобиля*
+*Рис. 1. Симулятор телематики автомобиля*
 
 Это набор данных в формате JSON, содержащий следующую схему.
 
@@ -98,8 +98,8 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 | ……. | |
 
 ### <a name="to-generate-simulated-data"></a>Создание имитированных данных
-1. Чтобы скачать пакет для симуляции данных, щелкните стрелку в правом верхнем углу узла Vehicle Telematics Simulator (Симулятор телематики автомобиля). Сохраните файлы на локальном компьютере и извлеките их. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Рис. 3. Проект внедрения решения для аналитики телеметрии автомобиля*
-2. На локальном компьютере перейдите в папку с извлеченным пакетом симулятора телематики автомобиля. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Рис. 4. Папка симулятора телематики автомобиля*
+1. Чтобы скачать пакет для симуляции данных, щелкните стрелку в правом верхнем углу узла Vehicle Telematics Simulator (Симулятор телематики автомобиля). Сохраните файлы на локальном компьютере и извлеките их. ![Проект внедрения решения для аналитики телеметрии автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Рис. 2. Проект внедрения решения для аналитики телеметрии автомобиля*
+2. На локальном компьютере перейдите в папку с извлеченным пакетом симулятора телематики автомобиля. ![Папка симулятора телематики автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Рис. 3. Папка симулятора телематики автомобиля*
 3. Запустите приложение **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Ссылки
@@ -115,13 +115,13 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 ### <a name="real-time-analysis"></a>Анализ в режиме реального времени
 События, создаваемые симулятором телематики автомобиля, публикуются в концентраторе событий с помощью пакета SDK для концентратора событий. Задание Stream Analytics принимает эти события из концентратора событий и обрабатывает данные в режиме реального времени для анализа работоспособности автомобиля. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-event-hub-dashboard.png) 
+![Панель мониторинга концентратора событий](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
-*Рис. 5. Панель мониторинга концентратора событий*
+*Рис. 4. Панель мониторинга концентратора событий*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-processing-data.png) 
+![Обработка данных заданием Stream Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
 
-*Рис. 6. Обработка данных заданием Stream Analytics*
+*Рис. 5. Обработка данных заданием Stream Analytics*
 
 Задания Stream Analytics:
 
@@ -131,28 +131,28 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 Следующий запрос Stream Analytics используется для хранения данных в хранилище BLOB-объектов Azure. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
+![Запрос задания Stream Analytics для приема данных](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
-*Рис. 7. Запрос задания Stream Analytics для приема данных*
+*Рис. 6. Запрос задания Stream Analytics для приема данных*
 
 ### <a name="batch-analysis"></a>Пакетный анализ
 Для расширенного пакетного анализа необходимо создать дополнительное количество имитированных сигналов автомобиля и набор диагностических данных. Это необходимо для предоставления достаточного объема репрезентативных данных для пакетной обработки. С этой целью в рабочем процессе фабрики данных Azure используется конвейер PrepareSampleDataPipeline для создания имитированных сигналов автомобиля и набора диагностических данных за год. Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717077) , чтобы скачать решение Visual Studio настраиваемого действия DotNet фабрики данных для настройки в соответствии со своими требованиями. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+![Подготовка образца данных для рабочего процесса пакетной обработки](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
-*Рис. 8. Подготовка образца данных для рабочего процесса пакетной обработки*
+*Рис. 7. Подготовка образца данных для рабочего процесса пакетной обработки*
 
 Конвейер состоит из настраиваемого действия .NET фабрики данных Azure, указанного ниже.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline.png) 
+![Действие PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
-*Рис. 9. PrepareSampleDataPipeline*
+*Рис. 8. PrepareSampleDataPipeline*
 
 После того как конвейер успешно выполнит это действие и набор данных RawCarEventsTable будет помечен как Ready, создаются имитированные сигналы автомобиля и диагностические данные за год. Затем в вашей учетной записи хранения в контейнере connectedcar будут созданы следующие папка и файл:
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
+![Выходные данные PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
-*Рис. 10. Вывод PrepareSampleDataPipeline*
+*Рис. 9. Выходные данные PrepareSampleDataPipeline*
 
 ### <a name="references"></a>Ссылки
 [Пакет SDK концентратора событий Azure для приема потока](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -165,28 +165,28 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 ## <a name="partition-the-dataset"></a>Секционирование набора данных
 На этапе подготовки данных необработанные полуструктурированные сигналы автомобиля и набор диагностических данных секционируются по годам и месяцам. Секционирование обеспечивает более эффективное выполнение запросов и долговременное масштабируемое хранение, позволяя переходить от одной учетной записи хранения больших двоичных объектов к другой после заполнения первой. 
 
-> [!NOTE]
-> Этот этап решения применяется только для пакетной обработки.
-> 
-> 
+>[!NOTE] 
+>Этот этап решения применяется только для пакетной обработки.
 
 Управление входными и выходными данными:
 
 * **Выходные данные** (с меткой *PartitionedCarEventsTable*) в течение длительного периода времени хранятся в виде фундаментальных данных или данных rawest в Data Lake заказчика. 
 * **Входные данные** для этого конвейера обычно отклоняются, так как выходные данные полностью с ними совпадают — они лучше хранятся (секционируются) для последующего использования.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
+![Рабочий процесс секционирования событий автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
-*Рис. 11. Рабочий процесс секционирования событий автомобиля*
+*Рис. 10. Рабочий процесс секционирования событий автомобиля*
 
 Необработанные данные секционируются с помощью действия Hive HDInsight в PartitionCarEventsPipeline. Образец данных, созданный на шаге 1 для параметра года, секционируется по годам и месяцам. Секции используются для создания сигналов транспортного средства и диагностических данных для каждого месяца (всего 12 секций) года. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
+![Действие PartitionCarEventsPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
-*Рис. 12. PartitionCarEventsPipeline*
+*Рис. 11. PartitionCarEventsPipeline*
+
+***Сценарий Hive PartitionConnectedCarEvents***
 
 Следующий скрипт Hive с именем partitioncarevents.hql используется для секционирования и расположен в папке \demo\src\connectedcar\scripts скачанного ZIP-файла. 
-
+    
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
     set hive.cli.print.header=true;
@@ -322,13 +322,11 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-*Рис. 13. Сценарий Hive PartitionConnectedCarEvents*
-
 После успешного выполнения конвейера отобразятся следующие секции, созданные в учетной записи хранения в контейнере connectedcar.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
+![Секционированные выходные данные](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-*Рис. 14. Секционированные выходные данные*
+*Рис. 12. Секционированные выходные данные*
 
 Теперь данные оптимизированы, более управляемы и готовы для дальнейшей обработки и выполнения расширенного пакетного анализа. 
 
@@ -371,9 +369,9 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 ### <a name="real-time-analysis"></a>Анализ в режиме реального времени
 Следующий SQL-запрос Stream Analytics используется, чтобы получить средние значения таких важных параметров автомобиля, как скорость, уровень топлива, температура двигателя, показания одометра, давление в шинах, уровень моторного масла и др. Средние значения используются для обнаружения аномалий, выдачи предупреждений и определения общих условий работоспособности автомобилей в определенном регионе, а также сопоставления их с демографическими данными. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
+![Запрос Stream Analytics для обработки в реальном времени](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-Рис. 15. Запрос Stream Analytics для обработки в режиме реального времени
+*Рис. 13. Запрос Stream Analytics для обработки в реальном времени*
 
 Все средние значения вычисляются в 3-секундном окне TumblingWindow. Мы применили TubmlingWindow, так как необходимо использовать непересекающиеся последовательные интервалы времени. 
 
@@ -383,11 +381,11 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 Для ввода в эксплуатацию модели машинного обучения в режиме реального времени в решение включено отдельное приложение. Оно называется RealTimeDashboardApp. Это приложение создано и настроено как часть развертывания решения. RealTimeDashboardApp выполняет такие задачи.
 
-1. Прослушивает экземпляр концентратора событий, в котором Stream Analytics непрерывно публикует события. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Рис. 16. Запрос Stream Analytics на публикацию в выходном экземпляре концентратора событий* 
+1. Прослушивает экземпляр концентратора событий, в котором Stream Analytics непрерывно публикует события. ![Запрос Stream Analytics на публикацию данных](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *Рис. 14. Запрос Stream Analytics на публикацию в выходном экземпляре концентратора событий* 
 2. Для каждого события, которое получает это приложение: 
    
    * обрабатывает данные с использованием конечной точки оценки «запрос-ответ» (RRS) системы машинного обучения, при этом публикация конечной точки происходит автоматически в рамках развертывания;
-   * выходные данные RRS публикуются в наборе данных Power BI при помощи API push-уведомлений.
+   * выходные данные RRS публикуются в наборе данных Power BI при помощи API push-уведомлений.
 
 Этот шаблон также можно применять в сценариях, когда нужно интегрировать бизнес-приложение с потоком анализа в режиме реального времени для предупреждений, уведомлений и сообщений.
 
@@ -395,19 +393,18 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 **Чтобы запустить приложение панели мониторинга в реальном времени:**
 
-1. Щелкните узел Power BI в представлении схемы и на панели свойств перейдите по ссылке Download Real-time Dashboard Application (Скачать приложение информационной панели в реальном времени). ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 17. Указания по настройке панели мониторинга Power BI*
-2. Извлеките его и сохраните локально. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 18. Папка RealtimeDashboardApp*
+1. Щелкните узел Power BI в представлении схемы и на панели свойств перейдите по ссылке Download Real-time Dashboard Application (Скачать приложение информационной панели в реальном времени). ![Инструкции по настройке информационной панели Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 15. Инструкции по настройке информационной панели Power BI*
+2. Извлеките его и сохраните на локальном компьютере ![Папка RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 16. Папка RealtimeDashboardApp*  
 3. Запустите приложение RealtimeDashboardApp.exe.
-4. Укажите действительные учетные данные Power BI, войдите и нажмите кнопку «Принять». ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4. Укажите действительные учетные данные Power BI, войдите и нажмите кнопку "Принять". ![Вход в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Завершение входа в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
-*Рис. 19. RealtimeDashboardApp: вход в Power BI*
+*Рис. 17. RealtimeDashboardApp: вход в Power BI*
 
-> [!NOTE]
-> Если необходимо очистить набор данных Power BI, запустите RealtimeDashboardApp с использованием параметра flushdata: 
-> 
-> 
+>[!NOTE] 
+>Если необходимо очистить набор данных Power BI, запустите RealtimeDashboardApp с использованием параметра flushdata: 
 
     RealtimeDashboardApp.exe -flushdata
+
 
 ### <a name="batch-analysis"></a>Пакетный анализ
 Цель этого задания состоит в том, чтобы продемонстрировать, как Contoso Motors использует вычислительные возможности Azure для работы с большими данными и получения исчерпывающих сведений о шаблоне вождения, манере использования и работоспособности автомобиля. Это позволяет:
@@ -427,8 +424,11 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 Секционированные сигналы автомобиля и диагностические данные обрабатываются в конвейере AggresiveDrivingPatternPipeline. При этом используется скрипт Hive, чтобы определить модель, расположение автомобиля, условия вождения и другие параметры, которые характерны для агрессивного вождения.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) 
-*Рис. 20. Рабочий процесс для шаблона агрессивного вождения*
+![Рабочий процесс для шаблона агрессивного вождения](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
+*Рис. 18. Рабочий процесс для шаблона агрессивного вождения*
+
+
+***Запрос Hive для шаблона агрессивного вождения***
 
 Сценарий Hive aggresivedriving.hql, который используется для анализа шаблона агрессивного вождения, находится в скачанном ZIP-файле в папке \demo\src\connectedcar\scripts. 
 
@@ -489,23 +489,24 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
     from PartitionedCarEvents
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
-*Рис. 21. Запрос Hive для шаблона агрессивного вождения*
 
 В нем учитывается включенная передача, положение педали тормоза и скорость автомобиля, которые позволяют идентифицировать неосторожное или агрессивное поведение во время вождения на основе шаблона торможения при высокой скорости. 
 
 После успешного выполнения конвейера отобразятся следующие секции, созданные в учетной записи хранения в контейнере connectedcar.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png) 
+![Выходные данные AggressiveDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
-*Рис. 22. Выходные данные AggressiveDrivingPatternPipeline*
+*Рис. 19. Выходные данные AggressiveDrivingPatternPipeline*
 
 **Шаблон вождения для экономии топлива**
 
 Секционированные сигналы автомобиля и диагностические данные обрабатываются в конвейере FuelEfficientDrivingPatternPipeline. При этом используется скрипт Hive, чтобы определить модель, расположение автомобиля, условия вождения и другие параметры, которые характерны для агрессивного вождения.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png) 
+![Шаблон вождения для экономии топлива](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-*Рис. 23. Рабочий процесс для шаблона вождения для экономии топлива*
+*Рис. 20. Рабочий процесс для шаблона вождения, позволяющего экономить топливо*
+
+***Запрос Hive для шаблона вождения, позволяющего экономить топливо***
 
 Сценарий Hive fuelefficientdriving.hql, который используется для анализа шаблона агрессивного вождения, находится в скачанном ZIP-файле в папке \demo\src\connectedcar\scripts. 
 
@@ -567,35 +568,35 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-*Рис. 24. Запрос Hive для шаблона вождения, позволяющего экономить топливо*
-
 В нем учитывается включенная передача, положение педали тормоза, педали газа и скорость автомобиля, что дает возможность определить манеру вождения, позволяющую экономить топливо, на основе шаблонов ускорения, торможения и скорости. 
 
 После успешного выполнения конвейера отобразятся следующие секции, созданные в учетной записи хранения в контейнере connectedcar.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
+![Выходные данные FuelEfficientDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-*Рис. 25. Выходные данные FuelEfficientDrivingPatternPipeline*
+*Рис. 21. Выходные данные FuelEfficientDrivingPatternPipeline*
 
 **Прогнозы для отзыва**
 
 Эксперимент по машинному обучению подготавливается и публикуется в качестве веб-службы в рамках развертывания решения. В этом рабочем процессе используется конечная точка пакетной оценки, регистрируемая в качестве службы, связанной с фабрикой данных. Для ввода в эксплуатацию используется пакетная оценка в фабрике данных.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-machine-learning-endpoint.png) 
+![Конечная точка машинного обучения](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-*Рис. 26. Конечная точка машинного обучения, зарегистрированная в качестве связанной службы в фабрике данных*
+*Рис. 22. Конечная точка машинного обучения, зарегистрированная в качестве связанной службы в фабрике данных*
 
 Зарегистрированная связанная служба используется в DetectAnomalyPipeline для оценки данных с использованием модели обнаружения аномалий. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-aml-batch-scoring.png) 
+![Пакетная оценка в фабрике данных в рамках Машинного обучения](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
 
-*Рис. 27. Пакетная оценка в фабрике данных в рамках Машинного обучения Azure* 
+*Рис. 23. Пакетная оценка в фабрике данных в рамках Машинного обучения Azure* 
 
 В контейнере выполняется несколько шагов по подготовке данных, чтобы их можно было использовать в веб-службе пакетной оценки. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-pipeline-predicting-recalls.png) 
+![DetectAnomalyPipeline для прогнозирования необходимости в отзыве автомобилей](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
 
-*Рис. 28. DetectAnomalyPipeline для прогнозирования необходимости в отзыве автомобилей* 
+*Рис. 24. DetectAnomalyPipeline для прогнозирования необходимости в отзыве автомобилей* 
+
+***Запрос Hive для обнаружения аномалий***
 
 По завершении оценки выполняется действие HDInsight по обработке и агрегации данных, которые с помощью модели отнесены к категории аномалий с вероятностью 0,6 или выше.
 
@@ -659,47 +660,48 @@ ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
 
 После успешного выполнения конвейера отобразятся следующие секции, созданные в учетной записи хранения в контейнере connectedcar.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png) 
+![Выходные данные DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
-*Рис. 30. Выходные данные DetectAnomalyPipeline*
+*Рис. 25. Выходные данные DetectAnomalyPipeline*
 
 ## <a name="publish"></a>Опубликовать
+
 ### <a name="real-time-analysis"></a>Анализ в режиме реального времени
 Один из запросов в задании Stream Analytics предусматривает публикацию событий в выходном экземпляре концентратора событий. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig31-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Публикация данных задания Stream Analytics в выходном экземпляре концентратора событий](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*Рис. 31. Публикация данных задания Stream Analytics в выходном экземпляре концентратора событий*
+*Рис. 26. Публикация данных задания Stream Analytics в выходном экземпляре концентратора событий*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig32-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![Запрос Stream Analytics на публикацию в выходном экземпляре концентратора событий](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*Рис. 32. Запрос Stream Analytics на публикацию в выходном экземпляре концентратора событий*
+*Рис. 27. Запрос Stream Analytics на публикацию в выходном экземпляре концентратора событий*
 
-Этот поток событий использует приложение RealTimeDashboardApp, которое входит в состав решения. Это приложение использует веб-службу машинного обучения типа «запрос-ответ» для оценки в режиме реального времени и публикует результаты в наборе данных Power BI. 
+Этот поток событий использует приложение RealTimeDashboardApp, которое входит в состав решения. Приложение RealTimeDashboardApp использует веб-службу машинного обучения типа "ответ на запрос" для оценки в режиме реального времени и публикует результаты в наборе данных Power BI. 
 
 ### <a name="batch-analysis"></a>Пакетный анализ
 Результаты пакетной обработки и обработки в режиме реального времени публикуются в таблицах Базы данных SQL Azure. Сервер, база данных и таблицы SQL Azure создаются автоматически при настройке. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig33-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+![Копирование результатов пакетной обработки в рабочий процесс киоска данных](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-*Рис. 33. Копирование результатов пакетной обработки в рабочий процесс киоска данных*
+*Рис. 28. Копирование результатов пакетной обработки в рабочий процесс киоска данных*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig34-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![Публикация данных задания Stream Analytics в киоске данных](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-*Рис. 34. Публикация данных задания Stream Analytics в киоске данных*
+*Рис. 29. Публикация данных задания Stream Analytics в киоске данных*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig35-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
+![Настройка киоска данных в задании Stream Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
-*Рис. 35. Настройка киоска данных в задании Stream Analytics*
+*Рис. 30. Настройка киоска данных в задании Stream Analytics*
 
 ## <a name="consume"></a>Использование
 Power BI предоставляет для этого решения расширенную панель мониторинга, предназначенную для визуализации данных в режиме реального времени и прогнозной аналитики. 
 
-Чтобы получить подробные инструкции по настройке отчетов Power BI и панели мониторинга, щелкните здесь. Окончательная панель мониторинга выглядит так:
+Чтобы получить подробные инструкции по настройке отчетов Power BI и информационной панели, щелкните здесь. Окончательная панель мониторинга выглядит так:
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig36-vehicle-telematics-powerbi-dashboard.png)
+![Информационная панель Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-*Рис. 36. Панель мониторинга Power BI*
+*Рис. 31. Информационная панель Power BI*
 
 ## <a name="summary"></a>Сводка
 Этот документ содержит подробные сведения о решении для аналитики телеметрии автомобилей. Здесь показан шаблон лямбда-архитектуры для анализа в режиме реального времени и пакетного анализа с прогнозами и действиями. Этот шаблон подходит для самых разнообразных сценариев использования, в которых требуется использование «горячего» (в режиме реального времени) и «холодного» (пакетного) анализа. 
@@ -707,6 +709,6 @@ Power BI предоставляет для этого решения расши
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
