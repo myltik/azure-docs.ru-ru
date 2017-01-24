@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
 
 ---
 
@@ -65,8 +65,8 @@ Azure Load Balancer позволяет сочетать оба типа прав
 
 | правило; | Сопоставить внешний интерфейс | С внутренним пулом |
 | --- | --- | --- |
-| 1 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Полное сопоставление в Azure Load Balancer теперь выглядит следующим образом:
 
@@ -113,8 +113,8 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 
 | правило; | Сопоставить внешний интерфейс | С внутренним пулом |
 | --- | --- | --- |
-| 1 |![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (на виртуальной машине 1 и виртуальной машине 2) |
-| 2 |![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (на виртуальной машине 1 и виртуальной машине 2) |
+| 1 |![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (на виртуальной машине 1 и виртуальной машине 2) |
+| 2 |![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (на виртуальной машине 1 и виртуальной машине 2) |
 
 Следующая таблица демонстрирует полное сопоставление в балансировщике нагрузки:
 
@@ -127,7 +127,7 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 
 Обратите внимание, что в этом примере не изменяется конечный порт. Несмотря на то, что этот сценарий использует плавающий IP-адрес, Azure Load Balancer также поддерживает определение правила, которое перезаписывает внутренний конечный порт и делает его отличным от интерфейсного конечного порта.
 
-Тип правил с плавающим IP-адресом лежит в основе нескольких шаблонов конфигураций балансировщика нагрузки. Одним из примеров, доступных в данный момент, является конфигурация [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (SQL AlwaysOn с несколькими прослушивателями). В будущем мы опишем больше сценариев.
+Тип правил с плавающим IP-адресом лежит в основе нескольких шаблонов конфигураций балансировщика нагрузки. Одним из примеров, доступных в данный момент, является конфигурация [SQL AlwaysOn with Multiple Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) (SQL AlwaysOn с несколькими прослушивателями). В будущем мы опишем больше сценариев.
 
 ## <a name="limitations"></a>Ограничения
 
@@ -138,6 +138,6 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

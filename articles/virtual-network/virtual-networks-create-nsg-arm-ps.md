@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 75dbe164bf0fb4b3aff95954ce619781bbafaa5c
-ms.openlocfilehash: 86fbb59564fa0d892f24da2c45d52099e645bfbd
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 22681c4b171a185d5977bd9ce41d6a4f642feea7
 
 
 ---
@@ -35,7 +35,7 @@ Azure предоставляет две модели развертывания:
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Как создавать сетевую группу безопасности для подсети переднего плана
 Чтобы создать группу безопасности сети под названием *NSG-FrontEnd* по описанному сценарию, выполните следующие действия:
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до этапа входа в Azure и выбора подписки.
 2. Создайте правило безопасности, разрешающее доступ из Интернета к порту 3389.
 
     ```powershell
@@ -219,6 +219,6 @@ Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "Test
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

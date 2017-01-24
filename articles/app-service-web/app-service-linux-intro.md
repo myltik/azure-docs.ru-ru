@@ -1,13 +1,13 @@
 ---
-title: Introduction to App Service on Linux | Microsoft Docs
-description: Learn about App Service on Linux.
-keywords: azure app service, linux, oss
+title: "Вводные сведения о службе приложений на платформе Linux | Документация Майкрософт"
+description: "Сведения о службе приложений в Linux."
+keywords: "служба приложений azure, linux, oss"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,58 +15,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
+ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+
 
 ---
-# <a name="introduction-to-app-service-on-linux"></a>Introduction to App Service on Linux
-App Service on Linux is currently in Public Preview and supports running web apps natively on Linux. 
+# <a name="introduction-to-app-service-on-linux"></a>Вводные сведения о службе приложений на платформе Linux
+В настоящее время служба приложений Azure на платформе Linux доступна в виде общедоступной предварительной версии. Она имеет встроенную поддержку выполнения веб-приложений на платформе Linux.
 
-## <a name="overview"></a>Overview
-Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following features section lists the currently supported application stacks.
+## <a name="overview"></a>Обзор
+Служба приложений, предоставляемая на платформе Linux, позволяет клиентам размещать веб-приложения из поддерживаемых стеков приложений изначально в Linux. В следующем разделе перечислены поддерживаемые в настоящее время стеки приложений. 
 
-## <a name="features"></a>Features
-App Service on Linux currently supports the following application stacks
+## <a name="features"></a>Функции
+Сейчас служба приложений, предоставляемая на платформе Linux, поддерживает следующие стеки приложений:
 
 * Node.js
 * PHP
+* .NET Core.
 
-Customers can deploy their applications using
+Чтобы развертывать собственные приложения, клиенты могут использовать следующее:
 
-* FTP.
-* Local Git.
-* GitHub or BitBucket.
+* FTP
+* локальный репозиторий Git;
+* GitHub или Bitbucket.
 
-For application scaling
+Масштабирование приложения осуществляется следующими способами:
 
-* Customers can scale their web app up and down by changing the tier in their App Service Plan. 
-* Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
+* изменение уровня плана службы приложений, используемого для веб-приложения;
+* изменение количества единиц SKU (это также используется для запуска приложения на нескольких экземплярах).
 
-For Kudu some of the basic functionality will work
+Некоторые основные функции совместимы со следующими компонентами Kudu:
 
-* Environment.
-* Deployments.
-* Basic console.
+* средами;
+* Развернутые приложения
+* базовыми консолями.
 
-## <a name="limitations"></a>Limitations
-The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third-party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
+## <a name="limitations"></a>Ограничения
+На портале Azure отображаются только те функции, которые уже доступны в службе приложений, предоставляемой на платформе Linux. Остальные функции скрыты. Они будут появляться на портале по мере добавления.
 
-This public preview is currently only available in the following regions
+Некоторые функции, такие как интеграция виртуальной сети, проверка подлинности Azure Active Directory, сторонняя проверка подлинности или расширения сайтов Kudu, в настоящее время не работают. После добавления этих функций мы обновим нашу документацию и блог.
 
-* West US.
-* West Europe.
-* Southeast Asia.
+В настоящее время эта общедоступная предварительная версия доступна в следующих регионах:
 
-Web app on Linux is only supported in Dedicated App Service Plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
+* Запад США
+* Западная Европа 
+* Юго-Восточная Азия
 
-Web app on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
+Веб-приложения под управлением Linux поддерживаются только в рамках выделенных планов службы приложений. Уровни "Бесплатный" и "Общий" недоступны. Кроме того, планы службы приложений для обычных веб-приложений и веб-приложений Linux взаимоисключающие. Это значит, что веб-приложение Linux нельзя создать в рамках плана службы приложений не для платформы Linux.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event of a web app got restarted. 
+Веб-приложения Linux необходимо создавать в группе ресурсов, в которой отсутствуют веб-приложения под управлением других платформ в том же регионе.
 
-## <a name="next-steps"></a>Next Steps
-Follow the following links to get started with App Service on Linux. Please post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+## <a name="next-steps"></a>Дальнейшие действия
+Просмотрите следующие материалы, чтобы приступить к работе со службой приложений в Linux. Если у вас возникли вопросы, опубликуйте их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md) (Создание веб-приложений в службе приложений на платформе Linux)
+* [Как применять пользовательские образы Docker в службе приложений на платформе Linux](app-service-linux-using-custom-docker-image.md)
+* [Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux](app-service-linux-using-nodejs-pm2.md)
+* [Использование .NET Core в веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-using-dotnetcore.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

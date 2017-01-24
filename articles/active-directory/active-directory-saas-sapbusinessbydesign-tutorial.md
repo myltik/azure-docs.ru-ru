@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/02/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
+ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
+ms.openlocfilehash: e2506fc2fc7802dd0097cbb97687d9d2b0382871
 
 
 ---
@@ -63,19 +63,25 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
 1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory][1]
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
+
 6. В поле поиска введите **SAP Business ByDesign**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_01.png)
+
 7. В области результатов выберите **SAP Business ByDesign** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
     ![Active Directory](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_02.png)
@@ -105,9 +111,11 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
 1. На классическом портале Azure на странице интеграции с приложением **SAP Business ByDesign** в меню в верхней части страницы щелкните **Атрибуты**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_80.png) 
+
 2. В списке атрибутов токена SAML выберите имя атрибута и нажмите кнопку **Изменить**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_84.png) 
+
 3. В диалоговом окне "Изменение атрибута пользователя" выполните следующие действия:
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png) 
@@ -118,12 +126,15 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
     Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите **user.extensionattribute2**. 
    
     c. Нажмите **Завершено**. 
+
 4. На странице интеграции с приложением **SAP Business ByDesign** классического портала щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
+
 5. На странице **Как пользователи должны входить в SAP Business ByDesign?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_03.png) 
+
 6. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_04.png) 
@@ -180,9 +191,11 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
     Если функция единого входа неактивна, система отправит сотруднику обычный URL-адрес системы. Если функция единого входа активна, система проверит, есть ли у сотрудника пароль. При наличии пароля сотруднику будет отправлен URL-адрес единого входа и URL-адрес другого метода входа. Если пароля нет, сотруднику будет отправлен только URL-адрес единого входа.
    
     k. Сохраните изменения.
+
 9. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
+
 10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
     ![единого входа Azure AD][11]
@@ -197,13 +210,17 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_09.png) 
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png) 
+
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png) 
+
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png) 
@@ -213,22 +230,25 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
+
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_07.png) 
+
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_08.png) 
@@ -255,13 +275,17 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
    
     ![Назначение пользователя][201] 
+
 2. В списке приложений выберите **SAP Business ByDesign**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_50.png) 
+
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
     ![Назначение пользователя][203]
+
 4. В списке пользователей выберите **Britta Simon**.
+
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
@@ -295,6 +319,6 @@ ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

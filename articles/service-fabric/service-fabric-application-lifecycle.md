@@ -12,16 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 11/15/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2744f3f76a7253928a4248f6915eee0e7f8e9a
-ms.openlocfilehash: ba8d22f564a2736600054576a554cbc2037a1302
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
 
 
 ---
 # <a name="service-fabric-application-lifecycle"></a>Жизненный цикл приложения Service Fabric
 Как и в случае с другими платформами, приложение в Azure Service Fabric обычно проходит следующие фазы: проектирование, разработка, тестирование, развертывание, обновление, техническое обслуживание и удаление. Service Fabric предоставляет первоклассную поддержку полного жизненного цикла приложений в облаке: от разработки, развертывания, ежедневного управления и технического обслуживания до вывода приложения из эксплуатации. Модель службы использует несколько различных ролей для независимого участия в жизненном цикле приложения. В этой статье представлен обзор API и того, как они используются различными ролями на протяжении всех фаз жизненного цикла приложения в Service Fabric.
+
+В следующем видео от Академии Microsoft Virtual Academy также описывается процесс управления жизненным циклом приложения: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## <a name="service-model-roles"></a>Роли моделей служб
 Роли моделей служб:
@@ -98,6 +102,6 @@ ms.openlocfilehash: ba8d22f564a2736600054576a554cbc2037a1302
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

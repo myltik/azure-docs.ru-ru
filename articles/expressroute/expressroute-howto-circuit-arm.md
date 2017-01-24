@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Перед началом работы
-* Установите последнюю версию модулей Azure PowerShell (не ниже 1.0). Пошаговые инструкции по настройке компьютера для использования модулей PowerShell см. на странице [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Установите последнюю версию модулей Azure PowerShell (не ниже 1.0). Пошаговые инструкции по настройке компьютера для использования модулей PowerShell см. на странице [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
@@ -384,6 +384,6 @@ ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

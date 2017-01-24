@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: fa6c9b6b60aef689568c58699eeb89d14b1ae2bf
-ms.openlocfilehash: 73c47bcfbe018947930bb23fbbcc201b91a49944
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: a606f06de55b1db4392d066a3e1d026eb3b54d74
 
 
 ---
@@ -77,7 +77,7 @@ ClientAliveCountMax 0
 
 SSHD — это SSH-сервер, работающий на виртуальной машине Linux.  SSH — это клиент, который запускается из оболочки на рабочей станции MacBook или Linux, а также из Bash в Windows.  SSH — это также протокол, используемый для защиты и шифрования обмена данными между рабочей станцией и виртуальной машиной Linux. Иными словами, SSH также является VPN (виртуальной частной сетью).
 
-Для работы с этим руководством статьи очень важно не закрывать один сеанс работы с виртуальной машиной Linux, пока вы не выполните все инструкции.  Установленное SSH-подключение сохраняется, пока открыто окно сеанса.  Работа с одним терминалом позволяет вносить изменения в службу SSHD без блокировки в случае критических изменений.  Если ВМ Linux заблокирована с помощью неработающей конфигурации SSHD, Azure поможет вам сбросить ее, используя [расширения для доступа к ВМ Azure](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Для работы с этим руководством статьи очень важно не закрывать один сеанс работы с виртуальной машиной Linux, пока вы не выполните все инструкции.  Установленное SSH-подключение сохраняется, пока открыто окно сеанса.  Работа с одним терминалом позволяет вносить изменения в службу SSHD без блокировки в случае критических изменений.  Если ВМ Linux заблокирована с помощью неработающей конфигурации SSHD, Azure поможет вам сбросить ее, используя [расширения для доступа к ВМ Azure](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Для этого мы откроем два терминала и установим подключение SSH к ВМ Linux в каждом из них.  Первый терминал будет использоваться для изменений файла конфигурации SSHD и перезапуска службы SSHD.  Второй терминал будет использоваться для тестирования этих изменений после перезапуска службы.  Поскольку мы отключаем SSH-пароли и полагаемся исключительно на SSH-ключи, если ваши SSH-ключи неверны и вы закроете подключение к виртуальной машине, эта виртуальная машины окажется безвозвратно заблокированной. Никто не сможет войти в нее, поэтому ее придется удалить и создать заново.
 
@@ -177,14 +177,14 @@ azure vm reset-access \
 
 Теперь, когда вы настроили и заблокировали сервер SSH на ВМ Linux, можно переходить к изучению дополнительных рекомендаций по обеспечению безопасности.  
 
-* [Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure)
+* [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Шифрование дисков на виртуальной машине Linux с помощью интерфейса командной строки Azure)
 
-* [Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

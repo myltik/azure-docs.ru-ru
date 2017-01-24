@@ -1,13 +1,13 @@
 ---
-title: Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure | Microsoft Docs
-description: Используйте шаблон диспетчера ресурсов Azure, чтобы создать виртуальную машину Windows с помощью расширения системы диагностики Azure.
+title: "Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона Azure Resource Manager | Документация Майкрософт"
+description: "Используйте шаблон диспетчера ресурсов Azure, чтобы создать виртуальную машину Windows с помощью расширения системы диагностики Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: sbtron
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
+translationtype: Human Translation
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
+
 
 ---
 # <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure
-Расширение системы диагностики Azure позволяет использовать возможности мониторинга и диагностики в виртуальной машине Azure под управлением Windows. Чтобы использовать эти возможности на виртуальной машине, необходимо включить расширение в шаблон диспетчера ресурсов Azure. Дополнительные сведения о включении любого расширения в шаблон виртуальной машины см. в статье [Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин](virtual-machines-windows-extensions-authoring-templates.md). В этой статье описывается, как добавить расширение системы диагностики Azure в шаблон виртуальной машины Windows.  
+Расширение системы диагностики Azure позволяет использовать возможности мониторинга и диагностики в виртуальной машине Azure под управлением Windows. Чтобы использовать эти возможности на виртуальной машине, необходимо включить расширение в шаблон диспетчера ресурсов Azure. Дополнительные сведения о включении любого расширения в шаблон виртуальной машины см. в статье [Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В этой статье описывается, как добавить расширение системы диагностики Azure в шаблон виртуальной машины Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Добавление расширения системы диагностики Azure в определения ресурсов виртуальной машины
 Чтобы использовать расширение системы диагностики в виртуальной машине Windows, необходимо добавить его в шаблон диспетчера ресурсов в качестве ресурса виртуальной машины.
@@ -56,7 +60,7 @@ ms.author: saurabh
             ]
 
 
-Другой распространенный способ — добавить конфигурацию расширения в корневой узел ресурсов шаблона, не определяя ее в узле ресурсов виртуальной машины. При таком подходе необходимо явно указать иерархические связи между расширением и виртуальной машиной с помощью значений *name* и *type*. Например: 
+Другой распространенный способ — добавить конфигурацию расширения в корневой узел ресурсов шаблона, не определяя ее в узле ресурсов виртуальной машины. При таком подходе необходимо явно указать иерархические связи между расширением и виртуальной машиной с помощью значений *name* и *type*. Например: 
 
     "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
     "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -88,7 +92,7 @@ ms.author: saurabh
             "type": "string",
             "metadata": {
         "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-            }
+              }
         }
 
 Рекомендуется указать учетную запись хранения диагностических данных в группе ресурсов, отличной от группы ресурсов для виртуальной машины. Группа ресурсов может считаться единицей развертывания с отдельным временем существования, а виртуальную машину можно развернуть, а затем повторно развернуть после соответствующих обновлений конфигураций. Но диагностические данные можно продолжить хранить в одной учетной записи в этих развертываниях виртуальных машин. Если разместить учетную запись хранения в другом ресурсе, она может получать данные из различных развертываний виртуальных машин, что упрощает устранение неполадок в разных версиях.
@@ -115,7 +119,7 @@ ms.author: saurabh
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-Узел определения метрик в формате XML в представленной выше конфигурации — важный элемент конфигурации, так как он определяет способ агрегирования и хранения счетчиков производительности, определенных ранее в XML в узле *PerformanceCounter* . 
+Узел определения метрик в формате XML в представленной выше конфигурации — важный элемент конфигурации, так как он определяет способ агрегирования и хранения счетчиков производительности, определенных ранее в XML в узле *PerformanceCounter* . 
 
 > [!IMPORTANT]
 > Эти метрики обеспечивают данными диаграммы мониторинга и оповещения на портале Azure.  Узел **Metrics** с *resourceID* и **MetricAggregation** должен быть включен в конфигурацию диагностики виртуальной машины, если вы хотите видеть на портале Azure данные мониторинга этой виртуальной машины. 
@@ -142,11 +146,11 @@ ms.author: saurabh
 
 * **WADMetrics** — стандартный префикс для всех таблиц WADMetrics.
 * **PT1H** или **PT1M** — указывает, что таблица содержит сводные данные за 1 час и 1 минуту.
-* **P10D** — указывает, что таблица будет содержать данные за 10 дней с момента, когда таблица начала собирать данные.
+* **P10D** — указывает, что таблица будет содержать данные за 10 дней с момента, когда таблица начала собирать данные.
 * **V2S** — строковая константа.
 * **yyyymmdd** — дата начала сбора данных таблицей.
 
-Например, таблица *WADMetricsPT1HP10DV2S20151108* будет содержать данные метрик, агрегированные за час в течение 10 дней, начиная с 11 ноября 2015 года.    
+Например, таблица *WADMetricsPT1HP10DV2S20151108* будет содержать данные метрик, агрегированные за час в течение 10 дней, начиная с 11 ноября 2015 года.    
 
 Каждая таблица WADMetrics будет содержать следующие столбцы:
 
@@ -161,9 +165,12 @@ ms.author: saurabh
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Полный пример шаблона виртуальной машины Windows с расширением системы диагностики см. в разделе [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension).   
-* Разверните шаблон диспетчера ресурсов с использованием [Azure PowerShell](virtual-machines-windows-ps-manage.md) или [командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
-* Узнайте больше о [создании шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+* Разверните шаблон диспетчера ресурсов с использованием [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [командной строки Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Узнайте больше о [создании шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

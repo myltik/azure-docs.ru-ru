@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
-ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
@@ -31,10 +31,11 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
  Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для Java и .NET Core.
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 ### <a name="supported-operating-system-versions"></a>Поддерживаемые версии операционных систем
 Для разработки поддерживаются следующие операционные системы:
 
-* Ubuntu 16.04 (Xenial Xerus).
+* Ubuntu 16.04 (Xenial Xerus)
 
 ## <a name="update-your-apt-sources"></a>Обновление списка источников APT
 Прежде чем перейти к установке пакета SDK и связанного пакета среды выполнения с помощью команды apt-get, необходимо обновить список источников APT.
@@ -110,7 +111,13 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
    
     ![Обозреватель Service Fabric Explorer в Linux][sfx-linux]
 
-На этом этапе можно развертывать готовые пакеты приложений Service Fabric или новые приложения на базе гостевых контейнеров или гостевых исполняемых файлов. Чтобы создать новые службы с помощью пакетов SDK для Java или .NET Core, выполните следующие дополнительные этапы установки.
+На этом этапе можно развертывать готовые пакеты приложений Service Fabric или новые приложения на базе гостевых контейнеров или гостевых исполняемых файлов. Чтобы создать службы с помощью пакетов SDK для Java или .NET Core, выполните этапы установки, указанные в следующих разделах.
+
+
+> [!NOTE]
+> Автономные кластеры не поддерживаются в системе Linux. В предварительной версии поддерживаются только универсальные кластеры, а также кластеры Azure из нескольких компьютеров под управлением Linux.
+> 
+> 
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Установка пакета SDK для Java и подключаемого модуля Eclipse Neon (необязательно)
 Пакеты SDK для Java предоставляют библиотеки и шаблоны для создания служб Service Fabric на языке Java.
@@ -142,28 +149,32 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 1. Установите пакет SDK для .NET Core.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. Выполните сценарий установки пакета SDK.
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
 ## <a name="updating-the-sdk-and-runtime"></a>Обновление пакета SDK и среды выполнения
 
 Для обновления до последней версии пакета SDK и среды выполнения сделайте следующее (удалите из списка пакеты SDK, которые не требуется обновлять или устанавливать):
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
 
 Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Create your first Azure Service Fabric application](service-fabric-create-your-first-linux-application-with-java.md)
+* [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
+* [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
@@ -178,6 +189,6 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

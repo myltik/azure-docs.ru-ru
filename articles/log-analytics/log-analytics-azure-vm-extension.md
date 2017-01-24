@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 
 ---
@@ -121,7 +121,7 @@ $location = $vm.Location
 
 Включив агент Log Analytics в шаблон Resource Manager, можно обеспечить предварительную настройку каждой виртуальной машины для отправки отчетов в рабочую область Log Analytics.
 
-Дополнительную информацию о шаблонах Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
+Дополнительную информацию о шаблонах Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Ниже приведен пример шаблона Resource Manager, который используется для развертывания виртуальной машины Windows с установленным расширением Microsoft Monitoring Agent. По сути это стандартный шаблон виртуальной машины с некоторыми дополнениями:
 
@@ -161,7 +161,7 @@ $location = $vm.Location
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
@@ -404,6 +404,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

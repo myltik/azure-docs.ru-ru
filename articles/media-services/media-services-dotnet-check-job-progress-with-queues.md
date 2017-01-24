@@ -1,12 +1,12 @@
 ---
-title: Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET | Microsoft Docs
-description: Узнайте, как использовать хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа. Пример кода написан на языке C# и использует пакет SDK служб мультимедиа для .NET.
+title: "Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET | Документация Майкрософт"
+description: "Узнайте, как использовать хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа. Пример кода написан на языке C# и использует пакет SDK служб мультимедиа для .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,36 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
+
 
 ---
-# Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа (как описано в этой статье) или определив обработчик событий StateChanged (как описано [здесь](media-services-check-job-progress.md)).
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа с использованием .NET
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа (как описано в этой статье) или определив обработчик событий StateChanged (как описано [здесь](media-services-check-job-progress.md) ).  
 
-## Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа
-Службы мультимедиа Microsoft Azure позволяют доставлять уведомления в [хранилище очередей Azure](../storage/storage-dotnet-how-to-use-queues.md#what-is) при обработке заданий мультимедиа. В этой статье показано, как получить эти уведомления из хранилища очередей.
+## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Использование хранилища очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа
+Службы мультимедиа Microsoft Azure позволяют доставлять уведомления в [хранилище очередей Azure](../storage/storage-dotnet-how-to-use-queues.md) при обработке заданий мультимедиа. В этой статье показано, как получить эти уведомления из хранилища очередей.
 
 Доступ к сообщениям, доставленным в хранилище очередей, можно получить в любой точке мира. Служба очередей Azure предоставляет надежную и масштабируемую архитектуру обмена сообщениями. Рекомендуется опрашивать хранилище очередей, а не использовать другие методы.
 
 Вот один из распространенных сценариев прослушивания уведомлений служб мультимедиа: вы разрабатываете систему управления содержимым, которая должна выполнить ряд дополнительных задач после завершения кодирования (например, инициировать следующий шаг в рабочем процессе или опубликовать содержимое).
 
-### Рекомендации
+### <a name="considerations"></a>Рекомендации
 При разработке приложений для служб мультимедиа, использующих очередь хранилища Azure, учитывайте следующее.
 
-* Служба очередей не гарантирует доставку "первым пришел, первым вышел" (FIFO). Дополнительную информацию см. в разделе [Очереди Azure и очереди служебной шины Azure — сравнение и противопоставление](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Служба очередей не гарантирует доставку "первым пришел, первым вышел" (FIFO). Дополнительные сведения см. в статье [Очереди Azure и очереди служебной шины: сходства и различия](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Служба очередей хранилища Azure — это не служба push-уведомлений, вам необходимо опрашивать очередь.
-* Можно использовать любое количество очередей. Дополнительную информацию см. в разделе [REST API службы очередей](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-* С очередями хранилища Azure связан ряд ограничений и особенностей, которые описаны в следующей статье: [Очереди Azure и очереди служебной шины Azure — сравнение и противопоставление](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Можно использовать любое количество очередей. Дополнительные сведения см. в статье [REST API службы очередей](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* С очередями хранилища Azure связан ряд ограничений и особенностей, которые описаны в следующей статье: [Очереди Azure и очереди служебной шины Azure — сравнение и противопоставление](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
-### Пример кода
+### <a name="code-example"></a>Пример кода
 Пример кода в этом разделе выполняет следующие задачи:
 
-1. определяет класс **EncodingJobMessage**, который сопоставляется с форматом уведомления; десериализует сообщения, полученные из очереди, в объекты типа **EncodingJobMessage**;
-2. загружает данные учетной записи служб мультимедиа и хранилища из файла app.config; использует эти сведения для создания объектов **CloudMediaContext** и **CloudQueue**;
+1. Определяет класс **EncodingJobMessage**, который сопоставляется с форматом уведомления. Код десериализует сообщения, полученные из очереди, в объекты типа **EncodingJobMessage**.
+2. загружает данные учетной записи служб мультимедиа и хранилища из файла app.config; Использует эти сведения для создания объектов **CloudMediaContext** и **CloudQueue**.
 3. Создает очередь, которая получает уведомления о задании кодирования.
 4. создает конечную точку уведомлений, сопоставленную с очередью;
 5. присоединяет конечную точку уведомлений к заданию и отправляет задание кодирования. К заданию может быть прикреплено несколько конечных точек уведомлений.
 6. В этом примере нас интересуют только конечные состояния обработки задания, поэтому мы передаем **NotificationJobState.FinalStatesOnly** в метод **AddNew**.
-   
+
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
 7. Если передать параметр NotificationJobState.All, вы получите все уведомления об изменении состояния: Queued -> Scheduled -> Processing -> Finished. Тем не менее, как было отмечено ранее, служба очередей хранилища Azure не гарантирует упорядоченной доставки. Можно использовать свойство Timestamp (определено в типе EncodingJobMessage в примере ниже), чтобы упорядочить сообщения. Возможно, вы получите повторяющиеся уведомления. Используйте свойство ETag (определенное в типе EncodingJobMessage) для проверки наличия повторений. Также возможно, что некоторые уведомления об изменении состояния будут пропущены.
 8. Ожидает, пока задание не перейдет в состояние завершения, проверяя очередь каждые 10 секунд. Удаляет сообщения после их обработки.
@@ -51,10 +55,10 @@ ms.author: juliako
 
 > [!NOTE]
 > Рекомендуемый способ наблюдения за состоянием задания — прослушивание уведомлений, как показано в следующем примере.
-> 
-> Кроме того, можно проверить состояние задания с помощью свойства **IJob.State**. Уведомление о завершении задания может поступить до того, как свойство State в **IJob** получит значение **Finished**. Свойство **IJob.State** отражает точное состояние с небольшой задержкой.
-> 
-> 
+>
+> Кроме того, можно проверить состояние задания с помощью свойства **IJob.State** .  Уведомление о завершении задания может поступить до того, как свойство State в **IJob** получит значение **Finished**. Свойство **IJob.State** отражает точное состояние с небольшой задержкой.
+>
+>
 
     using System;
     using System.Linq;
@@ -75,14 +79,14 @@ ms.author: juliako
     {
         public class EncodingJobMessage
         {
-            // MessageVersion is used for version control. 
+            // MessageVersion is used for version control.
             public String MessageVersion { get; set; }
 
-            // Type of the event. Valid values are 
+            // Type of the event. Valid values are
             // JobStateChange and NotificationEndpointRegistration.
             public String EventType { get; set; }
 
-            // ETag is used to help the customer detect if 
+            // ETag is used to help the customer detect if
             // the message is a duplicate of another message previously sent.
             public String ETag { get; set; }
 
@@ -99,9 +103,9 @@ ms.author: juliako
             //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
 
             // For the NotificationEndpointRegistration event the values are:
-            //     NotificationEndpointId- Id of the NotificationEndpoint 
+            //     NotificationEndpointId- Id of the NotificationEndpoint
             //          that triggered the notification.
-            //     State- The state of the Endpoint. 
+            //     State- The state of the Endpoint.
             //          Valid values are: Registered and Unregistered.
 
             public IDictionary<string, object> Properties { get; set; }
@@ -126,14 +130,14 @@ ms.author: juliako
 
                 string endPointAddress = Guid.NewGuid().ToString();
 
-                // Create the context. 
+                // Create the context.
                 _context = new CloudMediaContext(mediaServicesAccountName, mediaServicesAccountKey);
 
                 // Create the queue that will be receiving the notification messages.
                 _queue = CreateQueue(storageConnectionString, endPointAddress);
 
                 // Create the notification point that is mapped to the queue.
-                _notificationEndPoint = 
+                _notificationEndPoint =
                         _context.NotificationEndPoints.Create(
                         Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
 
@@ -172,15 +176,15 @@ ms.author: juliako
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
 
-                //Create an encrypted asset and upload the mp4. 
-                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
+                //Create an encrypted asset and upload the mp4.
+                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
                     inputMediaFilePath);
 
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-                // Create a task with the conversion details, using a configuration file. 
+                // Create a task with the conversion details, using a configuration file.
                 ITask task = job.Tasks.AddNew("My encoding Task",
                     processor,
                     "H264 Multiple Bitrate 720p",
@@ -194,7 +198,7 @@ ms.author: juliako
                     AssetCreationOptions.None);
 
                 // Add a notification point to the job. You can add multiple notification points.  
-                job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, 
+                job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
                     _notificationEndPoint);
 
                 job.Submit();
@@ -237,7 +241,7 @@ ms.author: juliako
                                 Console.WriteLine("    {0}: {1}", property.Key, property.Value);
                             }
 
-                            // We are only interested in messages 
+                            // We are only interested in messages
                             // where EventType is "JobStateChange".
                             if (encodingJobMsg.EventType == "JobStateChange")
                             {
@@ -254,7 +258,7 @@ ms.author: juliako
 
                                     if (newJobState == (JobState)expectedState)
                                     {
-                                        Console.WriteLine("job with Id: {0} reached expected state: {1}", 
+                                        Console.WriteLine("job with Id: {0} reached expected state: {1}",
                                             jobId, newJobState);
                                         jobReachedExpectedState = true;
                                         break;
@@ -271,7 +275,7 @@ ms.author: juliako
                     bool timedOut = (timeDiff.TotalSeconds > timeOutInSeconds);
                     if (timedOut)
                     {
-                        Console.WriteLine(@"Timeout for checking job notification messages, 
+                        Console.WriteLine(@"Timeout for checking job notification messages,
                                             latest found state ='{0}', wait time = {1} secs",
                             jobState,
                             timeDiff.TotalSeconds);
@@ -283,7 +287,7 @@ ms.author: juliako
 
             static private IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
             {
-                var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(), 
+                var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(),
                     assetCreationOptions);
 
                 var fileName = Path.GetFileName(singleFilePath);
@@ -336,16 +340,20 @@ ms.author: juliako
         NewState: Finished
         OldState: Processing
         AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
+    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
     State: Finished
 
 
-## Дальнейшие действия
+## <a name="next-step"></a>Дальнейшие действия
 Схемы обучения работе со службами мультимедиа
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Jan17_HO2-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: "Настройка правила брандмауэра уровня сервера базы данных SQL | Документация Майкрософт"
-description: "Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к Azure SQL Server."
+title: "Портал Azure: правила брандмауэра на уровне сервера базы данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как настроить правила брандмауэра на уровне сервера для IP-адресов, по которым получается доступ к серверам SQL Azure, с использованием портала Azure."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Подробное руководство см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
-- Руководство по безопасности см. в статье [этой статье](sql-database-get-started-security.md).
+- Руководство по безопасности см. в статье [этой статье](sql-database-control-access-sql-authentication-get-started.md).
 - Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Сведения о добавлении дополнительных пользователей, которые могут подключаться к базам данных, см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

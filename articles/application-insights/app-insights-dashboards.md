@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 
 
 ---
@@ -114,7 +114,7 @@ ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
 * **Обзор** позволяет вернуться к колонке обзора приложения.
 * **Журнал действий** предоставляет доступ к оповещениям и административным событиям Azure.
 * [**Контроль доступа**](app-insights-resources-roles-access-control.md) предоставляет доступ к членам группы и другим пользователям.
-* [**Теги**](../resource-group-using-tags.md) можно использовать для группирования приложения с другими приложениями.
+* [**Теги**](../azure-resource-manager/resource-group-using-tags.md) можно использовать для группирования приложения с другими приложениями.
 
 ИЗУЧЕНИЕ
 
@@ -141,7 +141,7 @@ ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
 
 ПАРАМЕТРЫ
 
-* [**Блокировки**](../resource-group-lock-resources.md) позволяют блокировать ресурсы Azure.
+* [**Блокировки**](../azure-resource-manager/resource-group-lock-resources.md) позволяют блокировать ресурсы Azure.
 * [**Сценарий автоматизации**](app-insights-powershell.md) — это экспорт определения ресурса Azure, позволяющий использовать его как шаблон для создания новых ресурсов.
 
 ПОДДЕРЖКА
@@ -157,6 +157,6 @@ ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

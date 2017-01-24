@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -65,12 +65,12 @@ ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 - Общие сведения о логических серверах SQL Azure см. в [этой статье](sql-database-server-overview.md).
 - Сведения о поддержке функций Transact-SQL в базе данных SQL Azure см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
 - Ознакомьтесь со сведениями о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб**. Общие сведения об уровнях служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
-- Рекомендации по безопасности см. в статье [Безопасность в базе данных SQL Azure: рекомендации и ограничения](sql-database-security-guidelines.md).
+- Общие сведения о методах защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
 - Сведения о доступности драйверов и поддержке для базы данных SQL см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8216106cf44016d355885d9117b6ac69127341c0
 
 
 ---
@@ -34,7 +34,8 @@ ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
 
 В обоих случаях данные извлекаются из хранилища службы архивации Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 ## <a name="recover-data-to-the-same-machine"></a>Восстановление данных на тот же компьютер
 Если вы случайно удалили файл и хотите восстановить его на том же компьютере (с которого создана резервная копия), указанные ниже действия помогут вам восстановить данные.
@@ -120,6 +121,6 @@ ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

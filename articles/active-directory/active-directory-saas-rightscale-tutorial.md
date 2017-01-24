@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ac484419371344452dbe9042791b85d36618e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 
 
 ---
@@ -268,6 +268,6 @@ ms.openlocfilehash: 39ac484419371344452dbe9042791b85d36618e3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

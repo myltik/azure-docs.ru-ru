@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 85752f9286fc7fe8d9cc3acf6be66cca623934f5
-ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
+ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
+ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
 
 ## <a name="prepare-the-data"></a>Подготовка данных
 
-Если вы создали кластер HDInsight с Data Lake Store в качестве хранилища по умолчанию, необходимо выполнить этот шаг, так как во время процедуры создания кластера в указанную учетную запись Data Lake Store добавляются некоторые примеры данных.
+Если вы создали кластер HDInsight с Data Lake Store в качестве хранилища по умолчанию, то этот шаг выполнять не требуется, так как в процессе создания кластера в указанную учетную запись Data Lake Store добавляются некоторые примеры данных.
 
 Если вы создали кластер HDInsight с Data Lake Store в качестве дополнительного хранилища и хранилище BLOB-объектов Azure как хранилище по умолчанию, в учетную запись Data Lake Store сначала следует скопировать несколько примеров данных. Вы можете использовать пример данных из хранилища BLOB-объектов Azure, связанного с кластером HDInsight. Для этого можно использовать [инструмент ADLCopy](http://aka.ms/downloadadlcopy) . Скачайте и установите этот инструмент с помощью следующей ссылки.
 
@@ -137,6 +137,7 @@ ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
 * [Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Nov16_HO5-->
 
 

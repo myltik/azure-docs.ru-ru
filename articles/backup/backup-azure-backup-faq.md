@@ -1,3 +1,4 @@
+
 ---
 title: "Часто задаваемые вопросы о службе архивации Azure | Документация Майкрософт"
 description: "Ответы на часто задаваемые вопросы о службе архивации, агенте службы архивации, резервном копировании и периоде удержания, восстановлении, безопасности, а также ответы на другие распространенные вопросы об аварийном восстановлении и резервном копировании."
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 | Windows 7 и последние пакеты обновления |64-разрядная |Максимальная, Корпоративная, Профессиональная, Домашняя расширенная, Домашняя базовая, Начальная |
 | Windows 8.1 и последние пакеты обновления |64-разрядная |Корпоративная, Профессиональная |
 | Windows 10 |64-разрядная |Корпоративная, Профессиональная, Домашняя |
+| Windows Server 2016 |64-разрядная |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 и последние пакеты обновления |64-разрядная |Standard, Datacenter, Foundation |
 | Windows Server 2012 и последние пакеты обновления |64-разрядная |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 и последние пакеты обновления |64-разрядная |Standard, Workgroup |
@@ -172,7 +174,7 @@ ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>Есть ли отличия между политикой хранения DPM и Windows Server или клиента Windows (т. е. на сервере Windows Server без DPM)?<br/>
 Нет, с помощью DPM, Windows Server и клиента Windows можно настроить ежедневную, еженедельную, ежемесячную и ежегодную политику хранения.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Можно ли настроить политики хранения выборочно, т. е. настроить еженедельную и ежедневную политики, но не ежегодную или ежемесячную?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Можно ли настроить политики хранения выборочно, т. е. настроить еженедельную и ежедневную политики, но не ежегодную или ежемесячную?<br/>
 Да, структура хранения службы архивации Azure обеспечивает полную гибкость в определении политики хранения в соответствии с вашими требованиями.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Можно ли запланировать резервное копирование на 18:00, а политики хранения настроить на другое время?<br/>
@@ -275,6 +277,6 @@ ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

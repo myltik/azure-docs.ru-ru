@@ -9,6 +9,7 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
+ms.custom: development
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
 
 
 ---
@@ -25,9 +26,9 @@ ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
 Чтобы создать базу данных SQL и управлять ею из кода, необходимо зарегистрировать приложение в домене Azure Active Directory (AAD) в подписке, где были созданы ресурсы Azure.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Создание субъекта-службы для доступа к ресурсам из приложения
-Установите и запустите последнюю версию [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Установите и запустите последнюю версию [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-Следующий сценарий PowerShell создает приложение Active Directory (AD) и субъект-службу, которые необходимы для проверки подлинности нашего приложения C#. Сценарий выводит значения, необходимые для предыдущего примера на C#. Дополнительные сведения см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../resource-group-authenticate-service-principal.md).
+Следующий сценарий PowerShell создает приложение Active Directory (AD) и субъект-службу, которые необходимы для проверки подлинности нашего приложения C#. Сценарий выводит значения, необходимые для предыдущего примера на C#. Дополнительные сведения см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -77,6 +78,6 @@ ms.openlocfilehash: 7943d1c385ea2dd7a38eff31b068fba9650ee7c7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
 
 
 ---
@@ -65,7 +65,7 @@ ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
 7. Щелкните **Приобрести** для установки решения.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Развертывание шаблона Azure Resource Manager
-Решения, полученные из сообщества или [созданные самостоятельно](#creating-a-solution), реализуются в качестве шаблона Resource Manager. Для [развертывания шаблона](../resource-group-template-deploy-portal.md) можно использовать любой из стандартных методов.  Обратите внимание, что перед установкой решения необходимо создать и связать [рабочую область OMS и учетную запись службы автоматизации](#oms-workspace-and-automation-account).
+Решения, полученные из сообщества или [созданные самостоятельно](#creating-a-solution), реализуются в качестве шаблона Resource Manager. Для [развертывания шаблона](../azure-resource-manager/resource-group-template-deploy-portal.md) можно использовать любой из стандартных методов.  Обратите внимание, что перед установкой решения необходимо создать и связать [рабочую область OMS и учетную запись службы автоматизации](#oms-workspace-and-automation-account).
 
 ## <a name="oms-workspace-and-automation-account"></a>Рабочая область OMS и учетная запись службы автоматизации
 Большинство решений для управления требуют [рабочую область OMS](../log-analytics/log-analytics-manage-access.md) для хранения представлений и [учетную запись службы автоматизации](../automation/automation-security-overview.md#automation-account-overview) для хранения модулей Runbook и связанных ресурсов. Рабочая область и учетная запись должны отвечать следующим требованиям.
@@ -116,6 +116,6 @@ ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

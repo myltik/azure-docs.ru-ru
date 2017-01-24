@@ -1,12 +1,12 @@
 ---
-title: Azure Notification Hubs Secure Push
-description: Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.
+title: "Безопасные push-уведомления посредством центров уведомлений Azure"
+description: "Узнайте, как отправлять безопасные push-уведомления в приложение iOS из Azure. Примеры кода написаны на Objective-C и C#."
 documentationcenter: ios
 author: ysxu
 manager: erikre
-editor: ''
+editor: 
 services: notification-hubs
-
+ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -14,9 +14,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
+
 
 ---
-# <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs Secure Push
+# <a name="azure-notification-hubs-secure-push"></a>Безопасные push-уведомления посредством центров уведомлений Azure
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -24,45 +28,45 @@ ms.author: yuaxu
 > 
 > 
 
-## <a name="overview"></a>Overview
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+## <a name="overview"></a>Обзор
+Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
 
-Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
+Из-за ограничений, связанных с правовыми нормами или обеспечением безопасности, иногда в уведомлении могут присутствовать данные, которые нельзя передать через стандартную инфраструктуру push-уведомлений. В этом учебнике рассказывается о том, как реализовать этот принцип при отправке важной информации через защищенное соединение с проверкой подлинности, установленное между устройством клиента и серверной частью приложения.
 
-At a high level, the flow is as follows:
+На высоком уровне поток можно представить следующим образом.
 
-1. The app back-end:
-   * Stores secure payload in back-end database.
-   * Sends the ID of this notification to the device (no secure information is sent).
-2. The app on the device, when receiving the notification:
-   * The device contacts the back-end requesting the secure payload.
-   * The app can show the payload as a notification on the device.
+1. Серверная часть приложения:
+   * Сохраняет полезную нагрузку в базе данных серверной части.
+   * Отправляет идентификатор этого уведомления устройству (защищаемые сведения не передаются).
+2. Приложение на устройстве при получении уведомления:
+   * Устройство связывается с серверной частью и запрашивает полезную нагрузку.
+   * Приложение может показывать полезную нагрузку в виде уведомления на устройстве.
 
-It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
+Стоит отметить: в предыдущем потоке (и в этом учебнике) мы предположили, что устройство сохраняет маркер проверки подлинности в локальном хранилище после входа пользователя. Таким образом обеспечивается удобство работы, так как с помощью этого маркера устройство способно получать безопасные полезные данные уведомлений. Если приложение не сохраняет маркеры проверки подлинности на устройстве, или если истек срок действия маркеров, приложение устройства, после получения уведомления, должно отобразить общее уведомление, предлагая пользователю запустить приложение. Затем приложение выполняет проверку подлинности пользователя и отображает полезную нагрузку уведомления.
 
-This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, so you should complete the steps in that tutorial first.
+В этом учебнике по безопасности push-уведомлений показано, как безопасно отправлять push-уведомление. Данное руководство является продолжением другого учебника под названием [Уведомление пользователей](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , поэтому необходимо сначала выполнить шаги в указанном учебнике.
 
 > [!NOTE]
-> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> В этом учебнике подразумевается, что вы создали и настроили центр уведомлений, как описано в руководстве [Приступая к работе с центрами уведомлений (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-ios-project"></a>Modify the iOS project
-Now that you modified your app back-end to send just the *id* of a notification, you have to change your iOS app to handle that notification and call back your back-end to retrieve the secure message to be displayed.
+## <a name="modify-the-ios-project"></a>Внесение изменений в проект iOS
+После того, как вы изменили серверную часть приложения для отправки только *идентификатора* уведомления, необходимо внести изменения в приложение iOS для обработки этого уведомления и осуществления обратного вызова к серверной части для извлечения конфиденциального сообщения, которое должно быть отображено.
 
-To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.
+Для достижения этой цели мы напишем логику извлечения безопасного содержимого из серверной части приложения.
 
-1. In **AppDelegate.m**, make sure the app registers for silent notifications so it processes the notification id sent from the backend. Add the **UIRemoteNotificationTypeNewsstandContentAvailability** option in didFinishLaunchingWithOptions:
+1. Убедитесь, что в **AppDelegate.m**приложение подписано на получение автоматических уведомлений и обрабатывает отправленный из серверной части идентификатор уведомлений. Добавьте параметр **UIRemoteNotificationTypeNewsstandContentAvailability** в didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
-2. In your **AppDelegate.m** add an implementation section at the top with the following declaration:
+2. В файле **AppDelegate.m** добавьте в начало файла реализационную часть со следующим объявлением:
    
         @interface AppDelegate ()
         - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
         @end
-3. Then add in the implementation section the following code, substituting the placeholder `{back-end endpoint}` with the endpoint for your back-end obtained previously:
+3. Затем добавьте в реализационную часть следующий код, заменив заполнитель `{back-end endpoint}` на конечную точку серверной части, которая была получена ранее:
 
 ```
         NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -113,11 +117,11 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 
     This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
-1. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
-2. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
+1. Теперь мы обработаем входящее уведомление и используем вышеуказанный метод для извлечения содержимого и его отображения. Во-первых, мы должны создать для приложения iOS возможность работы в фоновом режиме при получении push-уведомления. В **XCode** выберите проект приложения в панели слева, затем выберите основную платформу в разделе **Targets** (Целевые объекты) центральной панели.
+2. Затем щелкните вкладку **Capabilities** (Возможности) в верхней части центральной панели и установите флажок **Remote Notifications** (Удаленные уведомления).
    
     ![][IOS1]
-3. In **AppDelegate.m** add the following method to handle push notifications:
+3. В файле **AppDelegate.m** добавьте следующий метод для обработки push-уведомлений:
    
         -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
         {
@@ -140,19 +144,19 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
    
         }
    
-    Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end. The specific handling of these cases depend mostly on your target user experience. One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.
+    Обратите внимание, что случаи отсутствующего свойства заголовки проверки подлинности или отклонения предпочтительнее обрабатывать на серверной части. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
 
-## <a name="run-the-application"></a>Run the Application
-To run the application, do the following:
+## <a name="run-the-application"></a>Запуск приложения
+Для запуска приложения выполните следующие действия:
 
-1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
-2. In the iOS app UI, enter a username and password. These can be any string, but they must be the same value.
-3. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
+1. В XCode запустите приложение на физическом устройстве под управлением iOS (push-уведомления не будут работать в симуляторе).
+2. В пользовательском интерфейсе приложения iOS введите имя пользователя и пароль. Это могут быть любые совпадающие строки.
+3. В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

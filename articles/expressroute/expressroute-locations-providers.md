@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
+ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
 
 
 ---
@@ -37,7 +37,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | --- | --- | --- |
 | **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия, Монреаль+, Квебек+, Торонто |
 | **Северная Америка** |Южная часть Бразилии |Сан-Паулу |
-| **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс)+, Париж |
+| **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс), Париж |
 | **Азия** |Восточная Азия, Юго-Восточная Азия |Гонконг, Сингапур |
 | **Япония** |Западная Япония, Восточная Япония |Осака, Токио |
 | **Австралия** |Восточная Австралия, Юго-Восточная Австралия |Мельбурн, Сидней |
@@ -83,11 +83,11 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Париж** |Interxion, Equinix+ |
 | **Сан-Паулу** |Equinix Telefonica |
 | **Сиэтл;** |Equinix, Level 3 Communications, Megaport |
-| **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Торонто** |Cologix, Equinix, Megaport, Zayo Group |
+| **Торонто** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
 | **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** означает "скоро"
@@ -134,11 +134,13 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
+| **Лондон** | Equinix | Exponential E |
 | **Нью-Йорк** |Equinix |Lightower |
 | **Сиэтл;** |Equinix |Alaska Communications |
 | **Кремниевая долина** |Equinix |XO Communications |
 | **Сингапур** |Equinix |1CLOUDSTAR |
-| **Вашингтон, округ Колумбия** |Equinix |Lightower |
+| **Сидней** | Megaport | Macquarie |
+| **Вашингтон, округ Колумбия** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Системные интеграторы ExpressRoute
 Возможность частного подключения, соответствующего вашим потребностям, будет зависеть от масштаба сети. Чтобы упростить переход на ExpressRoute, вы можете обратиться к одному из системных интеграторов, указанных в таблице ниже.
@@ -158,6 +160,6 @@ ExpressRoute поддерживается во всех регионах и ра
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

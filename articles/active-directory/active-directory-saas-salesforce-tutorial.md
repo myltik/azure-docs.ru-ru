@@ -1,22 +1,26 @@
 ---
-title: Учебник. Как интегрировать Salesforce с Azure Active Directory | Microsoft Docs
-description: Узнайте, как использовать Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с Salesforce | Документация Майкрософт"
+description: "Узнайте, как использовать Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 27857431abd965fd4f65c61874f9ecfc1730a7e6
+
 
 ---
-# <a name="tutorial:-how-to-integrate-salesforce-with-azure-active-directory"></a>Учебник. Как интегрировать Salesforce с Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Руководство по интеграции Azure Active Directory с Salesforce
 В этом учебнике мы покажем, как подключить среду Salesforce к Azure Active Directory. Вы узнаете, как настроить единый вход в Salesforce, включить автоматическую подготовку пользователей и предоставить пользователям доступ к Salesforce.
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -47,7 +51,7 @@ ms.author: asmalser-msft
 > 
 > 
 
-## <a name="step-1:-add-salesforce-to-your-directory"></a>Шаг 1. Добавление Salesforce в каталог
+## <a name="step-1-add-salesforce-to-your-directory"></a>Шаг 1. Добавление Salesforce в каталог
 1. На [классическом портале Azure](https://manage.windowsazure.com)в области навигации слева щелкните **Active Directory**.
    
     ![Выберите Active Directory в области навигации слева.][0]
@@ -68,7 +72,7 @@ ms.author: asmalser-msft
    
     ![Страница быстрого запуска Salesforce в Azure AD][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>Шаг 2. Включение единого входа
+## <a name="step-2-enable-single-sign-on"></a>Шаг 2. Включение единого входа
 1. Перед настройкой единого входа необходимо настроить и развернуть пользовательский домен для вашей среды Salesforce. Инструкции по выполнению этой задачи см. на странице [Настройка имени домена](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US).
 2. На странице быстрого запуска Salesforce в Azure AD щелкните **Настроить единый вход** .
    
@@ -146,7 +150,7 @@ ms.author: asmalser-msft
     ![Введите адрес электронной почты.][19]
 17. Нажмите кнопку **Завершить** , чтобы закрыть диалоговое окно. Сведения о проверке конфигурации см. в разделе [Назначение пользователей Salesforce](#step-4-assign-users-to-salesforce) ниже.
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>Шаг 3. Включение автоматической подготовки пользователей
+## <a name="step-3-enable-automated-user-provisioning"></a>Шаг 3. Включение автоматической подготовки пользователей
 1. На странице быстрого запуска Salesforce в Azure AD нажмите кнопку **Настройка подготовки пользователей** .
    
     ![Нажмите кнопку "Настройка подготовки пользователей".][20]
@@ -160,10 +164,10 @@ ms.author: asmalser-msft
    > 
 3. Для получения маркера безопасности Salesforce откройте новую вкладку и выполните вход с этой учетной записью администратора Salesforce. В правом верхнем углу страницы щелкните свое имя и выберите команду **Мои параметры**.
    
-    ![Щелкните свое имя, а затем — "Мои параметры".][22]
+    ![Щелкните свое имя, а затем — "Мои параметры".][22]
 4. В области навигации слева щелкните **Personal** (Личное), чтобы развернуть соответствующий раздел, и выберите команду **Reset My Security Token** (Сброс маркера безопасности).
    
-    ![Щелкните свое имя, а затем — "Мои параметры".][23]
+    ![Щелкните свое имя, а затем — "Мои параметры".][23]
 5. На странице **Reset My Security Token** (Сброс маркера безопасности) нажмите кнопку **Reset Security Token** (Сбросить маркер безопасности).
    
     ![Прочитайте предупреждения.][24]
@@ -175,7 +179,7 @@ ms.author: asmalser-msft
    
     ![Введите адрес электронной почты для получения уведомлений.][26]
 
-## <a name="step-4:-assign-users-to-salesforce"></a>Шаг 4. Назначение пользователей Salesforce
+## <a name="step-4-assign-users-to-salesforce"></a>Шаг 4. Назначение пользователей Salesforce
 1. Чтобы проверить конфигурацию, создайте тестовую учетную запись в каталоге.
 2. На странице быстрого запуска Salesforce нажмите кнопку **Назначить пользователей** .
    
@@ -184,10 +188,10 @@ ms.author: asmalser-msft
    
    * Если вы еще не включили автоматическую подготовку пользователей, то появится следующее сообщение:
      
-        ![Confirm the assignment.][28]
+        ![Подтвердите назначение.][28]
    * Если автоматическая подготовка пользователей включена, появится запрос на определение профиля, который нужно назначить пользователю в NetSuite. Через несколько минут подготовленные пользователи появятся в вашей среде Salesforce.
      
-        ![Confirm the assignment.][29]
+        ![Подтвердите назначение.][29]
      
      > [!IMPORTANT]
      > При подготовке для среды **разработчиков** Salesforce количество доступных лицензий для каждого профиля будет крайне ограниченно. Следовательно, лучше подготовить пользователей для профиля **Chatter Free**, который имеет 4999 доступных лицензий.
@@ -232,6 +236,6 @@ ms.author: asmalser-msft
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

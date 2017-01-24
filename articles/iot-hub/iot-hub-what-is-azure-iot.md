@@ -41,7 +41,7 @@ ms.openlocfilehash: 36e4afb54485c12b39349124e241a2d74617702c
 Кроме того, рекомендуем ознакомиться с набором [Azure IoT Suite][lnk-iot-suite], который представляет собой коллекцию предварительно настроенных решений. позволяющих быстро начать работу и масштабировать проекты IoT для решения распространенных сценариев IoT, например удаленного мониторинга, управления ресурсами-контейнерами и прогнозного обслуживания.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

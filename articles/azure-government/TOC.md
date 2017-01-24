@@ -27,12 +27,13 @@
 ### [Сеть](documentation-government-networking.md)
 ### [Безопасность и идентификация](documentation-government-services-securityandidentity.md)
 ### [Мониторинг и управление](documentation-government-services-monitoringandmanagement.md)
+### [Интернет + мобильные устройства](documentation-government-services-webandmobile.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/)
 ## [Пробная версия](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

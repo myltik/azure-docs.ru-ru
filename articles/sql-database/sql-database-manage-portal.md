@@ -1,28 +1,29 @@
 ---
 title: "Управление базой данных SQL Azure с помощью портала Azure | Документация Майкрософт"
-description: "Узнайте, как использовать портал Azure для управления реляционной базой данных в облаке."
+description: "Краткий справочник по управлению реляционной базой данных в облаке с помощью портала Azure."
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
-ms.author: sstein
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 
 
 ---
-# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Управление базами данных SQL Azure с помощью портала Azure
+# <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Управление базами данных SQL Azure с помощью портала Azure
 > [!div class="op_single_selector"]
-> * [Портал Azure](sql-database-manage-portal.md)
+> * [портале Azure](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
 > * [PowerShell](sql-database-manage-powershell.md)
 > 
@@ -88,8 +89,8 @@ ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
 ## <a name="how-do-i-configure-geo-replication"></a>Как настроить георепликацию?
 Чтобы настроить георепликацию для базы данных SQL, щелкните **Георепликация** в колонке **База данных SQL**. Дополнительные сведения см. в статье [Настройка георепликации для базы данных SQL Azure с помощью портала Azure](sql-database-geo-replication-portal.md).
 
-## <a name="how-do-i-failover-to-a-geo-replicated-sql-database"></a>Как выполнить отработку отказа и перейти в геореплицированную базу данных SQL?
-Чтобы выполнить отработку отказа и перейти в базу данных-получатель, щелкните **Георепликация** в колонке **База данных SQL** и щелкните **Отработка отказа**. Дополнительные сведения см. в статье [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure](sql-database-geo-replication-failover-portal.md).
+## <a name="how-do-i-fail-over-to-a-geo-replicated-sql-database"></a>Как выполнить отработку отказа и перейти в геореплицированную базу данных SQL?
+Чтобы выполнить отработку отказа и перейти в геореплицированную базу данных-получатель, щелкните **Георепликация** в колонке **База данных SQL**, а затем щелкните **Отработка отказа**. Дополнительные сведения см. в статье [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure](sql-database-geo-replication-failover-portal.md).
 
 ## <a name="how-do-i-copy-a-sql-database"></a>Как скопировать базу данных SQL?
 Чтобы скопировать базу данных SQL, щелкните **Копировать** в колонке **База данных SQL**. Дополнительные сведения см. в статье [Копирование базы данных SQL Azure с помощью портала Azure](sql-database-copy-portal.md).
@@ -126,6 +127,6 @@ ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

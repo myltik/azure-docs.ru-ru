@@ -1,30 +1,29 @@
 ---
-title: Воспроизведение содержимого | Microsoft Docs
-description: В этой статье перечислены существующие проигрыватели, которые можно использовать для воспроизведения содержимого.
+title: "Воспроизведение содержимого | Документация Майкрософт"
+description: "В этой статье перечислены существующие проигрыватели, которые можно использовать для воспроизведения содержимого."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 10/12/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+
 
 ---
-# Воспроизведение содержимого с помощью существующих проигрывателей
+# <a name="playing-your-content-with-existing-players"></a>Воспроизведение содержимого с помощью существующих проигрывателей
 Службы мультимедиа Azure поддерживают многие популярные форматы потоковой передачи, например Smooth Streaming, HTTP Live Streaming и MPEG-Dash. В этой статье описываются имеющиеся проигрыватели, которые можно использовать для тестирования потоков.
 
-> [!NOTE]
-> Для воспроизведения упакованного динамически или динамически зашифрованного содержимого, необходимо получить не менее одной единицы потоковой передачи для конечной точки потоковой передачи, из которой планируется доставка содержимого. Информацию о масштабировании единиц потоковой передачи см. в разделе [Как масштабировать единицы потоковой передачи](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
-
-### Проигрыватель содержимого служб мультимедиа классического портала Azure
+### <a name="the-azure-portal-media-services-content-player"></a>Проигрыватель содержимого служб мультимедиа портала Azure
 Портал **Azure** предлагает проигрыватель содержимого, с помощью которого можно проверить видео.
 
 Выберите нужное видео (убедитесь, что оно [опубликовано](media-services-portal-publish.md)) и нажмите кнопку **Воспроизвести** в нижней части портала.
@@ -35,7 +34,7 @@ ms.author: juliako
 
 ![AMSPlayer][AMSPlayer]
 
-### Azure Media Player
+### <a name="azure-media-player"></a>мультимедиапроигрыватель Azure
 Используйте [мультимедиапроигрыватель Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) для воспроизведения содержимого (незашифрованного или защищенного) в любом из следующих форматов:
 
 * Smooth Streaming
@@ -43,37 +42,41 @@ ms.author: juliako
 * HLS
 * Последовательный MP4
 
-### Flash Player
-#### Шифрование AES с маркером
+### <a name="flash-player"></a>Flash Player
+#### <a name="aes-encrypted-with-token"></a>Шифрование AES с маркером
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### Проигрыватели Silverlight
-#### Мониторинг
+### <a name="silverlight-players"></a>Проигрыватели Silverlight
+#### <a name="monitoring"></a>Мониторинг
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-#### PlayReady с маркером
+#### <a name="playready-with-token"></a>PlayReady с маркером
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### Проигрыватели DASH
+### <a name="dash-players"></a>Проигрыватели DASH
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
-### Другие
+### <a name="other"></a>Другие
 Для проверки URL-адресов HLS также можно использовать:
 
 * **Safari** на устройстве iOS или
 * **3ivx HLS Player** в Windows.
 
-## Разработка видеопроигрывателей
-Сведения о том, как разрабатывать собственные проигрыватели, см. в разделе [Разработка видеопроигрывателей](media-services-develop-video-players.md)
+## <a name="developing-video-players"></a>Разработка видеопроигрывателей
+Сведения о том, как разрабатывать собственные проигрыватели, см. в статье [Разработка приложений видеопроигрывателя](media-services-develop-video-players.md).
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Jan17_HO2-->
+
+

@@ -1,95 +1,106 @@
 ---
-title: Create a copy of a VM in Azure | Microsoft Docs
-description: Learn how to create a copy of the VHD of a Windows VM running in Azure, in the Resource Manager deployment model.
+title: "Создание копии специализированной виртуальной машины в Azure | Документация Майкрософт"
+description: "Узнайте, как создать копию специализированной виртуальной машины Windows, работающей в Azure, используя модель развертывания с помощью Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: ce7e6cd3-6a4a-4fab-bf66-52f699b1398a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/20/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+
 
 ---
-# <a name="create-a-copy-windows-vm-running-in-azure"></a>Create a copy Windows VM running in Azure
-This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. You can copy a VHD from either a generalized VM or a specialized VM.
+# <a name="create-a-copy-of-a-specialized-windows-vm-running-in-azure"></a>Создание копии специализированной виртуальной машины Windows, работающей в Azure
+В этой статье показано, как с помощью инструмента AZCopy создать копию VHD со специализированной виртуальной машины Windows, работающей в Azure. Эту копию VHD можно затем использовать для создания другой виртуальной машины. 
 
-If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md).
+* Если требуется скопировать универсальную виртуальную машину, то см. статью [Создание образа виртуальной машины на основе существующей виртуальной машины Azure](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Если требуется отправить VHD с локальной виртуальной машины, например диск, созданный с помощью Hyper-V, то ознакомьтесь со статьей [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="before-you-begin"></a>Before you begin
-Make sure that you:
+## <a name="before-you-begin"></a>Перед началом работы
+Убедитесь, что выполнены следующие условия.
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
-* Have Azure [PowerShell 1.0](../powershell-install-configure.md) (or later) installed.
-* Have downloaded and installed the [AzCopy tool](../storage/storage-use-azcopy.md). 
-* In some cases, you might want to [generalize the VM before creating a copy](virtual-machines-windows-generalize-vhd.md). Generalized a VM removes of your personal account information using a Windows tool called Sysprep. 
+* У вас есть сведения об **исходной и целевой учетных записях хранения**. Для исходной виртуальной машины необходимы имена учетной записи хранения и контейнера. Как правило, имя контейнера — **vhds**. Необходимо также иметь целевую учетную запись хранения. Если вы ее еще не создали, то это можно сделать через портал (**Больше служб** > Учетные записи хранения > Добавить) или с помощью командлета [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
+* У вас установлена служба Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) (или более поздней версии).
+* Вы скачали и установили [инструмент AzCopy](../storage/storage-use-azcopy.md). 
 
-## <a name="deallocate-the-vm"></a>Deallocate the VM
-Deallocate the VM, which frees up the VHD to be copied. 
+## <a name="deallocate-the-vm"></a>Освобождение виртуальной машины
+Освободите виртуальную машину, что позволит скопировать VHD. 
 
-* **Portal**: Click **Virtual machines** > **myVM** > Stop
-* **Powershell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` deallocates the VM named **myVM** in resource group **myResourceGroup**.
+* **Портал**: щелкните **Виртуальные машины** > **myVM** > Остановить
+* **PowerShell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` освобождает виртуальную машину с именем **myVM** в группе ресурсов **myResourceGroup**.
 
-The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
+Вы увидите, что **состояние** виртуальной машины на портале Azure изменится с **Остановлено** на **Остановлено (освобождено)**.
 
-## <a name="get-the-storage-account-urls"></a>Get the storage account URLs
-You need the URLs of the source and destination storage accounts. The URLs look like: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
+## <a name="get-the-storage-account-urls"></a>Получение URL-адресов учетной записи хранения
+Необходимо получить URL-адреса исходной и целевой учетных записей хранения. URL-адреса выглядят следующим образом: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Если вы уже знаете имена учетной записи хранения и контейнера, то можете просто подставить эти данные в скобки, чтобы создать URL-адрес. 
 
-You can use the Azure portal or Azure Powershell to get the URL:
+Для получения URL-адреса можно использовать портал Azure или Azure PowerShell:
 
-* **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
-* **Powershell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+* **Портал**: щелкните **Больше служб** > **Учетные записи хранения** > <storage account> **BLOB-объекты**. Ваш исходный VHD-файл скорее всего будет находиться в контейнере **vhds**. Щелкните **Свойства** контейнера и скопируйте текст с пометкой **URL-адрес**. Вам понадобятся URL-адреса исходного и целевого контейнеров. 
+* **PowerShell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` предоставляет сведения о виртуальной машине с именем **myVM** в группе ресурсов **myResourceGroup**. В результатах просмотрите раздел **Storage profile** (Профиль хранилища) и найдите в нем **URI VHD**. Первая часть URI является URL-адресом контейнера, а последняя часть — именем VHD операционной системы для виртуальной машины.
 
-## <a name="get-the-storage-access-keys"></a>Get the storage access keys
-Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+## <a name="get-the-storage-access-keys"></a>Получение ключей доступа к хранилищу
+Найдите ключи доступа для исходной и целевой учетных записей хранения. Дополнительные сведения о ключах доступа см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
-* **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
-* **Powershell**: `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` gets the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled as **key1**.
+* **Портал**: щелкните **Больше служб** > **Учетные записи хранения** > <storage account> **Все параметры** > **Ключи доступа**. Скопируйте ключ с пометкой **key1**.
+* **PowerShell**: `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` предоставляет сведения о ключе к хранилищу данных для учетной записи хранения **mystorageaccount** в группе ресурсов **myResourceGroup**. Скопируйте ключ с пометкой **key1**.
 
-## <a name="copy-the-vhd"></a>Copy the VHD
-You can copy files between storage accounts using AzCopy. For the destination container, if the specified container doesn't exist, it will be created for you. 
+## <a name="copy-the-vhd"></a>Копирование виртуального жесткого диска
+С помощью AzCopy можно копировать файлы между учетными записями хранения. Если у вас нет указанного целевого контейнера, то он будет создан для вас. 
 
-To use AzCopy, open a command prompt on your local machine and navigate to the folder where AzCopy is installed. It will be similar to *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. 
+Чтобы воспользоваться AzCopy, откройте окно командной строки на локальном компьютере и перейдите к папке, в которой установлен инструмент AzCopy. Это будет папка вида *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. 
 
-To copy all of the files within a container, you use the **/S** switch. This can be used to copy the OS VHD and all of the data disks if they are in the same container. This example shows how to copy all of the files in the container **mysourcecontainer** in storage account **mysourcestorageaccount** to the container **mydestinationcontainer** in the **mydestinationstorageaccount** storage account. Replace the names of the storage accounts and containers with your own. Replace `<sourceStorageAccountKey1>` and `<destinationStorageAccountKey1>` with your own keys.
-
-```
-    AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
-```
-
-If you only want to copy a specific VHD in a container with multiple files, you can also specify the file name using the /Pattern switch. In this example, only the file named **myFileName.vhd** will be copied.
+Чтобы скопировать все файлы внутри контейнера, используйте параметр **/S**. Это действие можно использовать для копирования VHD операционной системы и всех дисков данных, если они находятся в одном контейнере. В этом примере показано, как скопировать все файлы из контейнера **mysourcecontainer** в учетной записи хранения **mysourcestorageaccount** в контейнер **mydestinationcontainer** в учетной записи хранения **mydestinationstorageaccount**. Замените имена учетных записей хранения и контейнеров своими собственными. Замените ключи `<sourceStorageAccountKey1>` и `<destinationStorageAccountKey1>` своими собственными.
 
 ```
-    AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /Pattern:myFileName.vhd
+AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
+    /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer `
+    /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
+```
+
+Если требуется скопировать только один VHD из контейнера с несколькими файлами, то можно указать имя файла с помощью параметра /Pattern. В данном примере будет скопирован только файл с именем **myFileName.vhd**.
+
+```
+AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
+  /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer `
+  /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> `
+  /Pattern:myFileName.vhd
 ```
 
 
-When it is finished, you will get a message that looks something like:
+По завершении отобразится сообщение следующего вида:
 
 ```
-  Finished 2 of total 2 file(s).
-  [2016/10/07 17:37:41] Transfer summary:
-  -----------------
-  Total files transferred: 2
-  Transfer successfully:   2
-  Transfer skipped:        0
-  Transfer failed:         0
-  Elapsed time:            00.00:13:07
+Finished 2 of total 2 file(s).
+[2016/10/07 17:37:41] Transfer summary:
+-----------------
+Total files transferred: 2
+Transfer successfully:   2
+Transfer skipped:        0
+Transfer failed:         0
+Elapsed time:            00.00:13:07
 ```
 
-## <a name="troubleshooting"></a>Troubleshooting
-* When you use AZCopy, if you see the error "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature." and you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
+## <a name="troubleshooting"></a>Устранение неполадок
+* При использовании AZCopy отображается сообщение об ошибке: "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature" (Серверу не удалось проверить подлинность запроса. Проверьте правильность формата значения в заголовке "Авторизация", включая подпись). При этом вы используете ключ key2 или вторичный ключ к хранилищу данных. Попробуйте воспользоваться первичным ключом или первый ключ к хранилищу данных.
 
-## <a name="next-steps"></a>Next steps
-* If you copied a **specialized** VM, you can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-create-vm-specialized.md).
-* If you copied a **generalized** VM, you can [create a new VM from the generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
+## <a name="next-steps"></a>Дальнейшие действия
+* Можно создать виртуальную машину, [подключив копию VHD к виртуальной машине в качестве диска ОС](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

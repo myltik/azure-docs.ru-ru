@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/02/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
+ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
+ms.openlocfilehash: bec672005b0b1856faeb230f5674013a37add774
 
 
 ---
@@ -63,19 +63,25 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory][1]
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
     ![Приложения][2]
+
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
     ![Приложения][3]
+
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
     ![Приложения][4]
+
 6. В поле поиска введите **SAP Cloud for Customer**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+
 7. В области результатов выберите **SAP Cloud for Customer** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
     ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
@@ -101,9 +107,11 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 1. На классическом портале Azure на странице интеграции с приложением **SAP Cloud for Customer** в меню в верхней части страницы щелкните **Атрибуты**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
+
 2. В списке атрибутов токена SAML выберите имя атрибута и нажмите кнопку **Изменить**.
    
     ![Настроить единый вход](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+
 3. В диалоговом окне **Изменение атрибута пользователя** выполните следующие действия:
    
     ![Настроить единый вход](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
@@ -119,9 +127,11 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 1. На классическом портале Azure на странице интеграции с приложением **SAP Cloud for Customer** щелкните **Настройка единого входа**.
    
     ![Настройка единого входа][6] 
+
 2. На странице **Как пользователи должны входить в SAP Cloud for Customer?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
@@ -129,6 +139,7 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
     а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SAP Cloud for Customer, в формате `https://<server name>.crm.ondemand.com`.
    
     b. click **Далее**
+
 4. На странице **Настройка единого входа в SAP Cloud for Customer** выполните следующие действия:
    
     ![Настроить единый вход](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
@@ -136,6 +147,7 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
     а. Нажмите **Загрузить метаданные**и сохраните файл на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
+
 5. В разделе "Конфигурация единого входа" выполните следующие действия:
    
     а. Войдите на портал SAP Cloud for Customer с правами администратора.
@@ -178,12 +190,14 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
     Если функция единого входа неактивна, система отправит сотруднику обычный URL-адрес системы. Если функция единого входа активна, система проверит, есть ли у сотрудника пароль. При наличии пароля сотруднику будет отправлен URL-адрес единого входа и URL-адрес другого метода входа. Если пароля нет, сотруднику будет отправлен только URL-адрес единого входа.
    
     k. Сохраните изменения.
+
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
     ![единого входа Azure AD][10]
+
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-   ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале Azure тестового пользователя с именем Britta Simon.
@@ -195,34 +209,43 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
+
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
+
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
+
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
    
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
     b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
     c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
+
+6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.  ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
+
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
@@ -249,13 +272,17 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
    
     ![Назначение пользователя][201] 
+
 2. В списке приложений выберите **SAP Cloud for Customer**.
    
     ![Настроить единый вход](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
+
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
     ![Назначение пользователя][203]
+
 4. В списке пользователей выберите **Britta Simon**.
+
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
@@ -289,6 +316,6 @@ ms.openlocfilehash: b4fc3598489ae11a85a0e7259a2236446cffd6b0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

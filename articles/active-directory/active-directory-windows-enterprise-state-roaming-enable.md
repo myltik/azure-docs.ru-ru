@@ -1,3 +1,4 @@
+
 ---
 title: "Включение службы Enterprise State Roaming в Azure Active Directory | Документация Майкрософт"
 description: "Часто задаваемые вопросы о параметрах Enterprise State Roaming для устройств Windows. Служба Enterprise State Roaming представляет собой единое решение для всех устройств Windows и сокращает процесс настройки нового устройства."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
+ms.sourcegitcommit: 0628dafc9cc4cb05e678f741d913e00116013459
+ms.openlocfilehash: 435f801b254a6c423a6ec3e96037ade62e14af29
 
 
 ---
@@ -74,10 +75,10 @@ ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
 * [Часто задаваемые вопросы о перемещении параметров и данных](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Group Policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Устранение неполадок](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

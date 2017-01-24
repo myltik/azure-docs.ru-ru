@@ -1,12 +1,12 @@
 ---
-title: Как проверить ход выполнения задания с помощью REST API | Microsoft Docs
-description: Информация о том, как отслеживать ход выполнения задания.
+title: "Как проверить ход выполнения задания с помощью REST API | Документация Майкрософт"
+description: "Информация о том, как отслеживать ход выполнения задания."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
+
 
 ---
-# <a name="how-to:-check-job-progress"></a>Практическое руководство. Проверка хода выполнения задания
+# <a name="how-to-check-job-progress"></a>Практическое руководство. Проверка хода выполнения задания
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -24,7 +28,7 @@ ms.author: juliako
 > 
 > 
 
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Состояние задания можно узнать с помощью свойства State задания. Дополнительную информацию о свойстве State см. в разделе [Свойства сущности задания](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Состояние задания можно узнать с помощью свойства State задания. Дополнительную информацию о свойстве State см. в разделе [Свойства сущности задания](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 Запрос:
 
@@ -62,6 +66,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

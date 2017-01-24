@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: objectivec
 ms.topic: hero-article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
 ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
@@ -20,7 +20,7 @@ ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
-# <a name="azure-ad-b2c-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: вызов веб-API из приложения iOS с использованием сторонней библиотеки
+# <a name="azure-ad-b2c--call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C: вызов веб-API из приложения iOS с использованием сторонней библиотеки
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Платформа Microsoft Identity использует открытые стандарты, такие как OAuth2 и OpenID Connect. Это позволяет разработчикам использовать для интеграции со службами любые библиотеки. Чтобы объяснить разработчикам, как настроить сторонние библиотеки для подключения к платформе Microsoft Identity, мы написали несколько подобных этому пошаговых руководств. Большинство библиотек, в которых реализована [спецификация RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) , смогут подключаться к платформе Microsoft Identity.
@@ -631,6 +631,6 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

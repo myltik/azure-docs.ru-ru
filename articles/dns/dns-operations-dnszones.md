@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1136b0e378cec14a9c899b61ec1dd21ff6720ba5
 
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Как управлять зонами DNS с помощью PowerShell
@@ -24,7 +24,7 @@ ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
 > * [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-В этой статье описывается, как управлять зоной DNS с помощью PowerShell. Чтобы выполнить описываемые действия, вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+В этой статье описывается, как управлять зоной DNS с помощью PowerShell. Чтобы выполнить описываемые действия, вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-dns-zone"></a>Создание зоны DNS
 
@@ -108,6 +108,6 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

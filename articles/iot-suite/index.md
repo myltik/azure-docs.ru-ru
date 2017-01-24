@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 9b0f7ee1d0eae8a7f0a67c4636de739f6c301d47
-ms.openlocfilehash: 9b853e70f34a4bc1462dfab71c41b2ea802b9dbf
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: f59615ce37aa83a99a058775d4e1705e016baf07
 
 ---
 # <a name="iot-suite-documentation"></a>Документация по IoT Suite
 
-Быстрое начало работы с Microsoft Azure IoT Suite. Используйте решения с предварительно заданными параметрами и ускорьте разработку вашего решения для Интернета вещей. Добавляйте устройства и подключайте существующие устройства с помощью пакетов SDK для разных платформ, включая Linux, Windows и операционные системы, работающие в режиме реального времени. Легко масштабируйте систему от нескольких датчиков до миллионов одновременно подключенных устройств и положитесь на глобальную доступность Azure, независимо от размеров вашего проекта.
+Быстрое начало работы с Microsoft Azure IoT Suite. Используйте решения с предварительно заданными параметрами и ускорьте разработку вашего решения для Интернета вещей. Добавляйте устройства и подключайте существующие устройства с помощью пакетов SDK для разных платформ, включая Linux, Windows и операционные системы, работающие в режиме реального времени. Легко масштабируйте систему &mdash; от нескольких датчиков до миллионов одновременно подключенных устройств — и будьте уверены в глобальной доступности Azure независимо от объема вашего проекта.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +29,7 @@ ms.openlocfilehash: 9b853e70f34a4bc1462dfab71c41b2ea802b9dbf
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=internet-of-things">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,6 +68,27 @@ ms.openlocfilehash: 9b853e70f34a4bc1462dfab71c41b2ea802b9dbf
 
 ---
 
+<h2>Справочные материалы</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Ресурсы</h3>
+                        <p><a href="/azure/iot-suite/iot-security-architecture">Архитектура безопасности</a></p>
+                        <p><a href="/azure/iot-suite/iot-security-best-practices">Рекомендации по обеспечению безопасности</a></p>
+                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Защита развертывания IoT</a></p>
+                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Все аспекты безопасности</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+---
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
         <div class="img"></div>
@@ -78,6 +99,6 @@ ms.openlocfilehash: 9b853e70f34a4bc1462dfab71c41b2ea802b9dbf
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

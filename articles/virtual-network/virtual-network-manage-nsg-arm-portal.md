@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
 
 
 ---
@@ -27,13 +27,13 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 > * [Портал](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [интерфейс командной строки Azure](virtual-network-manage-nsg-arm-cli.md)
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо классической.
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -68,7 +68,7 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 
 ### <a name="list-all-rules-for-an-nsg"></a>Перечисление всех правил для группы безопасности сети
 
-Чтобы просмотреть правила группы безопасности сети **NSG-FrontEnd**, выполните следующие действия: 
+Чтобы просмотреть правила группы безопасности сети **NSG-FrontEnd**, выполните следующие действия:
 
 1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
 
@@ -84,7 +84,7 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 
     > [!NOTE]
     > Чтобы просмотреть правила по умолчанию, щелкните значок **Правила по умолчанию** в верхней части колонки, где показаны правила.
-    > 
+    >
 
 ### <a name="view-nsgs-associations"></a>Просмотр связей для группы безопасности сети
 
@@ -182,7 +182,7 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 
 > [!NOTE]
 > Можно также связать группу безопасности сети с подсетью в колонке **Параметры** этой группы.
-> 
+>
 
 ## <a name="delete-an-nsg"></a>Удаление группы NSG
 Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия:
@@ -195,13 +195,13 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 6. Если в списке есть подсети, щелкните одну из них и выполните шаги 2 и 3 из раздела [Отмена связи с подсетью для группы безопасности сети](#Dissociate-an-NSG-from-a-subnet).
 7. Прокрутите страницу влево к колонке **NSG-FrontEnd** и нажмите кнопки **Удалить** > **Да**.
 
-    [Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+    ![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

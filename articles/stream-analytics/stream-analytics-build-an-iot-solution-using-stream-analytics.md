@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eb8cf20a5dbe34fb823b4e05430dee544fc271d1
-ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с данным руководством вам потребуется:
 
-* Последняя версия [Azure PowerShell](../powershell-install-configure.md)
+* Последняя версия [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 или бесплатная версия [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 *  [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Права администратора на компьютере.
@@ -137,7 +137,7 @@ ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
 
 Скачайте и сохраните вспомогательную папку [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) и файлы.
 
-Откройте окно **Microsoft Azure PowerShell***от имени администратора*. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) .
+Откройте окно **Microsoft Azure PowerShell***от имени администратора*. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 Так как Windows автоматически блокирует файлы типа в формате PS1, DLL И EXE, перед запуском скрипта необходимо задать политику выполнения. Убедитесь, что окно Azure PowerShell открыто *от имени администратора*. Выполните команду **Set-ExecutionPolicy unrestricted**. При появлении запроса введите **Y**.
 
@@ -445,6 +445,6 @@ Azure Stream Analytics поддерживает масштабируемость
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

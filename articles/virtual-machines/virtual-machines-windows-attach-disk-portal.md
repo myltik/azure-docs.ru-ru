@@ -1,35 +1,70 @@
 ---
-title: Подключение диска данных к виртуальной машине Windows | Microsoft Docs
-description: Подключение нового или существующего диска данных к виртуальной машине Windows на портале Azure с помощью модели развертывания на основе диспетчера ресурсов.
+title: "Подключение диска данных к виртуальной машине Windows | Документация Майкрософт"
+description: "Подключение нового или существующего диска данных к виртуальной машине Windows на портале Azure с помощью модели развертывания на основе диспетчера ресурсов."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 3790fc59-7264-41df-b7a3-8d1226799885
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 11/28/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 3549272a74ebf7b5e37a70dbb8d7ce3b539c8103
+ms.openlocfilehash: f0b955193f2e698a22a1989ffeb7f7dc23028e18
+
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Подключение диска данных к виртуальной машине Windows на портале Azure
-В этой статье демонстрируется подключение нового и существующего дисков к виртуальной машине Windows на портале Azure. Вы также можете [подключить диск данных к виртуальной машине Linux на портале Azure](virtual-machines-linux-attach-disk-portal.md). Перед этим ознакомьтесь со следующими советами:
+В этой статье демонстрируется подключение нового и существующего дисков к виртуальной машине Windows на портале Azure. Вы также можете [подключить диск данных к виртуальной машине Linux на портале Azure](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Перед этим ознакомьтесь со следующими советами:
 
-* Размер виртуальной машины определяет, сколько дисков данных к ней можно подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-windows-sizes.md).
-* Для использования хранилища Premium вам необходимо будет использовать виртуальную машину серии DS или GS. Эти виртуальные машины позволяют использовать диски из учетных записей хранения Premium и Standard. Хранилище Premium доступно в определенных регионах. Дополнительные сведения см. в разделе [Хранилище класса Premium: высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md).
-* На самом деле диски, подключенные к виртуальным машинам, — это VHD-файлы в учетной записи хранения Azure. Дополнительную информацию см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-windows-about-disks-vhds.md).
+* Размер виртуальной машины определяет, сколько дисков данных к ней можно подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Для использования хранилища Premium вам необходимо будет использовать виртуальную машину серии DS или GS. Эти виртуальные машины позволяют использовать диски из учетных записей хранения Premium и Standard. Хранилище Premium доступно в определенных регионах. Дополнительные сведения см. в разделе [Хранилище класса Premium: высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Если вы подключаете новый диск, его не надо предварительно создавать. Azure создаст его при подключении.
 * Если вы подключаете существующий диск, его VHD-файл должен быть доступен в учетной записи хранения Azure. Можно использовать VHD, уже находящийся там, если он не подключен к другой виртуальной машине, или передать свой VHD-файл в учетную запись хранения.
 
-[!INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
+Вы также можете [присоединить диск данных с помощью Powershell](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine).
 
-## <a name="<a-id="initializeinws"></a>how-to:-initialize-a-new-data-disk-in-windows-server"></a><a id="initializeinWS"></a>Практическое руководство. Инициализация нового диска данных в Windows Server
-1. Подключитесь к виртуальной машине. Указания см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти в систему](virtual-machines-windows-connect-logon.md).
+
+## <a name="find-the-virtual-machine"></a>Поиск виртуальной машины
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. В главном меню щелкните **Виртуальные машины**.
+3. Затем выберите виртуальную машину из списка.
+4. В колонке "Виртуальные машины" в разделе **Основные компоненты** щелкните **Диски**.
+   
+    ![Открытие параметров диска](./media/virtual-machines-windows-attach-disk-portal/find-disk-settings.png)
+
+Продолжайте, следуя указаниям по подключению [нового](#option-1-attach-a-new-disk) или [существующего диска](#option-2-attach-an-existing-disk).
+
+## <a name="option-1-attach-a-new-disk"></a>Вариант 1. Подключение нового диска
+1. В колонке **Диски** щелкните **Подключить новый**.
+2. Просмотрите параметры по умолчанию, при необходимости измените их, затем нажмите кнопку **ОК**.
+   
+   ![Просмотр параметров диска](./media/virtual-machines-windows-attach-disk-portal/attach-new.png)
+3. После того как Azure создаст диск и подключит его к виртуальной машине, он появится в параметрах дисков виртуальной машины в разделе **Диски данных**.
+
+## <a name="option-2-attach-an-existing-disk"></a>Вариант 2. Подключение существующего диска
+1. В колонке **Диски** щелкните **Подключить существующий**.
+2. В разделе **Подключение существующего диска** щелкните **VHD-файл**.
+   
+   ![Подключение существующего диска](./media/virtual-machines-windows-attach-disk-portal/attach-existing.png)
+3. В разделе **Учетные записи хранения**выберите учетную запись и контейнер, который содержит VHD-файл.
+   
+   ![Поиск расположения VHD](./media/virtual-machines-windows-attach-disk-portal/find-storage-container.png)
+4. Выберите VHD-файл.
+5. В разделе **Подключение существующего диска** выбранный вами файл отображается в списке, расположенном в разделе **VHD-файл**. Нажмите кнопку **ОК**.
+6. После того как Azure подключит диск к виртуальной машине, он будет отображаться в параметрах дисков виртуальной машины в разделе **Диски данных**.
+
+
+
+## <a name="initialize-a-new-data-disk"></a>Инициализация нового диска данных
+1. Подключитесь к виртуальной машине. Указания см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти в систему](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. После входа в систему на виртуальной машине откройте **Диспетчер сервера**. В области слева выберите **Файловые службы и службы хранилища**.
    
     ![Откройте диспетчер сервера.](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
@@ -41,13 +76,32 @@ ms.author: cynthn
     ![Том успешно инициализирован](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> Размер виртуальной машины определяет количество дисков, которые можно к ней подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
+> Размер виртуальной машины определяет количество дисков, которые можно к ней подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
+
+
+## <a name="use-trim-with-standard-storage"></a>Использование функции TRIM в хранилище уровня "Стандартный"
+
+Если вы используете хранилище уровня "Стандартный" (HDD), то следует включить функцию TRIM. TRIM удаляет неиспользуемые блоки на диске, таким образом плата взимается только за ту часть хранилища, которая используется. Это позволяет сократить затраты, если вы создаете большие файлы, а затем удаляете их. 
+
+Вы можете выполнить эту команду, чтобы проверить состояние функции TRIM. На виртуальной машине Windows откройте командную строку и введите:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+Если команда возвращает значение 0, то функция TRIM включена правильно. Если она возвращает значение 1, то для включения TRIM выполните следующую команду:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md).
+Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

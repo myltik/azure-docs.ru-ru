@@ -1,5 +1,5 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с Asset Bank | Документация Майкрософт"
+title: "Руководство по интеграции Azure Active Directory с Asset Bank | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход для Azure Active Directory и Asset Bank."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6fec9b6d4006893b90a1e65c959c8e2c5b10318b
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 30a01be95bdc04359d8816598f1382505e4fd790
 
 
 ---
@@ -154,17 +154,18 @@ ms.openlocfilehash: 6fec9b6d4006893b90a1e65c959c8e2c5b10318b
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-degreed-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-degreed-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
+
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-degreed-tutorial/create_aaduser_07.png) 
@@ -235,6 +236,6 @@ ms.openlocfilehash: 6fec9b6d4006893b90a1e65c959c8e2c5b10318b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

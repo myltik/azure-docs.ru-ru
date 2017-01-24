@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 10c350247593c806d2c4e66248dedf5f42734628
-ms.openlocfilehash: 2227ab467aca534c5a8783dfdfa3084cb1c3a126
+ms.sourcegitcommit: b2d7ba14c7cbc5c082a5f962559936e1a60827f2
+ms.openlocfilehash: fd018ed25e5c309a85bb2078d00f2bb0b504e5d2
 
 
 ---
@@ -28,7 +28,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 ![Карта расположения][0]
 
-Вы сможете получить доступ ко всем службам Azure во всех регионах соответствующего геополитического региона, если вы подключены по меньшей мере к одному расположению ExpressRoute в этом регионе. 
+Вы сможете получить доступ ко всем службам Azure во всех регионах соответствующего геополитического региона, если вы подключены по меньшей мере к одному расположению ExpressRoute в этом регионе.
 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Регионы Azure с расположениями ExpressRoute в пределах геополитических регионов
 В следующей таблице сопоставлены регионы Azure с расположениями ExpressRoute в пределах геополитических регионов.
@@ -58,8 +58,8 @@ ExpressRoute поддерживается во всех регионах и ра
 > [!div class="op_single_selector"]
 > * [Расположения по поставщикам](expressroute-locations.md#locations)
 > * [Поставщики по расположению](expressroute-locations-providers.md#locations)
-> 
-> 
+>
+>
 
 ### <a name="production-azure"></a>Рабочая среда Azure
 | **Поставщик услуг** | **Microsoft Azure** | **Office 365 и CRM Online** | **Расположения** |
@@ -67,12 +67,14 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Поддерживаются |Поддерживаются |Мельбурн, Сидней |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Поддерживаются |Поддерживаются |Амстердам, Даллас, Кремниевая долина, Сингапур, Токио, Вашингтон (округ Колумбия) |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Поддерживаются |Поддерживаются |Амстердам, Чикаго, Даллас, Лондон, Кремниевая долина, Сингапур, Сидней, Вашингтон (округ Колумбия) |
+| **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Поддерживаются |Поддерживаются |Торонто |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Поддерживаются |Поддерживаются |Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия) |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Скоро |Скоро |Кремниевая долина |
 | **China Telecom Global** |Поддерживаются |Не поддерживается |Гонконг |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Поддерживаются |Скоро |Даллас, Монреаль+, Торонто |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Поддерживаются |Поддерживаются |Даллас, Монреаль+, Торонто |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Поддерживаются |Поддерживаются |Амстердам, Дублин, Лондон, Токио |
 | **Comcast** |Поддерживаются |Поддерживаются |Чикаго, Кремниевая долина, Вашингтон, округ Колумбия |
+| **Console**| Поддерживаются | Поддерживаются |Кремниевая долина |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Поддерживаются |Поддерживаются |Лос-Анджелес |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Поддерживаются |Поддерживаются |Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Париж+, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто |
 | **euNetworks** |Поддерживаются |Поддерживаются |Амстердам |
@@ -148,12 +150,20 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Поставщик услуг подключения** | **Exchange** | **Расположения** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Сингапур |
+| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Токио |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Сиэтл; |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Лондон |
+| **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Лондон, Слау |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |Нью-Йорк, Вашингтон (округ Колумбия) |
-| **[Macquarie](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Сидней |
+| **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Сидней |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Вашингтон, округ Колумбия |
+| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Амстердам, Франкфурт |  
+| **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Даллас, Лос-Анджелес |  
+| **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Франкфурт |  
+| **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |Чикаго, Кремниевая долина, Вашингтон, округ Колумбия |
 | **[XO Communications](http://www.xo.com/)** |Equinix |Кремниевая долина |
+| **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Мадрид |
+
 
 ## <a name="expressroute-system-integrators"></a>Системные интеграторы ExpressRoute
 Возможность частного подключения, соответствующего вашим потребностям, будет зависеть от масштаба сети. Чтобы упростить переход на ExpressRoute, вы можете обратиться к одному из системных интеграторов, указанных в таблице ниже.
@@ -163,6 +173,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Avanade Inc.](http://www.avanade.com/)** |Азия, Европа, США |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Европа |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |США |
+| **[Nelite](http://nelite.com/)** |Европа |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Азия |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |США |
 | **[Project Leadership](http://www.projectleadership.net/azure)** |США |

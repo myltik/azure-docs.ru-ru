@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8be23107d3a377854a4bd17d99652fb5b84c99dc
-ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
+ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
+ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
 - [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-> Прежде чем приступить к работе с ресурсами Azure, обратите внимание на то, что в настоящее время в Azure существует две модели развертывания: классическая модель развертывания и модель развертывания с помощью Azure Resource Manager. Обязательно изучите [модели и инструменты развертывания](../resource-manager-deployment-model.md) , прежде чем приступить к работе с какими бы то ни было ресурсами Azure. Для просмотра документации о средствах развертывания выбирайте соответствующие вкладки в верхней части данной статьи. В этой статье описывается модель развертывания с использованием менеджера ресурсов. 
+> Прежде чем приступить к работе с ресурсами Azure, обратите внимание на то, что в настоящее время в Azure существует две модели развертывания: классическая модель развертывания и модель развертывания с помощью Azure Resource Manager. Обязательно изучите [модели и инструменты развертывания](../azure-resource-manager/resource-manager-deployment-model.md) , прежде чем приступить к работе с какими бы то ни было ресурсами Azure. Для просмотра документации о средствах развертывания выбирайте соответствующие вкладки в верхней части данной статьи. В этой статье описывается модель развертывания с использованием менеджера ресурсов. 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -114,7 +114,7 @@ ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Развертывание шаблона с помощью кнопки развертывания
 Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), нажмите **Deploy to Azure**(Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до момента входа Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до момента входа Azure и выбора подписки.
 2. Выполните следующую команду, чтобы создать группу ресурсов:
 
     ```powershell
@@ -409,6 +409,6 @@ ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

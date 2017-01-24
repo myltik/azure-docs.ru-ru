@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 41bef0e62c86e5cc3c27d02702a1b330fc76c915
 
 
 ---
@@ -26,8 +26,8 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 ## <a name="prerequisites"></a>Предварительные требования
 Для этого потребуются следующие компоненты.
 
-* Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. на страницах [варианты приобретения][варианты приобретения], [предложения для участников][предложения для участников] или [бесплатная учетная запись][бесплатная учетная запись].
-* Компьютер с Azure PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
+* Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. на страницах [Как приобрести Azure][purchase options], [Предложения для участников][member offers] или [Создайте бесплатную учетную запись Azure уже сегодня][free account].
+* Компьютер с Azure PowerShell. Инструкции по установке и настройке Azure PowerShell см. в статье [Установка и настройка служб Azure PowerShell][Install and configure Azure PowerShell].
 * Общее представление о сценариях PowerShell, пакетах NuGet и платформе .NET Framework.
 
 ## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Добавление ссылки на сборку .NET для служебной шины
@@ -113,7 +113,7 @@ catch [System.Exception]
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Подготовка других сущностей Service Bus
-Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины][API .NET для служебной шины]. В конце этой статьи приведены ссылки на более подробные примеры, включая примеры с другими сущностями.
+Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины][.NET API for Service Bus]. В конце этой статьи приведены ссылки на более подробные примеры, включая примеры с другими сущностями.
 
 ### <a name="create-an-event-hub"></a>Создание концентратора событий
 В этой части сценария мы создадим четыре дополнительных локальных переменных, которые будут использоваться для создания экземпляра объекта `EventHubDescription`. Сценарий выполняет следующее:
@@ -259,18 +259,18 @@ catch [System.Exception]
 
 <!--Anchors-->
 
-[варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
-[предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
-[бесплатная учетная запись]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
+[member offers]: http://azure.microsoft.com/pricing/member-offers/
+[free account]: http://azure.microsoft.com/pricing/free-trial/
 [пакет NuGet служебной шины]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET для служебной шины]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
+[.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

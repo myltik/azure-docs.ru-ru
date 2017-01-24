@@ -1,4 +1,10 @@
-1. Войдите на [портал Azure][портал Azure].
+## <a name="create-a-service-namespace"></a>Создание пространства имен службы
+
+Чтобы начать использовать очереди служебной шины в Azure, необходимо сначала создать пространство имен. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении. 
+
+Создание пространства имен службы:
+
+1. Войдите на [портал Azure][Azure portal].
 2. В левой области навигации на портале щелкните **Создать**, **Интеграция Enterprise**, **Служебная шина**.
 3. В диалоговом окне **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
 4. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый", "Стандартный" или "Премиум".
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Портал Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

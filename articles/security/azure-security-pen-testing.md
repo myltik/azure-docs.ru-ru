@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,7 +43,6 @@ ms.openlocfilehash: 5d58d9dd6c92c81328f89a703b3bc8529aff8dc0
 К тестам, которые запрещено выполнять, относятся атаки типа ["отказ в обслуживании" (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . В эту категорию включены как запуск DoS-атаки, так и все сопутствующие тесты, которые могут определять, демонстрировать или имитировать DoS-атаку любого типа.
 
 Готовы начать тестирование приложений, размещенных в Microsoft Azure, на проникновение? Если да, перейдите на страницу [Penetration testing overview](https://security-forms.azure.com/penetration-testing/terms) (Обзор тестирования на проникновение). В нижней части страницы нажмите кнопку "Create a Testing Request" (Создать запрос на тестирование). Кроме того, вы найдете дополнительные сведения об условиях тестировании на проникновение, а также полезные ссылки, с помощью которых можно сообщать об уязвимостях, связанных с платформой Azure или другими службами Microsoft.
-
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Использование свойств двойников устройств | Документация Майкрософт"
-description: "В этом учебнике показано, как использовать свойства двойников устройств."
+title: "Использование свойств двойников устройств Центра Интернета вещей (Node) | Документация Майкрософт"
+description: "Настройка устройств с помощью двойников устройств Центра Интернета вещей Azure. Используйте пакеты SDK для Центра Интернета вещей Azure для Node.js, чтобы реализовать приложение имитации устройства и приложение службы, которое изменяет конфигурацию устройства с помощью двойника устройства."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 400eab43a417980abe9df5fa75ee9f9e43b296d0
-ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>Учебник. Настройка устройств с помощью требуемых свойств
+# <a name="use-desired-properties-to-configure-devices-node"></a>Настройка устройств с помощью требуемых свойств (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 По завершении работы с этим руководством у вас будет два консольных приложения Node.js:
 
 * **SimulateDeviceConfiguration.js** — это приложение имитации устройства, которое ожидает обновления требуемой конфигурации и сообщает о состоянии обновления имитации конфигурации.
-* **SetDesiredConfigurationAndQuery.js** — это приложение Node.js, предназначенное для запуска из серверной части, которое задает требуемую конфигурацию на устройстве и выполняет запрос к процессу обновления конфигурации.
+* **SetDesiredConfigurationAndQuery.js** — это внутреннее приложение Node.js, которое задает требуемую конфигурацию на устройстве и выполняет запрос к процессу обновления конфигурации.
 
 > [!NOTE]
-> Статья [Azure IoT SDKs][lnk-hub-sdks] (Пакеты SDK для Azure IoT) содержит сведения о разных пакетах SDK для Azure IoT, с помощью которых можно создать приложения для устройств и внутренние приложения.
+> Статья [IoT Hub SDKs][lnk-hub-sdks] (Пакеты SDK для Центра Интернета вещей) содержит сведения о разных пакетах SDK для Azure IoT, с помощью которых можно создать приложения для устройств и внутренние приложения.
 > 
 > 
 
@@ -52,13 +52,13 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
     ```
     npm init
     ```
-2. В командной строке в папке **simulatedeviceconfiguration** выполните следующую команду, чтобы установить пакет **azure-iot-device** и **azure-iot-device-mqtt**:
+2. В командной строке в папке **simulatedeviceconfiguration** выполните следующую команду, чтобы установить пакеты **azure-iot-device** и **azure-iot-device-mqtt**.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. В текстовом редакторе создайте файл **SimulateDeviceConfiguration.js** в папке **simulatedeviceconfiguration**.
-4. Добавьте следующий код в файл **SimulateDeviceConfiguration.js** и замените заполнитель **{строка подключения устройства}** на строку подключения, скопированную при создании удостоверения устройства **myDeviceId**:
+4. Добавьте следующий код в файл **SimulateDeviceConfiguration.js** и замените заполнитель **{device connection string}** строкой подключения устройства, скопированной при создании удостоверения устройства **myDeviceId**.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -141,7 +141,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
             });
         };
    
-    Метод **initConfigChange** обновляет сообщаемые свойства в объекте локального двойника устройства с помощью запроса на обновление конфигурации и устанавливает для состояния значение **Pending**, а затем обновляет двойник устройства в службе. После успешного обновления двойника устройства он имитирует длительный процесс, который завершается выполнением **completeConfigChange**. Этот метод обновляет сообщаемые свойства локального двойника устройства, установив для состояния значение **Success** и удалив объект **pendingConfig**. Затем он обновляет двойник устройства в службе.
+    Метод **initConfigChange** обновляет сообщаемые свойства в объекте локального двойника устройства с помощью запроса на обновление конфигурации и устанавливает для состояния значение **Ожидание**, а затем обновляет двойник устройства в службе. После успешного обновления двойника устройства он имитирует длительный процесс, который завершается выполнением **completeConfigChange**. Этот метод обновляет сообщаемые свойства локального двойника устройства, установив для состояния значение **Success** и удалив объект **pendingConfig**. Затем он обновляет двойник устройства в службе.
    
     Обратите внимание, что для сокращения нагрузки на полосу пропускания при обновлении сообщаемых свойств указываются только свойства, которые нужно изменить (**patch** в коде выше), а не заменяется весь документ.
    
@@ -163,18 +163,18 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
     ```
     npm init
     ```
-2. В командной строке в папке **setdesiredandqueryapp** выполните следующую команду, чтобы установить пакет **azure-iothub**:
+2. В командной строке в папке **setdesiredandqueryapp** выполните следующую команду, чтобы установить пакет **azure-iothub**.
    
     ```
     npm install azure-iothub node-uuid --save
     ```
 3. В текстовом редакторе создайте файл **SetDesiredAndQuery.js** в папке **addtagsandqueryapp**.
-4. Добавьте следующий код в файл **SetDesiredAndQuery.js** и замените заполнитель **{строка подключения службы}** на строку подключения, скопированную при создании центра:
+4. Добавьте следующий код в файл **SetDesiredAndQuery.js** и замените заполнитель **{iot hub connection string}** на строку подключения Центра Интернета вещей, скопированную при создании центра:
    
         'use strict';
         var iothub = require('azure-iothub');
         var uuid = require('node-uuid');
-        var connectionString = '{service connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -246,7 +246,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
    > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом учебнике вы установили требуемую конфигурацию в качестве *требуемых свойств* из внутреннего приложения и написали код приложения для имитации устройства, которое обнаруживает изменения и имитирует многоэтапный процесс обновления, о состоянии которого сообщается двойнику устройства в качестве *требуемых свойств*.
+В этом руководстве вы установили требуемую конфигурацию в качестве *требуемых свойств* из внутреннего приложения и написали код приложения для имитации устройства, которое обнаруживает изменения и имитирует многоэтапный процесс обновления, о состоянии которого сообщается двойнику устройства в качестве *сообщаемых свойств*.
 
 Ознакомьтесь со следующими материалами, чтобы узнать как:
 
@@ -265,7 +265,7 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -278,6 +278,6 @@ ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

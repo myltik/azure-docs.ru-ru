@@ -1,5 +1,5 @@
 ---
-title: "Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Документация Майкрософт"
+title: "C#: начало работы с базой данных SQL Azure | Документация Майкрософт"
 description: "Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET."
 keywords: "руководство sql, sql и c#"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 Чтобы создать базу данных SQL с помощью C#, загрузите необходимые библиотеки управления (используя [консоль диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Выберите **Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
-2. Введите `Install-Package Microsoft.Azure.Management.Sql –Pre`, чтобы установить последнюю [библиотеку управления SQL Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Введите `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` , чтобы установить [библиотеку управления Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Введите `Install-Package Microsoft.Azure.Common.Authentication –Pre` , чтобы установить [библиотеку управления общей проверки подлинности Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Введите `Install-Package Microsoft.Azure.Management.Sql -Pre`, чтобы установить последнюю [библиотеку управления SQL Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Введите `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` , чтобы установить [библиотеку управления Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Введите `Install-Package Microsoft.Azure.Common.Authentication -Pre` , чтобы установить [библиотеку управления общей проверки подлинности Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Примеры в этой статье используют синхронную форму каждого запроса API и блокируют до завершения вызова REST на базовой службе. Доступны асинхронные методы.
@@ -287,6 +287,6 @@ ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

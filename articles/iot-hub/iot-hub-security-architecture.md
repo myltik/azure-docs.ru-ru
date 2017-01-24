@@ -1,38 +1,40 @@
 ---
-title: Архитектура безопасности IoT | Microsoft Docs
-description: Рекомендации и советы по архитектуре безопасности IoT
+title: "Архитектура безопасности Интернета вещей Azure | Документация Майкрософт"
+description: "Рекомендации и советы по архитектуре безопасности Интернета вещей, включая моделирование угроз."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6c28b173-0d3c-415a-a9ea-02908ff87b3b
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 10/17/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
+
 
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## Дальнейшие действия
-Дополнительные сведения о безопасности решения IoT см. в разделе [Защита развертывания IoT][lnk-security-deployment].
+## <a name="see-also"></a>Дополнительные материалы
+Дополнительные сведения о безопасности решения Центра Интернета вещей см. в статье [Защита развертывания IoT][lnk-security-deployment]
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Разработка решения][lnk-design]
-* [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 * [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-* [Управление центрами IoT через портал Azure][lnk-portal]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

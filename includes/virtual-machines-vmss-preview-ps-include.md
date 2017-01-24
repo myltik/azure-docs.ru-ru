@@ -2,4 +2,7 @@
 
     Register-AzureRmProviderFeature -FeatureName vmssApiPreviewV2Access -ProviderNamespace Microsoft.Compute
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

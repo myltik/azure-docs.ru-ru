@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/24/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 408026a8e75272cea92ad62e3a75aabaadf98351
-ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
+ms.sourcegitcommit: c42aebb3aaf5c32ebdc4f79e2ace2f127e4fb20d
+ms.openlocfilehash: fe875fba2651b770d910d257282f5e9f41f8a043
 
 
 ---
@@ -45,23 +45,27 @@ ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Получение имени узла и ключей доступа
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-non-ssl-endpoint"></a>Включение конечной точки без SSL
-Некоторые клиенты Redis не поддерживают SSL. [Все порты, кроме SSL, отключены для новых экземпляров кэша Redis для Azure](cache-configure.md#access-ports) по умолчанию. На момент написания этой статьи клиент [Jedis](https://github.com/xetorthio/jedis) не поддерживает SSL. 
+## <a name="connect-to-the-cache-securely-using-ssl"></a>Безопасное подключение к кэшу с помощью SSL
+Новейшие сборки [jedis](https://github.com/xetorthio/jedis) обеспечивают поддержку подключения к кэшу Redis для Azure по протоколу SSL. В приведенном ниже примере показано, как подключиться к кэшу Redis для Azure с помощью конечной точки SSL на порту 6380. Подставьте вместо `<name>` имя своего кэша, а вместо `<key>` — первичный или вторичный ключ, как описано в предыдущем разделе [Получение имени узла и ключей доступа](#retrieve-the-host-name-and-access-keys).
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+    boolean useSsl = true;
+    /* In this line, replace <name> with your cache name: */
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+    shardInfo.setPassword("<key>"); /* Use your access key. */
+
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Добавление данных в кэш и их извлечение
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
 
-    /* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
     public class App
     {
       public static void main( String[] args )
       {
+        boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
         jedis.set("foo", "bar");
@@ -76,7 +80,6 @@ ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 
