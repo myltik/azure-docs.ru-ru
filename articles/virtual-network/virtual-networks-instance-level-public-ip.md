@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 1aa0990f53059fa832100f9fcf88f93633ca93ce
+ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
+ms.openlocfilehash: f1919d84cf912e184d87a5eeb462355e8ee3da07
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 1aa0990f53059fa832100f9fcf88f93633ca93ce
 Общедоступный IP-адрес уровня экземпляра (ILPIP) — это общедоступный IP-адрес, который можно назначить непосредственно виртуальной машине или экземпляру роли, а не облачной службе, в которой они находятся. Он не заменяет виртуальный IP-адрес, назначенный облачной службе. а представляет собой дополнительный IP-адрес, с помощью которого можно подключаться непосредственно к виртуальной машине или экземпляру роли.
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний мы рекомендуем использовать модель развертывания с помощью Azure Resource Manager. Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md) .
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний мы рекомендуем использовать модель развертывания с помощью Azure Resource Manager. Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md) .
 
 ![Разница между ILPIP-адресом и виртуальным IP-адресом](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -146,6 +146,6 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

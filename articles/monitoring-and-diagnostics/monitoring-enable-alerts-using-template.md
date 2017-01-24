@@ -1,28 +1,32 @@
 ---
-title: Создание оповещения метрики с помощью шаблона Resource Manager | Microsoft Docs
-description: Узнайте, как использовать шаблон Resource Manager для создания оповещения метрики, чтобы получать уведомления по электронной почте или вызывать webhook.
+title: "Создание оповещения метрики с помощью шаблона Resource Manager | Документация Майкрософт"
+description: "Узнайте, как использовать шаблон Resource Manager для создания оповещения метрики, чтобы получать уведомления по электронной почте или вызывать webhook."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Создание оповещения метрики с помощью шаблона Resource Manager
-В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки оповещений метрик Azure. Это позволяет автоматически настраивать оповещения для ресурсов при их создании, чтобы обеспечить правильный мониторинг всех ресурсов.
+В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) для настройки оповещений метрик Azure. Это позволяет автоматически настраивать оповещения для ресурсов при их создании, чтобы обеспечить правильный мониторинг всех ресурсов.
 
 Основные этапы:
 
 1. Создайте шаблон в виде JSON-файла, который описывает создание оповещения.
-2. [Разверните шаблон с помощью любого метода развертывания](../resource-group-template-deploy.md).
+2. [Разверните шаблон с помощью любого метода развертывания](../azure-resource-manager/resource-group-template-deploy.md).
 
 Ниже описано, как сначала создать шаблон Resource Manager только для оповещения, а затем — как это сделать во время создания другого ресурса.
 
@@ -139,7 +143,7 @@ ms.author: johnkem
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -361,7 +365,7 @@ ms.author: johnkem
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -397,9 +401,12 @@ ms.author: johnkem
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Узнайте больше об оповещениях](../azure-portal/insights-receive-alert-notifications.md)
+* [Узнайте больше об оповещениях](insights-receive-alert-notifications.md)
 * [Добавьте параметры диагностики](monitoring-enable-diagnostic-logs-using-template.md) в шаблон Resource Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

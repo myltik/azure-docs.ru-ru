@@ -1,12 +1,12 @@
 ---
-title: Включение метрик хранилища на портале Azure | Microsoft Docs
-description: Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов.
+title: "Включение метрик хранилища на портале Azure | Документация Майкрософт"
+description: "Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: 2fb5b229-f099-4334-92be-4e0e7dd257d7
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
+
 
 ---
 # <a name="enabling-storage-metrics-and-viewing-metrics-data"></a>Включение метрик хранилища и просмотр данных метрик
@@ -27,9 +31,9 @@ ms.author: robinsh
 ## <a name="how-to-enable-storage-metrics-using-the-azure-classic-portal"></a>Как включить метрики хранилища с помощью классического портала Azure
 На [классическом портале Azure](https://manage.windowsazure.com)управление метриками хранилища осуществляется на странице "Настройка" для определенной учетной записи хранения. Для выполнения мониторинга можно задать уровень и период хранения (в днях) для каждого большого двоичного объекта, таблицы и очереди. В каждом из случаев используется один из следующих уровней:
 
-* "Выключено" — сбор метрик не осуществляется.
+* "Выключено" — сбор метрик не осуществляется.
 * Минимальный — метрики хранилища собирают базовый набор таких метрик, как исходящие и входящие данные, доступность, задержка и процент успешных операций, который агрегируется для служб BLOB-объектов, таблиц и очередей.
-* "Подробный" — осуществляется сбор полного набора метрик, включая метрики для каждой операции API хранилища, а также метрик уровня службы. Подробные метрики позволяют осуществлять более тщательный анализ проблем, возникающих во время работы приложений.
+* "Подробный" — осуществляется сбор полного набора метрик, включая метрики для каждой операции API хранилища, а также метрик уровня службы. Подробные метрики позволяют осуществлять более тщательный анализ проблем, возникающих во время работы приложений.
 
 Обратите внимание, что в настоящее время классический портал Azure не позволяет настраивать минутные метрики в учетной записи хранения. Их необходимо включить с помощью PowerShell или программно.
 
@@ -44,44 +48,48 @@ ms.author: robinsh
 
 Например, следующая команда выключает минутные метрики для службы BLOB-объектов в учетной записи хранения по умолчанию с установкой пятидневного периода хранения:
 
-`Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
-
+```powershell
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5
+```
 Следующая команда получает текущий уровень часовых метрик и длительность периода хранения в днях для службы BLOB-объектов в учетной записи хранения по умолчанию:
 
-`Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
-
-Дополнительные сведения о настройке командлетов Azure PowerShell для работы с подпиской Azure и о выборе учетной записи хранения по умолчанию см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+```powershell
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+```
+Дополнительные сведения о настройке командлетов Azure PowerShell для работы с подпиской Azure и о выборе учетной записи хранения по умолчанию см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Как программно включить метрики хранилища
 В следующем фрагменте кода C# показано, как включить метрики и ведение журнала для службы BLOB-объектов с помощью клиентской библиотеки хранилища для .NET.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-    // Create service client for credentialed access to the Blob service.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+// Create service client for credentialed access to the Blob service.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Enable Storage Analytics logging and set retention policy to 10 days. 
-    ServiceProperties properties = new ServiceProperties();
-    properties.Logging.LoggingOperations = LoggingOperations.All;
-    properties.Logging.RetentionDays = 10;
-    properties.Logging.Version = "1.0";
+// Enable Storage Analytics logging and set retention policy to 10 days. 
+ServiceProperties properties = new ServiceProperties();
+properties.Logging.LoggingOperations = LoggingOperations.All;
+properties.Logging.RetentionDays = 10;
+properties.Logging.Version = "1.0";
 
-    // Configure service properties for metrics. Both metrics and logging must be set at the same time.
-    properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
-    properties.HourMetrics.RetentionDays = 10;
-    properties.HourMetrics.Version = "1.0";
+// Configure service properties for metrics. Both metrics and logging must be set at the same time.
+properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+properties.HourMetrics.RetentionDays = 10;
+properties.HourMetrics.Version = "1.0";
 
-    properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
-    properties.MinuteMetrics.RetentionDays = 10;
-    properties.MinuteMetrics.Version = "1.0";
+properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+properties.MinuteMetrics.RetentionDays = 10;
+properties.MinuteMetrics.Version = "1.0";
 
-    // Set the default service version to be used for anonymous requests.
-    properties.DefaultServiceVersion = "2015-04-05";
+// Set the default service version to be used for anonymous requests.
+properties.DefaultServiceVersion = "2015-04-05";
 
-    // Set the service properties.
-    blobClient.SetServiceProperties(properties);
+// Set the service properties.
+blobClient.SetServiceProperties(properties);
+```
 
 ## <a name="viewing-storage-metrics"></a>Просмотр метрик хранилища
 После настройки метрик хранилища для мониторинга учетной записи хранения метрики записываются в набор известных таблиц в учетной записи хранения. Просматривать часовые метрики по мере их появления на диаграмме можно на странице "Монитор" учетной записи хранения на классическом портале Azure. На этой странице классического портала Azure можно:
@@ -127,8 +135,9 @@ ms.author: robinsh
 ## <a name="accessing-metrics-data-programmatically"></a>Программный доступ к данным метрик
 В следующем списке показан пример кода на C#, в котором реализован доступ к минутным метрикам для диапазона минут с отображением результатов в окне консоли. В данном случае используется библиотека хранилища Azure версии 4, включающая класс CloudAnalyticsClient, упрощающий доступ к таблицам метрик в хранилище.
 
-    private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
-    {
+```csharp
+private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
+{
     // Convert the dates to the format used in the PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
@@ -136,28 +145,28 @@ ms.author: robinsh
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
-    Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
-    var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
-    var t = analyticsClient.GetMinuteMetricsTable(service);
-    var opContext = new OperationContext();
-    var query =
-    from entity in metricsQuery
-    // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
-    // because they are calculated fields in the MetricsEntity class.
-    // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
-    select entity;
+        Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
+        var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
+        var t = analyticsClient.GetMinuteMetricsTable(service);
+        var opContext = new OperationContext();
+        var query =
+          from entity in metricsQuery
+          // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
+          // because they are calculated fields in the MetricsEntity class.
+          // The PartitionKey identifies the DataTime of the metrics.
+          where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+        select entity;
 
-    // Filter on "user" transactions after fetching the metrics from Table Storage.
-    // (StartsWith is not supported using LINQ with Azure table storage)
-    var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
-    var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
-    Console.WriteLine(resultString);
+        // Filter on "user" transactions after fetching the metrics from Table Storage.
+        // (StartsWith is not supported using LINQ with Azure table storage)
+        var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
+        var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
+        Console.WriteLine(resultString);
     }
-    }
+}
 
-    private static string MetricsString(MetricsEntity entity, OperationContext opContext)
-    {
+private static string MetricsString(MetricsEntity entity, OperationContext opContext)
+{
     var entityProperties = entity.WriteEntity(opContext);
     var entityString =
     string.Format("Time: {0}, ", entity.Time) +
@@ -165,26 +174,24 @@ ms.author: robinsh
     string.Format("TransactionType: {0}, ", entity.TransactionType) +
     string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
     return entityString;
+}
+```
 
-    }
-
-
-
-
-## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics?"></a>Какова стоимость включения метрик хранилища?
+## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics"></a>Какова стоимость включения метрик хранилища?
 За запросы записи на создание сущностей таблиц для метрик взимается плата в соответствии со стандартными тарифами, применимыми ко всем операциям службы хранилища Azure.
 
 К запросам на чтение и удаление, формируемым клиентом в отношении данных метрик, также применяются стандартные тарифы. Если вы настроили политику хранения данных, за удаление старых данных метрик хранилищем Azure плата не взимается. Однако при удалении данных аналитики с учетной записи будет взиматься плата за операции удаления.
 
 За пространство, занимаемое таблицами метрик, также взимается плата. Оценить объем пространства, используемый для хранения данных метрик, можно следующим образом:
 
-* Если за каждый час служба использует каждый API в каждой службе, то каждый час в таблицах транзакций метрик сохраняется примерно 148 КБ данных, если сводка охватывает уровень службы и уровень API.
-* Если за каждый час служба использует каждый API в каждой службе, то каждый час в таблицах транзакций метрик сохраняется примерно 12 КБ данных, если сводка охватывает только уровень службы.
-* В таблице емкости больших двоичных объектов ежедневно добавляются две строки (если пользователь выбрал использование журналов). При этом размер этой таблицы ежедневно увеличивается примерно на 300 байтов.
+* Если за каждый час служба использует каждый API в каждой службе, то каждый час в таблицах транзакций метрик сохраняется примерно 148 КБ данных, если сводка охватывает уровень службы и уровень API.
+* Если за каждый час служба использует каждый API в каждой службе, то каждый час в таблицах транзакций метрик сохраняется примерно 12 КБ данных, если сводка охватывает только уровень службы.
+* В таблице емкости больших двоичных объектов ежедневно добавляются две строки (если пользователь выбрал использование журналов). При этом размер этой таблицы ежедневно увеличивается примерно на 300 байтов.
 
-## <a name="next-steps:"></a>Дальнейшие действия:
+## <a name="next-steps"></a>Дальнейшие действия:
 [Включение ведения журнала аналитики и доступа к данным журнала хранилища](https://msdn.microsoft.com/library/dn782840.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

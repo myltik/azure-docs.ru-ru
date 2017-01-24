@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 93048e5789480fbb3c5d2ac6e799685fbf6f888f
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
 
 ---
 
@@ -27,8 +27,8 @@ ms.openlocfilehash: 93048e5789480fbb3c5d2ac6e799685fbf6f888f
 
 Как правило, программный доступ к ресурсам Azure предоставляется через выделенную учетную запись, а не через учетные данные пользователя. Эти выделенные учетные записи называются учетными записями субъектов-служб. Чтобы использовать пример проекта SDK для Azure DNS, сначала необходимо создать учетную запись субъекта-службы и назначить ей соответствующие разрешения.
 
-1. Создайте учетную запись субъекта-службы, следуя [этим инструкциям](../resource-group-authenticate-service-principal.md) (в примере проекта SDK для Azure DNS предполагается использование проверки подлинности на основе пароля).
-2. Создайте группу ресурсов (см. сведения [здесь](../resource-group-template-deploy-portal.md)).
+1. Создайте учетную запись субъекта-службы, следуя [этим инструкциям](../azure-resource-manager/resource-group-authenticate-service-principal.md) (в примере проекта SDK для Azure DNS предполагается использование проверки подлинности на основе пароля).
+2. Создайте группу ресурсов (см. сведения [здесь](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Предоставьте разрешения участника зоны DNS учетной записи субъекта-службы для группы ресурсов с помощью Azure RBAC (см. сведения [здесь](../active-directory/role-based-access-control-configure.md)).
 4. При использовании примера проекта SDK для Azure DNS измените файл program.cs следующим образом:
 
@@ -168,6 +168,6 @@ while (page.NextPageLink != null)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с GaggleAMP | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в приложении GaggleAMP.
+title: "Учебник. Интеграция Azure Active Directory с GaggleAMP | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении GaggleAMP."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1547627558fde4dd2826ed4e40e4d1c90948034
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-gaggleamp"></a>Руководство. Интеграция Azure Active Directory с GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Руководство. Интеграция Azure Active Directory с GaggleAMP
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением GaggleAMP.
 
 Интеграция Azure AD с приложением GaggleAMP обеспечивает следующие преимущества:
 
-* С помощью Azure AD вы можете контролировать доступ к приложению GaggleAMP.
+* С помощью Azure AD вы можете контролировать доступ к приложению GaggleAMP.
 * Вы можете включить автоматический вход пользователей в GaggleAMP (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure. 
+* Вы можете управлять учетными записями централизованно — через классический портал Azure. 
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с GaggleAMP, вам потребуется:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -76,11 +80,11 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_02.png)>
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в GaggleAMP с использованием тестового пользователя Britta Simon.
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в GaggleAMP с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в GaggleAMP соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в GaggleAMP.
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в GaggleAMP.
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в GaggleAMP.
 
 Чтобы настроить и проверить единый вход Azure AD в GaggleAMP, вам потребуется выполнить действия в следующих стандартных блоках:
 
@@ -91,7 +95,7 @@ ms.author: jeedes
 5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение GaggleAMP.
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение GaggleAMP.
 
 **Чтобы настроить единый вход Azure AD в GaggleAMP, выполните следующие действия:**
 
@@ -133,13 +137,13 @@ ms.author: jeedes
     d. Отправьте скачанный сертификат [групе продаж GaggleAMP](mailto:sales@gaggleamp.com).
 4. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 5. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -189,12 +193,12 @@ ms.author: jeedes
     b. Нажмите **Завершено**.   
 
 ### <a name="creating-a-gaggleamp-test-user"></a>Создание тестового пользователя GaggleAMP
-Цель этого раздела — создать в приложении GaggleAMP пользователя с именем Britta Simon. Приложение GaggleAMP поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+Цель этого раздела — создать в приложении GaggleAMP пользователя с именем Britta Simon. Приложение GaggleAMP поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
 В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к GaggleAMP (если он еще не создан). 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к GaggleAMP.
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к GaggleAMP.
 
 ![Назначение пользователя][200] 
 
@@ -214,7 +218,7 @@ ms.author: jeedes
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент GaggleAMP на панели доступа, вы автоматически войдете в приложение GaggleAMP.
 
@@ -242,6 +246,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

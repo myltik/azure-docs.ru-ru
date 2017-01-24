@@ -1,13 +1,13 @@
 ---
-title: Подключение классических виртуальных сетей к виртуальным сетям Resource Manager с помощью PowerShell | Microsoft Docs
-description: Узнайте, как создать VPN-подключение между классическими виртуальными сетями и виртуальными сетями Resource Manager с помощью VPN-шлюза и PowerShell
+title: "Подключение классических виртуальных сетей к виртуальным сетям Resource Manager с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как создать VPN-подключение между классическими виртуальными сетями и виртуальными сетями Resource Manager с помощью VPN-шлюза и PowerShell"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 42cc83b058f504ba5eb7a918fbcc775f14c632fd
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Подключение виртуальных сетей из различных моделей развертывания с использованием PowerShell
@@ -35,7 +39,8 @@ ms.author: cherylmc
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Пиринговая связь между виртуальными сетями
+**Пиринговая связь между виртуальными сетями**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Подготовка
@@ -44,15 +49,15 @@ ms.author: cherylmc
 ### <a name="prerequisites"></a>Предварительные требования
 * Обе виртуальные сети уже созданы.
 * Диапазоны адресов для виртуальных сетей не перекрываются между собой или с другими диапазонами подключений, к которым могут быть подключены шлюзы.
-* В системе установлены последние командлеты Azure PowerShell (версии 1.0.2 или более поздней). Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Командлеты управления службой и Resource Manager должны быть установлены. 
+* В системе установлены последние командлеты Azure PowerShell (версии 1.0.2 или более поздней). Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). Командлеты управления службой и Resource Manager должны быть установлены. 
 
-### <a name="<a-name="exampleref"></a>example-settings"></a><a name="exampleref"></a>Примеры настроек
+### <a name="a-nameexamplerefaexample-settings"></a><a name="exampleref"></a>Примеры настроек
 Параметры из примера можно использовать в качестве ориентира.
 
 **Параметры классической виртуальной сети**
 
 Имя виртуальной сети = ClassicVNet <br>
-Расположение: West US <br>
+Расположение: Западная часть США <br>
 Адресные пространства виртуальной сети = 10.0.0.0/24 <br>
 Подсеть-1 = 10.0.0.0/27 <br>
 Шлюз подсети = 10.0.0.32/29 <br>
@@ -72,7 +77,7 @@ ms.author: cherylmc
 Имя шлюза виртуальной сети = RMGateway <br>
 Конфигурация IP-адресации шлюза = gwipconfig
 
-## <a name="<a-name="createsmgw"></a>section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Раздел 1. Настройка классической виртуальной сети
+## <a name="a-namecreatesmgwasection-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Раздел 1. Настройка классической виртуальной сети
 ### <a name="part-1---download-your-network-configuration-file"></a>Часть 1. Скачивание файла конфигурации сети
 1. Запустите консоль PowerShell с повышенными правами и войдите в свою учетную запись Azure. Следующий командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он скачивает параметры учетной записи, чтобы они были доступны в Azure PowerShell. Для выполнения этой части конфигурации будут использоваться командлеты PowerShell управления службой.
    
@@ -148,14 +153,14 @@ ms.author: cherylmc
 
 Проверить состояние шлюза можно с помощью командлета `Get-AzureVNetGateway`.
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Раздел 2. Настройка шлюза виртуальной сети RM
+## <a name="a-namecreatermgwasection-2-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Раздел 2. Настройка шлюза виртуальной сети RM
 Чтобы создать VPN-шлюз для виртуальной сети RM, следуйте приведенным ниже инструкциям. Не приступайте к выполнению следующих действий до получения общедоступного IP-адреса шлюза классической виртуальной сети. 
 
 1. **войдите в свою учетную запись Azure** . Следующий командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он скачивает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Если у вас есть несколько подписок, запросите их список.
+     Если у вас есть несколько подписок, запросите их список.
    
         Get-AzureRmSubscription
    
@@ -201,7 +206,7 @@ ms.author: cherylmc
    
         Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Раздел 3. Изменение параметров локальной сети для классической виртуальной сети
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Раздел 3. Изменение параметров локальной сети для классической виртуальной сети
 Чтобы выполнить этот шаг, нужно экспортировать, редактировать и сохранить файл конфигурации, а затем импортировать его обратно в Azure. Этот параметр можно также изменить на классическом портале. 
 
 ### <a name="to-modify-in-the-portal"></a>Изменение на портале
@@ -217,7 +222,7 @@ ms.author: cherylmc
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
 3. Сохраните изменения и импортируйте измененный файл обратно в Azure.
 
-## <a name="<a-name="connect"></a>section-4:-create-a-connection-between-the-gateways"></a><a name="connect"></a>Раздел 4. Создание подключения между шлюзами
+## <a name="a-nameconnectasection-4-create-a-connection-between-the-gateways"></a><a name="connect"></a>Раздел 4. Создание подключения между шлюзами
 Для создания подключения между шлюзами требуется PowerShell. Возможно, потребуется добавить учетную запись Azure, чтобы использовать классические командлеты PowerShell. Используйте для этого следующий командлет. 
 
     Add-AzureAccount
@@ -243,11 +248,14 @@ ms.author: cherylmc
    
         Get-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
 Дополнительные сведения см. в ответах на часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть".
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

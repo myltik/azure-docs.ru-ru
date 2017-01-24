@@ -1,27 +1,27 @@
 ---
-title: "Расширенные сценарии с использованием многофакторной проверки подлинности Azure и VPN сторонних поставщиков"
-description: "Эта страница содержит пошаговые инструкции по настройке многофакторной проверки подлинности Azure при использовании с продуктами сторонних поставщиков."
+title: "Расширенные сценарии с использованием Azure MFA и VPN сторонних поставщиков"
+description: "Пошаговые руководства по настройке Azure MFA для интеграции с устройствами Cisco, Citrix и Juniper."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
+editor: yossib
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 11/29/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c7855ad2aa64000c7defd7b0df55fecf9f7ad53a
-
+ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
+ms.openlocfilehash: 9b442a9cb14d87d1f75a3de98602632f6d260b26
 
 ---
-# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-3rd-party-vpn"></a>Расширенные сценарии с использованием многофакторной проверки подлинности Azure и VPN сторонних поставщиков
-Проверку Multi-Factor Authentication Azure можно использовать для быстрого подключения к широкому спектру сторонних решений VPN.  В их число входят устройства VPN Cisco® ASA, Citrix NetScaler SSL, а также Juniper Networks Secure Access/Pulse Secure Connect Secure SSL.
+
+# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Расширенные сценарии с использованием Многофакторной идентификации Azure и VPN-решений сторонних поставщиков
+Многофакторную идентификацию Azure можно использовать для быстрого подключения к широкому спектру VPN-решений сторонних поставщиков. Эта статья посвящена применению устройств VPN Cisco® ASA, Citrix NetScaler SSL, а также Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Мы разработали руководства по настройке для этих трех распространенных устройств, но сервер Многофакторной идентификации можно интегрировать с большинством систем, использующих для доступа в AD FS технологии RADIUS, LDAP, IIS или аутентификацию на основе утверждений. Дополнительные сведения см. в разделе [Дополнительные конфигурации сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#advanced-azure-multi-factor-authentication-server-configurations).
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Устройство VPN Cisco ASA и многофакторная проверка подлинности Azure
 Многофакторная проверка подлинности Azure полностью интегрируется с устройством VPN Cisco® ASA, обеспечивая дополнительную защиту для учетных данных VPN Cisco AnyConnect® и доступа к порталу.  Для этой цели можно использовать протокол LDAP или RADIUS.  Щелкните одну из следующих ссылок и загрузите подробную пошаговую инструкцию по настройке.
@@ -49,7 +49,6 @@ ms.openlocfilehash: c7855ad2aa64000c7defd7b0df55fecf9f7ad53a
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
 4. Добавьте адрес электронной почты соадминистратора, которого нужно добавить или удалить.
 5. Щелкните **Сохранить**.
 
-## <a name="next-steps-other-support-queries"></a>Дальнейшие действия: другие запросы в службу поддержки
+## <a name="next-steps--other-support-queries"></a>Дальнейшие действия: другие запросы в службу поддержки
 Для устранения указанных проблем отправьте заявку на сайт [https://portal.azure.com](https://portal.azure.com):
 
 * Сообщение об ошибке при выставлении счетов
@@ -124,6 +124,6 @@ ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

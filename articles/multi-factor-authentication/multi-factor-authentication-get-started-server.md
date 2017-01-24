@@ -1,5 +1,5 @@
 ---
-title: "Приступая к работе с сервером Многофакторной идентификации Azure"
+title: "Приступая к работе с сервером Многофакторной идентификации Azure | Документация Майкрософт"
 description: "Эта страница посвящена работе со службой Azure Multi-Factor Authentication. Она содержит информацию о том, как начать работу с сервером Azure MFA."
 services: multi-factor-authentication
 keywords: "сервер проверки подлинности, страница активации приложения многофакторной проверки подлинности azure, загрузка сервера проверки подлинности"
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Приступая к работе с сервером Azure Multi-Factor Authentication
 <center>![Локальная Многофакторная идентификация (MFA)](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Теперь, когда мы определили, что нужно использовать локальную Многофакторную идентификацию, давайте приступим к работе. На этой странице рассматривается процедура установки сервера и его настройка в локальной службе Active Directory. Если сервер PhoneFactor уже установлен и вы ищете сведения о его обновлении, см. статью [Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md). Если же вам нужны сведения только об установке веб-службы, см. статью [Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+Теперь, когда мы определили, что нужно использовать локальный сервер Многофакторной идентификации, давайте приступим к работе. На этой странице рассматривается процедура установки сервера и его настройка в локальной службе Active Directory. Если сервер PhoneFactor уже установлен и вы ищете сведения о его обновлении, см. статью [Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md). Если же вам нужны сведения только об установке веб-службы, см. статью [Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Загрузка сервера Azure Multi-Factor Authentication
-Существует два разных способа загрузки сервера Azure Multi-Factor Authentication: Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется либо поставщик Multi-Factor Authentication, либо лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
+Существует два разных способа загрузки сервера Azure Multi-Factor Authentication: Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется поставщик Многофакторной идентификации или лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Загрузка сервера Многофакторной идентификации Azure с классического портала Azure
+> [!Important]
+> Эти варианты похожи, но очень важно знать, который из них следует использовать. Если у пользователей есть лицензии, которые поставляются с MFA, для загрузки сервера не нужно создавать поставщик Многофакторной идентификации. Вместо этого, чтобы скачать сервер, воспользуйтесь вторым вариантом на странице параметров службы. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Вариант 1. Скачивание сервера Многофакторной идентификации Azure с классического портала Azure
+
+Используйте этот вариант скачивания, если поставщик Многофакторной идентификации уже установлен, так как вы платите за MFA для каждого включенного пользователя или для каждого пользователя, прошедшего проверку подлинности. 
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетной записью администратора.
 2. Выберите **Active Directory**слева.
@@ -41,7 +46,10 @@ ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
    ![Загрузить](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Сохраните загружаемый файл.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>Загрузка сервера Многофакторной идентификации Azure с использованием параметров службы
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Вариант 2. Скачивание сервера Многофакторной идентификации Azure с использованием параметров службы
+
+Используйте этот вариант скачивания, если у вас есть лицензия Enterprise Mobility Suite, Azure AD Premium или Enterprise Cloud Suite. 
+
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетной записью администратора.
 2. Выберите **Active Directory**слева.
 3. Дважды щелкните свой экземпляр Azure AD.
@@ -140,8 +148,8 @@ ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
 
 Кроме указанных выше полей, результат проверки подлинности (пройдена или получен отказ) и причины отказов также хранятся с данными проверки подлинности и могут быть получены из отчетов о проверке подлинности или использовании.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>Дополнительные конфигурации сервера Azure Multi-Factor Authentication
-Дополнительные сведения о расширенной настройке приведены в следующей таблице:
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения о расширенной настройке доступны по ссылкам в следующей таблице.
 
 | Метод | Описание |
 |:--- |:--- |
@@ -158,6 +166,6 @@ ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

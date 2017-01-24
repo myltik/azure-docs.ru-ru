@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
 * Выберите клиент Azure AD, щелкнув имя своей учетной записи в правом верхнем углу страницы.
 * В области навигации слева щелкните **Azure Active Directory**.
 * Щелкните **Регистрация приложений** и нажмите кнопку **Добавить**.
-* Следуйте инструкциям на экране, а затем создайте новое приложение. Для данного руководства не имеет значения, будет это веб-приложение или собственное приложение, но если вам нужны конкретные примеры веб-приложений или собственных приложений, ознакомьтесь с нашими [краткими руководствами](../articles/active-directory/active-directory-developers-guide.md).
+* Следуйте инструкциям на экране, а затем создайте новое приложение. Для данного руководства не имеет значения, будет это веб-приложение или собственное приложение, но если вам нужны конкретные примеры веб-приложений или собственных приложений, ознакомьтесь с нашими [краткими руководствами](../articles/active-directory/develop/active-directory-developers-guide.md).
   * Для веб-приложений укажите **URL-адрес входа**, который является базовым URL-адресом вашего приложения и через который пользователи могут входить в приложение, например `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Для собственных приложений укажите **URI перенаправления**который Azure AD будет использовать для возврата ответов маркеров. Укажите значение, специфичное для вашего приложения, например `http://MyFirstAADApp`
@@ -36,6 +36,6 @@ ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

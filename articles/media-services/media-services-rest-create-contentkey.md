@@ -1,12 +1,12 @@
 ---
-title: Создание ContentKey с помощью REST | Microsoft Docs
-description: Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам.
+title: "Создание ключей содержимого с помощью REST | Документация Майкрософт"
+description: "Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: ffe17f50db9afe7c562b0890e8ea24d517e31bf7
+
 
 ---
 # <a name="create-contentkeys-with-rest"></a>Создание ContentKey с использованием REST
@@ -36,7 +40,7 @@ ms.author: juliako
 1. Создайте случайный 16-разрядный ключ AES (для общего и конвертного шифрования) или 32-разрядного ключа AES (для шифрования в хранилище). 
    
     Это будет ключ содержимого для ресурса, то есть для всех файлов, связанных с этим ресурсом, при расшифровке будет использоваться один и тот же ключ содержимого. 
-2. Вызовите методы [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
+2. Вызовите методы [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
 3. Зашифруйте ключ содержимого с помощью открытого ключа сертификата X.509. 
    
    Пакет SDK служб мультимедиа для .NET использует при выполнении шифрования RSA с OAEP.  Примером может служить [функция EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -44,22 +48,22 @@ ms.author: juliako
    
    В следующем примере .NET контрольная сумма вычисляется с помощью части "GUID" идентификатора ключа и незащищенного ключа содержимого.
    
-       public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-       {
-           byte[] array = null;
-           using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-           {
-               aesCryptoServiceProvider.Mode = CipherMode.ECB;
-               aesCryptoServiceProvider.Key = contentKey;
-               aesCryptoServiceProvider.Padding = PaddingMode.None;
-               ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-               array = new byte[16];
-               cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-           }
-           byte[] array2 = new byte[8];
-           Array.Copy(array, array2, 8);
-           return Convert.ToBase64String(array2);
-       }
+     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
+   
+         byte[] array = null;
+         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+         {
+             aesCryptoServiceProvider.Mode = CipherMode.ECB;
+             aesCryptoServiceProvider.Key = contentKey;
+             aesCryptoServiceProvider.Padding = PaddingMode.None;
+             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+             array = new byte[16];
+             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+         }
+         byte[] array2 = new byte[8];
+         Array.Copy(array, array2, 8);
+         return Convert.ToBase64String(array2);
+     }
 5. Создайте ключ содержимого, используя значения **EncryptedContentKey** (преобразуется в строку с кодировкой base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** и **Checksum**, полученные на предыдущих шагах.
 6. Свяжите сущность **ContentKey** с сущностью **Asset** с помощью операции $links.
 
@@ -251,6 +255,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,34 +1,38 @@
 ---
-title: Как добавить единицы кодирования
-description: Информация о добавлении единиц кодирования с помощью .NET
+title: "Как добавить единицы кодирования"
+description: "Информация о добавлении единиц кодирования с помощью .NET"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: juliako;milangada;gtrifonov
+translationtype: Human Translation
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: ad0cf996390a792495c492e4205d5be3d27ffa9b
+
 
 ---
-# Масштабирование кодирования с помощью пакета SDK для .NET
+# <a name="how-to-scale-encoding-with-net-sdk"></a>Масштабирование кодирования с помощью пакета SDK для .NET
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
 
-## Обзор
+## <a name="overview"></a>Обзор
 > [!IMPORTANT]
-> Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md), чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
+> Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md) , чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
 > 
 > 
 
@@ -44,10 +48,10 @@ ms.author: juliako;milangada;gtrifonov
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## Открытие запроса в службу поддержки
+## <a name="opening-a-support-ticket"></a>Открытие запроса в службу поддержки
 По умолчанию каждая учетная запись служб мультимедиа может масштабироваться до 25 зарезервированных единиц кодирования и 5 зарезервированных единиц потоковой передачи по требованию. Вы можете запросить более высокий предел, открыв запрос в службу поддержки.
 
-### Открытие запроса в службу поддержки
+### <a name="open-a-support-ticket"></a>Открытие запроса в службу поддержки
 Чтобы открыть запрос в службу поддержки, выполните следующее:
 
 1. Щелкните [Получить поддержку](https://manage.windowsazure.com/?getsupport=true). Если вы не выполнили вход, будет предложено ввести учетные данные.
@@ -60,10 +64,15 @@ ms.author: juliako;milangada;gtrifonov
 8. Следуйте указаниям на следующей странице, а затем введите сведения о проблеме.
 9. Нажмите кнопку "Отправить" для создания запроса в службу поддержки.
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

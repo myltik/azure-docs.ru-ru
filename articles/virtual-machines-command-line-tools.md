@@ -1,13 +1,13 @@
 ---
-title: Команды Azure CLI в режиме управления службами | Microsoft Docs
-description: Команды интерфейса командной строки Azure (CLI) в режиме управления службами, используемые для управления развернутыми службами в классической модели развертывания.
+title: "Команды Azure CLI в режиме управления службами | Документация Майкрософт"
+description: "Команды интерфейса командной строки Azure (CLI) в режиме управления службами, используемые для управления развернутыми службами в классической модели развертывания."
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
@@ -15,12 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
+ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
+
 
 ---
-# <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>Команды Azure CLI в режиме управления службами Azure (ASM)
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
-
-Вы можете также [прочитать обо всех командах модели Resource Manager](virtual-machines/azure-cli-arm-commands.md) и использовать интерфейс командной строки для [переноса ресурсов](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) из классической модели в модель Resource Manager.
+# <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Команды Azure CLI в режиме управления службами Azure (ASM)
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../articles/azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы можете также [прочитать обо всех командах модели Resource Manager](virtual-machines/azure-cli-arm-commands.md) и использовать интерфейс командной строки для [переноса ресурсов](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) из классической модели в модель Resource Manager.
 
 В этой статье приводится синтаксис и параметры команд Azure CLI, которые обычно используется для создания ресурсов Azure и управления ими в классической модели развертывания. Для доступа к этим командам следует запустить CLI в режиме управления службами Azure (ASM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. 
 
@@ -502,7 +505,7 @@ info:   vm shutdown command OK
 ## <a name="commands-to-manage-your-azure-virtual-machine-data-disks"></a>Команды для управления дисками данных виртуальных машин Azure
 Диски данных — это VHD-файлы в хранилище больших двоичных объектов, которые может использовать виртуальная машина. Дополнительную информацию о том, как диски данных развертываются в хранилище больших двоичных объектов, см. на приведенной выше технической схеме Azure.
 
-Команды для присоединения дисков данных (azure vm disk attach и azure vm disk attach-new) назначают номер логического устройства (LUN) присоединяемому диску данных в соответствии с требованиями для протокола SCSI. Первому присоединенному к виртуальной машине диску данных назначается номер LUN 0, следующему — LUN 1 и т. д.
+Команды для присоединения дисков данных (azure vm disk attach и azure vm disk attach-new) назначают номер логического устройства (LUN) присоединяемому диску данных в соответствии с требованиями для протокола SCSI. Первому присоединенному к виртуальной машине диску данных назначается номер LUN 0, следующему — LUN 1 и т. д.
 
 При отсоединении диска данных с помощью команды vm disk detach используйте параметр &lt;lun&gt;, чтобы указать, какой диск отсоединять.
 
@@ -921,7 +924,7 @@ info:   vm shutdown command OK
     Web site name: mydemosite
     + Getting sites
     + Getting site information
-    data:    Subject                       Expiration Date                    Thumbprint
+    data:    Subject                       Expiration Date                      Thumbprint
     data:    ----------------------------  -----------------------------------------
     ----------------  ----------------------------------------
     data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
@@ -1144,7 +1147,7 @@ info:   vm shutdown command OK
 * **-v** или **--verbose**: записывать подробные выходные данные.
 * **--json**: записывать выходные данные в формате JSON.
 
-### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Команды для управления экземплярами мобильных служб
+### <a name="a-namemobileservicesacommands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Команды для управления экземплярами мобильных служб
 **mobile locations [параметры]**
 
 Эта команда выводит список географических расположений, поддерживаемых мобильными службами.
@@ -1300,7 +1303,7 @@ info:   vm shutdown command OK
 
 Эта команда задает определенное значение ключу мобильной службы.
 
-### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Команды для управления конфигурацией мобильных служб
+### <a name="a-namemobileconfigurationacommands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Команды для управления конфигурацией мобильных служб
 **mobile config list [параметры] [имя_службы]**
 
 Эта команда выводит список параметров конфигурации для мобильной службы.
@@ -1341,7 +1344,7 @@ info:   vm shutdown command OK
     info:    mobile config set command OK
 
 
-### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Команды для управления таблицами мобильных служб
+### <a name="a-namemobiletablesacommands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Команды для управления таблицами мобильных служб
 **mobile table list [параметры] [имя_службы]**
 
 Эта команда выводит список всех таблиц в вашей мобильной службе.
@@ -1453,8 +1456,8 @@ info:   vm shutdown command OK
     info:    mobile data truncate command OK
 
 
-### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Команды для управления сценариями
-Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительные сведения см. в разделе [Работа с серверными сценариями в мобильных службах](mobile-services/mobile-services-how-to-use-server-scripts.md).
+### <a name="a-namemobilescriptsacommands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Команды для управления сценариями
+Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительные сведения см. в разделе [Работа с серверными сценариями в мобильных службах](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [параметры] [имя_службы]**
 
@@ -1510,7 +1513,7 @@ info:   vm shutdown command OK
     info:    Executing command mobile script delete
     info:    mobile script delete command OK
 
-### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Команды для управления запланированными заданиями
+### <a name="a-namemobilejobsacommands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Команды для управления запланированными заданиями
 Описанные в этом разделе команды используются для управления запланированными заданиями, относящимися к мобильной службе. Дополнительные сведения см. в разделе [Планирование заданий](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [параметры] [имя_службы]**
@@ -1585,7 +1588,7 @@ info:   vm shutdown command OK
 > 
 > 
 
-### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Команды для масштабирования мобильной службы
+### <a name="a-namemobilescaleacommands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Команды для масштабирования мобильной службы
 Описанные в этом разделе команды используются для масштабирования мобильной службы. Дополнительную информацию см. в разделе [Масштабирование мобильной службы](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [параметры] [имя_службы]**
@@ -2047,7 +2050,7 @@ info:   vm shutdown command OK
 ## <a name="commands-to-manage-sql-databases"></a>Команды для управления базами данных SQL
 Для управлениями вашими базами данных Azure SQL используйте следующие команды.
 
-### <a name="commands-to-manage-sql-servers."></a>Команды для управления серверами SQL Server
+### <a name="commands-to-manage-sql-servers"></a>Команды для управления серверами SQL Server
 Для управлениями вашими серверами SQL Server используйте следующие команды.
 
 **sql server create &lt;имя_входа_администратора> &lt;пароль_администратора> &lt;расположение>**
@@ -2350,6 +2353,6 @@ info:   vm shutdown command OK
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

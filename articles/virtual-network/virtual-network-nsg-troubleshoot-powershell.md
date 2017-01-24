@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 10a56e134f0e31e60758d6e616b771dabc0f4dad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
 
 
 ---
@@ -44,7 +44,7 @@ NSG позволяют управлять типом трафика, перед�
 ## <a name="detailed-troubleshooting-steps"></a>Подробные инструкции по устранению неполадок
 Выполните шаги ниже, чтобы устранить проблемы с NSG для виртуальной машины.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md) .
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Следующая команда возвращает все правила NSG, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -201,6 +201,6 @@ NSG позволяют управлять типом трафика, перед�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

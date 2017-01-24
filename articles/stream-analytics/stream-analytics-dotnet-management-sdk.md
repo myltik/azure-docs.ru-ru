@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f3f7633f5ef863d42e1f0e3e26b58f38817ac01
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 55fc17009a31c84f7ef23140b31bf53858e56ec7
 
 
 ---
@@ -33,7 +33,7 @@ Azure Stream Analytics является полностью управляемо�
 
 * Установите Visual Studio 2012 или 2013.
 * Скачанный и установленный [пакет SDK для Azure .NET](https://azure.microsoft.com/downloads/).
-* Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).  
+* Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -85,42 +85,45 @@ Azure Stream Analytics является полностью управляемо�
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 2. Добавьте вспомогательный метод проверки подлинности:
+
+   ```   
+   public static string GetAuthorizationHeader()
+   {
    
-     public static string GetAuthorizationHeader()   {
+       AuthenticationResult result = null;
+       var thread = new Thread(() =>
+       {
+           try
+           {
+               var context = new AuthenticationContext(
+                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
    
-         AuthenticationResult result = null;
-         var thread = new Thread(() =>
-         {
-             try
-             {
-                 var context = new AuthenticationContext(
-                     ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                     ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+               result = context.AcquireToken(
+                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                   promptBehavior: PromptBehavior.Always);
+           }
+           catch (Exception threadEx)
+           {
+               Console.WriteLine(threadEx.Message);
+           }
+       });
    
-                 result = context.AcquireToken(
-                     resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                     clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                     redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                     promptBehavior: PromptBehavior.Always);
-             }
-             catch (Exception threadEx)
-             {
-                 Console.WriteLine(threadEx.Message);
-             }
-         });
+       thread.SetApartmentState(ApartmentState.STA);
+       thread.Name = "AcquireTokenThread";
+       thread.Start();
+       thread.Join();
    
-         thread.SetApartmentState(ApartmentState.STA);
-         thread.Name = "AcquireTokenThread";
-         thread.Start();
-         thread.Join();
+       if (result != null)
+       {
+           return result.AccessToken;
+       }
    
-         if (result != null)
-         {
-             return result.AccessToken;
-         }
-   
-         throw new InvalidOperationException("Failed to acquire token");
-     }  
+       throw new InvalidOperationException("Failed to acquire token");
+   }
+   ```  
 
 ## <a name="create-a-stream-analytics-management-client"></a>Создание клиента управления Stream Analytics
 Объект **StreamAnalyticsManagementClient** позволяет управлять заданием и его компонентами, такими как входные и выходные данные, а также преобразованием.
@@ -144,7 +147,7 @@ Azure Stream Analytics является полностью управляемо�
 
 Значение переменной **resourceGroupName** должно быть таким же, как имя группы ресурсов, созданной или выбранной на предварительных шагах.
 
-Инструкции по автоматизации этапа создания задач, связанного с представлением учетных данных, см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../resource-group-authenticate-service-principal.md).
+Инструкции по автоматизации этапа создания задач, связанного с представлением учетных данных, см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 В дальнейших разделах этой статьи предполагается, что этот код находится в начале метода **Main** .
 
@@ -350,6 +353,6 @@ Azure Stream Analytics является полностью управляемо�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

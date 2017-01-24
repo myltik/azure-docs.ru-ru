@@ -1,5 +1,5 @@
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Руководство разработчика для Azure AD](../articles/active-directory/active-directory-developers-guide.md)
+* [Руководство разработчика для Azure AD](../articles/active-directory/develop/active-directory-developers-guide.md)
 * [Примеры Azure AD на сайте GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 
@@ -8,6 +8,6 @@
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

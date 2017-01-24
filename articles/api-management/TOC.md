@@ -34,18 +34,21 @@
 ### [Управление группами](api-management-howto-create-groups.md)
 ### [Развертывание в несколько регионов Azure](api-management-howto-deploy-multi-region.md)
 ### [Регистрация событий в концентраторах событий Azure](api-management-howto-log-event-hubs.md)
-### [Настройка аварийного восстановления с помощью архивации и восстановления](api-management-howto-disaster-recovery-backup-restore.md)
+### [Настройка аварийного восстановления с помощью резервного копирования и восстановления](api-management-howto-disaster-recovery-backup-restore.md)
 ### [Трассировка вызовов с помощью инспектора API](api-management-howto-api-inspector.md)
 ### [Управление учетными записями пользователей](api-management-howto-create-or-invite-developers.md)
 ### [Управление с помощью службы автоматизации](automation-manage-api-management.md)
 ### [Настройка с помощью Git](api-management-configuration-repository-git.md)
-#Справочные материалы
+
+# Справочные материалы
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Классическая модель: PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (оригинал)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Ресурсы
 ## [Политики](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Шаблоны](https://msdn.microsoft.com/library/azure/mt697540)
-#Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -55,14 +58,14 @@
 ## [Руководство по проектированию API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Руководство по реализации API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Использование служб SOAP для WCF по протоколу HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-## [Подключение концентраторов событий к управлению API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
-## [Управление API идеально работает с другими службами Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
+## [Подключение концентраторов событий к службе управления API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Служба управления API идеально работает с другими службами Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Предоставление доступа по модели RBAC с помощью REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Настройка PostMan для вызова интерфейсов API управления API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
-## [Подключаемый модуль управления API для SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+## [Настройка PostMan для вызова интерфейсов API службы управления API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Подключаемый модуль службы управления API для SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

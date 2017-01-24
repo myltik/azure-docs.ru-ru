@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
-ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 547a2c0ab49c0b79d85bab1bd3abd800c9288ccf
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 Чтобы настроить пиринг виртуальных сетей с использованием шаблонов Resource Manager, сделайте следующее.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) до этапа входа в Azure и выбора подписки.
    
    > [!NOTE]
    > Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -101,7 +101,7 @@ ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
    | UseRemoteGateways |Необходимо использовать шлюз вашей пиринговой виртуальной сети. Этот шлюз должен быть настроен. Кроме того, должен быть выбран параметр AllowGatewayTransit. Этот параметр нельзя использовать, если вы уже настроили шлюз. |Нет |
    
     Каждое пиринговое соединение между виртуальными сетями имеет описанные выше свойства. Например, вы можете указать для параметра AllowVirtualNetworkAccess значение True, чтобы настроить пиринговое соединение от VNet1 к VNet2, или значение False, чтобы настроить пиринговое соединение в другом направлении.
-4. Чтобы развернуть файл шаблона, можно выполнить командлет New-AzureRmResourceGroupDeployment, позволяющий создать или обновить развертывание. Дополнительные сведения об использовании шаблонов Resource Manager см. в [этой статье](../resource-group-template-deploy.md).
+4. Чтобы развернуть файл шаблона, можно выполнить командлет New-AzureRmResourceGroupDeployment, позволяющий создать или обновить развертывание. Дополнительные сведения об использовании шаблонов Resource Manager см. в [этой статье](../azure-resource-manager/resource-group-template-deploy.md).
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
    
@@ -382,6 +382,6 @@ ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

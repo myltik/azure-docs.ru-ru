@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 6eac5dd04cf13e2b36034f07c45f607225b9a2e8
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Подготовка
-Убедитесь, что вы установили командлеты Azure PowerShell, необходимые для этой конфигурации (1.0.2 или более поздней версии). Если вы еще не установили эти командлеты, необходимо сделать это перед началом настройки. Дополнительную информацию об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Убедитесь, что вы установили командлеты Azure PowerShell, необходимые для этой конфигурации (1.0.2 или более поздней версии). Если вы еще не установили эти командлеты, необходимо сделать это перед началом настройки. Дополнительную информацию об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
@@ -45,6 +45,6 @@ ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

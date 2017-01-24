@@ -1,42 +1,46 @@
 ---
-title: Управление учетными записями служб мультимедиа Azure с помощью PowerShell
-description: Узнайте, как управлять учетными записями служб мультимедиа Azure с помощью командлетов PowerShell.
+title: "Управление учетными записями служб мультимедиа Azure с помощью PowerShell"
+description: "Узнайте, как управлять учетными записями служб мультимедиа Azure с помощью командлетов PowerShell."
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 17a10c25-d94f-421c-b6bc-ae0958e2ac96
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2016
+ms.date: 10/03/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2549c876ee35d6a7fa425d43e2f86d24131ca791
+ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
+
 
 ---
-# Управление учетными записями служб мультимедиа Azure с помощью PowerShell
+# <a name="manage-azure-media-services-accounts-with-powershell"></a>Управление учетными записями служб мультимедиа Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Для создания учетной записи служб мультимедиа Azure необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.
 > 
 > 
 
-## Обзор
-В этой статье перечислены командлеты Azure PowerShell для служб мультимедиа Azure (AMS), доступные в инфраструктуре Azure Resource Manager. Командлеты существуют в пространстве имен **Microsoft.Azure.Commands.Media**.
+## <a name="overview"></a>Обзор
+В этой статье перечислены командлеты Azure PowerShell для служб мультимедиа Azure (AMS), доступные в инфраструктуре Azure Resource Manager. Командлеты существуют в пространстве имен **Microsoft.Azure.Commands.Media** .
 
-## Версии
-**Версия API**: от 01.10.2015.
+## <a name="versions"></a>Версии
+**ApiVersion**: от 01.10.2015.
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 Создает службу мультимедиа.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
 Набор параметров: StorageAccountIdParamSet.
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
@@ -45,8 +49,8 @@ ms.author: juliako
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -58,7 +62,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -70,7 +74,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-**-Location &lt;Строка&gt;**
+**-Location &lt;String&gt;**
 
 Указывает расположение ресурсов для этой службы мультимедиа.
 
@@ -82,7 +86,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-StorageAccountId &lt;Строка&gt;**
+**-StorageAccountId &lt;String&gt;**
 
 Указывает основную учетную запись хранения, связанную с этой службой мультимедиа.
 
@@ -98,7 +102,7 @@ ms.author: juliako
 | Имя набора параметров |StorageAccountIdParamSet |
 | Принимает подстановочные знаки? |нет |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Указывает учетные записи хранения, связанные с этой службой мультимедиа.
 
@@ -115,11 +119,11 @@ ms.author: juliako
 | Имя набора параметров |StorageAccountsParamSet |
 | Принимает подстановочные знаки? |нет |
 
-**-Tags &lt;хэш-таблица&gt;**
+**-Tags &lt;Hashtable&gt;**
 
 Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
 
-* Пример: @{"тег1"="значение1";"тег2"="значение2"}
+* Пример: @{"tag1"="value1";"tag2"=:value2"}
 
 | Псевдонимы | Нет |
 | --- | --- |
@@ -129,24 +133,24 @@ ms.author: juliako
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Обновляет службу мультимедиа.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
     Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -155,22 +159,22 @@ ms.author: juliako
 | Обязательный? |Да |
 | Позиция? |0 |
 | Значение по умолчанию |Нет |
-| Принимает конвейерный ввод? |true(ByPropertyName) |
+| Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
 | Псевдонимы | Name (Имя) |
 | --- | --- |
-| Обязательный? |Истина |
+| Обязательный? |Да |
 | Позиция? |1 |
-| Значение по умолчанию |None |
+| Значение по умолчанию |Нет |
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |Ложь |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Указывает учетные записи хранения, связанные с этой службой мультимедиа.
 
@@ -181,13 +185,13 @@ ms.author: juliako
 | Псевдонимы | Нет |
 | --- | --- |
 | Обязательный? |нет |
-| Позиция? |Именованная |
+| Позиция? |именованная |
 | Значение по умолчанию |Нет |
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Имя набора параметров |StorageAccountsParamSet |
 | Принимает подстановочные знаки? |нет |
 
-**-Tags &lt;хэш-таблица&gt;**
+**-Tags &lt;Hashtable&gt;**
 
 Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
 
@@ -195,30 +199,30 @@ ms.author: juliako
 
 | Псевдонимы | Нет |
 | --- | --- |
-| Обязательный? |Ложь |
-| Позиция? |Именованная |
-| Значение по умолчанию |None |
+| Обязательный? |нет |
+| Позиция? |именованная |
+| Значение по умолчанию |Нет |
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Удаляет службу мультимедиа.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
     Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -230,7 +234,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -238,24 +242,24 @@ ms.author: juliako
 | --- | --- |
 | Обязательный? |Да |
 | Позиция? |2 |
-| Значение по умолчанию |None |
+| Значение по умолчанию |Нет |
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |Ложь |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Получает все службы мультимедиа в группе ресурсов или службу мультимедиа с заданным именем.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
 Набор параметров: ResourceGroupParameterSet
 
     Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]    
@@ -264,8 +268,8 @@ ms.author: juliako
 
     Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -277,9 +281,9 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Имя набора параметров |ResourceGroupParameterSet, AccountNameParameterSet |
 
-Принимает подстановочные знаки? Нет
+Принимает подстановочные знаки?   нет
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -292,24 +296,24 @@ ms.author: juliako
 | Имя набора параметров |AccountNameParameterSet |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Возвращает ключи службы мультимедиа.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
     Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -321,7 +325,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -333,24 +337,24 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Повторно создает первичный или вторичный ключ службы мультимедиа.
 
-### Синтаксис
+### <a name="syntax"></a>Синтаксис
     Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -362,7 +366,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -374,7 +378,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-KeyType &lt;тип ключа&gt;**
+**-KeyType &lt;KeyType&gt;**
 
 Указывает тип ключа этой службы мультимедиа.
 
@@ -388,24 +392,24 @@ ms.author: juliako
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 Синхронизирует ключи учетной записи хранения, которая связана с этой службой мультимедиа.
 
-### Синтаксис
-    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+### <a name="syntax"></a>Синтаксис
+    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 
-### Параметры
-**-ResourceGroupName &lt;Строка&gt;**
+### <a name="parameters"></a>Параметры
+**-ResourceGroupName &lt;String&gt;**
 
 Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
@@ -417,7 +421,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
 Указывает имя этой службы мультимедиа.
 
@@ -429,7 +433,7 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**-StorageAccountId &lt;Строка&gt;**
+**-StorageAccountId &lt;String&gt;**
 
 Указывает учетную запись хранения, связанную с этой службой мультимедиа.
 
@@ -441,22 +445,27 @@ ms.author: juliako
 | Принимает входные данные конвейера? |true(ByPropertyName) |
 | Принимает подстановочные знаки? |нет |
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
 Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Входные данные
 Тип входных данных определяет тип объектов, которые можно передавать в командлет.
 
-### Выходные данные
+### <a name="outputs"></a>Выходные данные
 Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
 
-## Дальнейшие действия
+## <a name="next-step"></a>Дальнейшие действия
 Изучите схемы обучения для служб мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

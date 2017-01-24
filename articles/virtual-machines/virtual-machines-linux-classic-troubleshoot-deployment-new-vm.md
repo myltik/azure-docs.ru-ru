@@ -1,13 +1,13 @@
 ---
-title: Устранение неполадок, связанных с развертыванием виртуальных машин Linux с помощью классической модели | Microsoft Docs
-description: Устранение неполадок, связанных с классическим развертыванием при создании виртуальной машины Linux в Azure
+title: "Устранение неполадок, связанных с развертыванием виртуальных машин Linux с помощью классической модели | Документация Майкрософт"
+description: "Устранение неполадок, связанных с классическим развертыванием при создании виртуальной машины Linux в Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 743dde7e55ac81ba4f44724f0705f4056fa69427
+
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании во время создания виртуальной машины Linux в Azure
@@ -22,7 +26,8 @@ ms.author: cjiang
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версия этой статьи для модели развертывания с помощью Resource Manager доступна [здесь](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -45,7 +50,7 @@ ms.author: cjiang
 
 **Способы устранения:**
 
-Чтобы устранить обе ошибки, передайте исходный виртуальный жесткий диск, доступный в локальной среде, с тем же параметром (универсальный или специализированный), который установлен для операционной системы. Чтобы передать диск как универсальный, сначала обязательно выполните команду -deprovision. Дополнительные сведения см. в статье [Создание и отправка виртуального жесткого диска с ОС Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Чтобы устранить обе ошибки, передайте исходный виртуальный жесткий диск, доступный в локальной среде, с тем же параметром (универсальный или специализированный), который установлен для операционной системы. Чтобы передать диск как универсальный, сначала обязательно выполните команду -deprovision. Дополнительные сведения см. в статье [Создание и отправка виртуального жесткого диска с ОС Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 **Ошибки записи:**
 
@@ -55,9 +60,9 @@ ms.author: cjiang
 
 **Способы устранения:**
 
-Чтобы устранить обе ошибки, удалите на портале текущий образ и [заново запишите его с текущих виртуальных жестких дисков](virtual-machines-linux-classic-capture-image.md) с тем же параметром (универсальный или специализированный), который установлен для операционной системы.
+Чтобы устранить обе ошибки, удалите на портале текущий образ и [заново запишите его с текущих виртуальных жестких дисков](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) с тем же параметром (универсальный или специализированный), который установлен для операционной системы.
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Проблема: ошибка выделения (пользовательский образ, образ из коллекции или Marketplace)
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Проблема: ошибка выделения (пользовательский образ, образ из коллекции или Marketplace)
 Такая ошибка возникает в ситуациях, когда запрос на новую виртуальную машину направляется в кластер, который не поддерживает запрашиваемый размер виртуальной машины или не располагает свободным пространством для выполнения запроса. Нельзя сочетать виртуальные машины разных серий в одной облачной службе. Если вы попытаетесь создать новую виртуальную машину такого размера, который не поддерживается вашей облачной службой, запрос вычислений завершится ошибкой.
 
 В зависимости от ограничений, которые существуют для используемой облачной службы, может возникнуть ошибка, вызванная одной из двух причин.
@@ -84,8 +89,11 @@ ms.author: cjiang
 * [Подключите существующую виртуальную сеть](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) к новой виртуальной сети. См. дополнительные сведения о [региональных виртуальных сетях](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Кроме того, вы можете [перенести виртуальную сеть на основе территориальной группы в региональную виртуальную сеть](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), а затем создать в ней виртуальную машину.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При возникновении проблем во время запуска остановленной виртуальной машины Linux или в случае изменения размера существующей виртуальной машины Linux в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
+При возникновении проблем во время запуска остановленной виртуальной машины Linux или в случае изменения размера существующей виртуальной машины Linux в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

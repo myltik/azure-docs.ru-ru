@@ -1,29 +1,33 @@
 ---
-title: Подготовка веб-приложения с кэшем Redis
-description: Используйте шаблон диспетчера ресурсов Azure для развертывания веб-приложения с кэшем Redis.
+title: "Подготовка веб-приложения с кэшем Redis"
+description: "Используйте шаблон диспетчера ресурсов Azure для развертывания веб-приложения с кэшем Redis."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erickson-doug
-editor: ''
-
+editor: 
+ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 01/06/2017
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
+
 
 ---
-# Создание веб-приложения и кэша Redis с помощью шаблона
+# <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Создание веб-приложения и кэша Redis с помощью шаблона
 В этом разделе вы узнаете, как создать шаблон диспетчера ресурсов Azure для развертывания веб-приложения Azure с кэшем Redis. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Полный шаблон см. в разделе [Шаблон веб-приложения с кэшем Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
-## Что именно развертывается
+## <a name="what-you-will-deploy"></a>Что именно развертывается
 В этом шаблоне будут развернуты перечисленные ниже компоненты.
 
 * Веб-приложение Azure
@@ -33,13 +37,13 @@ ms.author: sdanie
 
 [![Развертывание в Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
-## Указываемые параметры
+## <a name="parameters-to-specify"></a>Указываемые параметры
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
-## Переменные для имен
-В этом шаблоне для формирования имен ресурсов используются переменные. Значение на основе идентификатора группы ресурсов создается с помощью функции [uniqueString](../resource-group-template-functions.md#uniquestring).
+## <a name="variables-for-names"></a>Переменные для имен
+В этом шаблоне для формирования имен ресурсов используются переменные. Значение на основе идентификатора группы ресурсов создается с помощью функции [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) .
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -48,11 +52,11 @@ ms.author: sdanie
     },
 
 
-## Развертываемые ресурсы
+## <a name="resources-to-deploy"></a>Развертываемые ресурсы
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Кэш Redis
-Создает кэш Redis для Azure, используемый с веб-приложением. Имя кэша указывается в переменной **cacheName**.
+### <a name="redis-cache"></a>Кэш Redis
+Создает кэш Redis для Azure, используемый с веб-приложением. Имя кэша указывается в переменной **cacheName** .
 
 Этот шаблон создает кэш в том же месте, где находится группа ресурсов.
 
@@ -75,8 +79,8 @@ ms.author: sdanie
     }
 
 
-### Веб-приложение
-Создает веб-приложение с именем, указанным в переменной **webSiteName**.
+### <a name="web-app"></a>Веб-приложение
+Создает веб-приложение с именем, указанным в переменной **webSiteName** .
 
 Обратите внимание, что веб-приложение настроено со свойствами параметров приложения, которые позволяют ему работать с кэшем Redis. Эти параметры приложения динамически создаются на основании значений, предоставленных во время развертывания.
 
@@ -113,13 +117,17 @@ ms.author: sdanie
       ]
     }
 
-## Команды для выполнения развертывания
+## <a name="commands-to-run-deployment"></a>Команды для выполнения развертывания
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### Инфраструктура CLI Azure
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Jan17_HO2-->
+
+

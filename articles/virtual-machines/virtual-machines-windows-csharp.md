@@ -1,13 +1,13 @@
 ---
-title: Развертывание ресурсов Azure с помощью языка C# | Microsoft Docs
-description: Сведения о том, как использовать язык C# и Azure Resource Manager для создания ресурсов Microsoft Azure.
+title: "Развертывание ресурсов Azure с помощью C# | Документация Майкрософт"
+description: "Сведения о том, как использовать язык C# и Azure Resource Manager для создания ресурсов Microsoft Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 37ab64cb40def50342eb31c240aa301e9d751055
+ms.openlocfilehash: 6fa33715484a4bb371148410b43c5ac606744160
+
 
 ---
-# <a name="deploy-azure-resources-using-c#"></a>Развертывание ресурсов Azure с помощью языка C
+# <a name="deploy-azure-resources-using-c"></a>Развертывание ресурсов Azure с помощью языка C# #
 В этой статье показано, как создавать ресурсы Azure с помощью C#.
 
 Сначала необходимо выполнить следующие задачи.
 
 * Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Проверьте, установлен ли компонент [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
-* Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md)
+* Получите [маркер аутентификации](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 На выполнение этих действий требуется примерно 30 минут.
 
-## <a name="step-1:-create-a-visual-studio-project-and-install-the-libraries"></a>Действие 1. Создание проекта Visual Studio и установка библиотек
+## <a name="step-1-create-a-visual-studio-project-and-install-the-libraries"></a>Действие 1. Создание проекта Visual Studio и установка библиотек
 Самый простой способ установить библиотеки, необходимые для завершения работы с данным учебником, — это использовать пакеты NuGet. Чтобы получить эти библиотеки в Visual Studio, выполните следующие действия.
 
 1. Последовательно выберите пункты **Файл** > **Создать** > **Проект**.
@@ -42,7 +46,7 @@ ms.author: davidmu
 
 Теперь вы готовы использовать библиотеки для создания приложения.
 
-## <a name="step-2:-create-the-credentials-that-are-used-to-authenticate-requests"></a>Шаг 2. Создание учетных данных, используемых для аутентификации запросов
+## <a name="step-2-create-the-credentials-that-are-used-to-authenticate-requests"></a>Шаг 2. Создание учетных данных, используемых для аутентификации запросов
 Теперь на основе сведений о ранее построенном приложении можно создать учетные данные, которые будут использоваться для проверки подлинности запросов к Azure Resource Manager.
 
 1. Откройте файл Program.cs для созданного проекта и добавьте в начало файла следующие операторы using:
@@ -79,7 +83,7 @@ ms.author: davidmu
         var credential = new TokenCredentials(token.Result.AccessToken);
 4. Сохраните файл Program.cs.
 
-## <a name="step-3:-register-the-resource-providers-and-create-the-resources"></a>Шаг 3. Регистрация поставщиков ресурсов и создание ресурсов
+## <a name="step-3-register-the-resource-providers-and-create-the-resources"></a>Шаг 3. Регистрация поставщиков ресурсов и создание ресурсов
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Регистрация поставщиков и создание группы ресурсов
 Все ресурсы должны содержаться в группе ресурсов. Прежде чем вы сможете добавлять ресурсы в группу, ваша подписка должна быть зарегистрирована в поставщике ресурсов.
 
@@ -428,7 +432,7 @@ ms.author: davidmu
         }
    
    > [!NOTE]
-   > В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-linux-cli-ps-findimage.md).
+   > В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main:
@@ -447,30 +451,35 @@ ms.author: davidmu
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-## <a name="step-4:-delete-the-resources"></a>Шаг 4. Удаление ресурсов
+## <a name="step-4-delete-the-resources"></a>Шаг 4. Удаление ресурсов
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Если вы хотите удалить виртуальные машины и все вспомогательные ресурсы, достаточно удалить группу ресурсов.
 
 1. Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
    
-       public static async void DeleteResourceGroupAsync(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId)
-       {
-         Console.WriteLine("Deleting resource group...");
-         var resourceManagementClient = new ResourceManagementClient(credential)
-           { SubscriptionId = subscriptionId };
-         await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-       }
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
+
 2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main:
    
-       DeleteResourceGroupAsync(
-         credential,
-         groupName,
-         subscriptionId);
-       Console.ReadLine();
+   ```   
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
-## <a name="step-5:-run-the-console-application"></a>Шаг 5. Запуск консольного приложения
+## <a name="step-5-run-the-console-application"></a>Шаг 5. Запуск консольного приложения
 1. Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
 2. Для создания каждого ресурса нажимайте клавишу **ВВОД** после возврата каждого кода состояния. После создания виртуальной машины выполните указанное ниже действие, прежде чем нажать клавишу ВВОД и удалить все ресурсы.
    
@@ -480,9 +489,12 @@ ms.author: davidmu
     ![Поиск журналов аудита на портале Azure](./media/virtual-machines-windows-csharp/crpportal.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines-windows-csharp-template.md).
-* Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-csharp-manage.md).
+* Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

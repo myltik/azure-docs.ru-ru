@@ -1,24 +1,13 @@
 ---
-title: 'Настройка принудительного туннелирования для подключений типа '
-;сеть: ''
-—: ''
-сеть";: ''
-с: ''
-помощью: ''
-модели: ''
-развертывания: ''
-resource: ''
-manager: carmonm
-'|': ''
-microsoft: ''
-azure": ''
-description: Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение.
+title: "Настройка принудительного туннелирования для подключений типа &quot;сеть — сеть&quot; с помощью модели развертывания Resource Manager | Документация Майкрософт"
+description: "Как перенаправлять или принудительно туннелировать весь интернет-трафик обратно в локальное расположение."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-editor: ''
+manager: carmonm
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -26,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: acfa4642ad26f819189bd871d83718b6f579e32d
+
 
 ---
-# Настройка принудительного туннелирования с помощью модели развертывания Azure Resource Manager
+# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Настройка принудительного туннелирования с помощью модели развертывания Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell — классическая модель](vpn-gateway-about-forced-tunneling.md)
 > * [PowerShell — Resource Manager](vpn-gateway-forced-tunneling-rm.md)
@@ -51,8 +44,8 @@ ms.author: cherylmc
 
 [!INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
-## Сведения о принудительном туннелировании
-На схеме ниже показан принцип работы принудительного туннелирования.
+## <a name="about-forced-tunneling"></a>Сведения о принудительном туннелировании
+На схеме ниже показан принцип работы принудительного туннелирования. 
 
 ![Принудительное туннелирование](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
@@ -60,7 +53,7 @@ ms.author: cherylmc
 
 Это позволяет ограничивать и проверять доступ в Интернет с виртуальных машин или облачных служб в Azure, при этом поддерживая необходимую многоуровневую архитектуру служб. Кроме того, вы можете применять принудительное туннелирование для всех виртуальных сетей, если в них нет рабочих нагрузок, требующих взаимодействия с Интернетом.
 
-## Требования и рекомендации
+## <a name="requirements-and-considerations"></a>Требования и рекомендации
 В Azure принудительное туннелирование настраивается с помощью определяемых пользователем маршрутов виртуальной сети. Перенаправление трафика на локальный сайт выполняется с помощью маршрута по умолчанию к VPN-шлюзу Azure. Сведения об определяемых пользователем маршрутах см. в статье [Что такое определяемые пользователем маршруты и IP-пересылка?](../virtual-network/virtual-networks-udr-overview.md)
 
 * Каждая подсеть виртуальной сети имеет встроенные системные таблицы маршрутизации. Системная таблица маршрутизации содержит три указанные ниже группы маршрутов.
@@ -72,31 +65,31 @@ ms.author: cherylmc
 * Принудительное туннелирование должно быть связано с виртуальной сетью, в которой есть VPN-шлюз на основе маршрута. Из числа локальных межорганизационных сайтов, подключенных к виртуальной сети, необходимо выбрать "сайт по умолчанию".
 * С помощью этого механизма невозможно настроить принудительное туннелирование ExpressRoute. Такое туннелирование включается, когда предлагается маршрут по умолчанию с помощью сеансов пиринга BGP ExpressRoute. Дополнительные сведения см. в [документации по ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Общие сведения о настройке
-Следующая процедура поможет создать группу ресурсов и виртуальную сеть. Затем вы создадите VPN-шлюз и настроите принудительное туннелирование. В этом примере виртуальная сеть MultiTier-VNet содержит три подсети (*Frontend*, *Midtier* и *Backend*) с четырьмя распределенными подключениями *DefaultSiteHQ* и тремя *ветвями*.
+## <a name="configuration-overview"></a>Общие сведения о настройке
+Следующая процедура поможет создать группу ресурсов и виртуальную сеть. Затем вы создадите VPN-шлюз и настроите принудительное туннелирование. В этом примере виртуальная сеть MultiTier-VNet содержит три подсети (*Frontend*, *Midtier* и *Backend*) с четырьмя распределенными подключениями *DefaultSiteHQ* и тремя *Branches*.
 
 Выполнив указанные ниже действия, можно настроить подключение *DefaultSiteHQ* в качестве подключения к сайту по умолчанию для принудительного туннелирования, а также настроить принудительное туннелирование для подсетей Midtier и Backend.
 
-## Перед началом работы
+## <a name="before-you-begin"></a>Перед началом работы
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительную информацию об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## Настройка принудительного туннелирования
+## <a name="configure-forced-tunneling"></a>Настройка принудительного туннелирования
 1. В консоли PowerShell войдите в свою учетную запись Azure. Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он загружает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
    
         Login-AzureRmAccount 
 2. Получите список подписок Azure.
    
         Get-AzureRmSubscription
-3. Укажите подписку, которую нужно использовать.
+3. Укажите подписку, которую нужно использовать. 
    
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 4. Создайте группу ресурсов.
    
         New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
-5. Создайте виртуальную сеть и укажите подсети.
+5. Создайте виртуальную сеть и укажите подсети. 
    
         $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
         $s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
@@ -121,7 +114,7 @@ ms.author: cherylmc
         Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
         Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-9. Создайте шлюза с узлом по умолчанию. Выполнение этого шага занимает некоторое время (иногда 45 минут или более), так как выполняется создание и настройка шлюза.<br> `-GatewayDefaultSite` — это параметр командлета, благодаря которому работает конфигурация принудительной маршрутизации. Поэтому настройте этот параметр должным образом. Он доступен только в PowerShell 1.0 или более поздней версии.
+9. Создайте шлюза с узлом по умолчанию. Выполнение этого шага занимает некоторое время (иногда 45 минут или более), так как выполняется создание и настройка шлюза.<br> `-GatewayDefaultSite` — это параметр командлета, благодаря которому работает конфигурация принудительной маршрутизации. Поэтому настройте этот параметр должным образом. Он доступен только в PowerShell 1.0 или более поздней версии.
    
         $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
         $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -142,4 +135,9 @@ ms.author: cherylmc
     
          Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

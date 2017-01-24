@@ -1,12 +1,12 @@
 ---
-title: Действие Hive
-description: Узнайте, как с помощью действия Hive в фабрике данных Azure выполнять запросы Hive к кластеру HDInsight по требованию или собственному кластеру HDInsight.
+title: "Действие Hive"
+description: "Узнайте, как с помощью действия Hive в фабрике данных Azure выполнять запросы Hive к кластеру HDInsight по требованию или собственному кластеру HDInsight."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,52 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
+ms.openlocfilehash: 373d3c3a38cd56fff9f6da0b9277b22c101b55c0
+
 
 ---
 # <a name="hive-activity"></a>Действие Hive
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
-> [Хранимая процедура](data-factory-stored-proc-activity.md)
-> [Сценарий U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
-> [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Хранимая процедура](data-factory-stored-proc-activity.md)
+> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
+> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
 > 
 > 
 
 Действие Hive HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет запросы Hive к [вашему собственному](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластеру HDInsight или кластеру HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
 
 ## <a name="syntax"></a>Синтаксис
-    {
-        "name": "Hive Activity",
-        "description": "description",
-        "type": "HDInsightHive",
-        "inputs": [
-          {
-            "name": "input tables"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "output tables"
-          }
-        ],
-        "linkedServiceName": "MyHDInsightLinkedService",
-        "typeProperties": {
-          "script": "Hive script",
-          "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
-          "defines": {
-            "param1": "param1Value"
-          }
-        },
-       "scheduler": {
-          "frequency": "Day",
-          "interval": 1
-        }
-    }
 
+```JSON
+{
+    "name": "Hive Activity",
+    "description": "description",
+    "type": "HDInsightHive",
+    "inputs": [
+      {
+        "name": "input tables"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output tables"
+      }
+    ],
+    "linkedServiceName": "MyHDInsightLinkedService",
+    "typeProperties": {
+      "script": "Hive script",
+      "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
+      "defines": {
+        "param1": "param1Value"
+      }
+    },
+   "scheduler": {
+      "frequency": "Day",
+      "interval": 1
+    }
+}
+```
 ## <a name="syntax-details"></a>Сведения о синтаксисе
 | Свойство | Описание | Обязательно |
 | --- | --- | --- |
@@ -78,42 +84,46 @@ ms.author: shlo
 
 Ниже приведен журнал игры с разделителями-запятыми (`,`), содержащий следующие поля: ProfileID, SessionStart, Duration, SrcIPAddress и GameType.
 
-    1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
-    1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
-    1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
-    1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
-    .....
+```
+1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
+1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
+1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
+1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
+.....
+```
 
 **Сценарий Hive** для обработки этих данных выглядит так:
 
-    DROP TABLE IF EXISTS HiveSampleIn; 
-    CREATE EXTERNAL TABLE HiveSampleIn 
-    (
-        ProfileID       string, 
-        SessionStart    string, 
-        Duration        int, 
-        SrcIPAddress    string, 
-        GameType        string
-    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
+```
+DROP TABLE IF EXISTS HiveSampleIn; 
+CREATE EXTERNAL TABLE HiveSampleIn 
+(
+    ProfileID        string, 
+    SessionStart     string, 
+    Duration         int, 
+    SrcIPAddress     string, 
+    GameType         string
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
 
-    DROP TABLE IF EXISTS HiveSampleOut; 
-    CREATE EXTERNAL TABLE HiveSampleOut 
-    (   
-        ProfileID   string, 
-        Duration    int
-    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
+DROP TABLE IF EXISTS HiveSampleOut; 
+CREATE EXTERNAL TABLE HiveSampleOut 
+(    
+    ProfileID     string, 
+    Duration     int
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
 
-    INSERT OVERWRITE TABLE HiveSampleOut
-    Select 
-        ProfileID,
-        SUM(Duration)
-    FROM HiveSampleIn Group by ProfileID
+INSERT OVERWRITE TABLE HiveSampleOut
+Select 
+    ProfileID,
+    SUM(Duration)
+FROM HiveSampleIn Group by ProfileID
+```
 
 Чтобы выполнить его в конвейере фабрики данных, необходимо сделать следующее.
 
 1. Создайте связанную службу для регистрации [собственного вычислительного кластера HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или настройте [вычислительный кластер HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Назовем эту связанную службу HDInsightLinkedService.
 2. Создайте [связанную службу](data-factory-azure-blob-connector.md) для настройки подключения к хранилищу BLOB-объектов Azure, в котором хранятся данные. Назовем эту связанную службу StorageLinkedService.
-3. Создайте [наборы данных](data-factory-create-datasets.md) , указывающие на входные и выходные данные. Назовем входной набор данных HiveSampleIn, а выходной — HiveSampleOut.
+3. Создайте [наборы данных](data-factory-create-datasets.md) , указывающие на входные и выходные данные. Назовем входной набор данных HiveSampleIn, а выходной — HiveSampleOut.
 4. Скопируйте запрос Hive в файл и сохраните его в хранилище BLOB-объектов Azure, настроенном на шаге 2. Если хранилище, в котором размещаются данные, отличается от хранилища, в котором размещаются этот файл запроса, создайте отдельную связанную службу хранилища Azure и добавьте ссылку на нее в действие. Используйте свойство **scriptPath**, чтобы указать путь к файлу запроса Hive, и **scriptLinkedService**, чтобы определить службу хранилища Azure, содержащую файл сценария. 
    
    > [!NOTE]
@@ -121,37 +131,39 @@ ms.author: shlo
    > 
    > 
 5. Создайте конвейер с действием HDInsightHive. Это действие обрабатывает и преобразует данные.
-   
-       {
-         "name": "HiveActivitySamplePipeline",
-         "properties": {
-           "activities": [
-             {
-               "name": "HiveActivitySample",
-               "type": "HDInsightHive",
-               "inputs": [
-                 {
-                   "name": "HiveSampleIn"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "HiveSampleOut"
-                 }
-               ],
-               "linkedServiceName": "HDInsightLinkedService",
-               "typeproperties": {
-                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                 "scriptLinkedService": "StorageLinkedService"
-               },
-               "scheduler": {
-                   "frequency": "Hour",
-                   "interval": 1
-               }
-             }
-           ]
-         }
-       }
+
+    ```JSON   
+    {   
+        "name": "HiveActivitySamplePipeline",
+        "properties": {
+        "activities": [
+            {
+                "name": "HiveActivitySample",
+                "type": "HDInsightHive",
+                "inputs": [
+                {
+                    "name": "HiveSampleIn"
+                }
+                ],
+                "outputs": [
+                {
+                    "name": "HiveSampleOut"
+                }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                    "scriptLinkedService": "StorageLinkedService"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                }
+            }
+            ]
+        }
+    }
+    ```
 6. Разверните конвейер. Дополнительные сведения см. в разделе [Создание конвейеров](data-factory-create-pipelines.md). 
 7. Отслеживайте состояние конвейера, используя функции мониторинга и управления фабрикой данных. Подробные сведения см. в статье [Мониторинг конвейеров фабрики данных и управление ими](data-factory-monitor-manage-pipelines.md). 
 
@@ -161,66 +173,69 @@ ms.author: shlo
 Чтобы использовать параметризованный сценарий Hive, выполните следующие действия.
 
 * Задайте параметры в разделе **defines**.
-  
-        {
-            "name": "HiveActivitySamplePipeline",
-            "properties": {
-            "activities": [
-                {
-                    "name": "HiveActivitySample",
-                    "type": "HDInsightHive",
-                    "inputs": [
-                        {
-                            "name": "HiveSampleIn"
-                          }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "HiveSampleOut"
-                        }
-                    ],
-                    "linkedServiceName": "HDInsightLinkedService",
-                    "typeproperties": {
-                        "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                        "scriptLinkedService": "StorageLinkedService",
-                        "defines": {
-                            "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-                        },
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        }
+
+    ```JSON  
+    {
+        "name": "HiveActivitySamplePipeline",
+          "properties": {
+        "activities": [
+             {
+                "name": "HiveActivitySample",
+                "type": "HDInsightHive",
+                "inputs": [
+                      {
+                        "name": "HiveSampleIn"
+                      }
+                ],
+                "outputs": [
+                      {
+                        "name": "HiveSampleOut"
+                    }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                      "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                      "scriptLinkedService": "StorageLinkedService",
+                      "defines": {
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                      },
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     }
                 }
-            ]
-          }
-        }
+              }
+        ]
+      }
+    }
+    ```
 * Добавьте ссылку на параметр в сценарий Hive с помощью элемента **${hiveconf:parameterName}**. 
   
-        DROP TABLE IF EXISTS HiveSampleIn; 
-        CREATE EXTERNAL TABLE HiveSampleIn 
-        (
-            ProfileID   string, 
-            SessionStart    string, 
-            Duration    int, 
-            SrcIPAddress    string, 
-            GameType    string
-        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
-  
-        DROP TABLE IF EXISTS HiveSampleOut; 
-        CREATE EXTERNAL TABLE HiveSampleOut 
-        (
-            ProfileID   string, 
-            Duration    int
-        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
-  
-        INSERT OVERWRITE TABLE HiveSampleOut
-        Select 
-            ProfileID,
-            SUM(Duration)
-        FROM HiveSampleIn Group by ProfileID
+    ```
+    DROP TABLE IF EXISTS HiveSampleIn; 
+    CREATE EXTERNAL TABLE HiveSampleIn 
+    (
+        ProfileID     string, 
+        SessionStart     string, 
+        Duration     int, 
+        SrcIPAddress     string, 
+        GameType     string
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
 
+    DROP TABLE IF EXISTS HiveSampleOut; 
+    CREATE EXTERNAL TABLE HiveSampleOut 
+    (
+        ProfileID     string, 
+        Duration     int
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
+
+    INSERT OVERWRITE TABLE HiveSampleOut
+    Select 
+        ProfileID,
+        SUM(Duration)
+    FROM HiveSampleIn Group by ProfileID
+    ```
 ## <a name="see-also"></a>См. также
 * [Действие Pig](data-factory-pig-activity.md)
 * [Действие MapReduce](data-factory-map-reduce.md)
@@ -228,6 +243,9 @@ ms.author: shlo
 * [Вызов программ Spark](data-factory-spark.md)
 * [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

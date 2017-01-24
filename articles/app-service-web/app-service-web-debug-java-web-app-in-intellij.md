@@ -1,44 +1,48 @@
 ---
-title: Отладка в IntelliJ веб-приложения Java, размещенного в Azure | Microsoft Docs
-description: В этом учебнике показано, как выполнить отладку веб-приложения Java, работающего в Azure, с помощью набора средств Azure для IntelliJ.
+title: "Отладка в IntelliJ веб-приложения Java, размещенного в Azure | Документация Майкрософт"
+description: "В этом учебнике показано, как выполнить отладку веб-приложения Java, работающего в Azure, с помощью набора средств Azure для IntelliJ."
 services: app-service\web
 documentationcenter: java
 author: selvasingh
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 78148648-5a89-4b7d-98f1-9cf8f38dfe8d
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: asirveda;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 50db8f7d1d514d076af453a34ca3a147e357e905
+
 
 ---
-# Отладка в IntelliJ веб-приложения Java, размещенного в Azure
+# <a name="debug-a-java-web-app-on-azure-in-intellij"></a>Отладка в IntelliJ веб-приложения Java, размещенного в Azure
 В этом учебнике показано, как выполнить отладку веб-приложения Java, работающего в Azure, с помощью [набора средств Azure для IntelliJ]. Для простоты в данном учебнике будет использован базовый пример Java Server Page (JSP), но действия будет те же, что и при отладке сервлета Java в Azure.
 
 После завершения этого учебника приложение при отладке в IntelliJ будет выглядеть следующим образом.
 
 ![][01]
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Пакет SDK для Java (JDK) 1.8 или более поздней версии.
-* IntelliJ IDEA Ultimate Edition. Среду также можно загрузить с веб-страницы <https://www.jetbrains.com/idea/download/index.html>.
+* IntelliJ IDEA Ultimate Edition. Его можно скачать по адресу <https://www.jetbrains.com/idea/download/index.html>.
 * Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat или Jetty.
-* Подписка Azure, которую можно получить на веб-сайте <https://azure.microsoft.com/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
+* Подписка на Azure, которую можно получить, перейдя по ссылке <https://azure.microsoft.com/en-us/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
 * Набор средств Azure для IntelliJ. Дополнительные сведения см. в статье [Установка набора средств Azure для IntelliJ].
-* Динамический веб-проект создан и развернут в службе приложений Azure. Пример см. в разделе [Создание веб-приложения Hello World для Azure в IntelliJ].
+* Динамический веб-проект создан и развернут в службе приложений Azure. Пример см. в статье [Создание веб-приложения Hello World для Azure в IntelliJ].
 
-## Отладка веб-приложения Java в Azure
-Для выполнения указаний в этом разделе можно использовать существующий динамический веб-проект, который уже развернут как веб-приложение Java в Azure. Скачайте [пример динамического веб-проекта] и выполните действия, описанные в разделе [Создание веб-приложения Hello World для Azure в IntelliJ], чтобы развернуть его в Azure.
+## <a name="to-debug-a-java-web-app-on-azure"></a>Отладка веб-приложения Java в Azure
+Для выполнения указаний в этом разделе можно использовать имеющийся динамический веб-проект, который уже развернут как веб-приложение Java в Azure. Скачайте [пример динамического веб-проекта] и выполните действия, описанные в статье [Создание веб-приложения Hello World для Azure в IntelliJ], чтобы развернуть его в Azure. 
 
 1. Откройте в IntelliJ проект веб-приложения Java, который был развернут в Azure.
-2. Щелкните меню **Запуск**, затем щелкните **Изменить конфигурации**.
+2. Щелкните меню **Запуск**, а затем щелкните **Edit Configurations...** (Изменить конфигурации...).
    
     ![][02]
-3. Когда откроется диалоговое окно **Run/Debug Configurations** (Конфигурации выполнения и отладки), выполните следующее.
+3. Когда откроется диалоговое окно **Run/Debug Configurations** (Конфигурации выполнения и отладки), выполните следующее. 
    
    1. Выберите **Веб-приложение Azure**.
    2. Щелкните **+** для добавления новой конфигурации.
@@ -46,7 +50,7 @@ ms.author: asirveda;robmcm
    4. Примите остальные значения по умолчанию, предлагаемые набором средств Azure, и нажмите кнопку **ОК**.
       
        ![][03]
-4. Выберите только что созданную конфигурацию отладки веб-приложений Azure в правой верхней части меню и щелкните **Отладка**.
+4. Выберите только что созданную конфигурацию отладки веб-приложений Azure в правой верхней части меню и щелкните **Отладка**
    
     ![][04]
 5. При появлении запроса **Enable remote debugging in the remote Web App now?** (Включить удаленную отладку в удаленном веб-приложении?) нажмите кнопку **ОК**.
@@ -64,8 +68,8 @@ ms.author: asirveda;robmcm
    3. Щелкните правой кнопкой мыши это веб-приложение и выберите пункт **Открыть в браузере**.
    4. IntelliJ перейдет в режим отладки.
 
-## Дальнейшие действия
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure].
 
 Дополнительные сведения о создании веб-приложений Azure см. в разделе [Обзор веб-приложений].
 
@@ -79,7 +83,7 @@ ms.author: asirveda;robmcm
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [пример динамического веб-проекта]: http://go.microsoft.com/fwlink/?LinkId=817337
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[Центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -91,4 +95,8 @@ ms.author: asirveda;robmcm
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

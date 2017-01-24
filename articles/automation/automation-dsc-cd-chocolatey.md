@@ -3,9 +3,9 @@ title: "Непрерывное развертывание с помощью Azur
 description: "Непрерывное развертывание DevOps с помощью Automation DSC Azure и диспетчера пакетов Chocolatey.  Пример с полным шаблоном ARM в формате JSON и исходным кодом PowerShell."
 services: automation
 documentationcenter: 
-author: sebastus
-manager: stevenka
-editor: 
+author: eslesar
+manager: carmonm
+editor: tysonn
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
 ms.devlang: na

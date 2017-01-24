@@ -34,6 +34,7 @@
 ### [Оценка базовых показателей](oms-security-baseline.md)
 ### [Оценка вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Оценка системных обновлений](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Подключение средств обеспечения безопасности](oms-security-connect-products.md)
 ## [Интеграция с OMS](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

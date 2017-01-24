@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -216,6 +216,6 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -47,16 +47,16 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **AirWatch**.
    
-   ![Коллекция приложений](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Коллекция приложений")
 7. В области результатов выберите **AirWatch** и щелкните **Завершить**, чтобы добавить приложение.
    
    ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
@@ -70,39 +70,39 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **AirWatch** нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в AirWatch?** выберите параметр **Единый вход Microsoft Azure AD** и щелкните **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configure Single Sign-On")
-3. На странице **Configure App URL** (Настройка URL-адреса приложения) введите в текстовом поле **AirWatch Sign On URL** (URL-адрес входа в AirWatch) URL-адрес, используемый для входа в приложение AirWatch (например, *https://companycode.awmdm.com/AirWatch/Login?gid=companycode*), и щелкните **Далее**.
+   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Настройка единого входа")
+3. На странице **Configure App URL** (Настройка URL-адреса приложения) введите в текстовом поле **AirWatch Sign On URL** (URL-адрес входа в AirWatch) URL-адрес, используемый для входа в приложение AirWatch (например, "*https://companycode.awmdm.com/AirWatch/Login?gid=companycode*"), и щелкните **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в AirWatch** щелкните **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт AirWatch в качестве администратора.
 6. На панели навигации слева щелкните **Accounts** (Учетные записи), а затем — **Administrators** (Администраторы).
    
-   ![Администраторы](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Administrators")
+   ![Администраторы](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Администраторы")
 7. Разверните меню **Settings** (Параметры) и выберите пункт **Directory Services** (Службы каталогов).
    
-   ![Параметры](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Settings")
+   ![Параметры](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Параметры")
 8. Откройте вкладку **User** (Пользователь), введите в текстовом поле **Base DN** (Базовое доменное имя) свое доменное имя и щелкните **Save** (Сохранить).
    
-   ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791922.png "User")
+   ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791922.png "Пользователь")
 9. Откройте вкладку **Server** (Сервер).
    
-   ![Server](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Server")
+   ![Сервер](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Сервер")
 10. Выполните следующие действия:
     
-    ![Отправить](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")
+    ![Передача](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Передача")
     
     1. Для параметра **Directory Type** (Тип каталога) выберите значение **None** (Нет).
     2. Установите флажок **Use SAML For Authentication**(Использовать SAML для проверки подлинности).
     3. Чтобы отправить скачанный сертификат, нажмите кнопку **Upload**(Отправить).
 11. В разделе **Request** (Запрос) выполните следующие действия.
     
-    ![Запрос](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
+    ![Запрос](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Запрос")
     
     1. Для параметра **Request Binding Type** (Тип привязки запроса) выберите значение **POST**.
     2. На классическом портале Azure на диалоговой странице **Настройка единого входа в AirWatch** скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовом поле **Identity Provider Single Sign On URL** (URL-адрес единого входа для поставщика удостоверений).
@@ -110,10 +110,10 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
     4. Щелкните **Сохранить**.
 12. Снова откройте вкладку **Пользователь** .
     
-    ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791926.png "User")
+    ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791926.png "Пользователь")
 13. В разделе **Атрибут** выполните следующие действия.
     
-    ![Атрибут](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribute")
+    ![Атрибут](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Атрибут")
     
     1. В текстовом поле **Object Identifier** (Идентификатор объекта) введите **http://schemas.microsoft.com/identity/claims/objectidentifier**.
     2. В текстовом поле **Username** (Имя пользователя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
@@ -124,7 +124,7 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
     7. Щелкните **Сохранить**.
 14. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Настройка единого входа")
     
     ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -135,13 +135,13 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 1. Выполните вход на корпоративном веб-сайте **AirWatch** в качестве администратора.
 2. На панели навигации слева щелкните **Accounts** (Учетные записи), а затем —**Users** (Пользователи).
    
-   ![Пользователи](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Users")
+   ![Пользователи](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Пользователи")
 3. В меню **Users** (Пользователи) выберите пункт **List View** (Представление списка), а затем щелкните **Add \> Add User** (Добавить > Добавить пользователя).
    
-   ![Добавить пользователя](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Add User")
+   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Добавление пользователя")
 4. В диалоговом окне **Add / Edit User** (Добавление или изменение пользователя) выполните следующие действия.
    
-   ![Добавить пользователя](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Add User")
+   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Добавление пользователя")
    
    1. В текстовых полях **Username** (Имя пользователя), **Password** (Пароль), **Confirm Password** (Подтверждение пароля), **First Name** (Имя), **Last Name** (Фамилия) и **Email Address** (Адрес электронной почты) введите соответствующие данные действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
    2. Щелкните **Сохранить**.
@@ -158,16 +158,16 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **AirWatch ** нажмите кнопку **Assign users** (Назначить пользователей).
    
-   ![Назначить пользователей](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

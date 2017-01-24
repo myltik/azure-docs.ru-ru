@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 8b0893b159b6ed086cd3fcb41f7671c7c41cd176
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 8b0893b159b6ed086cd3fcb41f7671c7c41cd176
 Значения для пулов можно найти в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## <a name="prerequisites"></a>Предварительные требования
-* Azure PowerShell, начиная с версии 1.0. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell, начиная с версии 1.0. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Пулы эластичных баз данных доступны только при использовании серверов базы данных SQL версии 12. Если у вас используется сервер базы данных SQL версии 11, используйте [PowerShell, чтобы одним действием обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Перемещение базы данных в пул эластичных БД
@@ -270,6 +271,6 @@ ms.openlocfilehash: 8b0893b159b6ed086cd3fcb41f7671c7c41cd176
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

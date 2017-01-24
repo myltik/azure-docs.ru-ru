@@ -1,4 +1,4 @@
-## Развертывание с помощью Azure CLI
+## <a name="how-to-deploy-with-azure-cli"></a>Развертывание с помощью Azure CLI
 1. Войдите в свою учетную запись Azure.
    
         azure login
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

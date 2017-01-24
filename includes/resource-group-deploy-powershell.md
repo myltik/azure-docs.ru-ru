@@ -1,4 +1,4 @@
-## Развертывание с помощью PowerShell
+## <a name="how-to-deploy-with-powershell"></a>Развертывание с помощью PowerShell
 1. Войдите в свою учетную запись Azure.
    
           Add-AzureAccount
@@ -31,7 +31,7 @@
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 5. Чтобы создать новое развертывание для группы ресурсов, выполните команду **New-AzureResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария. 
    
-   Для предоставления значений параметров доступны следующие способы:
+   Для предоставления значений параметров доступны следующие способы: 
    
    * Использование встроенных параметров.
      
@@ -59,4 +59,8 @@
    
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

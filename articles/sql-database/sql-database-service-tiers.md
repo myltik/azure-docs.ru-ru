@@ -70,7 +70,7 @@ ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
 
 В следующей таблице описаны характеристики уровней обслуживания пула.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 Каждая база данных в пуле также соответствует характеристикам отдельной базы данных для этого пула. Например, для пулов уровня "Базовый" установлено предельное количество сеансов (4800–28 800 на пул), но для отдельных баз данных в этом пуле установлено ограничение в 300 сеансов на базу данных.
 

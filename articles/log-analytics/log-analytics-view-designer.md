@@ -1,19 +1,23 @@
 ---
-title: Конструктор представлений Log Analytics | Microsoft Docs
-description: Конструктор представлений Log Analytics позволяет создавать в консоли OMS пользовательские представления, содержащие различные визуализации данных репозитория OMS. Эта статья содержит обзор конструктора представлений и процедур по созданию и изменению пользовательских представлений.
+title: "Конструктор представлений Log Analytics | Документация Майкрософт"
+description: "Конструктор представлений Log Analytics позволяет создавать в консоли OMS пользовательские представления, содержащие различные визуализации данных репозитория OMS. Эта статья содержит обзор конструктора представлений и процедур по созданию и изменению пользовательских представлений."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Конструктор представлений Log Analytics
@@ -21,7 +25,7 @@ ms.author: bwren
 
 Ниже перечислены другие статьи о конструкторе представлений:
 
-* [Справка по плиткам](log-analytics-view-designer-tiles.md) — справочник по параметрам для каждой плитки, доступной в пользовательских представлениях. 
+* [Справка по плиткам](log-analytics-view-designer-tiles.md) — справочник по параметрам для каждой плитки, доступной в пользовательских представлениях. 
 * [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений. 
 
 ## <a name="concepts"></a>Основные понятия
@@ -62,7 +66,7 @@ ms.author: bwren
 ![Удаление представления](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Экспорт существующего представления
-Представление можно экспортировать в JSON-файл, который затем можно импортировать в другую рабочую область или использовать в [шаблоне Azure Resource Manager](../resource-group-authoring-templates.md).  Чтобы экспортировать существующее представление, откройте его, щелкнув плитку нужного представления на главной панели мониторинга OMS.  Нажмите кнопку **Экспорт**, чтобы создать файл экспорта в папке скачивания браузера.  У файла будет такое же имя, как и у исходного представления, и расширение *omsview*.
+Представление можно экспортировать в JSON-файл, который затем можно импортировать в другую рабочую область или использовать в [шаблоне Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Чтобы экспортировать существующее представление, откройте его, щелкнув плитку нужного представления на главной панели мониторинга OMS.  Нажмите кнопку **Экспорт**, чтобы создать файл экспорта в папке скачивания браузера.  У файла будет такое же имя, как и у исходного представления, и расширение *omsview*.
 
 ![Экспорт представления](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -92,6 +96,9 @@ ms.author: bwren
 * Добавление [плиток](log-analytics-view-designer-tiles.md) к пользовательскому представлению.
 * Добавление [элементов визуализации](log-analytics-view-designer-parts.md) к пользовательскому представлению.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

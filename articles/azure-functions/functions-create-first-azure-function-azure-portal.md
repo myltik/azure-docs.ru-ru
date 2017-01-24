@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 8d7823b6ecbc1a762839fc620f76d0bf4687d8fa
-ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
+ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
+ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 Выполнение функций в Azure происходит в рамках приложений-функций. Чтобы создать приложение-функцию на портале Azure, выполните приведенные ниже инструкции.
 
-Чтобы создавать функции, вам нужна активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
+Выполнение функций в Azure происходит с помощью приложения функций. Если у вас нет учетной записи Azure, [попробуйте использовать Функции](https://functions.azure.com/try) или [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/). 
 
 1. Перейдите на [портал Azure](https://portal.azure.com) и войдите, используя свою учетную запись Azure.
 2. Щелкните **+Создать** > **Вычисления** > **Приложение-функция**, выберите свою **подписку** и введите уникальное **имя приложения**, с помощью которого можно будет идентифицировать приложение-функцию. Затем укажите следующие параметры.
@@ -86,6 +86,6 @@ ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

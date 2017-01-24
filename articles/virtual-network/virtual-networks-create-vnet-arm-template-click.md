@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
-ms.openlocfilehash: 08041e873df1850d459aea1b49440956de1d4748
+ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
+ms.openlocfilehash: be3fbc2c14be06cac2b9213ee2da58545e34fc0e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 08041e873df1850d459aea1b49440956de1d4748
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure предоставляет две модели развертывания: с помощью Azure Resource Manager и классическую. Для создания ресурсов корпорация Майкрософт рекомендует использовать модель развертывания с помощью Resource Manager. Дополнительные сведения о различиях между двумя моделями см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md) (Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
+Azure предоставляет две модели развертывания: с помощью Azure Resource Manager и классическую. Для создания ресурсов корпорация Майкрософт рекомендует использовать модель развертывания с помощью Resource Manager. Дополнительные сведения о различиях между двумя моделями см. в статье [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager и классическое развертывание. Общие сведения о моделях развертывания и состоянии ресурсов).
  
 В этой статье описывается создание виртуальной сети с помощью модели развертывания Resource Manager с использованием шаблона Azure Resource Manager. Виртуальную сеть также можно создать с помощью Resource Manager, используя другие инструменты, либо с помощью классической модели развертывания, выбрав другой вариант из следующего списка:
 
@@ -110,7 +110,7 @@ Azure предоставляет две модели развертывания:
 
 Чтобы развернуть шаблон, скачанный с помощью PowerShell, сделайте следующее:
 
-1. Установите и настройте Azure PowerShell, выполнив действия, описанные в [этой статье](../powershell-install-configure.md).
+1. Установите и настройте Azure PowerShell, выполнив действия, описанные в [этой статье](/powershell/azureps-cmdlets-docs).
 2. Выполните следующую команду, чтобы создать новую группу ресурсов:
 
     ```powershell
@@ -244,6 +244,6 @@ Azure предоставляет две модели развертывания:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

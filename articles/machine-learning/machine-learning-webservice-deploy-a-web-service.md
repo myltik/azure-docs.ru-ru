@@ -1,23 +1,27 @@
 ---
-title: Развертывание новой веб-службы
-description: Рабочий процесс развертывания веб-службы на основе ARM
+title: "Развертывание новой веб-службы"
+description: "Рабочий процесс развертывания веб-службы на основе ARM"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: a358b04f-0d08-4d50-820e-eeac971854cf
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
+ms.openlocfilehash: 70db87762757c42790047362ded24263157e6ae7
+
 
 ---
 # <a name="deploy-a-new-web-service"></a>Развертывание новой веб-службы
-Теперь служба машинного обучения Microsoft Azure предоставляет веб-службы на основе [Azure Resource Manager](../resource-group-overview.md). Это позволяет предложить новые варианты планов выставления счетов и возможности развертывания веб-службы в нескольких регионах.
+Теперь служба машинного обучения Microsoft Azure предоставляет веб-службы на основе [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Это позволяет предложить новые варианты планов выставления счетов и возможности развертывания веб-службы в нескольких регионах.
 
 Ниже приведен общий рабочий процесс развертывания веб-службы с помощью веб-служб Машинного обучения Microsoft Azure:
 
@@ -43,7 +47,7 @@ ms.author: v-donglo
 На странице "Deploy Experiment" (Развертывание эксперимента) введите имя веб-службы.
 Выберите ценовой план. Если у вас уже имеется ценовой план, то можно выбрать его. В противном случае необходимо создать ценовой план для службы. 
 
-1. Из раскрывающегося списка **Price Plan** (Ценовой план) выберите существующий план или параметр **Select new plan** (Выбрать новый план).
+1. В раскрывающемся списке **Price Plan** (Ценовой план) выберите существующий план или щелкните **Select new plan** (Выбрать новый план).
 2. В поле **Имя плана**введите имя для идентификации плана в счете.
 3. Выберите один из вариантов **Monthly Plan Tier**(Уровень ежемесячного плана). Обратите внимание, что по умолчанию указаны уровни плана для вашего региона по умолчанию, и веб-служба развертывается в этом регионе.
 
@@ -99,6 +103,6 @@ ms.author: v-donglo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

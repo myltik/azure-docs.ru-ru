@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/11/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 50ba1caa406ab168acf08506a92c67250397a1e9
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
 ## <a name="create-an-azure-virtual-network"></a>Создание виртуальной сети Azure
 1. Войдите на классический портал Azure.
 2. Создайте виртуальную сеть. Щелкните **Сети** > **Создать виртуальную сеть**. Для завершения работы мастера используйте значения из приведенной ниже таблицы.
-   
+
    | На странице мастера… | Укажите такие значения |
    | --- | --- |
    |  **Сведения о виртуальной сети** |<p>Имя: введите имя виртуальной сети.</p><p>Регион: выберите ближайший регион.</p> |
@@ -60,7 +60,7 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
 Чтобы создать виртуальные машины с помощью Windows PowerShell, а не пользовательского интерфейса, см. раздел [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. На классическом портале щелкните **Создать** > **Вычисления** > **Виртуальная машина** > **Из коллекции**. Для завершения работы мастера используйте следующие значения. Настройте значение по умолчанию, если не рекомендуется и не требуется иное.
-   
+
    | На странице мастера… | Укажите такие значения |
    | --- | --- |
    |  **Выбор образа** |Центр обработки данных Windows Server 2012 R2; |
@@ -69,9 +69,9 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
    |  **Конфигурация виртуальной машины** |<p>Выберите <b>Установить агент ВМ</b> и другие необходимые вам расширения.</p> |
 2. Подключите диск к каждой виртуальной машине, на которой будет выполняться роль сервера контроллера домена. Дополнительный диск необходим для хранения базы данных AD, журналов и SYSVOL. Укажите размер диска (например, 10 ГБ), а для параметра **Настройки кэша узла** выберите **Отсутствует**. Подробнее об этом см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. После первого входа в виртуальную машину откройте **Диспетчер серверов** > **Файловые службы и службы хранилища** для создания тома на этом диске с использованием файловой системы NTFS.
-4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](../powershell-install-configure.md) и запустите командлет Set-AzureStaticVNetIP. Например:
-   
-    'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
+4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azureps-cmdlets-docs) и запустите командлет Set-AzureStaticVNetIP. Например:
+
+    `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
 Дополнительные сведения о настройке статического IP-адреса см. в разделе [Как задать статический внутренний частный IP-адрес с помощью PowerShell (классическая модель)](../virtual-network/virtual-networks-reserved-private-ip.md).
 
@@ -92,7 +92,7 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
 
 ## <a name="create-vms-for-domain-members"></a>Создание виртуальных машин для членов домена
 1. Повторите перечисленные ниже шаги, чтобы создать виртуальные машины для использования в качестве серверов приложений. Настройте значение по умолчанию, если не рекомендуется и не требуется иное.
-   
+
    | На странице мастера… | Укажите такие значения |
    | --- | --- |
    |  **Выбор образа** |Центр обработки данных Windows Server 2012 R2; |
@@ -113,7 +113,7 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 * [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 * [Настройка статического IP-адреса для виртуальной машины Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
@@ -126,6 +126,6 @@ ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

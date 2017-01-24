@@ -12,18 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/09/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a9509b159941c9784fb91f624312f11fe0af2818
+ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
+ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
 
 
 ---
 # <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Синхронизация Azure AD Connect: Synchronization Service Manager
-| [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Конструктор метавселенной) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Поиск в метавселенной) |
-| --- | --- | --- | --- |
-|  | | | |
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
@@ -46,7 +43,7 @@ ms.openlocfilehash: a9509b159941c9784fb91f624312f11fe0af2818
 
 ## <a name="troubleshoot-errors-in-operations-tab"></a>Устранение ошибок на вкладке "Operations" (Операции)
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
- Если есть ошибки, отображаемый в них объект и сама ошибка представлены ссылками, перейдя по которым можно получить дополнительные сведения.
+Если есть ошибки, отображаемый в них объект и сама ошибка представлены ссылками, перейдя по которым можно получить дополнительные сведения.
 
 Для начала щелкните строку ошибки (**sync-rule-error-function-triggered** на рисунке выше). Сначала отображается обзор объекта. Чтобы просмотреть фактическую ошибку, нажмите кнопку **Stack Trace**(Трассировка стека). Эта трассировка отображает информацию уровня отладки об ошибке.
 
@@ -54,7 +51,7 @@ ms.openlocfilehash: a9509b159941c9784fb91f624312f11fe0af2818
 
 * Если получена ошибка из **SyncRulesEngine**, в начале сведений стека вызовов можно просмотреть список всех атрибутов объекта. Прокрутите вниз до заголовка **InnerException =>**.  
   ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
-   В строке ниже отображается ошибка. На рисунке выше ошибка получена из-за создания пользовательского правила синхронизации Fabrikam.
+  В строке ниже отображается ошибка. На рисунке выше ошибка получена из-за создания пользовательского правила синхронизации Fabrikam.
 
 Если сама ошибка не содержит достаточно сведений, значит, пора взглянуть на данные. Можно щелкнуть ссылку с идентификатором объекта и [следовать за объектом и его данными в системе](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
 
@@ -65,7 +62,6 @@ ms.openlocfilehash: a9509b159941c9784fb91f624312f11fe0af2818
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

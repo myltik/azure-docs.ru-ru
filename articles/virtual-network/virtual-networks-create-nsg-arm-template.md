@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>Развертывание шаблона ARM с помощью PowerShell
 Чтобы развернуть шаблон ARM, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям по установке и настройке Azure PowerShell в [этой статье](../powershell-install-configure.md).
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям по установке и настройке Azure PowerShell в [этой статье](/powershell/azureps-cmdlets-docs).
 2. Запустите командлет **`New-AzureRmResourceGroup`** для создания группы ресурсов с помощью шаблона.
 
     ```powershell
@@ -191,6 +191,6 @@ ms.openlocfilehash: 100fcf956425a9eed7bdbb495f8249f5d78fb9b1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

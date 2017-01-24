@@ -5,14 +5,13 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb

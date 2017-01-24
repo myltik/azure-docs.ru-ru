@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2016
+ms.date: 1/10/2017
 ms.author: jimpark;trinadhk;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -45,7 +45,7 @@ ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
 
 Общее число точек хранения, указанное в этой политике, равно 90 (ежедневные точки) + 40 (одна для каждого квартала в течение 10 лет) = 130.
 
-## <a name="example-putting-both-together"></a>Пример объединения обеих точек восстановления
+## <a name="example--putting-both-together"></a>Пример объединения обеих точек восстановления
 ![Образец экрана](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Ежедневная политика хранения.** Резервные копии, создаваемые ежедневно, хранятся в течение семи дней.
@@ -64,8 +64,8 @@ ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
 
 > [!NOTE]
 > У службы архивации Azure нет ограничений на количество точек восстановления.
-> 
-> 
+>
+>
 
 ## <a name="advanced-configuration"></a>Расширенная конфигурация
 Щелкнув элемент **Изменить** на показанном выше экране, клиенты получат доступ к дополнительным возможностям для составления расписаний хранения.
@@ -77,7 +77,6 @@ ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
 
 * [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 * [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins.md)
-
 
 
 

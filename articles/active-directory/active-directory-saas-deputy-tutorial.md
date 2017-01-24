@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Deputy | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Deputy.
+title: "Учебник. Интеграция Azure Active Directory с Deputy | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Deputy."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 33508e0b5a74cb37201ee926e297897ac0a73fcf
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-deputy"></a>Руководство. Интеграция Azure Active Directory с Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Руководство. Интеграция Azure Active Directory с Deputy
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Deputy.
 
 Интеграция Azure AD с приложением Deputy обеспечивает следующие преимущества:
 
 * С помощью Azure AD вы можете контролировать доступ к Deputy.
 * Вы можете включить автоматический вход пользователей в Deputy (единый вход) с помощью учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Deputy, вам потребуется:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
@@ -149,10 +153,10 @@ ms.author: jeedes
     Е. Щелкните **Сохранить параметры**.
 9. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
     
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -207,7 +211,7 @@ ms.author: jeedes
 ### <a name="creating-a-deputy-test-user"></a>Создание тестового пользователя приложения Deputy
 Чтобы пользователи Azure AD могли выполнять вход в Deputy, они должны быть подготовлены для Deputy. В случае с Deputy подготовка выполняется вручную.
 
-#### <a name="to-provision-a-user-account,-perform-the-following-steps:"></a>Чтобы подготовить учетную запись пользователя, выполните следующие действия.
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Чтобы подготовить учетную запись пользователя, выполните следующие действия.
 1. Войдите на сайт Deputy компании в качестве администратора.
 2. В верхней части области навигации щелкните **People**(Люди).
    
@@ -282,6 +286,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

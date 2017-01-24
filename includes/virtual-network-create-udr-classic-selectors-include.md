@@ -1,7 +1,12 @@
 > [!div class="op_single_selector"]
-> [PowerShell](../articles/virtual-network/virtual-network-create-udr-classic-ps.md)
-> [Azure CLI](../articles/virtual-network/virtual-network-create-udr-classic-cli.md)
-> 
-> 
+- [PowerShell](virtual-network-create-udr-arm-ps.md)
+- [Интерфейс командной строки Azure](virtual-network-create-udr-arm-cli.md)
+- [Шаблон](virtual-network-create-udr-arm-template.md)
+- [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
+- [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

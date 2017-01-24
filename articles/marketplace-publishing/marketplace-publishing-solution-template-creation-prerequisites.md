@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
 ## <a name="developing-building-blocks"></a>Разработка структурных элементов
 Необходимо выбрать основные модули решения, прежде чем переходить к публикации шаблона решения на портале. Ниже приведены некоторые ссылки на документы, которые могут вам помочь.
 
-1. [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](../best-practices-resource-manager-design-templates.md)
-2. [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+1. [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
+2. [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 3. Шаблоны быстрого запуска Azure:
    * [https://azure.microsoft.com/ru-ru/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
@@ -39,6 +39,6 @@ ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

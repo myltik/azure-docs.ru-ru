@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Подключение к кластеру службы контейнеров Azure
 Кластеры DC/OS, Kubernetes и Docker Swarm, развернутые с помощью службы контейнеров Azure, предоставляют конечные точки REST.  При использовании Kubernetes к этой конечной точке предоставляется безопасный доступ через Интернет, и к ней можно напрямую обратиться с любого компьютера, подключенного к Интернету. Для безопасного подключения к конечной точке REST кластеров DC/OS и Docker Swarm следует создать SSH-туннель. Все эти подключения описаны ниже.
+
+> [!NOTE]
+> Поддержка Kubernetes в службе контейнеров Azure сейчас доступна в предварительной версии.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Подключение к кластеру Kubernetes.
 Чтобы подключиться к кластеру Kubernetes, вам потребуется установленное средство командной строки `kubectl`.  Чтобы установить его, проще всего использовать средство командной строки Azure `az` версии 2.0.
@@ -172,6 +176,6 @@ export DOCKER_HOST=:2375
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

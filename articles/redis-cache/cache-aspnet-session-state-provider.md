@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/13/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: a2f124de8a35f6fdff23fa8b3c816b8c0b44acdd
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
 
 Пакет NuGet поставщика состояний сеансов Redis зависит от пакета StackExchange.Redis.StrongName. Если в проекте отсутствует пакет StackExchange.Redis.StrongName, он будет установлен. Обратите внимание, что помимо пакета со строгим именем StackExchange.Redis.StrongName существует также версия с нестрогим именем StackExchange.Redis. Если проект использует версию с нестрогим именем StackExchange.Redis, необходимо удалить ее до или после установки пакета NuGet поставщика состояний сеансов Redis, иначе в проекте возникнет конфликт имен. Дополнительные сведения об этих пакетах см. в разделе [Настройка клиентов кэша .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-Пакет NuGet загружает и добавляет требуемые ссылки на сборки и добавляет в файл web.config следующий раздел, который содержит необходимые в приложении ASP.NET настройки для использования кэширующего поставщика состояний сеансов Redis.
+Пакет NuGet загружает и добавляет требуемые ссылки на сборку и добавляет следующий раздел в файл web.config, который содержит требуемые настройки для приложения ASP.NET, позволяющие использовать поставщик состояний сеанса кэша Redis.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -118,6 +118,6 @@ ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

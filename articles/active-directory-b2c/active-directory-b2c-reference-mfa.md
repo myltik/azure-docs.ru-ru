@@ -4,7 +4,7 @@ description: "Как включить многофакторную провер�
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c

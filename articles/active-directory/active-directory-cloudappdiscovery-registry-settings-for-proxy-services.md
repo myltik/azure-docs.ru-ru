@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: be013882339bca88600e678ae7905b96ac94d0d9
 
 
 ---
@@ -53,6 +53,6 @@ ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
+ms.sourcegitcommit: 963a15ce1218ea7b3244e58377b9624680f5930b
+ms.openlocfilehash: e41e72957846dbcdab15960b67caab80882e49e1
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
@@ -59,8 +59,8 @@ ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
 
 Обратите внимание на следующее. 
 
-* Используйте совместно свойства `partitionKey` и `rowKey` для чтения одной сущности. Эти свойства являются необязательными.
-* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при создании учетной записи хранения или выборе одной из имеющихся. Чтобы создать этот параметр приложения вручную, [настройте его вручную](). 
+* Используйте совместно свойства `partitionKey` и `rowKey` для чтения одной сущности. Эти свойства являются необязательными. 
+* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при создании учетной записи хранения или выборе одной из имеющихся. Вы можете также [настроить этот параметр приложения вручную](functions-how-to-use-azure-function-app-settings.md#application-settings).  
 
 <a name="inputusage"></a>
 
@@ -167,7 +167,7 @@ module.exports = function (context, myQueueItem) {
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "out"
+    "direction": "out",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to write - see below>",
     "rowKey": "<RowKey of table entity to write - see below>",
@@ -178,7 +178,7 @@ module.exports = function (context, myQueueItem) {
 Обратите внимание на следующее. 
 
 * Используйте совместно свойства `partitionKey` и `rowKey` для записи одной сущности. Эти свойства являются необязательными. При создании объектов сущностей в коде функции можно также указать `PartitionKey` и `RowKey`.
-* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при создании учетной записи хранения или выборе одной из имеющихся. Чтобы создать этот параметр приложения вручную, [настройте его вручную](). 
+* Свойство `connection` должно включать в себя имя параметра приложения, содержащего строку подключения к службе хранилища. На портале Azure стандартный редактор на вкладке **Интеграция** автоматически настраивает этот параметр приложения при создании учетной записи хранения или выборе одной из имеющихся. Вы можете также [настроить этот параметр приложения вручную](functions-how-to-use-azure-function-app-settings.md#application-settings). 
 
 <a name="outputusage"></a>
 
@@ -342,6 +342,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

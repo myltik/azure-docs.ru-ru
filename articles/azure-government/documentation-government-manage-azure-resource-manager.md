@@ -1,129 +1,136 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government.
+title: "Azure Resource Manager для государственных организаций | Документация Майкрософт"
+description: "Эта статья содержит сравнительный анализ функциональных возможностей и рекомендации по разработке приложений, которые будут использоваться в Azure для государственных организаций."
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
+translationtype: Human Translation
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
+
 
 ---
-# <a name="azure-resource-manager"></a>Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+# <a name="azure-resource-manager"></a>Диспетчер ресурсов Azure
+Подробные сведения о поставщиках Resource Manager, версиях API и схемах см. [здесь](../azure-resource-manager/resource-manager-supported-services.md). В следующих таблицах представлены службы, которые поддерживаются в Azure Resource Manager для государственных организаций.
 
-## <a name="compute"></a>Compute
-| Service | Resource Manager Enabled |
+## <a name="compute"></a>Среда выполнения приложений
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Batch |Yes |
-| Container |No |
-| Dynamics Lifecycle Services |No |
-| Scale Sets |Yes |
-| Service Fabric |Yes |
-| Virtual Machines |Yes |
+| Пакетная служба |Да |
+| Контейнер |Нет |
+| Службы жизненного цикла Dynamics |Нет |
+| Наборы масштабирования |Да |
+| Service Fabric |Да |
+| Виртуальные машины |Да |
 
-## <a name="networking"></a>Networking
-| Service | Resource Manager Enabled |
+## <a name="networking"></a>Сеть
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Application Gateway |Yes |
-| DNS |Yes |
-| ExpressRoute |Yes |
-| Load Balancer |Yes |
-| Traffic Manager |Yes |
-| Virtual Networks |Yes |
-| VPN Gateway |Yes |
+| Шлюз приложений |Да |
+| DNS |Да |
+| ExpressRoute |Да |
+| Балансировщик нагрузки |Да |
+| Диспетчер трафика |Да |
+| Виртуальные сети |Да |
+| VPN-шлюз |Да |
 
-## <a name="data-&-storage"></a>Data & Storage
-| Service | Resource Manager Enabled |
+## <a name="data--storage"></a>Хранилище данных
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| DocumentDB |No |
-| Redis Cache |Yes |
-| Search |No |
-| Storage |Yes |
-| SQL Database |Yes |
-| SQL Data Warehouse |Yes |
-| StorSimple |No |
+| DocumentDB |Нет |
+| Кэш Redis |Да |
+| Поиск |Нет |
+| Хранилище |Да |
+| База данных SQL |Да |
+| Хранилище данных SQL |Да |
+| StorSimple |Нет |
 
-## <a name="web-&-mobile"></a>Web & Mobile
-| Service | Resource Manager Enabled |
+## <a name="web--mobile"></a>Интернет и мобильные устройства
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| API Apps |Yes |
-| API Management |No |
-| Logic Apps |No |
-| Mobile Apps |Yes |
-| Mobile Engagements |No |
-| Web Apps |Yes |
+| Приложения API |Да |
+| Управление API |Нет |
+| Приложения логики |Нет |
+| Мобильные приложения |Да |
+| Взаимодействие через мобильные устройства |Нет |
+| Веб-приложения |Да |
 
-## <a name="analytics"></a>Analytics
-| Service | Resource Manager Enabled |
+## <a name="analytics"></a>Аналитика
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Data Catalog |No |
-| Data Factory |No |
-| Data Lake Analytics |No |
-| Data Lake Store |No |
-| HDInsights |No |
-| Machine Learning |No |
-| Power BI |No |
+| Каталог данных |Нет |
+| Фабрика данных |Нет |
+| Аналитика озера данных |Нет |
+| Хранилище озера данных |Нет |
+| HDInsights |Нет |
+| Машинное обучение |Нет |
+| Power BI |Нет |
 
-## <a name="intelligence"></a>Intelligence
-| Service | Resource Manager Enabled |
+## <a name="intelligence"></a>Аналитика
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Cognitive Services |No |
+| Cognitive Services |Нет |
 
-## <a name="internet-of-things"></a>Internet of Things
-| Service | Resource Manager Enabled |
+## <a name="internet-of-things"></a>Интернет вещей
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Event Hub |Yes |
-| IoTHubs |No |
-| Notification Hubs |No |
+| Концентратор событий |Да |
+| Центры IoT |Нет |
+| Центры уведомлений |Нет |
 
-## <a name="media-&-cdn"></a>Media & CDN
-| Service | Resource Manager Enabled |
+## <a name="media--cdn"></a>Мультимедиа и CDN
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| CDN |No |
-| Media Service |No |
+| CDN |Нет |
+| Служба мультимедиа |Нет |
 
-## <a name="hybrid-integration"></a>Hybrid Integration
-| Service | Resource Manager Enabled |
+## <a name="hybrid-integration"></a>Гибридная интеграция
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| BizTalk Services |No |
-| Recovery Service |No |
-| Service Bus |Yes |
+| Службы BizTalk |Нет |
+| Служба восстановления |Да (только Hyper-V) |
+| Служебная шина |Да |
 
-## <a name="developer-services"></a>Developer Services
-| Service | Resource Manager Enabled |
+## <a name="developer-services"></a>Службы разработки
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Application Insights |No |
-| Bing Maps |No |
-| DevTest Labs |No |
-| Visual Studio account |No |
+| Application Insights |Нет |
+| Карты Bing |Нет |
+| DevTest Labs |Нет |
+| Учетная запись Visual Studio |Нет |
 
-## <a name="management-and-security"></a>Management and Security
-| Service | Resource Manager Enabled |
+## <a name="management-and-security"></a>Управление и безопасность
+| служба | Доступность диспетчера ресурсов |
 | --- | --- |
-| Automation |Yes |
-| Key Vault |Yes |
-| Operational Insights |Yes |
-| Scheduler |Yes |
-| Security (preview) |No |
+| Служба автоматизации |Да |
+| Хранилище ключей |Да |
+| Operational Insights; |Да |
+| Планировщик |Да |
+| Безопасность (предварительная версия) |Нет |
 
-## <a name="resource-manager"></a>Resource Manager
-| Feature | Resource Manager Enabled |
+## <a name="resource-manager"></a>Диспетчер ресурсов
+| Функция | Доступность диспетчера ресурсов |
 | --- | --- |
-| Authorization |Yes |
-| Resources |Yes |
+| Авторизация |Да |
+| Ресурсы |Да |
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>Дальнейшие действия
+Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

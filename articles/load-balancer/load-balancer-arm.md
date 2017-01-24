@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b0046511f1a56cd72423bbbcfb5bf1e17e60ce5b
-ms.openlocfilehash: 15147a201fa053e72a840294ade4ccb6197c78ac
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
 
 ---
 
@@ -42,7 +42,7 @@ Azure Load Balancer с Resource Manager содержит следующие до
 
 Шаблоны могут содержать определения виртуальных машин, виртуальных сетей, групп доступности, сетевых интерфейсов (сетевых карт), учетных записей хранения, балансировщиков нагрузки, групп безопасности сети и общедоступных IP-адресов. С помощью шаблонов можно создать все необходимое для сложного приложения. Файл шаблона можно вернуть в систему управления содержимым, чтобы обеспечить управление версиями и возможность совместной работы.
 
-[Дополнительные сведения о шаблонах](../resource-manager-template-walkthrough.md)
+[Дополнительные сведения о шаблонах](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [Дополнительные сведения о сетевых ресурсах](../virtual-network/resource-groups-networking.md)
 
@@ -71,6 +71,6 @@ Azure Load Balancer с Resource Manager содержит следующие до
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

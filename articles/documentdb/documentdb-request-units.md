@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 39b4ccba7ad3ba6734dd23548db3c506c8095759
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
 
 
 ---
@@ -224,7 +224,6 @@ DocumentDB обеспечивает высокую прогнозируемую 
 Дополнительные сведения о резервировании пропускной способности с помощью баз данных Azure DocumentDB см. в следующих ресурсах:
 
 * [Цены на DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Управление емкостью DocumentDB](documentdb-manage.md) 
 * [Моделирование данных в DocumentDB](documentdb-modeling-data.md)
 * [Уровни производительности в DocumentDB](documentdb-partition-data.md)
 
@@ -240,6 +239,6 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

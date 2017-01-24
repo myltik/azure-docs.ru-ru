@@ -10,7 +10,7 @@ articles/sql-database/sql-database-configure-firewall-settings
 articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
+### <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
 
 1. В колонке сервера SQL Server в разделе "Параметры" щелкните **Брандмауэр**, чтобы открыть колонку брандмауэра для SQL Server.
 

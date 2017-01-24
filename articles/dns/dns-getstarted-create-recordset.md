@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: a6b72b96c241e3d459abad0d3986f2d757cf1752
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
 
 ---
 
@@ -32,7 +32,7 @@ ms.openlocfilehash: a6b72b96c241e3d459abad0d3986f2d757cf1752
 
 ## <a name="verify-that-you-have-the-latest-version-of-powershell"></a>Убедитесь, что у вас установлена последняя версия PowerShell.
 
-Убедитесь, что у вас установлена последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Убедитесь, что у вас установлена последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-record-set-and-record"></a>Создание набора записей и записи
 
@@ -154,6 +154,6 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

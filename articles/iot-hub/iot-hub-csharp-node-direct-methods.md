@@ -1,6 +1,6 @@
 ---
-title: "Использование прямых методов (C#) Центра Интернета вещей Azure | Документация Майкрософт"
-description: "В этом руководстве описано использование прямых методов"
+title: "Использование прямых методов Центра Интернета вещей Azure (.NET или Node) | Документация Майкрософт"
+description: "Использование прямых методов Центра Интернета вещей Azure. Используйте пакет SDK для устройств Azure IoT для Node.js, чтобы реализовать приложение имитации устройства, включающее прямой метод, и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, вызывающее прямой метод."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 
 
 ---
-# <a name="tutorial-use-direct-methods-c"></a>Руководство по использованию прямых методов (C#)
+# <a name="use-direct-methods-netnode"></a>Использование прямых методов (.NET или Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-По завершении работы с этим руководством у вас будет два консольных приложения: .NET и Node.js.
+По завершении работы с этим руководством у вас будет два консольных приложения — для .NET и Node.js:
 
-* **CallMethodOnDevice.sln** — это приложение .NET, предназначенное для запуска из серверной части, которое вызывает метод в приложении виртуального устройства и отображает ответ.
+* **CallMethodOnDevice.sln**, внутреннее приложение для .NET, которое вызывает метод в приложении имитации устройства и выводит ответ;
 * **TwinSimulatedDevice.js** — это приложение Node.js, имитирующее устройство, которое подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и отвечает на метод, вызванный облаком.
 
 > [!NOTE]
@@ -44,14 +44,14 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Создание приложения виртуального устройства
-В этом разделе вы создадите консольное приложение Node.js, отвечающее на метод, вызванный из серверной части.
+В этом разделе вы создадите консольное приложение для Node.js, отвечающее на метод, вызываемый из серверной части решения.
 
 1. Создайте пустую папку с именем **simulateddevice**. В папке **simulateddevice** создайте файл package.json, используя следующую команду в командной строке. Примите значения по умолчанию:
    
     ```
     npm init
     ```
-2. Чтобы установить **azure-iot-device** и пакеты **azure-iot-device-amqp**, в командной строке в папке **simulateddevice** выполните следующую команду:
+2. Чтобы установить пакеты **azure-iot-device** и **azure-iot-device-mqtt**, в командной строке в папке **simulateddevice** выполните следующую команду.
    
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
@@ -65,7 +65,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Добавьте переменную **connectionString** , чтобы создать с ее помощью клиент устройства. Замените **{строка подключения устройства}** на строку подключения, созданную в разделе *Создание удостоверения устройства*:
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью экземпляр **DeviceClient**. Замените **{device connection string}** строкой подключения устройства, созданной в разделе *Создание удостоверения устройства*.
    
     ```
     var connectionString = '{device connection string}';
@@ -112,7 +112,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
    
     ![Новый проект классического приложения Windows на языке Visual C#][10]
 2. В обозревателе решений щелкните правой кнопкой мыши проект **CallMethodOnDevice** и выберите **Управление пакетами NuGet**.
-3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. Эта процедура выполняет загрузку и установку пакета NuGet [SDK для Центра Интернета вещей Microsoft Azure][lnk-nuget-service-sdk], после чего добавляется ссылка на пакет и его зависимости.
+3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. В результате выполняется скачивание и установка пакета NuGet [SDK для служб Интернета вещей Azure][lnk-nuget-service-sdk] и его зависимостей, а также добавляется соответствующая ссылка.
    
     ![Окно "Диспетчер пакетов NuGet"][11]
 
@@ -120,7 +120,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Добавьте следующие поля в класс **Program** . Замените значение заполнителя строкой подключения для центра IoT, созданного в предыдущем разделе.
+5. Добавьте следующие поля в класс **Program** . Замените значение заполнителя строкой подключения к Центру Интернета вещей, созданному в предыдущем разделе.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -148,7 +148,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 ## <a name="run-the-applications"></a>Запуск приложений
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы из Центра Интернета вещей:
+1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы метода из Центра Интернета вещей:
    
     ```
     node SimulatedDevice.js
@@ -170,7 +170,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 * [Начало работы с Центром Интернета вещей]
 * [Планирование заданий на нескольких устройствах (предварительная версия)][lnk-devguide-jobs]
 
-Дополнительные сведения о расширении решения Центра Интернета вещей и планировании вызовов методов на нескольких устройствах см. в руководстве [Schedule and broadcast jobs (Node)][lnk-tutorial-jobs] (Планирование и трансляция заданий (Node)).
+Дополнительные сведения о расширении решения Центра Интернета вещей и планировании вызовов методов на нескольких устройствах см. в учебнике [Планирование и трансляция заданий][lnk-tutorial-jobs].
 
 <!-- Images. -->
 [7]: ./media/iot-hub-csharp-node-direct-methods/run-simulated-device.png
@@ -183,7 +183,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -201,6 +201,6 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
