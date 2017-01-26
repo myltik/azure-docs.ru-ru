@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16f6285577294ff49f11a27f48daea090655a2b1
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Runbook в службе автоматизации Azure основаны на W
 [Коллекция Runbook](automation-runbook-gallery.md#runbooks-in-runbook-gallery) содержит модули Runbook корпорации Майкрософт и сообщества, которые можно использовать в среде без изменений или настроить по своему усмотрению. Используя их для справки, вы можете научиться создавать собственные модули Runbook. Кроме того, вы можете загружать собственные модули Runbook в коллекцию, если считаете, что они могут оказаться полезными для других пользователей. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Создание модулей Runbook с помощью службы автоматизации Azure
-Модули Runbook можно [создавать с нуля](automation-creating-importing-runbook.md) или изменять в [коллекции Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) в соответствии с собственными требованиями. В зависимости от собственных требований и возможностей PowerShell можно выбрать три разных [типа модулей Runbook](automation-runbook-types.md). Если вы предпочитаете работать непосредственно с кодом PowerShell, то можно использовать [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) или [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Эти модули можно изменять в автономном режиме или в [текстовом редакторе](http://msdn.microsoft.com/library/azure/dn879137.aspx) на портале Azure. Чтобы изменить модули Runbook, не прибегая к работе над кодом, в [графическом редакторе](automation-graphical-authoring-intro.md) на портале Azure можно создать [графический модуль Runbook](automation-runbook-types.md#graphical-runbooks). 
+Модули Runbook можно [создавать с нуля](automation-creating-importing-runbook.md) или изменять в [коллекции Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) в соответствии с собственными требованиями. В зависимости от собственных требований и возможностей PowerShell можно выбрать четыре разных [типа модулей Runbook](automation-runbook-types.md). Если вы предпочитаете работать непосредственно с кодом PowerShell, то можно использовать [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) или [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Эти модули можно изменять в автономном режиме или в [текстовом редакторе](http://msdn.microsoft.com/library/azure/dn879137.aspx) на портале Azure. Чтобы изменить модули Runbook, не прибегая к работе над кодом, в [графическом редакторе](automation-graphical-authoring-intro.md) на портале Azure можно создать [графический модуль Runbook](automation-runbook-types.md#graphical-runbooks). 
 
 Предпочитаете смотреть, а не читать? Посмотрите указанный ниже видеоролик, показанный на презентации Microsoft Ignite в мае 2015 года. Примечание. Несмотря на то, что основные концепции и жизненный цикл, о которых рассказывается в этом видеоролике, по-прежнему актуальны, с момента записи этого видеоролика служба автоматизации Azure сделала большой шаг вперед. Теперь она оснащена более функциональным пользовательским интерфейсом на портале Azure и поддерживает дополнительные возможности.
 
@@ -82,11 +82,11 @@ Runbook в службе автоматизации Azure основаны на W
 * [Командлеты службы автоматизации Azure](https://msdn.microsoft.com/library/mt244122.aspx) предоставляют сведения для автоматизации задач администрирования. Они включают командлеты для управления учетными записями автоматизации, ресурсами, модулями Runbook и DSC.
 
 ## <a name="can-i-provide-feedback"></a>Можно ли оставить отзыв?
-**Да! Нам нужна обратная связь.**  Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо! 
+**Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо! 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
