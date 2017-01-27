@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 01/25/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 691fd286fa41f26f192354574c460bd88d9c2bce
