@@ -1,5 +1,5 @@
 ---
-title: "Настройка параметров приложения Функций Azure | Документация Майкрософт"
+title: "Настройка параметров приложения-функции Azure | Документация Майкрософт"
 description: "Узнайте, как настроить параметры приложения-функции Azure."
 services: 
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 836c5b48c6b9a635d4255e3954b7b9c0a2bae482
+ms.sourcegitcommit: 771d285597b62f55f5f2bf10ccecc6872e6c8838
+ms.openlocfilehash: 042d4680a7957ebfa47618c159e36527921f9bfe
 
 
 ---
@@ -131,6 +131,6 @@ Kudu позволяет получить доступ к расширенным 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

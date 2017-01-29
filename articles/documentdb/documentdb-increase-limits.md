@@ -12,26 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/13/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
+ms.sourcegitcommit: 803d295f0d9f08fdfe7ee4550bd093b98bd80631
+ms.openlocfilehash: 594f8c79e6e98a3e727416b0bf1867481b33dd2c
 
 
 ---
 # <a name="request-increased-documentdb-account-quotas"></a>Запрос увеличения квот учетной записи DocumentDB
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) применяет ряд квот по умолчанию, которые могут быть изменены при обращении в службу поддержки Azure.  В этой статье показано, как запросить увеличение квоты.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com..
 
-Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.  
-
-* Какие квоты базы данных DocumentDB могут быть изменены при обращении в службу поддержки Azure?
-* Как запросить изменение квоты учетной записи DocumentDB?
-
-## <a name="a-idquotasa-documentdb-account-quotas"></a><a id="Quotas"></a> Квоты учетной записи DocumentDB
-В следующей таблице описаны квоты DocumentDB. Квоты со звездочкой (*) могут быть изменены при обращении в службу поддержки Azure.
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+В этой статье показано, как запросить увеличение квоты в службе поддержки Azure
 
 ## <a name="a-idrequestquotaincreasea-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Запрос изменения квоты
 Ниже показано, как запросить изменение квоты.
@@ -60,6 +52,6 @@ ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

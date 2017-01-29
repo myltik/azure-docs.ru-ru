@@ -1,29 +1,34 @@
 ---
-title: Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase | Microsoft Docs
-description: Узнайте, как проводить анализ мнений в режиме реального времени на основе данных большого размера Twitter с помощью HBase в кластере HDInsight (Hadoop).
+title: "Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase | Документация Майкрософт"
+description: "Узнайте, как проводить анализ мнений в режиме реального времени на основе данных большого размера Twitter с помощью HBase в кластере HDInsight (Hadoop)."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5c798ad3-a20d-4385-a463-f4f7705f9566
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/15/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: a8f597086aca67d41b23487c384d6d614bc9968a
+ms.openlocfilehash: 17c89493d83bcfbd04c9e7f617c2bb8fa1964636
+
 
 ---
-# Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
-Узнайте, как проводить [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе данных большого размера Twitter с помощью HBase в кластере HDInsight (Hadoop).
+# <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
+Узнайте, как выполнять [анализ тональности](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных Twitter, используя кластер HBase в HDInsight.
 
 Социальные веб-сайты являются одной из основных движущих сил для внедрения данных большого размера. Общедоступные API, предоставляемые сайтами, такими как Twitter, — полезный источник данных для анализа и понимания популярных тенденций. В этом учебнике вы создадите консольное приложение-службу, работающее в потоковом режиме, и веб-приложение ASP.NET для выполнения следующих задач:
 
 ![Анализ мнений пользователей Twitter с использованием HBase в HDInsight][img-app-arch]
 
 * Приложение потоковой передачи
+
   * получение твитов с геотегами в режиме реального времени с помощью API потоковой передачи Twitter;
   * оценка мнений на основе этих твитов;
   * сохранение информации о мнениях в HBase с помощью пакета SDK для Microsoft HBase.
@@ -37,44 +42,44 @@ ms.author: jgao
 
 Пример готового решения Visual Studio можно найти на портале GitHub: [приложение анализа общественных мнений в реальном времени](https://github.com/maxluk/tweet-sentiment).
 
-### Предварительные требования
+### <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-* **Кластер HBase в HDInsight**. Инструкции по созданию кластера см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight][hbase-get-started]. Для выполнения учебника необходимы следующие данные:
+* **Кластер HBase в HDInsight.** Инструкции по созданию кластера см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight][hbase-get-started]. Для выполнения учебника необходимы следующие данные:
 
     <table border="1">
     <tr><th>Свойство кластера</th><th>Описание</th></tr>
     <tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-    <tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+    <tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию — <strong>admin</strong>.</td></tr>
     <tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
     </table>
 
-* **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в статье [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Создание идентификатора и секретов приложения Twitter
-В интерфейсах API потоковой передачи Twitter для авторизации запросов используется протокол [OAuth](http://oauth.net/). Первый шаг для начала использования OAuth состоит в создании нового приложения на сайте разработчиков Twitter.
+## <a name="create-a-twitter-application-id-and-secrets"></a>Создание идентификатора и секретов приложения Twitter
+В интерфейсах API потоковой передачи Twitter для авторизации запросов используется протокол [OAuth](http://oauth.net/) . Первый шаг для начала использования OAuth состоит в создании нового приложения на сайте разработчиков Twitter.
 
 **Создание идентификатора и секретов приложения Twitter**
 
-1. Войдите на сайт [приложений Twitter](https://apps.twitter.com/). Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
+1. Войдите на сайт [приложений Twitter](https://apps.twitter.com/). Перейдите по ссылке **Войти сейчас** , если у вас нет учетной записи Twitter.
 2. Щелкните **Создать новое приложение**.
-3. Введите **имя**, **описание** и **веб-сайт**. Имя приложения Twitter должно быть уникальным. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес.
-4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
-5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника.
-6. Перейдите на вкладку **Ключи и токены доступа**.
+3. Введите **имя**, **описание** и **веб-сайт**. Имя приложения Twitter должно быть уникальным. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. 
+4. Установите флажок **Я принимаю** и нажмите кнопку **Создать приложение Twitter**.
+5. Выберите вкладку **Разрешения** . Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
+6. Перейдите на вкладку **Ключи и токены доступа** .
 7. Нажмите кнопку **Создать маркер доступа**.
 8. Нажмите кнопку **Проверить OAuth** в правом верхнем углу страницы.
-9. Скопируйте значения **Ключ клиента**, **Секрет клиента**, **Маркер доступа** и **Секрет маркера доступа**. Они потребуются позже для изучения этого учебника.
+9. Скопируйте значения **Ключ клиента**, **Consumer secret** (Секрет клиента), **Маркер доступа** и **Access token secret** (Секрет маркера доступа). Они потребуются позже для изучения этого учебника.
    
     ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
-## Создание службы потоковой передачи данных Twitter
+## <a name="create-twitter-streaming-service"></a>Создание службы потоковой передачи данных Twitter
 Вам необходимо создать приложение для получения твитов, расчета оценки мнений на их основе и отправки обработанных слов из твитов в HBase.
 
 **Создание приложения потоковой передачи**
 
-1. Откройте **Visual Studio** и создайте консольное приложение Visual C# под названием **TweetSentimentStreaming**.
-2. В **консоли диспетчера пакетов** выполните следующие команды:
+1. Откройте **Visual Studio** и создайте консольное приложение Visual C# под названием **TweetSentimentStreaming**. 
+2. В **консоли диспетчера пакетов**выполните следующие команды:
    
         Install-Package Microsoft.HBase.Client -version 0.4.2.0
         Install-Package TweetinviAPI -version 1.0.0.0
@@ -82,11 +87,11 @@ ms.author: jgao
     Эти команды установят [пакет SDK для HBase .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/), представляющий собой клиентскую библиотеку для доступа к кластеру HBase, и пакет [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/), который используется для доступа к API Twitter.
    
    > [!NOTE]
-   > Пример, использованный в этой статье, был проверен с помощью указанной выше версии. Вы можете удалить параметр -version и установить последнюю версию.
+   > Пример, использованный в этой статье, был проверен с помощью указанной выше версии.  Вы можете удалить параметр -version и установить последнюю версию.
    > 
    > 
 3. В **обозревателе решений** добавьте **System.Configuration** в ссылку.
-4. Добавьте в проект **HBaseWriter.cs** новый файл класса, а затем замените код следующим.
+4. Добавьте в проект **HBaseWriter.cs**новый файл класса, а затем замените код следующим.
    
         using System;
         using System.Collections.Generic;
@@ -117,7 +122,7 @@ ms.author: jgao
                 // Sentiment dictionary file and the punctuation characters
                 const string DICTIONARYFILENAME = @"..\..\dictionary.tsv";
                 private static char[] _punctuationChars = new[] {
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
    
                 // For writting to HBase
@@ -144,7 +149,7 @@ ms.author: jgao
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
                         client.CreateTableAsync(tableSchema).Wait();
-                        Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
+                        Console.WriteLine("Table \"{0}\" is created.", HBASETABLENAME);
                     }
    
                     // Read current row count cell
@@ -346,8 +351,8 @@ ms.author: jgao
                 public string Polarity { get; set; }
             }
         }
-5. Задайте константы в коде выше, в том числе **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
-6. Откройте файл **Program.cs** и замените код следующим.
+5. Задайте константы в коде выше, в том числе **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv.  Этот файл можно скачать по ссылке **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
+6. Откройте файл **Program.cs**и замените код следующим.
    
         using System;
         using System.Diagnostics;
@@ -418,15 +423,15 @@ ms.author: jgao
    
             }
         }
-7. Задайте константы, в том числе **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**.
+7. Задайте константы, в том числе **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**. 
 
 Чтобы запустить службу потоковой передачи, нажмите клавишу **F5**. Далее представлен снимок экрана консольного приложения:
 
 ![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
 
-Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. Ознакомьтесь со статьей [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
+Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. См. статью [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
-## Визуализация мнений в режиме реального времени
+## <a name="visualize-real-time-sentiment"></a>Визуализация мнений в режиме реального времени
 Этот подраздел посвящен созданию веб-приложения ASP.NET MVC, предназначенному для чтения мнений из HBase в режиме реального времени и отображения данных на картах Bing.
 
 **Создание веб-приложения ASP.NET MVC**
@@ -438,21 +443,21 @@ ms.author: jgao
    * Категория шаблона: **Visual C# или веб-сайт**
    * Шаблон: **веб-приложение ASP.NET**
    * Имя: **TweetSentimentWeb**
-   * Расположение: **C:\\Tutorials**
+   * Расположение: **C:\Tutorials**. 
 4. Нажмите кнопку **ОК**.
-5. В разделе **Выбор шаблона** щелкните **MVC**.
+5. В разделе **Выбор шаблона** щелкните **MVC**. 
 6. В **Microsoft Azure** щелкните **Управление подписками**.
 7. В окне **Управление подписками Microsoft Azure** щелкните **Вход**.
-8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи**.
-9. Нажмите кнопку **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
-10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
-11. В окне **Настройка параметров сайта Microsoft Azure** выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно.
+8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи** .
+9. Щелкните **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
+10. В окне **New ASP.NET Project - TweetSentimentWeb** (Новый проект ASP.NET — TweetSentimentWeb) нажмите кнопку **ОК**.
+11. В окне **Configure Microsoft Azure Site Settings** (Настройка параметров сайта Microsoft Azure) выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно. 
 12. Нажмите кнопку **ОК**.
 
 **Установка пакетов Nuget**
 
 1. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**. В нижней части страницы откроется консольная панель.
-2. Используйте следующую команду, чтобы установить [пакет SDK для .NET HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), который представляет клиентскую библиотеку для доступа к кластеру HBase:
+2. Используйте следующую команду, чтобы установить [пакет SDK для .NET HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/) , который представляет клиентскую библиотеку для доступа к кластеру HBase:
    
         Install-Package Microsoft.HBase.Client 
 
@@ -571,20 +576,20 @@ ms.author: jgao
         }
 5. В классе **HBaseReader** измените значения констант следующим образом:
    
-   * **CLUSTERNAME**: имя кластера HBase, например *https://<имя\_кластера\_HBase>.azurehdinsight.net/*.
-   * **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
+   * **CLUSTERNAME**: имя кластера HBase, например *https://<HBaseClusterName>.azurehdinsight.net/*. 
+   * **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
    * **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
-   * **HBASETABLENAME** = "tweets\_by\_words".
+   * **HBASETABLENAME**: tweets_by_words.
      
-     Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
+     Имя таблицы HBase — **tweets_by_words**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
 
 **Добавление контроллера TweetsController**
 
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Контроллеры**, выберите пункт **Добавить**, а затем щелкните **Контроллер**.
-3. Щелкните элемент **Web API 2 Controller - Empty** (Контроллер веб-интерфейса API 2 — пустой) и нажмите кнопку **Добавить**.
+3. Щелкните элемент **Контроллер Web API 2 — пустой** и нажмите кнопку **Добавить**.
 4. В поле **Имя контроллера** введите **TweetsController** и нажмите кнопку **Добавить**.
-5. В **обозревателе решений** дважды щелкните файл TweetsController.cs, чтобы открыть его.
+5. В **обозревателе решений**дважды щелкните файл TweetsController.cs, чтобы открыть его.
 6. Измените файл так, чтобы он выглядел следующим образом:
    
         using System;
@@ -615,7 +620,7 @@ ms.author: jgao
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Скрипты**, выберите пункт **Добавить** и щелкните **Файл JavaScript**.
 3. В поле **Имя элемента** введите **heatmap.js**.
-4. Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительную информацию см. в статье [Библиотека тепловых карт AJAX вер. 7 для Карт Bing](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
+4. Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительные сведения см. в статье [Bing Maps AJAX v7 HeatMap Library](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/) (Библиотека тепловых карт AJAX вер. 7 для Карт Bing).
    
         /*******************************************************************************
         * Author: Alastair Aitchison
@@ -629,41 +634,40 @@ ms.author: jgao
         *
         * Requirements:
         * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
+        * the HTML5 &lt;canvas> element, and therefore requires a browser that supports
         * this element. It has been tested on IE9, Firefox 3.6/4 and 
         * Chrome 10 browsers. If you can confirm whether it works on other browsers or
         * not, I'd love to hear from you!
-   
+        *
         * Usage:
         * The HeatMapLayer constructor requires:
         * - A reference to a map object
         * - An array or Microsoft.Maps.Location items
         * - Optional parameters to customise the appearance of the layer
         *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
-        *
         */
-   
+
         var HeatMapLayer = function (map, locations, options) {
-   
+
             /* Private Properties */
             var _map = map,
-              _canvas,
-              _temperaturemap,
-              _locations = [],
-              _viewchangestarthandler,
-              _viewchangeendhandler;
-   
+                _canvas,
+                _temperaturemap,
+                _locations = [],
+                _viewchangestarthandler,
+                _viewchangeendhandler;
+
             // Set default options
             var _options = {
                 // Opacity at the centre of each heat point
                 intensity: 0.5,
-   
+
                 // Affected radius of each heat point
                 radius: 1000,
-   
+
                 // Whether the radius is an absolute pixel value or meters
                 unit: 'meters',
-   
+
                 // Colour temperature gradient of the map
                 colourgradient: {
                     "0.00": 'rgba(255,0,255,20)',  // Magenta
@@ -672,55 +676,55 @@ ms.author: jgao
                     "0.75": 'rgba(255,255,0,120)', // Yellow
                     "1.00": 'rgba(255,0,0,150)'    // Red
                 },
-   
+
                 // Callback function to be fired after heatmap layer has been redrawn 
                 callback: null
             };
-   
+
             /* Private Methods */
             function _init() {
                 var _mapDiv = _map.getRootElement();
-   
+
                 if (_mapDiv.childNodes.length >= 3 && _mapDiv.childNodes[2].childNodes.length >= 2) {
                     // Create the canvas element
                     _canvas = document.createElement('canvas');
                     _canvas.style.position = 'relative';
-   
+
                     var container = document.createElement('div');
                     container.style.position = 'absolute';
                     container.style.left = '0px';
                     container.style.top = '0px';
                     container.appendChild(_canvas);
-   
+
                     _mapDiv.childNodes[2].childNodes[1].appendChild(container);
-   
+
                     // Override defaults with any options passed in the constructor
                     _setOptions(options);
-   
+
                     // Load array of location data
                     _setPoints(locations);
-   
+
                     // Create a colour gradient from the suppied colourstops
                     _temperaturemap = _createColourGradient(_options.colourgradient);
-   
+
                     // Wire up the event handler to redraw heatmap canvas
                     _viewchangestarthandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangestart', _clearHeatMap);
                     _viewchangeendhandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangeend', _createHeatMap);
-   
+
                     _createHeatMap();
-   
+
                     delete _init;
                 } else {
                     setTimeout(_init, 100);
                 }
             }
-   
+
             // Resets the heat map
             function _clearHeatMap() {
                 var ctx = _canvas.getContext("2d");
                 ctx.clearRect(0, 0, _canvas.width, _canvas.height);
             }
-   
+
             // Creates a colour gradient from supplied colour stops on initialisation
             function _createColourGradient(colourstops) {
                 var ctx = document.createElement('canvas').getContext('2d');
@@ -732,7 +736,7 @@ ms.author: jgao
                 ctx.fillRect(0, 0, 256, 1);
                 return ctx.getImageData(0, 0, 256, 1).data;
             }
-   
+
             // Applies a colour gradient to the intensity map
             function _colouriseHeatMap() {
                 var ctx = _canvas.getContext("2d");
@@ -749,90 +753,90 @@ ms.author: jgao
                 }
                 ctx.putImageData(dat, 0, 0);
             }
-   
+
             // Sets any options passed in
             function _setOptions(options) {
                 for (attrname in options) {
                     _options[attrname] = options[attrname];
                 }
             }
-   
+
             // Sets the heatmap points from an array of Microsoft.Maps.Locations  
             function _setPoints(locations) {
                 _locations = locations;
             }
-   
+
             // Main method to draw the heatmap
             function _createHeatMap() {
                 // Ensure the canvas matches the current dimensions of the map
                 // This also has the effect of resetting the canvas
                 _canvas.height = _map.getHeight();
                 _canvas.width = _map.getWidth();
-   
+
                 _canvas.style.top = -_canvas.height / 2 + 'px';
                 _canvas.style.left = -_canvas.width / 2 + 'px';
-   
+
                 // Calculate the pixel radius of each heatpoint at the current map zoom
                 if (_options.unit == "pixels") {
                     radiusInPixel = _options.radius;
                 } else {
                     radiusInPixel = _options.radius / _map.getMetersPerPixel();
                 }
-   
+
                 var ctx = _canvas.getContext("2d");
-   
+
                 // Convert lat/long to pixel location
                 var pixlocs = _map.tryLocationToPixel(_locations, Microsoft.Maps.PixelReference.control);
                 var shadow = 'rgba(0, 0, 0, ' + _options.intensity + ')';
                 var mapWidth = 256 * Math.pow(2, _map.getZoom());
-   
+
                 // Create the Intensity Map by looping through each location
                 for (var i = 0, len = pixlocs.length; i < len; i++) {
                     var x = pixlocs[i].x;
                     var y = pixlocs[i].y;
-   
+
                     if (x < 0) {
                         x += mapWidth * Math.ceil(Math.abs(x / mapWidth));
                     }
-   
+
                     // Create radial gradient centred on this point
                     var grd = ctx.createRadialGradient(x, y, 0, x, y, radiusInPixel);
                     grd.addColorStop(0.0, shadow);
                     grd.addColorStop(1.0, 'transparent');
-   
+
                     // Draw the heatpoint onto the canvas
                     ctx.fillStyle = grd;
                     ctx.fillRect(x - radiusInPixel, y - radiusInPixel, 2 * radiusInPixel, 2 * radiusInPixel);
                 }
-   
+
                 // Apply the specified colour gradient to the intensity map
                 _colouriseHeatMap();
-   
+
                 // Call the callback function, if specified
                 if (_options.callback) {
                     _options.callback();
                 }
             }
-   
+
             /* Public Methods */
-   
+
             this.Show = function () {
                 if (_canvas) {
                     _canvas.style.display = '';
                 }
             };
-   
+
             this.Hide = function () {
                 if (_canvas) {
                     _canvas.style.display = 'none';
                 }
             };
-   
+
             // Sets options for intensity, radius, colourgradient etc.
             this.SetOptions = function (options) {
                 _setOptions(options);
             }
-   
+
             // Sets an array of Microsoft.Maps.Locations from which the heatmap is created
             this.SetPoints = function (locations) {
                 // Reset the existing heatmap layer
@@ -842,14 +846,14 @@ ms.author: jgao
                 // Recreate the layer
                 _createHeatMap();
             }
-   
+
             // Removes the heatmap layer from the DOM
             this.Remove = function () {
                 _canvas.parentNode.parentNode.removeChild(_canvas.parentNode);
-   
+
                 if (_viewchangestarthandler) { Microsoft.Maps.Events.removeHandler(_viewchangestarthandler); }
                 if (_viewchangeendhandler) { Microsoft.Maps.Events.removeHandler(_viewchangeendhandler); }
-   
+
                 _locations = null;
                 _temperaturemap = null;
                 _canvas = null;
@@ -857,11 +861,11 @@ ms.author: jgao
                 _viewchangestarthandler = null;
                 _viewchangeendhandler = null;
             }
-   
+
             // Call the initialisation routine
             _init();
         };
-   
+
         // Call the Module Loaded method
         Microsoft.Maps.moduleLoaded('HeatMapModule');
 
@@ -1068,7 +1072,7 @@ ms.author: jgao
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \_**Layout.cshtml**.
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**.
 2. Замените содержимое на приведенное ниже:
    
         <!DOCTYPE html>
@@ -1137,7 +1141,7 @@ ms.author: jgao
         @{
             ViewBag.Title = "Tweet Sentiment";
         }
-   
+
         <div class="map_container">
             <div id="map_canvas"/>
         </div>
@@ -1168,10 +1172,10 @@ ms.author: jgao
 **Изменение файла global.asax**
 
 1. В **обозревателе решений** разверните узел **TweetSentimentWeb** и дважды щелкните элемент **Global.asax**.
-2. Добавьте следующий оператор **using**:
+2. Добавьте следующий оператор **using** :
    
         using System.Web.Http;
-3. Добавьте в функцию **Application\_Start()** следующие строки:
+3. Добавьте в функцию **Application_Start()** следующие строки:
    
         // Register API routes
         GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1181,23 +1185,23 @@ ms.author: jgao
 **Запуск веб-приложения**
 
 1. Убедитесь, что консольное приложение службы потоковой передачи выполняется, чтобы вы могли просматривать изменения в режиме реального времени.
-2. Нажмите клавишу **F5**, чтобы запустить веб-приложение.
+2. Нажмите клавишу **F5** , чтобы запустить веб-приложение.
    
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-3. Введите в текстовом поле ключевое слово и нажмите кнопку **Go** (Найти). В зависимости от того, какие данные собраны в таблице HBase, некоторые ключевые слова, возможно, не будут найдены. Попробуйте использовать распространенные ключевые слова, такие как «нравится», «xbox» и «playstation».
+3. Введите в текстовом поле ключевое слово и нажмите кнопку **Go**(Найти).  В зависимости от того, какие данные собраны в таблице HBase, некоторые ключевые слова, возможно, не будут найдены. Попробуйте использовать распространенные ключевые слова, такие как «нравится», «xbox» и «playstation». 
 4. Переключитесь между категориями **Positive** (Положительное), **Neutral** (Нейтральное) и **Negative** (Отрицательное), чтобы сравнить мнения.
 5. Дайте службе потоковой передачи поработать еще час, а затем выполните поиск по тому же ключевому слову и сравните результаты.
 
-При желании вы можете также развернуть приложение на Веб-сайтах Azure. Инструкции см. в разделе [Начало работы с веб-сайтами Azure и ASP.NET][website-get-started].
+При желании вы можете также развернуть приложение на Веб-сайтах Azure. Инструкции см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio][website-get-started].
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Из этого учебника вы узнали, как получать твиты, анализировать мнения на их основе, сохранять полученные оценки мнений в HBase и представлять данные по мнениям пользователей Twitter на Картах Bing в режиме реального времени. Дополнительные сведения см. на следующих ресурсах:
 
-* [Приступая к работе с HDInsight][hdinsight-get-started]
-* [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md)
+* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
+* [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md) 
 * [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
-* [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
-* [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
+* [Анализ данных о задержке рейсов с помощью Hive в HDInsight][hdinsight-analyze-flight-delay-data]
+* [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
@@ -1226,7 +1230,7 @@ ms.author: jgao
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -1239,4 +1243,8 @@ ms.author: jgao
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

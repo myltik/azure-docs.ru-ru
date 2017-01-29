@@ -4,7 +4,7 @@ description: "Узнайте, как создавать пользователь
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
+ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
+ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
 
 
 ---
@@ -27,14 +27,12 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 > * [Портал Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
+
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -48,7 +46,7 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 
 ### <a name="create-an-application-gateway-resource"></a>Создание ресурса шлюза приложений.
 
-Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
+Для создания шлюза используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
 В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
@@ -56,18 +54,18 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway** .
+Чтобы проверить создание шлюза, используйте командлет `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
+> Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
 > 
 > 
 
-Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
+Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут определены после запуска шлюза.
 
 ## <a name="configure-an-application-gateway"></a>Настройка шлюза приложений
 
@@ -88,7 +86,7 @@ Get-AzureApplicationGateway AppGwTest
         <Name>fip1</Name>
         <Type>Private</Type>
     </FrontendIPConfiguration>
-</FrontendIPConfigurations>    
+</FrontendIPConfigurations>
 <FrontendPorts>
     <FrontendPort>
         <Name>port1</Name>
@@ -147,12 +145,10 @@ Get-AzureApplicationGateway AppGwTest
 
 Измените значения в скобках для элементов конфигурации. Сохраните файл с расширением XML.
 
-В приведенном ниже примере показано, как использовать файл конфигурации, чтобы настроить шлюз приложений для балансировки нагрузки HTTP-трафика на общем порте 80 и направления сетевого трафика на внутренний порт 80 между двумя IP-адресами с помощью пользовательской пробы.
+В приведенном ниже примере показано, как использовать файл конфигурации, чтобы настроить шлюз приложений для балансировки нагрузки HTTP-трафика на общем порте 80 и направления сетевого трафика на внутренний порт 80 между двумя IP-адресами с помощью пользовательской проверки.
 
 > [!IMPORTANT]
 > В элементе протокола HTTP или HTTPS учитывается регистр.
-> 
-> 
 
 Новый элемент конфигурации \<Probe\> добавляется для настройки пользовательских проверок работоспособности.
 
@@ -165,7 +161,7 @@ Get-AzureApplicationGateway AppGwTest
 * **Timeout** — определяет время ожидания для проверки ответа HTTP.
 * **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
 
-Имя проверки указывается в конфигурации <BackendHttpSettings> для назначения пула внутренних серверов, который использует параметры пользовательской проверки.
+Имя пробы указывается в конфигурации \<BackendHttpSettings\> для назначения пула серверной части, который будет использовать параметры пользовательской пробы.
 
 ## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
 
@@ -173,7 +169,7 @@ Get-AzureApplicationGateway AppGwTest
 
 ### <a name="step-1"></a>Шаг 1
 
-Получите XML-файл с помощью командлета Get-AzureApplicationGatewayConfig. Он экспортирует XML-файл конфигурации, который можно изменить, чтобы добавить параметры пробы.
+Получите XML-файл с помощью командлета `Get-AzureApplicationGatewayConfig`. Он экспортирует XML-файл конфигурации, который нужно изменить, чтобы добавить параметры пробы.
 
 ```powershell
 Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
@@ -214,7 +210,7 @@ Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofi
 
 ### <a name="step-3"></a>Шаг 3.
 
-Обновите конфигурацию шлюза приложений с использованием нового XML-файла, выполнив командлет **Set-AzureApplicationGatewayConfig**. Он команда обновит шлюз приложений с учетом новой конфигурации.
+Обновите конфигурацию шлюза приложения с помощью нового XML-файла, используя командлет `Set-AzureApplicationGatewayConfig`. Он обновит шлюз приложений с учетом новой конфигурации.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -229,6 +225,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,25 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
 
 
 ---
 # <a name="policies-in-azure-api-management"></a>Политики в Azure API Management
 В службе управления API Azure политики представляют собой одну из эффективных функций системы, позволяющих издателю изменять поведение интерфейса API путем его настройки. Политика — это коллекция операторов, которые выполняются последовательно по запросу интерфейса API или при получении из него ответа. К часто используемым операторам относятся преобразование формата из XML в JSON, а также ограничение скорости вызовов, позволяющее ограничивать количество входящих вызовов от разработчика. Также существует много готовых политик.
 
-Полный перечень операторов политик и их параметров см. в [справочнике по политикам][справочнике по политикам].
+Полный перечень операторов политик и их параметров см. в [справочнике по политикам][Policy Reference].
 
 Политики применяются внутри шлюза, который находится между потребителем интерфейса API и управляемым API. Шлюз получает все запросы и обычно отправляет их без изменения в базовый API. Однако политика может применять изменения как для входящего запроса, так и для исходящего ответа.
 
-Выражения политики можно использовать в качестве значений атрибутов или текстовых значений в любой политике управления API, если в ней не указано иное. Некоторые политики (в том числе [управления последовательностью][Управление потоками] и [настройки переменной][Задание переменной]) основаны на выражениях политик. Дополнительные сведения см. в документации по [расширенным политикам][Расширенные политики] и [выражениям политик][Выражения политики].
+Выражения политики можно использовать в качестве значений атрибутов или текстовых значений в любой политике управления API, если в ней не указано иное. Некоторые политики (включая [Поток управления][Control flow] и [Задание переменной][Set variable]) основаны на выражениях политики. Чтобы узнать больше, ознакомьтесь с [расширенными политиками][Advanced policies] и [выражениями политики][Policy expressions].
 
 ## <a name="scopes"> </a>Как настраивать политики
-Политики можно настраивать глобально или на уровне [продукта][Продукт], [API][API] или [операции][операции]. Для настройки политики перейдите в редактор политик на портале издателя.
+Политики можно настраивать глобально или на уровне [продукта][Product], [API][API] или [операции][Operation]. Для настройки политики перейдите в редактор политик на портале издателя.
 
 ![Меню «Политики»][policies-menu]
 
@@ -55,11 +55,11 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 При щелчке разрешенного оператора будет добавлен соответствующий XML-код в местоположении курсора в виде определения. 
 
 > [!NOTE]
-> Если политика, которую требуется добавить, не включена, убедитесь, что вы находитесь в правильной области действия этой политики. Каждая инструкция политики предназначена для использования в определенных областях и разделах политики. Чтобы просмотреть разделы политики и области ее действия, ознакомьтесь с разделом **Использование** для этой политики в [справочнике по политикам][справочнике по политикам].
+> Если политика, которую требуется добавить, не включена, убедитесь, что вы находитесь в правильной области действия этой политики. Каждая инструкция политики предназначена для использования в определенных областях и разделах политики. Чтобы просмотреть разделы политики и области ее действия, ознакомьтесь с разделом **Использование** для этой политики в [справочнике по политикам][Policy Reference].
 > 
 > 
 
-Полный перечень операторов политик и их параметров см. в [справочнике по политикам][справочнике по политикам].
+Полный перечень операторов политик и их параметров см. в [справочнике по политикам][Policy Reference].
 
 Например, для добавления нового оператора с целью ограничения входящих запросов на указанные IP-адреса поместите курсор внутрь XML-элемента `inbound` и щелкните оператор **Ограничить IP-адреса вызывающего объекта** .
 
@@ -67,16 +67,20 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 
 При этом будет добавлен фрагмент XML-кода в элемент `inbound` , который будет содержать указания о том, как настроить оператор.
 
-    <ip-filter action="allow | forbid">
-        <address>address</address>
-        <address-range from="address" to="address"/>
-    </ip-filter>
+```xml
+<ip-filter action="allow | forbid">
+    <address>address</address>
+    <address-range from="address" to="address"/>
+</ip-filter>
+```
 
 Для ограничения входящих запросов и принятия только тех запросов, которые поступают с IP-адреса 1.2.3.4, измените XML-код следующим образом:
 
-    <ip-filter action="allow">
-        <address>1.2.3.4</address>
-    </ip-filter>
+```xml
+<ip-filter action="allow">
+    <address>1.2.3.4</address>
+</ip-filter>
+```
 
 ![Сохранить][policies-save]
 
@@ -85,21 +89,23 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 ## <a name="sections"> </a>Общая информация о конфигурации политики
 Политика — это набор операторов, которые выполняются для создания запроса и получения ответа. Конфигурация делится соответствующим образом на разделы `inbound`, `backend`, `outbound` и `on-error`, как показано в следующей конфигурации.
 
-    <policies>
-      <inbound>
-        <!-- statements to be applied to the request go here -->
-      </inbound>
-      <backend>
-        <!-- statements to be applied before the request is forwarded to 
-             the backend service go here -->
-      </backend>
-      <outbound>
-        <!-- statements to be applied to the response go here -->
-      </outbound>
-      <on-error>
-        <!-- statements to be applied if there is an error condition go here -->
-      </on-error>
-    </policies> 
+```xml
+<policies>
+  <inbound>
+    <!-- statements to be applied to the request go here -->
+  </inbound>
+  <backend>
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
+  </backend>
+  <outbound>
+    <!-- statements to be applied to the response go here -->
+  </outbound>
+  <on-error>
+    <!-- statements to be applied if there is an error condition go here -->
+  </on-error>
+</policies> 
+```
 
 Если во время обработки запроса произошла ошибка, все оставшиеся действия в разделах `inbound`, `backend` или `outbound` пропускаются, и начинают выполняться операторы из раздела `on-error`. Поместив операторы политики в раздел `on-error`, вы можете просмотреть ошибку с помощью свойства `context.LastError`, изучить и настроить ответ на ошибку с помощью политики `set-body`, а также настроить, что именно происходит при возникновении ошибки. Существуют коды ошибок для встроенных действий и для ошибок, которые могут возникать во время обработки оператора политики. Дополнительные сведения см. в статье [Обработка ошибок в политиках управления API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
@@ -116,13 +122,15 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 
 Например, если у вас есть политика на глобальном уровне и политика, настроенная для API, то при каждом использовании этого API будут применяться обе политики. API Management позволяет детерминированным образом упорядочивать объединенные операторы политик через основной элемент. 
 
-    <policies>
-        <inbound>
-            <cross-domain />
-            <base />
-            <find-and-replace from="xyz" to="abc" />
-        </inbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <cross-domain />
+        <base />
+        <find-and-replace from="xyz" to="abc" />
+    </inbound>
+</policies>
+```
 
 В примере определения политики, приведенном выше, оператор `cross-domain` будет выполняться перед любыми более высокими политиками, после которых, в свою очередь, будет следовать политика `find-and-replace`.
 
@@ -137,15 +145,15 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 > 
 > 
 
-[справочнике по политикам]: api-management-policy-reference.md
-[Продукт]: api-management-howto-add-products.md
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md#add-apis 
-[операции]: api-management-howto-add-operations.md
+[Operation]: api-management-howto-add-operations.md
 
-[Расширенные политики]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Управление потоками]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Задание переменной]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Выражения политики]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
@@ -157,6 +165,6 @@ ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
