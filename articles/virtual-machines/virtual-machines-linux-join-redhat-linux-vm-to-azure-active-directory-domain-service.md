@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2016
+ms.date: 12/14/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 4e764e0d115c787f78593116f29c89e7c1e0e527
-ms.openlocfilehash: 0c596b630c44ff68a01c7dbd3173c192fafac125
+ms.sourcegitcommit: 847a5391cadb00c68e5ee5e12066fe910fd8a259
+ms.openlocfilehash: 017c17dc15596ce05400500d709287b7ce52611e
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 0c596b630c44ff68a01c7dbd3173c192fafac125
 
 ## <a name="quick-commands"></a>Быстрые команды
 
-Замените все примеры параметров своими параметрами.
+_Замените все примеры параметров своими значениями_.
 
 ### <a name="switch-the-azure-cli-to-classic-deployment-mode"></a>Переключение Azure CLI в режим классического развертывания
 
@@ -53,16 +53,17 @@ azure vm image list | grep "Red Hat"
 azure vm create myVM \
 -o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_2_Standard_Azure_RHUI-20161026220742 \
 -g ahmet \
--p P@ssw0rd! \
+-p myPassword \
+-e 22 \
+-t "~/.ssh/id_rsa.pub" \
 -z "Small" \
--e \
 -l "West US"
 ```
 
 ### <a name="ssh-to-the-vm"></a>Подключение к виртуальной машине по протоколу SSH
 
 ```bash
-ssh -i ~/.ssh/id_rsa ahmet@
+ssh -i ~/.ssh/id_rsa ahmet@myVM
 ```
 
 ### <a name="update-yum-packages"></a>Обновление пакетов YUM
@@ -107,12 +108,12 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Red Hat Update Infrastructure для предоставляемых по запросу виртуальных машин Red Hat Enterprise Linux в Azure](virtual-machines-linux-update-infrastructure-redhat?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Настройка хранилища ключей для виртуальных машин в Azure Resource Manager](virtual-machines-linux-key-vault-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Red Hat Update Infrastructure для предоставляемых по запросу виртуальных машин Red Hat Enterprise Linux в Azure](virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Настройка хранилища ключей для виртуальных машин в Azure Resource Manager](virtual-machines-linux-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
