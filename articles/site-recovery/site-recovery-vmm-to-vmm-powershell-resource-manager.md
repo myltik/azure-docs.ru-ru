@@ -283,7 +283,7 @@ ms.openlocfilehash: 82d46a833c5aa36b1526e6ae7a2a9a6ebc76dc77
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
 ### <a name="run-an-unplanned-failover"></a>Запуск незапланированной отработки отказа
-1. 1. Выполните внеплановую отработку отказа виртуальной машины следующим образом.
+1. Выполните внеплановую отработку отказа виртуальной машины следующим образом.
    
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
    
