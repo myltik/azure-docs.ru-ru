@@ -1,31 +1,31 @@
 ---
-title: "Обработка ошибок службы автоматизации Azure | Документация Майкрософт"
-description: "В этой статье приведены основные действия по обработке ошибок, которые позволят диагностировать и устранять распространенные ошибки службы автоматизации Azure."
+title: "Устранение неполадок в службе автоматизации Azure | Документация Майкрософт"
+description: "В этой статье приведены сведения, которые позволят диагностировать и устранять распространенные ошибки службы автоматизации Azure."
 services: automation
 documentationcenter: 
 author: mgoedtel
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
-keywords: "ошибка службы автоматизации, обработка ошибок"
+keywords: "ошибка службы автоматизации, устранение неполадок, проблема"
 ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: a9e855afcf9da703efd6653b19d9cc8e406f8bd3
-ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
+ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
+ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 
 ---
-# <a name="error-handling-tips-for-common-azure-automation-errors"></a>Советы по устранению распространенных ошибок в работе службе автоматизации Azure
-В этой статье описываются некоторые распространенные ошибки, которые могут возникнуть при работе со службой автоматизации Azure, а также предлагаются возможные действия по их устранению.
+# <a name="troubleshoot-azure-automation"></a>Устранение неполадок в службе автоматизации Azure 
+Эта статья содержит сведения о распространенных ошибках, которые могут возникнуть в службе автоматизации Azure, и возможных решениях по их устранению.
 
-## <a name="troubleshoot-authentication-errors-when-working-with-azure-automation-runbooks"></a>Устранение ошибок, связанных с проверкой подлинности, при работе с модулями Runbook службы автоматизации Azure
+## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Ошибки, связанные с аутентификацией, при работе с модулями Runbook службы автоматизации Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Сценарий: не удается войти в учетную запись Azure
 **Ошибка:** при работе с командлетами Add-AzureAccount или Login-AzureRmAccount возникает ошибка "Unknown_user_type: неизвестный тип пользователя".
 
@@ -63,7 +63,7 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 
 **Советы по устранению неполадки.** Сведения об использовании сертификата с командлетами управления службами Azure см. в руководстве по [созданию и добавлению сертификатов для управления службами Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Сведения об использовании субъекта-службы с командлетами диспетчера ресурсов Azure см. в статьях о [создании субъекта-службы с помощью портала Azure](../resource-group-create-service-principal-portal.md) и [аутентификации субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md).
 
-## <a name="troubleshoot-common-errors-when-working-with-runbooks"></a>Устранение распространенных ошибок при работе с модулями Runbook
+## <a name="common-errors-when-working-with-runbooks"></a>Распространенные ошибки при работе с модулями Runbook
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Сценарий: сбой модуля Runbook из-за десериализованного объекта
 **Ошибка:** выполнение модуля Runbook завершается ошибкой "Не удается привязать параметр ``<ParameterName>``. Не удается преобразовать значение ``<ParameterType>`` десериализированного типа ``<ParameterType>`` в тип ``<ParameterType>``".
 
@@ -105,7 +105,7 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 
 **Советы по устранению неполадок.** Задокументированный способ предотвращения этой проблемы — использовать в рабочем процессе контрольные точки.  Дополнительные сведения см. в статье [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md#checkpoints).  Более подробно справедливое распределение процессов и контрольные точки описываются в записи блога [Azure Automation: Reliable, Fault-Tolerant Runbook Execution Using Checkpoints](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) (Служба автоматизации Azure: надежное и отказоустойчивое выполнение модулей Runbook с помощью контрольных точек).
 
-## <a name="troubleshoot-common-errors-when-importing-modules"></a>Устранение распространенных ошибок при импорте модулей
+## <a name="common-errors-when-importing-modules"></a>Распространенные ошибки при импорте модулей
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Сценарий: не удается импортировать модуль или командлеты не выполняются после импорта
 **Ошибка** : не модулю удается осуществить импорт, либо импорт выполнен успешно, но командлеты не извлекаются.
 
@@ -124,7 +124,7 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 * Откройте файл PSD1 и проверьте, есть ли у модуля зависимости.  Если зависимости есть, отправьте эти модули в учетную запись службы автоматизации.  
 * Убедитесь, что все указанные библиотеки DLL находятся в папке модуля.  
 
-## <a name="troubleshoot-common-errors-when-working-with-desired-state-configuration-dsc"></a>Устранение распространенных ошибок при настройке требуемого состояния (DSC)
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Распространенные ошибки при настройке требуемого состояния (DSC)
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Сценарий: узел находится в состоянии сбоя с ошибкой "Не найден"
 **Ошибка:** узел находится в состоянии **Сбой** с ошибкой "Попытка получить данные от сервера https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction завершилась неудачно из-за того, что невозможно найти действительную конфигурацию ``<guid>``".
 
@@ -166,15 +166,15 @@ ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
 * Передайте правильные данные **ConfigurationData**, чтобы присвоить **PSDscAllowPlainTextPassword** значение true для конфигурации каждого узла. Чтобы узнать больше, ознакомьтесь с [ресурсами-контейнерами в Azure Automation DSC](automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вы выполнили описанные выше действия и вам нужна дополнительная помощь по любому из упомянутых вопросов, вы можете сделать следующее.
+Если вы выполнили действия, описанные выше, и вам не удалось найти ответ, можно просмотреть дополнительные варианты поддержки ниже.
 
-* Обратитесь за помощью к экспертам Azure. Опубликуйте свой вопрос на [форумах MSDN Azure или Stack Overflow](https://azure.microsoft.com/support/forums/)
+* Обратитесь за помощью к экспертам Azure. Опубликуйте свой вопрос на [форумах MSDN Azure или Stack Overflow](https://azure.microsoft.com/support/forums/).
 * Отправьте запрос в службу поддержки Azure Перейдите на [сайт службы поддержки Azure](https://azure.microsoft.com/support/options/) и в разделе **Technical and billing support** (Поддержка по выставлению счетов и техническая поддержка) щелкните **Получить поддержку**.
 * Опубликуйте запрос на сценарий на странице [Центр скриптов](https://azure.microsoft.com/documentation/scripts/) , если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook.
 * Оставьте свой отзыв или запрос на ту или иную функцию для службы автоматизации Azure на [странице отзывов](https://feedback.azure.com/forums/34192--general-feedback).
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

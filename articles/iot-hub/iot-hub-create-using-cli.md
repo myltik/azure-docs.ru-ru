@@ -1,115 +1,125 @@
 ---
-title: "Создание Центра Интернета вещей с помощью интерфейса командной строки Azure | Документация Майкрософт"
-description: "Следуйте указаниям в этой статье, чтобы создать центр Интернета вещей с помощью интерфейса командной строки Azure."
+title: "Создание Центра Интернета вещей с помощью Azure CLI (az.py) | Документация Майкрософт"
+description: "Как создать Центр Интернета вещей Azure, используя кроссплатформенный Azure CLI 2.0 (предварительная версия).(az.py)."
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: dominicbetts
 manager: timlt
 editor: 
-ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
+ms.assetid: 
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
-ms.author: boltean
+ms.date: 12/02/2016
+ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 637cdc4763cd0caa9f75e25015c0c12e9db629cb
+ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
+ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
 
 
 ---
-# <a name="create-an-iot-hub-using-azure-cli"></a>Создание центра Интернета вещей с помощью интерфейса командной строки Azure
+# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Создание Центра Интернета вещей с помощью Azure CLI 2.0 (предварительная версия)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
-Интерфейс командной строки Azure можно использовать для создания центров Интернета вещей Azure и управления ими с помощью программных средств. В этой статье показано, как создать Центр Интернета вещей с помощью интерфейса командной строки Azure.
+
+Вы можете использовать Azure CLI 2.0 (предварительная версия) (az.py), чтобы создать Центр Интернета вещей Azure программным способом и управлять им. В этой статье показано, как создать Центр Интернета вещей с помощью Azure CLI 2.0 (предварительная версия) (az.py).
+
+Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
+
+* [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) — это интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+* Azure CLI 2.0 (предварительная версия) (az.py) — это интерфейс командной строки нового поколения для модели развертывания Resource Manager, как описано в этой статье.
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* [Интерфейс командной строки Azure 0.10.4][lnk-CLI-install] или более поздней версии. При наличии интерфейса командной строки Azure можно проверить его текущую версию в командной строке, выполнив следующую команду:
-  ```
-    azure --version
-  ```
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
+* [Azure CLI 2.0 (предварительная версия)][lnk-CLI-install].
 
-> [!NOTE]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). Интерфейс командной строки Azure нужно переключить в режим Azure Resource Manager:
-> 
-> ```
-> azure config mode arm
-> ```
-> 
-> 
+## <a name="sign-in-and-set-your-azure-account"></a>Выполнение входа и установка учетной записи Azure
 
-## <a name="set-your-azure-account-and-subscription"></a>Настройка учетной записи и подписки Azure
-1. Выполните вход, введя в командной строке следующую команду:
-   
-   ```
-    azure login
-   ```
-   Пройдите аутентификацию, используя предлагаемый браузер и код.
-2. Если у вас есть несколько подписок Azure, при подключении вы получаете доступ ко всем подпискам Azure, связанным с вашими учетными данными. Вы можете просмотреть подписки Azure, а также узнать, какая из них используется по умолчанию, с помощью команды
-   
-   ```
-    azure account list 
-   ```
+Войдите в учетную запись Azure и настройте Azure CLI для работы с ресурсами Центра Интернета вещей.
 
-   Чтобы задать контекст подписки, в котором будут выполняться остальные команды, используйте следующую команду:
+1. В командной строке запустите [команду для входа][lnk-login-command]:
+    
+    ```azurecli
+    az login
+    ```
 
-   ```
-    azure account set <subscription name>
-   ```
+    Следуйте инструкциям, чтобы выполнить аутентификацию с использованием кода и войти в учетную запись Azure через веб-браузер.
 
-3. Создайте группу ресурсов с именем **exampleResourceGroup**, если она не создана: 
-   ```
-    azure group create -n exampleResourceGroup -l westus
-   ```
+2. Если у вас есть несколько подписок Azure, то при выполнении входа в Azure вы получаете доступ ко всем учетным записям Azure, связанным с вашими учетными данными. Используйте следующую [команду для вывода учетных записей Azure][lnk-az-account-command], доступных для использования:
+    
+    ```azurecli
+    az account list 
+    ```
 
-> [!TIP]
-> Дополнительные сведения об управлении ресурсами Azure с помощью интерфейса командной строки Azure см. в статье [Управление ресурсами и группами ресурсов Azure с помощью интерфейса командной строки Azure][lnk-CLI-arm]. 
-> 
-> 
+    Используйте следующую команду, чтобы выбрать подписку, которая будет использоваться для выполнения команд для создания Центра Интернета вещей. Вы можете использовать имя подписки или идентификатор из выходных данных предыдущей команды:
+
+    ```azurecli
+    az account set --subscription {your subscription name or id}
+    ```
+
+3. Прежде чем развертывать ресурсы Интернета вещей, вам необходимо зарегистрировать его поставщика. Выполните следующую [команду для регистрации поставщика Интернета вещей][lnk-az-register-command].
+    
+    ```azurecli
+    az provider register -namespace "Microsoft.Devices"
+    ```
+
+4. Возможно, вам потребуется установить _компонент Интернета вещей_ Azure CLI. Выполните следующую [команду для добавления компонента Интернета вещей][lnk-az-addcomponent-command]:
+    
+    ```azurecli
+    az component update --add iot
+    ```
 
 ## <a name="create-an-iot-hub"></a>Создание центра IoT
-Ниже перечислены необходимые параметры:
 
-```
- azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>  
-    - <resourceGroup> The resource group name (case insensitive alphanumeric, underscore and hyphen, 1-64 length)
-    - <name> (The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore and hyphen, 3-50 length )
-    - <location> (The location (azure region/datacenter) where the IoT hub will be provisioned.
-    - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
-    - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
-```
-Чтобы просмотреть все параметры для создания, можно воспользоваться командой справки в командной строке
+Создайте группу ресурсов и добавьте Центр Интернета вещей с помощью Azure CLI.
 
-```
-    azure iothub create -h 
-```
-Краткий пример:
+1. Создайте Центр Интернета вещей в группе ресурсов. Используйте существующую группу ресурсов либо выполните следующую [команду для создания группы ресурсов][lnk-az-resource-command]:
+    
+    ```azurecli
+     az resource group create --name {your resource group name} --location westus
+    ```
 
- Чтобы создать Центр Интернета вещей **exampleIoTHubName** в группе ресурсов **exampleResourceGroup**, просто выполните следующую команду:
+    > [!TIP]
+    > В предыдущем примере создается группа ресурсов в расположении западной части США. Список доступных расположений можно просмотреть, выполнив команду `az account list-locations -o table`.
+    >
+    >
 
-```
-    azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
-```
+2. Выполните следующую [команду для создания Центра Интернета вещей][lnk-az-iot-command] в своей группе ресурсов:
+    
+    ```azurecli
+    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
+    ```
 
 > [!NOTE]
-> Эта команда интерфейса командной строки Azure создает стандартный центр Интернета вещей S1, за который взимается плата. Чтобы удалить Центр Интернета вещей **exampleIoTHubName**, выполните следующую команду: 
-> 
-> ```
-> azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
-> ```
-> 
-> 
-> 
+> Имя Центра Интернета вещей должно быть глобально уникальным. Предыдущая команда создает Центр Интернета вещей в оплачиваемой ценовой категории S1. Дополнительные сведения см. на [странице цен Интернета вещей Azure][lnk-iot-pricing].
+>
+>
+
+## <a name="remove-an-iot-hub"></a>Удаление Центра Интернета вещей
+
+Вы можете использовать Azure CLI для [удаления отдельного ресурса][lnk-az-resource-command], например Центра Интернета вещей, или группы ресурсов и всех ее ресурсов, включая любые Центры Интернета вещей.
+
+Чтобы удалить Центр Интернета вещей, выполните следующую команду:
+
+```azurecli
+az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+```
+
+Чтобы удалить группу ресурсов и все ее ресурсы, выполните следующую команду:
+
+```azurecli
+az resource group delete --name {your resource group name}
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
 
-* [Пакеты SDK для Центра Интернета вещей][lnk-sdks]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
@@ -117,17 +127,19 @@ ms.openlocfilehash: 637cdc4763cd0caa9f75e25015c0c12e9db629cb
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-CLI-install]: ../xplat-cli-install.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
+[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
+[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
+[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
+[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
+[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
+[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

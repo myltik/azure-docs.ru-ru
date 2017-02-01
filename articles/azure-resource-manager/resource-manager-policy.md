@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2016
+ms.date: 12/07/2016
 ms.author: gauravbh;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
+ms.sourcegitcommit: 223a890fd18405b2d1331e526403da89354a68f2
+ms.openlocfilehash: 467e9f4f7372c619f41bb64445784485de18a863
 
 
 ---
 # <a name="use-policy-to-manage-resources-and-control-access"></a>Применение политик для управления ресурсами и контроля доступа
-Теперь диспетчер ресурсов Azure позволяет управлять доступом с помощью пользовательских политик. С помощью политик можно запретить пользователям в организации нарушать соглашения, которые необходимы для управления ресурсами организации. 
+Azure Resource Manager позволяет управлять доступом с помощью пользовательских политик. С помощью политик можно запретить пользователям в организации нарушать соглашения, которые необходимы для управления ресурсами организации. 
 
 Можно создать определения политик, которые описывают действия или ресурсы, выполнение которых или доступ к которым запрещен. Эти определения политик назначаются для нужной области, такой как подписка, группа ресурсов или отдельный ресурс. Политики наследуются всеми дочерними ресурсами. Это значит, что политики, применяемые к группе ресурсов, применяются также ко всем ресурсам в этой группе.
 
@@ -46,7 +46,41 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 ## <a name="policy-definition-structure"></a>Структура определения политики
 Определение политики создается с использованием JSON. Оно состоит из одного или нескольких условий, или логических операторов, определяющих действия и результат, который будет достигнут при выполнении этих условий. Схема публикуется в [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
-Как правило, политика содержит следующие элементы:
+В следующем примере показана политика, которую можно использовать для ограничения расположений для развертывания ресурсов.
+
+```json
+{
+  "properties": {
+    "parameters": {
+      "listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "strongType": "location",
+          "displayName": "List of locations"
+        }
+      }
+    },
+    "displayName": "Geo-compliance policy template",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('listOfAllowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+Как правило, политика содержит следующие разделы.
+
+**Параметры:** значения, указываемые при назначении политики.
 
 **Условие или логические операторы** — набор условий, которыми можно управлять с помощью набора логических операторов.
 
@@ -68,6 +102,30 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 > Сейчас политика не вычисляет типы ресурсов, которые не поддерживают теги, вид и расположение, например тип ресурса Microsoft.Resources/deployments. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, необходимо явно указывать тип при создании политик. Например, политика тегов, которая не указывает типы, применяется для всех типов. В этом случае может произойти ошибка развертывания шаблона, если существует вложенный ресурс, который не поддерживает тег, и в вычисление политики был добавлен тип ресурса развертывания. 
 > 
 > 
+
+## <a name="parameters"></a>Параметры
+Начиная с API версии 2016-12-01 в определении политики можно использовать параметры. Использование параметров помогает упростить управление политиками за счет сокращения числа определений политики. Значения параметров указываются при назначении политики.
+
+А параметры объявляются при создании определения политики.
+
+    "parameters": {
+      "listOfLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "displayName": "List Of Locations"
+        }
+      }
+    }
+
+Типом параметра может быть строка или массив. Свойство метаданных используется в таких инструментах, как портал Azure, для отображения удобных для пользователя сведений. 
+
+В правиле политики можно ссылаться на параметры точно так же, как и в шаблонах. Например: 
+        
+    { 
+        "field" : "location",
+        "in" : "[parameters(listOfLocations)]"
+    }
 
 ## <a name="logical-operators"></a>Логические операторы
 Поддерживаются следующие логические операторы и синтаксис:
@@ -148,7 +206,6 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 | Microsoft.SQL/servers/elasticPools/dtu | |
 | Microsoft.SQL/servers/elasticPools/edition | |
 
-В настоящее время политика работает только для запросов PUT. 
 
 ## <a name="effect"></a>Результат
 Политика поддерживает три типа результатов — **deny**, **audit** и **append**. 
@@ -159,7 +216,6 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 
 Для типа **append**необходимо указать следующие сведения:
 
-    ....
     "effect": "append",
     "details": [
       {
@@ -169,6 +225,7 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
     ]
 
 Значением может быть строка или объект формата JSON. 
+
 
 ## <a name="policy-definition-examples"></a>Примеры определений политик
 Теперь давайте рассмотрим, как определить политику для реализации предыдущих сценариев.
@@ -356,25 +413,34 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-В качестве версии API (api-version) используйте значение *2016-04-01*. Добавьте текст запроса. Ниже приведен соответствующий пример.
+В качестве версии API (api-version) используйте значение *2016-04-01* или *2016-12-01*. Добавьте текст запроса. Ниже приведен соответствующий пример.
 
     {
-      "properties":{
-        "policyType":"Custom",
-        "description":"Test Policy",
-        "policyRule":{
-          "if" : {
-            "not" : {
-              "field" : "tags",
-              "containsKey" : "costCenter"
+      "properties": {
+        "parameters": {
+          "listOfAllowedLocations": {
+            "type": "array",
+            "metadata": {
+              "description": "An array of permitted locations for resources.",
+              "strongType": "location",
+              "displayName": "List Of Locations"
+            }
+          }
+        },
+        "displayName": "Geo-compliance policy template",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('listOfAllowedLocations')]"
             }
           },
-          "then" : {
-            "effect" : "deny"
+          "then": {
+            "effect": "deny"
           }
         }
-      },
-      "name":"testdefinition"
+      }
     }
 
 Вы можете применить определение политики к требуемой области с помощью [API REST для назначений политик](https://docs.microsoft.com/rest/api/resources/policyassignments). API REST позволяет создавать и удалять назначения политик и получать сведения о существующих назначениях.
@@ -383,17 +449,20 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} — это имя назначения политики. В качестве версии API (api-version) используйте значение *2016-04-01*. 
+{policy-assignment} — это имя назначения политики. В качестве версии API (api-version) используйте значение *2016-04-01* или *2016-12-01* (для параметров). 
 
 Тело запроса будет выглядеть, как в следующем примере:
 
     {
       "properties":{
-        "displayName":"VM_Policy_Assignment",
+        "displayName":"West US only policy assignment on the subscription ",
+        "description":"Resources can only be provisioned in West US regions",
+        "parameters": {
+             "listOfAllowedLocations": ["West US", "West US2"]
+         },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "name":"VMPolicyAssignment"
     }
 
 ### <a name="powershell"></a>PowerShell
@@ -510,6 +579,6 @@ ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
