@@ -1,22 +1,26 @@
 ---
-title: Как настроить облачную службу (портал) | Microsoft Docs
-description: Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли. В этих примерах используется портал Azure.
+title: "Настройка облачной службы с помощью портала | Документация Майкрософт"
+description: "Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли. В этих примерах используется портал Azure."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 12/07/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
+
 
 ---
-# Настройка облачных служб
+# <a name="how-to-configure-cloud-services"></a>Настройка облачных служб
 > [!div class="op_single_selector"]
 > * [Портал Azure](cloud-services-how-to-configure-portal.md)
 > * [Классический портал Azure](cloud-services-how-to-configure.md)
@@ -27,14 +31,14 @@ ms.author: adegeo
 
 Также вы можете управлять экземплярами ролей облачной службы или подключиться к ним с помощью удаленного рабочего стола.
 
-При наличии как минимум двух экземпляров для каждой роли в процессе обновления конфигурации Azure обеспечивается доступность службы в течение 99,95 % времени. Такая конфигурация позволяет обрабатывать запросы клиентов на одной виртуальной машине во время обновления другой. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
+При наличии как минимум двух экземпляров для каждой роли в процессе обновления конфигурации Azure обеспечивается доступность службы в течение 99,95 % времени. Такая конфигурация позволяет обрабатывать запросы клиентов на одной виртуальной машине во время обновления другой. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
-## Изменение облачной службы
-Откройте [портал Azure](https://portal.azure.com/) и перейдите к облачной службе. Здесь можно управлять множеством параметров.
+## <a name="change-a-cloud-service"></a>Изменение облачной службы
+Откройте [портал Azure](https://portal.azure.com/)и перейдите к облачной службе. Здесь можно управлять множеством параметров. 
 
 ![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-Ссылки **Параметры** или **Все параметры** позволяют открыть колонку **Параметры**, где вы можете изменять **свойства** и **конфигурацию**, настраивать **правила оповещения**, а также управлять **сертификатами** и доступом **пользователей** к этой облачной службе.
+Ссылки **Параметры** или **Все параметры** позволяют открыть колонку **Параметры**, где вы можете изменять **свойства** и **конфигурацию**, настраивать **правила оповещений**, а также управлять **сертификатами** и доступом **пользователей** к этой облачной службе.
 
 ![Колонка параметров облачной службы Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -43,8 +47,8 @@ ms.author: adegeo
 > 
 > 
 
-## Мониторинг
-Вы можете включить оповещения в облачной службе. Щелкните **Параметры** > **Правила оповещения** > **Добавить оповещение**.
+## <a name="monitoring"></a>Мониторинг
+Вы можете включить оповещения в облачной службе. Щелкните **Параметры** > **Правила оповещений** > **Добавить оповещение**. 
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -54,19 +58,19 @@ ms.author: adegeo
 * Скорость записи на диск
 * Входящая скорость сети
 * Исходящая скорость сети
-* Процент использования ЦП
+* Процент использования ЦП 
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### Настройка мониторинга с использованием плиток метрик
-Вместо элементов **Параметры** > **Правила оповещения** вы можете щелкнуть любую из плиток с метриками в разделе **Мониторинг** в колонке **Облачная служба**.
+### <a name="configure-monitoring-from-a-metric-tile"></a>Настройка мониторинга с использованием плиток метрик
+Вместо элементов **Параметры** > **Правила оповещений** вы можете щелкнуть любую из плиток с метриками в разделе **Мониторинг** в колонке **Облачная служба**.
 
 ![Мониторинг облачной службы](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
 Здесь можно настроить диаграммы для этой плитки или добавить правило оповещения.
 
-## Перезагрузка, повторное создание образа и использование удаленного рабочего стола
-Сейчас на **портале Azure** нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+## <a name="reboot-reimage-or-remote-desktop"></a>Перезагрузка, повторное создание образа и использование удаленного рабочего стола
+Сейчас на **портале Azure**нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
 
 Щелкните экземпляр облачной службы.
 
@@ -76,27 +80,32 @@ ms.author: adegeo
 
 ![Кнопки экземпляра облачной службы](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## Изменение CSCFG-файла
-Иногда возникает потребность изменить настройки облачной службы, сохраненные в файле [конфигурации службы (CSCFG)](cloud-services-model-and-package.md#cscfg). Для этого следует скачать CSCFG-файл, изменить его и отправить обратно.
+## <a name="reconfigure-your-cscfg"></a>Изменение CSCFG-файла
+Иногда возникает потребность изменить настройки облачной службы, сохраненные в файле [конфигурации службы (CSCFG)](cloud-services-model-and-package.md#cscfg) . Для этого следует скачать CSCFG-файл, изменить его и отправить обратно.
 
 1. Щелкните значок **Параметры** или выберите **Все параметры**, чтобы открыть колонку **Параметры**.
    
     ![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Выберите элемент **Конфигурация**.
+2. Выберите элемент **Конфигурация** .
    
     ![Колонка «Конфигурация»](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
-3. Нажмите кнопку **Загрузить**.
+3. Нажмите кнопку **Загрузить** .
    
-    ![Скачивание](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Загрузить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Чтобы применить обновления конфигурации, передайте новый файл в службу:
    
-    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
 5. Выберите файл .cscfg и нажмите **ОК**.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

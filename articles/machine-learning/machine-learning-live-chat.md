@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 12/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1ad39ddd622573b4842e1e231b0b00685cff83e4
+ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
+ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
 
 
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Получение справки с помощью чата в реальном времени, поддерживаемого в машинном обучении
-[Студия машинного обучения Azure](machine-learning-what-is-ml-studio.md) обеспечивает интуитивно понятный интерфейс для построения моделей машинного обучения. Чтобы помочь вам в этом, существует [коллекция](machine-learning-gallery-how-to-use-contribute-publish.md) и [форумы](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). 
+[Студия машинного обучения Azure](machine-learning-what-is-ml-studio.md) обеспечивает интуитивно понятный интерфейс для построения моделей машинного обучения. В [коллекции](machine-learning-gallery-how-to-use-contribute-publish.md) вы найдете примеры, предоставленные участниками сообщества, которые помогут вам приступить к работе. На [форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) вы можете задавать вопросы, которые позволят найти ответы. 
 
-Но иногда необходимо просто задать вопрос, чтобы выйти из тупика. В [Студии](machine-learning-what-is-ml-studio.md) найдите значок чата на верхней панели навигации.  Если вы видите его, значит, участник группы разработчиков продукта находится в сети, чтобы помочь вам в режиме реального времени.
+Но иногда необходимо просто задать вопрос, чтобы выйти из тупика. В [Студии машинного обучения](http://studio.azureml.net/Home) найдите значок чата на верхней панели навигации.  Если вы видите его, значит, участник группы разработчиков продукта находится в сети, чтобы помочь вам в режиме реального времени.
 
 ![Чат Azure ML](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
 
@@ -32,13 +32,13 @@ ms.openlocfilehash: 1ad39ddd622573b4842e1e231b0b00685cff83e4
 ![Диалоговое окно чата Azure ML](./media/machine-learning-live-chat/AzureMLChat.png)
 
 ## <a name="dont-see-the-live-chat-icon"></a>Не видите значок чата в реальном времени?
-Члены команды отвечают на ваш вопрос. Если вы не видите значок чата в реальном времени, это связано с тем, что он не отображается в нерабочее время. 
+В чате в реальном времени участвуют члены группы машинного обучения. Если значок чата в реальном времени не отображается, то участники группы на данный момент недоступны. Например, вы зашли в чат в нерабочее время. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

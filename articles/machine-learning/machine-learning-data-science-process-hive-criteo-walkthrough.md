@@ -1,28 +1,32 @@
 ---
-title: 'Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop с набором данных Criteo объемом 1 ТБ | Microsoft Docs'
-description: Применение процесса обработки и анализа данных группы в комплексном сценарии, включающем в себя использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ).
+title: "Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop с набором данных Criteo объемом 1 ТБ | Документация Майкрософт"
+description: "Применение процесса обработки и анализа данных группы в комплексном сценарии, включающем в себя использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ)."
 services: machine-learning,hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
+ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
+
 
 ---
-# Процесс обработки и анализа данных группы на практике: использование кластеров Azure HDInsight Hadoop с набором данных объемом 1 ТБ
-В этом пошаговом руководстве показано комплексный сценарий использования процесса обработки и анализа данных группы на примере [кластера Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) для хранения, изучения, реконструирования характеристик и снижения частоты выборки данных в одном из общедоступных наборов данных [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Мы построим модель двоичной классификации этих данных, используя машинное обучение Azure, и покажем, как опубликовать одну из этих моделей в качестве веб-службы.
+# <a name="the-team-data-science-process-in-action---using-azure-hdinsight-hadoop-clusters-on-a-1-tb-dataset"></a>Процесс обработки и анализа данных группы на практике: использование кластеров Azure HDInsight Hadoop с набором данных объемом 1 ТБ
+В этом пошаговом руководстве показан комплексный сценарий использования процесса обработки и анализа данных группы на примере [кластера Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) для хранения, изучения, проектирование признаков и снижения частоты выборки данных в одном из общедоступных наборов данных [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Мы построим модель двоичной классификации этих данных, используя машинное обучение Azure, и покажем, как опубликовать одну из этих моделей в качестве веб-службы.
 
 Для выполнения заданий, представленных в этом пошаговом руководстве, можно также использовать iPython Notebook. Пользователям, которые хотят применить этот подход, следует просмотреть статью [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Пошаговое руководство Criteo по использованию подключения Hive ODBC).
 
-## <a name="dataset"></a>Описание набора данных Criteo
-Данные Criteo представляют собой набор данных для прогнозирования переходов по рекламным объявлениям, который содержит приблизительно 370 ГБ TSV-файлов, сжатых с помощью служебной программы gzip (около 1,3 TБ без сжатия), что составляет 4,3 миллиарда записей. Эти данные получены на основе данных о переходах по ссылкам за 24 дня, предоставленных [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Для удобства специалистов по обработке и анализу данных мы разархивировали данные, доступные для экспериментирования.
+## <a name="a-namedatasetacriteo-dataset-description"></a><a name="dataset"></a>Описание набора данных Criteo
+Данные Criteo представляют собой набор данных для прогнозирования переходов по рекламным объявлениям, который содержит приблизительно 370 ГБ TSV-файлов, сжатых с помощью служебной программы gzip (около 1,3 TБ без сжатия), что составляет 4,3 миллиарда записей. Эти данные получены на основе данных о переходах по ссылкам за 24 дня, предоставленных [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Для удобства специалистов по обработке и анализу данных мы разархивировали данные, доступные для экспериментирования.
 
 Каждая запись в этом наборе данных содержит 40 столбцов:
 
@@ -30,7 +34,7 @@ ms.author: bradsev
 * следующие 13 столбцов являются числовыми;
 * последние 26 столбцов категориальные.
 
-Столбцы являются анонимными, и в них используется ряд перечисляемых имен — от Col1 (столбец с меткой) до Col40 (последний категориальный столбец).
+Столбцы являются анонимными, и в них используется ряд перечисляемых имен — от Col1 (столбец с меткой) до Col40 (последний категориальный столбец).            
 
 Ниже приведен фрагмент первых 20 столбцов из двух наблюдений (строк) этого набора данных:
 
@@ -43,47 +47,47 @@ ms.author: bradsev
 
 **Определение.** *Коэффициент выбора рекламного объявления* — это процент выбора элементов путем щелчка в данных. В этом наборе Criteo коэффициент составляет около 3,3 % или 0,033.
 
-## <a name="mltasks"></a>Примеры задач прогнозирования
+## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Примеры задач прогнозирования
 В этом пошаговом руководстве рассмотрены два примера задач по прогнозированию:
 
-1. **Двоичная классификация** — прогнозирует, щелкнет ли пользователь рекламное объявление:
+1. **Двоичная классификация**— прогнозирует, щелкнет ли пользователь рекламное объявление:
    
    * класс 0 — не щелкнул;
    * класс 1 — щелкнул.
-2. **Регрессия** — прогнозирует вероятность щелчка рекламного объявления по признакам пользователя.
+2. **Регрессия**— прогнозирует вероятность щелчка рекламного объявления по признакам пользователя.
 
-## <a name="setup"></a>Настройка кластера HDInsight Hadoop для обработки и анализа данных
+## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Настройка кластера HDInsight Hadoop для обработки и анализа данных
 **Примечание.** Эту задачу обычно выполняет **администратор**.
 
 Настройте среду обработки и анализа данных Azure, чтобы создавать решения для прогнозной аналитики с помощью кластеров HDInsight, выполнив три шага:
 
-1. [Создание учетной записи хранения](../storage/storage-create-storage-account.md). Эта учетная запись хранения используется для хранения данных в хранилище больших двоичных объектов Azure. Здесь хранятся данные, используемые в кластерах HDInsight.
-2. [Настройка кластеров Azure HDInsight Hadoop для обработки и анализа данных](machine-learning-data-science-customize-hadoop-cluster.md). На этом шаге создается кластер Azure HDInsight Hadoop и на всех узлах устанавливается 64-разрядный дистрибутив Anaconda Python 2.7. При настройке кластера HDInsight следует выполнить два важных шага (описанных в этом разделе).
+1. [Создание учетной записи хранения.](../storage/storage-create-storage-account.md) Эта учетная запись хранения используется для хранения данных в хранилище BLOB-объектов Azure. Здесь хранятся данные, используемые в кластерах HDInsight.
+2. [Настройка кластеров Azure HDInsight Hadoop для обработки и анализа данных.](machine-learning-data-science-customize-hadoop-cluster.md) На этом шаге создается кластер Azure HDInsight Hadoop и на всех узлах устанавливается 64-разрядный дистрибутив Anaconda Python 2.7. При настройке кластера HDInsight следует выполнить два важных шага (описанных в этом разделе).
    
    * Во время создания кластера HDInsight необходимо связать учетную запись хранения, созданную на шаге 1, с этим кластером. Эта учетная запись хранения используется для доступа к данным, которые можно обработать в пределах кластера.
    * После создания кластера необходимо включить удаленный доступ к головному узлу кластера. Запомните указываемые здесь учетные данные для удаленного доступа (не те, которые были заданы при создании кластера), так как они потребуются для выполнения следующих действий.
-3. [Создание рабочей области машинного обучения Azure](machine-learning-create-workspace.md). Эта рабочая область машинного обучения Azure используется для создания моделей машинного обучения после просмотра исходных данных и снижения частоты выборки в кластере HDInsight.
+3. [Создание рабочей области Машинного обучения Azure.](machine-learning-create-workspace.md) Эта рабочая область машинного обучения Azure используется для создания моделей машинного обучения после просмотра исходных данных и снижения частоты выборки в кластере HDInsight.
 
-## <a name="getdata"></a>Получение и использование данных из общедоступного источника
+## <a name="a-namegetdataaget-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Получение и использование данных из общедоступного источника
 Доступ к набору данных [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) можно получить, щелкнув ссылку, приняв условия использования и указав имя. Ниже показан снимок того, как это выглядит.
 
 ![Принятие условий использования Criteo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
 
 Нажмите кнопку **Continue to Download** (Продолжить для скачивания), чтобы ознакомиться с дополнительными сведениями о наборе данных и его доступности.
 
-Данные находятся в расположении общедоступного [хранилища больших двоичных объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. wasb относится к расположению хранилища больших двоичных объектов Azure.
+Данные находятся в общем расположении [хранилища BLOB-объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. wasb — это расположение хранилища BLOB-объектов. 
 
 1. Данные в этом общедоступном хранилище BLOB-объектов содержатся в трех вложенных папках с разархивированными данными.
    
-   1. Вложенная папка *raw/count/* содержит данные за первый 21 день — от day\_00 до day\_20.
-   2. Вложенная папка *raw/train* содержит данные за один день — day\_21.
-   3. Вложенная папка *raw/test/* содержит данные за два дня — day\_22 и day\_23.
-2. Для тех, кому требуется начать с необработанных данных gzip, эти данные также доступны в главной папке *raw/* в виде day\_NN.gz, где значение NN указано в диапазоне от 00 до 23.
+   1. Вложенная папка *raw/count/* содержит данные за первые 21 день — от day\_00 до day\_20.
+   2. Вложенная папка *raw/train/* содержит данные за один день — day\_21.
+   3. Вложенная папка *raw/test/* содержит данные за два дня — day\_22 и day\_23.
+2. Для тех, кому требуется начать с необработанных данных gzip, эти данные также доступны в главной папке *raw/* в виде day_NN.gz, где значение NN указано в диапазоне от 00 до 23.
 
 Альтернативный способ получения доступа к этим данным, их просмотра и моделирования, который не требует скачивания локальных файлов, описан далее в этом пошаговом руководстве на этапе создания таблиц Hive.
 
-## <a name="login"></a>Вход в головной узел кластера
-Чтобы войти в головной узел кластера, узнайте его расположение, используя [портал Azure](https://ms.portal.azure.com). Щелкните значок HDInsight в виде слона в левой части портала, а затем дважды щелкните имя кластера. Перейдите на вкладку **Конфигурация**, дважды щелкните значок "Подключение" в нижней части страницы и при появлении запроса введите учетные данные для удаленного доступа. Таким образом вы перейдете к головному узлу кластера.
+## <a name="a-nameloginalog-in-to-the-cluster-headnode"></a><a name="login"></a>Вход в головной узел кластера
+Чтобы войти в головной узел кластера, узнайте его расположение, используя [портал Azure](https://ms.portal.azure.com) . Щелкните значок HDInsight в виде слона в левой части портала, а затем дважды щелкните имя кластера. Перейдите на вкладку **Конфигурация** , дважды щелкните значок "Подключение" в нижней части страницы и при появлении запроса введите учетные данные для удаленного доступа. Таким образом вы перейдете к головному узлу кластера.
 
 Вот как выглядит экран при типичном первом входе в головной узел кластера:
 
@@ -93,8 +97,8 @@ ms.author: bradsev
 
 Теперь все готово для начала первой части пошагового руководства — просмотр данных с помощью Hive и подготовка данных для машинного обучения Azure.
 
-## <a name="hive-db-tables"></a>Создание базы данных и таблиц Hive
-Чтобы создать таблицу Hive для нашего набора данных Criteo, откройте ***командную строку Hadoop*** на рабочем столе головного узла и введите имя каталога Hive с помощью следующей команды:
+## <a name="a-namehive-db-tablesa-create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Создание базы данных и таблиц Hive
+Чтобы создать таблицы Hive для нашего набора данных Criteo, откройте ***командную строку Hadoop*** на рабочем столе головного узла и введите имя каталога Hive с помощью следующей команды:
 
     cd %hive_home%\bin
 
@@ -113,9 +117,9 @@ ms.author: bradsev
 
 Код ниже создает базу данных criteo, а затем — 4 таблицы:
 
-* *таблицу для создания счетчиков*, построенную для дней с day\_00 до day\_20;
-* *таблицу для использования в качестве набора данных*, построенную для дня day\_21;
-* две *таблицы для использования в качестве наборов данных теста*, построенные для дней day\_22 и day\_23 соответственно.
+* *таблицу для создания счетчиков*, созданную для дней с day\_00 до day\_20;
+* *таблицу для использования в качестве набора данных*, созданную для дня day\_21;
+* две *таблицы для использования в качестве наборов данных теста*, созданные для дней day\_22 и day\_23 соответственно.
 
 Тестовый набор данных был разделен на две разные таблицы, так как один из дней — праздник, и необходимо определить, может ли модель определить разницу между праздником и другим днем по коэффициенту выбора рекламного объявления.
 
@@ -154,17 +158,17 @@ ms.author: bradsev
 
 **ЛЮБОЙ запрос Hive, указанный ниже, можно выполнить двумя способами:**
 
-1. **Использование командной строки Hive REPL**. Первый способ — выполнить команду hive, а затем скопировать и вставить запрос в командную строку Hive REPL. Для этого введите следующее:
+1. **Использование командной строки Hive REPL.** Первый способ — выполнить команду hive, а затем скопировать и вставить запрос в командную строку Hive REPL. Для этого введите следующее:
    
         cd %hive_home%\bin
         hive
    
      Если скопировать и вставить запрос в командную строку REPL, он начнет выполняться.
-2. **Сохранение запросов в файл и выполнение команды**. Второй способ — сохранить запросы в HQL-файл ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), а затем выполнить следующую команду для отправки запроса:
+2. **Сохранение запросов в файл и выполнение команды.** Второй способ — сохранить запросы в HQL-файл ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), а затем выполнить следующую команду для отправки запроса:
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
-### Подтверждение создания базы данных и таблицы
+### <a name="confirm-database-and-table-creation"></a>Подтверждение создания базы данных и таблицы
 Далее мы подтвердим создание базы данных, выполнив команду ниже в командной строке каталога bin/ Hive.
 
         hive -e "show databases;"
@@ -189,11 +193,11 @@ ms.author: bradsev
         criteo_train
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
-## <a name="exploration"></a>Просмотр данных в Hive
+## <a name="a-nameexplorationa-data-exploration-in-hive"></a><a name="exploration"></a> Просмотр данных в Hive
 Теперь можно приступить к базовому просмотру данных в Hive. Мы начнем с подсчета примеров в таблицах данных для обучения и тестирования.
 
-### Количество примеров для обучения
-Ниже показано содержимое скрипта [sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql).
+### <a name="number-of-train-examples"></a>Количество примеров для обучения
+Ниже показано содержимое скрипта [sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql):
 
         SELECT COUNT(*) FROM criteo.criteo_train;
 
@@ -206,8 +210,8 @@ ms.author: bradsev
 
         hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
-### Количество тестовых примеров в двух тестовых наборах данных
-Теперь нужно подсчитать количество примеров в двух тестовых наборах данных. Ниже показано содержимое скрипта [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql).
+### <a name="number-of-test-examples-in-the-two-test-datasets"></a>Количество тестовых примеров в двух тестовых наборах данных
+Теперь нужно подсчитать количество примеров в двух тестовых наборах данных. Ниже показано содержимое скрипта [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql):
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -231,8 +235,8 @@ ms.author: bradsev
         178274637
         Time taken: 253.089 seconds, Fetched: 1 row(s)
 
-### Распределение меток в наборе данных для обучения
-Необходимо определить распределение меток в наборе данных для обучения. Чтобы увидеть его, мы покажем содержимое сценария [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+### <a name="label-distribution-in-the-train-dataset"></a>Распределение меток в наборе данных для обучения
+Необходимо определить распределение меток в наборе данных для обучения. Чтобы увидеть его, мы покажем содержимое скрипта [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
         SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -244,8 +248,8 @@ ms.author: bradsev
 
 Обратите внимание, что доля положительных меток составляет около 3,3 % (в соответствии с исходным набором данных).
 
-### Распределения гистограммы некоторых числовых переменных в наборе данных для обучения
-Можно использовать функцию Hive histogram\_numeric, чтобы узнать, как выглядит распределение числовых переменных. Ниже представлено содержимое скрипта [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql).
+### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Распределения гистограммы некоторых числовых переменных в наборе данных для обучения
+Чтобы узнать, как выглядит распределение числовых переменных, можно использовать функцию Hive histogram\_numeric. Ниже представлено содержимое скрипта [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -281,8 +285,8 @@ ms.author: bradsev
 
 Сочетание параметров LATERAL VIEW и explode в Hive служит для вывода выходных данных, подобных SQL, вместо обычного списка. Обратите внимание, что в этой таблице первый столбец соответствует центру каталога bin, а второй — его частоте.
 
-### Приблизительные процентили для некоторых числовых переменных в наборе данных для обучения
-Кроме того, нам необходимо вычислить приблизительные процентили для числовых переменных. Функция Hive percentile\_approx делает это автоматически. Ниже представлено содержимое сценария [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql):
+### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Приблизительные процентили для некоторых числовых переменных в наборе данных для обучения
+Кроме того, нам необходимо вычислить приблизительные процентили для числовых переменных. Функция Hive percentile\_approx делает это автоматически. Ниже представлено содержимое скрипта [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql):
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -291,10 +295,10 @@ ms.author: bradsev
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-Обратите внимание, что обычно распределение процентилей тесно связано с распределением гистограммы для любой числовой переменной.
+Обратите внимание, что обычно распределение процентилей тесно связано с распределением гистограммы для любой числовой переменной.         
 
-### Поиск количества уникальных значений для некоторых категориальных столбцов в наборе данных для обучения
-Мы продолжаем просматривать данные, и теперь нам нужно найти количество уникальных значений, принимаемых некоторыми категориальными столбцами. Для этого следует показать содержимое сценария [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Поиск количества уникальных значений для некоторых категориальных столбцов в наборе данных для обучения
+Мы продолжаем просматривать данные, и теперь нам нужно найти количество уникальных значений, принимаемых некоторыми категориальными столбцами. Для этого следует показать содержимое скрипта [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -305,7 +309,7 @@ ms.author: bradsev
 
 Обратите внимание, что в столбце Col15 найдено 19 млн. уникальных значений! Невозможно кодировать такие многомерные категориальные переменные с помощью таких упрощенных методов, как «прямое кодирование». Для эффективного решения этой проблемы объясняется и демонстрируется эффективный и надежный метод, называемый [обучение с использованием счетчиков](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx).
 
-Этот подраздел завершается просмотром количества уникальных значений для других категориальных столбцов. Ниже приведено содержимое сценария [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql):
+Этот подраздел завершается просмотром количества уникальных значений для других категориальных столбцов. Ниже приведено содержимое скрипта [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -318,8 +322,8 @@ ms.author: bradsev
 
 И снова видно, что во всех столбцах, за исключением Col20, содержится много уникальных значений.
 
-### Подсчет совместного вхождения пар категориальных переменных в наборе данных для обучения
-Необходимо подсчитать совместное вхождение пар категориальных переменных. Это можно определить с помощью кода в сценарии [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+### <a name="co-occurence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Подсчет совместного вхождения пар категориальных переменных в наборе данных для обучения
+Необходимо подсчитать совместное вхождение пар категориальных переменных. Это можно определить с помощью кода в скрипте [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -342,10 +346,10 @@ ms.author: bradsev
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="downsample"></a> Снижение частоты выборки в наборе данных для Машинного обучения Azure
+## <a name="a-namedownsamplea-down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a> Снижение частоты выборки в наборе данных для Машинного обучения Azure
 После просмотра наборов данных и демонстрации того, как можно выполнить этот тип просмотра для любых переменных (включая сочетания переменных), мы приступим к снижению частоты выборки в наборах данных для создания моделей в машинном обучении Azure. Помните, что рассматривается следующая задача: при заданном наборе примеров атрибутов (значений признаков от Col2 до Col40) нужно спрогнозировать, какое значение примет Col1 — 0 (без щелчка) или 1 (щелчок).
 
-Чтобы снизить частоту выборки в наших наборах данных для обучения и тестовых наборах данных до 1 % от исходного размера, будет использована функция Hive RAND(). Следующий сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) выполняет это действие для набора данных для обучения:
+Чтобы снизить частоту выборки в наших наборах данных для обучения и тестовых наборах данных до 1 % от исходного размера, будет использована функция Hive RAND(). Следующий скрипт [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) выполняет это действие для набора данных для обучения:
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -362,7 +366,7 @@ ms.author: bradsev
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) выполняет это действие для тестовых данных за день day\_22:
+Скрипт [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) выполняет это действие для тестовых данных за день day\_22:
 
         --- Now for test data (day_22)
 
@@ -380,7 +384,7 @@ ms.author: bradsev
         Time taken: 317.66 seconds
 
 
-Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) выполняет это действие для тестовых данных за день day\_23:
+Скрипт [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) выполняет это действие для тестовых данных за день day\_23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -400,14 +404,14 @@ ms.author: bradsev
 
 Прежде чем мы перейдем к машинному обучению Azure, следует обсудить последний важный компонент, касающийся таблицы счетчиков. Он подробно описан в следующем подразделе.
 
-## <a name="count"></a> Краткое описание таблицы счетчиков
+## <a name="a-namecounta-a-brief-discussion-on-the-count-table"></a><a name="count"></a> Краткое описание таблицы счетчиков
 Как было видно, несколько категориальных переменных обладают очень высокой размерностью. В нашем пошаговом руководстве представлен метод под названием [обучение с использованием счетчиков](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) для кодирования этих переменных эффективным и надежным способом. Дополнительную информацию об этом методе можно получить, перейдя по указанной ссылке.
 
 **Примечание.** В этом пошаговом руководстве рассматривается использование таблиц счетчиков для создания компактных представлений многомерных категориальных признаков. Это не единственный способ кодирования категориальных признаков. Дополнительные сведения о других методах заинтересованные пользователи могут найти в статьях по [прямому кодированию](http://en.wikipedia.org/wiki/One-hot) и [хэшированию признаков](http://en.wikipedia.org/wiki/Feature_hashing).
 
 Чтобы создать таблицы счетчиков на основе счетных данных, используются данные в папке raw/count. В разделе о моделировании показано, как создавать эти таблицы счетчиков для категориальных признаков с нуля или использовать предварительно созданную таблицу счетчиков для работы с данными. В следующих разделах термин «предварительно созданные таблицы счетчиков» употребляется в значении предоставляемых таблиц счетчиков. Подробные инструкции о том, как получить доступ к этим таблицам, приведены в следующем разделе.
 
-## <a name="aml"></a> Создание моделей с помощью Машинного обучения Azure
+## <a name="a-nameamla-build-a-model-with-azure-machine-learning"></a><a name="aml"></a> Создание моделей с помощью Машинного обучения Azure
 Процесс создания моделей в Машинном обучении Azure состоит из следующих шагов:
 
 1. [Получение данных из таблиц Hive и их добавление в Машинное обучение Azure](#step1)
@@ -419,19 +423,19 @@ ms.author: bradsev
 
 Теперь можно приступить к созданию моделей в Студии машинного обучения Azure. Наши данные со сниженной частотой выборки сохраняются в кластере в виде таблиц Hive. Чтобы считать эти данные, мы используем модуль **Импорт данных** Машинного обучения Azure. Учетные данные для доступа к учетной записи хранения этого кластера указаны далее.
 
-### <a name="step1"></a> Шаг 1. Извлечение данных из таблиц Hive в Машинное обучение Azure с помощью модуля "Импорт данных" и выбор этих данных для эксперимента машинного обучения
-Для начала последовательно выберите параметры **+СОЗДАТЬ** -> **ЭКСПЕРИМЕНТ** -> **Пустой эксперимент**. Затем в поле **Поиск** в верхнем левом углу экрана введите запрос "Импорт данных". Перетащите модуль **Импорт данных** на холст эксперимента (в средней части экрана), чтобы использовать его для доступа к данным.
+### <a name="a-namestep1a-step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Шаг 1. Извлечение данных из таблиц Hive в Машинное обучение Azure с помощью модуля "Импорт данных" и выбор этих данных для эксперимента машинного обучения
+Для начала выберите **+Создать** -> **Эксперимент** -> **Пустой эксперимент**. Затем в поле **Поиск** в верхнем левом углу экрана введите запрос "Импорт данных". Перетащите модуль **Импорт данных** на холст эксперимента (в средней части экрана), чтобы использовать его для доступа к данным.
 
 Вот как выглядит модуль **Импорт данных** при получении данных из таблицы Hive:
 
 ![Модуль "Импорт данных" получает данные](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-Указанные выше параметры модуля **Импорт данных** представляют собой пример обязательных значений. Ниже представлены общие указания по заполнению набора параметров для модуля **Импорт данных**.
+Указанные выше параметры модуля **Импорт данных** представляют собой пример обязательных значений. Ниже представлены общие указания по заполнению набора параметров для модуля **Импорт данных** .
 
-1. В поле **Источник данных** выберите пункт «Запрос Hive».
-2. В поле **Запрос базы данных Hive** достаточно просто ввести SELECT * FROM <имя\_вашей\_базы\_данных.имя\_вашей\_таблицы>.
-3. **URI сервера Hcatalog**: если используется кластер abc, введите адрес https://abc.azurehdinsight.net.
-4. **Имя учетной записи пользователя Hadoop**: имя пользователя, выбранное во время введения кластера в эксплуатацию (НЕ имя пользователя для удаленного доступа).
+1. В поле **Источник данных**
+2. В поле **Hive database query** (Запрос базы данных Hive) достаточно просто ввести SELECT * FROM <имя\_вашей\_базы_данных.имя\_вашей\_таблицы>.
+3. **URI сервера Hcatalog** — если используется кластер abc, введите адрес https://abc.azurehdinsight.net.
+4. **Имя учетной записи пользователя Hadoop** — имя пользователя, выбранное во время введения кластера в эксплуатацию. (НЕ имя пользователя для удаленного доступа).
 5. **Пароль учетной записи пользователя Hadoop**. Пароль для имени пользователя, выбранный во время введения кластера в эксплуатацию (НЕ пароль для удаленного доступа).
 6. **Расположение выходных данных**: выберите Azure.
 7. **Имя учетной записи хранения Azure**: учетная запись хранения, связанная с кластером.
@@ -442,120 +446,121 @@ ms.author: bradsev
 
 ![Модуль "Импорт данных" сохраняет данные](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Щелкните правой кнопкой мыши порт вывода модуля **Импорт данных**. Отобразятся параметры **Сохранение набора данных** и **Визуализировать**. Если щелкнуть параметр **Визуализировать**, отобразится 100 строк с данными, а также правая панель, использующаяся для получения сводных статистических данных. Чтобы сохранить данные, выберите **Сохранение набора данных** и следуйте указаниям.
+Щелкните правой кнопкой мыши порт вывода модуля **Импорт данных** . Отобразятся параметры **Сохранение набора данных** и **Визуализировать**. Если щелкнуть параметр **Визуализировать** , отобразится 100 строк с данными, а также правая панель, использующаяся для получения сводных статистических данных. Чтобы сохранить данные, выберите **Сохранение набора данных** и следуйте указаниям.
 
 Чтобы выбрать сохраненный набор данных, который будет использоваться в эксперименте машинного обучения, найдите его с помощью поля **Поиск** (на рисунке ниже). Затем введите часть имени набора данных, чтобы получить к нему доступ, и перетащите набор данных на главную панель. При этом набор данных автоматически выбирается для использования в моделировании машинного обучения.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Перетаскивание набора данных на главную панель](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Выполните эту процедуру для набора данных для обучения и тестового набора данных. Кроме того, не забывайте использовать имя базы данных и имена таблиц, которые вы присвоили для этой цели. Показанные в примере значения приводятся только для справки.**
 > 
 > 
 
-### <a name="step2"></a> Шаг 2. Создание простого эксперимента в машинном обучении Azure для прогнозирования частоты выбора рекламного объявления
+### <a name="a-namestep2a-step-2-create-a-simple-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Шаг 2. Создание простого эксперимента в машинном обучении Azure для прогнозирования частоты выбора рекламного объявления
 Наш эксперимент Машинного обучения Azure выглядит следующим образом:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Эксперимент машинного обучения](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 Рассмотрим основные компоненты этого эксперимента. Напоминаем, что для начала сохраненные наборы данных для обучения и тестовые наборы данных необходимо перетащить на холст эксперимента.
 
-#### Очистка недостающих данных
-Модуль **Очистка недостающих данных** выполняет одноименное действие, т. е. очищает недостающие данные, применяя для этого способ, указанный пользователем. Если посмотреть на модуль, мы увидим следующее:
+#### <a name="clean-missing-data"></a>Очистка недостающих данных
+Модуль **Clean Missing Data** (Очистка недостающих данных) выполняет одноименное действие, т. е. очищает недостающие данные, применяя для этого способ, указанный пользователем. Если посмотреть на модуль, мы увидим следующее:
 
 ![Очистка недостающих данных](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0ycXod6.png)
 
 Здесь мы выбрали заменить все недостающие значения на 0. Есть и другие варианты, которые можно увидеть, просмотрев раскрывающиеся списки в модуле.
 
-#### Проектирование компонентов на основе данных
+#### <a name="feature-engineering-on-the-data"></a>Проектирование компонентов на основе данных
 Некоторые категориальные функции крупных наборов данных могут иметь миллионы уникальных значений. Использовать для представления таких многомерных функций упрощенные методы, например метод «прямого кодирования», нецелесообразно. В этом пошаговом руководстве мы покажем, как с помощью встроенных модулей машинного обучения Azure применять функции счетчиков для создания компактных представлений многомерных категориальных переменных. Конечным результатом станет уменьшенный размер модели, более быстрое время обучения и параметры производительности, сопоставимые с результатами применения других методов.
 
-##### Построение преобразований счетчиков
-Для создания функции счетчика используется модуль **Построение преобразования счетчика**, доступный в машинном обучении Azure. Модуль выглядит следующим образом:
+##### <a name="building-counting-transforms"></a>Построение преобразований счетчиков
+Для создания функции счетчика используется модуль **Построение преобразования счетчика** , доступный в машинном обучении Azure. Модуль выглядит следующим образом:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png) ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Модуль построения преобразования счетчика](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Модуль построения преобразования счетчика](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Важное примечание**. В поле **Столбцы счетчика** введены столбцы, в которых нужно применить счетчик. Обычно это (как уже говорилось) — многомерные категориальные столбцы. В начале статьи мы указали, что набор данных Criteo содержит 26 категориальных столбцов, от Col15 до Col40. Теперь вы применим счетчики ко всем этим столбцам и присвоим им индексы (от 15 до 40, разделенные запятыми).
+**Важное примечание.** В поле **Count columns** (Столбцы счетчика) введены столбцы, в которых нужно применить счетчик. Обычно это (как уже говорилось) — многомерные категориальные столбцы. В начале статьи мы указали, что набор данных Criteo содержит 26 категориальных столбцов, от Col15 до Col40. Теперь вы применим счетчики ко всем этим столбцам и присвоим им индексы (от 15 до 40, разделенные запятыми).
 
 Для использования модуля в режиме MapReduce (подходит для больших наборов данных) требуется доступ к кластеру HDInsight Hadoop (можно использовать тот же кластер, который применялся для просмотра компонентов) и его учетные данные. На предыдущих снимках экрана показано, как выглядят заполненные поля значений (замените их на значения, соответствующие вашему случаю).
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Параметры модуля](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 Приведенный выше снимок экрана показывает, как указать расположение большого двоичного объекта входных данных. В этом расположении содержатся данные, зарезервированные под таблицы счетчиков.
 
 Когда выполнение этого модуля будет завершено, можно сохранить преобразование для последующего использования, щелкнув модуль правой кнопкой мыши и выбрав параметр **Save as Transform** (Сохранить как преобразование):
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+![Параметр Save as Transform (Сохранить как преобразование)](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 В представленной выше экспериментальной архитектуре сохраненному преобразованию счетчика точно соответствует набор данных ytransform2. Для остальной части эксперимента предположим, что читатель, применяет модуль **Построение преобразования счетчика** к некоторым данным для формирования счетчиков, а затем может использовать эти счетчики для создания функций счетчиков, применяемых к наборам данных для обучения и тестовым наборам данных.
 
-##### Выбор функций счетчика для включения в наборы данных для обучения и тестовые наборы данных
-После преобразования счетчика можно выбрать функции для включения в наборы данных для обучения и тестовые наборы данных, используя для этого модуль **Изменение параметров таблицы счетчиков**. Этот модуль показан для полноты информации, но в целях упрощения в данном эксперименте он фактически не используется.
+##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>Выбор функций счетчика для включения в наборы данных для обучения и тестовые наборы данных
+После преобразования счетчика можно выбрать функции для включения в наборы данных для обучения и тестовые наборы данных, используя для этого модуль **Изменение параметров таблицы счетчиков** . Этот модуль показан для полноты информации, но в целях упрощения в данном эксперименте он фактически не используется.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Modify Count Table Parameters (Изменение параметров таблицы счетчиков)](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
-Как уже было показано, в данном случае мы решили использовать только логарифмы отношения вероятностей и игнорировать столбец задержки. Также можно задать такие параметры, как пороговое значение ячейки сборки мусора, количество псевдослучайных предыдущих примеров для добавления с целью сглаживания и использование лапласовского шума. Все это — дополнительные возможности, и следует отметить, что пользователям, не знакомым с процессом создания функций подобного типа, рекомендуется начинать со значений по умолчанию.
+Как уже было показано, в данном случае мы решили использовать только логарифмы отношения вероятностей и игнорировать столбец задержки. Также можно задать такие параметры, как пороговое значение ячейки сборки мусора, количество псевдослучайных предыдущих примеров для добавления с целью сглаживания и использование лапласовского шума. Все это — дополнительные возможности, и следует отметить, что пользователям, не знакомым с процессом создания функций подобного типа, рекомендуется начинать со значений по умолчанию.
 
-##### Преобразование данных перед созданием функций счетчика
-Теперь обратим внимание на такой важный момент, как преобразование данных для обучения и тестовых данных перед созданием функций счетчика. Обратите внимание, что перед применением преобразования счетчика к данным используются два модуля **Выполнение скрипта R**.
+##### <a name="data-transformation-before-generating-the-count-features"></a>Преобразование данных перед созданием функций счетчика
+Теперь обратим внимание на такой важный момент, как преобразование данных для обучения и тестовых данных перед созданием функций счетчика. Обратите внимание, что перед применением преобразования счетчика к данным используются два модуля **Выполнение скрипта R** .
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Модули "Выполнить сценарий R"](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Первый скрипт R выглядит следующим образом:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![Первый сценарий R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
 
-В этом скрипте R столбцы получают новые имена — от Col1 до Col40. Этот формат имен необходим для преобразования счетчика.
+В этом скрипте R столбцы получают новые имена — от Col1 до Col40. Этот формат имен необходим для преобразования счетчика.
 
 Во втором скрипте R балансируется распределение между положительными и отрицательными классами (классы 1 и 0 соответственно). Для этого используется понижающая дискретизация отрицательного класса. Приведенный ниже скрипт R показывает, как ее выполнить.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Второй сценарий R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
-В этом простом скрипте R для установки интервала баланса между положительным и отрицательным классами используется выражение pos\_neg\_ratio. Это действие важно, так как устранение дисбаланса между классами положительно влияет на скорость выполнения задач классификации со скошенным распределением классов (напомним, что в нашем случае на положительный класс приходится 3,3 %, а на отрицательный — 96,7 %).
+В этом простом скрипте R для установки интервала баланса между положительным и отрицательным классами используется выражение pos\_neg\_ratio. Это действие важно, так как устранение дисбаланса между классами положительно влияет на скорость выполнения задач классификации со скошенным распределением классов (напомним, что в нашем случае на положительный класс приходится 3,3 %, а на отрицательный — 96,7 %).
 
-##### Применение преобразования счетчика к данным
-Наконец, воспользуемся модулем **Применить преобразование** и применим преобразования счетчика к наборам данных для обучения и тестовым наборам данных. Этот модуль воспринимает сохраненное преобразование счетчика как один набор входных данных, а наборы данных для обучения и тестовые наборы данных — как другой набор входных данных и возвращает данные с функциями счетчиков. Вот как это работает:
+##### <a name="applying-the-count-transformation-on-our-data"></a>Применение преобразования счетчика к данным
+Наконец, воспользуемся модулем **Применить преобразование** и применим преобразования счетчика к наборам данных для обучения и тестовым наборам данных. Этот модуль воспринимает сохраненное преобразование счетчика как один набор входных данных, а наборы данных для обучения и тестовые наборы данных — как другой набор входных данных и возвращает данные с функциями счетчиков. Вот как это работает:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Модуль применения преобразования](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
-##### Фрагмент вида функций счетчика
+##### <a name="an-excerpt-of-what-the-count-features-look-like"></a>Фрагмент вида функций счетчика
 Внешний вид функций счетчика в нашем случае очень информативен. Вот его фрагмент:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Функции счетчика](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 В этом фрагменте показано, что для столбцов, к которым применен счетчик, создаются как соответствующие задержки, так и счетчики и логарифмы отношения вероятностей.
 
 Теперь, используя преобразованные наборы данных, можно построить модель машинного обучения Azure. В следующем разделе показано, как это сделать.
 
-#### Построение модели машинного обучения Azure
-##### Выбор ученика
+#### <a name="azure-machine-learning-model-building"></a>Построение модели машинного обучения Azure
+##### <a name="choice-of-learner"></a>Выбор ученика
 В первую очередь необходимо выбрать ученика. В качестве ученика будет выступать двухклассовое увеличивающееся дерево принятия решений. По умолчанию для этого ученика используются следующие параметры:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Параметры двухклассового увеличивающегося дерева принятия решений](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 Для данного эксперимента мы возьмем значения по умолчанию. Как правило, значения по умолчанию эффективны и позволяют быстро добиться нужной производительности. Построив базу, можно повысить производительность, скорректировав желаемые параметры.
 
-#### Обучение модели
-Для обучения мы просто вызовем модуль **Обучение модели**. Он использует два набора входных данных — двухклассовое увеличивающееся дерево принятия решений (наш ученик) и набор данных для обучения. Вот как это работает:
+#### <a name="train-the-model"></a>Обучение модели
+Для обучения мы просто вызовем модуль **Обучение модели** . Он использует два набора входных данных — двухклассовое увеличивающееся дерево принятия решений (наш ученик) и набор данных для обучения. Вот как это работает:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Модуль "Обучение модели"](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
 
-#### Оценка модели
-Обучив модель, можно оценить его производительность с помощью тестового набора данных. Для этого используется модуль **Оценка модели** на следующем рисунке вместе с модулем **Анализ модели**:
+#### <a name="score-the-model"></a>Оценка модели
+Обучив модель, можно оценить его производительность с помощью тестового набора данных. Для этого используется модуль **Score Model** (Оценка модели) на следующем рисунке вместе с модулем **Evaluate Model** (Анализ модели):
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Модуль "Оценка модели"](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step5"></a>Шаг 5. Анализ модели
-Наконец, нам требуется оценить эффективность модели. Как правило, для задач двухклассовой (двоичной) классификации хорошо подходит мера AUC. Чтобы визуализировать это, мы подключим модуль **Оценка модели** к модулю **Анализ модели**. Если щелкнуть **Визуализировать** в модуле **Анализ модели**, отобразится подобная схема:
+### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a>Шаг 5. Анализ модели
+Наконец, нам требуется оценить эффективность модели. Как правило, для задач двухклассовой (двоичной) классификации хорошо подходит мера AUC. Чтобы визуализировать это, мы подключим модуль **Score Model** (Оценка модели) к модулю **Evaluate Model** (Анализ модели). Если щелкнуть **Визуализировать** в модуле **Evaluate Model** (Анализ модели), отобразится подобная схема:
 
 ![Модуль «Анализ модели» и «Увеличивающееся дерево принятия решений»](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
 
-В задачах двоичной (или двухклассовой) классификации хорошо подходит такая мера прогнозирования точности, как AUC (площадь под кривой). Ниже будут показаны результаты использования этой модели на основе нашего тестового набора данных. Чтобы выполнить все должным образом, щелкните правой кнопкой мыши порт вывода модуля **Анализ модели**, а затем щелкните **Визуализировать**.
+В задачах двоичной (или двухклассовой) классификации хорошо подходит такая мера прогнозирования точности, как AUC (площадь под кривой). Ниже будут показаны результаты использования этой модели на основе нашего тестового набора данных. Чтобы выполнить все должным образом, щелкните правой кнопкой мыши порт вывода модуля **Evaluate Model** (Анализ модели), а затем щелкните **Визуализировать**.
 
 ![Визуализация модуля «Анализ модели»](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step6"></a> Шаг 6. Публикация модели в качестве веб-службы
-Публикация модели машинного обучения Azure как веб-службы требует минимальных усилий и позволяет сделать ее доступной для других пользователей. После публикации любой сможет вызвать веб-службу, передав ей исходные данные, по которым требуется прогноз, а веб-служба — выдать прогноз, используя эту модель.
+### <a name="a-namestep6a-step-6-publish-the-model-as-a-web-service"></a><a name="step6"></a> Шаг 6. Публикация модели в качестве веб-службы
+Публикация модели машинного обучения Azure как веб-службы требует минимальных усилий и позволяет сделать ее доступной для других пользователей. После публикации любой сможет вызвать веб-службу, передав ей исходные данные, по которым требуется прогноз, а веб-служба — выдать прогноз, используя эту модель.
 
 Для этого сначала нужно сохранить обученную модель как объект «Обученная модель». Это можно сделать, щелкнув правой кнопкой мыши модуль **Обучение модели** и выбрав параметр **Save as Trained Model** (Сохранить как обученную модель).
 
@@ -564,26 +569,26 @@ ms.author: bradsev
 * входной порт принимает данные в том же виде, что и данные, для которых требуется прогноз;
 * выходной порт вывода выдает метки оценки и связанные с ними значения вероятности.
 
-#### Выбор нескольких строк данных для порта ввода
-Чтобы выбрать всего 10 строк для использования в качестве данных порта ввода, можно воспользоваться модулем **Применение преобразования SQL**. Выберите для входного порта только эти строки данных с помощью показанного ниже SQL-запроса.
+#### <a name="select-a-few-rows-of-data-for-the-input-port"></a>Выбор нескольких строк данных для порта ввода
+Чтобы выбрать всего 10 строк для использования в качестве данных порта ввода, можно воспользоваться модулем **Применение преобразования SQL** . Выберите для входного порта только эти строки данных с помощью показанного ниже SQL-запроса.
 
 ![Данные порта ввода](./media/machine-learning-data-science-process-hive-criteo-walkthrough/XqVtSxu.png)
 
-#### Веб-служба
+#### <a name="web-service"></a>Веб-служба
 Теперь можно приступить к выполнению небольшого эксперимента, который можно использовать для публикации веб-службы.
 
-#### Создание входных данных для веб-службы
+#### <a name="generate-input-data-for-webservice"></a>Создание входных данных для веб-службы
 Так как таблица счетчиков имеет большой размер, на начальном этапе мы возьмем несколько строк тестовых данных и создадим из них выходные данные с признаками счетчиков. Это послужит в качестве формата входных данных для наших веб-служб. Вот как это работает:
 
 ![Создание входных данных модуля «Увеличивающееся дерево принятия решений»](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
 > [!NOTE]
-> В качестве формата входных данных теперь будут использоваться ВЫХОДНЫЕ ДАННЫЕ модуля **Характеризатор счетчиков**. После завершения выполнения этого эксперимента сохраните выходные данные модуля **Характеризатор счетчиков** в качестве набора данных. Этот набор данных используется для входных данных в веб-службе.
+> В качестве формата входных данных теперь будут использоваться ВЫХОДНЫЕ ДАННЫЕ модуля **Характеризатор счетчиков** . После завершения выполнения этого эксперимента сохраните выходные данные модуля **Характеризатор счетчиков** в качестве набора данных. Этот набор данных используется для входных данных в веб-службе.
 > 
 > 
 
-#### Оценка эксперимента для публикации веб-службы
-Сначала мы покажем, как это выглядит. Основная структура — модуль **Оценка модели**, который принимает объект «Обученная модель» и несколько строк входных данных, созданных ранее с помощью модуля **Характеризатор счетчиков**. Мы используем модуль "Выбор столбцов в наборе данных", чтобы отобразить расчетные метки и значения вероятности оценки.
+#### <a name="scoring-experiment-for-publishing-webservice"></a>Оценка эксперимента для публикации веб-службы
+Сначала мы покажем, как это выглядит. Основная структура — модуль **Score Model** (Оценка модели), который принимает объект обученной модели, и несколько строк входных данных, созданных ранее с помощью модуля **Count Featurizer** (Характеризатор счетчиков). Мы используем модуль "Выбор столбцов в наборе данных", чтобы отобразить расчетные метки и значения вероятности оценки.
 
 ![Выбор столбцов в наборе данных](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
@@ -593,18 +598,18 @@ ms.author: bradsev
 
 Чтобы порты ввода и вывода стали синими, просто щелкните значок **Подготовить веб-службу** в нижнем правом углу. Выполнение этого эксперимента также позволяет опубликовать веб-службу, щелкнув значок **Publish web service** (Опубликовать веб-службу) в нижнем правом углу, показанный ниже.
 
-![Опубликовать веб-службу](./media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
+![Publish web service](./media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
 
 После публикации веб-службы вы перейдете на страницу, которая выглядит таким образом:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Панель мониторинга веб-службы](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 Слева видно две ссылки для веб-служб:
 
-* Служба **ЗАПРОС-ОТВЕТ** (или RRS), предназначенная для разовых прогнозов. Именно она будет использоваться на этом семинаре.
+* Служба **Запрос — ответ** (или RRS), предназначенная для разовых прогнозов. Именно она будет использоваться на этом семинаре.
 * служба **ПАКЕТНОГО ВЫПОЛНЕНИЯ** (BES) используется для пакетных прогнозов и требует, чтобы входные данные, для которых нужно создать прогноз, находились в большом двоичном объекте Azure.
 
-Если щелкнуть ссылку **ЗАПРОС-ОТВЕТ**, вы перейдете на страницу, которая содержит код на C#, Python и R, поставляемый изготовителем. Этот код можно использовать для вызова веб-службы. Обратите внимание, что ключ API на этой странице следует использовать для аутентификации.
+Если щелкнуть ссылку **Запрос — ответ**, вы перейдете на страницу, которая содержит код на C#, Python и R, поставляемый изготовителем. Этот код можно использовать для вызова веб-службы. Обратите внимание, что ключ API на этой странице следует использовать для аутентификации.
 
 Удобно скопировать этот код Рython и вставить его в новую ячейку в iPython Notebook.
 
@@ -620,4 +625,9 @@ ms.author: bradsev
 
 На этом пошаговое руководство по обработке крупномасштабных наборов данных с помощью Машинного обучения Azure завершается. Мы начали работу с терабайтом данных, построили модель прогнозирования и развернули ее в облаке как веб-службу.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

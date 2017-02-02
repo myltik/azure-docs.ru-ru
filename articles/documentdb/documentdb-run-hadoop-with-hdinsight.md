@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
 
 
 ---
 # <a name="a-namedocumentdb-hdinsightarun-a-hadoop-job-using-documentdb-and-hdinsight"></a><a name="DocumentDB-HDInsight"></a>Запуск задания Hadoop с помощью DocumentDB и HDInsight
-В этом учебнике содержатся сведения о выполнении заданий [Apache Hive][apache-hive], [Apache Pig][apache-pig] и [Apache Hadoop][apache-hadoop] MapReduce в Azure HDInsight с помощью соединителя Hadoop DocumentDB. Соединитель Hadoop позволяет DocumentDB функционировать в качестве источника и приемника для заданий Hive, Pig и MapReduce. В этом учебнике DocumentDB будет использоваться как источник данных и назначение для заданий Hadoop.
+В этом руководстве содержатся сведения о выполнении заданий MapReduce [Apache Hive][apache-hive], [Apache Pig][apache-pig] и [Apache Hadoop][apache-hadoop] в Azure HDInsight с помощью соединителя Hadoop DocumentDB. Соединитель Hadoop позволяет DocumentDB функционировать в качестве источника и приемника для заданий Hive, Pig и MapReduce. В этом учебнике DocumentDB будет использоваться как источник данных и назначение для заданий Hadoop.
 
 После изучения этого учебника вы сможете ответить на следующие вопросы.
 
@@ -37,7 +37,7 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 После этого вернитесь к этой статье, содержащей исчерпывающие сведения о выполнении заданий аналитики с данными DocumentDB.
 
 > [!TIP]
-> В этом учебнике предполагается, что у вас есть опыт использования Apache Hadoop, Hive и Pig. Если вы не знакомы с Apache Hadoop, Hive и Pig, то рекомендуем обратиться к [документации по Apache Hadoop][apache-hadoop-doc]. Кроме того, в этом учебнике предполагается, что у вас есть опыт использования DocumentDB и учетная запись DocumentDB. Если вы не знакомы с использованием DocumentDB или у вас нет учетной записи DocumentDB, то ознакомьтесь со сведениями на странице [Приступая к работе][getting-started].
+> В этом учебнике предполагается, что у вас есть опыт использования Apache Hadoop, Hive и Pig. Если вы не знакомы с Apache Hadoop, Hive и Pig, рекомендуем обратиться к [документации по Apache Hadoop][apache-hadoop-doc]. Кроме того, в этом учебнике предполагается, что у вас есть опыт использования DocumentDB и учетная запись DocumentDB. Если вы не знакомы с использованием DocumentDB или у вас нет учетной записи DocumentDB, ознакомьтесь со сведениями на странице [Приступая к работе][getting-started].
 >
 >
 
@@ -62,11 +62,11 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 ## <a name="a-nameprerequisitesaprerequisites"></a><a name="Prerequisites"></a>Предварительные требования
 Перед выполнением инструкций в этом учебнике убедитесь в наличии следующих ресурсов.
 
-* Учетная запись DocumentDB, база данных и коллекция с документами внутри. Дополнительные сведения см. в разделе [Приступая к работе с DocumentDB][getting-started]. Импортируйте демонстрационные данные в вашу учетную запись DocumentDB с помощью [средства импорта DocumentDB][documentdb-import-data].
-* Пропускная способность. Операции чтения и записи из HDInsight будут входить в число выделенных единиц запроса для ваших коллекций. Дополнительные сведения см. в разделе [Выбор уровня согласованности и пропускной способности][documentdb-manage-throughput].
-* Емкость для дополнительных хранимых процедур в каждой выходной коллекции. Хранимые процедуры используются для передачи результирующих документов. Дополнительные сведения см. в разделе [Единицы запросов и операции базы данных][documentdb-manage-document-storage].
-* Емкость для документов, являющихся результатами выполнения заданий MapReduce, Pig и Hive. Дополнительные сведения см. в разделе [Коллекции базы данных][documentdb-manage-collections].
-* [*Необязательная*] емкость для дополнительной коллекции. Дополнительные сведения см. в разделе [Подготавливаемое хранилище документов и затраты на индексирование][documentdb-manage-document-storage].
+* Учетная запись DocumentDB, база данных и коллекция с документами внутри. Дополнительные сведения можно найти в статье [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C][getting-started]. Импортируйте демонстрационные данные в свою учетную запись DocumentDB с помощью [средства импорта DocumentDB][documentdb-import-data].
+* Пропускная способность. Операции чтения и записи из HDInsight будут входить в число выделенных единиц запроса для ваших коллекций. Дополнительные сведения можно найти в разделе о [подготовленной пропускной способности, единицах запросов и операциях базы данных][documentdb-manage-throughput].
+* Емкость для дополнительных хранимых процедур в каждой выходной коллекции. Хранимые процедуры используются для передачи результирующих документов. Дополнительные сведения можно найти в разделе о [коллекциях и подготовленной пропускной способности][documentdb-manage-document-storage].
+* Емкость для документов, являющихся результатами выполнения заданий MapReduce, Pig и Hive. Дополнительные сведения можно найти в разделе об [управлении емкостью и производительностью DocumentDB][documentdb-manage-collections].
+* [*Необязательная*] емкость для дополнительной коллекции. Дополнительные сведения можно найти в разделе о [подготовленном хранилище документов и накладных затратах на индексирование][documentdb-manage-document-storage].
 
 > [!WARNING]
 > Во избежание создания новой коллекции во время выполнения заданий можно распечатать результаты в stdout, сохранить результат в контейнере WASB или указать уже существующую коллекцию. Если указывается существующая коллекция, то документы будут созданы в ней. При наличии конфликта в полях *id* затрагиваются только существующие документы. **Соединитель автоматически перезапишет существующие документы с конфликтами идентификаторов**. Эту функцию можно отключить, задав параметру upsert значение false. Если параметру upsert задано значение false и возникает конфликт, задание Hadoop завершится ошибкой и выводом сообщения о конфликте идентификаторов.
@@ -74,7 +74,7 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 >
 
 ## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>Шаг 1. Создание кластера HDInsight
-В этом руководстве для настройки кластера HDInsight используется действие скрипта на портале Azure. Там мы создадим настраиваемый кластер HDInsight. Инструкции по использованию командлетов PowerShell или пакета SDK для .NET в HDInsight см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-custom-provision].
+В этом руководстве для настройки кластера HDInsight используется действие скрипта на портале Azure. Там мы создадим настраиваемый кластер HDInsight. Инструкции по использованию командлетов PowerShell или пакета SDK .NET для HDInsight можно найти в статье [Настройка кластеров с помощью действия сценария][hdinsight-custom-provision].
 
 1. Войдите на [портал Azure][azure-portal].
 2. Щелкните **+ Создать** в верхней левой области навигации и выполните поиск **HDInsight** в верхней строке поиска в колонке "Создать".
@@ -392,15 +392,15 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 ## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Дальнейшие действия
 Поздравляем! Вы только что выполнили свои первые задания Hive, Pig и MapReduce с помощью Azure DocumentDB и HDInsight.
 
-Теперь у нас есть соединитель Hadoop с открытым исходным кодом. Если вас заинтересовал этот процесс, вы можете продолжить на [GitHub][documentdb-github].
+Теперь у нас есть соединитель Hadoop с открытым исходным кодом. Если вас заинтересовал этот процесс, вы можете продолжить на сайте [GitHub][documentdb-github].
 
 Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Разработка приложений Java с помощью Documentdb][documentdb-java-application]
+* [Создание веб-приложения Node.js с использованием DocumentDB][documentdb-java-application]
 * [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux][hdinsight-develop-deploy-java-mapreduce]
 * [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
 * [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce]
-* [Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j][hdinsight-use-hive]
+* [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария][hdinsight-hadoop-customize-cluster]
 
@@ -435,10 +435,10 @@ ms.openlocfilehash: 43620fed5713f76fcc6e1cebb11c97624eada676
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Развертывание первого веб-приложения Java в Azure за пять минут | Документация Майкрософт"
+title: "Развертывание первого веб-приложения Java в Azure за пять минут (предварительная версия CLI 2.0) | Документация Майкрософт"
 description: "Узнайте, как можно быстро запускать веб-приложения в службе приложений, развернув пример приложения. Начните с разработки настоящего приложения — и сразу же получите результаты."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Развертывание первого веб-приложения Java в Azure за пять минут
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Развертывание первого веб-приложения Java в Azure за пять минут (предварительная версия CLI 2.0)
+
+> [!div class="op_single_selector"]
+> * [Первый HTML-сайт](app-service-web-get-started-html-cli-nodejs.md)
+> * [Первое приложение .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Первое приложение PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Первое приложение Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Первое приложение Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Первое приложение Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Это руководство поможет вам развернуть простое веб-приложение Java в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md).
 В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -32,10 +43,10 @@ ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Клиент FTP или FTPS (например, [FileZilla](https://filezilla-project.org/)).
-* Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -73,7 +84,7 @@ ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. В списке **Версия Java** выберите **Java 8** и нажмите кнопку **Сохранить**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Получив уведомление **Параметры веб-приложения успешно обновлены**, перейдите по адресу http://*&lt;имя_приложения>*.azurewebsites.net, чтобы просмотреть стандартный сервлет JSP в действии.
 3. Вернитесь в колонку веб-приложения и прокрутите вниз до пункта **Учетные данные развертывания** (либо найдите его с помощью поиска). Щелкните этот пункт.
@@ -120,6 +131,6 @@ ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

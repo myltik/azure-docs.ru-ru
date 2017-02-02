@@ -1,0 +1,76 @@
+---
+title: "Перенос данных в учетную запись Azure DocumentDB с поддержкой протокола MongoDB | Документация Майкрософт"
+description: "Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии."
+keywords: migrate
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: 
+documentationcenter: 
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/07/2016
+ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2dc98400ed4eaa2263d73f0718f5eaee260d48f5
+ms.openlocfilehash: 80665bc84948696b05b04536a066ebebb5a81e89
+
+
+---
+# <a name="migrate-data-to-documentdb-with-protocol-support-for-mongodb"></a>Перенос данных в DocumentDB с поддержкой протокола MongoDB
+Чтобы перенести данные в учетную запись Azure DocumentDB с поддержкой протокола MongoDB, сделайте следующее:
+
+* Скачайте файл *mongoimport.exe* или *mongorestore.exe* из [центра скачивания MongoDB](https://www.mongodb.com/download-center).
+* Получите [поддержку DocumentDB для строки подключения MongoDB](documentdb-connect-mongodb-account.md).
+
+## <a name="before-you-begin"></a>Перед началом работы
+
+* Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Уровни производительности и ценовые категории в DocumentDB](documentdb-performance-levels.md).
+
+* Включите SSL. У DocumentDB строгие требования к безопасности и стандарты. Обязательно включите SSL при взаимодействии с учетной записью. Процедуры, описанные в оставшейся части статьи, включают инструкции по включению SSL для *mongoimport* и *mongorestore*.
+
+## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Поиск сведений о строке подключения (узел, порт, имя пользователя и пароль)
+
+1. В левой панели на [портале Azure](https://portal.azure.com) щелкните запись **NoSQL (DocumentDB)**.
+2. На панели **Подписки** выберите имя своей учетной записи.
+3. В колонке **Строка подключения** щелкните **Строка подключения**.  
+На правой панели содержатся все сведения, необходимые для успешного подключения к учетной записи.
+
+    ![Колонка "Строка подключения"](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
+
+## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongoimport"></a>Импорт данных в DocumentDB с поддержкой протокола MongoDB с помощью mongoimport
+
+Чтобы импортировать данные в учетную запись DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.  
+
+Шаблон:
+
+    mongoimport.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
+
+Пример:  
+
+    mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
+
+## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongorestore"></a>Импорт данных в DocumentDB с поддержкой протокола MongoDB с помощью mongorestore
+
+Чтобы восстановить данные в учетной записи DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.
+
+Шаблон:
+
+    mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+
+Пример:
+
+    mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Дополнительные сведения см. в [примерах использования DocumentDB с поддержкой протокола MongoDB](documentdb-mongodb-samples.md).
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

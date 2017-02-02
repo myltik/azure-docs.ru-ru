@@ -1,79 +1,83 @@
 ---
-title: Reset a local Windows password when Azure guest agent is not installed | Microsoft Docs
-description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
+title: "Сброс пароля локальной среды Windows без агента Azure | Документация Майкрософт"
+description: "Описывается, как сбросить пароль локальной учетной записи пользователя Windows, если гостевой агент Azure не установлен или работает на виртуальной машине."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/20/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 74b1282bf205bc38f13c51c5e05f55987d0cd12e
+
 
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>How to reset local Windows password for Azure VM
-You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
+# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Как сбросить локальный пароль Windows для виртуальной машины Azure
+Локальный пароль Windows для виртуальной машины Azure можно сбросить с помощью [портала Azure или Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (если установлен гостевой агент Azure). Этот метод является основным способом сброса пароля для виртуальной машины Azure. Если в работе гостевого агента Azure возникают неполадки (агент не отвечает или не устанавливается после передачи пользовательского образа), то можно сбросить пароль Windows вручную. В этой статье описывается, как сбросить пароль локальной учетной записи, подключив исходный виртуальный диск операционной системы к другой виртуальной машине. 
 
 > [!WARNING]
-> Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) first.
+> Этот метод следует использовать только в крайнем случае. Всегда рекомендуется сначала попытаться сбросить пароль с помощью [портала Azure или Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
-## <a name="overview-of-the-process"></a>Overview of the process
-The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
+## <a name="overview-of-the-process"></a>Описание процесса
+Ниже приводятся основные шаги, выполнив которые можно сбросить локальный пароль для виртуальной машины Windows в Azure, если нет доступа к гостевому агенту Azure.
 
-* Delete the source VM. The virtual disks are retained.
-* Attach the source VM's OS disk to another VM within your Azure subscription. This VM is referred to as the troubleshooting VM.
-* Using the troubleshooting VM, create some config files on the source VM's OS disk.
-* Detach the VM's OS disk from the troubleshooting VM.
-* Use a Resource Manager template to create a VM, using the original virtual disk.
-* When the new VM boots, the config files you create update the password of the required user.
+* Удалите исходную виртуальную машину. При этом виртуальные диски сохраняются.
+* Подключите диск операционной системы исходной виртуальной машины к другой виртуальной машине в своей подписке Azure. Эта виртуальная машина будет выполнять функции машины для устранения неполадок.
+* С помощью виртуальной машины для устранения неполадок создайте несколько файлов конфигурации на диске операционной системы исходной виртуальной машины.
+* Отключите диск операционной системы виртуальной машины от машины для устранения неполадок.
+* Используйте шаблон Resource Manager для создания виртуальной машины с помощью исходного виртуального диска.
+* При загрузке новой виртуальной машины созданные вами файлы конфигурации обновят пароль требуемого пользователя.
 
-## <a name="detailed-steps"></a>Detailed steps
-Always try to reset a password using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) before trying the following steps. Make sure you have a backup of your VM before you start. 
+## <a name="detailed-steps"></a>Подробные инструкции
+Всегда рекомендуется сначала попытаться сбросить пароль с помощью [портала Azure или Azure PowerShell](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), прежде чем выполнять следующие шаги. Прежде чем начать, обязательно сохраните резервную копию виртуальной машины. 
 
-1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
+1. Удалите затронутую виртуальную машину на портале Azure. При удалении виртуальной машины удаляются только метаданные, на которые ссылается виртуальная машина в Azure. Когда виртуальная машина удаляется, виртуальные диски остаются.
    
-   * Select the VM in the Azure portal, click *Delete*:
+   * На портале Azure выберите виртуальную машину и нажмите кнопку *Удалить*:
      
-     ![Delete existing VM](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
-2. Attach the source VM’s OS disk to the troubleshooting VM. The troubleshooting VM must be in the same region as the source VM's OS disk (such as `West US`):
+     ![Удаление существующей виртуальной машины](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
+2. Подключите диск операционной системы исходной виртуальной машины к машине для устранения неполадок. Виртуальная машина для устранения неполадок должна находиться в том же регионе, что и диск операционной системы исходной виртуальной машины (например `West US`).
    
-   * Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
+   * Выберите виртуальную машину для устранения неполадок на портале Azure. Щелкните *Диски* | *Подключить существующий*:
      
-     ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
+     ![Подключение существующего диска](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
      
-     Select *VHD File* and then select the storage account that contains your source VM:
+     Выберите *VHD-файл*, а затем выберите учетную запись хранения, которая содержит вашу исходную виртуальную машину:
      
-     ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
+     ![Выбор учетной записи хранения](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
      
-     Select the source container. The source container is typically *vhds*:
+     Выберите исходный контейнер. Как правило, исходный контейнер — *vhds*:
      
-     ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
+     ![Выбор контейнера хранилища](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
      
-     Select the OS vhd to attach. Click *Select* to complete the process:
+     Выберите виртуальный жесткий диск операционной системы для подключения. Для завершения процесса нажмите кнопку *Выбрать*:
      
-     ![Select source virtual disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
-3. Connect to the troubleshooting VM using Remote Desktop and ensure the source VM's OS disk is visible:
+     ![Выбор исходного виртуального диска](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
+3. Подключитесь к виртуальной машине для устранения неполадок, используя удаленный рабочий стол, и убедитесь, что диск операционной системы исходной виртуальной машины отображается.
    
-   * Select the troubleshooting VM in the Azure portal and click *Connect*.
-   * Open the RDP file that downloads. Enter the username and password of the troubleshooting VM.
-   * In File Explorer, look for the data disk you attached. If the source VM’s VHD is the only data disk attached to the troubleshooting VM, it should be the F: drive:
+   * Выберите виртуальную машину для устранения неполадок на портале Azure и нажмите кнопку *Подключить*.
+   * Откройте RDP-файл, который скачается. Введите имя пользователя и пароль виртуальной машины для устранения неполадок.
+   * В проводнике найдите подключенный диск данных. Если виртуальный жесткий диск исходной виртуальной машины является единственным диском данных, подключенным к машине для устранения неполадок, то это должен быть диск F:
      
-     ![View attached data disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/troubleshooting_vm_fileexplorer.png)
-4. Create `gpt.ini` in `\Windows\System32\GroupPolicy` on the source VM’s drive (if gpt.ini exists, rename to gpt.ini.bak):
+     ![Просмотр подключенного диска данных](./media/virtual-machines-windows-reset-local-password-without-guest-agent/troubleshooting_vm_fileexplorer.png)
+4. На диске исходной виртуальной машины создайте `gpt.ini` в `\Windows\System32\GroupPolicy` (если файл gpt.ini уже существует, то переименуйте его в gpt.ini.bak).
    
    > [!WARNING]
-   > Make sure that you do not accidentally create the following files in C:\Windows, the OS drive for the troubleshooting VM. Create the following files in the OS drive for your source VM that is attached as a data disk.
+   > Убедитесь, что эти файлы случайно не созданы в расположении C:\Windows, на диске операционной системы виртуальной машины для устранения неполадок. Создайте файлы на диске операционной системы исходной виртуальной машины, который подключен в качестве диска данных.
    > 
    > 
    
-   * Add the following lines into the `gpt.ini` file you created:
+   * В созданный файл `gpt.ini` добавьте следующие строки:
      
      ```
      [General]
@@ -82,10 +86,10 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
      Version=1
      ```
      
-     ![Create gpt.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_gpt_ini.png)
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+     ![Создание файла gpt.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_gpt_ini.png)
+5. Создайте файл `scripts.ini` в расположении `\Windows\System32\GroupPolicy\Machine\Scripts`. Убедитесь, что отображаются скрытые папки. При необходимости создайте папку `Machine` или `Scripts`.
    
-   * Add the following lines the `scripts.ini` file you created:
+   * В созданный файл `scripts.ini` добавьте следующие строки:
      
      ```
      [Startup]
@@ -93,52 +97,55 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
      0Parameters=
      ```
      
-     ![Create scripts.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_scripts_ini.png)
-6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
+     ![Создание файла scripts.ini](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_scripts_ini.png)
+6. В расположении `\Windows\System32` создайте файл `FixAzureVM.cmd` со следующим содержимым, заменив `<username>` и `<newpassword>` своими значениями:
    
     ```
     NET USER <username> <newpassword>
     ```
    
-    ![Create FixAzureVM.cmd](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_fixazure_cmd.png)
+    ![Создание файла FixAzureVM.cmd](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_fixazure_cmd.png)
    
-    You must meet the configured password complexity requirements for your VM when defining the new password.
-7. In Azure portal, detach the disk from the troubleshooting VM:
+    Создаваемый пароль должен удовлетворять настроенным требованиям к сложности пароля для виртуальной машины.
+7. На портале Azure отключите диск от машины для устранения неполадок.
    
-   * Select the troubleshooting VM in the Azure portal, click *Disks*.
-   * Select the data disk attached in step 2, click *Detach*:
+   * На портале Azure выберите виртуальную машину для устранения неполадок и щелкните *Диски*.
+   * Выберите диск данных, подключенный на шаге 2, и нажмите кнопку *Отключить*:
      
-     ![Detach disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
-8. Before you create a VM, obtain the URI to your source OS disk:
+     ![Отключение диска](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
+8. Прежде чем создавать виртуальную машину, получите универсальный код ресурса (URI) для своего исходного диска операционной системы.
    
-   * Select the storage account in the Azure portal, click *Blobs*.
-   * Select the container. The source container is typically *vhds*:
+   * На портале Azure выберите учетную запись хранения и щелкните *BLOB-объекты*.
+   * Выберите контейнер. Как правило, исходный контейнер — *vhds*:
      
-     ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
+     ![Выбор большого двоичного объекта учетной записи хранения](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
      
-     Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
+     Выберите VHD-файл операционной системы исходной виртуальной машины и нажмите кнопку *Копировать* рядом с *URL-адресом*:
      
-     ![Copy disk URI](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
-9. Create a VM from the source VM’s OS disk:
+     ![Копирование URI диска](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
+9. Создайте виртуальную машину на основе диска операционной системы исходной виртуальной машины.
    
-   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
-   * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
-   * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
+   * Воспользуйтесь [этим шаблоном Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) для создания виртуальной машины на основе специализированного VHD-файла. Нажмите кнопку `Deploy to Azure`, чтобы открыть портал Azure и выполнить заполнение данными шаблона.
+   * Если вы хотите сохранить все предыдущие параметры для виртуальной машины, выберите *Изменить шаблон* и введите свои данные: виртуальная сеть, подсеть, сетевой адаптер или общедоступный IP-адрес.
+   * В текстовом поле параметра `OSDISKVHDURI` вставьте универсальный код ресурса (URI) своего исходного виртуального жесткого диска, который вы скопировали на предыдущем шаге:
      
-     ![Create a VM from template](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_new_vm_from_template.png)
-10. After the new VM is running, connect to the VM using Remote Desktop with the new password you specified in the `FixAzureVM.cmd` script.
-11. From your remote session to the new VM, remove the following files to clean up the environment:
+     ![Создание виртуальной машины на основе шаблона](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_new_vm_from_template.png)
+10. Когда новая виртуальная машина запущена, подключитесь к ней с помощью удаленного рабочего стола. Используйте при этом новый пароль, указанный в сценарии `FixAzureVM.cmd`.
+11. В режиме удаленного сеанса на новой виртуальной машине удалите следующие файлы, чтобы очистить среду:
     
-    * From %windir%\System32
-      * remove FixAzureVM.cmd
-    * From %windir%\System32\GroupPolicy\Machine\
-      * remove scripts.ini
-    * From %windir%\System32\GroupPolicy
-      * remove gpt.ini (if gpt.ini existed before, and you renamed it to gpt.ini.bak, rename the .bak file back to gpt.ini)
+    * Из расположения %windir%\System32
+      * удалите файл FixAzureVM.cmd.
+    * Из расположения %windir%\System32\GroupPolicy\Machine\
+      * удалите файл scripts.ini.
+    * Из расположения %windir%\System32\GroupPolicy
+      * удалите файл gpt.ini (если файл gpt.ini уже существовал и был переименован в gpt.ini.bak, то переименуйте BAK-файл обратно в gpt.ini).
 
-## <a name="next-steps"></a>Next steps
-If you still cannot connect using Remote Desktop, see the [RDP troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md). The [detailed RDP troubleshooting guide](virtual-machines-windows-detailed-troubleshoot-rdp.md) looks at troubleshooting methods rather than specific steps. You can also [open an Azure support request](https://azure.microsoft.com/support/options/) for hands-on assistance.
+## <a name="next-steps"></a>Дальнейшие действия
+Если все еще не удается подключиться с помощью удаленного рабочего стола, то см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). [Подробное руководство по устранению неполадок с подключением к удаленному рабочему столу на виртуальной машине Windows в Azure](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) скорее посвящено методам устранения неполадок, чем конкретным действиям. Вы также можете [отправить запрос в службу поддержки Azure](https://azure.microsoft.com/support/options/) и получить практическую помощь.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

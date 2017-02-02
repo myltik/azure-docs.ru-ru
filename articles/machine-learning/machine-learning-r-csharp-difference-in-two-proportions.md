@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/04/2017
 ms.author: aniedea
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b45b4689e6254afd603d434dc0b21dad90addd95
 
 
 ---
@@ -85,7 +85,7 @@ ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
 > 
 > 
 
-В системе машинного обучения Azure был создан пустой эксперимент с двумя модулями [Выполнение скрипта R][execute-r-script]. В первом из них определяется схема данных, а второй использует команду prop.test языка R для проверки гипотезы в отношении двух долей. 
+В системе машинного обучения Azure был создан пустой эксперимент с двумя модулями [Выполнить сценарий R][execute-r-script]. В первом из них определяется схема данных, а второй использует команду prop.test языка R для проверки гипотезы в отношении двух долей. 
 
 ### <a name="experiment-flow"></a>Ход эксперимента:
 ![Ход эксперимента][2]
@@ -129,6 +129,6 @@ ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

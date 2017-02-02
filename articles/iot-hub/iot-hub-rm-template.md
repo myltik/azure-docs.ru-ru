@@ -1,6 +1,6 @@
 ---
-title: "Создание Центра Интернета вещей с помощью программы C# и шаблона Azure Resource Manager | Документация Майкрософт"
-description: "Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов Azure Resource Manager и создать Центр Интернета вещей с помощью программы C#."
+title: "Создание Центра Интернета вещей Azure с помощью шаблона (.NET) | Документация Майкрософт"
+description: "Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager и программы C#."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
+ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
+ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 
 
 ---
-# <a name="create-an-iot-hub-using-a-c-program-with-an-azure-resource-manager-template"></a>Создание Центра Интернета вещей с помощью программы C# и шаблона Azure Resource Manager
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
@@ -36,7 +36,7 @@ ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
 * Microsoft Visual Studio 2015.
 * Активная учетная запись Azure. <br/>Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 * [Учетная запись хранения Azure][lnk-storage-account], в которой можно хранить файлы шаблона Azure Resource Manager.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
+* [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -206,7 +206,7 @@ ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
@@ -218,6 +218,6 @@ ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

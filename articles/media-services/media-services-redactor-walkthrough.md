@@ -1,5 +1,5 @@
 ---
-title: "Пошаговое руководство по скрытию лиц | Документация Майкрософт"
+title: "Пошаговое руководство скрытия лиц с помощью аналитики мультимедиа Azure | Документация Майкрософт"
 description: "В этом разделе приведены пошаговые инструкции по выполнению полного рабочего процесса скрытия с помощью Azure Media Services Explorer (AMSE) и Azure Media Redactor Visualizer (инструмент с открытым кодом)."
 services: media-services
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/30/2016
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: d693bc0de2f8a03d67b346f3b2d4693284ae4d71
-ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
+ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
+ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 
 ---
-# <a name="face-redaction-walkthrough"></a>Пошаговое руководство по скрытию лиц
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Пошаговое руководство скрытия лиц с помощью аналитики мультимедиа Azure
 
 ## <a name="overview"></a>Обзор
 
@@ -67,7 +67,7 @@ ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
 
     ![Скрытие лиц](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Необязательно.) Передайте файл idlist.txt, который содержит разделенный символами новой строки список идентификаторов, который нужно скрыть. 
+2. (Необязательно.) Передайте файл Dance_idlist.txt, содержащий разделенный символами новой строки список идентификаторов, который нужно скрыть. 
 
     ![Скрытие лиц](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
@@ -132,6 +132,6 @@ ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

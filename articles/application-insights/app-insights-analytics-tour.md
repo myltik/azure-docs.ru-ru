@@ -1,18 +1,22 @@
 ---
-title: Обзор аналитики в Application Insights | Microsoft Docs
-description: Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights.
+title: "Обзор аналитики в Azure Application Insights | Документация Майкрософт"
+description: "Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
-manager: douge
-
+manager: carmonm
+ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/23/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
+ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
+
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Знакомство с аналитикой в Application Insights
@@ -20,6 +24,7 @@ ms.author: awills
 
 * **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
+* **[Памятка для пользователей SQL](https://aka.ms/sql-analytics)** содержит сопоставление наиболее распространенных идиом.
 
 Давайте рассмотрим некоторые основные запросы, которые помогут вам начать работу с системой.
 
@@ -28,7 +33,7 @@ ms.author: awills
 
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-tour/001.png)
 
-## <a name="[take](app-insights-analytics-reference.md#take-operator):-show-me-n-rows"></a>Оператор [take](app-insights-analytics-reference.md#take-operator): отображение n строк
+## <a name="takeapp-insights-analytics-referencemdtake-operator-show-me-n-rows"></a>Оператор [take](app-insights-analytics-reference.md#take-operator): отображение n строк
 Точки данных, регистрирующие операции пользователя (обычно HTTP-запросы, полученные веб-приложением), хранятся в таблице `requests`. Каждая строка представляет точку данных телеметрии, полученную из пакета SDK Application Insights в приложении.
 
 Начнем с изучения нескольких образцов строк таблицы:
@@ -37,10 +42,10 @@ ms.author: awills
 
 > [!NOTE]
 > Поместите курсор в любой части инструкции, а затем нажмите кнопку "Выполнить". Инструкцию можно разделить на несколько строк, но она не должна содержать пустых строк. Пустыми строками удобно разделить несколько запросов в одном окне.
-> 
-> 
+>
+>
 
-Выберите столбцы и измените их положение:
+Выберите нужные столбцы, перетащите их, чтобы cгруппировать, и примените фильтр:
 
 ![Выберите столбец в правом верхнем углу результатов.](./media/app-insights-analytics-tour/030.png)
 
@@ -49,18 +54,18 @@ ms.author: awills
 ![Выберите "Таблица", а затем "Настроить столбцы".](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Чтобы изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Не забывайте, что такая сортировка не всегда показывает фактические наибольшие или наименьшие элементы. Для этого следует использовать оператор `top` или `sort`. 
-> 
-> 
+> Чтобы изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Сортировка таким способом не всегда показывает фактические наибольшие или наименьшие элементы. Чтобы безошибочно отсортировать элементы, используйте операторы `top` или `sort`.
+>
+>
 
-## <a name="[top](app-insights-analytics-reference.md#top-operator)-and-[sort](app-insights-analytics-reference.md#sort-operator)"></a>Операторы [top](app-insights-analytics-reference.md#top-operator) и [sort](app-insights-analytics-reference.md#sort-operator)
+## <a name="topapp-insights-analytics-referencemdtop-operator-and-sortapp-insights-analytics-referencemdsort-operator"></a>Операторы [top](app-insights-analytics-reference.md#top-operator) и [sort](app-insights-analytics-reference.md#sort-operator)
 `take` позволяет получить быструю выборку из результата, но отображает строки из таблицы в произвольном порядке. Чтобы упорядочить строки, используйте `top` (для выборки) или `sort` (для всей таблицы).
 
 Показать первые n строк, упорядоченных по одному из столбцов:
 
 ```AIQL
 
-    requests | top 10 by timestamp desc 
+    requests | top 10 by timestamp desc
 ```
 
 * *Синтаксис*. У большинства операторов есть параметры в виде ключевых слов, такие как `by`.
@@ -79,7 +84,84 @@ ms.author: awills
 
 Заголовки столбцов в табличном представлении также можно использовать для сортировки результатов на экране. Но, разумеется, если вы использовали `take` или `top` для получения только части таблицы, отсортировать можно только полученные записи.
 
-## <a name="[project](app-insights-analytics-reference.md#project-operator):-select,-rename-and-compute-columns"></a>Оператор [Project](app-insights-analytics-reference.md#project-operator): выбор, переименование и вычисление столбцов
+## <a name="whereapp-insights-analytics-referencemdwhere-operator-filtering-on-a-condition"></a>Оператор [where](app-insights-analytics-reference.md#where-operator): фильтрация по условию
+
+Давайте отобразим только запросы, вернувшие конкретный код результата.
+
+```AIQL
+
+    requests
+    | where resultCode  == "404" 
+    | take 10
+```
+
+![](./media/app-insights-analytics-tour/250.png)
+
+Оператор `where` принимает логическое выражение. Ниже приведены некоторые ключевые моменты:
+
+* `and`, `or`: логические операторы;
+* `==`, `<>`: равно и не равно;
+* `=~`, `!=`: равенство и неравенство строк без учета регистра. Существует множество других операторов сравнения строк.
+
+Ознакомьтесь со всей информацией о [скалярных выражениях](app-insights-analytics-reference.md#scalars).
+
+### <a name="getting-the-right-type"></a>Получение правильного типа
+Поиск неудачных запросов:
+
+```AIQL
+
+    requests
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
+```
+
+`responseCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-reference.md#casts) для числового сравнения.
+
+## <a name="time-range"></a>Диапазон времени
+
+По умолчанию отображаются запросы только за последние 24 часа. Этот интервал можно изменить.
+
+![](./media/app-insights-analytics-tour/change-time-range.png)
+
+Для этого в предложении where в запросе следует указать `timestamp`. Например:
+
+```AIQL
+
+    // What were the slowest requests over the past 3 days?
+    requests
+    | where timestamp > ago(3d)  // Override the time range 
+    | top 5 by duration
+```
+
+Функция диапазона времени эквивалентна предложению where, добавленному после каждого упоминания какой-либо из исходных таблиц. 
+
+`ago(3d)` означает "три дня назад". Другие единицы времени включают в себя часы (`2h`, `2.5h`), минуты (`25m`) и секунды (`10s`). 
+
+Другие примеры.
+
+```AIQL
+
+    // Last calendar week:
+    requests 
+    | where timestamp > startofweek(now()-7d) 
+        and timestamp < startofweek(now()) 
+    | top 5 by duration
+
+    // First hour of every day in past seven days:
+    requests 
+    | where timestamp > ago(7d) and timestamp % 1d < 1h
+    | top 5 by duration
+
+    // Specific dates:
+    requests
+    | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
+    | top 5 by duration
+
+```
+
+[Справочник по значениям даты и времени](app-insights-analytics-reference.md#date-and-time).
+
+
+## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>Оператор [Project](app-insights-analytics-reference.md#project-operator): выбор, переименование и вычисление столбцов
 С помощью оператора [`project`](app-insights-analytics-reference.md#project-operator) можно выбрать только нужные столбцы.
 
 ```AIQL
@@ -94,38 +176,50 @@ ms.author: awills
 
 ```AIQL
 
-    requests 
-      | top 10 by timestamp desc 
-      | project  
-            name, 
+    requests
+    | top 10 by timestamp desc
+    | project  
+            name,
             response = resultCode,
-            timestamp, 
+            timestamp,
             ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * [Имена столбцов](app-insights-analytics-reference.md#names) могут содержать пробелы или символы, если будут заключены в квадратные скобки: `['...']` или `["..."]`.
-* `%` — обычный оператор остатка от деления. 
+* `%` — обычный оператор остатка от деления.
 * `1d` (т. е. цифра 1, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (псевдоним `bin`) округляет значение до ближайшего числа, кратного указанному базовому значению. Например, `floor(aTime, 1s)` округляет время до ближайшей секунды.
 
 [Выражения](app-insights-analytics-reference.md#scalars) могут включать в себя все обычные операторы (`+`, `-` и т. д.) и ряд полезных функций.
 
-## <a name="[extend](app-insights-analytics-reference.md#extend-operator):-compute-columns"></a>Оператор [Extend](app-insights-analytics-reference.md#extend-operator): вычисление столбцов
+## <a name="extendapp-insights-analytics-referencemdextend-operator-compute-columns"></a>Оператор [Extend](app-insights-analytics-reference.md#extend-operator): вычисление столбцов
 Для добавления новых столбцов к существующим можно использовать оператор [`extend`](app-insights-analytics-reference.md#extend-operator).
 
 ```AIQL
 
-    requests 
-      | top 10 by timestamp desc
-      | extend timeOfDay = floor(timestamp % 1d, 1s)
+    requests
+    | top 10 by timestamp desc
+    | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
 Если вы хотите сохранить все существующие столбцы, можете воспользоваться [`extend`](app-insights-analytics-reference.md#extend-operator). Это менее подробный вариант, чем [`project`](app-insights-analytics-reference.md#project-operator).
 
-## <a name="[summarize](app-insights-analytics-reference.md#summarize-operator):-aggregate-groups-of-rows"></a>Оператор [Summarize](app-insights-analytics-reference.md#summarize-operator): агрегирование групп строк
-`Summarize` применяет указанную *функцию агрегирования* для групп строк. 
+### <a name="convert-to-local-time"></a>Преобразование в местное время
+
+Метки времени всегда указываются в формате UTC. Поэтому, если вы находитесь на тихоокеанском побережье США зимой, то запрос может быть следующим:
+
+```AIQL
+
+    requests 
+    | top 10 by timestamp desc
+    | extend localTime = timestamp - 8h
+```
+
+
+## <a name="summarizeapp-insights-analytics-referencemdsummarize-operator-aggregate-groups-of-rows"></a>Оператор [Summarize](app-insights-analytics-reference.md#summarize-operator): агрегирование групп строк
+`Summarize` применяет указанную *функцию агрегирования* для групп строк.
 
 Например, время, требуемое веб-приложению для ответа на запрос, указано в поле `duration`. Давайте рассмотрим среднее время ответа для всех запросов:
 
@@ -135,7 +229,7 @@ ms.author: awills
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-Оператор `Summarize` собирает точки данных в потоке в группы, для которых предложение `by` вычисляется одинаково. Каждое значение в выражении `by` , то есть каждое имя операции в приведенном выше примере, соответствует строке в таблице результатов. 
+Оператор `Summarize` собирает точки данных в потоке в группы, для которых предложение `by` вычисляется одинаково. Каждое значение в выражении `by` , то есть каждое имя операции в приведенном выше примере, соответствует строке в таблице результатов.
 
 Или можно сгруппировать результаты по времени дня:
 
@@ -150,9 +244,9 @@ ms.author: awills
 Обратите внимание, что с помощью `name=` можно задать имя столбца результатов в агрегатных выражениях или предложении By.
 
 ## <a name="counting-sampled-data"></a>Подсчет данных выборки
-`sum(itemCount)` . Во многих случаях itemCount==1, поэтому функция просто подсчитывает количество строк в группе. Но если выполняется [выборка](app-insights-sampling.md), то лишь часть исходных событий сохраняется в виде точек данных в Application Insights, поэтому для каждой отображаемой точки данных существуют события `itemCount`. 
+`sum(itemCount)` . Во многих случаях itemCount==1, поэтому функция просто подсчитывает количество строк в группе. Но если выполняется [выборка](app-insights-sampling.md), то лишь часть исходных событий сохраняется в виде точек данных в Application Insights, поэтому для каждой отображаемой точки данных существуют события `itemCount`.
 
-Например, если выборка отбрасывает 75 % исходных событий, то в сохраняемых записях itemCount==4. Это значит, что для каждой сохраняемой записи было четыре исходные записи. 
+Например, если выборка отбрасывает 75 % исходных событий, то в сохраняемых записях itemCount==4. Это значит, что для каждой сохраняемой записи было четыре исходные записи.
 
 В результате адаптивной выборки itemCount увеличивается в периоды, когда приложение интенсивно используется.
 
@@ -167,9 +261,9 @@ ms.author: awills
 ## <a name="charting-the-results"></a>Отображение результатов
 ```AIQL
 
-    exceptions 
-       | summarize count()  
-         by bin(timestamp, 1d)
+    exceptions
+       | summarize count=sum(itemCount)  
+         by bin(timestamp, 1h)
 ```
 
 По умолчанию результаты отображаются в виде таблицы:
@@ -182,81 +276,65 @@ ms.author: awills
 
 Обратите внимание, что хотя мы не сортировали результаты по времени (как видно в окне таблицы), дата и время на диаграмме всегда отображаются в правильном порядке.
 
-## <a name="[where](app-insights-analytics-reference.md#where-operator):-filtering-on-a-condition"></a>Оператор [where](app-insights-analytics-reference.md#where-operator): фильтрация по условию
-Если вы настроили мониторинг Application Insights для [клиентской](app-insights-javascript.md) и серверной сторон приложения, некоторые данные телеметрии в базу данных поступают из браузеров.
-
-Давайте посмотрим только на исключения, отправленные из браузеров:
-
-```AIQL
-
-    exceptions 
-      | where device_Id == "browser" 
-      |  summarize count() 
-       by device_BrowserVersion, outerExceptionMessage 
-```
-
-![](./media/app-insights-analytics-tour/250.png)
-
-Оператор `where` принимает логическое выражение. Ниже приведены некоторые ключевые моменты:
-
-* `and`, `or`: логические операторы;
-* `==`, `<>`: равно и не равно;
-* `=~`, `!=`: равенство и неравенство строк без учета регистра. Существует множество других операторов сравнения строк.
-
-Ознакомьтесь со всей информацией о [скалярных выражениях](app-insights-analytics-reference.md#scalars).
-
-### <a name="filtering-events"></a>Фильтрация событий
-Поиск неудачных запросов:
-
-```AIQL
-
-    requests 
-      | where isnotempty(resultCode) and toint(resultCode) >= 400
-```
-
-`responseCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-reference.md#casts) для числового сравнения.
-
-Суммирование различных ответов:
-
-```AIQL
-
-    requests
-      | where isnotempty(resultCode) and toint(resultCode) >= 400
-      | summarize count() 
-      by resultCode
-```
 
 ## <a name="timecharts"></a>Временные диаграммы
-Показать количество событий, возникающих каждый день:
+Отображение количества событий, возникающих каждый час:
 
 ```AIQL
 
     requests
-      | summarize event_count=count()
-        by bin(timestamp, 1d)
+      | summarize event_count=sum(itemCount)
+        by bin(timestamp, 1h)
 ```
 
 Выберите вариант отображения диаграммы:
 
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
-Ось x для линейчатых диаграмм должна иметь тип DateTime. 
-
 ## <a name="multiple-series"></a>Множественные серии
-Используйте несколько значений в предложении `summarize by` , чтобы создать отдельную строку для каждого сочетания значений.
+Из нескольких выражений в `summarize` создается несколько столбцов.
+
+Из нескольких выражений в предложении `by` создаются несколько строк, по одной для каждого сочетания значений.
 
 ```AIQL
 
-    requests 
-      | summarize event_count=count()   
-        by bin(timestamp, 1d), client_StateOrProvince
+    requests
+    | summarize count_=sum(itemCount), avg(duration)
+      by bin(timestamp, 1h), client_StateOrProvince, client_City
+    | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
-![](./media/app-insights-analytics-tour/090.png)
+![Запросы к таблицам по часу и расположению](./media/app-insights-analytics-tour/090.png)
 
-Чтобы просмотреть несколько строк на диаграмме, щелкните **Split by** (Разбить по) и выберите столбец.
+### <a name="segment-a-chart-by-dimensions"></a>Разделение диаграммы по показателям
+При представлении на диаграмме данных таблицы, в которой есть столбцы строкового и числового типа, строки можно использовать для разделения числовых данных на отдельные ряды точек. Если есть несколько столбцов строкового типа, можно выбрать один из этих столбцов для использования в качестве дискриминатора.
 
-![](./media/app-insights-analytics-tour/100.png)
+![Разделение диаграммы аналитики](./media/app-insights-analytics-tour/100.png)
+
+#### <a name="bounce-rate"></a>Частота возвращения
+
+Преобразуйте логическое значение в строку для использования в качестве дискриминатора.
+
+```AIQL
+
+    // Bounce rate: sessions with only one page view
+    requests 
+    | where notempty(session_Id) 
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
+               by session_Id 
+    | extend isbounce= pagesInSession == 1 
+    | summarize count() 
+               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | render timechart
+```
+
+### <a name="display-multiple-metrics"></a>Отображение нескольких метрик
+При представлении на диаграмме данных таблицы, содержащей несколько столбцов числового типа, помимо метки времени можно отобразить любое сочетание метрик.
+
+![Разделение диаграммы аналитики](./media/app-insights-analytics-tour/110.png)
+
+Чтобы выбрать несколько столбцов числового типа, щелкните **Don't Split** (Не разделять). Если отображаются несколько столбцов числового типа, невозможно разделить данные по столбцу строкового типа.
 
 ## <a name="daily-average-cycle"></a>Ежедневный средний цикл
 Как изменяется использование в течение среднего дня?
@@ -265,70 +343,75 @@ ms.author: awills
 
 ```AIQL
 
-    requests
-      | extend hour = floor(timestamp % 1d , 1h) 
-          + datetime("2016-01-01")
-      | summarize event_count=count() by hour
+    requests 
+    | where timestamp > ago(30d)  // Override "Last 24h"
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | extend hour = bin(timestamp % 1d , 1h)
+          + datetime("2016-01-01") // Allow render on line chart
+    | summarize event_count=sum(itemCount) by hour
 ```
 
 ![Линейчатая диаграмма часов для среднего дня](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> Обратите внимание, что в настоящее время необходимо преобразовать интервалы времени в datetime для отображения на диаграмме.
-> 
-> 
+> Обратите внимание, что в настоящее время необходимо преобразовать интервалы времени в значения datetime для отображения на графике.
+>
+>
 
 ## <a name="compare-multiple-daily-series"></a>Сравнение серий для нескольких дней
-Как использование изменяется в течение дня в различных состояниях?
+Как изменяется использование в течение дня в разных странах?
 
 ```AIQL
-    requests
+
+     requests  
+     | where timestamp > ago(30d)  // Override "Last 24h"
+     | where tostring(operation_SyntheticSource) == "" // real users
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
-     | summarize event_count=count() 
-       by hour, client_StateOrProvince
+     | summarize event_count=sum(itemCount)
+       by hour, client_CountryOrRegion
+     | render timechart
 ```
 
-Разбиение диаграммы по состояниям:
-
-![Разбиение по client_StateOrProvince](./media/app-insights-analytics-tour/130.png)
+![Разделение по client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
 
 ## <a name="plot-a-distribution"></a>Построение графика распределения
 Какое количество сеансов различной длительности существует?
 
 ```AIQL
 
-    requests 
-      | where isnotnull(session_Id) and isnotempty(session_Id) 
-      | summarize min(timestamp), max(timestamp) 
-      by session_Id 
-      | extend sessionDuration = max_timestamp - min_timestamp 
-      | where sessionDuration > 1s and sessionDuration < 3m 
-      | summarize count() by floor(sessionDuration, 3s) 
-      | project d = sessionDuration + datetime("2016-01-01"), count_
+    requests
+    | where timestamp > ago(30d) // override "Last 24h"
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
+      by session_Id
+    | extend sessionDuration = max_timestamp - min_timestamp
+    | where sessionDuration > 1s and sessionDuration < 3m
+    | summarize count() by floor(sessionDuration, 3s)
+    | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-Последняя строка необходима для преобразования в datetime — в настоящее время ось x графика может быть только в формате datetime.
+Последняя строка необходима для преобразования в данные даты и времени. В настоящее время ось x графика отображается в виде скаляра, только если на ней представлены данные даты и времени.
 
 Предложение `where` исключает одноразовые сеансы (sessionDuration==0) и задает длину оси x.
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="[percentiles](app-insights-analytics-reference.md#percentiles)"></a>[Процентили](app-insights-analytics-reference.md#percentiles)
+## <a name="percentilesapp-insights-analytics-referencemdpercentiles"></a>[Процентили](app-insights-analytics-reference.md#percentiles)
 Какие диапазоны длительности покрывают различные процентные доли сеансов?
 
 Используйте приведенный выше запрос, но вместо последней строки укажите следующую:
 
 ```AIQL
 
-    requests 
-      | where isnotnull(session_Id) and isnotempty(session_Id) 
-      | summarize min(timestamp), max(timestamp) 
-      by session_Id 
-      | extend sesh = max_timestamp - min_timestamp 
-      | where sesh > 1s
-      | summarize count() by floor(sesh, 3s) 
-      | summarize percentiles(sesh, 5, 20, 50, 80, 95)
+    requests
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
+      by session_Id
+    | extend sesh = max_timestamp - min_timestamp
+    | where sesh > 1s
+    | summarize count() by floor(sesh, 3s)
+    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
 Мы также удалили верхний предел в предложении where, чтобы получить правильные данные, включая все сеансы с несколькими запросами:
@@ -337,60 +420,75 @@ ms.author: awills
 
 Из полученных результатов мы видим следующее:
 
-* 5 % сеансов имеют продолжительность менее 3 минут 34 секунд; 
+* 5 % сеансов имеют продолжительность менее 3 минут 34 секунд;
 * 50 % сеансов имеют продолжительность менее 36 минут;
-* 5 % сеансов имеют продолжительность более 7 дней.
+* 5 % сеансов имеют продолжительность более 7 дней.
 
 Для получения отдельных результатов для каждой страны нужно просто отделить столбец client_CountryOrRegion с помощью обоих операторов суммирования:
 
 ```AIQL
 
-    requests 
-      | where isnotnull(session_Id) and isnotempty(session_Id) 
-      | summarize min(timestamp), max(timestamp) 
+    requests
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
       by session_Id, client_CountryOrRegion
-      | extend sesh = max_timestamp - min_timestamp 
-      | where sesh > 1s
-      | summarize count() by floor(sesh, 3s), client_CountryOrRegion
-      | summarize percentiles(sesh, 5, 20, 50, 80, 95)
+    | extend sesh = max_timestamp - min_timestamp
+    | where sesh > 1s
+    | summarize count() by floor(sesh, 3s), client_CountryOrRegion
+    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
       by client_CountryOrRegion
 ```
 
 ![](./media/app-insights-analytics-tour/190.png)
 
-## <a name="[join](app-insights-analytics-reference.md#join)"></a>[Join](app-insights-analytics-reference.md#join)
+## <a name="join"></a>Объединение
 Имеется доступ к нескольким таблицам, включая запросы и исключения.
 
 Чтобы найти исключения, связанные с запросом, который завершился неудачно, можно соединить таблицы по `session_Id`.
 
 ```AIQL
 
-    requests 
-      | where toint(responseCode) >= 500 
-      | join (exceptions) on operation_Id 
-      | take 30
+    requests
+    | where toint(responseCode) >= 500
+    | join (exceptions) on operation_Id
+    | take 30
 ```
 
 
 Рекомендуется использовать `project` только для выбора необходимых столбцов перед выполнением соединения.
 В тех же предложениях мы переименуем столбец timestamp.
 
-## <a name="[let](app-insights-analytics-reference.md#let-clause):-assign-a-result-to-a-variable"></a>Оператор [let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
-С помощью оператора [let](app-insights-analytics-reference.md#let-statements) можно разделить части предыдущего выражения. Результаты не изменились:
+## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>Оператор [let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
+С помощью оператора `let` можно разделить части предыдущего выражения. Результаты не изменились:
 
 ```AIQL
 
-    let bad_requests = 
+    let bad_requests =
       requests
         | where  toint(resultCode) >= 500  ;
     bad_requests
-      | join (exceptions) on session_Id 
-      | take 30
+    | join (exceptions) on session_Id
+    | take 30
 ```
 
 > Совет. Не добавляйте пустые строки между частями выражения в клиенте аналитики. Обязательно выполните все части.
-> 
-> 
+>
+>
+
+### <a name="functions"></a>Функции 
+
+Используйте *Let* для определения функции.
+
+```AIQL
+
+    let usdate = (t:datetime) 
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests  
+    | extend PST = usdate(timestamp-8h) 
+```
 
 ## <a name="accessing-nested-objects"></a>Доступ к вложенным объектам
 Доступ к вложенным объектам осуществляется легко. Например, в потоке исключений структурированные объекты выглядят следующим образом:
@@ -402,10 +500,11 @@ ms.author: awills
 ```AIQL
 
     exceptions | take 10
-      | extend method1 = tostring(details[0].parsedStack[1].method)
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
 Обратите внимание, что необходимо использовать [приведение](app-insights-analytics-reference.md#casts) к соответствующему типу.
+
 
 ## <a name="custom-properties-and-measurements"></a>Пользовательские свойства и измерения
 Если ваше приложение прикрепляет к событиям [пользовательские измерения (свойства) или пользовательские показатели](app-insights-api-custom-events-metrics.md#properties), они будут отображаться в объектах `customDimensions` и `customMeasurements`.
@@ -414,7 +513,7 @@ ms.author: awills
 
 ```C#
 
-    var dimensions = new Dictionary<string, string> 
+    var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
@@ -426,10 +525,47 @@ ms.author: awills
 ```AIQL
 
     customEvents
-      | extend p1 = customDimensions.p1, 
+    | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
 
-``` 
+```
+
+Чтобы проверить, относится ли пользовательское измерение к определенному типу:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1,
+      iff(notnull(todouble(customMeasurements.m1)), ...
+```
+
+## <a name="dashboards"></a>Панели мониторинга
+Результаты можно закрепить на панели мониторинга, чтобы все важные диаграммы и таблицы были под рукой.
+
+* [Панель мониторинга Azure в общем доступе](app-insights-dashboards.md#share-dashboards). Щелкните значок булавки. Для этого необходимо иметь панель мониторинга, открытую для совместного использования. На портале Azure откройте или создайте панель мониторинга, а затем щелкните "Общий доступ".
+* [Панель мониторинга Power BI](app-insights-export-power-bi.md). Щелкните "Экспорт" > "Запрос Power BI". Преимущество этого способа состоит в том, что можно отобразить запрос вместе с другими результатами из множества источников.
+
+## <a name="combine-with-imported-data"></a>Объединение с импортированными данными
+
+Аналитические отчеты отлично выглядят на панели мониторинга, но иногда необходимо преобразовать данные в более удобную форму. Например предположим, что аутентифицированные пользователи идентифицируются в данных телеметрии по псевдониму. А вы хотите показать в результатах их настоящие имена. В этом случае вам необходим CSV-файл для сопоставления настоящих имен и псевдонимов. 
+
+Можно импортировать файл данных и использовать его как стандартную таблицу (включая запросы, исключения и т. д.). Можно выполнять запросы к такой таблице отдельно либо соединить ее с другими таблицами. Например, если у вас есть таблица usermap и она содержит столбцы `realName` и `userId`, то с ее помощью можно преобразовать поле `user_AuthenticatedId` в телеметрии запросов.
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) 
+    | project userId = user_AuthenticatedId
+      // get the realName field from the usermap table:
+    | join kind=leftouter ( usermap ) on userId 
+      // count transactions by name:
+    | summarize count() by realName
+```
+
+Для импорта таблицы в колонке "Схема" следуйте инструкциям в разделе **Другие источники данных**, чтобы добавить новый источник данных, передав образец данных. Затем это определение можно использовать для передачи таблиц. 
+
+В настоящее время доступна предварительная версия функции импорта, поэтому в разделе "Другие источники данных" сначала будет отображаться ссылка "Свяжитесь с нами". Используйте ее для регистрации в программе по ознакомлению с предварительной версией, и позже на месте ссылки появится кнопка "Добавить новый источник данных". 
+
 
 ## <a name="tables"></a>Таблицы
 Поток данных телеметрии, полученных из приложения, доступен в нескольких таблицах. Схема свойств, доступных для каждой таблицы, отображается в левой части окна.
@@ -444,13 +580,13 @@ ms.author: awills
 ![Число запросов, сегментированных по имени](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Таблица настраиваемых событий
-Если вы используете [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) для отправки своих собственных событий, то их можно считать из этой таблицы. 
+Если вы используете [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) для отправки своих собственных событий, то их можно считать из этой таблицы.
 
 Рассмотрим пример, в котором код вашего приложения содержит следующие строки.
 
 ```C#
 
-    telemetry.TrackEvent("Query", 
+    telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
        new Dictionary<string,double> {
            {"retry", retryCount},
@@ -472,26 +608,26 @@ ms.author: awills
 
 > [!NOTE]
 > В [обозревателе метрик](app-insights-metrics-explorer.md) все пользовательские показатели, прикрепленные к любому типу телеметрии, отображаются в колонке метрик вместе с метриками, отправленными с помощью `TrackMetric()`. Однако в аналитике пользовательские показатели по-прежнему прикреплены к типу телеметрии, в котором они были выполнены (события, запросы и т. п.), а метрики, отправляемые TrackMetric, отображаются в своем собственном потоке.
-> 
-> 
+>
+>
 
 ### <a name="performance-counters-table"></a>Таблица счетчиков производительности
-[Счетчики производительности](app-insights-web-monitor-performance.md#system-performance-counters) показывают базовые системные метрики для вашего приложения, такие как использование ресурсов ЦП, памяти и сети. Можно настроить пакет SDK для отправки дополнительных счетчиков, включая собственные пользовательские счетчики.
+[Счетчики производительности](app-insights-performance-counters.md) показывают базовые системные метрики для вашего приложения, такие как использование ресурсов ЦП, памяти и сети. Можно настроить пакет SDK для отправки дополнительных счетчиков, включая собственные пользовательские счетчики.
 
-Схема **PerformanceCounters** предоставляет `category`, имя `counter` и имя `instance` каждого счетчика производительности. Имена экземпляров счетчиков применимы только к некоторым счетчикам производительности и обычно указывают имя процесса, к которому относится счетчик. В данных телеметрии для каждого приложения вы увидите только счетчики для этого приложения. Например, вот как можно увидеть, какие счетчики доступны. 
+Схема **PerformanceCounters** предоставляет `category`, имя `counter` и имя `instance` каждого счетчика производительности. Имена экземпляров счетчиков применимы только к некоторым счетчикам производительности и обычно указывают имя процесса, к которому относится счетчик. В данных телеметрии для каждого приложения вы увидите только счетчики для этого приложения. Например, вот как можно увидеть, какие счетчики доступны.
 
 ![Счетчики производительности в аналитике Application Insights](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-Вот как можно получить диаграмму доступной памяти за последний период. 
+Вот как можно получить диаграмму доступной памяти за выбранный период.
 
 ![Временная диаграмма памяти в аналитике Application Insights](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
-Как и другие данные телеметрии, данные **performanceCounters** также содержат столбец `cloud_RoleInstance`, указывающий удостоверение хост-компьютера, на котором выполняется приложение. Например, вот как можно сравнить производительность приложения на разных компьютерах. 
+Как и другие данные телеметрии, данные **performanceCounters** также содержат столбец `cloud_RoleInstance`, указывающий удостоверение хост-компьютера, на котором выполняется приложение. Например, вот как можно сравнить производительность приложения на разных компьютерах.
 
 ![Производительность, сегментированная по экземпляру роли в аналитике Application Insights](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
 
 ### <a name="exceptions-table"></a>Таблица исключений
-В этой таблице доступны [исключения, выданные вашим приложением](app-insights-asp-net-exceptions.md). 
+В этой таблице доступны [исключения, выданные вашим приложением](app-insights-asp-net-exceptions.md).
 
 Чтобы найти HTTP-запрос, обрабатываемый приложением при порождении исключения, выполните соединение по operation_Id.
 
@@ -500,7 +636,7 @@ ms.author: awills
 ### <a name="browser-timings-table"></a>Таблица временных параметров браузера
 `browserTimings` показывает данные о загрузке страниц, собранных в браузерах пользователей.
 
-Для просмотра этих метрик [настройте приложение для использования телеметрии на стороне клиента](app-insights-javascript.md). 
+Для просмотра этих метрик [настройте приложение для использования телеметрии на стороне клиента](app-insights-javascript.md).
 
 Схема включает в себя [метрики, указывающее длительность различных этапов загрузки страниц](app-insights-javascript.md#page-load-performance). (Они не указывает продолжительность чтения страниц пользователями.)  
 
@@ -508,22 +644,45 @@ ms.author: awills
 
 ![Время загрузки страниц в аналитике](./media/app-insights-analytics-tour/analytics-page-load.png)
 
-### <a name="availbility-results-table"></a>Таблица результатов доступности
-`availabilityResults` показывает результаты ваших [веб-тестов](app-insights-monitor-web-app-availability.md). Каждое выполнение тестов в каком-либо расположении тестирования регистрируется отдельно. 
+### <a name="availability-results-table"></a>Таблица результатов тестов доступности
+`availabilityResults` показывает результаты ваших [веб-тестов](app-insights-monitor-web-app-availability.md). Каждое выполнение тестов в каком-либо расположении тестирования регистрируется отдельно.
 
 ![Время загрузки страниц в аналитике](./media/app-insights-analytics-tour/analytics-availability.png)
 
 ### <a name="dependencies-table"></a>Таблица зависимостей
-Содержит результаты вызовов вашего приложения, отправляемых к базам данных и интерфейсам REST API, а также других вызовов TrackDependency().
+Содержит результаты вызовов вашего приложения, отправляемых к базам данных и интерфейсам REST API, а также других вызовов TrackDependency(). Кроме того, содержит вызовы AJAX, выполненные из браузера.
+
+Вызовы AJAX из браузера:
+
+```AIQL
+    
+    dependencies | where client_Type == "Browser" 
+    | take 10
+```
+
+Вызовы зависимостей от сервера:
+
+```AIQL
+    
+    dependencies | where client_Type == "PC" 
+    | take 10
+```
+
+Для результатов зависимостей на стороне сервера всегда отображается `success==False`, если не установлен агент Application Insights. Тем не менее прочие данные правильны.
 
 ### <a name="traces-table"></a>Таблица трассировок
 Содержит данные телеметрии, отправленные приложением с помощью TrackTrace() или [других платформ ведения журнала](app-insights-asp-net-trace-logs.md).
 
-## <a name="try-it!"></a>Тестирование
-* **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
+
+
+## <a name="next-steps"></a>Дальнейшие действия
+* [Справочные материалы по аналитике](app-insights-analytics-reference.md)
+* [Памятка для пользователей SQL](https://aka.ms/sql-analytics) содержит сопоставление наиболее распространенных идиом.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

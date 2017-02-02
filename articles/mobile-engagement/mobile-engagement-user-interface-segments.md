@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: 84d1e7d704b6142005217625cfe505f382b4d938
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b4f1df6f46b7b8349fcea649ebcdf34fc363491d
 
 
 ---
@@ -108,8 +108,8 @@ ms.openlocfilehash: 84d1e7d704b6142005217625cfe505f382b4d938
 В этом примере 47,7 % общего количества пользователей соответствует критерию. Это должны быть пользователи, которые получили очень хорошие результаты работы и с большей вероятностью дадут высокую оценку, если им отправить push-уведомление с просьбой оценить приложение в магазине.
 
 ## <a name="see-also"></a>Дополнительные материалы
-* [Основные понятия][Link 6]
-* [Руководство по устранению неполадок — служба][Link 24]
+* [Основные понятия Azure Mobile Engagement][Link 6]
+* [Поиск и устранение неполадок в службе][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -209,6 +209,6 @@ ms.openlocfilehash: 84d1e7d704b6142005217625cfe505f382b4d938
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

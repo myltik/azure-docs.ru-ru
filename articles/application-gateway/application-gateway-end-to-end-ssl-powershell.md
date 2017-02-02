@@ -4,7 +4,7 @@ description: "В этой статье описывается настройка
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 
 
 ---
@@ -30,8 +30,6 @@ ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
 
 > [!NOTE]
 > Протоколы SSL 2.0 и SSL 3.0 отключены по умолчанию, и их нельзя включать. Они считаются небезопасными и не могут использоваться со шлюзом приложений.
-> 
-> 
 
 ![Изображение для сценария][scenario]
 
@@ -135,8 +133,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > Шлюз приложений не поддерживает использование общедоступного IP-адреса, для которого метка домена была определена при создании. Поддерживается только общедоступный IP-адрес с динамически создаваемой меткой домена. Если для шлюза приложений требуется понятное DNS-имя, то рекомендуется использовать в качестве псевдонима запись CNAME.
-> 
-> 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Создание объекта конфигурации шлюза приложений
 
@@ -167,9 +163,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> Для внутренних серверов вместо IP-адресов можно также использовать полные доменные имена с помощью параметра -BackendFqdns.
-> 
-> 
+> Для внутренних серверов вместо IP-адресов можно также использовать полные доменные имена с помощью параметра -BackendFqdns. 
 
 ### <a name="step-4"></a>Шаг 4.
 
@@ -189,8 +183,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > Этот пример настраивает сертификат для SSL-соединения. Сертификат должен быть в формате PFX, а пароль к сертификату должен содержать от 4 до 12 символов.
-> 
-> 
 
 ### <a name="step-6"></a>Шаг 6
 
@@ -206,8 +198,6 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 
 > [!NOTE]
 > Проба по умолчанию получает открытый ключ из привязки SSL **по умолчанию** по IP-адресу серверной части и сравнивает полученное значение открытого ключа со значением, которое предоставляете вы. **Если** на серверной части используются заголовки узлов и SNI, полученный открытый ключ не обязательно будет ключом сайта, на который направляется интернет-трафик. Если вы сомневаетесь, перейдите по адресу https://127.0.0.1/ на серверных частях, чтобы проверить, какой сертификат используется для привязки SSL **по умолчанию**. В этом разделе используйте открытый ключ из этого запроса. Если в привязках HTTPS используются заголовки узлов и SNI и вы не получаете ответ и сертификат, после того как вручную отправили в браузере запрос на адрес https://127.0.0.1/ для серверных частей, на них необходимо настроить привязку SSL по умолчанию. Если этого не сделать, пробы будут завершены ошибкой и серверная часть не будет добавлена в список разрешений.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -215,8 +205,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > Сертификат, предоставленный на этом шаге, должен быть открытым ключом сертификата в формате PFX, хранящегося в серверной части. Экспортируйте сертификат (не корневой) в формате CER, установленный на внутреннем сервере, и используйте его на этом шаге. Это действие добавляет серверную часть в список разрешений шлюза приложений.
-> 
-> 
 
 ### <a name="step-8"></a>Шаг 8
 
@@ -244,8 +232,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > Для тестирования можно выбрать число экземпляров, равное 1. Важно знать, что если указать число экземпляров менее двух, то развертывание не попадает под действие соглашения об уровне обслуживания, и поэтому это не рекомендуется. Мелкие шлюзы предназначены для разработки и тестирования, а не для производства.
-> 
-> 
 
 ### <a name="step-11"></a>Шаг 11
 
@@ -337,6 +323,6 @@ DnsSettings              : {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

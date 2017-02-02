@@ -4,7 +4,7 @@ description: "Узнайте, как создать правило на осно
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-url-route-arm-ps.md)
-> 
-> 
 
 Маршрутизация на основе URL-адресов позволяет связывать маршруты на основе URL-пути HTTP-запроса. Она проверяет, настроен ли для спиcка URL-адресов в шлюзе приложений маршрут к пулу тыловых серверов, и отправляет сетевой трафик в указанный пул. Как правило, маршрутизация на основе URL-адресов используется для распределения запросов содержимого разных типов между разными пулами тыловых серверов.
 
@@ -46,7 +44,7 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 
 ### <a name="step-1"></a>Шаг 1
 
-Перейдите на портал по адресу http://portal.azure.com и выберите существующий шлюз приложений. Щелкните **Правила**
+Перейдите на [портал Azure](http://portal.azure.com) и выберите существующий шлюз приложений. Щелкните **Правила**
 
 ![Обзор шлюза приложений][1]
 
@@ -74,8 +72,6 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 
 > [!IMPORTANT]
 > Пути: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Знак "\*" может находиться только в конце. Примеры допустимых значений: /xyz, /xyz* или /xyz/*.  
-> 
-> 
 
 ![Колонка добавления правила на основе пути с заполненной информацией][2]
 
@@ -94,6 +90,6 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

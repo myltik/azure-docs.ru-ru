@@ -4,7 +4,7 @@ description: "Log Analytics может считывать журналы из с
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
@@ -12,21 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+ms.sourcegitcommit: d0b98fe9c3ec685e95b5a8cf96afe1fb72c659f2
+ms.openlocfilehash: 76dfc064d4c50f291e48ce35435229da1323a520
 
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Анализ журналов диагностики Azure с помощью Log Analytics
 Log Analytics может собирать журналы из следующих служб Azure, которые записывают [журналы диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) в хранилище BLOB-объектов в формате JSON:
 
-* Автоматизация (предварительная версия).
 * Хранилище ключей (предварительная версия).
 * Шлюз приложений (предварительная версия).
 * Группа безопасности сети (предварительная версия).
+
+> [!NOTE]
+> Этот метод сбора журналов признан устаревшим. Используйте [диагностику Azure непосредственно в Log Analytics](log-analytics-azure-storage.md) для сбора журналов для указанных выше служб. После обновления решений для управления Key Vault Analytics и Azure Network Analytics для поддержки журналов, собранных непосредственно из системы диагностики Azure, эта документация будет удалена.
+>
+>
 
 В следующих разделах описывается, как использовать PowerShell для выполнения таких действий:
 
@@ -56,7 +60,7 @@ Log Analytics может собирать журналы из следующих
 # format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
 $storageAccountId = ""
 
-$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+$supportedResourceTypes = ("Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
 
 # update location to match your storage account location
 $resources = Get-AzureRmResource | where { $_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus" }
@@ -77,7 +81,7 @@ foreach ($resource in $resources) {
 
 ### <a name="pre-requisites"></a>Предварительные требования
 1. Azure PowerShell с командлетами оперативной аналитики версии 1.0.8 или более поздней.
-   * [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+   * [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
    * Проверьте версию командлетов: `Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `
 2. Для ресурсов Azure , которые вы хотите отслеживать, можно настроить ведение журналов диагностики. Используйте `Set-AzureRmDiagnosticSetting`. Дополнительные сведения о включении диагностики см. в статье [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) (Сбор данных из учетных записей хранения Azure с помощью Log Analytics).
 3. Рабочая область [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) .  
@@ -119,8 +123,8 @@ Add-AzureDiagnosticsToLogAnalyticsUI
 
 > [!NOTE]
 > Если ресурс и рабочая область находятся в разных в подписках Azure, при необходимости можно переключаться между ними, используя `Select-AzureRmSubscription -SubscriptionId <Subscription the resource is in>`.
-> 
-> 
+>
+>
 
 ```
 # Connect to Azure
@@ -152,8 +156,8 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 > [!NOTE]
 > Эта конфигурация не отображается на портале Azure. Можно проверить конфигурацию с помощью командлета `Get-AzureRmOperationalInsightsStorageInsight` .  
-> 
-> 
+>
+>
 
 ## <a name="stopping-log-analytics-from-collecting-azure-diagnostic-logs"></a>Прекращение сбора журналов диагностики Azure в службе Log Analytics
 Чтобы удалить конфигурацию Log Analytics для определенного ресурса, воспользуйтесь командлетом `Remove-AzureRmOperationalInsightsStorageInsight`.
@@ -239,7 +243,6 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $logAnalyticsWor
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

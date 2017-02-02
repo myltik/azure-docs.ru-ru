@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 69dc7a150fa78d178b7b63b3b6f33558f5d5f1a9
+ms.sourcegitcommit: aa794e073bd6c4965a8f2918eab7a4669fc39171
+ms.openlocfilehash: 4b7246f4780b1485985e54b4eb2ae1f3d022a3f1
 
 
 ---
@@ -47,9 +47,9 @@ ms.openlocfilehash: 69dc7a150fa78d178b7b63b3b6f33558f5d5f1a9
 Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
 
 * **Подписка Azure.**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
-*  **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
+* **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Подготовленный **SQL Server на виртуальной машине Azure**. Инструкции см. в статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](../powershell-install-configure.md).
+* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-namefilesourcetosqlonazurevma-moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Перемещение данных из неструктурированного файла на сервер SQL Server на виртуальной машине Azure
 Если данные (упорядоченные по строкам и столбцам) хранятся в неструктурированном файле, этот файл можно переместить в виртуальную машину SQL Server в Azure с помощью следующих средств:
@@ -63,7 +63,7 @@ BCP — это служебная программа командной стро
 
 > [!NOTE]
 > **Где следует размещать данные для программы BCP?**  
->  Это не обязательно, но если файлы, содержащие источник данных, расположены на одном компьютере с целевым сервером SQL, это позволяет ускорить перемещение (скорость сети и скорость ввода-вывода на локальном диске). Перемещать неструктурированные файлы, содержащие данные, на компьютер с SQL Server можно с помощью различных инструментов копирования файлов, таких как [AZCopy](../storage/storage-use-azcopy.md), [обозреватель хранилищ Azure](http://storageexplorer.com/) или средства копирования и вставки по протоколу удаленного рабочего стола (RDP) ОС Windows.
+> Это не обязательно, но если файлы, содержащие источник данных, расположены на одном компьютере с целевым сервером SQL, это позволяет ускорить перемещение (скорость сети и скорость ввода-вывода на локальном диске). Перемещать неструктурированные файлы, содержащие данные, на компьютер с SQL Server можно с помощью различных инструментов копирования файлов, таких как [AZCopy](../storage/storage-use-azcopy.md), [обозреватель хранилищ Azure](http://storageexplorer.com/) или средства копирования и вставки по протоколу удаленного рабочего стола (RDP) ОС Windows.
 >
 >
 
@@ -216,6 +216,6 @@ SQL Server поддерживает:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

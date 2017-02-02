@@ -4,7 +4,7 @@ description: "В этой статье показано, как подключа
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6836cd4c1f9fe53691ae8330b25e497da4c2e0d5
-ms.openlocfilehash: 161bb18579db7a4615cbc62c539e8b6286a424ac
+ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
+ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
 
 
 ---
@@ -97,6 +97,12 @@ $mma.ReloadConfiguration()
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Установка агента с помощью DSC в службе автоматизации Azure
 
+Вы можете использовать следующий пример сценария для установки агента с помощью DSC в службе автоматизации Azure. В примере выполняется установка 64-разрядного агента, идентифицируемого значением `URI`. Вы также можете использовать 32-разрядную версию, заменив значение универсального кода ресурса (URI). URI для обеих версий:
+
+- 64-разрядный агент Windows — https://go.microsoft.com/fwlink/?LinkId=828603
+- 32-разрядный агент Windows — https://go.microsoft.com/fwlink/?LinkId=828604
+
+
 >[!NOTE]
 В этом примере процедура и сценарий не выполняют обновление существующего агента.
 
@@ -125,7 +131,7 @@ Configuration MMAgent
         }
 
         xRemoteFile OIPackage {
-            Uri = "http://download.microsoft.com/download/0/C/0/0C072D6E-F418-4AD4-BCB2-A362624F400A/MMASetup-AMD64.exe"
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
             DestinationPath = $OIPackageLocalPath
         }
 
@@ -138,11 +144,37 @@ Configuration MMAgent
             DependsOn = "[xRemoteFile]OIPackage"
         }
     }
-}  
+}
 
 
 ```
 
+### <a name="get-the-latest-productid-value"></a>Получение последнего значения ProductId
+
+`ProductId value` в сценарии MMAgent.ps1 уникален для каждой версии агента. При публикации обновленной версии каждого агента значение ProductId изменяется. Таким образом, когда ProductId изменится в будущем, версию агента можно найти с помощью простого сценария. Установив последнюю версию агента на тестовом сервере, получите установленное значение ProductId, выполнив следующий сценарий. Используя последнее значение ProductId, можно обновить значение в сценарии MMAgent.ps1.
+
+```
+$InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+
+foreach ($Application in $InstalledApplications)
+
+{
+
+     $Key = Get-ItemProperty $Application.PSPath
+
+     if ($Key.DisplayName -eq "Microsoft Monitoring Agent")
+
+     {
+
+        $Key.DisplayName
+
+        Write-Output ("Product ID is: " + $Key.PSChildName.Substring(1,$Key.PSChildName.Length -2))
+
+     }
+
+}  
+```
 
 ## <a name="configure-an-agent-manually-or-add-additional-workspaces"></a>Настройка агента вручную или добавление дополнительных рабочих областей
 Если вы установили, но не настроили агенты, или хотите, чтобы агенты передавали данные в несколько рабочих областей, вы можете использовать указанные ниже сведения для включения или перенастройки агентов. После настройки агент будет зарегистрирован в службе агента и получит необходимые данные конфигурации и пакеты управления, содержащие сведения о решении.
@@ -197,6 +229,6 @@ Configuration MMAgent
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

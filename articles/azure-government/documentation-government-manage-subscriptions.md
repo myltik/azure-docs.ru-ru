@@ -1,19 +1,18 @@
 ---
 title: "Подписки Azure для государственных организаций | Документация Майкрософт"
 description: "Сведения об управлении подпиской в Azure для государственных организаций"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: d3375e84-a37d-4e44-9040-70dbe08eabfc
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/21/2016
+ms.date: 01/12/2017
 ms.author: zakramer
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc

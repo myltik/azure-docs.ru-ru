@@ -1,22 +1,26 @@
 ---
-title: Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python | Microsoft Docs
-description: Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python
+title: "Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью Python | Документация Майкрософт"
+description: "Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python"
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 24276252-b3dd-4edf-9e5d-f6803f8ccccc
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: fb34986d947175ae4b4212e5bd0a1e90836ed170
+
 
 ---
-# Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python
+# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью Python
 В этой статье описывается получение списка, отправка и скачивание больших двоичных объектов с помощью API Python. API на языке Python, предоставляемый с пакетом SDK для Azure, обеспечивает следующие возможности:
 
 * Создание контейнера
@@ -25,9 +29,7 @@ ms.author: bradsev
 * Перечисление BLOB-объектов в контейнере
 * Удаление большого двоичного объекта
 
-Дополнительные сведения об использовании Python API см. в разделе [Использование хранилища больших двоичных объектов Azure из Python](../storage/storage-python-how-to-use-blob-storage.md).
-
-Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
+Дополнительные сведения об использовании Python API см. в статье [Использование хранилища BLOB-объектов Azure из Python](../storage/storage-python-how-to-use-blob-storage.md).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -39,13 +41,13 @@ ms.author: bradsev
 > 
 > 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для выполнения указаний в этом документе у вас должна быть подписка Azure, учетная запись хранения и соответствующий ключ к хранилищу данных для этой учетной записи. Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ.
 
-* Сведения о настройке подписки Azure см. на странице [30-дневной бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
-* Указания по созданию учетной записи хранения и получению учетной записи и сведений о ключах см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+* Сведения о настройке подписки Azure см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+* Инструкции по созданию учетной записи хранения и получению сведений об учетной записи и ключах см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
-## Отправка данных в большой двоичный объект
+## <a name="upload-data-to-blob"></a>Отправка данных в большой двоичный объект
 Добавьте следующий фрагмент кода в начало любого кода Python, из которого планируется получать доступ к службе хранилища Azure программным способом:
 
     from azure.storage.blob import BlobService
@@ -56,9 +58,9 @@ ms.author: bradsev
 
 Используйте следующие методы для отправки данных в большой двоичный объект:
 
-1. put\_block\_blob\_from\_path (отправка содержимого файла из указанного пути);
-2. put\_block\_blob\_from\_file (отправка содержимого открытого файла или потока);
-3. put\_block\_blob\_from\_bytes (отправка массива байтов);
+1. put\_block\_blob\_from\_path (отправка содержимого файла из указанного пути).
+2. put\_block_blob\_from\_file (отправка содержимого открытого файла или потока).
+3. put\_block\_blob\_from\_bytes (отправка массива байтов).
 4. put\_block\_blob\_from\_text (отправка указанного текстового значения с использованием указанной кодировки).
 
 Следующий пример кода отправляет локальный файл в контейнер:
@@ -91,15 +93,15 @@ ms.author: bradsev
             print "something wrong happened when uploading the data %s"%blob_name
 
 
-## Скачивание данных из большого двоичного объекта
+## <a name="download-data-from-blob"></a>Скачивание данных из большого двоичного объекта
 Чтобы скачать данные из большого двоичного объекта, используйте следующие методы:
 
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text
+1. get\_blob\_to\_path.
+2. get\_blob\_to\_file.
+3. get\_blob\_to\_bytes.
+4. get\_blob\_to\_text.
 
-Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
 Следующий пример кода скачивает содержимое большого двоичного объекта в контейнере в локальный файл:
 
@@ -127,4 +129,8 @@ ms.author: bradsev
         except:
             print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

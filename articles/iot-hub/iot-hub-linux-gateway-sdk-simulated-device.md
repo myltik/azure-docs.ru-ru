@@ -1,6 +1,6 @@
 ---
-title: "Имитация устройства с помощью пакета SDK для шлюза Интернета вещей | Документация Майкрософт"
-description: "Пошаговое руководство по работе с пакетом SDK для шлюза Azure IoT под управлением Linux показывает, как отправлять данные телеметрии с имитации устройства, используя пакет SDK для шлюза Azure IoT."
+title: "Имитация устройства с помощью пакета SDK для шлюза Azure IoT (Linux) | Документация Майкрософт"
+description: "Сведения об использовании пакета SDK для шлюза Azure IoT в Linux для создания имитации устройства, отправляющего данные телеметрии через шлюз в Центр Интернета вещей."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2e814559282de3e5409e3215d824e1309debe5a
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>Пакет SDK для шлюза Azure IoT: отправка сообщений с устройства в облако с помощью имитации устройства под управлением Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>Воспользуйтесь пакетом SDK для шлюза Azure IoT для отправка сообщений с устройства в облако с помощью имитации устройства (Linux).
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Сборка и запуск примера
@@ -28,13 +28,13 @@ ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
 
 * [Настройте среду разработки][lnk-setupdevbox] для работы с пакетом SDK для Linux.
 * [Создайте Центр Интернета вещей][lnk-create-hub] в своей подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Чтобы добавить устройства в Центр Интернета вещей, созданный на предыдущем шаге, и получить его ключи, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
+* Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Чтобы добавить устройства в Центр Интернета вещей, созданный на предыдущем шаге, и получить их ключи, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
 
 Сборка примера
 
 1. Откройте оболочку.
 2. Перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
-3. Запустите сценарий **tools/build.sh** . В этом сценарии используется служебная программа **cmake**, которая создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk** и генерирует файл makefile. Затем сценарий собирает решение и проводит тесты.
+3. Запустите скрипт **tools/build.sh--skip unittests**. В этом сценарии используется служебная программа **cmake**, которая создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk** и генерирует файл makefile. Затем скрипт создает решение, пропуская модульные тесты. Удалите параметр **--skip-unittests**, если требуется создавать и выполнять модульные тесты. 
 
 > [!NOTE]
 > При каждом запуске сценарий **build.sh** удаляет и заново создает папку **build** в корневой папке локальной копии репозитория **azure-iot-gateway-sdk**.
@@ -152,11 +152,11 @@ ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
 
 Запуск примера
 
-1. В оболочке перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
+1. Перейдите к папке **azure-iot-gateway-sdk/build** в оболочке.
 2. Выполните следующую команду:
    
     ```
-    ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
+    ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
 3. Для мониторинга сообщений, получаемых Центром Интернета вещей из шлюза, можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools].
 
@@ -168,7 +168,7 @@ ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Руководство разработчика][lnk-devguide]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 * [Комплексная защита в Интернете вещей][lnk-securing]
 
 <!-- Links -->
@@ -185,6 +185,6 @@ ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

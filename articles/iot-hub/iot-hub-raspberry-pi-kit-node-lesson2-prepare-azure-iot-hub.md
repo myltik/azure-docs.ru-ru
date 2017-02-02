@@ -1,6 +1,6 @@
 ---
-title: "Создание Центра Интернета вещей и регистрация Raspberry Pi 3 | Документация Майкрософт"
-description: "Создайте группу ресурсов, создайте Центр Интернета вещей Azure и зарегистрируйте в нем устройство Pi с помощью интерфейса командной строки Azure."
+title: "Создание Центра Интернета вещей Azure и регистрация Raspberry Pi 3 | Документация Майкрософт"
+description: "Создание группы ресурсов и Центра Интернета вещей Azure, а также регистрация устройства Pi в реестре удостоверений Центра Интернета вещей с помощью Azure CLI."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d93b7b67ee0727f45c3f4b93459b013b16805bf6
-ms.openlocfilehash: fcfb90a385a68e863b3c1d3d0fa3bb24fe778291
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 1f22ab6a97427f3be521c69e308386ad0b1b286b
 
 
 ---
@@ -65,7 +65,7 @@ ms.openlocfilehash: fcfb90a385a68e863b3c1d3d0fa3bb24fe778291
 4. Создайте группу ресурсов с именем iot-sample в западном регионе США, выполнив следующую команду:
 
    ```bash
-   az resource group create --name iot-sample --location westus
+   az group create --name iot-sample --location westus
    ```
 
    `westus` — это расположение, в котором создается группа ресурсов. Чтобы использовать другое расположение, выполните команду `az account list-locations -o table` и просмотрите все расположения, поддерживаемые Azure.
@@ -103,6 +103,6 @@ az iot device create --device-id myraspberrypi --hub-name {my hub name} --x509 -
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

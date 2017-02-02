@@ -1,35 +1,44 @@
 ---
-title: Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive | Microsoft Docs
-description: Изучение данных, хранящихся в различных средах Azure.
+title: "Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive | Документация Майкрософт"
+description: "Изучение данных, хранящихся в различных средах Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
+
 
 ---
-# <a name="heading"></a>Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive
+# <a name="a-nameheadingasample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive
 Этот документ содержит ссылки на статьи, рассказывающие, как получить выборку данных из одного из трех расположений Azure.
 
-* Выборка **данных контейнера больших двоичных объектов Azure** осуществляется путем их программного скачивания и последующей выборки с помощью примера кода на языке Python.
-* Выборка **данных SQL Server** осуществляется с помощью как SQL, так и языка программирования Python.
-* Выборка **данных таблицы Hive** осуществляется с помощью запросов Hive.
+* **данных контейнера больших двоичных объектов Azure** осуществляется путем их программного скачивания и последующей выборки с помощью примера кода на языке Python.
+* **данных SQL Server** осуществляется с помощью как SQL, так и языка программирования Python. 
+* **данных таблицы Hive** осуществляется с помощью запросов Hive.
 
-**Меню** ниже содержит ссылки на разделы, описывающие процесс выборки данных из каждой среды хранения Azure.
+**Меню** ниже содержит ссылки на разделы, в которых описан процесс выборки данных из каждой среды хранения Azure. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 Эта задача выборки является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## Для чего нужна выборка данных?
+## <a name="why-sample-data"></a>Для чего нужна выборка данных?
 Если размер набора данных, который планируется проанализировать, слишком большой, обычно рекомендуется уменьшить выборку данных до размера, который останется репрезентативным и будет более управляемым. Это способствует пониманию данных, их исследованию и проектированию характеристик. Роль этой операции в процессе аналитики Кортаны заключается в том, чтобы сделать возможным быстрое прототипирование функций обработки данных и моделей машинного обучения.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

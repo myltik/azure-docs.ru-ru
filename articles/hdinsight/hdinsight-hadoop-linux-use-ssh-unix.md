@@ -1,6 +1,6 @@
 ---
-title: "Использование ключей SSH с Hadoop на платформе Linux из Linux, Unix или OS X | Документация Майкрософт"
-description: " Можно получить доступ к HDInsight под управлением Linux с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix."
+title: "Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X | Документация Майкрософт"
+description: " Вы можете получить доступ к HDInsight с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов Windows, Linux, Unix и OS X."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет входить в кластеры HDInsight под управлением Linux и выполнять команды с помощью интерфейса командной строки. В этом документе приведены основные сведения о SSH и подробные данные об использовании SSH с HDInsight.
 
@@ -233,6 +231,6 @@ SSH — это сетевой протокол шифрования, котор�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 0d0264857f552b65f5934eea686329e8d36a1204
-ms.openlocfilehash: e86b1990ea38f9f8af4e5401fe37eec321075e64
+ms.sourcegitcommit: 6c5bf8907a5f69e45e7b62fb466bdc53460e9029
+ms.openlocfilehash: 86a5911e99e7631b09604afcb0f53ed2887b576b
 
 
 ---
@@ -122,9 +122,9 @@ ms.openlocfilehash: e86b1990ea38f9f8af4e5401fe37eec321075e64
 
 ### <a name="command-line-syntax"></a>Синтаксис для командной строки
 
-    DocumentDB.LocalEmulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
 
-Чтобы просмотреть список параметров, в командной строке введите `DocumentDB.LocalEmulator.exe /?` .
+Чтобы просмотреть список параметров, в командной строке введите `DocumentDB.Emulator.exe /?` .
 
 <table>
 <tr>
@@ -136,61 +136,61 @@ ms.openlocfilehash: e86b1990ea38f9f8af4e5401fe37eec321075e64
 <tr>
   <td>[Нет аргументов]</td>
   <td>Запускает эмулятор DocumentDB с параметрами по умолчанию</td>
-  <td>DocumentDB.LocalEmulator.exe</td>
+  <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>Shutdown</td>
   <td>Завершает работу эмулятора DocumentDB</td>
-  <td>DocumentDB.LocalEmulator.exe /Shutdown</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>Справка</td>
   <td>Отображает список аргументов командной строки</td>
-  <td>DocumentDB.LocalEmulator.exe /?</td>
+  <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>Datapath</td>
   <td>Указывает путь для хранения файлов данных</td>
-  <td>DocumentDB.LocalEmulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: любой доступный путь</td>
 </tr>
 <tr>
   <td>Порт</td>
   <td>Указывает номер порта, который должен использоваться эмулятором.  Значение по умолчанию — 8081.</td>
-  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
+  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: один номер порта</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Указывает номер порта для использования с интерфейсом совместимости с MongoDB. Значение по умолчанию — 10250.</td>
-  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: один номер порта</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
   <td>Указывает порты, которые нужно использовать для прямого подключения. По умолчанию это порты 10251,10252,10253,10254</td>
-  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
+  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: разделенный запятыми список из 4 портов</td>
 </tr>
 <tr>
   <td>Ключ</td>
   <td>Ключ проверки подлинности для эмулятора. Ключ должен иметь формат 64-разрядного вектора в кодировке base-64</td>
-  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&gt;</td>
+  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
   <td>&lt;key&gt;: ключ в формате 64-разрядного вектора в кодировке base-64</td>
 </tr>
 <tr>
   <td>EnableThrottling</td>
   <td>Указывает, что активируется регулирование запросов</td>
-  <td>DocumentDB.LocalEmulator.exe /enablethrottling</td>
+  <td>DocumentDB.Emulator.exe /enablethrottling</td>
   <td></td>
 </tr>
 <tr>
   <td>DisableThrottling</td>
   <td>Указывает, что отключается регулирование запросов</td>
-  <td>DocumentDB.LocalEmulator.exe /disablethrottling</td>
+  <td>DocumentDB.Emulator.exe /disablethrottling</td>
   <td></td>
 </tr>
 </table>
@@ -211,6 +211,6 @@ ms.openlocfilehash: e86b1990ea38f9f8af4e5401fe37eec321075e64
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

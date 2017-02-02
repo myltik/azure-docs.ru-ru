@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -58,10 +58,10 @@ ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 * Веб-API ASP.NET. В инструкциях руководства предполагается, что у вас уже есть базовые знания о работе с [веб-API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET в Visual Studio.
 * Учетная запись Azure. [Создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Это не потребует **ни кредитной карты**, ни каких-либо обязательств.
+    Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений](https://azure.microsoft.com/try/app-service/). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Это не потребует **ни кредитной карты**, ни каких-либо обязательств.
 * Visual Studio 2015 с [Azure SDK для .NET](https://azure.microsoft.com/downloads/archive-net-downloads/). Пакет SDK автоматически устанавливает Visual Studio 2015, если вы еще этого не сделали.
   
-  * В Visual Studio щелкните "Справка -> О Microsoft Visual Studio" и убедитесь, что у вас установлены средства службы приложений Azure версии 2.9.1 или более поздней.
+  * В Visual Studio щелкните "Справка -> О Microsoft Visual Studio" и убедитесь, что у вас установлены средства службы приложений Azure версии&2;.9.1 или более поздней.
     
     ![Версия средств приложений Azure](./media/app-service-api-dotnet-get-started/apiversion.png)
     
@@ -442,6 +442,6 @@ Swashbuckle можно использовать с любыми проектам
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

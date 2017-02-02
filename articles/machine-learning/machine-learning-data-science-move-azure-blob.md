@@ -1,25 +1,29 @@
 ---
-title: Перемещение данных в хранилище больших двоичных объектов Azure и из него | Microsoft Docs
-description: Перемещение данных в хранилище больших двоичных объектов Azure и из него
+title: "Перемещение данных в хранилище BLOB-объектов Azure и из него | Документация Майкрософт"
+description: "Перемещение данных в хранилище больших двоичных объектов Azure и из него"
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev;sachouks
+translationtype: Human Translation
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: 1e773a1332d14109e9f50fb7db17528d061a98f2
+
 
 ---
-# Перемещение данных в хранилище больших двоичных объектов Azure и из него
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Перемещение данных в хранилище BLOB-объектов Azure и из него
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
+<!-- just in case, adding this to separate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -30,19 +34,24 @@ ms.author: bradsev;sachouks
 > 
 > 
 
-В качестве альтернативы можно использовать [фабрику данных Azure](https://azure.microsoft.com/services/data-factory/) для выполнения следующих действий:
+В качестве альтернативы можно использовать [фабрику данных Azure](https://azure.microsoft.com/services/data-factory/) для выполнения следующих действий: 
 
-* создание и планирование конвейера, который скачивает данные из хранилища BLOB-объектов Azure;
-* передача данных в опубликованную веб-службу Машинного обучения Azure;
-* получение результатов прогнозной аналитики;
-* отправка результатов в хранилище.
+* создание и планирование конвейера, который скачивает данные из хранилища BLOB-объектов Azure; 
+* передача данных в опубликованную веб-службу Машинного обучения Azure; 
+* получение результатов прогнозной аналитики; 
+* отправка результатов в хранилище. 
 
-Дополнительные сведения см. в статье [Создание прогнозирующих конвейеров с помощью фабрик данных Azure и машинного обучения Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
+Дополнительные сведения см. в статье [Создание прогнозных конвейеров с помощью действий Машинного обучения Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для выполнения указаний в этом документе у вас должна быть подписка Azure, учетная запись хранения и соответствующий ключ к хранилищу данных для этой учетной записи. Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ.
 
-* Сведения о настройке подписки Azure см. на странице [30-дневной бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
-* Указания по созданию учетной записи хранения и получению учетной записи и сведений о ключах см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+* Сведения о настройке подписки Azure см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
+* Инструкции по созданию учетной записи хранения и получению сведений об учетной записи и ключах см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

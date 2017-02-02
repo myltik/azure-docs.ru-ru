@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 875268d7331a35d9ae3f8eb86a3735402f4649db
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
 
 
 ---
 # <a name="data-science-virtual-machines-in-azure"></a>Виртуальные машины для обработки и анализа данных в Azure
-Приведенные здесь инструкции касаются настройки виртуальной машины Azure и виртуальной машины Azure со службой SQL в качестве серверов IPython Notebook. Виртуальная машина под управлением Windows настраивается с помощью средств поддержки, таких как IPython Notebook, обозреватель хранилищ Azure и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище Azure с локального компьютера и наоборот. 
+Приведенные здесь инструкции касаются настройки виртуальной машины Azure и виртуальной машины Azure со службой SQL в качестве серверов IPython Notebook. Виртуальная машина под управлением Windows настраивается с помощью инструментов поддержки, таких как IPython Notebook, Azure Storage Explorer и AzCopy, а также других служебных программ, подходящих для проектов обработки данных. Обозреватель хранилищ Azure и AzCopy, например, позволяют с легкостью передавать данные в хранилище Azure с локального компьютера и наоборот. 
 
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых [процессом обработки и анализа данных группы (TDSP)](data-science-process-overview.md).
 
@@ -47,6 +47,6 @@ ms.openlocfilehash: 875268d7331a35d9ae3f8eb86a3735402f4649db
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 
 
 ---
 # <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Выборка данных в хранилище больших двоичных объектов Azure
 Этот документ описывает выборку данных, содержащихся в хранилище BLOB-объектов Azure, путем их программной загрузки и последующей выборки с использованием процедур на языке Python.
 
-**Для чего нужна выборка данных?**
- Если размер набора данных, который планируется проанализировать, слишком большой, обычно рекомендуется уменьшить выборку данных до размера, который останется репрезентативным и будет более управляемым. Это способствует пониманию данных, их исследованию и проектированию характеристик. Роль этой операции в процессе аналитики Кортаны заключается в том, чтобы сделать возможным быстрое прототипирование функций обработки данных и моделей машинного обучения.
-
-**Меню** ниже содержит ссылки на разделы, описывающие выборку данных из различных сред хранения. 
+**Меню** ниже содержит ссылки на разделы, в которых описана выборка данных из различных сред хранения. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**Для чего нужна выборка данных?**
+Если размер набора данных, который планируется проанализировать, слишком большой, обычно рекомендуется уменьшить выборку данных до размера, который останется репрезентативным и будет более управляемым. Это способствует пониманию данных, их исследованию и проектированию характеристик. Роль этой операции в процессе аналитики Кортаны заключается в том, чтобы сделать возможным быстрое прототипирование функций обработки данных и моделей машинного обучения.
 
 Эта задача выборки является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -50,12 +50,14 @@ ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+
 2. Считать данные во фрейм данных Pandas из файла, загруженного выше.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
+
 3. Уменьшить выборку данных с помощью `random.choice` `numpy`:
    
         # A 1 percent sample
@@ -67,11 +69,12 @@ ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
 Теперь можно работать с указанным выше фреймом данных, содержащим 1-процентную выборку, для дальнейшего просмотра и создания характеристик.
 
 ## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Передача данных и их считывание в службу машинного обучения Azure
-С помощью следующего образца кода можно уменьшить выборку данных и использовать их непосредственно в Azure ML:
+С помощью следующего образца кода можно уменьшить выборку данных и использовать их непосредственно в Машинном обучении Azure.
 
 1. Запись фрейма данных в локальный файл
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
 2. Передача локального файла в BLOB-объект Azure с помощью следующего образца кода:
    
         from azure.storage.blob import BlobService
@@ -93,13 +96,14 @@ ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
    
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
-3. Считывание данных из большого двоичного объекта Azure с помощью модуля [импорта данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Машинного обучения Azure, как показано на рисунке ниже.
+
+3. Считывание данных из большого двоичного объекта Azure с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Машинного обучения Azure, как показано на рисунке ниже.
 
 ![большой двоичный объект считывателя](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -79,7 +79,6 @@ ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
 
 ## <a name="summary"></a>Сводка
 Каталог данных Azure предоставляет возможности, которые упрощают поиск нужных источников данных. Поэтому пользователи могут тратить на поиск данных меньше времени, а на работу с ними — больше. Эти основные возможности включают сохраненные поисковые запросы и закрепленные ресурсы — функции, позволяющие пользователям легко находить источники данных, с которыми они работают регулярно.
-
 
 
 

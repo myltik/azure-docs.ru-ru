@@ -1,5 +1,5 @@
 ---
-title: "Устранение неполадок и ответы на вопросы по Application Insights"
+title: "Устранение неполадок и ответы на вопросы по Azure Application Insights | Документация Майкрософт"
 description: "Что-то в Azure Application Insights непонятно или не работает? Попробуйте здесь."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 
 ---
@@ -36,20 +36,16 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 * [Настройка сервера Java](app-insights-java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Можно ли использовать Application Insights с...?
-[См. статью о платформах][платформы].
+[Ознакомьтесь со статьей о платформах.][platforms]
 
 ## <a name="is-it-free"></a>Предоставляется ли бесплатно?
-* Да, если выбрать [ценовую категорию](app-insights-pricing.md)Free. Вы получаете доступ к большинству функций и значительную квоту данных.
-* Чтобы зарегистрироваться в Microsoft Azure, вы должны предоставить данные кредитной карты, но плата будет взиматься только за пользование платными службами Azure или же в случае обновления до платной категории.
-* Если приложение отправляет больше данных, чем месячная квота для категории Free, запись в журнал прекращается. В этом случае вы можете начать платить за пользование службой или подождать окончания месяца, пока квота не будет сброшена.
-* Квота не распространяется на основные данные об использовании и сеансах.
-* Предлагается также 30-дневная пробная версия: в течение этого времени вы будете бесплатно получать доступ к платным функциям.
-* Каждый ресурс приложения имеет отдельную квоту, и вы устанавливаете его ценовую категорию независимо от всех других.
 
-#### <a name="what-do-i-get-if-i-pay"></a>Что я получу в случае оплаты?
-* Расширенную [ежемесячную квоту данных](https://azure.microsoft.com/pricing/details/application-insights/).
-* Есть возможность оплатить "превышение" для продолжения сбора данных сверх месячной квоты. Если данные превышают квоту, плата будет сниматься за каждый МБ.
-* [Непрерывный экспорт](app-insights-export-telemetry.md).
+Да, для экспериментальных целей. По условиям тарифного плана по умолчанию приложение может отправлять определенный лимит данных каждый месяц бесплатно. Бесплатный лимит достаточен для разработки и публикации приложения для небольшого числа пользователей. Можно задать ограничение, запрещающее обработку данных сверх заданного лимита.
+
+План "Корпоративный" нужен, чтобы получить определенные функции, такие как непрерывный экспорт. В этом случае оплата взимается ежедневно.
+
+[Изучите тарифный план](https://azure.microsoft.com/pricing/details/application-insights/).
+
 
 ## <a name="a-nameq14awhat-does-application-insights-modify-in-my-project"></a><a name="q14"></a>Что Application Insights изменяет в моем проекте?
 Подробности зависят от типа проекта. Для веб-приложения:
@@ -80,7 +76,7 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 В обозревателе решений щелкните правой кнопкой мыши `ApplicationInsights.config` и выберите **Обновить Application Insights**. Данные можно отправлять на существующий или новый ресурс в Azure. Мастер обновления изменяет ключ инструментирования в файле ApplicationInsights.config, который определяет, куда сервер SDK должен отправлять ваши данные. Если отменить выбор параметра "Обновить все", это также приведет к изменению ключа, отображаемого на ваших веб-страницах.
 
 #### <a name="a-namedataahow-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>Как долго данные хранятся на портале? Защищены ли они?
-См. статью [Сбор и хранение данных в Application Insights][Данные].
+Ознакомьтесь с разделом [Хранение данных и конфиденциальность][data].
 
 ## <a name="logging"></a>Ведение журналов
 #### <a name="a-namepostahow-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>Как просмотреть данные POST в колонке «Поиск по журналу диагностики»?
@@ -88,7 +84,7 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 
 ## <a name="security"></a>Безопасность
 #### <a name="is-my-data-secure-in-the-portal-how-long-is-it-retained"></a>Защищены ли мои данные на портале? Как долго они хранятся?
-См. статью [Сбор и хранение данных в Application Insights][Данные].
+Ознакомьтесь с разделом [Хранение данных и конфиденциальность][data].
 
 ## <a name="a-nameq17a-have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Все ли активировано в Application Insights?
 | Что вы должны видеть | Как это получить | Для чего это нужно |
@@ -110,13 +106,13 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 
 <!--Link references-->
 
-[Данные]: app-insights-data-retention-privacy.md
-[платформы]: app-insights-platforms.md
+[data]: app-insights-data-retention-privacy.md
+[platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
