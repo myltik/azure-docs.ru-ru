@@ -3,16 +3,16 @@ title: "Резервное копирование баз данных с под�
 description: "Узнайте, как создавать резервные копии баз данных, поддерживающих перенос."
 services: sql-server-stretch-database
 documentationcenter: 
-author: douglaslMS
-manager: jhubbard
-editor: 
+author: Antvgski
+manager: johnmac
+editor: douglasl
 ms.assetid: a196f858-ef8f-47b5-b9db-bb7db98d48bd
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: douglasl
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f

@@ -1,11 +1,15 @@
 
-* **Visual Studio 2013** <br/> Это требования к использованию. Для загрузки бесплатной пробной версии Visual Studio 2013 см. [Загружаемые файлы для Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
-* **SQL Server 2014, экспресс-выпуск с инструментами** <br/>Загрузите экспресс-выпуск Microsoft SQL Server бесплатно на странице [экспресс-выпуска Microsoft SQL Server](http://www.microsoft.com/ru-RU/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Выберите **Загрузить экспресс-выпуск SQL Server** и заполните свой профиль, выбрав **SQL Server 2014, экспресс-выпуск с инструментами**, а затем нажмите кнопку "Продолжить". Начнется загрузка установщика для экспресс-выпуска SQL Server и средств управления SQL Server Express. Сохраните пакет установщика на локальный компьютер.
+* **Visual Studio 2013** <br/>Это требования к использованию. Для загрузки бесплатной пробной версии Visual Studio 2013 перейдите на страницу [загружаемых файлов Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
+* **SQL Server 2014, экспресс-выпуск с инструментами** <br/>Загрузите экспресс-выпуск Microsoft SQL Server бесплатно на странице [экспресс-выпуска Microsoft SQL Server](http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Выберите **Загрузить экспресс-выпуск SQL Server** и заполните свой профиль, выбрав **SQL Server 2014, экспресс-выпуск с инструментами**, а затем нажмите кнопку "Продолжить". Начнется загрузка установщика для экспресс-выпуска SQL Server и средств управления SQL Server Express. Сохраните пакет установщика на локальный компьютер.
 * **Локальный компьютер** <br/>Диспетчер гибридных подключений можно запустить на том же локальном компьютере, где установлен экземпляр SQL Server, или можно запустить их на разных компьютерах. Компьютер, на котором запускается диспетчер гибридных подключений, должен удовлетворять следующим условиям:
   
   * иметь возможность подключения к Azure через порт 5671.
-  * иметь доступ к *имя\_узла*: *номер\_порта* на компьютере с экземпляром SQL Server.  
+  * иметь доступ к *имя_узла*: *номер_порта* на компьютере с экземпляром SQL Server.  
     
-    Дополнительную информацию см. [обзор гибридных подключений](../articles/biztalk-services/integration-hybrid-connection-overview.md).
+    Дополнительные сведения см. в [обзоре гибридных подключений](../articles/biztalk-services/integration-hybrid-connection-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

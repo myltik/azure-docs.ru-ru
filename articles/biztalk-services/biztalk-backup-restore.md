@@ -206,7 +206,7 @@ ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
-[Восстановление]: ./media/biztalk-backup-restore/restore-ui.png
+[Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
 

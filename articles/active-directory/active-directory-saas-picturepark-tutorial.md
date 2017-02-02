@@ -73,7 +73,7 @@ ms.openlocfilehash: 98f2e5596a0af2fc9e633e005642cc3cd21621ce
 2. На странице **Как пользователи должны входить в Picturepark?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
    ![Настройка единого входа](./media/active-directory-saas-picturepark-tutorial/IC795059.png "Configure Single Sign-On")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Picturepark** введите свой URL-адрес, используя шаблон *http://<организация>.picturepark.com*, а затем нажмите кнопку **Далее**.
+3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Picturepark** введите свой URL-адрес, используя шаблон *http://company.picturepark.com* , а затем нажмите кнопку **Далее**.
    
    ![Настройка URL-адреса приложения](./media/active-directory-saas-picturepark-tutorial/IC795060.png "Configure App URL")
 4. На странице **Настройка единого входа в Picturepark** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на локальном компьютере.

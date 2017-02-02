@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/01/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
-ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
+ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
+ms.openlocfilehash: f64478598eb8b21af3b4362d55e7f0092f207967
 
 
 ---
@@ -48,29 +48,33 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 
 **Связанная служба хранилища Azure**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Связанная служба озера данных Azure:**
 
-    {
-        "name": "AzureDataLakeStoreLinkedService",
-        "properties": {
-            "type": "AzureDataLakeStore",
-            "typeProperties": {
-                "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-                "sessionId": "<session ID>",
-                "authorization": "<authorization URL>"
-            }
+```JSON
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "sessionId": "<session ID>",
+            "authorization": "<authorization URL>"
         }
     }
+}
+```
 
 ### <a name="to-create-azure-data-lake-linked-service-using-data-factory-editor"></a>Создание связанной службы озера данных Azure с помощью редактора фабрики данных
 Далее приводятся пошаговые инструкции по созданию связанной службы хранилища озера данных Azure с помощью редактора фабрики данных.
@@ -93,136 +97,140 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 
 Данные берутся из нового BLOB-объекта каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц и день начала, а в имени файла — час начала. Когда для параметра external задано значение true, служба фабрики данных считает эту таблицу внешней по отношению к себе и не созданной в результате какого-либо действия в фабрике данных.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ]
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
         },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
         },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
           }
         }
+      ]
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
-
+  }
+}
+```
 
 **Выходной набор данных озера данных Azure:**
 
 Этот пример кода копирует данные в хранилище озера данных Azure. Новые данные копируются в озеро данных каждый час.
 
-    {
-        "name": "AzureDataLakeStoreOutput",
-          "properties": {
-            "type": "AzureDataLakeStore",
-            "linkedServiceName": "AzureDataLakeStoreLinkedService",
-            "typeProperties": {
-                "folderPath": "datalake/output/"
-            },
-            "availability": {
-                  "frequency": "Hour",
-                  "interval": 1
-            }
-          }
-    }
-
+```JSON
+{
+    "name": "AzureDataLakeStoreOutput",
+      "properties": {
+        "type": "AzureDataLakeStore",
+        "linkedServiceName": "AzureDataLakeStoreLinkedService",
+        "typeProperties": {
+            "folderPath": "datalake/output/"
+        },
+        "availability": {
+              "frequency": "Hour",
+              "interval": 1
+        }
+      }
+}
+```
 
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **BlobSource**, а для **sink** — тип **AzureDataLakeStoreSink**.
 
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":
     {  
-        "name":"SamplePipeline",
-        "properties":
-        {  
-            "start":"2014-06-01T18:00:00",
-            "end":"2014-06-01T19:00:00",
-            "description":"pipeline with copy activity",
-            "activities":
-            [  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":
+        [  
+              {
+                "name": "AzureBlobtoDataLake",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
                   {
-                    "name": "AzureBlobtoDataLake",
-                    "description": "Copy Activity",
-                    "type": "Copy",
-                    "inputs": [
-                      {
-                        "name": "AzureBlobInput"
-                      }
-                    ],
-                    "outputs": [
-                      {
-                        "name": "AzureDataLakeStoreOutput"
-                      }
-                    ],
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "treatEmptyAsNull": true,
-                            "blobColumnSeparators": ","
-                          },
-                          "sink": {
-                            "type": "AzureDataLakeStoreSink"
-                          }
-                    },
-                       "scheduler": {
-                          "frequency": "Hour",
-                          "interval": 1
-                    },
-                    "policy": {
-                          "concurrency": 1,
-                          "executionPriorityOrder": "OldestFirst",
-                          "retry": 0,
-                          "timeout": "01:00:00"
-                    }
+                    "name": "AzureBlobInput"
                   }
-            ]
-        }
+                ],
+                "outputs": [
+                  {
+                    "name": "AzureDataLakeStoreOutput"
+                  }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "treatEmptyAsNull": true,
+                        "blobColumnSeparators": ","
+                      },
+                      "sink": {
+                        "type": "AzureDataLakeStoreSink"
+                      }
+                },
+                   "scheduler": {
+                      "frequency": "Hour",
+                      "interval": 1
+                },
+                "policy": {
+                      "concurrency": 1,
+                      "executionPriorityOrder": "OldestFirst",
+                      "retry": 0,
+                      "timeout": "01:00:00"
+                }
+              }
+        ]
     }
+}
+```
 
 ## <a name="sample-copy-data-from-azure-data-lake-store-to-azure-blob"></a>Пример. Копирование данных из хранилища озера данных Azure в BLOB-объект Azure
 В примере ниже используется следующее:
@@ -237,17 +245,19 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 
 **Связанная служба хранилища озера данных Azure:**
 
-    {
-        "name": "AzureDataLakeStoreLinkedService",
-        "properties": {
-            "type": "AzureDataLakeStore",
-            "typeProperties": {
-                "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-                "sessionId": "<session ID>",
-                "authorization": "<authorization URL>"
-            }
+```JSON
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "sessionId": "<session ID>",
+            "authorization": "<authorization URL>"
         }
     }
+}
+```
 
 > [!NOTE]
 > Чтобы получить URL-адрес авторизации, см. шаги, приведенные в предыдущем примере.  
@@ -256,156 +266,160 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 
 **Связанная служба хранилища Azure**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Входной набор данных озера данных Azure:**
 
 Если для параметра **external задать значение true** , то фабрика данных воспримет эту таблицу как внешнюю, которая создана не в результате какого-либо действия в этой службе.
 
+```JSON
+{
+    "name": "AzureDataLakeStoreInput",
+      "properties":
     {
-        "name": "AzureDataLakeStoreInput",
-          "properties":
-        {
-            "type": "AzureDataLakeStore",
-            "linkedServiceName": "AzureDataLakeStoreLinkedService",
-            "typeProperties": {
-                "folderPath": "datalake/input/",
-                "fileName": "SearchLog.tsv",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                }
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                  "interval": 1
-            },
-            "policy": {
-                  "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                  }
+        "type": "AzureDataLakeStore",
+        "linkedServiceName": "AzureDataLakeStoreLinkedService",
+        "typeProperties": {
+            "folderPath": "datalake/input/",
+            "fileName": "SearchLog.tsv",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             }
-          }
-    }
-
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+              "interval": 1
+        },
+        "policy": {
+              "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+              }
+        }
+      }
+}
+```
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
       }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входной и выходной наборы данных и выполняется каждый час. В определении JSON конвейера для параметра **source** задается тип **AzureDataLakeStoreSource**, а для параметра **sink** — тип **BlobSink**.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-            "start":"2014-06-01T18:00:00",
-            "end":"2014-06-01T19:00:00",
-            "description":"pipeline for copy activity",
-            "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+              {
+                "name": "AzureDakeLaketoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
                   {
-                    "name": "AzureDakeLaketoBlob",
-                    "description": "copy activity",
-                    "type": "Copy",
-                    "inputs": [
-                      {
-                        "name": "AzureDataLakeStoreInput"
-                      }
-                    ],
-                    "outputs": [
-                      {
-                        "name": "AzureBlobOutput"
-                      }
-                    ],
-                    "typeProperties": {
-                        "source": {
-                            "type": "AzureDataLakeStoreSource",
-                          },
-                          "sink": {
-                            "type": "BlobSink"
-                          }
-                    },
-                       "scheduler": {
-                          "frequency": "Hour",
-                          "interval": 1
-                    },
-                    "policy": {
-                          "concurrency": 1,
-                          "executionPriorityOrder": "OldestFirst",
-                          "retry": 0,
-                          "timeout": "01:00:00"
-                    }
+                    "name": "AzureDataLakeStoreInput"
                   }
-             ]
-        }
+                ],
+                "outputs": [
+                  {
+                    "name": "AzureBlobOutput"
+                  }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureDataLakeStoreSource",
+                      },
+                      "sink": {
+                        "type": "BlobSink"
+                      }
+                },
+                   "scheduler": {
+                      "frequency": "Hour",
+                      "interval": 1
+                },
+                "policy": {
+                      "concurrency": 1,
+                      "executionPriorityOrder": "OldestFirst",
+                      "retry": 0,
+                      "timeout": "01:00:00"
+                }
+              }
+         ]
     }
-
+}
+```
 
 ## <a name="azure-data-lake-store-linked-service-properties"></a>Свойства связанной службы хранилища озера данных Azure
 С помощью связанной службы хранилища Azure учетную запись хранения Azure можно связать с фабрикой данных Azure. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе хранилища Azure.
@@ -433,29 +447,31 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** можно также задавать программно с помощью кода, приведенного в следующем разделе.
 
 ### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Программное создание значений свойств sessionId и authorization
-    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
-        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+
+```csharp
+if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+    linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+{
+    AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+    WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+    string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+    AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+    if (azureDataLakeStoreProperties != null)
     {
-        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
-
-        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
-        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-
-        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
-        if (azureDataLakeStoreProperties != null)
-        {
-            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
-            azureDataLakeStoreProperties.Authorization = authorization;
-        }
-
-        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
-        if (azureDataLakeAnalyticsProperties != null)
-        {
-            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
-            azureDataLakeAnalyticsProperties.Authorization = authorization;
-        }
+        azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+        azureDataLakeStoreProperties.Authorization = authorization;
     }
 
+    AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+    if (azureDataLakeAnalyticsProperties != null)
+    {
+        azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+        azureDataLakeAnalyticsProperties.Authorization = authorization;
+    }
+}
+```
 Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования в коде класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на версию **2.9.10826.1824** файла **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**.
 
 ## <a name="azure-data-lake-dataset-type-properties"></a>Свойства типа "Набор данных озера данных Azure"
@@ -477,25 +493,28 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 Дополнительные сведения о наборах данных временных рядов, планировании и срезах см. в статьях [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md) и [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md).
 
 #### <a name="sample-1"></a>Пример 1
-    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy":
-    [
-        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-    ],
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
 В этом примере {Slice} заменяется значением SliceStart (системная переменная фабрики данных) в формате ГГГГММДДЧЧ. SliceStart указывает время начала среза. Значение folderPath отличается для каждого среза. Например: wikidatagateway/wikisampledataout/2014100103 или wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Пример 2
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy":
-     [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-    ],
-
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
 В этом примере год, месяц, день и время SliceStart извлекаются в отдельные переменные, используемые в свойствах folderPath и fileName.
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
@@ -505,26 +524,27 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 
 Чтобы указать сжатие для набора данных, используйте свойство **compression** в наборе данных JSON, как показано в следующем примере.   
 
-    {  
-        "name": "AzureDatalakeStoreDataSet",  
-          "properties": {  
-            "availability": {  
-                "frequency": "Day",  
-                  "interval": 1  
-            },  
-            "type": "AzureDatalakeStore",  
-            "linkedServiceName": "DataLakeStoreLinkedService",  
-            "typeProperties": {  
-                "fileName": "pagecounts.csv.gz",  
-                  "folderPath": "compression/file/",  
-                  "compression": {  
-                    "type": "GZip",  
-                    "level": "Optimal"  
-                  }  
-            }  
-          }  
-    }  
-
+```JSON
+{  
+    "name": "AzureDatalakeStoreDataSet",  
+      "properties": {  
+        "availability": {  
+            "frequency": "Day",  
+              "interval": 1  
+        },  
+        "type": "AzureDatalakeStore",  
+        "linkedServiceName": "DataLakeStoreLinkedService",  
+        "typeProperties": {  
+            "fileName": "pagecounts.csv.gz",  
+              "folderPath": "compression/file/",  
+              "compression": {  
+                "type": "GZip",  
+                "level": "Optimal"  
+              }  
+        }  
+      }  
+}  
+```
 Раздел **compression** содержит два свойства:  
 
 * **Type** — кодек сжатия; возможные значения: **GZIP**, **Deflate** и **BZIP2**.  
@@ -567,10 +587,13 @@ ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
+
+В зависимости от того, планируется ли перемещение исходных данных с большим объемом исторических данных или с загрузкой добавочных производственных данных, фабрика данных Azure предоставляет возможности повышения производительности этих задач. Параметр параллелизма является частью **действия копирования** и определяет, сколько будет одновременно обрабатываться различных окон действий. Параметр **parallelCopies** определяет параллелизм для выполнения одного действия. Использование этих параметров может быть очень полезным при разработке конвейеров перемещения данных с помощью фабрики данных Azure, позволяя достигнуть максимальной пропускной способности.
+
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

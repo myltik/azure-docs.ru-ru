@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -37,8 +37,8 @@ Azure Active Directory (Azure AD) предоставляет компаниям 
 
 > [!NOTE]
 > Пользователи могут входить на [портал Azure](http://portal.azure.com/) с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетной записи Azure Active Directory. Чтобы настроить каталог данных Azure с помощью портала Azure или [портала каталога данных](http://www.azuredatacatalog.com) , необходимо войти с помощью учетной записью Azure Active Directory, а не личной учетной записи.
-> 
-> 
+>
+>
 
 ## <a name="active-directory-policy-configuration"></a>Настройка политики Active Directory
 Иногда пользователи могут столкнуться с ситуацией, когда они могут войти на портал каталога данных Azure, но при попытке входа на средство регистрации источника данных отображается сообщение об ошибке, которая запрещает вход в систему. Эта ошибка может происходить только в том случае, если пользователь находится в локальной сети, или только в том случае, если пользователь подключается из-за пределов сети компании.
@@ -50,7 +50,6 @@ Azure Active Directory (Azure AD) предоставляет компаниям 
  ![Глобальная политика аутентификации AD FS](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 Подробнее: [Настройка политик проверки подлинности](https://technet.microsoft.com/library/dn486781.aspx).
-
 
 
 

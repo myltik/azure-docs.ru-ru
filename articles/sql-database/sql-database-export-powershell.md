@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: c886e8e61b00de2f07d7f5a98c2d2f4d5b29b7cf
-ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
+ms.sourcegitcommit: ebbb31eb9387d68afab7559a3827682ed2551d5a
+ms.openlocfilehash: de0b000b56ea90caeb1e2aa9a0b8c87e25c7c237
 
 
 ---
@@ -64,9 +64,9 @@ ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
 > 
 > 
 
-     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>Отслеживание хода выполнения операции экспорта
@@ -94,8 +94,8 @@ ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
     $ServerName = "SERVER-NAME"
     $serverAdmin = "ADMIN-NAME"
     $serverPassword = "ADMIN-PASSWORD" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    $securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+    $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
     # Generate a unique filename for the BACPAC
     $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
@@ -106,9 +106,9 @@ ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
     $StorageKeytype = "StorageAccessKey"
     $StorageKey = "YOUR STORAGE KEY"
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
     $exportRequest
 
     # Check status of the export
@@ -116,7 +116,8 @@ ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
 
 ## <a name="automate-export-using-azure-automation"></a>Автоматизация экспорта с помощью службы автоматизации Azure
 
-Службу автоматизации Azure можно использовать, чтобы периодически архивировать базы данных SQL в соответствии с установленным расписанием. Пример скрипта можно скачать в репозитории [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). Дополнительные сведения о службе автоматизации Azure см. в [этой статье](../automation/automation-intro.md).
+В настоящий момент служба Azure SQL Database Automated Export находится на этапе предварительной версии, и ее использование будет прекращено 1 марта 2017 года. Начиная с 1 декабря 2016 года будет невозможно настроить автоматический экспорт для какой-либо базы данных SQL. Все существующие задания автоматического экспорта продолжат работать до 1 марта 2017 года. После 1 декабря 2016 года можно использовать [долгосрочное хранение резервных копий](sql-database-long-term-retention.md) или [службу автоматизации Azure](../automation/automation-intro.md), чтобы периодически архивировать базы данных SQL с помощью PowerShell согласно выбранному расписанию. Пример сценария можно скачать из [репозитория GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать, как импортировать базу данных Azure SQL с помощью PowerShell, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md).
@@ -128,6 +129,6 @@ ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

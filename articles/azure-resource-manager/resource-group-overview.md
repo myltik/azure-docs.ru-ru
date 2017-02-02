@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Resource Manager обеспечивает слой согласованного 
 
 Имена всех поставщиков ресурсов можно получить, выполнив следующий командлет PowerShell:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Кроме того, их можно получить, выполнив следующую команду Azure CLI:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 В возращенном списке можно просмотреть поставщиков ресурсов, которые необходимо использовать.
 
 Чтобы получить сведения о поставщике ресурсов, добавьте в команду его пространство имен. Эта команда возвращает поддерживаемые поставщиком типы ресурсов, а также поддерживаемые каждым типом ресурсов расположения и версии API. С помощью следующего командлета PowerShell можно получить сведения о службе Microsoft.Compute.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Чтобы получить сведения о поддерживаемых службой Microsoft.Compute типах ресурсов, расположениях и версиях API, выполните следующую команду Azure CLI:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Дополнительные сведения см. в статье [Поставщики диспетчера ресурсов, регионы, версии API и схемы](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Resource Manager обеспечивает слой согласованного 
 
 Resource Manager обрабатывает шаблон, как и любой другой запрос (см. рис [Уровень согласованного управления](#consistent-management-layer)). Он анализирует шаблон и преобразует его синтаксис в операции REST API для соответствующих поставщиков ресурсов. Например, Resource Manager получает шаблон со следующим определением ресурса:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 В таком случае Resource Manager преобразует определение в операцию REST API, которая отправляется поставщику ресурсов Microsoft.Storage:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 Вы выбираете определение шаблонов и групп ресурсов по своему усмотрению в зависимости от того, как нужно управлять решением. Например, трехуровневое приложение можно развернуть из одного шаблона в одной группе ресурсов.
 
@@ -181,26 +193,32 @@ Azure Resource Manager анализирует зависимости, чтобы
 
 В следующем примере показан тег, примененный к виртуальной машине.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Чтобы получить все ресурсы со значением тега, используйте следующий командлет PowerShell:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Или выполните следующую команду Azure CLI:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Ресурсы с тегами можно также просмотреть на портале Azure.
 
@@ -251,17 +269,19 @@ Resource Manager регистрирует все операции создани
 
 В следующем примере показано политику, которая обеспечивает согласованность тегов. Для этого указывается, что все ресурсы включают в себя тег costCenter.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Существует множество типов политик, которые можно создать. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ AutoRest преобразует эти спецификации RESTful API в �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

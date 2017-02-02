@@ -3,7 +3,7 @@
    
     Запишите путь к пакету SDK. Он вам потребуется в дальнейшем. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Откройте файл **build.gradle** в каталоге приложения.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)

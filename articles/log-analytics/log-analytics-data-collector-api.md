@@ -1,19 +1,23 @@
 ---
-title: API сборщика данных HTTP в Log Analytics | Microsoft Docs
-description: API сборщика данных HTTP в Log Analytics можно использовать для добавления данных POST JSON в репозиторий Log Analytics из любого клиента, который может вызывать REST API. В этой статье описывается, как использовать API, и приводятся примеры публикации данных с использованием разных языков программирования.
+title: "API сборщика данных HTTP в Log Analytics | Документация Майкрософт"
+description: "API сборщика данных HTTP в Log Analytics можно использовать для добавления данных POST JSON в репозиторий Log Analytics из любого клиента, который может вызывать REST API. В этой статье описывается, как использовать API, и приводятся примеры публикации данных с использованием разных языков программирования."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/15/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 8867cda9d4b35fa908db8749aaad74d85cec67f3
+ms.openlocfilehash: 5f82274838de2e6d2a753a685760b5f144065d94
+
 
 ---
 # <a name="log-analytics-http-data-collector-api"></a>API сборщика данных HTTP в Log Analytics
@@ -26,7 +30,7 @@ ms.author: bwren
 | Атрибут | Свойство |
 |:--- |:--- |
 | Метод |ПУБЛИКАЦИЯ |
-| URI |https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Тип содержимого |приложение/json |
 
 ### <a name="request-uri-parameters"></a>Параметры URI запроса
@@ -41,8 +45,8 @@ ms.author: bwren
 |:--- |:--- |
 | Авторизация |Подпись авторизации. Далее в этой статье вы найдете сведения о том, как создать заголовок HMAC-SHA256. |
 | Log-Type |Укажите тип записи для отправляемых данных. Сейчас для указания типа журнала можно использовать только буквы. Цифры и специальные символы не поддерживаются. |
-| x-ms-date |Дата обработки запроса в формате RFC 1123. |
-| time-generated-field |Имя поля данных, содержащее метку времени элемента данных. Если вы укажете здесь поле, его содержимое будет использоваться как значение параметра **TimeGenerated**. Если это поле не указано, по умолчанию для **TimeGenerated** будет использоваться время приема сообщения. Содержимое поля сообщения должно соответствовать формату ISO 8601: YYYY-MM-DDThh:mm:ssZ. |
+| x-ms-date |Дата обработки запроса в формате RFC 1123. |
+| time-generated-field |Имя поля данных, содержащее метку времени элемента данных. Если вы укажете здесь поле, его содержимое будет использоваться как значение параметра **TimeGenerated**. Если это поле не указано, по умолчанию для **TimeGenerated** будет использоваться время приема сообщения. Содержимое поля сообщения должно соответствовать формату ISO 8601: YYYY-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Авторизация
 Любой запрос к API сборщика данных HTTP в Log Analytics должен включать заголовок авторизации. Чтобы проверить подлинность запроса, необходимо подписать запрос с помощью первичного или вторичного ключа для рабочей области, выполняющей запрос. Затем следует передать подпись как часть запроса.   
@@ -53,16 +57,16 @@ ms.author: bwren
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* — это уникальный идентификатор для рабочей области Operations Management Suite. *Signature* — это [код проверки подлинности сообщения на основе хэша (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx), созданный из запроса и вычисленный с помощью [алгоритма SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Затем его можно закодировать с помощью кодировки Base64.
+*WorkspaceID* — это уникальный идентификатор для рабочей области Operations Management Suite. *Signature* — это [код проверки подлинности сообщения на основе хэша (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx), созданный из запроса и вычисленный с помощью [алгоритма SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Затем его можно закодировать с помощью кодировки Base64.
 
 Используйте этот формат для кодирования строки подписи **SharedKey**:
 
 ```
 StringToSign = VERB + "\n" +
-               Content-Length + "\n" +
+                  Content-Length + "\n" +
                Content-Type + "\n" +
-               x-ms-date + "\n" +
-               "/api/logs";
+                  x-ms-date + "\n" +
+                  "/api/logs";
 ```
 
 Вот пример строки подписи:
@@ -130,28 +134,35 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Например, при отправке следующих данных создается запись с тремя свойствами: **number_d**, **boolean_b** и **string_s**:
 
-![Пример записи 1](media/log-analytics-data-collector-api/record-01.png)
+![Пример записи 1](media/log-analytics-data-collector-api/record-01.png)
 
 Если отправить следующую запись со всеми значениями в строковом формате, свойства не изменятся. Эти значения можно преобразовать в существующие типы данных:
 
-![Пример записи 2](media/log-analytics-data-collector-api/record-02.png)
+![Пример записи 2](media/log-analytics-data-collector-api/record-02.png)
 
 Но если отправить следующую запись, Log Analytics создаст новые свойства **boolean_d** и **string_d**. Преобразовать эти значения нельзя:
 
-![Пример записи 3](media/log-analytics-data-collector-api/record-03.png)
+![Пример записи 3](media/log-analytics-data-collector-api/record-03.png)
 
 Если затем будет отправлена следующая запись, прежде чем будет создан тип записи, Log Analytics создаст запись с тремя свойствами: **number_s**, **boolean_s** и **string_s**. В этой записи каждое начальное значение форматируется как строка:
 
-![Пример записи 4](media/log-analytics-data-collector-api/record-04.png)
+![Пример записи 4](media/log-analytics-data-collector-api/record-04.png)
+
+## <a name="data-limits"></a>Ограничения данных
+Существуют ограничения на данные, публикуемые в API сбора данных Log Analytics.
+
+* Не более 30 МБ на публикацию для API сбора данных Log Analytics. Это ограничение размера для одной публикации. Если данные одной публикации превышают 30 МБ, необходимо разделить данные на меньшие фрагменты и отправить их параллельно. 
+* Не более 32 КБ для значений полей. Если значение поля превышает 32 КБ, данные будут усечены. 
+* Рекомендуемое максимальное количество полей для данного типа — 50. Это ограничение введено для удобства поиска и использования.  
 
 ## <a name="return-codes"></a>Коды возврата
-Код состояния HTTP 202 означает, что запрос принят в обработку, но обработка еще не завершена. Такой результат означает, что операция завершена успешно.
+Код состояния HTTP 200 означает, что запрос получен для обработки. Такой результат означает, что операция завершена успешно.
 
 В этой таблице представлен полный набор кодов состояний, которые может возвращать служба:
 
 | Код | Состояние | Код ошибки | Описание |
 |:--- |:--- |:--- |:--- |
-| 202 |Принято | |Запрос был успешно принят. |
+| 200 |ОК | |Запрос был успешно принят. |
 | 400 |Недопустимый запрос |InactiveCustomer |Рабочая область закрыта. |
 | 400 |Недопустимый запрос |InvalidApiVersion |Указанная версия API не распознана службой. |
 | 400 |Недопустимый запрос |InvalidCustomerId |Указан недопустимый идентификатор рабочей области. |
@@ -162,6 +173,8 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 | 400 |Недопустимый запрос |MissingLogType |Обязательное значение типа журнала не указано. |
 | 400 |Недопустимый запрос |UnsupportedContentType |Для типа содержимого не было задано значение **application/json**. |
 | 403 |Запрещено |InvalidAuthorization |Службе не удалось проверить подлинность запроса. Проверьте правильность идентификатора и ключа подключения рабочей области. |
+| 404 |Не найдено | | Указан неправильный URL-адрес либо запрос слишком большой. |
+| 429 |Слишком много запросов | | В службу поступает слишком большой объем данных из вашей учетной записи. Повторите запрос позже. |
 | 500 |Внутренняя ошибка сервера |UnspecifiedError |Служба обнаружила внутреннюю ошибку. Повторите запрос. |
 | 503 |Служба недоступна |ServiceUnavailable |Служба сейчас недоступна для получения запросов. Повторите запрос. |
 
@@ -263,7 +276,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### <a name="c#-sample"></a>Пример на языке C
+### <a name="c-sample"></a>Пример на языке C#
 ```
 using System;
 using System.Net;
@@ -383,7 +396,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
     bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
     decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
@@ -405,7 +418,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
@@ -416,6 +429,9 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="next-steps"></a>Дальнейшие действия
 * Создайте пользовательские представления отправляемых данных с помощью [конструктора представлений](log-analytics-view-designer.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

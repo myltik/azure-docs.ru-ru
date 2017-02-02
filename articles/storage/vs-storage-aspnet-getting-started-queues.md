@@ -1,146 +1,224 @@
 ---
-title: Начало работы с хранилищем очередей и подключенными службами Visual Studio (ASP.NET) | Microsoft Docs
-description: Как приступить к работе, используя хранилище очередей Azure в проекте ASP.NET в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio
+title: "Приступая к работе с хранилищем очередей Azure и подключенными службами Visual Studio (ASP.NET) | Документация Майкрософт"
+description: "Как приступить к работе, используя хранилище очередей Azure в проекте ASP.NET в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/02/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: f58c2b522f81dc2dc86f0d2c6bc4872504cf7377
+ms.openlocfilehash: 70875287e79aaf49e1b8802cf2953cd5381b97f4
+
 
 ---
-# Начало работы с хранилищем очередей Azure и подключенными службами Visual Studio
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Приступая к работе с хранилищем очередей Azure и подключенными службами Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Обзор
-В этой статье описывается, как приступить к использованию хранилища очередей Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio.
+## <a name="overview"></a>Обзор
 
-Мы покажем, как создать очередь Azure и получить к ней доступ с помощью учетной записи хранения. Кроме того, вы узнаете, как выполнять базовые операции с очередями, например добавлять, изменять, считывать и удалять сообщения в очередях. Примеры написаны на языке C# и используют [клиентскую библиотеку службы хранилища Microsoft Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Дополнительные сведения см. на сайте [ASP.NET](http://www.asp.net).
+Хранилище очередей Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать неограниченное число сообщений до общего ограничения емкости учетной записи хранения.
 
-Хранилище очередей Azure — это служба для хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения.
+В этой статье показано, как программно управлять сущностями хранилища очередей Azure, выполнения типичные задачи, таких как создание очереди Azure, добавление, изменение, чтение и удаление сообщений в очереди.
 
-## Доступ к очередям в коде
-Для доступа к очередям в проектах ASP.NET необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к хранилищу очередей Azure.
+> [!NOTE]
+> 
+> В разделах кода в этой статье предполагается, что вы уже подключены к учетной записи хранения Azure с помощью подключенных служб. Для настройки подключенных служб откройте обозреватель решений Visual Studio, щелкните проект правой кнопкой мыши и выберите в контекстном меню **Добавить > Подключенная служба**. Затем следуйте инструкциям в диалоговом окне, чтобы подключиться к требуемой учетной записи хранения Azure.      
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже операторы **using**.
+## <a name="create-a-queue"></a>Создание очереди
+
+Ниже описано, как программным способом создать очередь. В приложении ASP.NET MVC код будет находиться в контроллере.
+
+1. Добавьте следующие директивы *using*:
    
-        using Microsoft.Framework.Configuration;
+        using Microsoft.Azure;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Получите объект **CloudStorageAccount**, представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure.
-   
+
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
+
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
-   
-        // Create the CloudQueueClient object for this storage account.
+
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
+
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Получите объект **CloudQueue** для ссылки на определенную очередь.
+
+4. Получите объект **CloudQueue**, представляющий ссылку на требуемое имя очереди. (Замените *<queue-name>* именем создаваемой очереди.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Вызовите метод **CloudQueue.CreateIfNotExists**, чтобы создать очередь, если она еще не создана. 
+
+        queue.CreateIfNotExists();
+
+
+## <a name="add-a-message-to-a-queue"></a>Добавление сообщения в очередь
+
+Ниже описано, как программным способом добавить сообщение в очередь. В приложении ASP.NET MVC код будет находиться в контроллере.
+
+1. Добавьте следующие директивы *using*:
    
-        // Get a reference to a queue named "messageQueue"
-        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-**ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в указанных ниже примерах.
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
 
-## Создание очереди в коде
-Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExists** в приведенный выше код.
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create the messageQueue if it does not exist
-    messageQueue.CreateIfNotExists();
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
 
-## Добавление сообщения в очередь
-Чтобы вставить сообщение в существующую очередь, создайте объект **CloudQueueMessage**, а затем вызовите метод **AddMessage**.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Для создания объекта **CloudQueueMessage** можно использовать либо строку (в формате UTF-8), либо массив типа byte.
+4. Получите объект **CloudQueue**, представляющий ссылку на требуемое имя очереди. (Замените *<queue-name>* именем очереди, в которую требуется добавить сообщение.)
 
-Ниже приведен пример, который вставляет сообщение "Hello, World".
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    messageQueue.AddMessage(message);
+5. Создайте объект **CloudQueueMessage**, представляющий сообщение, которое требуется добавить в очередь. Для создания объекта **CloudQueueMessage** можно использовать либо строку (в формате UTF-8), либо массив типа byte. (Замените * <queue-message>* добавляемым сообщением.
 
-## Чтение сообщения в очереди
-Можно просмотреть сообщение в начале очереди, не удаляя его из очереди, вызвав метод PeekMessage().
+        CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
+6. Вызовите метод **CloudQueue.AddMessage**, чтобы добавить сообщение в очередь.
 
-## Чтение и удаление сообщения в очереди
-Ваш код может удалить сообщение из очереди в два этапа.
+        queue.AddMessage(message);
 
-1. Вызовите метод GetMessage(), чтобы получить следующее сообщение в очереди. Сообщение, возвращаемое методом GetMessage(), становится невидимым для другого кода, считывающего сообщения из этой очереди. По умолчанию это сообщение остается невидимым в течение 30 секунд.
-2. Чтобы завершить удаление сообщения из очереди, вызовите метод **DeleteMessage**.
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>Чтение сообщения из очереди, не удаляя его
 
-Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Указанный ниже код вызывает метод **DeleteMessage** сразу после обработки сообщения.
+Следующие шаги показывают, как программным способом просмотреть сообщение в очереди (прочитать первое сообщение, не удаляя его). В приложении ASP.NET MVC код будет находиться в контроллере. 
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+1. Добавьте следующие директивы *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Process the message in less than 30 seconds
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
 
-    // Then delete the message.
-    await messageQueue.DeleteMessage(retrievedMessage);
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
 
-## Использование дополнительных параметров для удаления сообщений из очереди
-Способ извлечения сообщения из очереди можно настроить двумя способами. Во-первых, можно получить пакет сообщений (до 32 сообщений). Во-вторых, можно задать более длительное или короткое время ожидания видимости, чтобы предоставить коду больше или меньше времени на полную обработку каждого сообщения. В следующем примере кода метод **GetMessages** используется для получения 20 сообщений в одном вызове. Затем он обрабатывает каждое сообщение с помощью цикла **foreach**. Он также задает время ожидания невидимости 5 минут для каждого сообщения. Обратите внимание на то, что пятиминутный период начинается для всех сообщений одновременно, поэтому по прошествии пяти минут с момента вызова **GetMessages** все сообщения, которые не были удалены, снова становятся видимыми.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+4. Получите объект **CloudQueue**, представляющий ссылку на очередь. (Замените *<queue-name>* именем очереди, в которой требуется прочитать сообщение.)
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
+5. Вызовите метод **CloudQueue.PeekMessage**, чтобы прочитать сообщение в начале очереди, не удаляя его из очереди.
+
+        CloudQueueMessage message = queue.PeekMessage();
+
+6. Просмотрите значение объекта **CloudQueueMessage**, используя свойство **CloudQueueMessage.AsBytes** или **CloudQueueMessage.AsString**.
+
+        string messageAsString = message.AsString;
+        byte[] messageAsBytes = message.AsBytes;
+
+## <a name="read-and-remove-a-message-from-a-queue"></a>Чтение и удаление сообщения из очереди
+
+Ниже описано, как программным способом прочитать сообщение в очереди, а затем удалить его. В приложении ASP.NET MVC код будет находиться в контроллере. 
+
+1. Добавьте следующие директивы *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Получите объект **CloudQueue**, представляющий ссылку на очередь. (Замените *<queue-name>* именем очереди, в которой требуется прочитать сообщение.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Вызовите метод **CloudQueue.GetMessage**, чтобы прочитать первое сообщение в очереди. Метод **CloudQueue.GetMessage** на 30 секунд (по умолчанию) делает сообщение невидимым для любого другого кода, считывающего сообщения, чтобы никакой другой код не смог изменить или удалить сообщение, пока вы с ним работаете. Чтобы изменить промежуток времени, в течение которого сообщение остается невидимым, измените параметр **visibilityTimeout**, передаваемый в метод **CloudQueue.GetMessage**.
+
+        // This message will be invisible to other code for 30 seconds.
+        CloudQueueMessage message = queue.GetMessage();     
+
+6. Вызовите метод **CloudQueueMessage.Delete**, чтобы удалить сообщение из очереди.
+
         queue.DeleteMessage(message);
-    }
 
-## Получение длины очереди
-Вы можете узнать приблизительное количество сообщений в очереди. Метод **FetchAttributes** отправляет в службу очередей запрос на извлечение атрибутов очереди, включая количество сообщений. Свойство **ApproximateMethodCount** возвращает последнее значение, полученное с использованием метода **FetchAttributes**, без обращения к службе очередей.
+## <a name="get-the-queue-length"></a>Получение длины очереди
 
-    // Fetch the queue attributes.
-    messageQueue.FetchAttributes();
+Ниже описано, как программным способом получить длину очереди (число сообщений). В приложении ASP.NET MVC код будет находиться в контроллере. 
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
+1. Добавьте следующие директивы *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
 
-## Использование алгоритма Async-Await со стандартными API очередей
-В этом примере показано, как использовать алгоритм Async-Await со стандартными API очередей. Вызывается асинхронная версия каждого из методов (на это указывает постфикс Async после их названий). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
 
-    // Async enqueue the message
-    await messageQueue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+4. Получите объект **CloudQueue**, представляющий ссылку на очередь. (Замените *<queue-name>* именем очереди, длину которой требуется запросить.)
 
-    // Async delete the message
-    await messageQueue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-## Удаление очереди
-Чтобы удалить очередь и все сообщения в ней, вызовите метод **Delete** для объекта очереди.
+5. Вызовите метод **CloudQueue.FetchAttributes**, чтобы получить атрибуты очереди (включая ее длину). 
 
-    // Delete the queue.
-    messageQueue.Delete();
+        queue.FetchAttributes();
 
-## Дальнейшие действия
+6. Просмотрите свойство **CloudQueue.ApproximateMessageCount**, чтобы узнать длину очереди.
+ 
+        int? nMessages = queue.ApproximateMessageCount;
+
+## <a name="delete-a-queue"></a>Удаление очереди
+Ниже описано, как программным способом удалить очередь. 
+
+1. Добавьте следующие директивы *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Получите объект **CloudStorageAccount** , представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure. (Замените *<storage-account-name>* именем учетной записи хранения Azure, к которой осуществляется доступ.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Получите объект **CloudQueueClient**, представляющий клиента службы очередей.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Получите объект **CloudQueue**, представляющий ссылку на очередь. (Замените *<queue-name>* именем очереди, длину которой требуется запросить.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Вызовите метод **CloudQueue.Delete**, чтобы удалить очередь, представленную объектом **CloudQueue**.
+
+        messageQueue.Delete();
+
+## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

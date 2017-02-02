@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 11/09/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8144b0a65c18fb98cb410cfd83ad9812c6ed2a
-ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
+ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
+ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
 
 
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-activities"></a>Создание прогнозных конвейеров с помощью действий машинного обучения Azure
+
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
-> [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md)
-> [Хранимая процедура](data-factory-stored-proc-activity.md)
-> [Сценарий U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
-> [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
->
+> * [Hive](data-factory-hive-activity.md) 
+> * [Pig](data-factory-pig-activity.md)
+> * [MapReduce](data-factory-map-reduce.md)
+> * [Потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Машинное обучение](data-factory-azure-ml-batch-execution-activity.md)
+> * [Хранимая процедура](data-factory-stored-proc-activity.md)
+> * [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
+> * [Пользовательские действия .NET](data-factory-use-custom-activities.md)
 >
 
 ## <a name="introduction"></a>Введение
@@ -40,7 +40,7 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 2. **Преобразование обучающего эксперимента в прогнозный**. Когда модель будет обучена с помощью существующих данных и готова для оценки новых данных, следует подготовить и оптимизировать эксперимент для оценки.
 3. **Развертывание эксперимента в виде веб-службы**. Оценивающий эксперимент можно опубликовать в виде веб-службы Azure. С помощью конечной точки этой веб-службы вы можете отправлять данные в свою модель и получать из нее результаты прогнозов.  
 
-Фабрика данных Azure позволяет легко создавать конвейеры, в которых для прогнозной аналитики используется опубликованная веб-служба [Машинного обучения Azure][azure-machine-learning]. См. статьи [Общие сведения о службе фабрики данных Azure](data-factory-introduction.md) и [Создание первого конвейера](data-factory-build-your-first-pipeline.md), чтобы быстро приступить к работе со службой фабрики данных Azure.
+Фабрика данных Azure позволяет легко создавать конвейеры, в которых для прогнозной аналитики используется опубликованная веб-служба [машинного обучения Azure][azure-machine-learning]. См. статьи [Общие сведения о службе фабрики данных Azure](data-factory-introduction.md) и [Создание первого конвейера](data-factory-build-your-first-pipeline.md), чтобы быстро приступить к работе со службой фабрики данных Azure.
 
 С помощью **действия выполнения пакета** в конвейере фабрики данных Azure можно обращаться к веб-службе машинного обучения Azure, чтобы создавать прогнозы по данным в пакете. Подробные сведения см. в разделе [Обращение к веб-службе машинного обучения Azure с помощью действия выполнения пакета](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity).
 
@@ -83,46 +83,47 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 >
 >
 
-    {
-      "name": "PredictivePipeline",
-      "properties": {
-        "description": "use AzureML model",
-        "activities": [
+```JSON
+{
+  "name": "PredictivePipeline",
+  "properties": {
+    "description": "use AzureML model",
+    "activities": [
+      {
+        "name": "MLActivity",
+        "type": "AzureMLBatchExecution",
+        "description": "prediction analysis on batch input",
+        "inputs": [
           {
-            "name": "MLActivity",
-            "type": "AzureMLBatchExecution",
-            "description": "prediction analysis on batch input",
-            "inputs": [
-              {
-                "name": "DecisionTreeInputBlob"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "DecisionTreeResultBlob"
-              }
-            ],
-            "linkedServiceName": "MyAzureMLLinkedService",
-            "typeProperties":
-            {
-                "webServiceInput": "DecisionTreeInputBlob",
-                "webServiceOutputs": {
-                    "output1": "DecisionTreeResultBlob"
-                }                
-            },
-            "policy": {
-              "concurrency": 3,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 1,
-              "timeout": "02:00:00"
-            }
+            "name": "DecisionTreeInputBlob"
           }
         ],
-        "start": "2016-02-13T00:00:00Z",
-        "end": "2016-02-14T00:00:00Z"
+        "outputs": [
+          {
+            "name": "DecisionTreeResultBlob"
+          }
+        ],
+        "linkedServiceName": "MyAzureMLLinkedService",
+        "typeProperties":
+        {
+            "webServiceInput": "DecisionTreeInputBlob",
+            "webServiceOutputs": {
+                "output1": "DecisionTreeResultBlob"
+            }                
+        },
+        "policy": {
+          "concurrency": 3,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 1,
+          "timeout": "02:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-02-13T00:00:00Z",
+    "end": "2016-02-14T00:00:00Z"
+  }
+}
+```
 > [!NOTE]
 > Только входные и выходные данные действия AzureMLBatchExecution могут передаваться как параметры веб-службы. Например, в приведенном выше фрагменте JSON DecisionTreeInputBlob —входные данные действия AzureMLBatchExecution, которые передаются в качестве входных данных в веб-службу через параметр webServiceInput.   
 >
@@ -131,109 +132,119 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 ### <a name="example"></a>Пример
 В этом примере для размещения входных и выходных данных используется служба хранилища Azure.
 
-Прежде чем приступить к этому примеру, мы советуем изучить руководство по [созданию первого конвейера с помощью фабрики данных][adf-build-1st-pipeline]. C помощью редактора фабрики данных можно создать артефакты фабрики данных (связанные службы, наборы данных и конвейер) для этого примера.   
+Советуем, прежде чем приступить к этому примеру, ознакомиться со статьей [Учебник. Создание первого конвейера для обработки данных с помощью кластера Hadoop][adf-build-1st-pipeline]. C помощью редактора фабрики данных можно создать артефакты фабрики данных (связанные службы, наборы данных и конвейер) для этого примера.   
 
 1. Создайте **связанную службу** для **службы хранилища Azure**. Если входные и выходные файлы находятся в разных учетных записях хранения, то потребуются две связанные службы. Ниже приведен пример JSON:
 
-        {
-          "name": "StorageLinkedService",
-          "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-              "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
-            }
-          }
+    ```JSON
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
         }
+      }
+    }
+    ```
 2. Создайте **входной** **набор данных** фабрики данных Azure. В отличие от некоторых других наборов данных фабрики данных, эти наборы должны содержать значения **folderPath** и **fileName**. Можно использовать секционирование для выполнения каждого пакета (каждого среза данных) для обработки или создания уникальных входных и выходных файлов. Возможно, потребуется включить некоторые вышестоящие действия для преобразования входных данных в формат CSV-файла и его размещения в учетной записи хранения для каждого среза. В этом случае не будут включены параметры **external** и **externalData**, как показано в примере ниже, а DecisionTreeInputBlob будет выходным набором данных другого действия.
 
-        {
-          "name": "DecisionTreeInputBlob",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-              "folderPath": "azuremltesting/input",
-              "fileName": "in.csv",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "external": true,
-            "availability": {
-              "frequency": "Day",
-              "interval": 1
-            },
-            "policy": {
-              "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-              }
-            }
+    ```JSON
+    {
+      "name": "DecisionTreeInputBlob",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "azuremltesting/input",
+          "fileName": "in.csv",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
           }
         }
+      }
+    }
+    ```
 
     Входной CSV-файл должен содержать строку заголовков столбцов. Если вы используете **действие копирования** для создания или перемещения CSV-файла в хранилище BLOB-объектов, следует установить для свойства **blobWriterAddHeader** приемника значение **true**. Например:
 
-         sink:
-         {
-             "type": "BlobSink",     
-             "blobWriterAddHeader": true
-         }
+    ```JSON
+    sink:
+    {
+        "type": "BlobSink",     
+        "blobWriterAddHeader": true
+    }
+    ```
 
     если CSV-файл не имеет строку заголовков, может появиться следующая ошибка: **Ошибка в действии: ошибка при чтении строки. Непредвиденный токен: StartObject. Путь '', строка 1, позиция 1**.
 3. Создайте **выходной** **набор данных** фабрики данных Azure. В этом примере используется секционирование для создания уникального выходного пути при выполнении каждого из срезов. Без этого действие перезапишет файл.
 
-        {
-          "name": "DecisionTreeResultBlob",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-              "folderPath": "azuremltesting/scored/{folderpart}/",
-              "fileName": "{filepart}result.csv",
-              "partitionedBy": [
-                {
-                  "name": "folderpart",
-                  "value": {
-                    "type": "DateTime",
-                    "date": "SliceStart",
-                    "format": "yyyyMMdd"
-                  }
-                },
-                {
-                  "name": "filepart",
-                  "value": {
-                    "type": "DateTime",
-                    "date": "SliceStart",
-                    "format": "HHmmss"
-                  }
-                }
-              ],
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
+    ```JSON
+    {
+      "name": "DecisionTreeResultBlob",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "azuremltesting/scored/{folderpart}/",
+          "fileName": "{filepart}result.csv",
+          "partitionedBy": [
+            {
+              "name": "folderpart",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyyMMdd"
               }
             },
-            "availability": {
-              "frequency": "Day",
-              "interval": 15
+            {
+              "name": "filepart",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "HHmmss"
+              }
             }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
           }
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 15
         }
+      }
+    }
+    ```
 4. Создайте **связанную службу** типа **AzureMLLinkedService**, предоставляющую ключ API и URL-адрес выполнения пакета для модели.
 
-        {
-          "name": "MyAzureMLLinkedService",
-          "properties": {
-            "type": "AzureML",
-            "typeProperties": {
-              "mlEndpoint": "https://[batch execution endpoint]/jobs",
-              "apiKey": "[apikey]"
-            }
-          }
+    ```JSON
+    {
+      "name": "MyAzureMLLinkedService",
+      "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+          "mlEndpoint": "https://[batch execution endpoint]/jobs",
+          "apiKey": "[apikey]"
         }
+      }
+    }
+    ```
 5. Наконец, создайте конвейер, содержащий действие **AzureMLBatchExecution** . Конвейер выполняет следующие действия:
 
    1. Получает расположение входного файла из входных наборов данных.
@@ -245,43 +256,47 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
       >
       >
 
-       {    "name": "PredictivePipeline",    "properties": {
-
-           "description": "use AzureML model",
-           "activities": [
-             {
-               "name": "MLActivity",
-               "type": "AzureMLBatchExecution",
-               "description": "prediction analysis on batch input",
-               "inputs": [
-                 {
-                   "name": "DecisionTreeInputBlob"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "DecisionTreeResultBlob"
-                 }
-               ],
-               "linkedServiceName": "MyAzureMLLinkedService",
-               "typeProperties":
-               {
-                   "webServiceInput": "DecisionTreeInputBlob",
-                   "webServiceOutputs": {
-                       "output1": "DecisionTreeResultBlob"
-                   }                
-               },
-               "policy": {
-                 "concurrency": 3,
-                 "executionPriorityOrder": "NewestFirst",
-                 "retry": 1,
-                 "timeout": "02:00:00"
-               }
-             }
-           ],
-           "start": "2016-02-13T00:00:00Z",
-           "end": "2016-02-14T00:00:00Z"
-         }  }
+    ```JSON
+    {
+        "name": "PredictivePipeline",
+        "properties": {
+            "description": "use AzureML model",
+            "activities": [
+            {
+                "name": "MLActivity",
+                "type": "AzureMLBatchExecution",
+                "description": "prediction analysis on batch input",
+                "inputs": [
+                {
+                    "name": "DecisionTreeInputBlob"
+                }
+                ],
+                "outputs": [
+                {
+                    "name": "DecisionTreeResultBlob"
+                }
+                ],
+                "linkedServiceName": "MyAzureMLLinkedService",
+                "typeProperties":
+                {
+                    "webServiceInput": "DecisionTreeInputBlob",
+                    "webServiceOutputs": {
+                        "output1": "DecisionTreeResultBlob"
+                    }                
+                },
+                "policy": {
+                    "concurrency": 3,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "02:00:00"
+                }
+            }
+            ],
+            "start": "2016-02-13T00:00:00Z",
+            "end": "2016-02-14T00:00:00Z"
+        }
+    }
+    ```
 
       Даты **начала** и **окончания** должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Значение времени окончания (**end**) является необязательным. Если не указать значение свойства **end**, оно вычисляется по формуле **время начала + 48 часов**. Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **end**. Дополнительные сведения о свойствах JSON см. в [справочнике по скриптам JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
@@ -302,20 +317,24 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 
 Рассмотрим сценарий использования параметров веб-службы. Вы развернули веб-службу машинного обучения Azure, которая использует модуль чтения для чтения данных из одного из поддерживаемых источников данных машинного обучения Azure (например, базы данных SQL Azure). После пакетного выполнения результаты записываются с помощью модуля записи (база данных SQL Azure).  В экспериментах не определены входные и выходные данные веб-службы. В этом случае мы советуем настроить соответствующие параметры веб-службы для модулей чтения и записи. Это позволит настроить их при использовании действия AzureMLBatchExecution. Параметры веб-службы указываются в разделе **globalParameters** действия JSON, как показано ниже.
 
-    "typeProperties": {
-        "globalParameters": {
-            "Param 1": "Value 1",
-            "Param 2": "Value 2"
-        }
+```JSON
+"typeProperties": {
+    "globalParameters": {
+        "Param 1": "Value 1",
+        "Param 2": "Value 2"
     }
+}
+```
 
 Вы также можете использовать [функции фабрики данных](data-factory-functions-variables.md) при передаче значений для параметров веб-службы, как показано в следующем примере:
 
-    "typeProperties": {
-        "globalParameters": {
-           "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
-        }
-      }
+```JSON
+"typeProperties": {
+    "globalParameters": {
+       "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    }
+}
+```
 
 > [!NOTE]
 > В параметрах веб-службы учитывается регистр, поэтому убедитесь, что имена, которые указываются в действии JSON, соответствуют именам, предоставляемым веб-службой.
@@ -331,51 +350,54 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 
 ### <a name="example"></a>Пример
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Конвейер с действием AzureMLBatchExecution с параметрами веб-службы
-    {
-      "name": "MLWithSqlReaderSqlWriter",
-      "properties": {
-        "description": "Azure ML model with sql azure reader/writer",
-        "activities": [
+
+```JSON
+{
+  "name": "MLWithSqlReaderSqlWriter",
+  "properties": {
+    "description": "Azure ML model with sql azure reader/writer",
+    "activities": [
+      {
+        "name": "MLSqlReaderSqlWriterActivity",
+        "type": "AzureMLBatchExecution",
+        "description": "test",
+        "inputs": [
           {
-            "name": "MLSqlReaderSqlWriterActivity",
-            "type": "AzureMLBatchExecution",
-            "description": "test",
-            "inputs": [
-              {
-                "name": "MLSqlInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "MLSqlOutput"
-              }
-            ],
-            "linkedServiceName": "MLSqlReaderSqlWriterDecisionTreeModel",
-            "typeProperties":
-            {
-                "webServiceInput": "MLSqlInput",
-                "webServiceOutputs": {
-                    "output1": "MLSqlOutput"
-                }
-                  "globalParameters": {
-                    "Database server name": "<myserver>.database.windows.net",
-                    "Database name": "<database>",
-                    "Server user account name": "<user name>",
-                    "Server user account password": "<password>"
-                  }              
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 1,
-              "timeout": "02:00:00"
-            },
+            "name": "MLSqlInput"
           }
         ],
-        "start": "2016-02-13T00:00:00Z",
-        "end": "2016-02-14T00:00:00Z"
+        "outputs": [
+          {
+            "name": "MLSqlOutput"
+          }
+        ],
+        "linkedServiceName": "MLSqlReaderSqlWriterDecisionTreeModel",
+        "typeProperties":
+        {
+            "webServiceInput": "MLSqlInput",
+            "webServiceOutputs": {
+                "output1": "MLSqlOutput"
+            }
+              "globalParameters": {
+                "Database server name": "<myserver>.database.windows.net",
+                "Database name": "<database>",
+                "Server user account name": "<user name>",
+                "Server user account password": "<password>"
+              }              
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 1,
+          "timeout": "02:00:00"
+        },
       }
-    }
+    ],
+    "start": "2016-02-13T00:00:00Z",
+    "end": "2016-02-14T00:00:00Z"
+  }
+}
+```
 
 В приведенном выше примере JSON:
 
@@ -388,121 +410,128 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 
 В эксперименте Машинного обучения Azure у входных и выходных портов и глобальных параметров есть имена по умолчанию (input1, input2), которые можно настроить. Имена, используемые для параметров webServiceInputs, webServiceOutputs и globalParameters, должны точно совпадать с именами в экспериментах. Пример полезных данных запроса можно просмотреть на странице справки по выполнению пакета для конечной точки Машинного обучения Azure, чтобы проверить ожидаемое сопоставление.
 
-    {
-        "name": "PredictivePipeline",
-        "properties": {
-            "description": "use AzureML model",
-            "activities": [{
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [{
-                    "name": "inputDataset1"
-                }, {
-                    "name": "inputDataset2"
-                }],
-                "outputs": [{
-                    "name": "outputDataset"
-                }],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties": {
-                    "webServiceInputs": {
-                        "input1": "inputDataset1",
-                        "input2": "inputDataset2"
-                    },
-                    "webServiceOutputs": {
-                        "output1": "outputDataset"
-                    }
-                },
-                "policy": {
-                    "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
+```JSON
+{
+    "name": "PredictivePipeline",
+    "properties": {
+        "description": "use AzureML model",
+        "activities": [{
+            "name": "MLActivity",
+            "type": "AzureMLBatchExecution",
+            "description": "prediction analysis on batch input",
+            "inputs": [{
+                "name": "inputDataset1"
+            }, {
+                "name": "inputDataset2"
             }],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+            "outputs": [{
+                "name": "outputDataset"
+            }],
+            "linkedServiceName": "MyAzureMLLinkedService",
+            "typeProperties": {
+                "webServiceInputs": {
+                    "input1": "inputDataset1",
+                    "input2": "inputDataset2"
+                },
+                "webServiceOutputs": {
+                    "output1": "outputDataset"
+                }
+            },
+            "policy": {
+                "concurrency": 3,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "02:00:00"
+            }
+        }],
+        "start": "2016-02-13T00:00:00Z",
+        "end": "2016-02-14T00:00:00Z"
     }
+}
+```
 
 #### <a name="web-service-does-not-require-an-input"></a>Веб-служба не требует входных данных
 Веб-службы пакетного выполнения Azure ML можно использовать для выполнения любых рабочих процессов, например сценариев R и Python, не требующих никаких входных данных. Кроме того, эксперимент можно настроить с помощью модуля чтения, не предоставляющего никаких глобальных параметров. В этом случае настройка действия AzureMLBatchExecution выполняется следующим образом:
 
-    {
-        "name": "scoring service",
-        "type": "AzureMLBatchExecution",
-        "outputs": [
-            {
-                "name": "myBlob"
-            }
-        ],
-        "typeProperties": {
-            "webServiceOutputs": {
-                "output1": "myBlob"
-            }              
-         },
-        "linkedServiceName": "mlEndpoint",
-        "policy": {
-            "concurrency": 1,
-            "executionPriorityOrder": "NewestFirst",
-            "retry": 1,
-            "timeout": "02:00:00"
+```JSON
+{
+    "name": "scoring service",
+    "type": "AzureMLBatchExecution",
+    "outputs": [
+        {
+            "name": "myBlob"
         }
-    },
-
+    ],
+    "typeProperties": {
+        "webServiceOutputs": {
+            "output1": "myBlob"
+        }              
+     },
+    "linkedServiceName": "mlEndpoint",
+    "policy": {
+        "concurrency": 1,
+        "executionPriorityOrder": "NewestFirst",
+        "retry": 1,
+        "timeout": "02:00:00"
+    }
+},
+```
 
 #### <a name="web-service-does-not-require-an-inputoutput"></a>Веб-служба не требует входных или выходных данных
 В веб-службе пакетного выполнения Azure ML выходные данные могут быть не настроены. В данном примере не настроены ни входные или выходные параметры, ни глобальные параметры. Выходные данные в действии настроены, но не назначены в качестве выходных данных в свойстве webServiceOutput.
 
-    {
-        "name": "retraining",
-        "type": "AzureMLBatchExecution",
-        "outputs": [
-            {
-                "name": "placeholderOutputDataset"
-            }
-        ],
-        "typeProperties": {
-         },
-        "linkedServiceName": "mlEndpoint",
-        "policy": {
-            "concurrency": 1,
-            "executionPriorityOrder": "NewestFirst",
-            "retry": 1,
-            "timeout": "02:00:00"
+```JSON
+{
+    "name": "retraining",
+    "type": "AzureMLBatchExecution",
+    "outputs": [
+        {
+            "name": "placeholderOutputDataset"
         }
-    },
+    ],
+    "typeProperties": {
+     },
+    "linkedServiceName": "mlEndpoint",
+    "policy": {
+        "concurrency": 1,
+        "executionPriorityOrder": "NewestFirst",
+        "retry": 1,
+        "timeout": "02:00:00"
+    }
+},
+```
 
 #### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>Веб-служба использует модули чтения и записи, а действие выполняется только при успешном завершении других действий
 Модули чтения и записи веб-службы Azure ML могут быть настроены на работу с использованием или без использования глобальных параметров. Однако вызовы службы можно встроить в конвейер с использованием зависимостей наборов данных для вызова службы только при успешном завершении обработки вышестоящих данных. При таком подходе после окончания пакетного выполнения можно запустить другое действие. В этом случае зависимости можно представить, используя входные и выходные данные действия, но не называя их входными или выходными данными веб-службы.
 
-    {
-        "name": "retraining",
-        "type": "AzureMLBatchExecution",
-        "inputs": [
-            {
-                "name": "upstreamData1"
-            },
-            {
-                "name": "upstreamData2"
-            }
-        ],
-        "outputs": [
-            {
-                "name": "downstreamData"
-            }
-        ],
-        "typeProperties": {
-         },
-        "linkedServiceName": "mlEndpoint",
-        "policy": {
-            "concurrency": 1,
-            "executionPriorityOrder": "NewestFirst",
-            "retry": 1,
-            "timeout": "02:00:00"
+```JSON
+{
+    "name": "retraining",
+    "type": "AzureMLBatchExecution",
+    "inputs": [
+        {
+            "name": "upstreamData1"
+        },
+        {
+            "name": "upstreamData2"
         }
-    },
+    ],
+    "outputs": [
+        {
+            "name": "downstreamData"
+        }
+    ],
+    "typeProperties": {
+     },
+    "linkedServiceName": "mlEndpoint",
+    "policy": {
+        "concurrency": 1,
+        "executionPriorityOrder": "NewestFirst",
+        "retry": 1,
+        "timeout": "02:00:00"
+    }
+},
+```
 
 **Общие выводы** :
 
@@ -550,81 +579,88 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 
 Вот пример определения JSON для связанной службы:
 
-    {
-        "name": "StorageLinkedService",
-          "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
         }
     }
-
+}
+```
 
 #### <a name="training-input-dataset"></a>Входной набор данных для обучения:
 Следующий набор данных представляет собой учебные данные для веб-службы машинного обучения Azure. Действие «Выполнение пакета» машинного обучения Azure использует этот набор в качестве входных данных.
 
-    {
-        "name": "trainingData",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "labeledexamples",
-                "fileName": "labeledexamples.arff",
-                "format": {
-                    "type": "TextFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Week",
-                "interval": 1
-            },
-            "policy": {          
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "trainingData",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "labeledexamples",
+            "fileName": "labeledexamples.arff",
+            "format": {
+                "type": "TextFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Week",
+            "interval": 1
+        },
+        "policy": {          
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 #### <a name="training-output-dataset"></a>Выходной набор данных для обучения:
 Следующий набор данных представляет собой выходной файл iLearner из веб-службы машинного обучения Azure. Этот набор данных создается с помощью действия "Выполнение пакета" машинного обучения Azure. Этот набор данных также является входным для действия "Обновить ресурс" машинного обучения Azure.
 
-    {
-        "name": "trainedModelBlob",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "trainingoutput",
-                "fileName": "model.ilearner",
-                "format": {
-                    "type": "TextFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Week",
-                "interval": 1
+```JSON
+{
+    "name": "trainedModelBlob",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "trainingoutput",
+            "fileName": "model.ilearner",
+            "format": {
+                "type": "TextFormat"
             }
+        },
+        "availability": {
+            "frequency": "Week",
+            "interval": 1
         }
     }
+}
+```
 
 #### <a name="linked-service-for-azure-ml-training-endpoint"></a>Связанная служба для конечной точки машинного обучения Azure
 Следующий фрагмент JSON определяет связанную службу машинного обучения Azure, которая указывает на конечную точку веб-службы обучения по умолчанию.
 
-    {    
-        "name": "trainingEndpoint",
-          "properties": {
-            "type": "AzureML",
-            "typeProperties": {
-                "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-                  "apiKey": "myKey"
-            }
-          }
-    }
+```JSON
+{    
+    "name": "trainingEndpoint",
+      "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
+              "apiKey": "myKey"
+        }
+      }
+}
+```
 
 Чтобы получить значения **mlEndpoint** и **apiKey**, выполните следующие действия в **Студии машинного обучения Azure**:
 
@@ -637,18 +673,19 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 #### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Связанная служба для обновляемой конечной точки оценки машинного обучения Azure
 Следующий фрагмент JSON определяет связанную службу машинного обучения Azure, которая указывает на конечную точку веб-службы оценки не по умолчанию.  
 
-    {
-        "name": "updatableScoringEndpoint2",
-        "properties": {
-            "type": "AzureML",
-            "typeProperties": {
-                "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-                "apiKey": "endpoint2Key",
-                "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-            }
+```JSON
+{
+    "name": "updatableScoringEndpoint2",
+    "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+            "apiKey": "endpoint2Key",
+            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
         }
     }
-
+}
+```
 
 Прежде чем создавать и развертывать связанную службу машинного обучения Azure, выполните шаги, описанные в статье [Создание конечных точек](../machine-learning/machine-learning-create-endpoint.md). В ней рассказывается, как создать вторую конечную точку (которая является обновляемой и не является точкой по умолчанию) для веб-службы оценки.
 
@@ -662,91 +699,93 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 #### <a name="placeholder-output-dataset"></a>Заполнитель выходного набора данных
 Действие "Обновить ресурс" машинного обучения Azure не создает никаких выходных данных. Однако фабрике данных Azure требуется выходной набор данных для планирования конвейера. Поэтому в этом примере используется фиктивный набор данных (заполнитель набора данных).  
 
-    {
-        "name": "placeholderBlob",
-        "properties": {
-            "availability": {
-                "frequency": "Week",
-                "interval": 1
-            },
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "any",
-                "format": {
-                    "type": "TextFormat"
-                }
+```JSON
+{
+    "name": "placeholderBlob",
+    "properties": {
+        "availability": {
+            "frequency": "Week",
+            "interval": 1
+        },
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "any",
+            "format": {
+                "type": "TextFormat"
             }
         }
     }
-
+}
+```
 
 #### <a name="pipeline"></a>Конвейер
 Конвейер содержит два действия: **AzureMLBatchExecution** и **AzureMLUpdateResource**. Действие "Выполнение пакета" машинного обучения Azure принимает входные данные для обучения и создает выходной файл iLearner. Это действие обращается к веб-службе обучения (обучающему эксперименту, опубликованному в виде веб-службы), передает ей данные для обучения и получает файл ilearner. Набор данных placeholderBlob является фиктивным набором данных, который необходим фабрике данных Azure для запуска конвейера.
 
 ![схема конвейера](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
-    {
-        "name": "pipeline",
-        "properties": {
-            "activities": [
-                {
-                    "name": "retraining",
-                    "type": "AzureMLBatchExecution",
-                    "inputs": [
-                        {
-                            "name": "trainingData"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "trainedModelBlob"
-                        }
-                    ],
-                    "typeProperties": {
-                        "webServiceInput": "trainingData",
-                        "webServiceOutputs": {
-                            "output1": "trainedModelBlob"
-                        }              
-                     },
-                    "linkedServiceName": "trainingEndpoint",
-                    "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1,
-                        "timeout": "02:00:00"
+```JSON
+{
+    "name": "pipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "retraining",
+                "type": "AzureMLBatchExecution",
+                "inputs": [
+                    {
+                        "name": "trainingData"
                     }
-                },
-                {
-                    "type": "AzureMLUpdateResource",
-                    "typeProperties": {
-                        "trainedModelName": "Training Exp for ADF ML [trained model]",
-                        "trainedModelDatasetName" :  "trainedModelBlob"
-                    },
-                    "inputs": [
-                        {
-                            "name": "trainedModelBlob"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "placeholderBlob"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "name": "AzureML Update Resource",
-                    "linkedServiceName": "updatableScoringEndpoint2"
+                ],
+                "outputs": [
+                    {
+                        "name": "trainedModelBlob"
+                    }
+                ],
+                "typeProperties": {
+                    "webServiceInput": "trainingData",
+                    "webServiceOutputs": {
+                        "output1": "trainedModelBlob"
+                    }              
+                 },
+                "linkedServiceName": "trainingEndpoint",
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "02:00:00"
                 }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-               "end": "2016-02-14T00:00:00Z"
-        }
+            },
+            {
+                "type": "AzureMLUpdateResource",
+                "typeProperties": {
+                    "trainedModelName": "Training Exp for ADF ML [trained model]",
+                    "trainedModelDatasetName" :  "trainedModelBlob"
+                },
+                "inputs": [
+                    {
+                        "name": "trainedModelBlob"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "placeholderBlob"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "AzureML Update Resource",
+                "linkedServiceName": "updatableScoringEndpoint2"
+            }
+        ],
+        "start": "2016-02-13T00:00:00Z",
+           "end": "2016-02-14T00:00:00Z"
     }
-
+}
+```
 
 ### <a name="reader-and-writer-modules"></a>Модули чтения и записи
 Распространенный сценарий использования параметров веб-службы заключается в использовании модулей чтения и записи SQL Azure. Модуль чтения используется для загрузки данных в эксперимент из служб управления данными за пределами Студии машинного обучения Azure. Модуль записи используется для сохранения данных из экспериментов в службах управления данными за пределами Студии машинного обучения Azure.  
@@ -766,57 +805,62 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 Если вы планируете использовать действие AzureMLBatchScoring дальше, продолжите чтение этого раздела.  
 
 ### <a name="azure-ml-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Действие количественной оценки Azure ML с использованием хранилища Azure в качестве входных и (или) выходных данных
-    {
-      "name": "PredictivePipeline",
-      "properties": {
-        "description": "use AzureML model",
-        "activities": [
+
+```JSON
+{
+  "name": "PredictivePipeline",
+  "properties": {
+    "description": "use AzureML model",
+    "activities": [
+      {
+        "name": "MLActivity",
+        "type": "AzureMLBatchScoring",
+        "description": "prediction analysis on batch input",
+        "inputs": [
           {
-            "name": "MLActivity",
-            "type": "AzureMLBatchScoring",
-            "description": "prediction analysis on batch input",
-            "inputs": [
-              {
-                "name": "ScoringInputBlob"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "ScoringResultBlob"
-              }
-            ],
-            "linkedServiceName": "MyAzureMLLinkedService",
-            "policy": {
-              "concurrency": 3,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 1,
-              "timeout": "02:00:00"
-            }
+            "name": "ScoringInputBlob"
           }
         ],
-        "start": "2016-02-13T00:00:00Z",
-        "end": "2016-02-14T00:00:00Z"
+        "outputs": [
+          {
+            "name": "ScoringResultBlob"
+          }
+        ],
+        "linkedServiceName": "MyAzureMLLinkedService",
+        "policy": {
+          "concurrency": 3,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 1,
+          "timeout": "02:00:00"
+        }
       }
-    }
+    ],
+    "start": "2016-02-13T00:00:00Z",
+    "end": "2016-02-14T00:00:00Z"
+  }
+}
+```
 
 ### <a name="web-service-parameters"></a>Параметры веб-службы
 Чтобы указать значения для параметров веб-службы, добавьте раздел **typeProperties** в раздел **AzureMLBatchScoringActivty** в конвейере JSON, как показано в примере ниже.
 
-    "typeProperties": {
-        "webServiceParameters": {
-            "Param 1": "Value 1",
-            "Param 2": "Value 2"
-        }
+```JSON
+"typeProperties": {
+    "webServiceParameters": {
+        "Param 1": "Value 1",
+        "Param 2": "Value 2"
     }
-
-
+}
+```
 Вы также можете использовать [функции фабрики данных](data-factory-functions-variables.md) при передаче значений для параметров веб-службы, как показано в следующем примере:
 
-    "typeProperties": {
-        "webServiceParameters": {
-           "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
-        }
-      }
+```JSON
+"typeProperties": {
+    "webServiceParameters": {
+       "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    }
+}
+```
 
 > [!NOTE]
 > В параметрах веб-службы учитывается регистр, поэтому убедитесь, что имена, которые указываются в действии JSON, соответствуют именам, предоставляемым веб-службой.
@@ -832,6 +876,6 @@ ms.openlocfilehash: 44d1ddbc761851e9bb118444e85e95ae8e9be9fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

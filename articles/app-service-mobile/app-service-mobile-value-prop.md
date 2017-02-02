@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
 
 
 ---
@@ -68,42 +68,42 @@ ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
   Дополнительные сведения см. в статье [Введение в среду службы приложения].
 
 ## <a name="getting-started"></a>Приступая к работе
-Чтобы приступить к работе с мобильными приложениями, следуйте инструкциям учебника [Приступая к работе] .  В нем приведены общие сведения о создании необходимого мобильного сервера и клиента, а также об интеграции проверки подлинности, автономной синхронизации и push-уведомлениях.  В руководстве [Создание приложения iOS] приведены инструкции для клиентских приложений на разных платформах.
+Чтобы приступить к работе с мобильными приложениями, следуйте инструкциям учебника [Создание приложения iOS] .  В нем приведены общие сведения о создании необходимого мобильного сервера и клиента, а также об интеграции проверки подлинности, автономной синхронизации и push-уведомлениях.  В руководстве [Создание приложения iOS] приведены инструкции для клиентских приложений на разных платформах.
 
 Перечень дополнительных статей, посвященных мобильным приложениям Azure, см. в [карте обучения].
 Дополнительные сведения о платформе службы приложений Azure см. в статье [Что такое служба приложений Azure?]
 
 > [!NOTE]
-> Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/mobile/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 > 
 > 
 
 <!-- URLs. -->
-[Перенос мобильной службы в службу приложений]: app-service-mobile-migrating-from-mobile-services.md
-[службе приложений Azure]: ../app-service/app-service-value-prop-what-is.md
-[Приступая к работе]: app-service-mobile-ios-get-started.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Что такое служба приложений Azure?]: ../app-service/app-service-value-prop-what-is.md
+[Создание приложения iOS]: app-service-mobile-ios-get-started.md
 [хранилище таблиц Azure]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
-[функции проверки подлинности]: ./app-service-mobile-auth.md
-[функции данных]: ./app-service-mobile-offline-data-sync.md
-[функции push-уведомлений]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[Проверка подлинности и авторизация в мобильных приложениях Azure]: ./app-service-mobile-auth.md
+[Автономная синхронизация данных в мобильных приложениях Azure]: ./app-service-mobile-offline-data-sync.md
+[Концентраторы уведомлений Azure]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin для iOS и Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[промежуточные среды]: ../app-service-web/web-sites-staged-publishing.md
-[варианты развертывания]: ../app-service-web/web-sites-deploy.md
-[гибридные подключения]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-[виртуальные сети]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[среды службы приложений]: ../app-service-web/app-service-app-service-environment-intro.md
-[карта обучения]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[Увеличение масштаба приложения в Azure]: ../app-service-web/web-sites-scale.md
+[Настройка промежуточных сред для веб-приложений в службе приложений Azure]: ../app-service-web/web-sites-staged-publishing.md
+[Развертывание приложения в службе приложений Azure]: ../app-service-web/web-sites-deploy.md
+[Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Интеграция приложения с виртуальной сетью Azure]: ../app-service-web/web-sites-integrate-with-vnet.md
+[Сведения о конфигурации сети для сред службы приложений с ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
+[Введение в среду службы приложения]: ../app-service-web/app-service-app-service-environment-intro.md
+[карте обучения]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 
 
 ---
@@ -53,9 +53,9 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 * **Azure PowerShell.**
    В разделе [Создание первой фабрики данных Azure с помощью Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) приведено пошаговое руководство по созданию фабрики данных с помощью PowerShell. Полная документация по командлетам фабрики данных содержится в [справочнике по командлетам фабрики данных][adf-powershell-reference], который можно найти в библиотеке MSDN.
 * **Библиотека классов .NET.**
-   Фабрики данных можно создавать программными средствами с помощью пакета SDK .NET для фабрик данных. Пошаговое руководство по созданию фабрики данных с помощью пакета SDK для .NET см. в разделе [Создание, мониторинг фабрик данных и управление ими с помощью пакета SDK для .NET](data-factory-create-data-factories-programmatically.md). Полная документация по пакету SDK .NET для фабрик данных доступна в [справочнике по библиотеке классов фабрики данных][msdn-class-library-reference].
+   Фабрики данных можно создавать программными средствами с помощью пакета SDK .NET для фабрик данных. Пошаговое руководство по созданию фабрики данных с помощью пакета SDK для .NET см. в разделе [Создание, мониторинг фабрик данных и управление ими с помощью пакета SDK для .NET](data-factory-create-data-factories-programmatically.md). Полную документация по пакету SDK .NET для фабрик данных см. в [справочнике по библиотеке классов фабрики данных][msdn-class-library-reference].
 * Для создания и развертывания фабрик данных можно также использовать **REST API**
-  , предоставляемый службой фабрики данных Azure. Полную документацию по REST API фабрики данных см. в [справочнике по REST API фабрики данных][msdn-rest-api-reference].
+  , предоставляемый службой фабрики данных Azure. Полную документацию по REST API для фабрик данных см. в [справочнике по REST API фабрики данных][msdn-rest-api-reference].
 * **Шаблон Azure Resource Manager.**
    Дополнительные сведения см. в статье [Руководство. Создание фабрики данных Azure с помощью шаблона Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
 
@@ -101,7 +101,7 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 
 ## <a name="hdinsight-activity---faq"></a>Действие HDInsight — вопросы и ответы
 ### <a name="what-regions-are-supported-by-hdinsight"></a>В каких регионах поддерживается HDInsight?
-Прочитайте раздел "Географическая доступность" в следующей статье или изучите [сведения о ценах на HDInsight][hdinsight-supported-regions].
+Ознакомьтесь с разделом "Географическая доступность" в следующей статье или см. [сведения о ценах на HDInsight][hdinsight-supported-regions].
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>Какой регион используется кластером HDInsight по запросу?
 Кластер HDInsight по запросу создается в том же регионе, где существует хранилище, которое вы указали для использования с кластером.    
@@ -109,25 +109,26 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>Как связать дополнительные учетные записи хранения с кластером HDInsight?
 Если вы используете собственный кластер HDInsight (BYOC), ознакомьтесь со следующими разделами:
 
-* [Использование кластера HDInsight с дополнительными учетными записями хранения и хранилищами метаданных][hdinsight-alternate-storage]
+* [Использование кластера HDInsight с дополнительными учетными записями хранения и метахранилищами][hdinsight-alternate-storage]
 * [Использование дополнительных учетных записей хранения с Hive HDInsight][hdinsight-alternate-storage-2]
 
 При использовании кластера по запросу, созданного службой фабрики данных, следует указать дополнительные учетные записи хранения для связанной службы HDInsight, чтобы служба фабрики данных могла зарегистрировать их от вашего имени. В определении JSON для связанной службы по запросу используйте свойство **additionalLinkedServiceNames** , чтобы указать дополнительные хранилища учетных записей, как показано в следующем фрагменте кода JSON:
 
+```JSON
+{
+    "name": "MyHDInsightOnDemandLinkedService",
+    "properties":
     {
-        "name": "MyHDInsightOnDemandLinkedService",
-        "properties":
-        {
-            "type": "HDInsightOnDemandLinkedService",
-            "typeProperties": {
-                "clusterSize": 1,
-                "timeToLive": "00:01:00",
-                "linkedServiceName": "LinkedService-SampleData",
-                "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
-            }
+        "type": "HDInsightOnDemandLinkedService",
+        "typeProperties": {
+            "clusterSize": 1,
+            "timeToLive": "00:01:00",
+            "linkedServiceName": "LinkedService-SampleData",
+            "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }
     }
-
+}
+```
 В приведенном выше примере otherLinkedServiceName1 и otherLinkedServiceName2 представляют связанные службы, определения которых содержат учетные данные, необходимые кластеру HDInsight для доступа к дополнительным учетным записям хранения.
 
 ## <a name="slices---faq"></a>Срезы — вопросы и ответы
@@ -148,13 +149,14 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>Как выполнить срез в другое время (не в полночь), если срез формируется ежедневно?
 Время формирования необходимого среза можно указать с помощью свойства **offset**. Сведения об этом свойстве см. в разделе [Доступность набора данных](data-factory-create-datasets.md#Availability). Приведем краткий пример:
 
-    "availability":
-    {
-        "frequency": "Day",
-        "interval": 1,
-        "offset": "06:00:00"
-    }
-
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
 Ежедневно срезы создаются в **06:00** , а не в полночь (значение по умолчанию).     
 
 ### <a name="how-can-i-rerun-a-slice"></a>Как повторно выполнять срез?
@@ -164,8 +166,9 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 * Щелкните **Выполнить** в командной строке в колонке **Срез данных** для среза на портале Azure.
 * Выполните для этого среза командлет **Set-AzureRmDataFactorySliceStatus** с состоянием **Waiting**.   
 
-        Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
-
+    ```PowerShell
+    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    ```
 Дополнительные сведения об этом командлете см. в разделе [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status].
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Сколько времени занимает обработка среза?
@@ -186,12 +189,12 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 Если вы действительно хотите немедленно прекратить все выполняемые задачи, единственным способом является удаление конвейера и создание его заново. Если вы решили удалить конвейер, НЕ обязательно удалять таблицы и связанные службы, используемые конвейером.
 
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
-[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
-[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+[msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
+[msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
+[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -200,6 +203,6 @@ ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4e86c1c1460f7b6eb312f10a0666f92b33697763
-ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 9f262eb2fa4c0bd8bf1442a7a3d013af6d9ad649
 
 
 ---
@@ -37,8 +37,8 @@ ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
 
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
-- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) — наш интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
-- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started.md) —следующее поколение нашего интерфейса командной строки для модели развертывания Resource Manager.
+- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager.
+- [Azure CLI 2.0 (предварительная версия)](app-service-web-get-started.md) — интерфейс командной строки нового поколения для модели развертывания Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Git](http://www.git-scm.com/downloads).
@@ -46,7 +46,7 @@ ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
+> [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/) возможно даже без учетной записи Azure. Вы можете создать приложение начального уровня и экспериментировать с ним в течение часа. Для этого вам не нужно указывать данные кредитной карты или брать на себя какие-либо обязательства.
 > 
 > 
 
@@ -161,6 +161,6 @@ ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

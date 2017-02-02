@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: c412bea7a030c2563c413584ad3f58c5d4379e47
-ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 727fdb9a53fe1dec189018e12f42ba7515e6fb54
 
 
 ---
@@ -82,18 +82,22 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 
 Добавьте следующий оператор `using` в верхнюю часть файла `CalcInput.cs`:
 
-    using Newtonsoft.Json;
+```c#
+using Newtonsoft.Json;
+```
 
- Замените созданный класс следующим кодом:
+Замените созданный класс следующим кодом:
 
-    public class CalcInput
-    {
-        [JsonProperty(PropertyName = "a")]
-        public int a;
+```c#
+public class CalcInput
+{
+    [JsonProperty(PropertyName = "a")]
+    public int a;
 
-        [JsonProperty(PropertyName = "b")]
-        public int b;
-    }
+    [JsonProperty(PropertyName = "b")]
+    public int b;
+}
+```
 
 Щелкните правой кнопкой мыши **Контроллеры** в **обозревателе решений** и выберите **Добавить**->**Контроллер**. Выберите элемент **Контроллер Web API 2 – пустой** и нажмите кнопку **Добавить**. Введите имя контроллера **CalcController** и нажмите кнопку **Добавить**.
 
@@ -101,55 +105,59 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 
 Добавьте следующий оператор `using` в верхнюю часть файла `CalcController.cs`:
 
-    using System.IO;
-    using System.Web;
-    using APIMAADDemo.Models;
+```c#
+using System.IO;
+using System.Web;
+using APIMAADDemo.Models;
+```
 
 Замените созданный контроллер следующим кодом: Этот код реализует операции `Add`, `Subtract`, `Multiply` и `Divide` простого API «Калькулятор».
 
-    [Authorize]
-    public class CalcController : ApiController
+```c#
+[Authorize]
+public class CalcController : ApiController
+{
+    [Route("api/add")]
+    [HttpGet]
+    public HttpResponseMessage GetSum([FromUri]int a, [FromUri]int b)
     {
-        [Route("api/add")]
-        [HttpGet]
-        public HttpResponseMessage GetSum([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a + b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/sub")]
-        [HttpGet]
-        public HttpResponseMessage GetDiff([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a - b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/mul")]
-        [HttpGet]
-        public HttpResponseMessage GetProduct([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a * b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-
-        [Route("api/div")]
-        [HttpGet]
-        public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
-        {
-            string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a + b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
     }
+
+    [Route("api/sub")]
+    [HttpGet]
+    public HttpResponseMessage GetDiff([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a - b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+
+    [Route("api/mul")]
+    [HttpGet]
+    public HttpResponseMessage GetProduct([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a * b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+
+    [Route("api/div")]
+    [HttpGet]
+    public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
+    {
+        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
+        HttpResponseMessage response = Request.CreateResponse();
+        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+        return response;
+    }
+}
+```
 
 Нажмите клавишу **F6** , чтобы построить и проверить решение.
 
@@ -179,7 +187,7 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 ![URI идентификатора приложения][api-management-aad-sso-uri]
 
 ## <a name="import-the-web-api-into-api-management"></a>Импорт веб-API в управление API
-Интерфейсы API настраиваются на портале издателя API, который доступен на портале Azure. Чтобы открыть его, щелкните **Publisher portal** (Портал издателя) на панели инструментов своей службы управления API. Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в руководстве [Начало работы со службой управления Azure API][Начало работы со службой управления Azure API].
+Интерфейсы API настраиваются на портале издателя API, который доступен на портале Azure. Чтобы открыть его, щелкните **Publisher portal** (Портал издателя) на панели инструментов своей службы управления API. Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Manage your first API].
 
 ![Портал издателя][api-management-management-console]
 
@@ -187,147 +195,147 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 
 Создайте файл `calcapi.json` с приведенным ниже содержимым и сохраните его на компьютер. Убедитесь, что атрибут `host` указывает на серверную часть веб-API. В этом примере используется `"host": "apimaaddemo.azurewebsites.net"` .
 
-
-    {
-      "swagger": "2.0",
-      "info": {
-        "title": "Calculator",
-        "description": "Arithmetics over HTTP!",
-        "version": "1.0"
-      },
-      "host": "apimaaddemo.azurewebsites.net",
-      "basePath": "/api",
-      "schemes": [
-        "http"
-      ],
-      "paths": {
-        "/add?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a sum of two numbers.",
-            "operationId": "Add two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>51</code>.",
-                "required": true,
-                "type": "string",
-                "default": "51",
-                "enum": [
-                  "51"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>49</code>.",
-                "required": true,
-                "type": "string",
-                "default": "49",
-                "enum": [
-                  "49"
-                ]
-              }
-            ],
-            "responses": { }
+```json
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Calculator",
+    "description": "Arithmetics over HTTP!",
+    "version": "1.0"
+  },
+  "host": "apimaaddemo.azurewebsites.net",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/add?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a sum of two numbers.",
+        "operationId": "Add two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>51</code>.",
+            "required": true,
+            "type": "string",
+            "default": "51",
+            "enum": [
+              "51"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>49</code>.",
+            "required": true,
+            "type": "string",
+            "default": "49",
+            "enum": [
+              "49"
+            ]
           }
-        },
-        "/sub?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a difference between two numbers.",
-            "operationId": "Subtract two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>100</code>.",
-                "required": true,
-                "type": "string",
-                "default": "100",
-                "enum": [
-                  "100"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>50</code>.",
-                "required": true,
-                "type": "string",
-                "default": "50",
-                "enum": [
-                  "50"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/sub?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a difference between two numbers.",
+        "operationId": "Subtract two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
+            "required": true,
+            "type": "string",
+            "default": "100",
+            "enum": [
+              "100"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>50</code>.",
+            "required": true,
+            "type": "string",
+            "default": "50",
+            "enum": [
+              "50"
+            ]
           }
-        },
-        "/div?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a quotient of two numbers.",
-            "operationId": "Divide two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>100</code>.",
-                "required": true,
-                "type": "string",
-                "default": "100",
-                "enum": [
-                  "100"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>20</code>.",
-                "required": true,
-                "type": "string",
-                "default": "20",
-                "enum": [
-                  "20"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/div?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a quotient of two numbers.",
+        "operationId": "Divide two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>100</code>.",
+            "required": true,
+            "type": "string",
+            "default": "100",
+            "enum": [
+              "100"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>20</code>.",
+            "required": true,
+            "type": "string",
+            "default": "20",
+            "enum": [
+              "20"
+            ]
           }
-        },
-        "/mul?a={a}&b={b}": {
-          "get": {
-            "description": "Responds with a product of two numbers.",
-            "operationId": "Multiply two integers",
-            "parameters": [
-              {
-                "name": "a",
-                "in": "query",
-                "description": "First operand. Default value is <code>20</code>.",
-                "required": true,
-                "type": "string",
-                "default": "20",
-                "enum": [
-                  "20"
-                ]
-              },
-              {
-                "name": "b",
-                "in": "query",
-                "description": "Second operand. Default value is <code>5</code>.",
-                "required": true,
-                "type": "string",
-                "default": "5",
-                "enum": [
-                  "5"
-                ]
-              }
-            ],
-            "responses": { }
+        ],
+        "responses": { }
+      }
+    },
+    "/mul?a={a}&b={b}": {
+      "get": {
+        "description": "Responds with a product of two numbers.",
+        "operationId": "Multiply two integers",
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "First operand. Default value is <code>20</code>.",
+            "required": true,
+            "type": "string",
+            "default": "20",
+            "enum": [
+              "20"
+            ]
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "Second operand. Default value is <code>5</code>.",
+            "required": true,
+            "type": "string",
+            "default": "5",
+            "enum": [
+              "5"
+            ]
           }
-        }
+        ],
+        "responses": { }
       }
     }
-
+  }
+}
+```
 
 Чтобы импортировать API калькулятора, щелкните **API** в расположенном слева меню **Управление API**, а затем выберите **Импорт API**.
 
@@ -380,9 +388,9 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 
 ![Новое приложение][api-management-aad-new-application-devportal-1]
 
-В поле **URL-адрес входа** введите URL-адрес службы управления API и добавьте `/signin`. В этом примере используются **https://contoso5.portal.azure-api.net/signin**.
+В поле **URL-адрес входа** введите URL-адрес службы управления API и добавьте `/signin`. В этом примере используется `https://contoso5.portal.azure-api.net/signin` .
 
-В поле **App Id URL** (URL-адрес идентификатора приложения) введите URL-адрес службы управления API и добавьте несколько уникальных символов. Это могут быть любые символы. В этом примере используются **https://contoso5.portal.azure-api.net/dp**. Настроив нужные **свойства приложения**, установите флажок для создания приложения.
+В поле **App Id URL** (URL-адрес идентификатора приложения) введите URL-адрес службы управления API и добавьте несколько уникальных символов. Это могут быть любые знаки. В данном примере используется `https://contoso5.portal.azure-api.net/dp`. Настроив нужные **свойства приложения**, установите флажок для создания приложения.
 
 ![Новое приложение][api-management-aad-new-application-devportal-2]
 
@@ -490,14 +498,16 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Настройка политики проверки JWT для запросов предварительной авторизации
 Последняя процедура в видеоролике начинается с отметки 20:48. В ней показано, как использовать политику [Проверка JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) для предварительной авторизации запросов путем проверки маркеров доступа каждого входящего запроса. Если запрос не прошел проверку JWT, он блокируется управлением API и не передается во внутреннюю службу.
 
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-        <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
-        <required-claims>
-            <claim name="aud">
-                <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
-            </claim>
-        </required-claims>
-    </validate-jwt>
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <required-claims>
+        <claim name="aud">
+            <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
+```
 
 Другой пример настройки и использования этой политики см. в видео [Облачное покрытие, эпизод 177: другие функции управления API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) с отметки времени 13:50. Перемотайте вперед до отметки времени 15:00, чтобы просмотреть политики, настроенные в редакторе политик, и до 18:50, чтобы просмотреть демонстрацию вызова операции с портала разработчика с обязательным маркером авторизации и без него.
 
@@ -551,11 +561,11 @@ ms.openlocfilehash: f781d0d614625cba1d1e8ee378ddd4caf3e8bcab
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
-[Начало работы со службой управления Azure API]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Manage your first API]: api-management-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

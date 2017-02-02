@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
+ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 * [Создайте базу данных](https://technet.microsoft.com/library/ms176061.aspx) (если она еще не существует).
 * Добавьте группы файлов базы данных в базу данных, которая будет содержать секционированные физические файлы.
   
-  Примечание. Это можно сделать с помощью команды [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (при создании базы) или команды [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (если база данных уже существует).
+  Это можно сделать с помощью команды [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (при создании базы) или команды [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (если база данных уже существует).
 * При необходимости добавьте один или несколько файлов в каждую группу файлов базы данных.
   
   > [!NOTE]
@@ -76,7 +76,7 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Совет. Чтобы проверить диапазоны на практике в каждой секции в соответствии с функцией и схемой, выполните следующий запрос:
+  Чтобы проверить диапазоны на практике в каждой секции в соответствии с функцией и схемой, выполните следующий запрос:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +185,6 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

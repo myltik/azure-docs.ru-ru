@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
+ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
+ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 ---
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
 
 1. Создание источника данных
    * Задайте для параметра `type` значение `azuretable`.
-   * Передайте строку подключения к учетной записи хранилища как параметр `credentials.connectionString`.
+   * Передайте строку подключения учетной записи хранения как параметр `credentials.connectionString`. Строку подключения можно получить на портале Azure, перейдя в колонку учетной записи хранения и щелкнув **Параметры** > **Ключи** (для классических учетных записей хранения) или **Параметры** > **Ключи доступа** (для учетных записей хранения ARM). Обратите внимание, что Поиск Azure в настоящее время не поддерживает учетные данные на основе подписанного URL-адреса. Если вы хотите использовать SAS, проголосуйте за [это предложение на сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
    * Укажите имя таблицы с помощью параметра `container.name`.
    * При необходимости укажите запрос с помощью параметра `container.query`. По возможности используйте фильтр для PartitionKey для наилучшей производительности. Любой другой запрос приведет к полному сканированию таблицы, что может стать причиной снижения производительности для больших таблиц.
 2. Создание индекса службы поиска со схемой, соответствующей столбцам в таблице, которую необходимо проиндексировать.
@@ -48,7 +48,7 @@ ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
@@ -123,6 +123,6 @@ ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

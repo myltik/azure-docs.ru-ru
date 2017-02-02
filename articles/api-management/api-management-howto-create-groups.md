@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
 * **Разработчики** — в эту группу входят пользователи портала разработчиков, прошедшие проверку подлинности. Разработчики — это клиенты, которые создают приложения с использованием API. Разработчикам предоставляется доступ к порталу разработчика, и они могут создавать приложения, вызывающие операции этого API.
 * **Гости** — пользователи портала разработчиков, не прошедшие проверку подлинности; например, в эту группу попадают возможные клиенты, посетившие портал разработчиков экземпляра управления API. Им может быть предоставлен доступ только для чтения, позволяющий просматривать API, но не вызывать их.
 
-Помимо системных групп, администраторы могут создавать настраиваемые группы или [использовать внешние группы в связанных с ними клиентах Azure Active Directory][использовать внешние группы в связанных с ними клиентах Azure Active Directory]. Чтобы обеспечить разработчикам видимость и предоставить доступ к продуктам API, пользовательские и внешние группы можно использовать вместе с системными группами. Например, можно создать одну пользовательскую группу для разработчиков, связанных с конкретной партнерской организацией, и предоставить им доступ к интерфейсам API в продукте, содержащем только соответствующие интерфейсы API. Пользователь может входить в несколько групп.
+Помимо системных групп администраторы могут создавать пользовательские группы или [использовать внешние группы в связанных с ними клиентах Azure Active Directory][leverage external groups in associated Azure Active Directory tenants]. Чтобы обеспечить разработчикам видимость и предоставить доступ к продуктам API, пользовательские и внешние группы можно использовать вместе с системными группами. Например, можно создать одну пользовательскую группу для разработчиков, связанных с конкретной партнерской организацией, и предоставить им доступ к интерфейсам API в продукте, содержащем только соответствующие интерфейсы API. Пользователь может входить в несколько групп.
 
 В этом руководстве показано, как администраторы экземпляра службы управления API могут добавлять новые группы и связывать их с продуктами и разработчиками.
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
 
 ![Портал издателя][api-management-management-console]
 
-> Если экземпляр службы управления API еще не создан, выполните инструкции из раздела [Создание экземпляра управления API][Создание экземпляра управления API] в статье [Начало работы со службой управления Azure API][Приступая к работе со службой управления API].
+> Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра управления API][Create an API Management service instance] в руководстве [Начало работы со службой управления Azure API][Get started with Azure API Management].
 > 
 > 
 
@@ -91,7 +91,7 @@ ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
 После добавления связи между разработчиком и группой ее можно просмотреть на вкладке **Пользователи** .
 
 ## <a name="next-steps"> </a>Дальнейшие действия
-* После добавления  в группу разработчик может просматривать связанные с данной группой продукты и подписываться на них. Дополнительные сведения см. в статье [Создание и публикация продукта в службе управления API Azure][Создание и публикация продукта в службе управления API Azure].
+* После добавления  в группу разработчик может просматривать связанные с данной группой продукты и подписываться на них. Дополнительные сведения см. в статье [Создание и публикация продукта в службе управления API Azure][How create and publish a product in Azure API Management].
 * Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
 
 [api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
@@ -105,19 +105,19 @@ ms.openlocfilehash: 06f5bd0778fba64dbd84875d69f528d641fc5d97
 
 [api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
-[Создание группы]: #create-group
-[Связывание группы с продуктом]: #associate-group-product
-[Связывание групп с разработчиками]: #associate-group-developer
-[Дальнейшие действия]: #next-steps
+[Create a group]: #create-group
+[Associate a group with a product]: #associate-group-product
+[Associate groups with developers]: #associate-group-developer
+[Next steps]: #next-steps
 
-[Создание и публикация продукта в службе управления API Azure]: api-management-howto-add-products.md
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Приступая к работе со службой управления API]: api-management-get-started.md
-[Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
-[использовать внешние группы в связанных с ними клиентах Azure Active Directory]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
