@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 4bebf59070e4047f083a5e92de1cfeb9d520e41f
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: a17a84ec72821adc2027328493e1dfae38020c42
 
 
 ---
@@ -25,8 +25,10 @@ ms.openlocfilehash: 4bebf59070e4047f083a5e92de1cfeb9d520e41f
 
 В кластерах HDInsight есть параметр конфигурации **Действие скрипта** , вызывающий пользовательские скрипты, с помощью которых можно настроить кластер. Эти скрипты можно использовать при создании кластера или с кластером, который уже работает; они также используются для установки дополнительных компонентов или изменения параметров конфигурации.
 
-> [!NOTE]
-> Использовать действия скриптов в уже работающем кластере можно только в кластерах HDInsight под управлением Linux. Сведения об использовании действий скриптов в кластерах под управлением Windows см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
+> [!IMPORTANT]
+> Использовать действия скриптов в уже работающем кластере можно только в кластерах HDInsight под управлением Linux.
+>
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 
 Действия сценариев можно опубликовать в Azure Marketplace как приложение HDInsight. В некоторых примерах в этом документе показано, как можно установить приложение HDInsight с помощью команд действия сценария PowerShell и пакета SDK для .NET. Дополнительные сведения о приложениях HDInsight см. в статье [Публикация приложений HDInsight в Azure Marketplace](hdinsight-apps-publish-applications.md).
@@ -95,8 +97,6 @@ ms.openlocfilehash: 4bebf59070e4047f083a5e92de1cfeb9d520e41f
 * Действия скрипта могут принимать **параметры**, используемые в процессе выполнения скрипта.
 * Выполняются с **использованием прав корневой учетной записи** на узлах кластера.
 * Действия скрипта могут выполняться с помощью **портала Azure**, **Azure PowerShell**, **интерфейса командной строки Azure** или **пакета SDK HDInsight для .NET**.
-
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 Чтобы вы могли узнать, какие скрипты применялись в кластере, а также определить идентификатор скриптов для изменения их типа, кластер ведет журнал всех скриптов, которые на нем выполнялись.
 
@@ -192,8 +192,8 @@ ms.openlocfilehash: 4bebf59070e4047f083a5e92de1cfeb9d520e41f
 #### <a name="before-you-begin"></a>Перед началом работы
 
 * Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Инструкции по созданию шаблонов см. в статье [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) (Создание шаблонов Azure Resource Manager).
-* Сведения об использовании Azure PowerShell с Resource Manager см. в [этой статье](../powershell-azure-resource-manager.md).
+* Инструкции по созданию шаблонов см. в статье [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) (Создание шаблонов Azure Resource Manager).
+* Сведения об использовании Azure PowerShell с Resource Manager см. в [этой статье](../azure-resource-manager/powershell-azure-resource-manager.md).
 
 #### <a name="create-clusters-using-script-action"></a>Создание кластеров с помощью действия скрипта
 
@@ -761,6 +761,6 @@ ms.openlocfilehash: 4bebf59070e4047f083a5e92de1cfeb9d520e41f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

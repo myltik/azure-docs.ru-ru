@@ -1,6 +1,6 @@
 ---
 title: "Операции с индексаторами (REST API службы поиска Azure: версия 2015-02-28-Preview) | Документация Майкрософт"
-description: "Операции с индексаторами (API REST службы \"Поиск Azure\": версия 2015-02-28-Preview)"
+description: "Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.date: 11/01/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)
 > [!NOTE]
-> В этой статье описываются индексаторы, доступные в [REST API 2015-02-28-Preview](search-api-2015-02-28-preview.md). В этой версии API добавлены предварительные версии индексатора хранилища BLOB-объектов Azure с извлечением документов и индексатора хранилища таблиц Azure, а также другие улучшения. Этот API также поддерживает общедоступные индексаторы, включая индексаторы для базы данных SQL Azure, SQL Server на виртуальных машинах Azure и Azure DocumentDB.
+> В этой статье описываются индексаторы, доступные в [REST API&2015;-02-28-Preview](search-api-2015-02-28-preview.md). В этой версии API добавлены предварительные версии индексатора хранилища BLOB-объектов Azure с извлечением документов и индексатора хранилища таблиц Azure, а также другие улучшения. Этот API также поддерживает общедоступные индексаторы, включая индексаторы для базы данных SQL Azure, SQL Server на виртуальных машинах Azure и Azure DocumentDB.
 > 
 > 
 
@@ -42,7 +42,7 @@ ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
 В настоящее время поддерживаются следующие источники данных:
 
 * **База данных SQL Azure** и **SQL Server на виртуальных машинах Azure**. Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Azure DocumentDB.** Пошаговое руководство для целевых платформ см. в [этой статье](../documentdb/documentdb-search-indexer.md). 
+* **Azure DocumentDB.** Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-index-documentdb.md). 
 * **Хранилище BLOB-объектов Azure**, включая следующие форматы документов: PDF, Microsoft Office (DOCX и DOC, XSLX и XLS, PPTX и PPT, MSG), HTML, XML, ZIP и текстовые файлы (включая JSON). Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-indexing-azure-blob-storage.md).
 * **Хранилище таблиц Azure.** Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-indexing-azure-tables.md).
 
@@ -178,7 +178,7 @@ ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
 Интегрированное отслеживание изменений поддерживается, начиная со следующих версий баз данных SQL Server: 
 
 * SQL Server 2008 R2, если вы используете SQL Server на виртуальных машинах Azure.
-* База данных SQL Azure 12, если вы используете базу данных SQL Azure.  
+* База данных SQL Azure&12;, если вы используете базу данных SQL Azure.  
 
 При использовании встроенной политики отслеживания изменений SQL не указывайте отдельную политику обнаружения удаления данных, так как она уже поддерживает выявление удаленных строк. 
 
@@ -799,6 +799,6 @@ ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
