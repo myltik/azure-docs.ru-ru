@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 
 ---
@@ -30,16 +30,16 @@ ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
 > 
 > 
 
-Эта статья поможет вам создать [индекс](https://msdn.microsoft.com/library/azure/dn798941.aspx) службы поиска Azure с помощью [пакета SDK для .NET службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+Эта статья поможет вам создать [индекс](https://docs.microsoft.com/rest/api/searchservice/Create-Index) службы поиска Azure с помощью [пакета SDK для .NET службы поиска Azure](https://aka.ms/search-sdk).
 
 Перед выполнением инструкций, приведенных в этом руководстве, и созданием индекса следует [создать службу поиска Azure](search-create-service-portal.md).
 
 Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>1. Определение ключа API администратора службы поиска Azure
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>1. Определение ключа API администратора службы поиска Azure
 После подготовки службы поиска Azure все почти готово к тому, чтобы вы могли отправлять запросы для конечной точки вашей службы, используя пакет SDK для .NET. Для этого сначала нужно получить один из ключей API администратора, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/)
+1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
 2. Перейдите к колонке службы поиска Azure.
 3. Щелкните значок "Ключи".
 
@@ -73,48 +73,88 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index-using-the-index-class"></a>3. Определение индекса службы поиска Azure с помощью класса `Index`
+## <a name="iii-define-your-azure-search-index"></a>3. Определение индекса службы поиска Azure
 Для создания индекса достаточно отправить один вызов в метод `Indexes.Create` . В качестве параметра этот метод принимает объект `Index` , определяющий индекс службы поиска Azure. Вам нужно создать и инициализировать объект `Index` следующим образом:
 
 1. Задайте имя вашего индекса в качестве значения для свойства `Name` объекта `Index`.
-2. Назначьте свойству `Fields` объекта `Index` массив объектов `Field`. Каждый из объектов `Field` определяет поведение поля в индексе. Имя поля вместе с типом данных можно указать в конструкторе (или анализаторе для строковых полей). Можно также задать другие свойства, например `IsSearchable`, `IsFilterable` и т. д.
+2. Назначьте свойству `Fields` объекта `Index` массив объектов `Field`. Самый простой способ создания объектов `Field` — вызвать метод `FieldBuilder.BuildForType`, передав класс модели для параметра типа. Свойства класса модели сопоставляются с полями индекса. Это позволяет привязать документы из индекса поиска к экземплярам класса модели.
 
-При проектировании индекса важно помнить об удобстве работы с поиском и бизнес-потребностях, поэтому каждому `Field` необходимо назначить [подходящие свойства](https://msdn.microsoft.com/library/azure/dn798941.aspx). Эти свойства контролируют, какие функции поиска (фильтрация, фасетная навигация, сортировка полнотекстового поиска и т. д.) применяются к каждому полю. Для любого свойства, не заданного явным образом, класс `Field` по умолчанию отключает соответствующую функцию поиска, пока вы специально не включите ее.
+> [!NOTE]
+> Если вы не планируете использовать класс модели, индекс можно определить путем непосредственного создания объектов `Field`. Имя поля вместе с типом данных можно указать в конструкторе (или анализаторе для строковых полей). Можно также задать другие свойства, например `IsSearchable`, `IsFilterable` и т. д.
+>
+>
 
-В нашем примере мы присвоили индексу имя hotels и определили поля следующим образом:
+При проектировании индекса важно помнить об удобстве работы с поиском и бизнес-потребностях, поэтому каждому полю необходимо назначить [подходящие свойства](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Эти свойства контролируют, какие функции поиска (фильтрация, фасетная навигация, сортировка полнотекстового поиска и т. д.) применяются к каждому полю. Для любого свойства, не заданного явным образом, класс `Field` по умолчанию отключает соответствующую функцию поиска, пока вы специально не включите ее.
+
+В нашем примере мы присвоили индексу имя hotels и определили поля с помощью класса модели. Каждое свойство класса модели имеет атрибуты, которые определяют связанные с поиском характеристики соответствующего поля индекса. Класс модели определяется следующим образом.
+
+```csharp
+[SerializePropertyNamesAsCamelCase]
+public partial class Hotel
+{
+    [Key]
+    [IsFilterable]
+    public string HotelId { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public double? BaseRate { get; set; }
+
+    [IsSearchable]
+    public string Description { get; set; }
+
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
+    [JsonProperty("description_fr")]
+    public string DescriptionFr { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable]
+    public string HotelName { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+    public string Category { get; set; }
+
+    [IsSearchable, IsFilterable, IsFacetable]
+    public string[] Tags { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? ParkingIncluded { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? SmokingAllowed { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public DateTimeOffset? LastRenovationDate { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public int? Rating { get; set; }
+
+    [IsFilterable, IsSortable]
+    public GeographyPoint Location { get; set; }
+
+    // ToString() method omitted for brevity...
+}
+```
+
+Мы тщательно выбрали атрибуты для каждого свойства в зависимости от того, как мы планируем использовать их в приложении. Например, вполне вероятно, что людей, которые ищут гостиницы, будут интересовать совпадения по ключевым словам в поле `description`, поэтому мы включаем для него полнотекстовый поиск, добавив атрибут `IsSearchable` для свойства `Description`.
+
+Обратите внимание, что только одно поле в индексе типа `string` должно быть назначено как поле *key*, для чего нужно добавить атрибут `Key` (см. `HotelId` в примере выше).
+
+В приведенном выше определении индекса используется языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в статье [Language support (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Поддержка языков (REST API службы поиска Azure)), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+
+> [!NOTE]
+> По умолчанию имя каждого свойства в классе модели используется в качестве имени соответствующего поля в индексе. Если необходимо сопоставить имена всех свойств с именами полей в нижнем регистре, пометьте класс с помощью атрибута `SerializePropertyNamesAsCamelCase`. Если требуется выполнить сопоставление с другим именем, можно использовать атрибут `JsonProperty`, как в свойстве `DescriptionFr` выше. Атрибут `JsonProperty` имеет приоритет над атрибутом `SerializePropertyNamesAsCamelCase`.
+> 
+> 
+
+Теперь, когда мы определили класс модели, можно легко создать определение индекса.
 
 ```csharp
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[]
-    {
-        new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
-        new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("description", DataType.String)                   { IsSearchable = true },
-        new Field("description_fr", AnalyzerName.FrLucene),
-        new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true, IsSortable = true },
-        new Field("category", DataType.String)                      { IsSearchable = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("tags", DataType.Collection(DataType.String))     { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("parkingIncluded", DataType.Boolean)              { IsFilterable = true, IsFacetable = true },
-        new Field("smokingAllowed", DataType.Boolean)               { IsFilterable = true, IsFacetable = true },
-        new Field("lastRenovationDate", DataType.DateTimeOffset)    { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("rating", DataType.Int32)                         { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
-    }
+    Fields = FieldBuilder.BuildForType<Hotel>()
 };
 ```
-
-Мы тщательно выбрали значения свойств для каждого `Field` в зависимости от того, как мы планируем использовать их в приложении. Например, вполне вероятно, что людей, которые ищут гостиницы, будут интересовать совпадения по ключевым словам в поле `description`, поэтому мы включаем для него полнотекстовый поиск, задав значение `true` для `IsSearchable`.
-
-Обратите внимание, что только одно поле в индексе типа `DataType.String` должно быть назначено как поле *key* путем задания значения `true` для `IsKey` (см. `hotelId` в примере выше).
-
-В приведенном выше определении индекса используется настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
-
-> [!NOTE]
-> Обратите внимание, что при передаче `AnalyzerName.FrLucene` в конструктор `Field` будет автоматически иметь тип `DataType.String`, а для его `IsSearchable` будет установлено значение `true`.
-> 
-> 
 
 ## <a name="iv-create-the-index"></a>4. Создание индекса
 Теперь, когда у нас есть инициализированный объект `Index`, мы можем создать индекс, просто вызвав метод `Indexes.Create` для объекта `SearchServiceClient`:
@@ -142,6 +182,6 @@ serviceClient.Indexes.Delete("hotels");
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

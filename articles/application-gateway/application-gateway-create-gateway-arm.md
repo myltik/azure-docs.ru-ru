@@ -26,7 +26,7 @@ ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
 > * [портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
-> * [Шаблон Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
 > * [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 
 Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными). Шлюз приложений выполняет многие функции контроллера доставки приложений (ADC), включая балансировку нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузку SSL, выполнение пользовательской проверки работоспособности, поддержку нескольких сайтов и т. д. Полный список поддерживаемых функций представлен в [обзоре шлюза приложений](application-gateway-introduction.md).

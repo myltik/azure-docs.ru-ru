@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
 * из одной подсети в другую в виртуальной сети;
 * из виртуальных машин в Интернет;
 * из одной виртуальной сети в другую через VPN-шлюз;
+* Из одной виртуальной сети в другую через пиринговую связь (цепочка служб);
 * из виртуальной сети в локальную сеть через VPN-шлюз.
 
 На рисунке ниже показана простая система, состоящая из виртуальной сети, двух подсетей и нескольких виртуальных машин, а также системных маршрутов для передачи IP-трафика.
@@ -111,6 +112,6 @@ ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
