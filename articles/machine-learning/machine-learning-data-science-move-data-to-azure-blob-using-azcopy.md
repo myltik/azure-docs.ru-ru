@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 1caf56d1d86d885673f4b40725777f302984dc1f
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью AzCopy
+# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью AzCopy
 AzCopy — это служебная программа командной строки, разработанная для отправки, скачивания и копирования данных из хранилищ BLOB-объектов, файлов и таблиц Microsoft Azure.
 
 Инструкции по установке программы AzCopy и дополнительные сведения о ее использовании с платформой Azure см. в статье [Приступая к работе со служебной программой командной строки AzCopy](../storage/storage-use-azcopy.md).
@@ -92,6 +92,6 @@ AzCopy — это служебная программа командной ст�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

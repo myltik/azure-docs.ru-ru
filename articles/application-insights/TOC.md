@@ -2,7 +2,7 @@
 ## [Что такое Azure Application Insights?](app-insights-overview.md)
 ## [Мониторинг производительности в цикле DevOps](app-insights-detect-triage-diagnose.md)
 
-# Приступая к работе
+# Начало работы
 ## Мониторинг Azure
 ### [Веб-приложения Azure](app-insights-azure-web-apps.md)
 ### [облачных служб Azure](app-insights-cloudservices.md)
@@ -30,20 +30,22 @@
 
 # Практическое руководство
 ## Планирование и проектирование
-
 ### [Углубленная диагностика для веб-приложений и служб](app-insights-devops.md)
 ### [Аналитические средства для разработчиков в Application Insights и HockeyApp](app-insights-developer-analytics.md)
 ### [Мониторинг производительности в веб-приложениях](app-insights-web-monitor-performance.md)
 ### [Анализ использования с помощью Application Insights](app-insights-overview-usage.md)
 ### [Разделение ресурсов Application Insights](app-insights-separate-resources.md)
 ### [Как работать с Application Insights](app-insights-how-do-i.md)
+## Миграция
+### [Переход от мониторинга конечных точек Azure к тестам доступности](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Настройка
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Таблицы Azure
 #### [Диагностика](app-insights-azure-diagnostics.md)
+## [IP-адреса](app-insights-ip-addresses.md)
 
-### ASP.NET:
+### ASP.NET
 #### [Сбор дополнительных данных телеметрии](app-insights-asp-net-more.md)
 #### [Исключения](app-insights-asp-net-exceptions.md)
 #### [Трассировки журналов](app-insights-asp-net-trace-logs.md)
@@ -102,7 +104,6 @@
 ### [непрерывный экспорт.](app-insights-export-telemetry.md)
 ### [Экспорт в Power BI](app-insights-export-power-bi.md)
 
-
 ## Разработка
 
 ### [API для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## Управление
-
 ### [Управление ценами и квотами](app-insights-pricing.md)
 ### [Мониторинг производительности приложений с помощью Application Insights для SCOM](app-insights-scom.md)
 
+##экспорт.
+## [Экспорт модели данных](app-insights-export-data-model.md)
 
 ## Безопасность
-
 ### [Сбор и хранение данных](app-insights-data-retention-privacy.md)
 ### [Ресурсы, роли и контроль доступа](app-insights-resources-roles-access-control.md)
-
-
 ## Устранение неполадок
 ### [Отсутствие данных для .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Аналитика](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Справочные материалы
-## [API Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [API .NET](https://docs.microsoft.com/dotnet/api)
-## [API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [REST](https://dev.applicationinsights.io/)
+
+# Ресурсы
 ## [Справочник по аналитике](app-insights-analytics-reference.md)
-## [Выборка](app-insights-sampling.md)
-## [IP-адреса](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Экспорт модели данных](app-insights-export-data-model.md)
-## [Переход от мониторинга конечных точек Azure к тестам доступности](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Аналитические средства для разработчиков: языки, платформы, интеграция](app-insights-platforms.md)
+### [Выборка](app-insights-sampling.md)
 ### [Примеры и пошаговые руководства](app-insights-code-samples.md)
 #### [Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Пошаговое руководство. Экспорт в SQL с использованием Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Заметки о выпуске пакета SDK Application Insights для Windows Phone и Магазина Windows](app-insights-release-notes-windows.md)
 ## [Заметки о выпуске средств анализа для разработчиков](app-insights-release-notes-vsix.md)
 ## [Заметки о выпуске пакета SDK для Application Insights](app-insights-release-notes.md)
-## [REST API доступа к данным](https://dev.applicationinsights.io/)
-
-# Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

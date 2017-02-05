@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
 В этом руководстве описано несколько способов определения срока жизни (TTL) для большого двоичного объекта в службе хранилища Azure.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) .  Используйте командлет `Get-AzureStorageBlob`, чтобы получить ссылку на большой двоичный объект, а затем определите свойство `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) .  Используйте командлет `Get-AzureStorageBlob`, чтобы получить ссылку на большой двоичный объект, а затем определите свойство `.ICloudBlob.Properties.CacheControl`. 
 
 ```powershell
 # Create a storage context
@@ -122,6 +122,6 @@ class Program
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a73f51b182cd9ce4634deeb33153345b935b13b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
 
 
 ---
@@ -81,7 +81,8 @@ source ~/azure.completion.sh
 
 Можно использовать PowerShell или CLI для взаимодействия с кластером Service Fabric, созданным с помощью портала Azure. 
 
-**Предупреждение:** эти кластеры не являются защищенными, и вы можете поставить ваш компьютер под угрозу, добавив общедоступный IP-адрес в манифест кластера.
+> [!WARNING]
+> Эти кластеры не являются защищенными, и вы можете поставить ваш компьютер под угрозу, добавив общедоступный IP-адрес в манифест кластера.
 
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Использование интерфейса командной строки Azure для подключения к кластеру Service Fabric
 Следующие команды интерфейса командной строки Azure позволяют подключиться к безопасному кластеру. Сведения о сертификате должны соответствовать сертификату на узлах кластера.
@@ -149,6 +150,24 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 
 Обновление приложения можно отслеживать с помощью SFX. Процесс обновления завершится через несколько минут.  Можно также проверить обновленное приложение на наличие ошибок или использовать возможность автоматического отката в Service Fabric.
 
+## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>Преобразование из PFX в PEM и обратно
+
+Для доступа к безопасным кластерам, работающим в разных средах, может потребоваться установить сертификат на локальном компьютере (под управлением Windows или Linux). Например, при доступе к защищенному кластеру Linux с компьютера Windows (или наоборот) может потребоваться преобразовать сертификат из формата PFX в PEM (или наоборот). 
+
+Чтобы преобразовать PEM-файл в PFX-файл, используйте следующую команду:
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+Чтобы преобразовать PFX-файл в PEM-файл, используйте следующую команду:
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+Дополнительные сведения см. в [документации по OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
+
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Копирование пакета приложения завершается ошибками
 Проверьте, установлен ли клиент `openssh`. Так как по умолчанию он отсутствует в Ubuntu Desktop, установите его с помощью следующей команды.
@@ -176,12 +195,14 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 ```
 Использование ключей (вместо паролей) для проверки подлинности ssh пока не поддерживается (так как платформа использует ssh для копирования пакетов), поэтому используйте только проверку пароля.
 
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 Настройте среду разработки и разверните приложение Service Fabric в кластер Linux.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
