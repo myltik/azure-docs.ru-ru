@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
+ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
+ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
 
 > [!NOTE]
 > Управление привилегированными пользователями доступно только в выпуске Azure Active Directory Premium P2. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
-> 
-> 
+>
+>
 
 Организациям необходимо свести к минимуму число пользователей, имеющих доступ к защищенным сведениям или ресурсам. Это снижает вероятность того, что такой доступ получит злоумышленник. Однако пользователям иногда требуется выполнять привилегированные операции в приложениях Azure, Office 365 или SaaS. Организации предоставляют пользователям привилегированный доступ в Azure AD, не отслеживая, как именно пользователи используют свои права администратора. Azure AD Privileged Identity Management помогает устранить этот риск.  
 
@@ -53,8 +53,8 @@ ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
 
 > [!NOTE]
 > Чтобы включить управление привилегированными пользователями Azure AD для каталога, необходимо быть глобальным администратором с учетной записью организации (например, @yourdomain.com),), а не учетной записью Майкрософт (например, @outlook.com),).
-> 
-> 
+>
+>
 
 1. Войдите на [портал Azure](https://portal.azure.com/) как глобальный администратор нужного каталога.
 2. Если в организации имеется несколько каталогов, выберите свое имя пользователя в правом верхнем углу на портале Azure. Затем выберите каталог, в котором будет использоваться управление привилегированными пользователями Azure AD.
@@ -107,6 +107,9 @@ ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
 
 Второй способ — настроить регулярные [проверки доступа](active-directory-privileged-identity-management-how-to-start-security-review.md). Эти проверки может выполнять назначенный проверяющий (например, руководитель группы); также сотрудники могут проверять сами себя. Это лучший способ отследить, кому по-прежнему требуется доступ, а кому уже нет.
 
+## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM по истечении срока действия подписки
+Перед выпуском общедоступной версии технология Azure AD PIM была доступна в предварительной версии. Проверки лицензии клиента для использования предварительной версии Azure AD PIM не выполнялись.  Теперь, когда вышла общедоступная версия Azure AD PIM, для использования PIM после декабря 2016 г. необходимо наличие в клиенте пробной или платной подписки.  Если ваша организация не приобрела Azure AD Premium P2 или срок действия подписки истекает, технология Azure AD PIM больше не будет доступна в вашем клиенте.  Дополнительные сведения см. на странице [требований к подписке для Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
+
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
@@ -121,6 +124,6 @@ ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

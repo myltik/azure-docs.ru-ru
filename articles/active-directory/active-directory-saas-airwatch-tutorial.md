@@ -74,7 +74,7 @@ ms.openlocfilehash: 5f2030abf8b6c2d5884f4c5c2cb29d89ff329227
 2. На странице **Как пользователи должны входить в AirWatch?** выберите параметр **Единый вход Microsoft Azure AD** и щелкните **Далее**.
    
    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Настройка единого входа")
-3. На странице **Configure App URL** (Настройка URL-адреса приложения) введите в текстовом поле **AirWatch Sign On URL** (URL-адрес входа в AirWatch) URL-адрес, используемый для входа в приложение AirWatch (например, "*https://companycode.awmdm.com/AirWatch/Login?gid=companycode*"), и щелкните **Далее**.
+3. На странице **Configure App URL** (Настройка URL-адреса приложения) введите в текстовом поле **AirWatch Sign On URL** (URL-адрес входа в AirWatch) URL-адрес, используемый для входа в приложение AirWatch (например, "*https:// companycode.awmdm.com/AirWatch/Login?gid=companycode*"), и щелкните **Далее**.
    
    ![Настройка URL-адреса приложения](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в AirWatch** щелкните **Скачать сертификат** и сохраните файл сертификата на своем компьютере.

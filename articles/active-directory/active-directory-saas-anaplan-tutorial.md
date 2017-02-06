@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Anaplan | Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и Anaplan.
+title: "Руководство. Интеграция Azure Active Directory с Anaplan | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Anaplan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 95369b2a0c1172e072aed33d075255fdcafe8a9c
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-anaplan"></a>Руководство. Интеграция Azure Active Directory с Anaplan
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Руководство. Интеграция Azure Active Directory с Anaplan
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Anaplan.
 
 Интеграция Azure AD с приложением Anaplan обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к Anaplan.
 * Вы можете включить автоматический вход пользователей в Anaplan (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Anaplan, вам потребуется:
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
@@ -123,15 +127,15 @@ ms.author: jeedes
 2. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Anaplan по адресу [support@anaplan.com](mailto:support@anaplan.com) и предоставьте следующие сведения:
    
    * скачанный файл метаданных;
-   * **идентификатор сущности**
-   * **URL-адрес единого входа SAML** 
-   * **URL-адрес службы единого выхода**
+   *  **идентификатор сущности**
+   *  **URL-адрес единого входа SAML** 
+   *  **URL-адрес службы единого выхода**
 3. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -236,6 +240,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

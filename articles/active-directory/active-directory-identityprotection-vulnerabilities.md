@@ -6,14 +6,13 @@ keywords: "защита удостоверений Azure Active Directory, Cloud
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
@@ -25,7 +24,7 @@ ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.
 
 
-![уязвимости](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+![уязвимости](./media/active-directory-identityprotection-vulnerabilities/101.png "уязвимости")
 
 
 
@@ -64,6 +63,6 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

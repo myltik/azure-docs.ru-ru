@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b12985be3822bb605004fc70490f6cf9cb803ec7
+ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
+ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
 
 
 ---
@@ -34,13 +34,13 @@ ms.openlocfilehash: b12985be3822bb605004fc70490f6cf9cb803ec7
 ## <a name="branding-issues-on-verification-email"></a>Проблемы с фирменной символикой в проверочном письме
 Проверочное письмо по умолчанию содержит фирменную символику Microsoft. Она будет удалена в будущем. Сейчас ее можно удалить с помощью [функции фирменной символики](../active-directory/active-directory-add-company-branding.md).
 
+## <a name="branding-issues-on-local-account-sign-in-page-in-a-sign-in-policy"></a>Проблемы с добавлением фирменной символики на страницу входа в локальную учетную запись в политике входа
+Чтобы настроить страницу входа в локальную учетную запись в политике входа, следует использовать только [функцию фирменной символики компании](../active-directory/active-directory-add-company-branding.md), а не функцию настройки пользовательского интерфейса страницы, описанную [здесь](active-directory-b2c-reference-ui-customization.md). Кроме того, для полей имени пользователя и пароля недоступны метки или заполнители. В качестве альтернативного решения рекомендуем использовать полностью настраиваемые политики регистрации или входа. Если вы хотите полностью настроить страницу входа в локальную учетную запись в политике входа, проголосуйте за соответствующую функцию на странице [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
+
 ## <a name="restrictions-on-applications"></a>Ограничения для приложений
 Перечисленные ниже типы приложений пока что не поддерживаются в Azure AD B2C. Описание поддерживаемых типов приложений можно найти в статье [Azure Active Directory B2C: типы приложений](active-directory-b2c-apps.md).
 
-### <a name="single-page-applications-javascript"></a>Одностраничные приложения (Javascript)
-Во многих современных приложениях применяется интерфейс одностраничных приложений (SPA). Подобные приложения, как правило, написаны на Javascript и часто используют такие платформы SPA, как AngularJS, Ember.js, Durandal и т. д. Это решение пока не поддерживается в Azure AD B2C.
-
-### <a name="daemons-server-side-applications"></a>Управляющие программы и серверные приложения
+### <a name="daemons--server-side-applications"></a>Управляющие программы и серверные приложения
 Многие приложения работают без вмешательства пользователя или содержат процессы, выполняющиеся на протяжении долгого времени. Им также требуется возможность доступа к защищенным ресурсам, таким как веб-API. Эти приложения могут выполнять проверку подлинности и получать маркеры, используя идентификатор приложения (а не делегированный идентификатор клиента) с помощью [потока учетных данных клиента OAuth 2.0](active-directory-b2c-reference-protocols.md). Этот поток пока недоступен в Azure AD B2C. Это значит, что приложения могут получать маркеры только после запуска интерактивного потока входа пользователя.
 
 ### <a name="standalone-web-apis"></a>Автономные веб-API
@@ -96,6 +96,6 @@ Azure AD B2C поддерживает протоколы OpenID Connect и OAuth
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

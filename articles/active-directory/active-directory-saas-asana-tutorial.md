@@ -219,7 +219,7 @@ ms.openlocfilehash: 583141e7543cb5e824204a49ff4400fe462ff28b
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
 Цель этого раздела — проверить работу единого входа Azure AD.
 
-Перейдите на страницу входа в Asana. Вставьте адрес электронной почты britta.simon@contoso.com. Текстовое поле пароля оставьте пустым и щелкните **Log In**. Вы перейдете на страницу входа в Azure AD. Введите учетные данные Azure AD. Теперь вы должны войти в Asana.
+Перейдите на страницу входа в Asana. Вставьте адрес электронной почты britta.simon@contoso.com в соответствующее текстовое поле. Текстовое поле пароля оставьте пустым и щелкните **Log In** (Вход). Вы перейдете на страницу входа в Azure AD. Введите учетные данные Azure AD. Теперь вы должны войти в Asana.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
@@ -248,6 +248,6 @@ ms.openlocfilehash: 583141e7543cb5e824204a49ff4400fe462ff28b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
