@@ -1,6 +1,6 @@
 ---
-title: "Использование физического устройства с пакетом SDK для шлюза Интернета вещей | Документация Майкрософт"
-description: "Пошаговое руководство по работе с пакетом SDK для шлюза Azure IoT с использованием устройства Texas Instruments SensorTag для отправки данных в Центр Интернета вещей через шлюз, работающий на плате Raspberry Pi 3."
+title: "Использование физического устройства с пакетом SDK для шлюза Azure IoT | Документация Майкрософт"
+description: "Сведения об использовании устройства Texas Instruments SensorTag для отправки данных в Центр Интернета вещей через шлюз, работающий на устройстве Raspberry Pi 3. Шлюз собран с использованием пакета SDK для шлюза Azure IoT."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 9c8ab5b54644c3fa7999e7250825fba5d8532082
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-physical-device-using-linux"></a>Пакет SDK для шлюза Azure IoT: отправка сообщений с устройства в облако через физическое устройство с ОС Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Воспользуйтесь пакетом SDK для шлюза Azure IoT для отправка сообщений с устройства в облако с помощью физического устройства (Linux).
 В этом пошаговом руководстве по использованию [примера устройства Bluetooth с низким энергопотреблением][lnk-ble-samplecode] показано, как использовать [пакет SDK для шлюза Azure IoT][lnk-sdk] для пересылки данных телеметрии, передаваемых из устройства в облако, с физических устройств в Центр Интернета вещей, и как передавать команды из Центра Интернета вещей на физические устройства.
 
 В этом руководстве рассматриваются следующие темы.
@@ -239,7 +239,7 @@ git submodule update --init --recursive
 Когда репозиторий пакета SDK для шлюза Интернета вещей полностью скопирован на устройство Raspberry Pi 3, можно выполнить его сборку, используя следующую команду из папки, в которой содержится пакет SDK:
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh --skip-unittests
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Настройка и запуск примера BLE на устройстве Raspberry Pi 3
@@ -429,7 +429,7 @@ git submodule update --init --recursive
 При запуске примера можно использовать такие инструменты, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools], для мониторинга сообщений, которые шлюз перенаправляет с устройства SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Отправка сообщений из облака на устройство
-Модуль BLE также поддерживает отправку инструкций из Центра Интернета вещей на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств Центра Интернета вещей Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или [обозреватель Центра Интернета вещей](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer).
+Модуль BLE также поддерживает отправку инструкций из Центра Интернета вещей на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или инструмент [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer).
 При использовании устройства Texas Instruments SensorTag можно включить красный или зеленый светодиодные индикаторы или звуковой сигнал, отправив команды из Центра Интернета вещей. Для этого необходимо сначала последовательно отправить два сообщения JSON, приведенные ниже. Затем можно будет отправить команды для включения светодиодных индикаторов или звукового сигнала.
 
 1. Выполните сброс всех светодиодных индикаторов и звуковых сигналов (отключите их):
@@ -485,7 +485,7 @@ git submodule update --init --recursive
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Руководство разработчика][lnk-devguide]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
@@ -501,6 +501,6 @@ git submodule update --init --recursive
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

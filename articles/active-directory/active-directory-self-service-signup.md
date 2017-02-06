@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/09/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: b268443b11f786bcefbd6441914fb3a94c66ddfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
 
 
 ---
@@ -196,7 +196,7 @@ ms.openlocfilehash: b268443b11f786bcefbd6441914fb3a94c66ddfc
 Дополнительные сведения об этих параметрах и примеры их использования см. в статье [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
 ## <a name="see-also"></a>См. также
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 * [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 * [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
@@ -206,6 +206,6 @@ ms.openlocfilehash: b268443b11f786bcefbd6441914fb3a94c66ddfc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

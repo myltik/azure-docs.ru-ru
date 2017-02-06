@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 В этой статье представлен обзор задач управления резервным копированием, которые можно выполнять на классическом портале Azure и с помощью агента службы архивации Microsoft Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 ## <a name="management-portal-tasks"></a>Задачи на портале управления
 1. Выполните вход на [Портал управления](https://manage.windowsazure.com).
@@ -195,6 +196,6 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

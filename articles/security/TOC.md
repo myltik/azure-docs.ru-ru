@@ -1,7 +1,7 @@
 # [Обзор](security-get-started-overview.md)
 ## [Принцип работы](azure-security-getting-started.md)
 ## [Службы и технологии безопасности](azure-security-services-technologies.md)
-## [Сетевая безопасность](security-network-overview.md)
+## [Безопасность сети](security-network-overview.md)
 ### [Рекомендации по обеспечению сетевой безопасности](azure-security-network-security-best-practices.md)
 ### [Защита границ](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Архитектура защищенной гибридной сети](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -33,16 +33,14 @@
 ### [Рекомендации по безопасности и шаблоны](security-best-practices-and-patterns.md)
 ### [Разработка отказоустойчивых приложений](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Справочные материалы
+# Сопутствующие материалы
 ## [Центр управления безопасностью](security-microsoft-trust-center.md)
 ## [Центр Microsoft Security Response Center](azure-security-response-center.md)
 ## [Тестирование на проникновение](azure-security-pen-testing.md)
-
-# Сопутствующие материалы
 ## [Центр безопасности](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [хранилище ключей;](../key-vault/key-vault-whatis.md)
 ## [Служба Log Analytics](../log-analytics/log-analytics-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Многофакторная идентификация](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 
 # Ресурсы
@@ -52,6 +50,7 @@
 ## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
 ## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

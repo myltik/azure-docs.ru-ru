@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb76a6b58a88b2c80958c867f02a0f43d3b0fe25
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
 
 
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Управление статистикой таблиц в хранилище данных SQL
 > [!div class="op_single_selector"]
-> * [Обзор][Обзор]
-> * [Типы данных][Типы данных]
-> * [Распределение][Распределение]
-> * [Индекс][Индекс]
-> * [Секция][Секция]
-> * [Статистика][Статистика]
-> * [Временные][Временные]
+> * [Обзор][Overview]
+> * [Типы данных][Data Types]
+> * [Распределение][Distribute]
+> * [Индекс][Index]
+> * [Секция][Partition]
+> * [Статистика][Statistics]
+> * [Временные таблицы][Temporary]
 > 
 > 
 
@@ -95,7 +95,7 @@ WHERE
 
 Например, для столбцов дат в хранилище данных обычно требуется часто обновлять статистику. При каждой загрузке строк в хранилище данных добавляются новые даты загрузки или даты транзакций. Это изменяет распределение данных и делает статистику устаревшей.  И наоборот, статистика по столбцу пола в таблице клиентов может никогда не обновляться. Если предположить, что распределение между клиентами постоянно, добавление новых строк в вариант таблицы не изменит распределение данных. Тем не менее, если хранилище данных содержит только один пол, а новые требования предписывают несколько полов, вам определенно надо обновить статистику по столбцу пола.
 
-Подробные пояснения см. в статье, посвященной [управлению статистикой][Статистика], на сайте MSDN.
+Подробные пояснения см. в статье, посвященной [управлению статистикой][Statistics], на сайте MSDN.
 
 ## <a name="implementing-statistics-management"></a>Реализация управления статистикой
 Часто рекомендуется расширить процесс загрузки данных, чтобы обеспечить обновление статистики в конце загрузки. Загрузка данных происходит, когда таблицы часто меняют свой размер и (или) распределение значений. Поэтому логично реализовать некоторые процессы управления.
@@ -113,7 +113,7 @@ WHERE
 > 
 > 
 
-Более подробное описание см. в статье [Оценка количества элементов (SQL Server)][Оценка количества элементов (SQL Server)] на сайте MSDN.
+Подробные пояснения см. в статье [Оценка количества элементов (SQL Server)][Cardinality Estimation] на сайте MSDN.
 
 ## <a name="examples-create-statistics"></a>Примеры: создание статистики
 Эти примеры показывают, как использовать различные параметры для создания статистики. Параметры, которые можно использовать для каждого столбца, зависят от характеристик данных и того, как столбец будет использован в запросах.
@@ -178,7 +178,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Полные справочные сведения см. в статье [Инструкция CREATE STATISTICS][Инструкция CREATE STATISTICS] на сайте MSDN.
+Полные справочные сведения см. в статье [CREATE STATISTICS (Transact-SQL)][CREATE STATISTICS] на сайте MSDN.
 
 ### <a name="f-create-multi-column-statistics"></a>F. Создание многостолбцовой статистики
 Для создания многостолбцовой статистики просто используйте предыдущие примеры, но укажите больше столбцов.
@@ -350,9 +350,9 @@ UPDATE STATISTICS dbo.table1;
 > 
 > 
 
-Реализацию процедуры `UPDATE STATISTICS` см. в статье о [временных таблицах][Временные]. Метод реализации слегка отличается от описанной выше процедуры `CREATE STATISTICS`, но результат одинаков.
+Реализацию процедуры `UPDATE STATISTICS` см. в статье о [временных таблицах][Temporary]. Метод реализации слегка отличается от описанной выше процедуры `CREATE STATISTICS`, но результат одинаков.
 
-Полный синтаксис см. в статье [UPDATE STATISTICS (Transact-SQL)][UPDATE STATISTICS (Transact-SQL)] на сайте MSDN.
+Полный синтаксис см. в статье [UPDATE STATISTICS (Transact-SQL)][Update Statistics] на сайте MSDN.
 
 ## <a name="statistics-metadata"></a>Метаданные статистики
 Существует несколько системных представлений и функций, которые можно использовать для поиска информации о статистике. Например, можно узнать, устарел ли объект статистики, воспользовавшись функцией stats-date, чтобы посмотреть, когда статистика была в последний раз создана или обновлена.
@@ -464,25 +464,25 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 7. Пользовательская ошибка 2767 не поддерживается.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения см. в статье [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] на сайте MSDN.  Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Обзор], [типам данных таблиц][Типы данных], [распределению][Распределение], [индексированию][Индекс], [секционированию таблиц][Секция] и [временным таблицам][Временные].  Рекомендации по использованию хранилища данных SQL Azure см. в [этой статье][Рекомендации по использованию хранилища данных SQL Azure].  
+Дополнительные сведения см. в статье [Инструкция DBCC SHOW_STATISTICS (Transact-SQL)][DBCC SHOW_STATISTICS] на сайте MSDN.  Дополнительные сведения см. в статьях, посвященным [общим сведениям о таблицах][Overview], [типам данных таблиц][Data Types], [распределению][Distribute], [индексированию][Index] и [секционированию таблиц][Partition], а также [временным таблицам][Temporary].  Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 
 <!--Article references-->
-[Обзор]: ./sql-data-warehouse-tables-overview.md
-[Типы данных]: ./sql-data-warehouse-tables-data-types.md
-[Распределение]: ./sql-data-warehouse-tables-distribute.md
-[Индекс]: ./sql-data-warehouse-tables-index.md
-[Секция]: ./sql-data-warehouse-tables-partition.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
-[Временные]: ./sql-data-warehouse-tables-temporary.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Оценка количества элементов (SQL Server)]: https://msdn.microsoft.com/library/dn600374.aspx
-[Инструкция CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Статистика]: https://msdn.microsoft.com/library/ms190397.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
@@ -491,12 +491,12 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[Инструкция UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

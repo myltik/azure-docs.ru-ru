@@ -1,21 +1,25 @@
 ---
-title: Создание образа Azure RemoteApp на основе виртуальной машины Azure | Microsoft Docs
-description: Узнайте о том, как создать образ для Azure RemoteApp с помощью виртуальной машины Azure.
+title: "Создание образа Azure RemoteApp на основе виртуальной машины Azure | Документация Майкрософт"
+description: "Узнайте о том, как создать образ для Azure RemoteApp с помощью виртуальной машины Azure."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: d41583ef-6cd8-4115-8dcb-b2cd5b3d301a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
+ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
+
 
 ---
-# Создание образа Azure RemoteApp на основе виртуальной машины Azure
+# <a name="create-a-azure-remoteapp-image-based-on-an-azure-virtual-machine"></a>Создание образа Azure RemoteApp на основе виртуальной машины Azure
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -25,26 +29,26 @@ ms.author: elizapo
 
 Чтобы создать образ на основе виртуальной машины Azure, нужно выполнить два шага: создать образ и отправить его из библиотеки виртуальной машины Azure в Azure RemoteApp.
 
-## Создание пользовательского образа на основе виртуальной машины Azure
+## <a name="create-a-custom-image-based-on-an-azure-vm"></a>Создание пользовательского образа на основе виртуальной машины Azure
 Выполните следующие действия, чтобы создать образ на основе виртуальной машины Azure.
 
 1. Создайте виртуальную машину Azure. Можно использовать образ "Узел сеансов удаленных рабочих столов Windows Server" или "Узел сеансов удаленных рабочих столов Windows Server с Microsoft Office 365 профессиональный плюс" из коллекции образов виртуальных машин Azure. Этот образ соответствует всем требованиям к образу шаблона Azure RemoteApp.
    
-    Дополнительные сведения см. в разделе [Создание виртуальной машины под управлением Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+    Дополнительные сведения см. в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Подключитесь к виртуальной машине и установите и настройте приложения, которые хотите отправить в RemoteApp. Выполните все дополнительные настройки Windows, необходимые для приложений.
    
-    Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md).
+    Дополнительные сведения см. в статье [Вход в виртуальную машину под управлением Windows с помощью классического портала Azure](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Если вы используете один из образов "Узел сеансов удаленных рабочих столов Windows Server", в него включен скрипт проверки, который обеспечит выполнение предварительных требований RemoteApp в виртуальной машине. Чтобы запустить скрипт, дважды щелкните **ValidateRemoteAppImage** на рабочем столе. Убедитесь, что все ошибки, о которых сообщил скрипт, исправлены, прежде чем переходить к следующему шагу.
-4. Подготовьте образ к использованию и захватите его с помощью SYSPREP. Инструкции см. в разделе [Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
+4. Подготовьте образ к использованию и захватите его с помощью SYSPREP. Инструкции см. в статье [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## Импорт образа в библиотеку образов Azure RemoteApp
+## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Импорт образа в библиотеку образов Azure RemoteApp
 Выполните приведенные ниже действия, чтобы импортировать новый образ в Azure RemoteApp.
 
-1. На вкладке **Образы шаблона**:
+1. На вкладке **Образы шаблона** :
    
    * если у вас нет образов, щелкните **Загрузить или импортировать образ шаблона**;
-   * если у вас есть по крайней мере один образ, щелкните значок **+**, чтобы добавить новый образ.
-2. Выберите библиотеку **Импорт образа из виртуальных машин** и нажмите кнопку **Далее**.
+   * если у вас есть по крайней мере один образ, щелкните значок **+** , чтобы добавить новый образ.
+2. Выберите библиотеку **Импортировать образ из библиотеки виртуальных машин** и нажмите кнопку **Далее**.
 3. На следующей странице выберите пользовательский образ из списка и следуйте шагам, указанным при создании образа. Нажмите кнопку **Далее**.
 4. Введите имя нового образа RemoteApp и выберите расположение, а затем установите флажок, чтобы начать импорт.
 
@@ -53,6 +57,11 @@ ms.author: elizapo
 > 
 > 
 
-Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) — в зависимости от того, что вам нужно.
+Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) — в зависимости от того, что вам нужно.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+
