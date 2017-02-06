@@ -1,13 +1,13 @@
 ---
-title: Создание и изменение канала ExpressRoute с помощью классической модели развертывания и PowerShell | Microsoft Docs
-description: В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал.
+title: "Создание и изменение канала ExpressRoute с помощью классической модели развертывания и PowerShell | Документация Майкрософт"
+description: "В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
 > [!div class="op_single_selector"]
-> [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell — классический портал](expressroute-howto-circuit-classic.md)
+> * [Портал Azure — Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell — Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell — классическая модель](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -32,13 +36,13 @@ ms.author: ganesr;cherylmc
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Перед началом работы
-### <a name="1.-review-the-prerequisites-and-workflow-articles"></a>1. Ознакомьтесь со статьями о предварительных условиях и процедурах
+### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Ознакомьтесь со статьями о предварительных условиях и процедурах
 Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.  
 
-### <a name="2.-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Установите последние версии модулей Azure PowerShell
-Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Установите последние версии модулей Azure PowerShell
+Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### <a name="3.-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Войдите в учетную запись Azure и выберите подписку
+### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Войдите в учетную запись Azure и выберите подписку
 1. В командной строке Windows PowerShell с повышенными привилегиями выполните следующий командлет.
    
         Add-AzureAccount
@@ -51,13 +55,13 @@ ms.author: ganesr;cherylmc
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
-### <a name="1.-import-the-powershell-modules-for-expressroute"></a>1. Импорт модулей PowerShell для ExpressRoute
+### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Импорт модулей PowerShell для ExpressRoute
  Чтобы приступить к использованию командлетов ExpressRoute, нужно импортировать модули Azure и ExpressRoute в сеанс PowerShell (если вы еще не сделали это). Импортируйте модули из расположения, в которое они были установлены на локальном компьютере. В зависимости от метода установки модулей их расположение может отличаться от показанного в следующем примере. При необходимости измените пример.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2) Получение списка поддерживаемых поставщиков, расположений и значений пропускной способности
 Перед созданием канала ExpressRoute потребуется список поддерживаемых поставщиков услуг подключения, расположений и вариантов пропускной способности.
 
 Командлет PowerShell `Get-AzureDedicatedCircuitServiceProvider` возвращает эти сведения, которые будут использоваться в последующих шагах.
@@ -72,7 +76,7 @@ ms.author: ganesr;cherylmc
 
 Теперь все готово к созданию канала ExpressRoute.         
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Создание канала ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. Создание канала ExpressRoute
 В приведенном ниже примере показано, как создать канал ExpressRoute со скоростью 200 Мбит/с каналом через Equinix в Кремниевой долине. Если вы используете другой поставщик и другие параметры, подставьте в запрос соответствующие данные.
 
 > [!IMPORTANT]
@@ -98,7 +102,7 @@ ms.author: ganesr;cherylmc
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4.-list-all-the-expressroute-circuits"></a>4. Вывод списка всех каналов ExpressRoute
+### <a name="4-list-all-the-expressroute-circuits"></a>4. Вывод списка всех каналов ExpressRoute
 Чтобы получить список всех созданных вами каналов ExpressRoute, можно выполнить команду `Get-AzureDedicatedCircuit`.
 
     Get-AzureDedicatedCircuit
@@ -131,7 +135,7 @@ ms.author: ganesr;cherylmc
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Отправка ключа службы поставщику услуг подключения для подготовки
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Отправка ключа службы поставщику услуг подключения для подготовки
 Параметр *ServiceProviderProvisioningState* предоставляет сведения о текущем состоянии подготовки на стороне поставщика услуг. Параметр *Status* предоставляет состояние на стороне инфраструктуры Майкрософт. Дополнительные сведения о состояниях подготовки канала см. в статье [Рабочие процессы](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 Вновь созданный канал ExpressRoute будет иметь следующее состояние:
@@ -151,7 +155,7 @@ ms.author: ganesr;cherylmc
     Status                           : Enabled
 
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Периодическая проверка состояния и статуса ключа канала
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Периодическая проверка состояния и статуса ключа канала
 Это позволяет узнать, когда поставщик включил ваш канал. После настройки канала значение параметра *ServiceProviderProvisioningState* изменится на *Provisioned*, как показано в следующем примере.
 
     Get-AzureDedicatedCircuit
@@ -165,7 +169,7 @@ ms.author: ganesr;cherylmc
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7.-create-your-routing-configuration"></a>7. Создание конфигурации маршрутизации
+### <a name="7-create-your-routing-configuration"></a>7. Создание конфигурации маршрутизации
 Пошаговые инструкции см. в статье [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md).
 
 > [!IMPORTANT]
@@ -173,7 +177,7 @@ ms.author: ganesr;cherylmc
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Связывание виртуальной сети с каналом ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Связывание виртуальной сети с каналом ExpressRoute
 Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. в статье [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute с помощью классической модели развертывания см. в статье [Настройка виртуальной сети для ExpressRoute на классическом портале](expressroute-howto-vnet-portal-classic.md).
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Получение состояния канала ExpressRoute
@@ -325,6 +329,9 @@ ms.author: ganesr;cherylmc
 * [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md)
 * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

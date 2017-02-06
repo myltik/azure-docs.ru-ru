@@ -1,160 +1,171 @@
 ---
-title: 'Azure Insights: Azure Insights autoscaling common metrics. | Microsoft Docs'
-description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
+title: "Общие метрики автомасштабирования Azure Monitor | Документация Майкрософт"
+description: "Узнайте, какие метрики обычно используются для автоматического масштабирования облачных служб, виртуальных машин и веб-приложений."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/6/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
+ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+
 
 ---
-# <a name="azure-insights-autoscaling-common-metrics"></a>Azure Insights autoscaling common metrics
-Azure Insights autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure Portal for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Общие метрики автомасштабирования Azure Monitor
+Автомасштабирование Azure Monitor позволяет увеличивать или уменьшать количество запущенных экземпляров на основе данных телеметрии (метрик). В этой статье рассматриваются общие метрики, которые вы можете использовать. На портале Azure для облачных служб и ферм серверов можно выбрать метрики ресурсов, по которым будет выполняться масштабирование. Однако вы также можете выбрать любую метрику из другого ресурса.
 
-Here are the details on how to find and list the metrics you want to scale by. The following applies for scaling Virtual Machine Scale Sets as well.
+Приведенные ниже сведения также применяются к масштабируемым наборам виртуальных машин.
 
-## <a name="compute-metrics"></a>Compute metrics
-By default, Azure VM v2 comes with diagnostics extension configured and they have the following metrics turned on.
+> [!NOTE]
+> Эти сведения относятся только к виртуальным машинам и масштабируемым наборам виртуальных машин, развернутым с помощью Resource Manager. 
+> 
 
-* [Guest metrics for Windows VM v2](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
-* [Guest metrics for Linux VM v2](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Расчет метрик для виртуальных машин, развернутых с помощью Resource Manager
+По умолчанию виртуальные машины и масштабируемые наборы виртуальных машин, развернутые с помощью Resource Manager, генерируют базовые метрики (уровня узла). Кроме того, при настройке сбора данных диагностики для виртуальной машины и масштабируемого набора виртуальных машин Azure расширение диагностики Azure также генерирует счетчики производительности гостевой ОС (известные как "метрики гостевой ОС").  Используйте все эти метрики в правилах автомасштабирования. 
 
-You can use the `Get MetricDefinitions` API/PoSH/CLI to view the metrics available for your VMSS resource. 
+Чтобы просмотреть метрики, доступные для ресурса VMSS, в API, PoSH и интерфейсе командной строки можно выполнить команду `Get MetricDefinitions`. 
 
-If you're using VM scale sets and you don't see a particular metric listed, then it is likely *disabled* in your diagnostics extension.
+Если вы используете наборы масштабирования виртуальных машин и не находите определенной метрики в списке, скорее всего, она *отключена* в расширении системы диагностики.
 
-If a particular metric is not being sampled or transferred at the frequency you want, you can update the diagnostics configuration.
+Если выборка или передача определенной метрики осуществляется с частотой, которая не соответствует вашим требованиям, можно обновить конфигурацию системы диагностики.
 
-If either case above is true, then review [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) about PowerShell to configure and update your Azure VM Diagnostics extension to enable the metric. That article also includes a sample diagnostics configuration file.
+Если это так, то см. сведения о настройке и обновлении расширения системы диагностики виртуальной машины Azure для включения метрики с использованием PowerShell в статье [Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md). В этой статье также содержится пример файла конфигурации системы диагностики.
 
-### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>Compute metrics for Windows VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by using the Diagnostics extension.
+### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager
+Следующие метрики уровня узла генерируются по умолчанию для виртуальной машины и масштабируемого набора виртуальных машин Azure в экземплярах Windows и Linux. Эти метрики описывают виртуальную машину Azure, но собираются из узла виртуальной машины Azure, а не через агент, установленный на гостевой виртуальной машине. Эти метрики можно использовать в правилах автомасштабирования. 
 
-You can generate a list of the metrics by using the following command in PowerShell.
+- [Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
+- [Метрики уровня узла для масштабируемых наборов виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
-```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
+### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Метрики гостевой ОС для виртуальных машин под управлением Windows, развернутых с помощью Resource Manager
+При создании виртуальной машины в Azure система диагностики включается с помощью расширения диагностики. Расширение диагностики генерирует набор метрик, полученных из виртуальной машины. Это означает, что вы можете отключить автомасштабирование метрик, которые не генерируются по умолчанию.
 
-You can create an alert for the following metrics.
-
-| Metric Name | Unit |
-| --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% Privileged Time |Percent |
-| \Processor(_Total)\% User Time |Percent |
-| \Processor Information(_Total)\Processor Frequency |Count |
-| \System\Processes |Count |
-| \Process(_Total)\Thread Count |Count |
-| \Process(_Total)\Handle Count |Count |
-| \Memory\% Committed Bytes In Use |Percent |
-| \Memory\Available Bytes |Bytes |
-| \Memory\Committed Bytes |Bytes |
-| \Memory\Commit Limit |Bytes |
-| \Memory\Pool Paged Bytes |Bytes |
-| \Memory\Pool Nonpaged Bytes |Bytes |
-| \PhysicalDisk(_Total)\% Disk Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Disk Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Count |
-| \LogicalDisk(_Total)\% Free Space |Percent |
-| \LogicalDisk(_Total)\Free Megabytes |Count |
-
-### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>Compute metrics for Linux VM v2 as a guest OS
-When you create a new VM (v2) in Azure, diagnostics is enabled by default by using Diagnostics extension.
-
-You can generate a list of the metrics by using the following command in PowerShell.
+Вы можете создать список метрик с помощью следующей команды PowerShell:
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- You can create an alert for the following metrics.
+Вы можете создать оповещение для метрик, приведенных в следующей таблице:
 
-| Metric Name | Unit |
+| Имя метрики | Единица измерения |
 | --- | --- |
-| \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Percent |
-| \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |CountPerSecond |
-| \Memory\PagesReadPerSec |CountPerSecond |
-| \Memory\PagesWrittenPerSec |CountPerSecond |
-| \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Percent |
-| \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
-| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
-| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
-| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
-| \PhysicalDisk\WritesPerSecond |CountPerSecond |
-| \PhysicalDisk\AverageReadTime |Seconds |
-| \PhysicalDisk\AverageWriteTime |Seconds |
-| \PhysicalDisk\AverageTransferTime |Seconds |
-| \PhysicalDisk\AverageDiskQueueLength |Count |
-| \NetworkInterface\BytesTransmitted |Bytes |
-| \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Count |
-| \NetworkInterface\PacketsReceived |Count |
-| \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Count |
-| \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Count |
+| \Процессор (_общий объем ресурсов)\% загруженности процессора |Процент |
+| \Процессор(_общий объем ресурсов)\% времени в привилегированном режиме |Процент |
+| \Процессор(_общий объем ресурсов)\% времени в пользовательском режиме |Процент |
+| \Процессор(_общий объем ресурсов)\частота процессора |Count |
+| \Система\процессы |Count |
+| \Процессор (_общий объем ресурсов)\число потоков |Count |
+| \Процессор (_общий объем ресурсов)\число обработанных элементов |Count |
+| \Память\% использования выделенной памяти (в байтах) |Процент |
+| \Память\доступные байты |Байты |
+| \Память\выделенная память (в байтах) |Байты |
+| \Память\предел выделенной памяти |Байты |
+| \Память\выгружаемый пул (в байтах) |Байты |
+| \Память\невыгружаемый пул (в байтах) |Байты |
+| \Физический диск(_общий объем ресурсов)\% времени работы диска |Процент |
+| \Физический диск(_общий объем ресурсов)\% времени чтения с диска |Процент |
+| \Физический диск(_общий объем ресурсов)\% времени записи на диск |Процент |
+| \Диск\Физический диск(_общий объем ресурсов) в секунду |Число/с |
+| \Физический диск(_общий объем ресурсов)\скорость чтения с диска/с |Число/с |
+| \Физический диск(_общий объем ресурсов)\скорость записи на диск/с |Число/с |
+| \Физический диск(_общий объем ресурсов)\скорость передачи данных (в байтах)/с |Байт/с |
+| \Физический диск(_общий объем ресурсов)\скорость чтения с диска (в байтах)/с |Байт/с |
+| \Физический диск(_общий объем ресурсов)\скорость записи на диск (в байтах)/с |Байт/с |
+| \Физический диск(_общий объем ресурсов)\среднее значение Длина дисковой очереди |Count |
+| \Физический диск(_общий объем ресурсов)\среднее значение Длина очереди чтения с диска |Count |
+| \Физический диск(_общий объем ресурсов)\среднее значение Длина очереди записи на диск |Count |
+| \Физический диск(_общий объем ресурсов)\% свободного места |Процент |
+| \Логический диск(_общий объем ресурсов)\свободная память (в мегабайтах) |Count |
 
-## <a name="commonly-used-web-(server-farm)-metrics"></a>Commonly used Web (Server Farm) metrics
-You can also perform autoscale based on common web server metrics such as the Http queue length. It's metric name is **HttpQueueLength**.  The following section lists available server farm (Web Apps) metrics.
+### <a name="guest-os-metrics-linux-vms"></a>Метрики гостевой ОС для виртуальных машин под управлением Linux
+При создании виртуальной машины в Azure система диагностики включается по умолчанию с помощью расширения диагностики.
 
-### <a name="web-apps-metrics"></a>Web Apps metrics
-You can generate a list of the Web Apps metrics by using the following command in PowerShell.
+Вы можете создать список метрик с помощью следующей команды PowerShell:
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-You can alert on or scale by these metrics.
+ Вы можете создать оповещение для метрик, приведенных в следующей таблице:
 
-| Metric Name | Unit |
+| Имя метрики | Единица измерения |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
-| DiskQueueLength |Count |
-| HttpQueueLength |Count |
-| BytesReceived |Bytes |
-| BytesSent |Bytes |
+| \Память\Доступная память |Байты |
+| \Память\Процент доступной памяти |Процент |
+| \Память\Используемая память |Байты |
+| \Память\Процент используемой памяти |Процент |
+| \Память\Процент памяти, используемой кэшем |Процент |
+| \Память\Страниц в с |Число/с |
+| \Память\Прочитано страниц в с |Число/с |
+| \Память\Записано страниц в с |Число/с |
+| \Память\Доступное пространство файла подкачки |Байты |
+| \Память\Процент доступного пространства файла подкачки |Процент |
+| \Память\Используемое пространство файла подкачки |Байты |
+| \Память\Процент использованного пространства файла подкачки |Процент |
+| \Процессор\Процент времени простоя |Процент |
+| \Процессор\Процент работы в пользовательском режиме |Процент |
+| \Процессор\Процент времени оптимальной работы |Процент |
+| \Процессор\Процент работы в привилегированном режиме |Процент |
+| \Процессор\Процент времени прерываний |Процент |
+| \Процессор\Процент времени DPC |Процент |
+| \Процессор\Процент загруженности процессора |Процент |
+| \Процессор\Процент времени ожидания ввода/вывода |Процент |
+| \Физический диск\Байт/с |Байт/с |
+| \Физический диск\Прочитано байт/с |Байт/с |
+| \Физический диск\Записано байт/с |Байт/с |
+| \Физический диск\Передач/с |Число/с |
+| \Физический диск\Операций чтения/с |Число/с |
+| \Физический диск\Операций записи/с |Число/с |
+| \Физический диск\Среднее время чтения |Секунды |
+| \Физический диск\Среднее время записи |Секунды |
+| \Физический диск\Среднее время передачи |Секунды |
+| \Физический диск\Средняя длина очереди диска |Count |
+| \Сетевой интерфейс\Передано байт |Байты |
+| \Сетевой интерфейс\Получено байт |Байты |
+| \Сетевой интерфейс\Передано пакетов |Count |
+| \Сетевой интерфейс\ Получено пакетов |Count |
+| \Сетевой интерфейс\Всего байт |Байты |
+| \Сетевой интерфейс\Всего ошибок RX |Count |
+| \Сетевой интерфейс\Всего ошибок TX |Count |
+| \Сетевой интерфейс\Всего конфликтов |Count |
 
-## <a name="commonly-used-storage-metrics"></a>Commonly used Storage metrics
-You can scale by Storage queue length, which is the number of messages in the storage queue. Storage queue length is a special metric and the threshold applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-web-server-farm-metrics"></a>Часто используемые метрики веб-приложений (фермы серверов)
+Можно также выполнить автомасштабирование на основе общих метрик веб-сервера, таких как длина очереди HTTP. Имя метрики — **HttpQueueLength**.  В следующем разделе перечислены доступные метрики фермы серверов (веб-приложений).
 
-You can configure this is in the Azure Portal in the **Settings** blade. For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+### <a name="web-apps-metrics"></a>Метрики веб-приложений
+Список метрик веб-приложений можно создать с помощью следующей команды PowerShell:
 
-For example, with a Classic Storage Account the autoscale setting metricTrigger would include:
+```
+Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+```
+
+Можно создавать оповещения и выполнять масштабирование на основе метрик в таблице ниже.
+
+| Имя метрики | Единица измерения |
+| --- | --- |
+| Процент загруженности ЦП |Процент |
+| Процент использования памяти |Процент |
+| Длина очереди диска |Count |
+| Длина очереди HTTP |Count |
+| Получено байт |Байты |
+| Передано байт |Байты |
+
+## <a name="commonly-used-storage-metrics"></a>Часто используемые метрики хранилища
+Можно масштабировать по длине очереди хранилища, которая представляет собой количество сообщений в очереди хранилища. Пороговым значением для этой специальной метрики является число сообщений на один экземпляр. Например, если есть два экземпляра и если пороговое значение — 100, то масштабирование выполняется, когда общее число сообщений в очереди достигнет 200. Число сообщений на экземпляр может быть 100, или 120 и 80, или любое другое сочетание, которое в сумме дает 200 или более. 
+
+Настройте эти значения на портале Azure в колонке **Параметры**. Для масштабируемых наборов виртуальных машин можно настроить параметр автомасштабирования в шаблоне Resource Manager так, чтобы для параметра *metricName* использовалось значение *ApproximateMessageCount*, а идентификатор очереди хранилища передавался в параметре *metricResourceUri*.
+
+Например, в классической учетной записи хранения metricTrigger параметра автомасштабирования включает следующие данные:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -162,7 +173,7 @@ For example, with a Classic Storage Account the autoscale setting metricTrigger 
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
 
-For a (non-classic) storage account, the metricTrigger would include:
+В обычной учетной записи хранения (неклассической) metricTrigger включает следующие данные:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -170,10 +181,10 @@ For a (non-classic) storage account, the metricTrigger would include:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Commonly used Service Bus metrics
-You can scale by Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric and the threshold specified applied will be the number of messages per instance. This means if there are two instances and if the threshold is set to 100, it will scale when the total number of messages in the queue are 200. For example, 100 messages per instance.
+## <a name="commonly-used-service-bus-metrics"></a>Часто используемые метрики служебной шины
+Масштабирование возможно по длине очереди служебной шины. Длина очереди представляет собой количество сообщений в очереди. Пороговым значением для этой специальной метрики является число сообщений на один экземпляр. Например, если есть два экземпляра и если пороговое значение — 100, то масштабирование выполняется, когда общее число сообщений в очереди достигнет 200. Число сообщений на экземпляр может быть 100, или 120 и 80, или любое другое сочетание, которое в сумме дает 200 или более. 
 
-For VM scale sets, you can update the Autoscale setting in the ARM template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
+Для масштабируемых наборов виртуальных машин можно настроить параметр автомасштабирования в шаблоне Resource Manager так, чтобы для параметра *metricName* использовалось значение *ApproximateMessageCount*, а идентификатор очереди хранилища передавался в параметре *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -182,10 +193,13 @@ For VM scale sets, you can update the Autoscale setting in the ARM template to u
 ```
 
 > [!NOTE]
-> For Service Bus, the resource group concept does not exist but Azure Resource Manager creates a default resource group per region. The resource group is usually in the 'Default-ServiceBus-[region]' format. For example, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
+> Для служебной шины концепции группы ресурсов не существует, но Azure Resource Manager создает группу ресурсов по умолчанию на регион. Группа ресурсов обычно имеет формат Default-ServiceBus-[region]. Например, Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, Default-ServiceBus-AustraliaEast и т. д.
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

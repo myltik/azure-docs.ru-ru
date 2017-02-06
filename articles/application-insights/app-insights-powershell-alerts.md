@@ -1,47 +1,55 @@
 ---
-title: Настройка оповещений в Application Insights с помощью PowerShell
-description: Автоматизация настройки Application Insights для получения сообщений электронной почты об изменениях метрик.
+title: "Настройка оповещений в Application Insights с помощью PowerShell | Документация Майкрософт"
+description: "Автоматизация настройки Application Insights для получения сообщений электронной почты об изменениях метрик."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 710663e122bdebff575c762a501a0d261056e1bc
+
 
 ---
-# Настройка оповещений в Application Insights с помощью PowerShell
-Вы можете автоматизировать настройку [оповещений](app-insights-alerts.md) в [Visual Studio Application Insights](app-insights-overview.md).
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Настройка оповещений в Application Insights с помощью PowerShell
+Вы можете автоматизировать настройку [оповещений](app-insights-alerts.md) в [Application Insights](app-insights-overview.md).
 
-Кроме того, вы можете [установить веб-перехватчики для автоматизации реагирования на оповещение](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Кроме того, вы можете [установить объекты webhook, чтобы автоматизировать реагирование на оповещения](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## Однократная настройка
+> [!NOTE]
+> Если вы хотите создать ресурсы и оповещения одновременно, рассмотрите возможность [использования шаблона Azure Resource Manager](app-insights-powershell.md).
+>
+>
+
+## <a name="one-time-setup"></a>Однократная настройка
 Если вы ранее не использовали PowerShell для подписки Azure:
 
 Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
-* Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Используйте его для установки Microsoft Azure PowerShell.
 
-## Подключение к Azure
-Запустите Azure PowerShell и [подключитесь к вашей подписке](../powershell-install-configure.md).
+## <a name="connect-to-azure"></a>Подключение к Azure
+Запустите Azure PowerShell и [подключитесь к вашей подписке](/powershell/azureps-cmdlets-docs).
 
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
-## Получение оповещений
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+## <a name="get-alerts"></a>Получение оповещений
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## Добавление оповещения
+## <a name="add-alert"></a>Добавление оповещения
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -51,12 +59,12 @@ ms.author: awills
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 
 
-## Пример 1
+## <a name="example-1"></a>Пример 1
 Я хочу получать электронные сообщения, если в среднем за 5 минут ответ сервера на HTTP-запросы выполняется дольше 1 секунды. Мой ресурс Application Insights называется IceCreamWebApp, и он находится в группе ресурсов Fabrikam. Я владелец подписки Azure.
 
 GUID — это идентификатор подписки (не ключ инструментирования приложения).
@@ -72,7 +80,7 @@ GUID — это идентификатор подписки (не ключ ин�
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## Пример 2
+## <a name="example-2"></a>Пример 2
 У меня есть приложение, в котором используется [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) для предоставления метрики salesPerHour. Я хочу, чтобы моим коллегам отправлялось электронное сообщение, если в среднем за 24 часа salesPerHour станет меньше 100.
 
     Add-AlertRule -Name "poor sales" `
@@ -88,7 +96,7 @@ GUID — это идентификатор подписки (не ключ ин�
 
 Это же правило можно использовать для метрики, передаваемой с помощью [параметра измерения](app-insights-api-custom-events-metrics.md#properties) другого вызова отслеживания, например TrackEvent или trackPageView.
 
-## Имена метрик
+## <a name="metric-names"></a>Имена метрик
 | Имя метрики | Имя экрана | Описание |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Исключения браузера |Число необработанных исключений в браузере. |
@@ -119,17 +127,21 @@ GUID — это идентификатор подписки (не ключ ин�
 | Группа метрик | Модуль сборщика |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Производительность](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[Производительность](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md) |
 
-## Объекты Webhook
-Вы можете [автоматизировать свой ответ на оповещение](../monitoring-and-diagnostics/insights-webhooks-alerts.md). При возникновении оповещения Azure будет вызывать выбранный вами веб-адрес.
+## <a name="webhooks"></a>Объекты Webhook
+Вы можете [автоматизировать реагирование на оповещения](../monitoring-and-diagnostics/insights-webhooks-alerts.md). При возникновении оповещения Azure будет вызывать выбранный вами веб-адрес.
 
-## См. также
+## <a name="see-also"></a>Дополнительные материалы
 * [Сценарий настройки Application Insights](app-insights-powershell-script-create-resource.md)
 * [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
 * [Автоматизация связывания системы диагностики Microsoft Azure с Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Автоматизация реагирования на оповещение](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Автоматизация реагирования на оповещения](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

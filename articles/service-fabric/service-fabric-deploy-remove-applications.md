@@ -1,22 +1,26 @@
 ---
-title: Развертывание приложения Service Fabric | Microsoft Docs
-description: Развертывание и удаление приложений в Service Fabric
+title: "Развертывание приложения Service Fabric | Документация Майкрософт"
+description: "Развертывание и удаление приложений в Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 11/14/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 286a4f46e19b9ed38f9920e169bdadd013186ef6
+
 
 ---
-# Развертывание и удаление приложений с помощью PowerShell
+# <a name="deploy-and-remove-applications-using-powershell"></a>Развертывание и удаление приложений с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -36,16 +40,16 @@ ms.author: ryanwi
 > 
 > 
 
-## Загрузка пакета приложения
-Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Для выполнения отправки можно использовать PowerShell. Перед выполнением команд PowerShell, описанных в этой статье, нужно подключиться к кластеру Service Fabric с помощью команды [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+## <a name="upload-the-application-package"></a>Загрузка пакета приложения
+Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Для выполнения отправки можно использовать PowerShell. Перед выполнением команд PowerShell, описанных в этой статье, нужно подключиться к кластеру Service Fabric с помощью команды [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/servicefabric/vlatest/connect-servicefabriccluster).
 
-Предположим, у вас имеется папка *MyApplicationType*, содержащая необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода. Команда [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) служит для передачи пакета в хранилище образов кластера. Командлет **Get-ImageStoreConnectionStringFromClusterManifest**, являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов. Чтобы импортировать модуль пакета SDK, выполните следующую команду.
+Предположим, у вас имеется папка *MyApplicationType* , содержащая необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода. Команда [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) служит для передачи пакета в хранилище образов кластера. Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
 
 ```
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Можно скопировать пакет приложения из *C:\\users\\ryanwi\\Documents\\Visual Studio 2015\\Projects\\MyApplication\\myapplication\\pkg\\debug* в *c:\\temp\\MyApplicationType* (переименуйте каталог debug в MyApplicationType). В данном примере передается пакет.
+Можно скопировать пакет приложения из *C:\users\ryanwi\Documents\Visual Studio 2015\Projects\MyApplication\myapplication\pkg\debug* в *c:\temp\MyApplicationType* (переименуйте каталог debug в MyApplicationType). В данном примере передается пакет.
 
 ~~~
 PS C:\temp> dir
@@ -78,7 +82,7 @@ C:\TEMP\MyApplicationType
     │   │  System.Fabric.dll
     │   │  System.Fabric.Strings.dll
     │   │
-    │   └───ru-RU
+    │   └───en-us
     |         Microsoft.ServiceFabric.Internal.Strings.resources.dll
     |         System.Fabric.Strings.resources.dll
     |
@@ -94,8 +98,8 @@ Copy application package succeeded
 PS D:\temp>
 ~~~
 
-## Регистрация пакета приложения
-При регистрации пакета приложения его тип и версия, объявленные в манифесте приложения, становятся доступными для использования. Система считывает содержимое пакета, переданного на предыдущем этапе, проверяет пакет (эквивалентно локальному выполнению команды [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx)), обрабатывает содержимое пакета и копирует обработанный пакет во внутреннее системное расположение.
+## <a name="register-the-application-package"></a>Регистрация пакета приложения
+При регистрации пакета приложения его тип и версия, объявленные в манифесте приложения, становятся доступными для использования. Система считывает содержимое пакета, переданного на предыдущем этапе, проверяет пакет (эквивалентно локальному выполнению команды [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage)), обрабатывает содержимое пакета и копирует обработанный пакет во внутреннее системное расположение.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -110,12 +114,12 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-Команда [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec**. (значение по умолчанию — 60 секунд).
+Команда [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec** . (значение по умолчанию — 60 секунд).
 
-Чтобы вывести список успешно зарегистрированных версий типов приложения, используйте команду [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx).
+Чтобы вывести список успешно зарегистрированных версий типов приложения, используйте команду [Get-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplicationtype).
 
-## Создание приложения
-Для создания экземпляра приложения можно использовать любую версию типа приложения, успешно зарегистрированную с помощью команды [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). Имя приложения должно начинаться со схемы *fabric:* и быть уникальным для каждого экземпляра приложения. Если в манифесте приложения для конкретного его типа были определены используемые по умолчанию службы, они также будут созданы.
+## <a name="create-the-application"></a>Создание приложения
+Для создания экземпляра приложения можно использовать любую версию типа приложения, успешно зарегистрированную с помощью команды [New-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/new-servicefabricapplication). Имя приложения должно начинаться со схемы *fabric:* и быть уникальным для каждого экземпляра приложения. Если в манифесте приложения для конкретного его типа были определены используемые по умолчанию службы, они также будут созданы.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -147,14 +151,14 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-Команда [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/mt163515.aspx) выводит список всех успешно созданных экземпляров приложения вместе с их общим состоянием.
+Команда [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplication) выводит список всех успешно созданных экземпляров приложения вместе с их общим состоянием.
 
-Команда [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889.aspx) выводит список всех экземпляров службы, созданных в рамках конкретного экземпляра приложения. Этот список содержит службы по умолчанию (если имеются).
+Команда [Get-ServiceFabricService](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricservice) выводит список всех экземпляров службы, созданных в рамках конкретного экземпляра приложения. Этот список содержит службы по умолчанию (если имеются).
 
 Для каждой версии зарегистрированного типа приложения можно создать несколько экземпляров приложения. Каждый экземпляр выполняется изолированно, используя собственный рабочий каталог и процесс.
 
-## Удаление приложения
-Экземпляр приложения, который больше не требуется, можно удалить без возможности восстановления с помощью команды [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). При этом все службы, относящиеся к этому приложению, и все их состояния также будут удалены. Эта операция необратима, и вы не сможете восстановить состояние приложения.
+## <a name="remove-an-application"></a>Удаление приложения
+Экземпляр приложения, который больше не требуется, можно удалить без возможности восстановления с помощью команды [Remove-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/remove-servicefabricapplication). При этом все службы, относящиеся к этому приложению, и все их состояния также будут удалены. Эта операция необратима, и вы не сможете восстановить состояние приложения.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -168,7 +172,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-Если определенная версия типа приложения больше не требуется, отмените ее регистрацию, используя команду [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125885.aspx). Отмена регистрации неиспользуемых типов поможет освободить пространство, занимаемое в хранилище образов содержимым пакета приложения, относящимся к этому типу. Регистрацию типа приложения можно отменить в том случае, если на его основе не были созданы экземпляры приложений и нет ссылающихся на него незавершенных обновлений приложений.
+Если определенная версия типа приложения больше не требуется, отмените ее регистрацию, используя команду [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype). Отмена регистрации неиспользуемых типов поможет освободить пространство, занимаемое в хранилище образов содержимым пакета приложения, относящимся к этому типу. Регистрацию типа приложения можно отменить в том случае, если на его основе не были созданы экземпляры приложений и нет ссылающихся на него незавершенных обновлений приложений.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -201,9 +205,9 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-## Устранение неполадок
-### Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
-В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Его можно найти в манифесте кластера, используя команду [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx):
+## <a name="troubleshooting"></a>Устранение неполадок
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
+В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Его можно найти в манифесте кластера, используя команду [Get-ServiceFabricClusterManifest](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest):
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -229,7 +233,7 @@ Copy application package succeeded
 PS D:\temp>
 ~~~
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
 [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)
@@ -242,4 +246,8 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+
