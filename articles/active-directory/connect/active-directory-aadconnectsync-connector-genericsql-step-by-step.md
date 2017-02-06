@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/04/2017
 ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
@@ -34,7 +34,7 @@ ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
 
 1. Запустите программу управления ODBC на сервере:   
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Откройте вкладку **File DSN**(Файловый DSN). Щелкните **Add...**(Добавить).
+2. Откройте вкладку **File DSN**(Файловый DSN). Щелкните **Add...**(Добавить).  
    ![ODBC 1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. Стандартный драйвер работает нормально, поэтому выберите его и нажмите кнопку **Next>** (Далее>).  
    ![ODBC 2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
@@ -87,7 +87,7 @@ ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
    ![Профиль выполнения 2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. Выберите раздел **OBJECT=User**.  
    ![Профиль выполнения 3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Выберите **Table** и введите **[USERS]**. Прокрутите вниз до раздела многозначного типа объекта и введите данные, как показано ниже. Нажмите кнопку **Finish** (Готово), чтобы сохранить данные на этом этапе.
+4. Выберите **Table** и введите **[USERS]**. Прокрутите вниз до раздела многозначного типа объекта и введите данные, как показано ниже. Нажмите кнопку **Finish** (Готово), чтобы сохранить данные на этом этапе.  
    ![Профиль выполнения 4а](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Профиль выполнения 4б](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. Выберите **New Step**(Новый шаг). На этот раз выберите **OBJECT=Group**. На последней странице используйте конфигурацию, изображенную на рисунке ниже. Нажмите кнопку **Finish**(Готово).  
