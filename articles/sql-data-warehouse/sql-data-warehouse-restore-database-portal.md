@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: 7216b064f5d0e9a1f4b7e3966e98a0bac485dd73
-ms.openlocfilehash: dcf4bab6c28d2b353fd458687fc04f7a92857d33
+ms.sourcegitcommit: 763ae02d1196a924bbf89e423871af2ec22e9e6c
+ms.openlocfilehash: 84f582e8d767466ce9dec83203ec78047648caea
 
 
 ---
@@ -28,9 +28,6 @@ ms.openlocfilehash: dcf4bab6c28d2b353fd458687fc04f7a92857d33
 > * [REST][REST]
 >
 >
-> [!NOTE]
-> Начиная с 1.12.2016 мы активно устраняем проблемы, возникающие при восстановлении с помощью портала Azure. Используйте восстановление с помощью [PowerShell] (https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell).
-
 В этой статье вы узнаете, как восстановить хранилище данных SQL Azure с помощью портала Azure.
 
 ## <a name="before-you-begin"></a>Перед началом работы

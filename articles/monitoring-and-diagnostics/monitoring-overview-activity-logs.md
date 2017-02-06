@@ -1,118 +1,131 @@
 ---
-title: Overview of the Azure Activity Log | Microsoft Docs
-description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
+title: "Общие сведения о журнале действий Azure | Документация Майкрософт"
+description: "Узнайте, что такое журнал действий Azure и как его использовать для просмотра событий, происходящих в рамках подписки Azure."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 12/09/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
+
 
 ---
-# <a name="overview-of-the-azure-activity-log"></a>Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+# <a name="overview-of-the-azure-activity-log"></a>Общие сведения о журнале действий Azure
+**Журнал действий Azure** — это журнал с информацией об операциях, которые выполнялись с ресурсами в подписке. Журнал действий раньше назывался журналом аудита или операционным журналамом, так как он содержит связанные с подписками события на уровне управления. С помощью журнала изменений можно ответить на вопросы "что? кто? когда?" о любой операции записи (PUT, POST, DELETE) с ресурсами в вашей подписке. Вы также можете отслеживать состояние операции и другие ее свойства. Журнал действий не включает операции чтения (GET).
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+Журнал действий отличается от [журналов диагностики](monitoring-overview-of-diagnostic-logs.md), которые включают все журналы, генерируемые ресурсом. Эти журналы содержат данные об операциях самих ресурсов, а не об операциях с ресурсами.
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
+События из журнала изменений можно получить с помощью портала Azure, интерфейса командной строки, командлетов PowerShell или REST API Azure Monitor.
 
-## <a name="what-you-can-do-with-the-activity-log"></a>What you can do with the Activity Log
-Here are some of the things you can do with the Activity Log:
+Просмотрите [ознакомительное видео о журнале изменений](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
-* Query and view it in the **Azure portal**.
-* Query it via REST API, PowerShell Cmdlet, or CLI.
-* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+## <a name="what-you-can-do-with-the-activity-log"></a>Что можно делать с журналом действий
+Ниже описано несколько доступных операций с журналом действий.
 
-## <a name="export-the-activity-log-with-log-profiles"></a>Export the Activity Log with Log Profiles
-A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
+* Запросы и просмотры журнала на **портале Azure**.
+* Обращение к журналу с помощью REST API, командлетов PowerShell или интерфейса командной строки.
+* [Создание оповещений электронной почты или веб-перехватчика, активируемых событием журнала действий.](insights-auditlog-to-webhook-email.md)
+* [Сохранение журнала в **учетную запись хранения** для архивации или проверки вручную](monitoring-archive-activity-log.md). В **профилях журнала**вы также можете задать время хранения (в днях).
+* Анализ журнала в PowerBI с помощью [**пакета содержимого PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Потоковая передача журнала в **концентратор событий**](monitoring-stream-activity-logs-event-hubs.md) для обработки в сторонней службе или пользовательском аналитическом решении, например PowerBI.
 
-* Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (eg. Write, Delete, Action) should be sent
-* Which regions (locations) should be exported
-* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
+Учетная запись хранения или пространство имен концентратора событий не обязательно должны находиться в той самой подписке, в которой создаются журналы, если у пользователя, настраивающего параметр, имеется соответствующий доступ RBAC к обеим подпискам.
 
-These settings can be configured via the “Export” option in the Activity Log blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+## <a name="export-the-activity-log-with-log-profiles"></a>Экспорт журнала действий с помощью профилей журнала
+**Профиль журнала** определяет, как экспортируется журнал действий. С помощью профиля журнала вы можете настроить следующие параметры.
 
-### <a name="configure-log-profiles-using-the-azure-portal"></a>Configure log profiles using the Azure portal
-You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+* Куда будет отправлен журнал действий (учетная запись хранения или концентраторы событий).
+* Какие категории событий будут отправляться (запись, удаление, действие).
+* Какие будут экспортированы регионы (расположения).
+* Как долго будет храниться в учетной записи хранения журнал действий (если указать здесь&0; дней, журналы будут храниться неограниченно долго). В противном случае укажите количество дней в диапазоне от 1 до 2 147 483 647. Если политики хранения заданы, но хранение журналов в учетной записи хранения отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены. Политики хранения применяются по дням, поэтому в конце дня (по времени в формате UTC) журналы, срок которых теперь превышает период хранения, будут удалены. Например, если настроена политика хранения в течение одного дня, то в начале текущего дня журналы за вчерашний день будет удалены.
 
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+Эти параметры можно настроить с помощью параметра "Экспорт" в колонке журнала изменений на портале. Их также можно настроить программно [с помощью REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), командлетов PowerShell или интерфейса командной строки. Для каждой подписки может существовать только один профиль журнала.
+
+### <a name="configure-log-profiles-using-the-azure-portal"></a>Настройка профилей журнала на портале Azure
+С помощью параметра "Экспорт" на портале Azure можно выполнить потоковую передачу журнала действий в концентратор событий или сохранить журнал в учетную запись хранения.
+
+1. Перейдите к колонке **Журнал действий** с помощью меню в левой части портала.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. Нажмите кнопку **Экспорт** в верхней части колонки.
    
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage--0 days will retain the logs forever), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+    ![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+3. В появившейся колонке вы можете выбрать следующие параметры:  
    
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+   * регионы, события которых нужно экспортировать;
+   * учетная запись хранения, в которой вы хотите сохранить события;
+   * сколько дней следует хранить эти события в хранилище (если выбрать значение "0 дней", журналы будут храниться бессрочно);
+   * пространство имен служебной шины, в котором следует создать концентратор событий для потоковой передачи этих событий.
+     
+     ![Колонка экспорта журнала действий](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+4. Нажмите кнопку **Сохранить** , чтобы сохранить эти параметры. Параметры будут немедленно применены к подписке
 
-### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configure log profiles using the Azure PowerShell Cmdlets
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Настройка профилей журнала с помощью командлетов Azure PowerShell
+#### <a name="get-existing-log-profile"></a>Получение существующего профиля журнала
 ```
 Get-AzureRmLogProfile
 ```
 
-#### <a name="add-a-log-profile"></a>Add a log profile
+#### <a name="add-a-log-profile"></a>Добавление профиля журнала
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| Name |Yes |Name of your log profile. |
-| StorageAccountId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| Name (Имя) |Да |Имя профиля журнала. |
+| StorageAccountId |Нет |Идентификатор ресурса для учетной записи хранения, в которую будет сохранен журнал действий. |
+| serviceBusRuleId |Нет |Идентификатор правила служебной шины для пространства имен служебной шины, в котором вы будут созданы концентраторы событий. Это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Расположения |Да |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. |
+| RetentionInDays |Да |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
+| Категории |Нет |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>Удаление профиля журнала
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configure log profiles Using the Azure Cross-Platform CLI
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Настройка профилей журнала с помощью кроссплатформенного интерфейса командной строки
+#### <a name="get-existing-log-profile"></a>Получение существующего профиля журнала
 ```
 azure insights logprofile list
 ```
 ```
 azure insights logprofile get --name my_log_profile
 ```
-The `name` property should be the name of your log profile.
+Свойство `name` должно содержать имя профиля журнала.
 
-#### <a name="add-a-log-profile"></a>Add a log profile
-``` 
+#### <a name="add-a-log-profile"></a>Добавление профиля журнала
+```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |Да |Имя профиля журнала. |
+| storageId |Нет |Идентификатор ресурса для учетной записи хранения, в которую будет сохранен журнал действий. |
+| serviceBusRuleId |Нет |Идентификатор правила служебной шины для пространства имен служебной шины, в котором вы будут созданы концентраторы событий. Это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`. |
+| locations |Да |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. |
+| RetentionInDays |Да |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
+| Категории |Нет |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>Удаление профиля журнала
 ```
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="event-schema"></a>Event schema
-Each event in the Activity Log has a JSON blob like this one:
+## <a name="event-schema"></a>Схема событий
+Для каждого события в журнале изменений создается большой двоичный объект JSON, как в этом примере:
 
 ```
 {
@@ -195,34 +208,37 @@ Each event in the Activity Log has a JSON blob like this one:
 }
 ```
 
-| Element Name | Description |
+| Имя элемента | Description (Описание) |
 | --- | --- |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| channels |One of the following values: “Admin”, “Operation” |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| description |Static text description of an event. |
-| eventDataId |Unique identifier of an event. |
-| eventSource |Name of the Azure service or infrastructure that has generated this event. |
-| httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method e.g. PUT). |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| resourceGroupName |Name of the resource group for the impacted resource. |
-| resourceProviderName |Name of the resource provider for the impacted resource |
-| resourceUri |Resource id of the impacted resource. |
-| operationId |A GUID shared among the events that correspond to a single operation. |
-| operationName |Name of the operation. |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
-| status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
-| eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
-| nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records. |
+| authorization |BLOB-объект со свойствами RBAC события. Обычно включает следующие свойства: action, role и scope. |
+| caller |Адрес электронной почты пользователя, который выполнил операцию, утверждение имени субъекта-службы или имени участника-пользователя в зависимости от доступности. |
+| каналов |Одно из следующих значений: Admin или Operation. |
+| correlationId |Обычно GUID в строковом формате. События, которые совместно используют идентификатор correlationId, принадлежат к одному общему действию. |
+| Description (Описание) |Статическое описание события в текстовом виде. |
+| eventDataId |Уникальный идентификатор события. |
+| eventSource |Имя инфраструктуры или службы Azure, которая создала событие. |
+| httpRequest |Большой двоичный объект, описывающий HTTP-запрос. Обычно включает clientRequestId, clientIpAddress и method (метод HTTP, например PUT). |
+| уровень |Уровень события. Одно из следующих значений: "Critical", "Error", "Warning", "Informational" или "Verbose" |
+| имя_группы_ресурсов |Имя группы ресурсов для затронутого ресурса. |
+| resourceProviderName |Имя поставщика ресурса для затронутого ресурса. |
+| resourceUri |Идентификатор ресурса для затронутого ресурса. |
+| operationId |События, относящиеся к одной операции, совместно используют один GUID. |
+| operationName |Имя операции. |
+| properties |Набор пар `<Key, Value>` (например, Dictionary) c подробным описанием события. |
+| status |Строка, описывающая состояние операции. Обычные значения: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus |Обычно содержит код состояния HTTP для соответствующего вызова REST, но может содержать и другие строковые описания подсостояния, например: OK (код состояния HTTP: 200); Created (код состояния HTTP: 201); Accepted (код состояния HTTP: 202); No Content (код состояния HTTP: 204); Bad Request (код состояния HTTP: 400); Not Found (код состояния HTTP: 404); Conflict (код состояния HTTP: 409); Internal Server Error (код состояния HTTP: 500); Service Unavailable (код состояния HTTP: 503); Gateway Timeout (код состояния HTTP: 504). |
+| eventTimestamp |Метка времени, когда служба Azure создала событие при обработке соответствующего этому событию запроса. |
+| submissionTimestamp |Метка времени, когда событие стало доступно для запросов. |
+| subscriptionId |Идентификатор подписки Azure. |
+| nextLink |Маркер продолжения для получения следующего набора результатов, если результаты разделены на несколько ответов. Обычно маркер необходим при наличии более чем 200 записей. |
 
-## <a name="next-steps"></a>Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](../azure-resource-manager/resource-group-audit.md)
+* [Потоковая передача журнала действий Azure в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

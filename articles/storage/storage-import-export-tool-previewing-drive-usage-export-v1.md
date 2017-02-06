@@ -1,8 +1,8 @@
 ---
 title: "Предварительный просмотр использования дисков для задания экспорта | Документация Майкрософт"
 description: "Сведения о предварительном просмотре списка больших двоичных объектов, выбранных для задания экспорта в службе импорта и экспорта Azure."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
+ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
+ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
 |**/sn:**<имя_учетной_записи_хранения\>|обязательный параметр. Имя учетной записи хранения для задания экспорта.|  
 |**/sk:**ключ_учетной_записи_хранения\>|Требуется, только если не указан SAS контейнера. Ключ учетной записи хранения для задания экспорта.|  
 |**/csas:**<SAS_контейнера\>|Требуется, только если не указан ключ учетной записи хранения. SAS контейнера для получения списка экспортируемых в рамках задания экспорта больших двоичных объектов.|  
-|**/ExportBlobListFile:**<файл_списка_больших_двоичных_объектов_экспорта\>|обязательный параметр. Путь к XML-файлу, содержащему список путей к большим двоичным объектам или префиксов путей экспортируемых больших двоичных объектов. Формат файла, используемый в элементе `BlobListBlobPath` в операции [Put Job](/rest/api/storageservices/importexport/Put-Job) интерфейса REST API службы импорта и экспорта.|  
+|**/ExportBlobListFile:**<файл_списка_больших_двоичных_объектов_экспорта\>|обязательный параметр. Путь к XML-файлу, содержащему список путей к большим двоичным объектам или префиксов путей экспортируемых больших двоичных объектов. Формат файла, используемый в элементе `BlobListBlobPath` в операции [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) интерфейса REST API службы импорта и экспорта.|  
 |**/DriveSize:**<размер_диска\>|обязательный параметр. Размер дисков, используемых для задания экспорта, *например* 500 ГБ, 1,5 ТБ.|  
   
 В следующем примере показано использование команды `PreviewExport`:  
@@ -74,6 +74,7 @@ Number of drives needed:        3
 [Руководство по использованию инструмента для импорта и экспорта](storage-import-export-tool-how-to-v1.md)
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 
