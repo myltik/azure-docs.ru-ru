@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с резервным копированием и восстановлением баз данных SQL Azure для защиты и восстановления данных | Документация Майкрософт"
+title: "Резервное копирование и восстановление базы данных SQL Azure на портале Azure | Документация Майкрософт"
 description: "Из этого руководства вы узнаете, как восстанавливать базы данных до точки во времени с помощью создаваемых автоматически резервных копий, сохранять создаваемые автоматически резервные копии в хранилище служб восстановления Azure, а также как восстанавливать из хранилища служб восстановления Azure."
 keywords: "руководство по базе данных sql"
 services: sql-database
@@ -17,76 +17,13 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: 062860b6bc1343a419cd8d35f6fbe5610396a239
+ms.openlocfilehash: c598268186869c8443007c8537853978555d6428
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Начало работы с резервным копированием и восстановлением для защиты и восстановления данных
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
-В этом руководстве мы с помощью портала Azure сделаем следующее:
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-the-azure-portal"></a>Руководство по резервному копированию и восстановлению базы данных SQL Azure с помощью портала Azure
+Из этого руководства вы узнаете, как с помощью портала Azure выполнять следующие операции.
 
 - просмотрим имеющиеся резервные копии базы данных;
 - восстановим базу данных до предыдущей точки во времени;
@@ -95,6 +32,9 @@ Sentence #2 Explains what users will learn and the benefit.
 
 **Оценка времени.** Для работы с этим руководством требуется около 30 минут (при условии, что предварительные требования уже выполнены).
 
+> [!TIP]
+> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -105,11 +45,11 @@ Sentence #2 Explains what users will learn and the benefit.
 * Вы изучили руководство [по началу работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure, SQL Server Management Studio](sql-database-get-started.md) или [PowerShell](sql-database-get-started-powershell.md). Если это не так, прежде чем продолжить, изучите предыдущее руководство или выполните сценарий PowerShell, приведенный в конце руководства по началу работы с использованием [PowerShell](sql-database-get-started-powershell.md).
 
 
-> [!TIP]
-> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+> [!NOTE]
+> Это руководство поможет вам освоить содержание следующих статей: [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md), [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md) и [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Вход с помощью существующей учетной записи
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure
 Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
 
 1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
@@ -117,7 +57,6 @@ Sentence #2 Explains what users will learn and the benefit.
 3. На странице **входа** введите учетные данные своей подписки.
    
    ![Вход](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. Откройте колонку **База данных SQL** для базы данных **sqldbtutorialdb**.
 
-    ![Колонка нового примера базы данных](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Колонка нового примера базы данных](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. На панели инструментов щелкните **Восстановить**.
 
-    ![Элемент "Восстановить" на панели инструментов](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![Элемент "Восстановить" на панели инструментов](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. В колонке "Восстановление" просмотрите самую старую точку восстановления.
 
-    ![Самая старая точка восстановления](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![Самая старая точка восстановления](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Восстановление базы данных до предыдущей точки во времени
 
@@ -143,37 +82,37 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. В колонке **Восстановление** базы данных просмотрите имя по умолчанию новой базы данных, в которую вы хотите восстановить свою базу данных до более ранней точки во времени (это имя имеющейся базы данных с меткой времени). Это имя изменяется с учетом времени, который вы будете указывать на следующих этапах.
 
-    ![Имя восстановленной базы данных](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![Имя восстановленной базы данных](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Щелкните значок **календаря** в поле ввода **Точка восстановления (в формате UTС)**.
 
-    ![Точка восстановления](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![Точка восстановления](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. В календаре выберите дату с учетом срока хранения.
 
-    ![Выбор даты в поле "Точка восстановления (в формате UTС)"](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![Выбор даты в поле "Точка восстановления (в формате UTС)"](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. В поле ввода **Точка восстановления (в формате UTС)** укажите время восстановления данных из создаваемых автоматически резервных копий базы данных для выбранной даты.
 
-    ![Выбор времени в поле "Точка восстановления (в формате UTС)"](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![Выбор времени в поле "Точка восстановления (в формате UTС)"](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Обратите внимание, что имя базы данных изменилось в соответствии с выбранной датой и временем. Обратите также внимание, что вы не можете изменить сервер, на который выполняется восстановление до определенной точки во времени. Чтобы выполнить восстановление на другой сервер, используйте [геовосстановление](sql-database-disaster-recovery.md#recover-using-geo-restore). Наконец, обратите внимание, что базу данных можно восстановить в [эластичный пул](sql-database-elastic-jobs-overview.md) или до другой ценовой категории. 
-    >
+   >[!NOTE]
+   >Обратите внимание, что имя базы данных изменилось в соответствии с выбранной датой и временем. Обратите также внимание, что вы не можете изменить сервер, на который выполняется восстановление до определенной точки во времени. Чтобы выполнить восстановление на другой сервер, используйте [геовосстановление](sql-database-disaster-recovery.md#recover-using-geo-restore). Наконец, обратите внимание, что базу данных можно восстановить в [эластичный пул](sql-database-elastic-jobs-overview.md) или до другой ценовой категории. 
+   >
 
 4. Щелкните **ОК**, чтобы восстановить базу данных в новую базу данных до более ранней точки во времени.
 
 5. На панели инструментов щелкните значок уведомления, чтобы просмотреть состояние задания восстановления.
 
-    ![Ход выполнения задания восстановления](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![Ход выполнения задания восстановления](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. После завершения задания откройте колонку **Базы данных SQL**, чтобы просмотреть восстановленную базу данных.
 
-    ![Восстановленная база данных](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![Восстановленная база данных](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > Здесь вы можете подключиться к восстановленной базе данных с помощью SQL Server Management Studio и выполнить необходимые задания, например [извлечь часть данных из восстановленной базы данных, чтобы скопировать их в имеющуюся базу данных, или удалить имеющуюся базу данных и присвоить ее имя восстановленной базе данных](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> Здесь вы можете подключиться к восстановленной базе данных с помощью SQL Server Management Studio и выполнить необходимые задания, например [извлечь часть данных из восстановленной базы данных, чтобы скопировать их в имеющуюся базу данных, или удалить имеющуюся базу данных и присвоить ее имя восстановленной базе данных](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Настройка долгосрочного хранения создаваемых автоматически резервных копий в хранилище служб восстановления Azure 
 
@@ -182,11 +121,11 @@ Sentence #2 Explains what users will learn and the benefit.
 
 > [!TIP]
 > Сведения об удалении резервных копий с длительным периодом удержания см. в [этой статье](sql-database-long-term-retention-delete.md).
-
+>
 
 1. Откройте колонку **SQL Server** для сервера **sqldbtutorialserver**.
 
-    ![Колонка сервера SQL Server](./media/sql-database-get-started/sql-server-blade.png)
+   ![Колонка сервера SQL Server](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Щелкните **Long-term backup retention** (Долгосрочное хранение резервных копий).
 
@@ -246,9 +185,9 @@ Sentence #2 Explains what users will learn and the benefit.
 
    ![Просмотр хранилища служб восстановления](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > После настройки резервные копии появятся в хранилище в течение следующих семи дней. Не выполняйте следующие этапы до появления резервных копий в хранилище.
-   >
+> [!IMPORTANT]
+> После настройки резервные копии появятся в хранилище в течение следующих семи дней. Не выполняйте следующие этапы до появления резервных копий в хранилище.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Просмотр резервных копий в хранилище с включенной функцией долгосрочного хранения
 
@@ -260,17 +199,17 @@ Sentence #2 Explains what users will learn and the benefit.
 
 2. Откройте колонку **База данных SQL** для базы данных **sqldbtutorialdb**.
 
-    ![Колонка нового примера базы данных](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Колонка нового примера базы данных](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. На панели инструментов щелкните **Восстановить**.
 
-    ![Элемент "Восстановить" на панели инструментов](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![Элемент "Восстановить" на панели инструментов](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. В колонке "Восстановление" щелкните **Долгосрочные**.
 
 5. В разделе Azure vault backups (Резервные копии хранилища Azure) щелкните **Выберите архив**, чтобы просмотреть список доступных резервных копий с долгосрочным хранением.
 
-    ![Резервные копии в хранилище](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![Резервные копии в хранилище](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Восстановление базы данных из резервной копии с долгосрочным хранением
 
@@ -278,37 +217,34 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. В колонке **Azure vault backups** (Резервные копии хранилища Azure) щелкните резервную копию, которую нужно восстановить, а затем нажмите кнопку **Выбрать**.
 
-    ![Выбор резервной копии в хранилище](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![Выбор резервной копии в хранилище](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. В текстовом поле **Имя базы данных** введите имя для восстановленной базы данных.
 
-    ![Имя новой базы данных](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![Имя новой базы данных](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Нажмите кнопку **ОК**, чтобы восстановить базу данных из резервной копии, расположенной в хранилище, в новую базу данных.
 
 4. На панели инструментов щелкните значок уведомления, чтобы просмотреть состояние задания восстановления.
 
-    ![Ход выполнения задания восстановления из хранилища](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![Ход выполнения задания восстановления из хранилища](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. После завершения задания откройте колонку **Базы данных SQL**, чтобы просмотреть восстановленную базу данных.
 
-    ![Имя базы данных, восстановленной из хранилища](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![Имя базы данных, восстановленной из хранилища](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > Здесь вы можете подключиться к восстановленной базе данных с помощью SQL Server Management Studio и выполнить необходимые задания, например [извлечь часть данных из восстановленной базы данных, чтобы скопировать их в имеющуюся базу данных, или удалить имеющуюся базу данных и присвоить ее имя восстановленной базе данных](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> Здесь вы можете подключиться к восстановленной базе данных с помощью SQL Server Management Studio и выполнить необходимые задания, например [извлечь часть данных из восстановленной базы данных, чтобы скопировать их в имеющуюся базу данных, или удалить имеющуюся базу данных и присвоить ее имя восстановленной базе данных](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о резервных копиях базы данных, создаваемых автоматически службой, см. в [этой статье](sql-database-automated-backups.md).
-- Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
+- Дополнительные сведения о долгосрочном хранении резервных копий см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
 - Дополнительные сведения о восстановлении из резервных копий см. в статье [Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий](sql-database-recovery-using-backups.md).
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

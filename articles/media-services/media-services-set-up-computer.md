@@ -1,5 +1,5 @@
 ---
-title: "Настройка среды разработки | Документация Майкрософт"
+title: "Настройка среды разработки для служб мультимедиа Azure | Документация Майкрософт"
 description: "Настройка среды для разработки с использованием служб мультимедиа Azure"
 services: media-services
 documentationcenter: 
@@ -12,22 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 5d49c309a8bfef8f6b4a2825c2bd12a590f19fd9
+ms.sourcegitcommit: e16620b457e82260b27fe484abee715bb4b3aa24
+ms.openlocfilehash: fe69fc0ace47967e1ddf083e47dd25beb8d91d84
 
 
 ---
-# <a name="set-up-your-environment"></a>Настройка среды
-> [!div class="op_single_selector"]
-> * [Портал](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)
->   <a id="create_account"></a>
-> 
-> 
+# <a name="set-up-your-media-services-development-environment"></a>Настройка среды разработки для служб мультимедиа
+
 
 В этой статье описаны действия, которые необходимо выполнить, чтобы получить возможность разрабатывать решения с использованием служб мультимедиа Azure.
 
@@ -37,16 +31,19 @@ ms.openlocfilehash: 5d49c309a8bfef8f6b4a2825c2bd12a590f19fd9
 <a id="setup_dev_env"></a>
 
 ## <a name="set-up-the-development-environment"></a>Настройка среды разработки
-Выберите .NET или API REST в качестве среды разработки.
 
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+Сведения о настройке среды разработки для .NET см. [здесь](media-services-dotnet-how-to-use.md).  
+
+Сведения о настройке среды разработки для REST см. [здесь](media-services-rest-how-to-use.md).  
 
 <a id="connect"></a>
 
 ## <a name="connect-programmatically"></a>Подключение программными средствами
-Выберите .NET или API REST для подключения к службам мультимедиа Azure с помощью программных средств.
 
-[!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+Сведения о подключении к службам мультимедиа Azure с помощью .NET см. [здесь](media-services-dotnet-connect-programmatically.md).  
+
+Сведения о подключении к службам мультимедиа Azure с помощью REST см. [здесь](media-services-rest-connect-programmatically.md).  
+
 
 ## <a name="next-steps-azure-media-services-learning-paths"></a>Дальнейшие действия: схемы обучения работе со службами мультимедиа Azure
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -57,6 +54,6 @@ ms.openlocfilehash: 5d49c309a8bfef8f6b4a2825c2bd12a590f19fd9
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

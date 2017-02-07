@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!IMPORTANT]
 > Если в организации используется более одного домена, при добавлении учетной записи пользователя необходимо учитывать следующие моменты:
 > 
-> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com,, а **затем** — geoffgrisso@contoso.com.
+> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com,, а **затем** — geoffgrisso@contoso.com.
 > * **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com. Порядок добавления важен: если вы допустите ошибку сейчас, потом ее может быть сложно исправить.
 > 
 > 
@@ -79,6 +79,7 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 * Сейчас PowerBI не поддерживает доступ внешних пользователей.
 * Портал Office не поддерживает лицензирование внешних пользователей.
 * Что касается Azure AD PowerShell, внешние пользователи входят в домашний каталог и не могут управлять каталогами, в которых они выступают внешними пользователями.
+* При настройке подключаемого модуля Outlook для Dynamics CRM внешним пользователям может потребоваться вручную ввести URL-адрес клиента Dynamics CRM Online, а не выбирать вариант "CRM Online".
 
 ## <a name="whats-next"></a>Что дальше?
 * [Добавление новых пользователей в Azure Active Directory](active-directory-create-users.md)
@@ -89,6 +90,6 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

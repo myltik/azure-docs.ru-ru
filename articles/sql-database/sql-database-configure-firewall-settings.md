@@ -1,6 +1,6 @@
 ---
 title: "Портал Azure: правила брандмауэра на уровне сервера базы данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как настроить правила брандмауэра на уровне сервера для IP-адресов, по которым получается доступ к серверам SQL Azure, с использованием портала Azure."
+description: "Настройка правил брандмауэра на уровне сервера для IP-адресов для доступа к серверам SQL Azure с помощью портала Azure."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
+ms.sourcegitcommit: e5834558d761784239813afc6bbb3e77cebcf1fa
+ms.openlocfilehash: fcdd0b855d64eb4b04ef1ea6d7752e9c664557a6
 
 
 ---
@@ -50,8 +50,8 @@ ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Подробное руководство см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
-- Руководство по безопасности см. в статье [этой статье](sql-database-control-access-sql-authentication-get-started.md).
+- Сведения о подготовке сервера и подключении к нему с помощью брандмауэра уровня сервера см. в статье [Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала Azure и SQL Server Management Studio](sql-database-get-started.md).
+- Сведения об аутентификации SQL Server и правилах брандмауэра уровня базы данных см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
 - Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Сведения о добавлении дополнительных пользователей, которые могут подключаться к базам данных, см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

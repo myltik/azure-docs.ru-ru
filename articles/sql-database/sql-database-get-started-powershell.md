@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
+ms.sourcegitcommit: 7f1983e871ea425a095e3a4bf6c7a1b89d6f45a9
+ms.openlocfilehash: 51ed691eb206f284cb8bbd682c723f87362caa33
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Руководство по базе данных SQL: начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием Azure PowerShell
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала PowerShell
 
 В этом руководстве по началу работы вы узнаете, как с помощью PowerShell выполнить следующее:
 
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Дальнейшие действия
 Завершив работу с этим первым руководством по началу работы и создав базу данных с демонстрационными данными, изучите дополнительные материалы, в которых рассматривается начатая в этом руководстве тема. 
 
-* Дополнительные сведения об обеспечении безопасности базы данных SQL Azure см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-control-access-sql-authentication-get-started.md).
+- Основные сведения об аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+- Основные сведения об аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
+* Если вы хотите поработать с запросами к примеру базы данных на портале Azure, см. страницу [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/) (Предварительная версия: интерактивные запросы к базам данных SQL).
 * Если вы знаете Excel, узнайте, как [подключиться к базе данных SQL в Azure с помощью Excel](sql-database-connect-excel.md).
 * Если вы готовы написать свой собственный код, выберите язык программирования в [библиотеках подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 * Если вы хотите перенести локальные базы данных SQL Server в облако Azure, см. статью [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
@@ -578,6 +580,6 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
