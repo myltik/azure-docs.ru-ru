@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
+ms.sourcegitcommit: e1f9c62765e414e194330419f26c2b7437da21b3
+ms.openlocfilehash: 79cfe90bb883b5cadf707272d31a990c8886dbe4
 
 
 ---
@@ -63,7 +63,7 @@ ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
 Добавьте фрагмент кода JavaScript Application Insights на каждую веб-страницу, чтобы получать данные телеметрии из браузеров клиентов.
 
 1. В Azure откройте ресурс Application Insights для своего приложения.
-2. Выберите "Начало работы" > "Мониторинг клиентской стороны" и скопируйте фрагмент кода.
+2. Выберите "Начало работы" > "Мониторинг и диагностика приложения на стороне клиента" и скопируйте фрагмент кода.
 3. Вставьте его в заголовок каждой веб-страницы. Как правило, для этого его можно вставить в страницу с разметкой образца.
 
 ![Расширение в Azure](./media/app-insights-asp-net-more/100.png)
@@ -133,6 +133,6 @@ ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

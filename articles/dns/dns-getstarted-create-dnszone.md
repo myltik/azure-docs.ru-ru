@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 9f162115f2f080bd498085d5cb92b34452132ad8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 23b7eef53e6fb7bc17c33e54f20d7369cfce52e8
 
 ---
 
@@ -60,7 +60,7 @@ PowerShell для Azure DNS поддерживает теги для зон и �
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
 * Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
-* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-1---sign-in"></a>Шаг 1. Вход
 
@@ -102,7 +102,7 @@ New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="step-4---create-a-dns-zone"></a>Шаг 4. Создание зоны DNS
+## <a name="step-4----create-a-dns-zone"></a>Шаг 4. Создание зоны DNS
 
 Зона DNS создается с помощью командлета `New-AzureRmDnsZone`. Ниже приведены примеры создания зоны DNS с тегами и без них. Дополнительные сведения о тегах см. в разделе [Теги](#tags) этой статьи.
 
@@ -187,6 +187,6 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Ta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

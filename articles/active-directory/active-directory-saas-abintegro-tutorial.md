@@ -35,7 +35,7 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Scenario")
+![Сценарий](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-abintegro"></a>Включение интеграции приложений для Abintegro
 В этом разделе показано, как включить интеграцию приложений для Abintegro.
@@ -47,19 +47,19 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-abintegro-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-abintegro-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **abintegro**.
    
-   ![Коллекция приложений](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Коллекция приложений")
 7. В области результатов выберите **Abintegro** и щелкните **Завершить**, чтобы добавить приложение.
    
-   ![abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
+   ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
    
    ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 
@@ -68,16 +68,16 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Abintegro** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configure Single SignOn")
+   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Abintegro?** выберите **Единый вход Microsoft Azure AD** и щелкните **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configure Single SignOn")
+   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Настройка единого входа")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Abintegro** введите URL-адрес, который будет использоваться для входа в Abintegro (например, `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`) и щелкните **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Abintegro** щелкните **Скачать метаданные**, а затем сохраните файл метаданных на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configure Single SignOn")
+   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Настройка единого входа")
 5. Отправьте файл метаданных в службу поддержки Abintegro.
    
    > [!NOTE]
@@ -86,7 +86,7 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    > 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configure Single SignOn")
+   ![Настройка единого входа](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Настройка единого входа")
    
    ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -101,16 +101,16 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Abintegro** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

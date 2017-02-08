@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: java
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
+ms.sourcegitcommit: 33a960ae39ab8fa89126201fd67f13e5536413ef
+ms.openlocfilehash: 7bad4df26d10ba8edae311b41d0c07be2db374f4
 
 
 ---
@@ -52,30 +52,28 @@ ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
 
 > [!NOTE]
 > В этом учебнике для целей разработки используйте Storm только в локальном режиме. Дополнительные сведения о развертываниях и шаблонах Storm см. в разделе [Обзор HDInsight Storm], а также в официальной документации по [Apache Storm].
-> 
-> 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Для разработки приложений с интеграцией концентраторов событий и Storm доступны следующие ресурсы.
 
-* [Анализ данных датчиков в Storm и HDInsight][Анализ данных датчиков в Storm и HDInsight] — это полное руководство, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
-* [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight] — это руководство по написанию конвейеров Storm на C#.
+* [Анализ данных датчиков в Storm и HDInsight][Analyzing sensor data with Storm and HDInsight] — это полное руководство, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
+* [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] — это руководство по созданию конвейеров Storm на C#.
 
 <!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[классический портал Azure]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Общие сведения о концентраторах событий]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Обзор HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[Анализ данных датчиков в Storm и HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

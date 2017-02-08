@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
 * запланировать рабочий процесс так, чтобы он запускал хранимую процедуру SQL ежедневно;
 * отправить по почте сводки всех твитов с определенным хэштегом за последнюю неделю.
 
-Сведения о начале работы с триггером повторения в приложении логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о начале работы с триггером повторения в приложении логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-a-recurrence-trigger"></a>Использование триггера повторения
 Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](connectors-overview.md).
@@ -59,11 +59,11 @@ ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
 <br>
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
+Теперь опробуйте платформу и [создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

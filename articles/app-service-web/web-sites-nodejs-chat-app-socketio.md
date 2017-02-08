@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0fcb0e2d8feea3c72688aace6d53edca728dd48b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
 
 
 ---
@@ -286,7 +286,7 @@ Socket.IO обеспечивает связь в режиме реального
 [Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Служба приложений Azure и существующие службы Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [центре по разработке для Node.js]: /develop/nodejs/
-[Пробное использование службы приложений]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Пробное использование службы приложений]: https://azure.microsoft.com/try/app-service/
 [Сходство экземпляров на веб-сайтах Azure]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Создание кэша Azure Redis]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
@@ -302,6 +302,6 @@ Socket.IO обеспечивает связь в режиме реального
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

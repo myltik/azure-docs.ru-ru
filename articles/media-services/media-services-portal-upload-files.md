@@ -1,5 +1,5 @@
 ---
-title: " Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure | Документация Майкрософт"
+title: " Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure | Документация Майкрософтs"
 description: "В этом руководстве описаны этапы отправки файлов в учетную запись служб мультимедиа Azure с помощью портала Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 01/28/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+ms.sourcegitcommit: d1174ca4fcf8188fbeb6b676bdbf5ca8c191fffd
+ms.openlocfilehash: 3c174dbe743c18cd013e50a1c10e6e97b3e28a38
 
 
 ---
@@ -29,11 +29,18 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 > [!NOTE]
 > Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
-> 
+
 
 В службах мультимедиа цифровые файлы отправляются в актив. Ресурс может содержать видео, аудио, изображения, коллекции эскизов, текстовые каналы и файлы скрытых субтитров (и метаданные этих файлов). После отправки этих файлов содержимое сохраняется в безопасном расположении в облаке для дальнейшей обработки и потоковой передачи.
 
-1. Создание учетной записи служб мультимедиа Azure с помощью [портала Azure](https://portal.azure.com/).
+
+## <a name="upload-files"></a>Отправка файлов
+
+>[!NOTE]
+>Существует ограничение на максимальный размер файла, который могут обработать службы мультимедиа. Подробные сведения об этом см. [здесь](media-services-quotas-and-limitations.md).
+>
+
+1. Создание учетной записи служб мультимедиа Azure с помощью [портале Azure](https://portal.azure.com/).
 2. В колонке **Параметры** выберите **Ресурсы**.
    
     ![Отправка файлов](./media/media-services-portal-vod-get-started/media-services-upload.png)
@@ -63,6 +70,6 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

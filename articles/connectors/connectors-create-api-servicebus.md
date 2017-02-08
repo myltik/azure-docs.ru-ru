@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 08/02/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1ecedf9bf78e0a15908c1a03ca24d611f551875
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 1e23402cbc63aeb262bfb471745589cc0bbd734f
 
 
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Начало работы с соединителем служебной шины Azure
 Подключитесь к служебной шине Azure для отправки и получения сообщений. Вы можете выполнять такие действия, как отправка в очередь, отправка в раздел, получение из очереди и получение из подписки.
 
-Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Чтобы использовать [соединитель](apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-service-bus"></a>Подключение к служебной шине
 Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать подключение к этой службе. Таким образом вы установите [соединение](connectors-overview.md) между приложением логики и другой службой.  
@@ -34,14 +34,14 @@ ms.openlocfilehash: a1ecedf9bf78e0a15908c1a03ca24d611f551875
 > 
 
 ## <a name="use-a-service-bus-trigger"></a>Использование триггера служебной шины
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
 > 
 > 
 
 ## <a name="use-a-service-bus-action"></a>Использование действия служебной шины
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
@@ -156,11 +156,11 @@ ServiceBusMessage. Этот объект имеет содержимое и св
 | по умолчанию |Операция завершилась ошибкой. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

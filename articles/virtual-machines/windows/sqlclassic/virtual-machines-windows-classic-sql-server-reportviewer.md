@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
 
 
 ---
@@ -29,8 +29,6 @@ ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
 
 > [!IMPORTANT]
 > Шаблоны веб-приложений MVC ASP.NET не поддерживают элемент управления ReportViewer.
-> 
-> 
 
 Чтобы включить элемент управления ReportViewer в свой веб-сайт Microsoft Azure, необходимо выполнить следующие задачи.
 
@@ -45,10 +43,6 @@ ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
 > Элементы управления ReportViewer входят в состав Visual Studio Standard Edition или выше. Если используется Web Developer Express Edition, необходимо установить [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) , чтобы воспользоваться функциями среды выполнения ReportViewer.
 > 
 > ReportViewer в режиме локальной обработки не поддерживается в Microsoft Azure.
-> 
-> 
-
-Просмотрите технический документ [Элемент просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Добавление сборок в пакет развертывания
 При локальном размещении приложения ASP.NET сборки ReportViewer обычно устанавливаются непосредственно в глобальный кэш сборок (GAC) сервера IIS во время установки Visual Studio и приложение может обращаться к сборкам напрямую. Однако при размещении приложения ASP.NET в облаке Microsoft Azure не позволяет устанавливать что-либо в глобальный кэш сборок, поэтому необходимо убедиться в том, что сборки ReportViewer доступны для приложения локально. Для этого можно добавить ссылки на них в свой проект и настроить их для копирования локально.
@@ -99,11 +93,9 @@ ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
 
 [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](virtual-machines-windows-classic-ps-sql-report.md)
 
-[Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

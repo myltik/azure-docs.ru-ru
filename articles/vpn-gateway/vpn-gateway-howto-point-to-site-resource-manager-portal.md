@@ -1,10 +1,10 @@
 ---
-title: "Настройка подключения шлюза типа &quot;точка — сеть&quot; к виртуальной сети с помощью модели развертывания Resource Manager и портала Azure | Документация Майкрософт"
+title: "Подключение компьютера к виртуальной сети Azure с помощью соединения типа &quot;точка — сеть&quot; и портала | Документация Майкрософт"
 description: "Безопасно подключайтесь к своей виртуальной сети Azure, создав VPN-подключение шлюза типа &quot;точка — сеть&quot; с помощью портала Azure и Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/19/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
+ms.sourcegitcommit: 70b6c9b8cb14e4e0b1162162071c03174bb150c1
+ms.openlocfilehash: e95f972f7605d2af79f4bd0e43f78aac853e2f38
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-the-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью портала Azure
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal"></a>Настройка подключения типа "точка — сеть" к виртуальной сети с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -43,7 +43,7 @@ ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="basic-workflow"></a>Базовый рабочий процесс
-![Схема подключения типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "point-to-site")
+![Схема подключения типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
 ### <a name="a-nameexampleaexample-values"></a><a name="example"></a>Примеры значений
 * **Имя: VNet1**.
@@ -62,30 +62,32 @@ ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
 * **Пул адресов клиента: 172.16.201.0/24**.<br>VPN-клиенты, подключающиеся к виртуальной сети с помощью этого подключения типа "точка — сеть", получают IP-адреса из пула адресов клиента.
 
 ## <a name="before-beginning"></a>Подготовка
-* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
+* Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial).
 
-## <a name="a-namecreatevnetapart-1-create-a-virtual-network"></a><a name="createvnet"></a>Часть 1. Создание виртуальной сети
+## <a name="a-namecreatevnetapart-1---create-a-virtual-network"></a><a name="createvnet"></a>Часть 1. Создание виртуальной сети
 Если вы создаете эту конфигурацию в качестве упражнения, можно использовать [примеры значений](#example).
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-### <a name="2-add-additional-address-space-and-subnets"></a>2) Добавление дополнительного адресного пространства и подсетей
+## <a name="a-nameaddressapart-2---specify-address-space-and-subnets"></a><a name="address"></a>Часть 2. Выбор адресного пространства и подсетей
 После создания виртуальной сети в нее можно добавить дополнительное адресное пространство и подсети.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-### <a name="3-create-a-gateway-subnet"></a>3. Создание подсети шлюза
+## <a name="a-namegatewaysubnetapart-3---add-a-gateway-subnet"></a><a name="gatewaysubnet"></a>Часть 3. Добавление подсети шлюза
+
 Прежде чем подключать шлюз к виртуальной сети, нужно создать подсеть шлюза для виртуальной сети, к которой необходимо подключиться. По возможности рекомендуется создать подсеть шлюза с использованием блока CIDR с маской /28 или /27, чтобы обеспечить достаточно IP-адресов для удовлетворения дополнительных будущих требований к конфигурации.
 
 Снимки экрана в этом разделе предоставляются в качестве справочного примера. Используйте диапазон адресов подсети шлюза, соответствующий необходимым значениям для вашей конфигурации.
 
-#### <a name="to-create-a-gateway-subnet"></a>Создание подсети шлюза
+###<a name="to-create-a-gateway-subnet"></a>Создание подсети шлюза
+
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="a-namednsa4-specify-a-dns-server-optional"></a><a name="dns"></a>4. Выбор DNS-сервера (необязательно)
+## <a name="a-namednsapart-4---specify-a-dns-server-optional"></a><a name="dns"></a>Часть 4. Выбор DNS-сервера (необязательно)
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namecreategwapart-2-create-a-virtual-network-gateway"></a><a name="creategw"></a>Часть 2. Создание шлюза виртуальной сети
+## <a name="a-namecreategwapart-5---create-a-virtual-network-gateway"></a><a name="creategw"></a>Часть 5. Создание шлюза виртуальной сети
 Для подключений типа "точка — сеть" требуются следующие параметры.
 
 * Тип шлюза: VPN.
@@ -94,11 +96,11 @@ ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
 ### <a name="to-create-a-virtual-network-gateway"></a>Создание шлюза виртуальной сети
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namegeneratecertapart-3-generate-certificates"></a><a name="generatecert"></a>Часть 3. Создание сертификатов
+## <a name="a-namegeneratecertapart-6---generate-certificates"></a><a name="generatecert"></a>Часть 6. Создание сертификатов
 Сертификаты используются в Azure для проверки подлинности VPN-клиентов в VPN-подключениях типа "точка — сеть". Данные общедоступного сертификата (а не закрытый ключ) экспортируются в виде CER-файла X.509 в кодировке Base-64 из корневого сертификата, созданного с помощью корпоративного решения, или самозаверяющего корневого сертификата. Затем данные общедоступного сертификата импортируются из корневого сертификата в Azure. Кроме того, нужно создать сертификат клиента из корневого сертификата для клиентов. Для каждого клиента, которому нужно подключаться к виртуальной сети с помощью подключения типа "точка — сеть", требуется установить сертификат клиента, созданный из корневого сертификата.
 
-### <a name="a-namegetcera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>1. Получение CER-файла для корневого сертификата
-Если вы пользуетесь корпоративным решением центра сертификации, можно использовать существующую цепочку сертификатов. В противном случае можно создать самозаверяющий корневой сертификат. Один из способов создания самозаверяющего сертификата — средство makecert.
+### <a name="a-namegetcerastep-1---obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>Шаг 1. Получение CER-файла для корневого сертификата
+Если вы пользуетесь корпоративным решением центра сертификации, можно использовать существующую цепочку сертификатов. В противном случае можно создать самозаверяющий корневой сертификат. При создании самозаверяющего сертификата для подключений "точка — сеть" рекомендуется использовать метод makecert. Самозаверяющие сертификаты можно создавать с помощью PowerShell, но такие сертификаты не содержат поля, необходимые для подключений "точка — сеть".
 
 * Если используется корпоративная система для создания сертификатов, необходимо получить CER-файл для нужного корневого сертификата. 
 * Если вы не планируете использовать корпоративное решение для создания сертификатов, нужно создать самозаверяющий корневой сертификат. Действия для Windows 10 см. в статье [Работа с самозаверяющими сертификатами для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md).
@@ -109,70 +111,70 @@ ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
 4. На странице **Имя экспортируемого файла** нажмите кнопку **Обзор**, чтобы перейти в расположение для экспорта сертификата. В поле **Имя файла**введите имя для файла сертификата. Нажмите кнопку **Далее**.
 5. Нажмите кнопку **Готово** , чтобы экспортировать сертификат.
 
-### <a name="a-namegenerateclientcerta2-generate-a-client-certificate"></a><a name="generateclientcert"></a>2. Создание сертификата клиента
+### <a name="a-namegenerateclientcertastep-2---generate-a-client-certificate"></a><a name="generateclientcert"></a>Шаг 2. Создание сертификата клиента
 Можно создать уникальный сертификат для каждого клиента, который будет подключаться, или использовать один сертификат для нескольких клиентов. Преимущество уникальных клиентских сертификатов заключается в том, что при необходимости можно отозвать один сертификат. В противном случае, если все используют один и тот же сертификат клиента и нужно отозвать сертификат для одного клиента, потребуется создать и установить новые сертификаты для всех клиентов, которые используют сертификат для проверки подлинности.
 
 * При использовании корпоративного решения для создания сертификатов создайте сертификат клиента с общим именем в формате 'name@yourdomain.com',, а не в формате "доменное_имя\имя_пользователя". 
 * Дополнительные сведения об использовании самозаверяющего сертификата для создания сертификата клиента см. в статье [Работа с самозаверяющими сертификатами для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md).
 
-### <a name="a-nameexportclientcerta3-export-the-client-certificate"></a><a name="exportclientcert"></a>3. Экспорт сертификата клиента
+### <a name="a-nameexportclientcertastep-3---export-the-client-certificate"></a><a name="exportclientcert"></a>Шаг 3. Экспорт сертификата клиента
 Этот сертификат требуется для проверки подлинности. После создания сертификата клиента его нужно экспортировать. Позже этот сертификат устанавливается на каждый клиентский компьютер.
 
 1. Для экспорта сертификата клиента можно использовать команду *certmgr.msc*. Щелкните правой кнопкой мыши сертификат, который нужно экспортировать, щелкните **Все задачи** и выберите **Экспорт**.
 2. Экспортируйте сертификат клиента с закрытым ключом. Это *PFX* -файл. Обязательно запишите или запомните пароль (ключ), который задали для этого сертификата.
 
-## <a name="a-nameaddresspoolapart-4-add-the-client-address-pool"></a><a name="addresspool"></a>Часть 4. Добавление пула адресов клиента
+## <a name="a-nameaddresspoolapart-7---add-the-client-address-pool"></a><a name="addresspool"></a>Часть 7. Добавление пула адресов клиента
 1. После создания шлюза виртуальной сети перейдите к разделу **Параметры** в колонке шлюза виртуальной сети. В разделе **Параметры** щелкните **Конфигурация "точка — сеть"**, чтобы открыть колонку **Конфигурация**.
    
-    ![Колонка "Точка — сеть"](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png "point to site blade")
+    ![Колонка подключения типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
 2. **Пул адресов** — это пул IP-адресов, из которого клиенты, осуществляющие подключение, получают IP-адрес. Добавьте пул адресов и щелкните **Сохранить**.
    
-    ![Пул адресов клиента](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png "client address pool")
+    ![Пул адресов клиента](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-## <a name="a-nameuploadfileapart-5-upload-the-root-certificate-cer-file"></a><a name="uploadfile"></a>Часть 5. Отправка CER-файла корневого сертификата
+## <a name="a-nameuploadfileapart-8---upload-the-root-certificate-cer-file"></a><a name="uploadfile"></a>Часть 8. Отправка CER-файла корневого сертификата
 После создания шлюза CER-файл для доверенного корневого сертификата можно отправить в Azure. Вы можете отправить файлы для 20 корневых сертификатов. Не отправляйте закрытый ключ для корневого сертификата в Azure. После отправки CER-файла он используется в Azure для проверки подлинности клиентов, подключающихся к виртуальной сети.
 
 1. Перейдите к колонке **Конфигурация "точка — сеть"**. CER-файлы необходимо добавить в раздел **Корневой сертификат** этой колонки.
    
-    ![Колонка "Точка — сеть"](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcert.png "point to site blade")
+    ![Колонка подключения типа "точка — сеть", отправка корневого сертификата](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcert.png)
 2. Корневой сертификат необходимо экспортировать в виде CER-файла X.509 в кодировке Base64. Это позволит открыть сертификат в текстовом редакторе.
 3. Откройте сертификат в текстовом редакторе, например в блокноте. Скопируйте только следующий раздел:
    
-    ![Данные сертификата](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png "certificate data")
+    ![Данные сертификата](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
 4. Вставьте данные сертификата в раздел **Данные общедоступного сертификата** на портале. Укажите имя сертификата в области **Имя** и щелкните **Сохранить**. Вы можете добавить до 20 доверенных корневых сертификатов.
    
-    ![Передача сертификата](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploadcert.png "certificate upload")
+    ![Отправка сертификата](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploadcert.png)
 
-## <a name="a-nameclientconfigapart-6-download-and-install-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Часть 6. Скачивание и установка пакета конфигурации VPN-клиента
+## <a name="a-nameclientconfigapart-9---download-and-install-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Часть 9. Скачивание и установка пакета конфигурации VPN-клиента
 На клиентах с подключением к Azure типа "точка — сеть" должны быть установлены сертификат клиента и пакет конфигурации VPN-клиента. Для клиентов Windows доступны пакеты конфигурации VPN-клиента. 
 
 Пакет VPN-клиента содержит данные для настройки программного обеспечения VPN-клиента, встроенного в Windows. Конфигурация зависит от сети VPN, к которой необходимо подключиться. Пакет не устанавливает никакого дополнительного программного обеспечения. Дополнительные сведения см. в статье [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. В колонке **Конфигурация "точка — сеть"** щелкните **Download VPN client** (Скачать VPN-клиент), чтобы открыть колонку **Download VPN client** (Скачивание VPN-клиента).
    
-    ![Скачивание VPN-клиента](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadclient.png "VPN client download")
+    ![Скачивание VPN-клиента](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadclient.png)
 2. Выберите соответствующий для клиента пакет, а затем щелкните **Скачать**. Для 64-разрядных клиентов выберите **AMD64**, а для 32-разрядных — **x86**.
 3. Установите пакет на клиентском компьютере. При появлении всплывающего окна SmartScreen щелкните **Дополнительно**, а затем выберите **Выполнить в любом случае**, чтобы установить пакет.
 4. На клиентском компьютере перейдите в раздел **Параметры сети** и щелкните **VPN**. Вы увидите подключение в списке. Оно будет содержать имя виртуальной сети, подключение к которой будет установлено, и выглядеть примерно так: 
    
-    ![VPN-клиент](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png "VPN client")
+    ![VPN-клиент](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
 
-## <a name="a-nameinstallclientcertapart-7-install-the-client-certificate"></a><a name="installclientcert"></a>Часть 7. Установка сертификата клиента
+## <a name="a-nameinstallclientcertapart-10---install-the-client-certificate"></a><a name="installclientcert"></a>Часть 10. Установка сертификата клиента
 Для прохождения проверки подлинности каждому клиентскому компьютеру требуется сертификат клиента. При установке сертификата клиента потребуется пароль, созданный при экспорте сертификата клиента.
 
 1. Скопируйте PFX-файл на клиентский компьютер.
 2. Дважды щелкните PFX-файл, чтобы установить его. Не меняйте место установки.
 
-## <a name="a-nameconnectapart-8-connect-to-azure"></a><a name="connect"></a>Часть 8. Подключение к Azure
+## <a name="a-nameconnectapart-11---connect-to-azure"></a><a name="connect"></a>Часть 11. Подключение к Azure
 1. Чтобы подключиться к виртуальной сети, откройте VPN-подключения на клиентском компьютере и найдите созданное VPN-подключение. Его имя совпадает с названием вашей виртуальной сети. Щелкните **Подключить**. Может появиться всплывающее сообщение об использовании сертификата. В таком случае щелкните **Продолжить** , чтобы использовать более высокий уровень привилегий. 
 2. На странице состояния **подключения** щелкните **Подключить**. Если появится окно **Выбор сертификата** , убедитесь в том, что отображается сертификат клиента, с помощью которого вы хотите подключиться к сети. Если окно не появится, выберите нужный сертификат в раскрывающемся списке и нажмите кнопку **ОК**.
    
-    ![VPN-клиент 2](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png "VPN client connection")
+    ![Подключение VPN-клиента к Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Теперь следует установить подключение.
    
-    ![VPN-клиент 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
+    ![VPN-клиент, подключенный к Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-## <a name="a-nameverifyapart-9-verify-your-connection"></a><a name="verify"></a>Часть 9. Проверка подключения
+## <a name="a-nameverifyapart-12---verify-your-connection"></a><a name="verify"></a>Часть 12. Проверка подключения
 1. Чтобы проверить, активно ли VPN-подключение, откройте окно командной строки от имени администратора и выполните команду *ipconfig/all*.
 2. Просмотрите результаты. Обратите внимание, что полученный вами IP-адрес — это один из адресов в пуле адресов VPN-клиента подключения "точка–cеть", указанном в конфигурации. Результаты должны выглядеть примерно так:
    
@@ -200,11 +202,11 @@ ms.openlocfilehash: aeebed0c733b9fbac964cdc532ff9d364683609b
 Управление списком отозванных сертификатов клиента осуществляется в колонке **Конфигурация "точка — сеть"**. Это колонка, которая использовалась для [передачи доверенного корневого сертификата](#uploadfile).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы можете добавить виртуальную машину в виртуальную сеть. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения о виртуальных машинах см. [здесь](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

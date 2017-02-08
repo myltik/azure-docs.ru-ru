@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
 
 
 ---
@@ -79,16 +79,16 @@ ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
 Дополнительные сведения об интерфейсах API см. в [определении API соединителя File].
 
 ## <a name="do-more-with-your-connector"></a>Дополнительные возможности соединителя
-После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. сведения о [приложениях логики](app-service-logic-what-are-logic-apps.md).
+После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. сведения о [приложениях логики](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> Чтобы приступить к работе с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://azure.microsoft.com/try/app-service/logic/). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 >
 >
 
 Справку по API REST Swagger см. в [справочных материалах по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Можно также просматривать статистику производительности и управлять безопасностью соединителя. Ознакомьтесь с разделом [Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md).
+Можно также просматривать статистику производительности и управлять безопасностью соединителя. Ознакомьтесь с разделом [Мониторинг приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -103,6 +103,6 @@ ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

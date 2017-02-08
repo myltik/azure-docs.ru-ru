@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
 
 
 ---
@@ -44,8 +44,6 @@ ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
 | Добавление группы |Создана группа в каталоге. |
 | Обновление группы |Обновлена группа в каталоге. Чтобы увидеть, какие свойства группы обновлены, просмотрите [свойства группы, прошедшие аудит](#update-group-attributes) , в разделе ниже. |
 | Удаление группы |Удалена группа из каталога. |
-| Добавление участника группы |Добавлен участник группы в каталоге. |
-| Удаление участника группы |Удален участник из группы в каталоге. |
 | CreateGroupSettings |Создание параметров группы. |
 | UpdateGroupSettings |Обновление параметров группы. Чтобы увидеть, какие параметры группы обновлены, просмотрите [свойства группы, прошедшие аудит](#update-group-attributes) , в разделе ниже. |
 | DeleteGroupSettings |Удаление параметров группы. |
@@ -63,21 +61,6 @@ ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
 | Добавление записи делегирования |В каталоге создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) . |
 | Установка записи делегирования |В данном каталоге обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) . |
 | Удаление записи делегирования |Из каталога удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) . |
-| **События роли** | |
-| Добавление участника роли к роли |Добавлен пользователь к роли каталога. |
-| Удаление участника роли из роли |Удален пользователь из роли каталога. |
-| Установка контактных данных компании |Выполнена настройка контактов для компании. Сюда относятся адреса электронной почты для маркетинга, а также технические уведомления о Microsoft Online Services. |
-| Добавление записи делегирования |В каталоге создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) . |
-| Установка записи делегирования |В данном каталоге обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) . |
-| Удаление записи делегирования |Из каталога удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) . |
-| AddSevicePrincipalOwner |Добавление владельца субъекта-службы. |
-| RemoveSevicePrincipalOwner |Удаление владельца субъекта-службы. |
-| AddApplication |Добавление приложения. |
-| UpdateApplication |Обновление приложения. Чтобы увидеть, какие параметры приложения обновлены, просмотрите [свойства приложения, прошедшие аудит](#update-application-attributes) , в разделе ниже. |
-| DeleteApplication |Удаление приложения. |
-| RestoreApplication |Восстановление приложения. |
-| AddApplicationOwner |Добавление владельца приложения. |
-| RemoveApplicationOwner |Удаление владельца приложения. |
 | **События роли** | |
 | Добавление участника роли к роли |Добавлен пользователь к роли каталога. |
 | Удаление участника роли из роли |Удален пользователь из роли каталога. |
@@ -346,6 +329,6 @@ ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

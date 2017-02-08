@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 11/30/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 3ab93acf3088b6c93c8ec231dc606f50de108fea
-ms.openlocfilehash: 5620a19c64913e0754c5433a8cc3f21ef01f1fb2
+ms.sourcegitcommit: bbf3b7b1d7e28bfd6bf0d6ca506963eff755e7a2
+ms.openlocfilehash: 615324a8ae0cd50e68286b467dfefce91628fb35
 
 
 ---
@@ -201,7 +201,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ## <a name="contact-the-team"></a>Связаться с командой
 ![Группа](./media/documentdb-community/documentdb-team.png)
 
-Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете [запланировать встречу один на один с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/). Также нам можно написать [письмо](mailto:askdocdb@microsoft.com) или отправить твит по адресу [@DocumentDB](https://twitter.com/DocumentDB). 
+Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB. Для этого отправьте нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## <a name="open-source-projects"></a>Проекты с открытым исходным кодом
 Следующие проекты активно разрабатываются командой Azure DocumentDB совместно с представителями сообщества разработчиков.
@@ -239,6 +239,6 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

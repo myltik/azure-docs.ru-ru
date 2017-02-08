@@ -3,6 +3,7 @@
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
 ## [Сценарии приложений](service-fabric-application-scenarios.md)
 ## [Архитектура](service-fabric-architecture.md)
+## [Терминология](service-fabric-technical-overview.md)
 
 # Начало работы
 ## Настройка среды разработки
@@ -15,13 +16,13 @@
 ### [C# в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Создание приложения
 ### Основы
 #### [Модель программирования](service-fabric-choose-framework.md)
 #### [Модель приложения](service-fabric-application-model.md)
 #### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
-#### [Средства](service-fabric-manage-application-in-visual-studio.md)
+#### [Инструменты](service-fabric-manage-application-in-visual-studio.md)
 #### [Отладка](service-fabric-debugging-your-application.md)
 #### Мониторинг и диагностика
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -31,15 +32,15 @@
 
 ### Приложение Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)
-#### Приступая к работе
+#### Начало работы
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
 #### [Архитектура](service-fabric-reliable-services-platform-architecture.md)
 #### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 #### [Использование надежных коллекций](service-fabric-work-with-reliable-collections.md)
 #### [Настройка](service-fabric-reliable-services-configuration.md)
-#### [Notifications](service-fabric-reliable-services-notifications.md)
-#### [Архивация и восстановление](service-fabric-reliable-services-backup-restore.md)
+#### [Уведомления](service-fabric-reliable-services-notifications.md)
+#### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 #### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [Удаленное взаимодействие со службой](service-fabric-reliable-services-communication-remoting.md)
@@ -176,21 +177,13 @@
 ### [Нагрузочный тест приложения](service-fabric-vso-load-test.md)
 
 # Справочные материалы
-## [Терминология](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [WCF для Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [WCF для Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Данные](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Интерфейсы данных](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Система](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Пример кода](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [API Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Ресурсы
+## [Пример кода](http://aka.ms/servicefabricsamples)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Цены](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +191,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

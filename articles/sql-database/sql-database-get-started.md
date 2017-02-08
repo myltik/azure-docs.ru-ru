@@ -1,6 +1,6 @@
 ---
-title: "Руководство по базам данных SQL: создание сервера, правила брандмауэра на уровне сервера, примера базы данных, правила брандмауэра на уровне базы данных и подключение с помощью SQL Server Management Studio | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как настроить логический сервер базы данных SQL, правило брандмауэра для сервера, базу данных SQL и демонстрационные данные. Также вы научитесь выполнять подключение с помощью клиентских средств, настраивать пользователей и правила брандмауэра для базы данных."
+title: "Портал Azure: начало работы с базой данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как создать логический сервер базы данных SQL, правила брандмауэра на уровне сервера и базы данных с помощью портала Azure. Вы также научитесь отправлять запросы к базам данных с помощью SQL Server Management Studio."
 keywords: "руководство по базам данных SQL, создание базы данных SQL"
 services: sql-database
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 6fd3c0ebe6d7b7e23550358ca1d93840ae8acaa1
+ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-the-azure-portal-and-sql-server-management-studio"></a>Руководство по подготовке базы данных SQL Azure и доступу к ней с помощью портала Azure и SQL Server Management Studio
 
-В этом руководстве мы с помощью портала Azure сделаем следующее:
+Из этого руководства вы узнаете, как с помощью портала Azure выполнять следующие операции.
 
 * создадим группу ресурсов Azure;
 * создадим логический сервер SQL Azure;
@@ -44,17 +44,22 @@ ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 **Оценка времени**. Для работы с этим руководством потребуется около 30 минут (при условии, что предварительные требования уже выполнены).
 
+> [!TIP]
+> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [C#](sql-database-get-started-csharp.md) или [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Вам понадобится учетная запись Azure. Вы можете [создать бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * У вас должна быть возможность подключиться к порталу Azure с помощью учетной записи, которой назначена роль владельца или участника подписки. Дополнительные сведения об управлении доступом на основе ролей (RBAC) см. в статье [Начало работы с управлением доступом на портале Azure](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> Во время работы с руководством по началу работы эти же задачи можно выполнять с помощью [C#](sql-database-get-started-csharp.md) или [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Это руководство поможет вам освоить содержание следующих статей: [Логические серверы базы данных SQL Azure](sql-database-server-overview.md), [Общие сведения о базе данных SQL Azure](sql-database-overview.md) и [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Вход с помощью существующей учетной записи
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure
 Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
 
 1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
@@ -103,7 +108,7 @@ ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
     ![Расположение сервера](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > Параметр **Разрешить службам Azure доступ к серверу** невозможно изменить в этой колонке. Его можно изменить в колонке брандмауэра сервера. Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-get-started-security.md).
+    > Параметр **Разрешить службам Azure доступ к серверу** невозможно изменить в этой колонке. Его можно изменить в колонке брандмауэра сервера. Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Щелкните **Создать**.
@@ -183,7 +188,7 @@ ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
     ![Запрос системных объектов из базы данных master](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Сведения о системе безопасности SQL см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-get-started-security.md)
+    > Сведения о системе безопасности SQL см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Создание базы данных на портале Azure с использованием примера Adventure Works LT
@@ -291,7 +296,9 @@ ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 ## <a name="next-steps"></a>Дальнейшие действия
 Завершив работу с этим руководством, изучите дополнительные материалы, в которых продолжается начатая в этом руководстве тема. 
 
-* Дополнительные сведения об обеспечении безопасности базы данных SQL Azure см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-get-started-security.md).
+- Основные сведения об аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+- Основные сведения об аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
+* Если вы хотите поработать с запросами к примеру базы данных на портале Azure, см. страницу [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/) (Предварительная версия: интерактивные запросы к базам данных SQL).
 * Если вы знаете Excel, узнайте, как [подключиться к базе данных SQL в Azure с помощью Excel](sql-database-connect-excel.md).
 * Если вы готовы написать свой собственный код, выберите язык программирования в [библиотеках подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 * Если вы хотите перенести локальные базы данных SQL Server в облако Azure, см. статью [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
@@ -306,6 +313,6 @@ ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

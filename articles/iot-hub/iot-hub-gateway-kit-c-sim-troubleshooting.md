@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 44b61dbdad51e3d6b5505477c97de75c8fc5a1a4
-ms.openlocfilehash: ade52e99fd054ac79106742fc9a65769f6ff9893
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
 
 
 ---
@@ -140,7 +140,7 @@ python -m pip install --upgrade pip
 
 ### <a name="device-explorer"></a>Обозреватель устройств
 
-[Обозреватель устройств](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) работает на локальном компьютере Windows и подключается к Центру Интернета вещей в Azure. Он взаимодействует со следующими [конечными точками Центра Интернета вещей](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) работает на локальном компьютере Windows и подключается к Центру Интернета вещей в Azure. Он взаимодействует со следующими [конечными точками Центра Интернета вещей](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
 - управление удостоверениями устройств для подготовки устройств, зарегистрированных в Центре Интернета вещей, и управления ими;
 - получение сообщений с устройства в облако, что позволяет отслеживать сообщения, отправляемые с устройства в Центр Интернета вещей;
@@ -150,7 +150,7 @@ python -m pip install --upgrade pip
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) — это пример мультиплатформенного инструмента интерфейса командной строки для управления клиентами устройств. Инструмент можно использовать для управления устройствами в реестре удостоверений, мониторинга сообщений, отправляемых с устройства в облако, и отправки команд, передаваемых из облака на устройство.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) — это пример мультиплатформенного инструмента интерфейса командной строки для управления клиентами устройств. Инструмент можно использовать для управления устройствами в реестре удостоверений, мониторинга сообщений, отправляемых с устройства в облако, и отправки команд, передаваемых из облака на устройство.
 
 Чтобы установить последнюю версию (предварительную версию) инструмента iothub-explorer, выполните следующую команду:
 
@@ -174,6 +174,6 @@ iothub-explorer help
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,19 +1,24 @@
 ---
-title: Сценарий PowerShell для идентификации отдельных баз данных, подходящих для пула | Microsoft Docs
-description: Эластичный пул баз данных — это набор доступных ресурсов, совместно используемых группой эластичных баз данных. В этом документе приведен сценарий Powershell, который поможет оценить целесообразность использования пула эластичных баз данных для группы баз данных.
+title: "Сценарий PowerShell для идентификации отдельных баз данных, подходящих для пула | Документация Майкрософт"
+description: "Эластичный пул баз данных — это набор доступных ресурсов, совместно используемых группой эластичных баз данных. В этом документе приведен сценарий Powershell, который поможет оценить целесообразность использования пула эластичных баз данных для группы баз данных."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
+ms.custom: V11; elastic database pool
 ms.devlang: NA
 ms.date: 09/28/2016
 ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a197799de3fcb898f6fa9a7c90b63b3311150ee
+
 
 ---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Сценарий PowerShell для идентификации баз данных, подходящих для пула эластичных баз данных
@@ -29,7 +34,7 @@ ms.tgt_pltfrm: NA
 ## <a name="prerequisites"></a>Предварительные требования
 Перед запуском сценария установите следующие компоненты:
 
-* Последняя версия Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Последняя версия Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * [Пакет дополнительных компонентов SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Сведения о сценарии
@@ -272,6 +277,6 @@ $data | %{'{0}' -f $_[0]}
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

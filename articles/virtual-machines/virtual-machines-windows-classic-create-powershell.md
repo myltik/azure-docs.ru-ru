@@ -1,13 +1,13 @@
 ---
-title: Создание виртуальной машины Windows с помощью PowerShell | Microsoft Docs
-description: Создание виртуальных машин Windows с использованием Azure PowerShell и классической модели развертывания.
+title: "Создание виртуальной машины Windows с помощью PowerShell | Документация Майкрософт"
+description: "Создание виртуальных машин Windows с использованием Azure PowerShell и классической модели развертывания."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 42c0d4be-573c-45d1-b9b0-9327537702f7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,34 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: d9da484755041ca13410db84447576145bc7308f
+
 
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Создание виртуальной машины Windows с использованием PowerShell и классической модели развертывания
 > [!div class="op_single_selector"]
-> * [Классический портал Azure — Windows](virtual-machines-windows-classic-tutorial.md)
-> * [PowerShell — Windows](virtual-machines-windows-classic-create-powershell.md)
+> * [Классический портал Azure — Windows](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [PowerShell — Windows](virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-ps-create.md).
+> [!IMPORTANT] 
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Ниже показано, как настроить набор команд Azure PowerShell для создания и предварительной настройки виртуальной машины Azure под управлением Windows, используя подход на базе стандартных блоков. Этот процесс можно использовать для быстрого создания набора команд для новой виртуальной машины под управлением Windows и расширения существующего развертывания либо создания нескольких наборов команд, позволяющих быстро создать настраиваемую среду для разработки/тестирования или для ИТ-специалистов.
 
 Материал в этих шагах для создания наборов команд Azure PowerShell представлен таким образом, что достаточно лишь заполнить пробелы. Этот подход может оказаться полезным, если вы не знакомы с PowerShell или хотите знать, какие именно значения следует задать для обеспечения работоспособности конфигурации. Опытные пользователи PowerShell могут подставить в команды собственные значения для переменных (строки, начинающиеся со знака "$").
 
-Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](../powershell-install-configure.md) , чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
+Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs) , чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
 
-## <a name="step-1:-add-your-account"></a>Шаг 1. Добавление учетной записи
+## <a name="step-1-add-your-account"></a>Шаг 1. Добавление учетной записи
 1. В командной строке PowerShell введите **Add-AzureAccount** и нажмите клавишу **ВВОД**. 
 2. Введите адрес электронной почты, связанный с подпиской Azure, и нажмите кнопку **Продолжить**. 
 3. Введите пароль к учетной записи. 
 4. Щелкните **Войти**.
 
-## <a name="step-2:-set-your-subscription-and-storage-account"></a>Шаг 2. Выбор подписки и учетной записи хранения
+## <a name="step-2-set-your-subscription-and-storage-account"></a>Шаг 2. Выбор подписки и учетной записи хранения
 Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Windows PowerShell. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
 
     $subscr="<subscription name>"
@@ -52,7 +55,7 @@ ms.author: cynthn
 
 Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription** . Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** после выполнения команды **Select-AzureSubscription**.
 
-## <a name="step-3:-determine-the-imagefamily"></a>Шаг 3. Определение ImageFamily
+## <a name="step-3-determine-the-imagefamily"></a>Шаг 3. Определение ImageFamily
 Затем необходимо определить значение ImageFamily или Label для определенного образа, соответствующего создаваемой виртуальной машине Azure. Список доступных значений ImageFamily можно получить с помощью данной команды.
 
     Get-AzureVMImage | select ImageFamily -Unique
@@ -61,7 +64,7 @@ ms.author: cynthn
 
 * Центр обработки данных Windows Server 2012 R2
 * Windows Server 2008 R2 с пакетом обновления 1
-* Windows Server 2016 Technical Preview 4
+* Windows Server 2016 Technical Preview 4
 * SQL Server 2012 SP1 Enterprise на базе Windows Server 2012
 
 Если вы нашли образ, который искали, откройте новый экземпляр любого текстового редактора или интегрированную среду сценариев PowerShell (ISE). Скопируйте следующий текст в новый текстовый файл или среду PowerShell ISE, замещая значение ImageFamily.
@@ -78,7 +81,7 @@ ms.author: cynthn
     $label="<Label value>"
     $image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## <a name="step-4:-build-your-command-set"></a>Шаг 4. Создание своего набора команд
+## <a name="step-4-build-your-command-set"></a>Шаг 4. Создание своего набора команд
 Сформируйте остальную часть набора команд. Для этого скопируйте соответствующий набор приведенных ниже блоков в новый текстовый файл или среду ISE, а затем подставьте значения переменных и удалите знаки < и >. Чтобы иметь представление о конечном результате, см. два [примера](#examples), приведенных в конце этой статьи.
 
 Начните создавать свой набор команд, выбрав один из этих двух блоков команд (обязательно).
@@ -168,7 +171,7 @@ ms.author: cynthn
     $vnetname="<name of the virtual network>"
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## <a name="step-5:-run-your-command-set"></a>Шаг 5. Запуск набора команд
+## <a name="step-5-run-your-command-set"></a>Шаг 5. Запуск набора команд
 Просмотрите в текстовом редакторе или среде PowerShell ISE созданный набор команд Azure PowerShell, состоящий из нескольких блоков команд из шага 4. Убедитесь, что указаны все необходимые переменные и что они имеют правильные значения. Убедитесь также, что удалены все знаки < и >.
 
 Если вы используете текстовый редактор, скопируйте набор команд в буфер обмена и щелкните правой кнопкой мыши открытую командную строку Windows PowerShell. При этом набор команд выполняется в виде последовательности команд PowerShell, и создается виртуальная машина Azure. Или выполните набор команд в среде PowerShell ISE.
@@ -178,7 +181,7 @@ ms.author: cynthn
 * Сохраните этот набор команд как файл сценария PowerShell (PS1-файл).
 * Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** классического портала Azure.
 
-## <a name="<a-id="examples"></a>examples"></a><a id="examples"></a>Примеры
+## <a name="a-idexamplesaexamples"></a><a id="examples"></a>Примеры
 Ниже приведено два примера применения описанных выше способов для создания наборов команд Azure PowerShell, создающих виртуальные машины под управлением Windows в Azure.
 
 ### <a name="example-1"></a>Пример 1
@@ -255,8 +258,11 @@ ms.author: cynthn
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если требуется диск ОС больше 127 ГБ, вы можете [расширить диск ОС](virtual-machines-windows-expand-os-disk.md).
+Если требуется диск ОС больше 127 ГБ, вы можете [расширить диск ОС](virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

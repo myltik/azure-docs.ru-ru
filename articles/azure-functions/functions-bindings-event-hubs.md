@@ -1,141 +1,239 @@
 ---
-title: Привязки концентратора событий функций Azure | Microsoft Docs
-description: Узнайте, как использовать привязки концентратора событий Azure в функциях Azure.
+title: "Привязки концентратора событий Функций Azure | Документация Майкрософт"
+description: "Узнайте, как использовать привязки концентратора событий Azure в функциях Azure."
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: erikre
-editor: ''
-tags: ''
-keywords: функции azure, функции, обработка событий, динамические вычисления, независимая архитектура
-
+editor: 
+tags: 
+keywords: "функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"
+ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 11/02/2016
 ms.author: wesmc
+translationtype: Human Translation
+ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
+ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
+
 
 ---
-# Привязки концентратора событий функций Azure
+# <a name="azure-functions-event-hub-bindings"></a>Привязки концентратора событий функций Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Эта статья объясняет, как настроить и запрограммировать привязки [концентратора событий Azure](../event-hubs/event-hubs-overview.md) для Функций Azure. Функции Azure поддерживают привязки триггера и выходные привязки для концентраторов событий Azure.
 
-[!INCLUDE [общие сведения](../../includes/functions-bindings-intro.md)]
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Привязка триггера концентратора событий Azure
-Триггер концентратора событий Azure может использоваться для ответа на событие, отправленное в поток событий концентратора событий. Чтобы настроить привязку триггера, необходимо иметь доступ для чтения к концентратору событий.
+Если вы еще не работали с концентраторами событий Azure, ознакомьтесь с [обзором концентраторов событий Azure](../event-hubs/event-hubs-overview.md).
 
-#### Файл function.json для привязки триггера концентратора событий
-Файл *function.json* для триггера концентратора событий Azure указывает следующие свойства:
+<a name="trigger"></a>
 
-* `type` — для этого свойства необходимо задать значение *eventHubTrigger*.
-* `name` — имя переменной, используемой в коде функции для сообщения концентратора событий.
-* `direction` — для этого свойства нужно задать значение *in*.
-* `path` — имя концентратора событий.
-* `connection` — имя параметра приложения, содержащего строку подключения к пространству имен, в котором находится концентратор событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для пространства имен, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.
-  
-        {
-          "bindings": [
-            {
-              "type": "eventHubTrigger",
-              "name": "myEventHubMessage",
-              "direction": "in",
-              "path": "MyEventHub",
-              "connection": "myEventHubReadConnectionString"
-            }
-          ],
-          "disabled": false
-        }
+## <a name="event-hub-trigger"></a>Триггер концентратора событий
+Используйте триггер концентратора событий Azure для ответа на событие, отправленное в поток событий концентратора событий. Чтобы настроить триггер, необходимо иметь доступ для чтения к концентратору событий.
 
-#### Пример кода на языке C# для триггера концентратора событий Azure
-Используя пример файла function.json, приведенный выше, текст сообщения о событии будет записан в журнал с помощью следующего кода функции C#:
+Триггер концентратора событий для функции использует следующий объект JSON в массиве `bindings` файла function.json:
 
-    using System;
+```json
+{
+    "type": "eventHubTrigger",
+    "name": "<Name of trigger parameter in function signature>",
+    "direction": "in",
+    "path": "<Name of the Event Hub>",
+    "consumerGroup": "Consumer group to use - see below", 
+    "connection": "<Name of app setting with connection string - see below>"
+}
+```
 
-    public static void Run(string myEventHubMessage, TraceWriter log)
-    {
-        log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-    }
+`consumerGroup` — необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-overview.md#consumer-groups), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`.  
+`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.
 
-#### Пример кода на языке F# для триггера концентратора событий Azure
-В рамках примера файла function.json, приведенного выше, текст сообщения о событии будет записан в журнал с помощью следующего кода функции F#:
+[Дополнительные параметры](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) можно указать в файле host.json для дальнейшей настройки триггеров концентратора событий.  
 
-    let Run(myEventHubMessage: string, log: TraceWriter) =
-        log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+<a name="triggerusage"></a>
 
-#### Пример триггера концентратора событий Azure на платформе Node.js
-Используя пример файла function.json, приведенный выше, текст сообщения о событии будет записан в журнал с помощью следующего кода функции Node.js:
+## <a name="trigger-usage"></a>Использование триггера
+При активации функции триггера концентратора событий сообщение, вызвавшее активацию, передается в функцию в качестве строки.
 
-    module.exports = function (context, myEventHubMessage) {
-        context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
-        context.done();
-    };
+<a name="triggersample"></a>
+
+## <a name="trigger-sample"></a>Пример триггера
+Предположим, что у вас есть следующий триггер концентратора событий в массиве `bindings` файла function.json:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Ознакомьтесь с примером для конкретного языка, записывающим текст сообщения триггера концентратора событий.
+
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.js](#triggernodejs)
+
+<a name="triggercsharp"></a>
+
+### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+
+```cs
+using System;
+
+public static void Run(string myEventHubMessage, TraceWriter log)
+{
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+}
+```
+
+<a name="triggerfsharp"></a>
+
+### <a name="trigger-sample-in-f"></a>Пример триггера на языке F# #
+
+```fsharp
+let Run(myEventHubMessage: string, log: TraceWriter) =
+    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+```
+
+<a name="triggernodejs"></a>
+
+### <a name="trigger-sample-in-nodejs"></a>Пример триггера для Node.js
+
+```javascript
+module.exports = function (context, myEventHubMessage) {
+    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+    context.done();
+};
+```
+
+<a name="output"></a>
+
+## <a name="event-hub-output-binding"></a>Выходная привязка концентратора событий
+Используйте выходную привязку концентратора событий для записи событий в поток событий концентратора событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий. 
+
+Выходная привязка использует следующий объект JSON в массиве `bindings` файла function.json: 
+
+```json
+{
+    "type": "eventHub",
+    "name": "<Name of output parameter in function signature>",
+    "path": "<Name of event hub>",
+    "connection": "<Name of app setting with connection string - see below>"
+    "direction": "out"
+}
+```
+
+`connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.
+
+## <a name="output-usage"></a>Использование выходной привязки
+В этом разделе показано, как использовать привязку для вывода концентратора событий в коде функции.
+
+Можно выводить сообщения в настроенный концентратор событий со следующими типами параметров. 
+
+* `out string`
+* `ICollector<string>` (для вывода нескольких сообщений).
+* `IAsyncCollector<string>` (асинхронная версия `ICollector<T>`).
+
+<a name="outputsample"></a>
+
+## <a name="output-sample"></a>Пример выходной привязки
+Предположим, что у вас есть следующая выходная привязка концентратора событий в массиве `bindings` файла function.json:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Ознакомьтесь с примером для конкретного языка, записывающим событие в поток событий.
+
+* [C#](#outcsharp)
+* [F#](#outfsharp)
+* [Node.js](#outnodejs)
+
+<a name="outcsharp"></a>
+
+### <a name="output-sample-in-c"></a>Пример выходной привязки для языка C# #
+
+```cs
+using System;
+
+public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
+{
+    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
+    log.Verbose(msg);   
+    outputEventHubMessage = msg;
+}
+```
+
+Создание нескольких сообщений:
+
+```cs
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+{
+    string message = $"Event Hub message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputEventHubMessage.Add("1 " + message);
+    outputEventHubMessage.Add("2 " + message);
+}
+```
+
+<a name="outfsharp"></a>
+
+### <a name="output-sample-in-f"></a>Пример выходной привязки для языка F# #
+
+```fsharp
+let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+    log.Verbose(msg);
+    outputEventHubMessage <- msg;
+```
+
+<a name="outnodejs"></a>
+
+### <a name="output-sample-for-nodejs"></a>Пример выходной привязки для Node.js
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    context.log('Event Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.done();
+};
+```
+
+Отправка нескольких сообщений:
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+    var message = 'Event Hub message created at: ' + timeStamp;
+
+    context.bindings.outputEventHubMessage = [];
+
+    context.bindings.outputEventHubMessage.push("1 " + message);
+    context.bindings.outputEventHubMessage.push("2 " + message);
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
-## Выходная привязка концентратора событий Azure
-Выходная привязка концентратора событий Azure используется для записи событий в поток событий концентратора событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий.
 
-#### Файл function.json для выходной привязки концентратора событий
-Файл *function.json* для выходной привязки концентратора событий Azure указывает следующие свойства:
 
-* `type` — для этого свойства необходимо задать значение *eventHub*.
-* `name` — имя переменной, используемой в коде функции для сообщения концентратора событий.
-* `path` — имя концентратора событий.
-* `connection` — имя параметра приложения, содержащего строку подключения к пространству имен, в котором находится концентратор событий. Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для пространства имен, а не сам концентратор событий. Чтобы отправлять сообщения в поток концентратора событий, эта строка подключения должна иметь разрешения на оправку.
-* `direction` — для этого свойства необходимо задать значение *out*.
-  
-        {
-          "type": "eventHub",
-          "name": "outputEventHubMessage",
-          "path": "myeventhub",
-          "connection": "MyEventHubSend",
-          "direction": "out"
-        }
+<!--HONumber=Dec16_HO1-->
 
-#### Пример кода на языке C# для выходной привязки концентратора событий Azure
-Следующий пример кода функции на языке C# демонстрирует запись события в поток событий концентратора событий. В этом примере представлена выходная привязка концентратора событий, показанная выше, которую применили к триггеру таймера C#.
 
-    using System;
-
-    public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
-    {
-        String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-
-        log.Verbose(msg);   
-
-        outputEventHubMessage = msg;
-    }
-
-#### Пример кода на языке F# для выходной привязки концентратора событий Azure
-Следующий пример кода функции на языке F# демонстрирует запись события в поток событий концентратора событий. В этом примере представлена выходная привязка концентратора событий, показанная выше, которую применили к триггеру таймера C#.
-
-    let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
-        let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-        log.Verbose(msg);
-        outputEventHubMessage <- msg;
-
-#### Пример кода на платформе Node.js для выходной привязки концентратора событий Azure
-Следующий пример кода функции на платформе Node.js демонстрирует запись события в поток событий концентратора событий. В этом примере представлена выходная привязка концентратора событий, показанная выше, которую применили к триггеру таймера Node.js.
-
-    module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
-
-        if(myTimer.isPastDue)
-        {
-            context.log('TimerTriggerNodeJS1 is running late!');
-        }
-
-        context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-
-        context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
-
-        context.done();
-    };
-
-## Дальнейшие действия
-[!INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
-
-<!---HONumber=AcomDC_0921_2016-->

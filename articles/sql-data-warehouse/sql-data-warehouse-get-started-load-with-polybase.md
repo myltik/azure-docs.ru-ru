@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
 * как создавать объекты базы данных для определения данных;
 * как выполнять запросы T-SQL для загрузки данных.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -44,7 +44,7 @@ ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
 
 * База данных хранилища данных SQL.
 * Учетная запись хранилища Azure типа Standard-LRS (локально избыточное хранилище уровня «Стандартный»), Standard-GRS (геоизбыточное хранилище уровня «Стандартный») или Standard-RAGRS (геоизбыточное хранилище с доступом для чтения уровня «Стандартный»).
-* Служебная программа командной строки AzCopy. Скачайте и установите [последнюю версию AzCopy][последняя версия AzCopy], входящую в состав средств службы хранилища Microsoft Azure.
+* Служебная программа командной строки AzCopy. Скачайте и установите [последнюю версию AzCopy][latest version of AzCopy], которая входит в состав средств службы хранилища Microsoft Azure.
   
     ![Средства хранилища Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -107,7 +107,7 @@ ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Дополнительные сведения см. в статье [Приступая к работе со служебной программой командной строки AzCopy][Приступая к работе со служебной программой командной строки AzCopy].
+См. также статью [Приступая к работе со служебной программой командной строки AzCopy][Getting Started with the AzCopy Command-Line Utility].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Просмотр содержимого контейнера хранилища BLOB-объектов
 Проверьте загрузку файла в хранилище BLOB-объектов следующим образом.
@@ -127,11 +127,11 @@ PolyBase использует внешние таблицы для доступ�
 
 На этом шаге нашего примера мы выполним несколько инструкций Transact-SQL для создания внешней таблицы.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] — шифрования секрета учетных данных для базы данных.
-* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] — указание сведений о проверке подлинности для учетной записи хранения Azure.
-* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] — определение расположения хранилища BLOB-объектов Azure.
-* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] — определение формата данных.
-* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] — указание определения таблицы и расположения данных.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: шифрование секрета учетных данных, заданных для базы данных.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: предоставление сведений для аутентификации учетной записи хранения Azure.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)]: определение расположения хранилища BLOB-объектов Azure.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)]: определение формата данных.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)]: определение таблицы и расположения данных.
 
 Выполните этот запрос к вашей базе данных хранилища данных SQL. В схеме dbo будет создана внешняя таблица с именем DimDate2External, которая указывает на файл с демонстрационными данными DimDate2.txt в хранилище BLOB-объектов Azure.
 
@@ -212,7 +212,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 После создания внешней таблицы вы можете загрузить данные в новую таблицу или вставить в уже существующую.
 
 * Чтобы загрузить данные в новую таблицу, выполните инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. В новую таблицу будут включены столбцы с именами, указанными в запросе. Типы данных столбцов будут соответствовать типам данных в определении внешней таблицы.
-* Чтобы загрузить данные в имеющуюся таблицу, выполните инструкцию [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
+* Чтобы загрузить данные в существующую таблицу, выполните инструкцию [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -238,26 +238,26 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Дополнительные сведения об управлении статистикой в хранилище данных SQL см. [здесь][здесь].  
+Дополнительные сведения см. в статье [Управление статистикой таблиц в хранилище данных SQL][Statistics].  
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о разработке решений на основе PolyBase см. в [руководстве по PolyBase][руководство по PolyBase].
+При разработке решений на основе PolyBase будет полезно изучить [руководство по PolyBase][PolyBase guide].
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Руководство по работе с PolyBase в хранилище данных SQL]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Загрузка данных с помощью bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
-[Руководство по PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Приступая к работе со служебной программой командной строки AzCopy]: ../storage/storage-use-azcopy.md
-[последнюю версию AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[Поддерживаемый источник и приемник]: https://msdn.microsoft.com/library/dn894007.aspx
-[Действие копирования]: https://msdn.microsoft.com/library/dn835035.aspx
-[Адаптер загрузки данных SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -278,6 +278,6 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

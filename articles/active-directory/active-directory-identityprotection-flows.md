@@ -6,18 +6,17 @@ keywords: "защита удостоверений Azure Active Directory, Cloud
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
 
 
 ---
@@ -58,13 +57,13 @@ ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
 
 1. На первом шаге пользователь получает уведомление о необходимости настроить учетную запись для использования многофакторной проверки подлинности. 
    
-    ![Исправление](./media/active-directory-identityprotection-flows/140.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/140.png "Исправление")
 2. Для этого необходимо указать системе, как ей следует связываться с вами.
    
-    ![Исправление](./media/active-directory-identityprotection-flows/141.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/141.png "Исправление")
 3. Система отправляет запрос, на который вы должны ответить.
    
-    ![Исправление](./media/active-directory-identityprotection-flows/142.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/142.png "Исправление")
 
 ## <a name="risky-sign-in-recovery"></a>Восстановление входа, представлявшего риск
 Если администратор настроил политику для риска при входе, пользователи, на которых она распространяется, будут уведомлены об этом при попытке входа. 
@@ -73,15 +72,15 @@ ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
 
 1. Пользователя информируют о том, что при входе обнаружена подозрительная активность, например, вход выполнен из нового расположения, с помощью нового устройства или приложения. 
    
-    ![Исправление](./media/active-directory-identityprotection-flows/120.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/120.png "Исправление")
 2. Пользователю нужно пройти идентификацию в ответ на запрос защиты. Если пользователь зарегистрирован для многофакторной проверки подлинности, ему нужно будет принять код безопасности и предать его, используя свой номер телефона. Так как риск создается только при входе и учетная запись пользователя не скомпрометирована, пользователю не нужно менять пароль. 
    
-    ![Исправление](./media/active-directory-identityprotection-flows/121.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/121.png "Исправление")
 
 ## <a name="risky-sign-in-blocked"></a>Блокировка входа, представляющего риск
 При наличии прав администратора в политике риска входа также можно задать блокировку входа на основе уровня риска. Чтобы разблокировать вход, пользователям необходимо обратиться к администратору или в службу технической поддержки. Кроме того, можно попробовать войти из знакомого расположения или с помощью знакомого устройства. В этом случае не поможет самостоятельное восстановление путем многофакторной проверки подлинности.
 
-![Исправление](./media/active-directory-identityprotection-flows/200.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/200.png "Исправление")
 
 ## <a name="compromised-account-recovery"></a>Восстановление скомпрометированной учетной записи
 Если настроена политика безопасности в отношении риска, пользователям, уровень риска которых отвечает уровню в политике (и поэтому предполагается, что их учетная запись скомпрометирована), нужно пройти процедуру восстановления, чтобы они могли входить. 
@@ -90,24 +89,24 @@ ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
 
 1. Пользователя информируют о риске для безопасности учетной записи из-за подозрительной активности или утери учетных данных.
    
-    ![Исправление](./media/active-directory-identityprotection-flows/101.png "Remediation")
+    ![Исправление](./media/active-directory-identityprotection-flows/101.png "Исправление")
 2. Пользователю нужно пройти идентификацию в ответ на запрос защиты. Если пользователь зарегистрирован для многофакторной проверки подлинности, он может самостоятельно восстановить скомпрометированные учетные данные. Для этого нужно принять и передать код безопасности, используя свой номер телефона. 
    
-   ![Исправление](./media/active-directory-identityprotection-flows/110.png "Remediation")
+   ![Исправление](./media/active-directory-identityprotection-flows/110.png "Исправление")
 3. Наконец, пароль пользователя принудительно изменяется, так как его учетную запись использовал другой пользователь. 
    На снимках экрана ниже показан этот процесс.
    
-   ![Исправление](./media/active-directory-identityprotection-flows/111.png "Remediation")
+   ![Исправление](./media/active-directory-identityprotection-flows/111.png "Исправление")
 
 ## <a name="compromised-account-blocked"></a>Скомпрометированная учетная запись заблокирована
 Если пользователь заблокирован согласно политике безопасности в отношении рисков, ему нужно обратиться к администратору или в службу технической поддержки. В этом случае не поможет самостоятельное восстановление путем многофакторной проверки подлинности.
 
-![Исправление](./media/active-directory-identityprotection-flows/104.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/104.png "Исправление")
 
 ## <a name="reset-password"></a>Сброс пароля
 Если для скомпрометированных пользователей заблокирован вход, администратор может создать для них временный пароль. Пользователям нужно будет изменить пароль при следующем входе.
 
-![Исправление](./media/active-directory-identityprotection-flows/160.png "Remediation")
+![Исправление](./media/active-directory-identityprotection-flows/160.png "Исправление")
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md) 
@@ -115,6 +114,6 @@ ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

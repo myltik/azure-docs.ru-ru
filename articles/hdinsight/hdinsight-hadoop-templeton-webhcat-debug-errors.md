@@ -1,43 +1,49 @@
 ---
-title: Понимание и устранение ошибок WebHCat в HDInsight
-description: Узнайте о наиболее распространенных ошибках, возвращаемых WebHCat в HDInsight, и о способах их устранения.
+title: "Понимание и устранение ошибок WebHCat в HDInsight"
+description: "Узнайте о наиболее распространенных ошибках, возвращаемых WebHCat в HDInsight, и о способах их устранения."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
+
 
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-(templeton,)-on-hdinsight"></a>Понимание и устранение ошибок, полученных из WebHCat (Templeton) в HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-templeton-on-hdinsight"></a>Понимание и устранение ошибок, полученных из WebHCat (Templeton) в HDInsight
 При использовании сервиса WebHCat (ранее известного как Templeton) для работы с HDInsight могут возникнуть ошибки. Этот документ содержит указания о наиболее распространенных ошибках, причинах их возникновения и способах их устранения.
 
-## <a name="what-is-webhcat?"></a>Что такое WebHCat?
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) — это REST API для [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), уровень управления таблицами и хранилищем данных для Hadoop. WebHCat активирован по умолчанию в кластерах HDInsight и используется различными средствами для отправки заданий, получения состояния задания и т. д. без входа в кластер.
+## <a name="what-is-webhcat"></a>Что такое WebHCat?
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) — это REST API для [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), уровень управления таблицами и хранилищем данных для Hadoop. WebHCat активирован по умолчанию в кластерах HDInsight и используется различными средствами для отправки заданий, получения состояния задания и т. д. без входа в кластер.
 
 ## <a name="modifying-configuration"></a>Изменение конфигурации
 > [!IMPORTANT]
 > Некоторые из ошибок, приведенных в этом документе, возникают из-за превышения установленного максимума. Если на этапе разрешения ошибки упоминается, что можно изменить значение, необходимо сделать одно из следующих действий для внесения изменений:
-> 
-> 
+
 
 * Для кластеров на основе **Windows** : используйте Action Script, чтобы настроить значение во время создания кластера. Для получения дополнительных сведений обратитесь к разделу [Разработка сценариев Action Script](hdinsight-hadoop-script-actions.md).
 * Для кластеров на основе **Linux** : используйте Ambari (онлайн версию или API-Интерфейс REST) для изменения значения. Для получения дополнительных сведений обратитесь к разделу [Управления HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
+
+> [!IMPORTANT]
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="default-configuration"></a>Конфигурация по умолчанию
 Ниже приведены значения конфигурации по умолчанию, которые могут повлиять на производительность WebHCat или привести к ошибкам при превышении этих значений.
 
 | Настройка | Действие | Значение по умолчанию |
 | --- | --- | --- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Максимальное количество заданий, которые могут быть активны одновременно (в состоянии ожидания или выполнения) |10 000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Максимальное количество заданий, которые могут быть активны одновременно (в состоянии ожидания или выполнения) |10 000 |
 | [templeton.exec.max-procs][max-procs] |Максимальное число запросов, которые могут обрабатываться параллельно |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |Число дней, в течение которых будет храниться журнал заданий |7 дней |
 
@@ -55,7 +61,7 @@ ms.author: larryfr
 | --- | --- |
 | Обычно это происходит во время обработки отказа между основным и дополнительным узлом HeadNode кластера |Подождите две минуты, а затем повторите операцию |
 
-## <a name="bad-request-content:-could-not-find-job"></a>Неправильный запрос содержимого: не удалось найти задание
+## <a name="bad-request-content-could-not-find-job"></a>Неправильный запрос содержимого: не удалось найти задание
 **Код состояния HTTP**: 400
 
 | Причина: | Способы устранения: |
@@ -72,7 +78,7 @@ ms.author: larryfr
 | Внутренний сбор мусора происходит в процессе WebHCat |Дождитесь завершения процесса сбора мусора или перезапустите службу WebHCat |
 | Превышено время ожидания ответа от службы диспетчера ресурсов. Это может произойти, когда число активных приложений становится выше заданного максимума (по умолчанию 10 000) |Дождитесь завершения выполняемых заданий или увеличьте ограничение на количество одновременно выполняемых заданий, изменив `yarn.scheduler.capacity.maximum-applications`. Для получения дополнительных сведений ознакомьтесь с разделом [Изменение конфигурации](#modifying-configuration). |
 | Выполнена попытка получить все задания вызовом [GET /Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) при `Fields` со значением `*`. |Не пытайтесь получить сведения о *всех* заданиях, вместо этого используйте `jobid` для получения сведений только о тех заданиях, идентификатор которых больше определенного значения. Или не используйте `Fields` |
-| Служба WebHCat не работает во время отработки отказа узла HeadNode |Подождите 2 минуты и повторите попытку |
+| Служба WebHCat не работает во время отработки отказа узла HeadNode |Подождите&2; минуты и повторите попытку |
 | В настоящий момент более 500 заданий, отправленных через WebHCat, находятся в режиме ожидания |Дождитесь завершения текущих заданий, находящихся в режиме ожидания, перед отправкой новых заданий |
 
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
@@ -82,6 +88,6 @@ ms.author: larryfr
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,19 +1,22 @@
 ---
-title: Условный доступ Azure для приложений SaaS | Microsoft Docs
-description: 'Функция условного доступа в Azure AD позволяет настроить правила доступа многофакторной проверки подлинности для каждого приложения и блокировать доступ для пользователей не в доверенной сети. '
+title: "Условный доступ Azure для приложений SaaS | Документация Майкрософт"
+description: "Функция условного доступа в Azure AD позволяет настроить правила доступа многофакторной проверки подлинности для каждого приложения и блокировать доступ для пользователей не в доверенной сети. "
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/10/2017
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
+
 
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Приступая к работе с условным доступом Azure Active Directory
@@ -28,7 +31,7 @@ ms.author: markvi
 * Федеративный или управляемый клиент Azure Active Directory
 * Федеративным клиентам требуется многофакторная проверка подлинности.
 
-## <a name="configure-perapplication-access-rules"></a>Настройка правил доступа для каждого приложения
+## <a name="configure-per-application-access-rules"></a>Настройка правил доступа для каждого приложения
 В этом разделе описывается настройка правил доступа для каждого приложения.
 
 1. Войдите на классический портал Azure, используя учетную запись глобального администратора для Azure AD.
@@ -68,7 +71,7 @@ ms.author: markvi
 ### <a name="access-rule-evaluation"></a>Оценка правил доступа
 Правила доступа оцениваются, когда пользователь обращается к федеративному приложению, использующему OAuth 2.0, OpenID Connect, SAML или WS-Federation. Кроме того, правила доступа оцениваются, когда для получения маркера доступа OAuth 2.0 и OpenID Connect используют маркер обновления. Если при использовании маркера обновления оценка политики завершается сбоем, возвращается ошибка **invalid_grant**, которая указывает, что пользователь должен пройти повторную аутентификацию в клиенте.
 
-### <a name="configure-federation-services-to-provide-multifactor-authentication"></a>Настройка служб федерации для обеспечения многофакторной проверки подлинности
+### <a name="configure-federation-services-to-provide-multi-factor-authentication"></a>Настройка служб федерации для обеспечения многофакторной проверки подлинности
 Для федеративных клиентов MFA могут выполнять Azure Active Directory или локальный сервер AD FS.
 
 По умолчанию многофакторная проверка подлинности осуществляется на странице, размещенной в Azure Active Directory. Чтобы настроить локальную MFA, воспользуйтесь модулем Azure AD для Windows PowerShell и в Azure Active Directory задайте для свойства **–SupportsMFA** значение **True**.
@@ -83,6 +86,9 @@ ms.author: markvi
 * [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

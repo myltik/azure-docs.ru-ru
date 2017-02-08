@@ -1,10 +1,10 @@
 ---
-title: "Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Документация Майкрософт"
-description: "Полный список соединителей, управляемых корпорацией Майкрософт, которые можно использовать для создания приложений логики в службе приложений Azure"
+title: "Список соединителей для Azure Logic Apps | Документация Майкрософт"
+description: "Полный список управляемых Майкрософт соединителей, которые можно использовать для создания приложений логики."
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 
 
 ---
@@ -38,14 +38,15 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 |[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>запрос**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>ответ**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![Значок API][Insightlyicon]<br/>**Insightly**|![Значок API][Instagramicon]<br/>**Instagram**|![Значок API][Instapapericon]<br/>**Instapaper**|![Значок API][JIRAicon]<br/>**JIRA**|
 |[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Значок API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Вложенное<br/>приложение логики**][Nested-Logic-Appdoc]|
-[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|
-[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**Протокол SFTP**][SFTPdoc]|
-[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Значок API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**Протокол SMTP**][SMTPdoc]|![Значок API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![Значок API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![Значок API][Vimeoicon]<br/>**Vimeo**|![Значок API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Значок API][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Значок API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**Файловая система**][FileSystemdoc]
+|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Пользователи<br/>Office 365**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Видео**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive для<br/>бизнеса**][OneDrive-for-Businessdoc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Значок API][PagerDutyicon]<br/>**PagerDuty**|![Значок API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Запрос**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Повторение**][Recurrencedoc]|![Значок API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**Протокол SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Значок API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**Протокол SMTP**][SMTPdoc]
+|![Значок API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Значок API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![Значок API][Vimeoicon]<br/>**Vimeo**|![Значок API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Значок API][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![Значок API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**Файловая система**][FileSystemdoc]|
 
 ### <a name="integration-account-connectors"></a>Соединители для учетной записи интеграции 
 
@@ -65,7 +66,7 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 
 | корпоративные<br/>соединители |  |
 | --- | --- |
-|![Значок API][MQicon]<br/>**MQ**|![Значок API][SAPicon]<br/>**SAP**|
+|![Значок API][MQicon]<br/>**MQ**|![Значок API][SAPicon]<br/>**SAP**<br/>[Соединитель SAP]|
 
 
 
@@ -82,9 +83,9 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [См. статью Создание нового приложения логики, подключающего службы SaaS.](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [См. статью о создании пользовательского соединителя.](../app-service-logic/app-service-logic-create-api-app.md)
-* [См. статью Мониторинг приложений логики.](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [См. статью Создание нового приложения логики, подключающего службы SaaS.](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [См. статью о создании пользовательского соединителя.](../logic-apps/logic-apps-create-api-app.md)
+* [См. статью Мониторинг приложений логики.](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Подключается к большому двоичному объекту Azure для управления файлами в контейнере больших двоичных объектов."
@@ -120,18 +121,18 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [twitterdoc]: ./connectors-create-api-twitter.md "Подключается к Twitter для получения временных шкал, публикации твитов и выполнения других задач."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Синхронизация повседневной активности."
 [yammerdoc]: ./connectors-create-api-yammer.md "Подключается к Yammer для публикации и получения новых сообщений."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Дополнительные сведения об AS2 в рамках корпоративной интеграции."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Дополнительные сведения об X12 в рамках корпоративной интеграции."
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Дополнительные сведения о проверке XML в рамках корпоративной интеграции."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Дополнительные сведения о преобразованиях в рамках корпоративной интеграции."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Дополнительные сведения о декодировании AS2 в рамках корпоративной интеграции."
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Дополнительные сведения о кодировке AS2 в рамках корпоративной интеграции."
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Дополнительные сведения о декодировании X12 в рамках корпоративной интеграции."
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Дополнительные сведения о кодировке X12 в рамках корпоративной интеграции."
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Дополнительные сведения о декодировании EDIFACT в рамках корпоративной интеграции."
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Дополнительные сведения о кодировке EDIFACT в рамках корпоративной интеграции."
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Дополнительные сведения об AS2 в рамках корпоративной интеграции."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Дополнительные сведения об X12 в рамках корпоративной интеграции."
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Дополнительные сведения о неструктурированном файле в рамках корпоративной интеграции."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Дополнительные сведения о проверке XML в рамках корпоративной интеграции."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Дополнительные сведения о преобразованиях в рамках корпоративной интеграции."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Дополнительные сведения о декодировании AS2 в рамках корпоративной интеграции."
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Дополнительные сведения о кодировке AS2 в рамках корпоративной интеграции."
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Дополнительные сведения о декодировании X12 в рамках корпоративной интеграции."
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Дополнительные сведения о кодировке X12 в рамках корпоративной интеграции."
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Дополнительные сведения о декодировании EDIFACT в рамках корпоративной интеграции."
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Дополнительные сведения о кодировке EDIFACT в рамках корпоративной интеграции."
 [httpdoc]: ./connectors-native-http.md "Соединитель HTTP для выполнения вызовов HTTP."
 [http-requestdoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
 [http-responsedoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
@@ -139,9 +140,9 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "Соединитель HTTP + Swagger для выполнения вызовов HTTP."
 [querydoc]: ./connectors-native-query.md "Действие "Запрос" для выбора и фильтрации массивов."
 [webhookdoc]: ./connectors-native-webhook.md "Действие webhook и триггер для приложений логики."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Интеграция приложений логики с Функциями Azure."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Интеграция приложений логики с приложениями API службы приложений."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Интеграция приложений логики с вложенным рабочим процессом."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Интеграция приложений логики с Функциями Azure."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Интеграция приложений логики с приложениями API службы приложений."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Интеграция приложений логики с вложенным рабочим процессом."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Триггер повторения для приложений логики."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Подключается к Google Таблицы и может изменять таблицы."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Подключается к Google Задачи и может управлять задачами."
@@ -150,7 +151,8 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Подключается к Mandrill и может использоваться для обмена данными."
 [youtubedoc]: ./connectors-create-api-youtube.md "Подключается к YouTube и может взаимодействовать с видео и каналами."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключается к SparkPost и может использоваться для обмена данными."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Использование соединителя файловой системы для подключения к локальной файловой системе."
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Использование соединителя файловой системы для подключения к локальной файловой системе."
+[Соединитель SAP]: ..//logic-apps/logic-apps-using-sap-connector.md "Сведения о соединителе SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +250,6 @@ ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Use twin properties | Microsoft Docs
-description: This tutorial shows you how to use twin properties
+title: "Использование двойников устройств Центра Интернета вещей (.NET или Node) | Документация Майкрософт"
+description: "Настройка устройств с помощью двойников устройств Центра Интернета вещей Azure. Используйте пакет SDK для устройств Azure IoT для Node.js, чтобы реализовать приложение имитации устройства, и пакет SDK для служб Azure IoT для .NET, чтобы реализовать приложение-службу, которое изменит конфигурацию устройства с помощью двойника устройства."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3c627476-f982-43c9-bd17-e0698c5d236d
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
@@ -14,46 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
+
 
 ---
-# <a name="tutorial:-use-desired-properties-to-configure-devices-(preview)"></a>Tutorial: Use desired properties to configure devices (preview)
+# <a name="use-desired-properties-to-configure-devices"></a>Настройка устройств с помощью требуемых свойств
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-At the end of this tutorial, you will have two Node.js console applications:
+По завершении работы с этим руководством у вас будет два консольных приложения Node.js:
 
-* **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery**, a .NET console app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
+* **SimulateDeviceConfiguration.js** — это приложение имитации устройства, которое ожидает обновления требуемой конфигурации и сообщает о состоянии обновления имитации конфигурации.
+* **SetDesiredConfigurationAndQuery** — это внутреннее приложение .NET, которое задает требуемую конфигурацию на устройстве и выполняет запрос к процессу обновления конфигурации.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
+> Статья [IoT Hub SDKs][lnk-hub-sdks] (Пакеты SDK для Центра Интернета вещей) содержит сведения о разных пакетах SDK для Azure IoT, с помощью которых можно создать приложения для устройств и внутренние приложения.
 > 
 > 
 
-To complete this tutorial you need the following:
+Для работы с этим учебником требуется:
 
 * Microsoft Visual Studio 2015.
-* Node.js version 0.10.x or later.
-* An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+* Node.js версии 0.10.x или более поздней.
+* Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
-If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have a device management enabled hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
+Если вы выполнили указания руководства [Приступая к работе с двойниками устройств (предварительная версия)][lnk-twin-tutorial], то у вас уже есть Центр Интернета вещей и удостоверение устройства **myDeviceId**. Вы можете перейти к разделу [Создание приложения имитации устройства][lnk-how-to-configure-createapp].
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-## <a name="create-the-simulated-device-app"></a>Create the simulated device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
+## <a name="create-the-simulated-device-app"></a>Создание приложения имитации устройства
+В этом разделе вы создаете консольное приложение Node.js, которое подключается к центру как **myDeviceId**, ожидает обновления требуемой конфигурации и сообщает об обновлениях в ходе обновления имитации конфигурации.
+
+1. Создайте пустую папку с именем **simulatedeviceconfiguration**. В папке **simulatedeviceconfiguration** создайте файл package.json, используя следующую команду в командной строке. Примите значения по умолчанию:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+2. В командной строке в папке **simulatedeviceconfiguration** выполните следующую команду, чтобы установить пакеты **azure-iot-device** и **azure-iot-device-mqtt**.
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
-4. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:
+3. В текстовом редакторе создайте файл **SimulateDeviceConfiguration.js** в папке **simulatedeviceconfiguration**.
+4. Добавьте следующий код в файл **SimulateDeviceConfiguration.js** и замените заполнитель **{device connection string}** строкой подключения устройства, скопированной при создании удостоверения устройства **myDeviceId**.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -87,15 +93,15 @@ In this section, you create a Node.js console app that connects to your hub as *
             }
         });
    
-    The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
+    Объект **Client** позволяет получить все методы, необходимые для взаимодействия с двойниками устройства с устройства. После инициализации объекта **Client** предыдущий код извлекает двойник устройства для **myDeviceId** и подключает обработчик для обновления требуемых свойств. Обработчик проверяет, отправлен ли запрос на изменение конфигурации. Для этого он сравнивает идентификаторы конфигураций, а затем вызывает метод, который запускает изменение конфигурации.
    
-    Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
+    Обратите внимание, что для простоты приведенный выше код использует жестко заданное значение по умолчанию для выполнения начальной настройки. Настоящее приложение, вероятно, скачало бы эту конфигурацию из локального хранилища.
    
    > [!IMPORTANT]
-   > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
+   > События изменения требуемых свойств всегда создаются единожды при подключении устройства. Прежде чем что-либо делать, обязательно убедитесь, что требуемые свойства действительно изменились.
    > 
    > 
-5. Add the following methods before the `client.open()` invocation:
+5. Добавьте следующие методы перед осуществлением вызова `client.open()`:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -136,40 +142,40 @@ In this section, you create a Node.js console app that connects to your hub as *
             });
         };
    
-    The **initConfigChange** method updates reported properties on the local twin object with the config update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the twin on the service.
+    Метод **initConfigChange** обновляет сообщаемые свойства в объекте локального двойника устройства с помощью запроса на обновление конфигурации и устанавливает для состояния значение **Pending** (Ожидание), а затем обновляет двойник устройства в службе. После успешного обновления двойника устройства он имитирует длительный процесс, который завершается выполнением **completeConfigChange**. Этот метод обновляет сообщаемые локальные свойства, установив для состояния значение **Success** и удалив объект **pendingConfig**. Затем он обновляет двойник устройства в службе.
    
-    Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
+    Обратите внимание, что для сокращения нагрузки на полосу пропускания при обновлении сообщаемых свойств указываются только свойства, которые нужно изменить (**patch** в коде выше), а не заменяется весь документ.
    
    > [!NOTE]
-   > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
+   > В этом руководстве не имитируется поведение при одновременном обновлении конфигураций. В некоторых случаях обновление конфигурации может пройти в соответствии с изменениями целевой конфигурации, в других может потребоваться поместить изменения в очередь, а в остальных они могут быть отклонены с ошибкой. Следует учитывать желаемое поведение для конкретной конфигурации и добавить соответствующую логику перед ее изменением.
    > 
    > 
-6. Run the device app:
+6. Запустите приложение устройства:
    
         node SimulateDeviceConfiguration.js
    
-    You should see the message `retrieved device twin`. Keep the app running.
+    Отобразится сообщение `retrieved device twin`. Не отключайте приложение.
 
-## <a name="create-the-service-app"></a>Create the service app
-In this section, you will create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
+## <a name="create-the-service-app"></a>Создание приложения службы
+В этом разделе вы создадите консольное приложение .NET, которое обновляет *требуемые свойства* двойника устройства, связанного с **myDeviceId**, с использованием нового объекта конфигурации телеметрии. Затем оно выполняет запрос к двойникам устройств, которые хранятся в Центре Интернета вещей, и показывает разницу между требуемой и сообщаемой конфигурацией устройства.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
+1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения** . Назовите проект **SetDesiredConfigurationAndQuery**.
    
-    ![New Visual C# Windows Classic Desktop project][img-createapp]
-2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+    ![Новый проект классического приложения Windows на языке Visual C#][img-createapp]
+2. В обозревателе решений щелкните правой кнопкой мыши проект **SetDesiredConfigurationAndQuery** и выберите пункт **Управление пакетами Nuget**.
+3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. В результате выполняется скачивание и установка пакета NuGet [SDK для служб Интернета вещей Azure][lnk-nuget-service-sdk] и его зависимостей, а также добавляется соответствующая ссылка.
    
-    ![Nuget Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+    ![Окно "Диспетчер пакетов NuGet"][img-servicenuget]
+4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Добавьте следующие поля в класс **Program** . Замените значение заполнителя строкой подключения к Центру Интернета вещей, созданному в предыдущем разделе.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Add the following method to the **Program** class:
+6. Добавьте следующий метод в класс **Program** .
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -186,7 +192,7 @@ In this section, you will create a Node.js console app that updates the *desired
                 };
    
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
-            Console.WriteLine("Updated desired state");
+            Console.WriteLine("Updated desired configuration");
    
             while (true)
             {
@@ -203,34 +209,34 @@ In this section, you will create a Node.js console app that updates the *desired
             }
         }
    
-    The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object.
-    After that, every 10 seconds, it queries the twins stored in the hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
+    Объект **Registry** позволяет получить все методы, необходимые для взаимодействия с двойниками устройства из службы. После инициализации объекта **Registry** предыдущий код извлекает двойник устройства для **myDeviceId** и обновляет его требуемые свойства, используя новый объект конфигурации телеметрии.
+    Затем этот код каждые 10 секунд выполняет запрос к двойникам устройств, которые хранятся в Центре Интернета вещей, и выводит требуемые и сообщаемые конфигурации телеметрии. Чтобы узнать, как создавать эффективные отчеты на всех устройствах, см. статью [Справочник по языку запросов для двойников и заданий][lnk-query].
    
    > [!IMPORTANT]
-   > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
+   > Это приложение выполняет запрос к Центру Интернета вещей каждые 10 секунд в качестве примера. Используйте запросы для создания представляемых пользователям отчетов на многих устройствах, а не для обнаружения изменений. Если вашему решению требуется отправка уведомлений о событиях устройства в реальном времени, используйте [сообщения, отправляемые с устройства в облако][lnk-d2c].
    > 
    > 
-7. Finally, add the following lines to the **Main** method:
+7. Наконец, добавьте следующие строки в метод **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         SetDesiredConfigurationAndQuery();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
+8. Во время выполнения **SimulateDeviceConfiguration.js** запустите приложение .NET из Visual Studio, нажав клавишу **F5**. Состояние сообщаемой конфигурации изменится с **Успешно** на **В ожидании** и снова на **Успешно**, а значение активной частоты отправки изменится с 24 часов на 5 минут.
    
    > [!IMPORTANT]
-   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
+   > Результаты запроса выводятся после операции сообщения устройства с задержкой (не более минуты). Таким образом обеспечивается работа инфраструктуры запросов в очень широком масштабе. Для получения согласованных представлений одного двойника устройства используйте метод **getDeviceTwin** в классе **Registry**.
    > 
    > 
 
-## <a name="next-steps"></a>Next steps
-In this tutorial, you set a desired configuration as *desired properties* from the back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
+## <a name="next-steps"></a>Дальнейшие действия
+В этом руководстве вы установили требуемую конфигурацию в качестве *требуемых свойств* из серверной части решения и написали код приложения для устройства, которое обнаруживает изменения и имитирует многоэтапный процесс обновления, о состоянии которого сообщается в качестве сообщаемых свойств.
 
-Use the following resources to learn how to:
+Ознакомьтесь со следующими материалами, чтобы узнать как:
 
-* send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-* schedule or perform operations on large sets of devices see the [Use jobs to schedule and broadcast device operations][lnk-schedule-jobs] tutorial.
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
+* отправить данные телеметрии с устройств (учебник [Приступая к работе с Центром Интернета вещей Azure (Node)][lnk-iothub-getstarted]);
+* запланировать или выполнить операции на больших наборах устройств (см. учебник [Планирование и трансляция заданий][lnk-schedule-jobs];
+* управлять устройствами в интерактивном режиме, например включить вентилятор из управляемого пользователем приложения (учебник [Use direct methods][lnk-methods-tutorial] (Использование прямых методов)).
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
@@ -239,7 +245,7 @@ Use the following resources to learn how to:
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0-preview-004
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
@@ -247,19 +253,20 @@ Use the following resources to learn how to:
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
-[lnk-schedule-jobs]: iot-hub-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 8661d4b3da31e3e3e54590a013b5c784216ecefb
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Приступая к работе с хранилищем файлов Azure в Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
 ## <a name="video-using-azure-file-storage-with-windows"></a>Видео. Использование хранилища файлов Azure в Windows
 В этом видео показано создание и использование общих папок Azure в ОС Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -645,6 +645,9 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 15. **Как устранить ошибки в хранилище файлов Azure?**
     
     Вы можете найти подробное руководство по устранению неполадок в статье [Troubleshooting Azure File storage problems](storage-troubleshoot-file-connection-problems.md) (Устранение неполадок в хранилище файлов Azure).               
+16. ** Можно ли использовать FileSystemWatcher для прослушивания событий, таких как создание, изменение и удаление файлов и каталогов в общей папке службы файлов Azure?
+
+№ Для этого можно использовать пакет SDK для веб-заданий Azure. Вы можете создать собственные активируемые или неактивируемые привязки и прослушивать события в хранилище файлов. Начальные инструкции см. в [руководстве по созданию новых триггеров и привязок](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
@@ -670,6 +673,6 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 
