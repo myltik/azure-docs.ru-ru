@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cbed591d15daf8060f13d0e9b009d65c85d256aa
-ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
+ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
+ms.openlocfilehash: 505b4e3b7862657bcfd8eea1755677104a9b68eb
 
 
 ---
 
 # <a name="using-service-map-solution-in-operations-management-suite-oms"></a>Использование решения схемы услуги в Operations Management Suite (OMS)
-![Значок "Управление оповещениями"](media/oms-service-map/icon.png) Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Это решение позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные службы.  Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
+Служба схемы услуги автоматически обнаруживает компоненты приложений в системах Windows и Linux и сопоставляет взаимодействие между службами. Это решение позволяет рассматривать серверы как взаимосвязанные системы, предоставляющие важные службы.  Схема услуги отображает сведения о подключениях между серверами, процессами и портами в любой подключенной по протоколу TCP архитектуре без дополнительной настройки. Пользователям требуется только установить агент.
 
 В этой статье подробно описано использование схемы услуги.  Дополнительные сведения о настройке схемы услуги и соответствующих агентов подключения см. в статье [Настройка решения схемы услуги в Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md).
 
@@ -56,6 +56,11 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 
 ![Карта компьютера с выбранными свойствами](media/oms-service-map/machine-map.png)
 
+## <a name="status-badges"></a>Значки состояния
+В нижней части схемы каждого сервера может отображаться список значков состояния с информацией о состоянии сервера.  Наличие значков свидетельствует о том, что для сервера поступили важные сведения из одной из интеграций решения OMS.  Если щелкнуть значок, на панели справа откроются сведения о состоянии.  Сейчас доступны такие значки состояния: "Предупреждения", "Изменения", "Безопасность" и "Обновления".
+
+![Неудачные подключения](media/oms-service-map/status-badges.png)
+
 ## <a name="failed-connections"></a>Неудачные подключения
 На картах схемы услуги отображаются сведения о неудачных подключениях компьютеров и процессов. Пунктирная красная линия указывает, что при подключении клиентской системы к процессу или порту произошел сбой.  Сведения о неудачных подключениях поступают из всех систем, на которых развернут агент схемы услуги и где попытка подключения завершилась сбоем.  Служба схемы услуги оценивает это за счет наблюдения за сокетами TCP, которым не удалось установить подключение.  Ошибки подключения могут быть связаны с брандмауэром, неправильными настройками клиента или сервера, а также с недоступностью удаленной службы.
 
@@ -63,7 +68,20 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 
 Понятие причин сбоя подключений может помочь с устранением неполадок, проверкой переноса и выполнением анализа безопасности, а также разобраться, как устроена архитектура.  Иногда неудачные подключения безвредны, но зачастую они указывают на проблему, например внезапная недоступность среды отработки отказа или отсутствие взаимодействия между двумя уровнями приложения после миграции в облако.
 
-## <a name="computer-and-process-properties"></a>Свойства компьютера или процесса
+## <a name="context-menu"></a>Контекстное меню
+Если щелкнуть многоточие в правом верхнем углу любого сервера, откроется контекстное меню для этого сервера.
+
+![Неудачные подключения](media/oms-service-map/context-menu.png)
+
+### <a name="load-server-map"></a>Load Server Map (Загрузить схему сервера)
+Если выбрать пункт Load Server Map (Загрузить схему сервера), откроется новая схема с выбранным сервером в качестве нового целевого компьютера.
+
+### <a name="showhide-self-links"></a>Show/Hide Self Links (Показать/Скрыть циклические ссылки)
+Если выбрать пункт Show Self Links (Показать циклические ссылки), узел сервера будет обновлен, включая все циклические ссылки, которые являются TCP-подключениями, начинающимися и заканчивающимися на процессах в пределах сервера.  При отображении циклических ссылок меню изменится на Hide Self Links (Скрыть циклические ссылки), что даст пользователям возможность переключить отображение циклических ссылок.
+
+
+
+## <a name="computer-and-process-properties"></a>Свойства компьютера и процесса
 Выбрав на карте схемы услуги виртуальную машину или процесс, можно просмотреть дополнительные сведения об их свойствах.  Для виртуальных машин предоставляются сведения о DNS-имени, IPv4-адресах, мощности ЦП и объеме памяти, типе виртуальной машины, версии операционной системы, времени последнего перезапуска и идентификаторах соответствующих агентов OMS и схемы услуги.
 
 ![Свойства виртуальной машины](media/oms-service-map/machine-properties.png)
@@ -81,7 +99,7 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 
 ![Сводка по виртуальной машине](media/oms-service-map/machine-summary.png)
 
-## <a name="oms-change-tracking-integration"></a>Интеграция с решением OMS "Отслеживание изменений"
+## <a name="oms-change-tracking-integration"></a>Интеграция с решением для отслеживания изменений в OMS
 Если схема услуги и отслеживание изменений включены и настроены в вашей рабочей области OMS, то они интегрируются друг с другом автоматически.
 
 На панели Machine Change Tracking (Отслеживание изменений на компьютере) содержится список всех изменений (начиная с последнего события), а также ссылка на поиск по журналу для получения дополнительных сведений.
@@ -110,7 +128,7 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 ![Панель отслеживания изменений на компьютере](media/oms-service-map/machine-updates.png)
 
 
-## <a name="oms-alert-integration"></a>Интеграция с решением для оповещения OMS
+## <a name="oms-alerts-integration"></a>Интеграция с решением для управления оповещениями OMS
 Схема услуги интегрируется с оповещениями OMS для отображения активированных оповещений для выбранного сервера за указанный период времени.  При наличии обновлений на сервере будет отображаться соответствующий значок, и эти обновления будут перечислены на панели оповещений виртуальной машины.
 
 ![Панель оповещений виртуальной машины](media/oms-service-map/machine-alerts.png)
@@ -125,14 +143,15 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 ## <a name="log-analytics-records"></a>Записи Log Analytics
 Данные инвентаризации виртуальных машин и процессов из схемы услуги можно получить, выполнив [поиск](../log-analytics/log-analytics-log-searches.md) в Log Analytics.  Эти сведения используются в разных сценариях, таких как планирование миграции, выполнение анализа емкости, обнаружение и устранение проблем с производительностью.
 
-Для каждой уникальной виртуальной машины и процесса создается одна запись в час. Кроме того, записи создаются во время запуска виртуальной машины или процесса, а также при подключении их к службе схемы услуги.  В таблице ниже приведены свойства этих записей.
+Для каждого уникального компьютера и процесса создается одна запись в час. Кроме того, записи создаются во время запуска виртуальной машины или процесса, а также при подключении их к схеме услуги.  В таблице ниже приведены свойства этих записей.  Поля и значения в событиях ServiceMapComputer_CL сопоставляются с полями ресурса Machine (Компьютер) в ServiceMap ARM API.  Поля и значения в событиях ServiceMapProcess_CL сопоставляются с полями ресурса Process (Процесс) в ServiceMap ARM API.  Поле ResourceName_s совпадает с полем имени в соответствующем ресурсе ARM. Обратите внимание, что по мере расширения функций схемы услуги эти поля могут измениться.
+
 
 На основе созданных в системе свойств можно определить уникальные компьютеры или процессы:
 
-- PersistentKey_s — уникальное свойство, определенное в конфигурации процесса, например командная строка и идентификатор пользователя.  Оно уникальное для определенного компьютера, но может использоваться на нескольких компьютерах.
-- ProcessId_s и ComputerId_s — глобально уникальные свойства в модели схемы услуги.
+- Компьютер — используйте свойство ResourceId или ResourceName_s для уникальной идентификации компьютера в рабочей области OMS.
+- Процесс — используйте свойство ResourceId для уникальной идентификации процесса в рабочей области OMS. Свойство ResourceName_s является уникальным для компьютера, на котором выполняется процесс (MachineResourceName_s). 
 
-
+Так как для одного процесса и компьютера в заданном диапазоне времени могут существовать несколько записей, то запросы могут возвращать несколько записей для одного и того же компьютера или процесса. Чтобы включить только самую последнюю запись, добавьте к запросу строку "| dedup ResourceId".
 
 ### <a name="servicemapcomputercl-records"></a>Записи ServiceMapComputer_CL
 В записях типа **AdmComputer_CL** содержатся данные инвентаризации для серверов с агентами схемы услуги.  У этих записей есть свойства, приведенные в таблице ниже.
@@ -141,22 +160,24 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 |:--|:--|
 | Тип | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ComputerName_s | Имя компьютера под управлением Windows или Linux |
-| CPUSpeed_d | Скорость ЦП (в МГц) |
-| DnsNames_s | Список всех DNS-имен этого компьютера |
-| IPv4s_s | Список всех IPv4-адресов, используемых на этом компьютере |
-| IPv6s_s | Список всех IPv6-адресов, используемых на этом компьютере  (Служба схемы услуги определяет IPv6-адреса, но не обнаруживает зависимости IPv6.) |
-| Is64Bit_b | Значение true или false (в зависимости от типа операционной системы) |
-| MachineId_s | Внутренний идентификатор GUID, уникальный для определенной рабочей области OMS  |
+| ResourceId | Уникальный идентификатор для компьютера в рабочей области |
+| ResourceName_s | Уникальный идентификатор для компьютера в рабочей области |
+| ComputerName_s | Полное доменное имя компьютера |
+| Ipv4Addresses_s | Список IPv4-адресов сервера |
+| Ipv6Addresses_s | Список IPv6-адресов сервера |
+| DnsNames_s | Массив DNS-имен |
 | OperatingSystemFamily_s | Windows или Linux |
-| OperatingSystemVersion_s | Длинная строка с версией ОС |
-| TimeGenerated | Дата и время создания записи |
-| TotalCPUs_d | Количество ядер ЦП |
-| TotalPhysicalMemory_d | Объем памяти (в МБ) |
-| VirtualMachine_b | Значение true или false (в зависимости от типа ОС гостевой виртуальной машины) |
-| VirtualMachineID_g | Идентификатор виртуальной машины Hyper-V |
-| VirtualMachineName_g | Имя виртуальной машины Hyper-V |
-| VirtualMachineType_s | Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
+| OperatingSystemFullName_s | Полное название операционной системы  |
+| Bitness_s | Разрядность компьютера (32-разрядный) или (64-разрядный) |
+| PhysicalMemory_d | Объем физической памяти (в МБ) |
+| Cpus_d | Количество ЦП |
+| CpuSpeed_d | Скорость ЦП (в МГц)|
+| VirtualizationState_s | "неизвестно", "физический", "виртуальный", "гипервизор" |
+| VirtualMachineType_s | "hyperv", "vmware" и т. д. |
+| VirtualMachineNativeMachineId_g | Идентификатор виртуальной машины, назначенный ее гипервизором |
+| VirtualMachineName_s | имя виртуальной машины; |
+| BootTime_t | Время загрузки |
+
 
 
 ### <a name="servicemapprocesscl-type-records"></a>Записи типа ServiceMapProcess_CL
@@ -166,49 +187,56 @@ ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
 |:--|:--|
 | Тип | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| CommandLine_s | Полная командная строка процесса |
-| CompanyName_s | Название компании (из Windows PE или Linux RPM) |
-| Description_s | Длинное описание процесса (из Windows PE или Linux RPM) |
-| FileVersion_s | Версия исполняемого файла (из Windows PE, только для Windows) |
-| FirstPid_d | Идентификатор процесса ОС |
-| InternalName_s | Внутреннее имя исполняемого файла (из Windows PE, только для Windows) |
-| MachineId_s | Внутренний идентификатор GUID, уникальный для определенной рабочей области OMS  |
-| Name_s | Имя выполняемого процесса |
-| Path_s | Путь файловой системы выполняемого процесса |
-| PersistentKey_s | Внутренний идентификатор GUID, уникальный на этом компьютере |
-| PoolId_d | Внутренний идентификатор для объединения процессов на основе схожих командных строк |
-| ProcessId_s | Внутренний идентификатор GUID, уникальный для определенной рабочей области OMS  |
-| ProductName_s | Строка с именем продукта (из Windows PE или Linux RPM) |
-| ProductVersion_s | Строка с версией продукта (из Windows PE или Linux RPM) |
-| StartTime_t | Время запуска процесса (по времени на локальном компьютере) |
-| TimeGenerated | Дата и время создания записи |
-| UserDomain_s | Домен владельца процесса (только для Windows) |
-| UserName_s | Имя владельца процесса (только для Windows) |
-| WorkingDirectory_s | Рабочий каталог процесса |
+| ResourceId | Уникальный идентификатор для процесса в рабочей области |
+| ResourceName_s | Уникальный идентификатор для процесса на компьютере, на котором он выполняется|
+| MachineResourceName_s | Имя ресурса компьютера |
+| ExecutableName_s | Имя исполняемого файла процесса |
+| StartTime_t | Время запуска пула процесса |
+| FirstPid_d | Первый идентификатор процесса в пуле процессов |
+| Description_s | Описание процесса |
+| CompanyName_s | Название компании |
+| InternalName_s | Внутреннее имя |
+| ProductName_s | Название продукта |
+| ProductVersion_s | Версия продукта |
+| FileVersion_s | Версия файла |
+| CommandLine_s | Командная строка |
+| ExecutablePath _s | Путь к исполняемому файлу |
+| WorkingDirectory_s | Рабочий каталог |
+| UserName | Учетная запись, под которой выполняется процесс |
+| UserDomain | Домен, под которым выполняется процесс |
 
 
 ## <a name="sample-log-searches"></a>Пример поисков журналов
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Вывод сведений об объеме физической памяти для всех управляемых компьютеров
-Type=ServiceMapComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
+### <a name="list-all-known-machines"></a>Список всех известных компьютеров
+Type=ServiceMapComputer_CL | dedup ResourceId
 
-### <a name="list-computer-name-dns-ip-and-os-version"></a>Вывод сведений об имени компьютера, DNS-имени, IP-адресе и версии ОС
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemVersion_s, DnsNames_s, IPv4s_s  | dedup ComputerName_s
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Вывод сведений об объеме физической памяти для всех управляемых компьютеров
+Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+
+### <a name="list-computer-name-dns-ip-and-os"></a>Список сведений об имени компьютера, DNS-имени, IP-адресе и ОС
+Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Поиск всех процессов с sql в командной строке
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ProcessId_s
+Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
 
-### <a name="after-viewing-event-data-for-given-process-use-its-machine-id-to-retrieve-the-computers-name"></a>Получение имени компьютера на основе идентификатора компьютера, полученного из данных события для определенного процесса
-Type=ServiceMapComputer_CL "m!m-9bb187fa-e522-5f73-66d2-211164dc4e2b" | Distinct ComputerName_s
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Поиск компьютера (самой последней записи) по имени ресурса
+Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Поиск компьютера (самой последней записи) по IP-адресу
+Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+
+### <a name="list-all-known-processes-on-a-given-machine"></a>Список всех известных процессов на определенном компьютере
+Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Вывод списка всех компьютеров, на которых выполняется SQL
-Type=ServiceMapComputer_CL MachineId_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineId_s} | Distinct ComputerName_s
+Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
 
 ### <a name="list-of-all-unique-product-versions-of-curl-in-my-datacenter"></a>Вывод списка всех уникальных версий продукта cURL в своем центре обработки данных
-Type=ServiceMapProcess_CL Name_s=curl | Distinct ProductVersion_s
+Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Создание группы, объединяющей все компьютеры, на которых выполняется CentOS
-Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct ComputerName_s
+Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
 
@@ -224,6 +252,6 @@ Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct Comput
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

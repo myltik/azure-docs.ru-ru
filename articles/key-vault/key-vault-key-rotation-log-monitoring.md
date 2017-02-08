@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: 4115a3638519896c3710ddc33dd0caa2e8d9d720
-ms.openlocfilehash: 05e33c56e6aa6bedfa2e6b8ff18fe182d87ed80e
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
 
 
 ---
@@ -416,7 +416,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 ### <a name="azure-logic-app"></a>Приложение логики Azure
 Сейчас вам нужно создать приложение логики Azure, которое будет получать события, отправленные функцией в очередь служебной шины, анализировать их содержимое и отправлять сообщения электронной почты при выполнении заданного условия.
 
-Чтобы [создать приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md), последовательно выберите **Создать -> Приложение логики**.
+Чтобы [создать приложение логики](../logic-apps/logic-apps-create-a-logic-app.md), последовательно выберите **Создать -> Приложение логики**.
 
 Создав приложение логики, перейдите к нему и выберите команду **Изменить**. Чтобы подключить приложение к очереди, в редакторе приложения логики выберите **Очередь служебной шины** и введите учетные данные служебной шины.
 
@@ -440,6 +440,6 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

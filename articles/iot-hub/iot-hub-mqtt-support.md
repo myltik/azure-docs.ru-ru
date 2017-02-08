@@ -1,6 +1,6 @@
 ---
-title: "Поддержка MQTT в Центре Интернета вещей | Документация Майкрософт"
-description: "Описание поддержки MQTT в центре IoT"
+title: "Общие сведения о поддержке Azure MQTT в Центре Интернета вещей | Документация Майкрософт"
+description: "Руководство разработчика: поддержка устройств, подключающихся к конечной точке для устройств Центра Интернета вещей по протоколу MQTT. Содержит сведения о встроенной поддержке MQTT в пакетах SDK для устройств Azure IoT."
 services: iot-hub
 documentationcenter: .net
 author: kdotchkoff
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: cb771818a437fdacd20fe192a087ebc0c8952f21
+ms.sourcegitcommit: 0fc92fd63118dd1b3c9bad5cf7d5d8397bc3a0b6
+ms.openlocfilehash: 2f952b85a99300d0a52a59f639675d6f02fafe08
 
 
 ---
@@ -53,23 +53,23 @@ ms.openlocfilehash: cb771818a437fdacd20fe192a087ebc0c8952f21
 Если устройство не может использовать пакеты SDK для устройств, оно может подключаться к общедоступным конечным точкам устройства по протоколу MQTT. В пакете **CONNECT** устройство должно использовать следующие значения.
 
 * В поле **Идентификатор клиента** укажите значение **идентификатор устройства**.
-* В поле **Имя пользователя** укажите значение `{iothubhostname}/{device_id}`, где {iothubhostname} — это полная запись CName Центра Интернета вещей.
+* В поле **Имя пользователя** укажите значение `{iothubhostname}/{device_id}/api-version=2016-11-14`, где {iothubhostname} — это полная запись CName Центра Интернета вещей.
 
-    Например, если имя Центра Интернета вещей — **contoso.azure-devices.net**, а имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01`.
+    Например, если имя Центра Интернета вещей — **contoso.azure-devices.net**, а имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * В поле **Пароль** укажите маркер SAS. Формат маркера SAS аналогичен описанному для протоколов HTTP и AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     Дополнительные сведения о способах создания маркеров SAS см. в соответствующем разделе статьи [Управление доступом к Центру Интернета вещей][lnk-sas-tokens].
 
     При тестировании также можно использовать [обозреватель устройств][lnk-device-explorer] для быстрого создания маркера SAS, который можно скопировать и вставить в собственный код:
 
-  1. Перейдите на вкладку **Управление** в обозревателе устройства.
+  1. Перейдите на вкладку **Управление** в **обозревателе устройств**.
   2. Щелкните **Маркер SAS** (вверху справа).
   3. В разделе **SASTokenForm** выберите свое устройство в раскрывающемся списке **DeviceID**. Задайте значение **срока жизни**.
   4. Щелкните **Создать** , чтобы создать маркер.
 
-     Созданный маркер SAS имеет такую структуру: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+     Созданный маркер SAS имеет такую структуру: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
-     Его часть используется в поле **Пароль** для подключения с использованием MQTT: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
+     Его часть используется в поле **Пароль** для подключения с использованием MQTT: `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
 Для пакетов подключения и отключения MQTT Центр Интернета вещей создает событие в канале **мониторинга операций** и предоставляет дополнительные сведения, которые помогут при устранении неполадок с подключением.
 
@@ -85,10 +85,10 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 >
 >
 
-Клиентское приложение устройства может использовать `devices/{device_id}/messages/events/{property_bag}` в качестве значения параметра **Will topic name** (Будущее имя раздела) для определения *будущих сообщений* , которые будут пересылаться как сообщения телеметрии.
+Приложение для устройства может также использовать `devices/{device_id}/messages/events/{property_bag}` в качестве значения параметра **Will topic name** (Будущее имя раздела) для определения *будущих сообщений*, которые будут пересылаться в качестве сообщения телеметрии.
 
-Центр Интернета вещей не поддерживает сообщения со вторым уровнем качества обслуживания. Если клиент устройства публикует сообщение со**вторым уровнем качества обслуживания**, то Центр Интернета вещей закрывает сетевое подключение.
-Центр Интернета вещей не сохраняет сообщения retain. Если устройство отправляет сообщение с флагом **RETAIN**, имеющим значение 1, то Центр Интернета вещей добавляет в сообщение свойство приложения **x-opt-retain**. В этом случае Центр Интернета вещей не хранит сообщение retain, а передает его в серверное приложение.
+Центр Интернета вещей не поддерживает сообщения со вторым уровнем качества обслуживания. Если приложение для устройства публикует сообщение со **вторым уровнем качества обслуживания**, то Центр Интернета вещей закрывает сетевое подключение.
+Центр Интернета вещей не сохраняет сообщения retain. Если устройство отправляет сообщение с флагом **RETAIN**, имеющим значение 1, то Центр Интернета вещей добавляет в сообщение свойство приложения **x-opt-retain**. В этом случае Центр Интернета вещей не хранит сообщение retain, а передает его во внутреннее приложение.
 
 Дополнительные сведения см. в статье [Отправка и получение сообщений в Центре Интернета вещей][lnk-messaging].
 
@@ -99,14 +99,14 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Центр Интернета вещей передает сообщения с **именем раздела** `devices/{device_id}/messages/devicebound/` или `devices/{device_id}/messages/devicebound/{property_bag}` при наличии свойств сообщения. `{property_bag}` содержит закодированные в формате URL-адреса пары "ключ-значение" свойств сообщения. В контейнер свойств входят только свойства приложений и задаваемые пользователем системные свойства (такие как **messageId** или **correlationId**). Имена системных свойств имеют префикс **$**, свойства приложений используют исходное имя свойства без префикса.
 
-Если клиент устройства подписывается на раздел со **вторым уровнем качества обслуживания**, то Центр Интернета вещей присваивает пакету **SUBACK** уровень качества обслуживания не выше первого. После этого Центр Интернета вещей доставит сообщения на устройство, используя первый уровень качества обслуживания.
+Если приложение для устройства подписывается на раздел со **вторым уровнем качества обслуживания**, то Центр Интернета вещей присваивает пакету **SUBACK** уровень качества обслуживания не выше первого. После этого Центр Интернета вещей доставит сообщения на устройство, используя первый уровень качества обслуживания.
 
 ### <a name="retrieving-a-device-twins-properties"></a>Получение свойств двойника устройства
 
 Сначала устройство подписывается на `$iothub/twin/res/#`, чтобы получать ответы операций. Затем оно отправляет пустое сообщение в раздел `$iothub/twin/GET/?$rid={request id}` с заполненным значением для **request id** (идентификатор запроса). Затем служба отправляет ответное сообщение, содержащее данные двойника устройства в разделе `$iothub/twin/res/{status}/?$rid={request id}`, используя то же значение **request id**, что и в запросе.
 
 Идентификатором запроса может быть любое допустимое значение свойства сообщения, как указано в статье [Отправка и получение сообщений в Центре Интернета вещей][lnk-messaging], а состояние проверяется как целое число.
-Текст ответа будет содержать раздел properties (свойства) двойника устройства:
+Текст ответа будет содержать раздел properties двойника устройства:
 
 Текст записи реестра удостоверений ограничивается компонентом properties, например:
 
@@ -134,7 +134,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Дополнительные сведения см. в статье [Основные сведения о двойниках устройств (предварительная версия)][lnk-devguide-twin].
 
-### <a name="update-twins-reported-properties"></a>Обновление сообщаемых свойств двойника
+### <a name="update-device-twins-reported-properties"></a>Обновление сообщаемых свойств двойника устройства
 
 Сначала устройство должно подписаться на `$iothub/twin/res/#`, чтобы получать ответы операций. Затем оно отправляет сообщение, содержащее обновление двойника устройства, в раздел `$iothub/twin/PATCH/properties/reported/?$rid={request id}` с заполненным значением для **request id** (идентификатор запроса). Затем служба отправляет ответное сообщение, содержащее данные двойника устройства в разделе `$iothub/twin/res/{status}/?$rid={request id}`, используя то же значение **request id**, что и в запросе.
 
@@ -159,7 +159,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Получение уведомлений об обновлении требуемых свойств
 
-При подключении устройства Центр Интернета вещей отправляет уведомления в раздел `$iothub/twin/PATCH/properties/desired/?$version={new version}`, в котором находится содержимое обновления, выполненного серверной частью. Например,
+При подключении устройства Центр Интернета вещей отправляет уведомления в раздел `$iothub/twin/PATCH/properties/desired/?$version={new version}`, в котором находится содержимое обновления, выполненного серверной частью решения. Например,
 
         {
             "telemetrySendFrequency": "5m",
@@ -168,7 +168,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 В обновлениях свойств значение `null` означает, что компонент объекта JSON удаляется.
 
-> [AZURE.IMPORTANT] Центр Интернета вещей создает уведомления об изменении только в том случае, если устройства подключены. Убедитесь, что выполняется [процедура при повторном подключении устройства][lnk-devguide-twin-reconnection], чтобы требуемые свойства продолжали синхронизироваться между Центром Интернета вещей и приложением для устройства.
+
+> [!IMPORTANT] 
+> Центр Интернета вещей создает уведомления об изменении только в том случае, если устройства подключены. Убедитесь, что выполняется [процедура при повторном подключении устройства][lnk-devguide-twin-reconnection], чтобы требуемые свойства продолжали синхронизироваться между Центром Интернета вещей и приложением для устройства.
 
 Дополнительные сведения см. в статье [Основные сведения о двойниках устройств (предварительная версия)][lnk-devguide-twin].
 
@@ -184,7 +186,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 И наконец, если вам необходимо настроить поведение протокола MQTT, то ознакомьтесь с разделом [Поддержка дополнительных протоколов для центра IoT][lnk-azure-protocol-gateway]. В нем описывается, как развернуть высокопроизводительный настраиваемый шлюз протокола, который напрямую взаимодействует с Центром Интернета вещей. Шлюз протокола Azure IoT позволяет настроить протокол устройства для уже существующих развертываний MQTT или других настраиваемых протоколов. Однако при этом подходе необходимо запустить настраиваемый шлюз протокола и управлять им.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения см. в разделе [Примечания о поддержке протокола MQTT][lnk-mqtt-devguide] руководства разработчика по Центру Интернета вещей Azure.
+Дополнительные сведения см. в разделе [Примечания о поддержке протокола MQTT][lnk-mqtt-devguide] руководства разработчика по Центру Интернета вещей.
 
 Дополнительные сведения о протоколе MQTT см. в [документации по MQTT][lnk-mqtt-docs].
 
@@ -197,19 +199,19 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Руководство разработчика][lnk-devguide]
+* [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
 * [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
+[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
+[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
@@ -228,6 +230,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

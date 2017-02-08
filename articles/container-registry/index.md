@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
-ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
 
 ---
 
@@ -67,41 +67,37 @@ ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
     </li>
 </ul>
 
-## <a name="reference"></a>Справочные материалы
-
+---
+ 
+<h2>Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Интерфейс командной строки</h3>
-                        <p>Справочник по интерфейсу командной строки</p>
+                        <h3>Командная строка</h3>
+                        <p><a href="/cli/azure/acr">Интерфейс командной строки Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>справочник по API REST</p>
-                    </div>
+                        <p><a href="/rest/api/containerregistry">REST API</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

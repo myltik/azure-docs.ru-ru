@@ -1,12 +1,12 @@
 ---
-title: Как обрезать видео | Microsoft Docs
-description: В этой статье показано, как обрезать видео с помощью стандартного кодировщика служб мультимедиа.
+title: "Как обрезать видео | Документация Майкрософт"
+description: "В этой статье показано, как обрезать видео с помощью стандартного кодировщика служб мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
+
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Обрезка видео с помощью стандартного кодировщика мультимедиа
@@ -25,7 +29,7 @@ ms.author: anilmur;juliako;
 
 Обрезка в MES — это стадия предварительной обработки. Поэтому параметры обрезки в предустановке кодирования применяются к исходному видео. Кодирование — это последующая стадия. Параметры ширины и высоты применяются к *предварительно обработанному* видео, а не к исходному. При создании предустановки необходимо сделать следующее: a) выбрать параметры обрезки на основе исходного видео; б) выбрать параметры кодирования на основе обрезанного видео. Если параметры кодирования не сопоставлены с обрезанным видео, выходное видео не будет выглядеть должным образом.
 
-В [следующем](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) разделе показано, как создать задание кодирования с помощью MES и указать пользовательскую предустановку для задачи кодирования. 
+В [следующем](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) разделе показано, как создать задание кодирования с помощью MES и указать пользовательскую предустановку для задачи кодирования. 
 
 ## <a name="creating-a-custom-preset"></a>Создание пользовательской предустановки
 Пример, приведенный на схеме:
@@ -139,6 +143,8 @@ ms.author: anilmur;juliako;
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

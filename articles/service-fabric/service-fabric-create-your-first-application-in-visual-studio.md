@@ -1,5 +1,5 @@
 ---
-title: "Создание первого приложения Service Fabric в Visual Studio | Документация Майкрософт"
+title: "Создание приложения микрослужб Azure | Документация Майкрософт"
 description: "Создание, развертывание и отладка приложения Service Fabric с помощью Visual Studio"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 ## <a name="video-walkthrough"></a>Видеоруководство
 Действия, описанные в этом руководстве, показаны в следующем видеоролике.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -87,7 +87,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
     ![Средство просмотра диагностических событий][5]
    
     Для шаблона службы с отслеживанием состояния эти сообщения содержат только значение счетчика, которое увеличивается в методе `RunAsync` файла MyStatefulService.cs.
-3. Разверните одно из событий для получения дополнительных сведений, в том числе об узле, где выполняется код. В данном случае это узел 2, хотя на вашем компьютере это может быть другой узел.
+3. Разверните одно из событий для получения дополнительных сведений, в том числе об узле, где выполняется код. В данном случае это узел&2;, хотя на вашем компьютере это может быть другой узел.
    
     ![Подробная информация в средстве просмотра диагностических событий][6]
    
@@ -131,6 +131,7 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте, как создать [кластер в Azure](service-fabric-cluster-creation-via-portal.md) или [автономный кластер в Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Попробуйте создать службу с помощью модели программирования [Reliable Services](service-fabric-reliable-services-quick-start.md) или [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+* Попробуйте развернуть [контейнер Windows](service-fabric-deploy-container.md) или существующее приложение в качестве [гостевого исполняемого файла](service-fabric-deploy-existing-app.md).
 * Узнайте, как предоставлять доступ к службам из Интернета с помощью [внешнего интерфейса веб-служб](service-fabric-add-a-web-frontend.md).
 * Ознакомьтесь с [практическим примером](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) , а также создайте службу без отслеживания состояния, настройте мониторинг и отчеты о работоспособности и обновите приложение.
 * Узнайте о [вариантах поддержки Service Fabric](service-fabric-support.md).
@@ -152,6 +153,6 @@ ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

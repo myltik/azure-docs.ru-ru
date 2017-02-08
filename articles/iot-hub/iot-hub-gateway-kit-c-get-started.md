@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
+ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
+ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Урок 1. Настройка NUC
-![Урок 1. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+![Урок&1;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
 
 На этом уроке вы настроите Intel NUC (Next Unit of Computing) из набора в качестве шлюза Azure IoT, установите пакет SDK для шлюза Azure IoT на NUC и запустите пример приложения, чтобы проверить работоспособность шлюза.
 
@@ -44,7 +44,7 @@ ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
 Перейдите к статье [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md).
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Урок 2. Создание Центра Интернета вещей
-![Урок 2. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+![Урок&2;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
 
 В ходе этого урока вы установите инструменты и программное обеспечение на главном компьютере. Затем создадите бесплатную учетную запись Azure, подготовите Центр Интернета вещей Azure и создадите в нем первое устройство.
 
@@ -106,9 +106,9 @@ ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
 Если в ходе какого-либо урока у вас возникнут проблемы, то решение можно найти в статье [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md) (Устранение неполадок).
 
 ## <a name="explore-more"></a>Изучить подробнее
-Дополнительные сведения см. на странице сообщества [Developer Zone комплекта Intel IoT Gateway](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit).
+Дополнительные сведения см. на странице сообщества [Developer Zone комплекта Intel IoT Gateway](http://software.intel.com/iot/microsoft-azure).
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

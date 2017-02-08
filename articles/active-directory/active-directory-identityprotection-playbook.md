@@ -6,14 +6,13 @@ keywords: "защита удостоверений Azure Active Directory, Cloud
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
@@ -131,7 +130,7 @@ ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
 10. Теперь можно протестировать условный доступ на основе рисков. Для этого смоделируйте событие риска незнакомого расположения или использования анонимного IP-адреса, так как они считаются событиями с уровнем риска **Средний**.
 
 
-![Подробный обзор типов](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+![Сборник тренировочных заданий](./media/active-directory-identityprotection-playbook/200.png "Сборник тренировочных заданий")
 
 
 ## <a name="see-also"></a>Дополнительные материалы
@@ -140,6 +139,6 @@ ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

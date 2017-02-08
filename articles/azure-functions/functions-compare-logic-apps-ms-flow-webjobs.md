@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
-ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
+ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
+ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
 
 
 ---
@@ -48,8 +48,8 @@ ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
 | --- | --- | --- |
 | Аудитория |Офисные сотрудники, бизнес-пользователи |ИТ-специалисты, разработчики |
 | Сценарии |Самообслуживание |Критически важные интеграции |
-| Средство разработки |В браузере, только пользовательский интерфейс |В браузере и [Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md) доступно [представление кода](../app-service-logic/app-service-logic-author-definitions.md). |
-| Разработка и операции |Ad-hoc, разработка в рабочей среде |Система управления версиями, тестирование, поддержка, автоматизация и управление в [Azure Resource Manager](../app-service-logic/app-service-logic-arm-provision.md) |
+| Средство разработки |В браузере, только пользовательский интерфейс |В браузере и [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) доступно [представление кода](../logic-apps/logic-apps-author-definitions.md). |
+| Разработка и операции |Ad-hoc, разработка в рабочей среде |Система управления версиями, тестирование, поддержка, автоматизация и управление в [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
 | Административные функции |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Безопасность |Стандартные методы безопасности: [независимость данных](https://wikipedia.org/wiki/Technological_Sovereignty), [шифрование при хранении](https://wikipedia.org/wiki/Data_at_rest#Encryption) для конфиденциальных данных и т. д. |Обеспечение безопасности Azure: [безопасность Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [центр безопасности](https://azure.microsoft.com/services/security-center/), [журналы аудита](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) и многое другое. |
 
@@ -107,7 +107,7 @@ ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
 Начните работу с каждой из этих служб, создав первый поток, приложение логики, приложение-функцию или веб-задание. Щелкните любую из следующих ссылок:
 
 * [Начало работы с Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Создание первой функции Azure](functions-create-first-azure-function.md)
 * [Развертывание веб-заданий с помощью Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 
@@ -122,6 +122,6 @@ ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

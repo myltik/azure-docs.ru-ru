@@ -1,6 +1,6 @@
 ---
-title: "Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager и PowerShell | Документация Майкрософт"
-description: "Следуйте инструкциям в этом учебнике, чтобы приступить к использованию шаблонов Azure Resource Manager для создания Центра Интернета вещей с помощью PowerShell."
+title: "Создание Центра Интернета вещей Azure с помощью шаблона (PowerShell) | Документация Майкрософт"
+description: "Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager и PowerShell."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2016
+ms.date: 12/06/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
+ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
+ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
 
 
 ---
-# <a name="create-an-iot-hub-using-powershell"></a>Создание центра IoT с помощью PowerShell
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Введение
@@ -34,7 +34,7 @@ ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. <br/>Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
+* [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
 
 > [!TIP]
 > Дополнительные сведения об использовании сценариев PowerShell и шаблонов Resource Manager для создания ресурсов Azure см. в статье [Manage Azure resources with PowerShell and Resource Manager][lnk-powershell-arm] (Управление ресурсами Azure с помощью PowerShell и Resource Manager). 
@@ -148,7 +148,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
@@ -160,6 +160,6 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

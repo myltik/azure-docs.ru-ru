@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
 
 
 ---
@@ -50,8 +50,8 @@ ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
 > [!NOTE]
 > Для работы с этим учебником требуется учетная запись Azure.
 > 
-> * Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты.
-> * Вы имеете возможность [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
+> * Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты.
+> * Вы имеете возможность [активировать преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.
 > 
 > 
 
@@ -603,6 +603,6 @@ ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

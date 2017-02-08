@@ -62,7 +62,7 @@ ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
    * Если монитор состояний использовался как инструментарий для веб-приложения во время выполнения, файл ApplicationInsights.config вы найдете в корневом каталоге приложения в IIS. Обновите его в этом расположении на каждом экземпляре сервера.
 3. Измените директиву сборщика данных производительности:
    
-   ```XML
+```XML
    
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
@@ -84,17 +84,23 @@ ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
 ### <a name="collecting-performance-counters-in-code"></a>Сбор данных счетчиков производительности в коде
 Чтобы собрать данные счетчиков производительности системы и передать их в Application Insights, можно использовать следующий фрагмент кода:
 
+
+``` C#
+
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 То же самое можно сделать с пользовательскими метриками, созданными вами:
 
+``` C#
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 ## <a name="performance-counters-in-analytics"></a>Счетчики производительности в службе аналитики
 В [службе аналитики](app-insights-analytics.md) можно выполнять поиск отчетов по счетчикам производительности и отображать их.

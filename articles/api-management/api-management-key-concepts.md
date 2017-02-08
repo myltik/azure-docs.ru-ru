@@ -1,5 +1,5 @@
 ---
-title: "Основные концепции API Management"
+title: "Ключевые понятия и обзор службы управления API Azure | Документация Майкрософт"
 description: "Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>Что такое управление API
@@ -25,7 +24,7 @@ ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 Просмотрев следующее видео, вы ознакомитесь с основными сведениями об управлении API Azure и узнаете, как использовать API управления, чтобы быстро и легко добавить в интерфейс API такие компоненты, как управление доступом, ограничение скорости, мониторинг, ведение журнала событий и кэширование ответов.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ API является основой экземпляра службы API Manage
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

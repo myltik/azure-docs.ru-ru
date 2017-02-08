@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 03f1dde722025624997adb7c1258b2f24c481209
+ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
+ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
 
 
 ---
@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-В результате применения этой конфигурации журналы будут циклически собираться в папку `/tmp/servicefabric/logs/`. Параметры **%u** и **%g** позволяют создавать дополнительные файлы с именами mysfapp0.log, mysfapp1.log и так далее, а также mysfapplog0.log mysfapp1.log и так далее. Если обработчик не настроен явно, по умолчанию регистрируется обработчик консоли. Просмотреть журналы в системном журнале можно в папке /var/log/syslog.
+В результате применения этой конфигурации журналы будут циклически собираться в папку `/tmp/servicefabric/logs/`. Параметры **%u** и **%g** позволяют создавать файлы с именами mysfapp0.log, mysfapp1.log и так далее. Если обработчик не настроен явно, по умолчанию регистрируется обработчик консоли. Просмотреть журналы в системном журнале можно в папке /var/log/syslog.
  
 Дополнительные сведения см. на странице с [примерами кода на GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
@@ -143,6 +143,6 @@ public static TextWriter Out = Console.Out;
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

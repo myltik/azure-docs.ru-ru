@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: mgoedtel
+ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26cbd468e6aa1613bd5f6c9944aedaafbd865a14
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 26cbd468e6aa1613bd5f6c9944aedaafbd865a14
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Командлеты Windows PowerShell
-Командлеты, представленные в следующей таблице, используются для создания расписаний и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](../powershell-install-configure.md).
+Командлеты, представленные в следующей таблице, используются для создания расписаний и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 | Командлеты | Описание |
 |:--- |:--- |
@@ -169,6 +169,6 @@ ms.openlocfilehash: 26cbd468e6aa1613bd5f6c9944aedaafbd865a14
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Добавление или удаление роли пользоват
 description: "Сведения о добавлении ролей для привилегированных пользователей с помощью приложения для управления привилегированными пользователями Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
@@ -32,8 +32,6 @@ ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
 
 > [!NOTE]
 > Если компонент PIM еще не включен на портале Azure, см. статью [Приступая к работе с управлением привилегированными пользователями Azure AD](active-directory-privileged-identity-management-getting-started.md).
-> 
-> 
 
 Если требуется предоставить другому пользователю доступ к приложению PIM, требуемые роли пользователя описаны далее в статье о том, [как предоставить доступ к компоненту PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
@@ -49,8 +47,6 @@ ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
 > [!NOTE]
 > Новым пользователям роль по умолчанию назначается временно. Если вы хотите сделать роль постоянной, выберите пользователя в списке. Откроется отдельная колонка со сведениями о пользователе. Выберите в меню пользователя команду **Сделать постоянным** .  
 > Если пользователи не могут зарегистрироваться для прохождения многофакторной идентификации (MFA) Azure или используют учетную запись Майкрософт (как правило, @outlook.com),), необходимо назначить им все роли на постоянной основе. Временным администраторам будет предложено зарегистрироваться для использования MFA во время активации.
-> 
-> 
 
 Предоставив пользователям право на получение ролей, сообщите им, что они могут активировать их согласно инструкциям в статье [Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,7 +62,6 @@ ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
 
 Если вам неизвестно, каким пользователям по-прежнему требуются назначенные им роли, можно [запустить проверку доступа для ролей](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

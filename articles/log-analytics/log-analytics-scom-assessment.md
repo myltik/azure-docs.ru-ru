@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 12/06/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 04eebbe19354ab1e927ee2bb41f25dc6676a7c93
-ms.openlocfilehash: c28e73f0a6833793561d8702eb6c6480b9fbc0a4
+ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
+ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Оптимизация среды с помощью решения для оценки System Center Operations Manager (предварительная версия) в Log Analytics
 
-Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред SCOM на регулярной основе. Эта статья поможет вам установить, настроить и использовать данное решение таким образом, чтобы в случае проблем вы могли принять корректирующие меры.
+Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред SCOM на регулярной основе. Эта статья поможет вам установить, настроить и использовать данное решение таким образом, чтобы в случае проблем вы могли принять корректирующие меры. 
 
 Это решение предоставляет приоритетный список рекомендаций, относящихся к развернутой серверной инфраструктуре. Рекомендации сгруппированы в четырех приоритетных областях, помогающих быстро оценить риски и принять корректирующие меры.
 
@@ -243,6 +243,12 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>Часто задаваемые вопросы по решению для оценки System Center Operations Manager
 
+*Я добавил решения для оценки в свою рабочую область OMS. Однако рекомендации не отображаются. Почему так происходит?* Добавив решение, используйте следующие шаги и просмотрите рекомендации на панели мониторинга OMS.  
+
+- [Установите учетную запись запуска от имени для оценки System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms).  
+- [Настройте правило оценки System Center Operations Manager](#configure-the-assessment-rule).
+
+
 *Есть ли способ настроить частоту оценки?* Да. Ознакомьтесь с разделом [Настройка частоты выполнения](#configure-the-run-frequency).
 
 *Если после добавления решения для оценки System Center Operations Manager обнаружен другой сервер, будет ли он оцениваться?* Да, после обнаружения он будет оцениваться в дальнейшем. По умолчанию это будет происходить каждые семь дней.
@@ -274,6 +280,6 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

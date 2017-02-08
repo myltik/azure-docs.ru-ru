@@ -1,37 +1,42 @@
 ---
-title: Документация по Azure для государственных организаций | Microsoft Docs
-description: Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure.
-services: Azure-Government
+title: "Вычисления в Azure для государственных организаций | Документация Майкрософт"
+description: "Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure."
+services: azure-government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
-ms.service: multiple
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
+
 
 ---
 # <a name="azure-government-compute"></a>Вычисления в Azure для государственных организаций
 ## <a name="virtual-machines"></a>Виртуальные машины
-Чтобы больше узнать об этой службе и ее использовании, ознакомьтесь с [размерами виртуальных машин Azure](../virtual-machines/virtual-machines-windows-sizes.md).
+Чтобы больше узнать об этой службе и ее использовании, ознакомьтесь с [размерами виртуальных машин Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Варианты
-Приведенные ниже SKU виртуальных машин общедоступны (GA) в Azure для государственных организаций.
+Продукты (виртуальные машины), доступные в Azure для государственных организаций.
 
-| SKU виртуальной машины | Правительство штата Вирджиния | Правительство штата Айова | Примечания |
-| --- | --- | --- | --- |
-| Файл , |GA |GA |None |
-| Dv1 |GA |- |None |
-| DSv1 |GA |- |None |
-| Dv2 |GA |GA |15 ожидается в ближайшее время |
-| F |GA |GA |None |
-| G. |Запланировано |- |None |
+| Продукты (виртуальные машины) | Правительство штата Вирджиния | Правительство штата Айова |
+| --- | --- | --- |
+| A0–A7 |Да |Да |
+| Серия D |Да |Нет |
+| Серия Dv2 |Да |Да |
+| Серия DS |Да |Нет |
+| Серия F |Да |Да |
+| Серия FS |Нет |Нет |
+| Серия G |Да |Нет |
+| Серия GS |Да |Нет |
 
 ### <a name="data-considerations"></a>Рекомендации по работе с данными
 Информация ниже определяет границу службы Azure для государственных организаций для виртуальных машин Azure.
@@ -43,6 +48,9 @@ ms.author: ryansoc
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -146,7 +146,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 * [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Подключение (механизм синхронизации, позволяющий организовать совместный доступ к локальным каталогам через Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Подключение (механизм синхронизации, позволяющий организовать совместный доступ к локальным каталогам через Azure Active Directory)
 **Тип:** общие функции
 
 **Доступность.**
@@ -273,7 +273,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 * [Что такое Многофакторная идентификация Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>Сервер "MIM CAL + MIM"
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Сервер "MIM CAL + MIM"
 Права на программное обеспечение Microsoft Identity Manager Server предоставляются вместе с лицензиями на любой выпуск Windows Server. Так как Microsoft Identity Manager работает в операционной системе Windows Server, то при использовании на сервере допустимой лицензионной копии Windows Server можно установить и использовать на этом сервере Microsoft Identity Manager. Для Microsoft Identity Manager Server не требуется отдельной лицензии.
 
 **Тип:** функции уровня "Премиум"
@@ -333,7 +333,7 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Проверка][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Присоединение к Azure Active Directory — только функции Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Присоединение к Azure Active Directory — только функции Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Подключите устройство к службам Azure AD, Desktop SSO, Microsoft Passport для Azure AD и службе восстановления Administrator Bitlocker
 **Тип:** присоединение к Azure Active Directory — только функции Windows 10
 

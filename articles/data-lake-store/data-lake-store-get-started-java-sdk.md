@@ -1,6 +1,6 @@
 ---
-title: "Разработка приложений с использованием пакета Java SDK для Data Lake Store | Документация Майкрософт"
-description: "Разработка приложений с использованием пакета Java SDK для хранилища озера данных."
+title: "Разработка приложений с помощью пакета Java SDK для Azure Data Lake Store | Документация Майкрософт"
+description: "Создание учетной записи Azure Data Lake Store и выполнение базовых операций в Data Lake Store с помощью пакета Java SDK для Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
+ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
+ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 
 
 ---
@@ -64,7 +64,7 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.4</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -73,7 +73,7 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
           </dependency>
         </dependencies>
    
-    Первая зависимость предназначена для использования пакета SDK для Data Lake Store (`azure-datalake-store`) из репозитория Maven. Вторая зависимость (`slf4j-nop`) нужна, чтобы указать, какие платформы ведения журналов будут использоваться для этого приложения. Пакет SDK для Data Lake Store использует библиотеку [SLF4J](http://www.slf4j.org/), которая позволяет выбрать любую из ряда популярных платформ ведения журналов, таких как Log4j, платформа для Java, Logback и др., или отключить ведение журнала. В этом примере мы отключим ведение журнала, так как используем привязку **slf4j-nop**. Сведения о других вариантах ведения журнала в приложении см. [здесь](http://www.slf4j.org/manual.html#projectDep).
+    Первая зависимость предназначена для использования пакета SDK для Data Lake Store (`azure-data-lake-store-sdk`) из репозитория Maven. Вторая зависимость (`slf4j-nop`) нужна, чтобы указать, какие платформы ведения журналов будут использоваться для этого приложения. Пакет SDK для Data Lake Store использует библиотеку [SLF4J](http://www.slf4j.org/), которая позволяет выбрать любую из ряда популярных платформ ведения журналов, таких как Log4j, платформа для Java, Logback и др., или отключить ведение журнала. В этом примере мы отключим ведение журнала, так как используем привязку **slf4j-nop**. Сведения о других вариантах ведения журнала в приложении см. [здесь](http://www.slf4j.org/manual.html#projectDep).
 
 ### <a name="add-the-application-code"></a>Добавление кода приложения
 Код состоит из трех основных частей.
@@ -83,27 +83,39 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
 3. Использование клиента Data Lake Store для выполнения операций.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>Шаг 1. Получение маркера Azure Active Directory
-Пакет SDK для Data Lake Store предоставляет удобные методы получения маркеров безопасности, необходимых для подключения к учетной записи Data Lake Store. Тем не менее пакет SDK не требует использования только этих методов. Можно использовать любые другие средства получения маркера, например [пакет SDK для Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) или пользовательский код.
+Пакет SDK для Data Lake Store предоставляет удобные методы управления маркерами безопасности, которые нужны для подключения к учетной записи Data Lake Store. Тем не менее пакет SDK не требует использования только этих методов. Можно использовать любые другие средства получения маркера, например [пакет SDK для Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) или пользовательский код.
 
-Чтобы получить маркер для веб-приложения Active Directory, созданного ранее, с помощью пакета SDK для Data Lake Store, укажите статические методы в классе `AzureADAuthenticator`. Замените часть **FILL-IN-HERE** фактическими значениями, соответствующими веб-приложению Azure Active Directory.
+Чтобы получить маркер для веб-приложения Active Directory, созданного ранее, с помощью пакета SDK для Data Lake Store, используйте один из подклассов `AccessTokenProvider` (в примере ниже используется `ClientCredsTokenProvider`). Поставщик маркера кэширует в память учетные данные, которые использовались для получения маркера, и автоматически продлевает его истекающий срок действия. Кроме того, вы можете создать собственные подклассы `AccessTokenProvider`. В этом случае маркеры будет получать код вашего клиента. Для наших целей мы будем использовать подкласс из пакета SDK.
+
+Замените часть **FILL-IN-HERE** фактическими значениями, соответствующими веб-приложению Azure Active Directory.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
     private static String clientKey = "FILL-IN-HERE";
 
-    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Шаг 2. Создание клиентского объекта Azure Data Lake Store (ADLStoreClient)
-Создавая объект [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/), укажите имя учетной записи Data Lake Store и маркер Azure Active Directory, созданный на предыдущем шаге. Обратите внимание, что для учетной записи Data Lake Store необходимо указать полное доменное имя. Например, замените часть **FILL-IN-HERE** примерно таким значением: **mydatalakestore.azuredatalakestore.net**.
+Создавая объект [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/), укажите имя учетной записи Data Lake Store и поставщик маркера, который вы создали на предыдущем шаге. Обратите внимание, что для учетной записи Data Lake Store необходимо указать полное доменное имя. Например, замените часть **FILL-IN-HERE** примерно таким значением: **mydatalakestore.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
 ### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Шаг 3. Использование ADLStoreClient для выполнения операций с файлами и каталогами
 Приведенный ниже код содержит фрагменты для выполнения некоторых распространенных операций. Другие операции можно найти в полной [документации по API пакета Java SDK для Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) в разделе об объекте **ADLStoreClient**.
 
 Обратите внимание, что чтение файлов и запись в них осуществляется с помощью стандартных потоков Java. Это означает, что вы можете разместить все потоки Java поверх потоков Data Lake Store, чтобы использовать стандартные возможности Java (например, потоки печати для получения отформатированных выходных данных либо потоки сжатия или шифрования для получения дополнительных возможностей поверх потоков и т. д.).
 
+     // create file and write some content
+     String filename = "/a/b/c.txt";
+     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+     PrintStream out = new PrintStream(stream);
+     for (int i = 1; i <= 10; i++) {
+         out.println("This is line #" + i);
+         out.format("This is the same line (%d), but using formatted output. %n", i);
+     }
+     out.close();
+    
     // set file permission
     client.setPermission(filename, "744");
 
@@ -142,6 +154,7 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
 2. Чтобы получить автономный JAR-файл, который можно запустить из командной строки, создайте такой файл со всеми зависимостями с помощью [подключаемого модуля сборки Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Код для выполнения этих действий содержится в файле pom.xml в [примере исходного кода на сайте GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* [Документация по пакету SDK для Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -149,6 +162,6 @@ ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

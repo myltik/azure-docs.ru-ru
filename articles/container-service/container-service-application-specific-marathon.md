@@ -11,18 +11,18 @@ keywords: "Контейнеры, Marathon, микрослужбы, DC/OS, Azure"
 ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: befd26888b653c660cc614221684732771496aed
+ms.sourcegitcommit: 3f6bc85230b57d7b9523a87f90783c27039ef820
+ms.openlocfilehash: 1ea024d83c1d8881467be1556675a47c605fee66
 
 
 ---
-# <a name="create-an-application-or-userspecific-marathon-service"></a>Создание службы Marathon с настройками для приложения или пользователя
+# <a name="create-an-application-or-user-specific-marathon-service"></a>Создание службы Marathon с настройками для приложения или пользователя
 Служба контейнеров Azure предоставляет набор главных серверов с предварительно настроенными решениями Apache Mesos и Marathon. Их можно использовать для оркестрации приложений в кластере, но для этого не рекомендуется использовать главные серверы. Например, чтобы изменить конфигурацию Marathon, нужно сначала войти на главный сервер. В таком случае можно использовать специальные главные серверы, которые немного отличаются от стандартных и которыми можно управлять независимо. Кроме того, конфигурация, которая требуется одной группе пользователей, может оказаться неподходящей для другой.
 
 В этой статье мы объясним, как добавить службу Marathon с настройками для определенного пользователя или приложения.
@@ -34,7 +34,7 @@ ms.openlocfilehash: befd26888b653c660cc614221684732771496aed
 
 [!INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
 
-## <a name="create-an-application-or-userspecific-marathon-service"></a>Создание службы Marathon с настройками для приложения или пользователя
+## <a name="create-an-application-or-user-specific-marathon-service"></a>Создание службы Marathon с настройками для приложения или пользователя
 Сначала создайте файл конфигурации JSON, который определяет имя создаваемой службы приложений. В нашем примере используется `marathon-alice` в качестве имени платформы. Сохраните файл `marathon-alice.json`:
 
 ```json
@@ -61,6 +61,6 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
 
 
 ## <a name="install-azure-powershell-10-or-greater"></a>Установка Azure PowerShell 1.0 или более поздней версии
-См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md#prerequisites).
+См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
 ## <a name="manage-accounts"></a>Управление учетными записями
 Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется.  Вы платите только за время, когда выполняется задание.  Дополнительные сведения см. в разделе [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).  
@@ -269,7 +269,7 @@ ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### <a name="test-existence-of-catalog-item"></a>Проверка наличия элемента каталога
+### <a name="test-existence-of--catalog-item"></a>Проверка наличия элемента каталога
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
@@ -319,7 +319,7 @@ ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
 * [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="appendix-a---data-lake-analytics-arm-template"></a>Приложение А. Шаблон ARM аналитики озера данных
-Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных.  Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделах [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md#deploy-with-powershell) (Развертывание приложения с использованием шаблона Azure Resource Manager) и [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
+Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных.  Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделах [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Развертывание приложения с использованием шаблона Azure Resource Manager) и [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -377,6 +377,6 @@ ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Developer guide - IoT Hub endpoints | Microsoft Docs
-description: Azure IoT Hub developer guide - reference information about IoT Hub endpoints
+title: "Общие сведения о конечных точках Центра Интернета вещей Azure | Документация Майкрософт"
+description: "Руководство разработчика. Справочные сведения о конечных точках Центра Интернета вещей, доступных устройству и службе."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,53 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 702f2d8b936e52a49afc6000d2018f02c18e448a
+
 
 ---
-# <a name="reference---iot-hub-endpoints"></a>Reference - IoT Hub endpoints
-## <a name="list-of-iot-hub-endpoints"></a>List of IoT Hub endpoints
-Azure IoT Hub is a multi-tenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
+# <a name="reference---iot-hub-endpoints"></a>Руководство. Конечные точки Центра Интернета вещей
+## <a name="list-of-iot-hub-endpoints"></a>Список конечных точек Центра Интернета вещей
+Центр IoT Azure — это мультитенантная служба, которая предоставляет возможность пользоваться своими функциями разным субъектам. На схеме ниже показаны разные конечные точки, которые предоставляет центр IoT.
 
-![IoT Hub endpoints][img-endpoints]
+![Конечные точки центра IoT][img-endpoints]
 
-The following is a description of the endpoints:
+Ниже приведено описание конечных точек.
 
-* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create and delete IoT hubs, and update IoT hub properties. IoT Hub properties govern [hub-level security policies][lnk-accesscontrol], as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities][lnk-importexport].
-* **Device identity management**. Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
-* **Device twin management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
-* **Jobs management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and manage [jobs][lnk-jobs].
-* **Device endpoints**. For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
+* **Поставщик ресурсов.** Поставщик ресурсов Центра Интернета вещей предоставляет интерфейс [Azure Resource Manager][lnk-arm], с помощью которого владельцы подписки Azure могут создавать и удалять Центры Интернета вещей, а также обновлять их свойства. Свойства Центра Интернета вещей определяют [политики безопасности на уровне центра][lnk-accesscontrol] (а не контроль доступа на уровне устройств) и функциональные параметры, относящиеся к обмену сообщениями между облаком и устройством в обоих направлениях. Поставщик ресурсов Центра Интернета вещей также позволяет [экспортировать удостоверения устройств][lnk-importexport].
+* **Управление удостоверениями устройств.** Каждый центр IoT предоставляет набор конечных точек HTTP REST, которые позволяют управлять удостоверениями устройств (создавать, получать, обновлять и удалять их). [Удостоверения устройств][lnk-device-identities] нужны для аутентификации устройств и контроля доступа к ним.
+* **Управление двойником устройства.** Каждый Центр Интернета вещей предоставляет набор доступных для службы конечных точек HTTP REST, чтобы запрашивать и обновлять [двойники устройств][lnk-twins] (теги и свойства).
+* **Управление заданиями.** Каждый Центр Интернета вещей предоставляет набор доступных для службы конечных точек HTTP REST, чтобы запрашивать [задания][lnk-jobs] и управлять ими.
+* **Конечные точки устройств**. Для каждого устройства, подготовленного в реестре удостоверений, Центр Интернета вещей предоставляет набор конечных точек, которые используются устройством для отправки и получения сообщений.
   
-  * *Send device-to-cloud messages*. Use this endpoint to [send device-to-cloud messages][lnk-d2c].
-  * *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted [cloud-to-device messages][lnk-c2d].
-  * *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file][lnk-upload].
-  * *Retrieve and update twin's properties*. A device uses this endpoints to access its [device twin][lnk-twins]'s properties.
-  * *Receive direct methods requests*. A device uses this endpoints to listen to [direct methods][lnk-methods]'s requests.
+  * *Отправка сообщений с устройства в облако.* Эта конечная точка используется для [отправки сообщений с устройства в облако][lnk-d2c].
+  * *Получение сообщений из облака на устройство.* Устройство использует эту конечную точку для получения целевых [сообщений из облака][lnk-c2d].
+  * *Инициирование отправки файлов.* Устройство использует эту конечную точку для получения URI SAS службы хранилища Azure из Центра Интернета вещей, чтобы [отправить файл][lnk-upload].
+  * *Получение и обновление свойств двойников устройств*. Устройство использует эти конечные точки для доступа к свойствам [своего двойника][lnk-twins].
+  * *Получение запросов прямых методов.* Устройство использует эти конечные точки для ожидания передачи данных запросов [прямых методов][lnk-methods].
     
-    These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
+    Эти конечные точки предоставляются по протоколам [MQTT 3.1.1][lnk-mqtt], HTTP 1.1 и [AMQP 1.0][lnk-amqp]. Обратите внимание, что протокол AMQP также доступен в [WebSockets][lnk-websockets] через порт 443.
     
-    The twins' and methods' endpoins are available only using [MQTT v3.1.1][lnk-mqtt].
-* **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol, except for the method invocation endpoint that is exposed via HTTP 1.1.
+    Конечные точки двойников устройств и методов доступны только по протоколу [MQTT 3.1.1][lnk-mqtt].
+* **Конечные точки службы**. Каждый Центр Интернета вещей предоставляет набор конечных точек, которые могут использоваться в серверной части решения для взаимодействия с устройствами. В настоящее время эти конечные точки предоставляются только по протоколу [AMQP][lnk-amqp], за исключением конечной точки для вызова метода, доступной по протоколу HTTP 1.1.
   
-  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the [device-to-cloud messages][lnk-d2c] sent by your devices.
-  * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
-  * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
-  * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method][lnk-methods] on a device.
+  * *Получение сообщений с устройства в облако.* Эта конечная точка совместима с [концентраторами событий Azure][lnk-event-hubs]. С ее помощью в серверной части приложения считываются все [сообщения, отправляемые с устройств в облако][lnk-d2c].
+  * *Отправка сообщений из облака на устройство и получение уведомлений о доставке.* Эти конечные точки позволяют серверной части решения отправлять надежные [сообщения из облака на устройство][lnk-c2d] и получать уведомления о доставке или истечении срока действия.
+  * *Получение уведомлений о файлах*. Эта конечная точка обмена сообщениями позволяет получать уведомления при успешной отправке файла устройствами. 
+  * *Вызов прямого метода.* Эта конечная точка позволяет внутренней службе вызывать [прямой метод][lnk-methods] на устройстве.
 
-The [IoT Hub APIs and SDKs][lnk-sdks] article describes the various ways to access these endpoints.
+В статье [Azure IoT SDKs][lnk-sdks] (Пакеты SDK для Azure IoT) описываются способы получения доступа к этим конечным точкам.
 
-Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
+Наконец, следует отметить, что все конечные точки Центра Интернета вещей используют протокол [TLS][lnk-tls]. Кроме того, конечные точки не предоставляются по незашифрованным или незащищенным каналам.
 
-## <a name="field-gateways"></a>Field gateways
-In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
+## <a name="field-gateways"></a>Шлюзы поля
+В решении Интернета вещей *полевой шлюз* располагается между устройствами и конечными точками Центра Интернета вещей. Обычно он находится ближе к устройствам. Устройства взаимодействуют напрямую с полевым шлюзом с помощью протоколов, поддерживаемых устройствами. Полевой шлюз подключается к конечной точке Центра Интернета вещей с помощью протокола, поддерживаемого Центром Интернета вещей. Полевой шлюз может представлять собой специализированное оборудование или маломощный компьютер с программным обеспечением, которое выполняет полный сценарий действий шлюза.
 
-You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub.
+Для реализации полевого шлюза можно использовать [пакет SDK для шлюза Azure IoT][lnk-gateway-sdk]. Эти пакеты SDK для устройств предлагают определенные функции, такие как возможность мультиплексировать обмен данными из нескольких устройств в рамках одного и того же подключения к Центру Интернета вещей.
 
-## <a name="next-steps"></a>Next steps
-Other reference topics in this IoT Hub developer guide include:
+## <a name="next-steps"></a>Дальнейшие действия
+Другие справочные статьи в руководстве для разработчиков Центра Интернета вещей:
 
-* [Query language for twins, methods, and jobs][lnk-devguide-query]
-* [Quotas and throttling][lnk-devguide-quotas]
-* [IoT Hub MQTT support][lnk-devguide-mqtt]
+* [Справочник по языку запросов для двойников и заданий][lnk-devguide-query]
+* [Quotas and throttling][lnk-devguide-quotas] (Квоты и регулирование)
+* [Поддержка MQTT в центре IoT][lnk-devguide-mqtt]
 
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
@@ -68,7 +72,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
-[lnk-arm]: ../resource-group-overview.md
+[lnk-arm]: ../azure-resource-manager/resource-group-overview.md
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
@@ -91,6 +95,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

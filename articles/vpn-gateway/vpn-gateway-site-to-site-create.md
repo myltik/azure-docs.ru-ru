@@ -1,10 +1,10 @@
 ---
-title: "Создание виртуальной сети с VPN-подключением типа &quot;сеть — сеть&quot; с помощью классического портала Azure | Документация Майкрософт"
-description: "Создание виртуальной сети с VPN-подключением типа «сеть — сеть» к шлюзу для распределенных и гибридных конфигураций, использующих классическую модель развертывания."
+title: "Соединение локальной сети с виртуальною сетью Azure с помощью подключения типа &quot;сеть — сеть&quot; и классического портала | Документация Майкрософт"
+description: "Сведения о создании подключения IPsec между локальной сетью и виртуальной сетью Azure через общедоступный Интернет. Они помогут вам создать подключение типа &quot;сеть — сеть&quot; с использованием VPN-шлюза, классического портала и классической модели развертывания."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Создание виртуальной сети с подключением типа "сеть — сеть" с помощью классического портала Azure
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Создание виртуальной сети с подключением типа "сайт — сайт" с помощью классического портала
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через VPN-подключение типа "сеть — сеть" с помощью шлюза, используя классическую модель развертывания и классический портал. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
 
-![Схема "сеть — сеть"](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Модели развертывания и способы настройки подключений типа "сеть — сеть"
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -102,6 +102,6 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

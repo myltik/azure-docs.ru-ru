@@ -1,34 +1,38 @@
 ---
-title: Управление кластерами Hadoop в HDInsight с помощью PowerShell | Microsoft Docs
-description: Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с использованием Azure PowerShell.
+title: "Управление кластерами Hadoop в HDInsight с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с использованием Azure PowerShell."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: af9e0b7c0f7077b8d4e20ccafdc1fb4e1eb58505
+
 
 ---
-# Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в Azure HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [Справочнике по командлетам HDInsight][hdinsight-powershell-reference].
+Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в Azure HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
 
 **Предварительные требования**
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Установка Azure PowerShell
+## <a name="install-azure-powershell"></a>Установка Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Если вы установили Azure PowerShell версии 0.9x, то перед установкой новой версии ее необходимо удалить.
@@ -37,22 +41,22 @@ Azure PowerShell — это полнофункциональная среда с
 
     Get-Module *azure*
 
-Для удаления старой версии запустите "Программы и компоненты" в панели управления.
+Для удаления старой версии запустите "Программы и компоненты" в панели управления. 
 
-## Создание кластеров
-Ознакомьтесь с разделом [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+## <a name="create-clusters"></a>Создание кластеров
+Ознакомьтесь с разделом [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
-## Получение списка кластеров
+## <a name="list-clusters"></a>Получение списка кластеров
 Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
 
     Get-AzureRmHDInsightCluster
 
-## Отображение кластеров
+## <a name="show-cluster"></a>Отображение кластеров
 Чтобы отобразить сведения о конкретном кластере в текущей подписке, используйте следующую команду:
 
     Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
-## Удаление кластеров
+## <a name="delete-clusters"></a>Удаление кластеров
 Используйте следующую команду для удаления кластера:
 
     Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
@@ -61,11 +65,11 @@ Azure PowerShell — это полнофункциональная среда с
 
     Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
-## Масштабирование кластеров
+## <a name="scale-clusters"></a>Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
 
 > [!NOTE]
-> Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства». См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства».  См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
@@ -92,7 +96,7 @@ Azure PowerShell — это полнофункциональная среда с
   * с помощью веб-интерфейса Storm;
   * с помощью программы командной строки.
     
-    Дополнительную информацию см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Дополнительные сведения см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
     
     В кластере HDInsight доступен веб-интерфейс Storm.
     
@@ -100,17 +104,17 @@ Azure PowerShell — это полнофункциональная среда с
     
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
     
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Чтобы изменить размер кластера Hadoop с помощью Azure PowerShell, выполните следующую команду с клиентского компьютера:
 
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 
-## Предоставление и отмена доступа
+## <a name="grantrevoke-access"></a>Предоставление и отмена доступа
 В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
 
 * ODBC
@@ -143,12 +147,12 @@ Azure PowerShell — это полнофункциональная среда с
 > 
 > 
 
-Это также можно сделать через портал. См. раздел [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+Это также можно сделать через портал. Ознакомьтесь с разделом [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
-## Обновление учетных данных пользователя HTTP
-Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его. После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
+## <a name="update-http-user-credentials"></a>Обновление учетных данных пользователя HTTP
+Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его.  После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
 
-## Поиск учетной записи хранения по умолчанию
+## <a name="find-the-default-storage-account"></a>Поиск учетной записи хранения по умолчанию
 В следующем сценарии Powershell показано получение имени учетной записи хранения по умолчанию и ключа учетной записи хранения по умолчанию для кластера.
 
     $clusterName = "<HDInsight Cluster Name>"
@@ -160,8 +164,8 @@ Azure PowerShell — это полнофункциональная среда с
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
-## Поиск группы ресурсов
-В режиме Resource Manager каждый кластер HDInsight относится к группе ресурсов Azure. Поиск группы ресурсов:
+## <a name="find-the-resource-group"></a>Поиск группы ресурсов
+В режиме Resource Manager каждый кластер HDInsight относится к группе ресурсов Azure.  Поиск группы ресурсов:
 
     $clusterName = "<HDInsight Cluster Name>"
 
@@ -169,12 +173,12 @@ Azure PowerShell — это полнофункциональная среда с
     $resourceGroupName = $cluster.ResourceGroup
 
 
-## Отправка заданий
+## <a name="submit-jobs"></a>Отправка заданий
 **Отправка заданий MapReduce**
 
-См. статью [Запуск примеров выполнения Hadoop MapReduce в HDInsight под управлением Windows](hdinsight-run-samples.md).
+См. статью [Выполнение примеров Hadoop MapReduce в HDInsight на базе Windows](hdinsight-run-samples.md).
 
-**Отправка заданий Hive**
+**Отправка заданий Hive** 
 
 См. статью [Выполнение запросов Hive с помощью PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
@@ -184,23 +188,23 @@ Azure PowerShell — это полнофункциональная среда с
 
 **Отправка заданий Sqoop**
 
-См. раздел [Использование Sqoop с HDInsight](hdinsight-use-sqoop.md).
+См. статью [Использование Sqoop с Hadoop в HDInsight](hdinsight-use-sqoop.md).
 
 **Отправка заданий Oozie**
 
 См. статью [Использование Oozie с Hadoop для определения и выполнения рабочего процесса в HDInsight](hdinsight-use-oozie.md).
 
-## Отправка данных в хранилище BLOB-объектов Azure
-См. раздел [Отправка данных в HDInsight][hdinsight-upload-data].
+## <a name="upload-data-to-azure-blob-storage"></a>Отправка данных в хранилище BLOB-объектов Azure
+Ознакомьтесь со статьей [Отправка данных в HDInsight][hdinsight-upload-data].
 
-## См. также
+## <a name="see-also"></a>См. также
 * [Справочная документация по командлетам HDInsight][hdinsight-powershell-reference]
 * [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
 * [Администрирование HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
-* [Создание кластеров HDInsight][hdinsight-provision]
+* [Создание кластеров Hadoop в HDInsight][hdinsight-provision]
 * [Отправка данных в HDInsight][hdinsight-upload-data]
 * [Отправка заданий Hadoop в HDInsight][hdinsight-submit-jobs]
-* [Начало работы с Azure HDInsight][hdinsight-get-started]
+* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -221,8 +225,12 @@ Azure PowerShell — это полнофункциональная среда с
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

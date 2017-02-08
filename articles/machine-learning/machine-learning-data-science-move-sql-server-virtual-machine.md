@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: aa794e073bd6c4965a8f2918eab7a4669fc39171
-ms.openlocfilehash: 4b7246f4780b1485985e54b4eb2ae1f3d022a3f1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7ce5ba3c1a844104b4c14c73e05843becd69eb5f
 
 
 ---
@@ -171,7 +171,7 @@ BCP — это служебная программа командной стро
 Описание каждого из этих способов см. ниже.
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Мастер развертывания Базы данных SQL Server на виртуальной машине Microsoft Azure
-**Мастер развертывания базы данных SQL Server на виртуальной машине Microsoft Azure** представляет собой простой и рекомендуемый способ перемещения данных из локального экземпляра SQL Server на сервер SQL Server на виртуальной машине Azure. Подробные инструкции, а также описание других вариантов см. в статье [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+**Мастер развертывания базы данных SQL Server на виртуальной машине Microsoft Azure** представляет собой простой и рекомендуемый способ перемещения данных из локального экземпляра SQL Server на сервер SQL Server на виртуальной машине Azure. Подробные инструкции, а также описание других вариантов см. в статье [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
 
 ### <a name="a-nameexport-flat-fileaexport-to-flat-file"></a><a name="export-flat-file"></a>Экспорт в неструктурированный файл
 Для массового экспорта данных с локального сервера SQL Server можно использовать различные способы, которые описаны в разделе [Массовый импорт и экспорт данных (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . В этом документе в качестве примера описано использование программы массового копирования (BCP). После экспорта данных в неструктурированный файл этот файл можно импортировать в другой SQL Server с помощью операции массового импорта.
@@ -207,15 +207,15 @@ SQL Server поддерживает:
 ![Средство импорта данных из SQL Server][1]
 
 ## <a name="resources"></a>Ресурсы
-[Миграция базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Миграция базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
 
-[Приступая к работе с SQL Server в виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Приступая к работе с SQL Server в виртуальных машинах Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

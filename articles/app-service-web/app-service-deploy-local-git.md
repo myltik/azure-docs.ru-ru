@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Если требуется приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), который поможет быстро создать кратковременное приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.  
+> Если требуется приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), который поможет быстро создать кратковременное приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.  
 > 
 > 
 
@@ -165,6 +165,6 @@ ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

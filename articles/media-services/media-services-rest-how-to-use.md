@@ -1,27 +1,35 @@
 ---
-title: Обзор интерфейса REST API служб мультимедиа | Microsoft Docs
-description: Обзор интерфейса REST API служб мультимедиа
+title: "Обзор REST API операций служб мультимедиа | Документация Майкрософт"
+description: "Обзор интерфейса REST API служб мультимедиа"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
+
 
 ---
-# <a name="media-services-rest-api-overview"></a>Обзор интерфейса REST API служб мультимедиа
+# <a name="media-services-operations-rest-api-overview"></a>Обзор REST API операций служб мультимедиа | Документация Майкрософт
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+**REST API операций служб мультимедиа** используется для создания заданий, ресурсов, политик доступа и других операций с объектами в учетной записи службы мультимедиа. Дополнительные сведения см. в статье [Media Services Operations REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) (Справочник по REST API операций служб мультимедиа).
 
 Службы мультимедиа Microsoft Azure — это службы, которые принимают HTTP-запросы на основе OData и могут отвечать с использованием подробного формата JSON или atom+pub. Так как службы мультимедиа соответствуют правилам проектирования Azure, для них предусмотрен набор обязательных HTTP-заголовков, которые каждый клиент должен использовать при подключении к службам мультимедиа, а также набор дополнительных заголовков, которые можно использовать при необходимости. В следующих разделах описываются заголовки и HTTP-команды, которые можно использовать при создании запросов и получения ответов из служб мультимедиа.
 
+
 ## <a name="considerations"></a>Рекомендации
+
 При использовании REST следует принимать во внимание следующие соображения.
 
 * При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. Используйте **Skip** и **Take** (.NET) или **top** (REST), как описано в [этом](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [этом](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities) примерах. 
@@ -107,6 +115,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

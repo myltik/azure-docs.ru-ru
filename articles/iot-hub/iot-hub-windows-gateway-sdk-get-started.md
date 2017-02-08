@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с пакетом SDK для шлюза Центра Интернета вещей | Документация Майкрософт"
-description: "Пошаговое руководство по работе с пакетом SDK для шлюза IoT Azure под управлением Windows иллюстрирует основные понятия, которые нужно учитывать при работе с пакетом SDK для шлюза IoT Azure."
+title: "Начало работы с пакетом SDK для шлюза Интернета вещей Azure (Windows) | Документация Майкрософт"
+description: "Узнайте, как создать шлюз на компьютере c Windows, а также ознакомьтесь с основными понятиями пакета SDK для шлюза Azure IoT, такими как модули и JSON-файлы конфигурации."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
-ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Пакет SDK для шлюза Интернета вещей Azure. Начало работы с Windows
+# <a name="get-started-with-the-azure-iot-gateway-sdk-windows"></a>Начало работы с пакетом SDK для шлюза Azure IoT (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Сборка примера
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
 1. Сценарий **build.cmd** создает папку с именем **build** в локальной копии репозитория. Эта папка содержит два модуля, которые используются в данном примере.
    
     Сценарий сборки размещает **logger.dll** в папке **build\\modules\\logger\\Debug** и **hello_world.dll** в папке **build\\modules\\hello_world\\Debug**. Используйте эти пути для настройки значения **module path**, как указано в приведенном ниже файле параметров JSON.
-2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации как аргумент в командной строке. Следующий пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. Он будет работать как есть, если вы не измените сценарий сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях. 
+2. Процесс hello_world_sample принимает путь к JSON-файлу конфигурации в качестве аргумента в командной строке. Следующий пример JSON-файла предоставлен как часть репозитория с путем **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. Он будет работать как есть, если вы не измените сценарий сборки для размещения модулей или примеров исполняемых файлов в нестандартных расположениях. 
 
    > [!NOTE]
    > Пути к модулям зависят от каталога, в котором находится файл hello_world_sample.exe. По умолчанию пример JSON-файла конфигурации предусматривает запись файла log.txt в текущем рабочем каталоге.
@@ -86,6 +86,6 @@ ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

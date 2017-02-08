@@ -1,28 +1,32 @@
 ---
-title: Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам | Microsoft Docs
-description: Узнайте, как сделать контейнеры и большие двоичные объекты доступными для анонимного доступа и как осуществлять к ним программный доступ.
+title: "Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам | Документация Майкрософт"
+description: "Узнайте, как сделать контейнеры и большие двоичные объекты доступными для анонимного доступа и как осуществлять к ним программный доступ."
 services: storage
-documentationcenter: ''
-author: tamram
-manager: carmonm
+documentationcenter: 
+author: mmacy
+manager: timlt
 editor: tysonn
-
+ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: michaelhauss;jwillis;tamram
+ms.date: 12/08/2016
+ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
+
 
 ---
-# Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам
-## Обзор
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам
+## <a name="overview"></a>Обзор
 По умолчанию только владелец учетной записи хранения может обращаться к ресурсам в пределах этой учетной записи. Только для хранения больших двоичных объектов можно задать разрешения контейнера так, чтобы предоставить анонимный доступ на чтение к контейнеру и хранящимся в нем большим двоичным объектам, чтобы иметь возможность предоставлять доступ к этим ресурсам, не предоставляя ключ учетной записи.
 
 Анонимный доступ лучше всего подходит для сценариев, когда определенные большие двоичные объекты нужно сделать всегда доступными для анонимного доступа на чтение. Для осуществления детального контроля можно создать подписанный URL-адрес, который позволит делегировать ограниченный доступ на определенный временной интервал, используя разные разрешения. Дополнительные сведения о подписанных URL-адресах см. в статье [Использование подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-## Предоставление анонимным пользователям разрешений для контейнеров и больших двоичных объектов
+## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Предоставление анонимным пользователям разрешений для контейнеров и больших двоичных объектов
 По умолчанию контейнер и все большие двоичные объекты внутри него доступны только владельцу учетной записи хранения. Чтобы предоставить анонимным пользователями доступ на их чтение, следует разрешить общий доступ к контейнеру. Анонимные пользователи могут считывать данные большого двоичного объекта из общедоступного контейнера, при этом их запросы не будут проходить аутентификацию.
 
 Доступны следующие возможности управления доступом к контейнеру.
@@ -33,78 +37,86 @@ ms.author: michaelhauss;jwillis;tamram
 
 Установить разрешения для контейнера можно следующими способами.
 
-* [На портале Azure](https://portal.azure.com)
+* [На портале Azure](https://portal.azure.com).
 * Программно, используя клиентскую библиотеку хранилища или API REST.
-* C помощью PowerShell. Сведения о задании разрешений контейнера из Azure PowerShell см. в разделе [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
+* C помощью PowerShell. Сведения о задании разрешений для контейнеров с помощью Azure PowerShell см. в разделе [Управление BLOB-объектами Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
-### Установка разрешений контейнера через портал Azure
+### <a name="setting-container-permissions-from-the-azure-portal"></a>Установка разрешений контейнера через портал Azure
 Чтобы задать разрешения контейнера с помощью [портала Azure](https://portal.azure.com), выполните следующие действия.
 
 1. Перейдите к панели мониторинга для вашей учетной записи хранения.
 2. Выберите имя контейнера из списка. Если щелкнуть имя, отобразятся большие двоичные объекты в выбранном контейнере.
 3. Щелкните **Политика доступа** на панели инструментов.
 4. В диалоговом окне **Тип доступа** выберите нужный уровень разрешений, как показано на следующем снимке экрана.
-   
+
     ![Диалоговое окно «Изменение метаданных контейнера»](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### Программная установка разрешений контейнера с использованием .NET
-Чтобы задать разрешения для контейнера с помощью клиентской библиотеки .NET, сначала нужно получить существующие разрешения контейнера, вызвав метод **GetPermissions**. Затем задайте значение свойства **PublicAccess** для объекта **BlobContainerPermissions**, который возвращается методом **GetPermissions**. Наконец, вызовите метод **SetPermissions** с обновленными разрешениями.
+### <a name="setting-container-permissions-programmatically-using-net"></a>Программная установка разрешений контейнера с использованием .NET
+Чтобы задать разрешения для контейнера с помощью клиентской библиотеки .NET, сначала нужно получить существующие разрешения контейнера, вызвав метод **GetPermissions** . Затем задайте свойство **PublicAccess** для объекта **BlobContainerPermissions**, который возвращается методом **GetPermissions**. Наконец, вызовите метод **SetPermissions** с обновленными разрешениями.
 
-В следующем примере задаются разрешения контейнера на полный общий доступ на чтение. Чтобы задать разрешения на общий доступ на чтение только к большим двоичным объектам, задайте для свойства **PublicAccess** значение **BlobContainerPublicAccessType.Blob**. Чтобы удалить все разрешения для анонимных пользователей, задайте для этого свойства значение **BlobContainerPublicAccessType.Off**.
+В следующем примере задаются разрешения контейнера на полный общий доступ на чтение. Чтобы задать общий доступ на чтение только для BLOB-объектов, задайте для свойства **PublicAccess** значение **BlobContainerPublicAccessType.Blob**. Чтобы удалить все разрешения для анонимных пользователей, задайте для этого свойства значение **BlobContainerPublicAccessType.Off**.
 
-    public static void SetPublicContainerPermissions(CloudBlobContainer container)
-    {
-        BlobContainerPermissions permissions = container.GetPermissions();
-        permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-        container.SetPermissions(permissions);
-    }
+```csharp
+public static void SetPublicContainerPermissions(CloudBlobContainer container)
+{
+    BlobContainerPermissions permissions = container.GetPermissions();
+    permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+    container.SetPermissions(permissions);
+}
+```
 
-## Анонимный доступ к контейнерам и большим двоичным объектам
+## <a name="access-containers-and-blobs-anonymously"></a>Анонимный доступ к контейнерам и большим двоичным объектам
 Клиент, который обращается к контейнерам и большим двоичным объектам анонимно, может использовать конструкторы, не требующие учетных данных. В следующих примерах показано несколько разных способов анонимной ссылки на ресурсы службы BLOB-объектов.
 
-### Создание анонимного клиентского объекта
+### <a name="create-an-anonymous-client-object"></a>Создание анонимного клиентского объекта
 Можно создать новый клиентский объект службы для анонимного доступа, указав конечную точку службы DLOB-объектов для соответствующей учетной записи. Тем не менее необходимо также знать имя контейнера в этой учетной записи, которая доступна для анонимного доступа.
 
-    public static void CreateAnonymousBlobClient()
-    {
-        // Create the client object using the Blob service endpoint.
-        CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+```csharp
+public static void CreateAnonymousBlobClient()
+{
+    // Create the client object using the Blob service endpoint.
+    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-        // Read the container's properties. Note this is only possible when the container supports full public read access.
-        container.FetchAttributes();
-        Console.WriteLine(container.Properties.LastModified);
-        Console.WriteLine(container.Properties.ETag);
-    }
+    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    container.FetchAttributes();
+    Console.WriteLine(container.Properties.LastModified);
+    Console.WriteLine(container.Properties.ETag);
+}
+```
 
-### Анонимная ссылка на контейнер
+### <a name="reference-a-container-anonymously"></a>Анонимная ссылка на контейнер
 При наличии URL-адреса контейнера, который доступен анонимно, можно воспользоваться им для прямой ссылки на контейнер.
 
-    public static void ListBlobsAnonymously()
+```csharp
+public static void ListBlobsAnonymously()
+{
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+
+    // List blobs in the container.
+    foreach (IListBlobItem blobItem in container.ListBlobs())
     {
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
-
-        // List blobs in the container.
-        foreach (IListBlobItem blobItem in container.ListBlobs())
-        {
-            Console.WriteLine(blobItem.Uri);
-        }
+        Console.WriteLine(blobItem.Uri);
     }
+}
+```
 
 
-### Анонимная ссылка на большой двоичный объект
+### <a name="reference-a-blob-anonymously"></a>Анонимная ссылка на большой двоичный объект
 Если имеется URL-адрес большого двоичного объекта, который доступен для анонимного доступа, можно создать прямую ссылку на этот большой двоичный объект, используя URL-адрес.
 
-    public static void DownloadBlobAnonymously()
-    {
-        CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-        blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
-    }
+```csharp
+public static void DownloadBlobAnonymously()
+{
+    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+}
+```
 
-## Функции, доступные анонимным пользователям
+## <a name="features-available-to-anonymous-users"></a>Функции, доступные анонимным пользователям
 В следующей таблице приведены операции, которые могут быть вызваны анонимными пользователями, если в списке управления доступом к контейнеру разрешен общий доступ.
 
 | Операция REST | Разрешение на полный общий доступ для чтения | Разрешение на общий доступ для чтения только больших двоичных объектов |
@@ -136,9 +148,14 @@ ms.author: michaelhauss;jwillis;tamram
 | Get Page Ranges (Получение диапазона страницы) |Все |Все |
 | Добавление больших двоичных объектов |Только владелец |Только владелец |
 
-## См. также
+## <a name="see-also"></a>См. также
 * [Проверка подлинности для служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Использование подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 * [Делегирование доступа с помощью подписанного URL-адреса](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

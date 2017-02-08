@@ -1,13 +1,12 @@
-
 ---
-title: Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение требований к реагированию на инциденты | Microsoft Docs
-description: Определение возможностей мониторинга и составления отчетов для решения для гибридной идентификации, с помощью которых ИТ-специалисты смогут выявить и устранить потенциальные угрозы
-documentationcenter: ''
+title: "Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение требований к реагированию на инциденты | Документация Майкрософт"
+description: "Определение возможностей мониторинга и составления отчетов для решения для гибридной идентификации, с помощью которых ИТ-специалисты смогут выявить и устранить потенциальные угрозы"
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
+
 
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Определение требований к реагированию на инциденты для решения для гибридной идентификации
@@ -63,6 +66,9 @@ ms.author: billmath
 ## <a name="see-also"></a>См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Настройка нового устройства под управлением Windows 10 для работы с Azure AD | Microsoft Docs
-description: В этом разделе объясняется, как пользователи могут настроить присоединение к Azure AD в процессе запуска при первом включении компьютера.
+title: "Настройка нового устройства для работы с Azure AD во время настройки | Документация Майкрософт"
+description: "В этом разделе объясняется, как пользователи могут настроить присоединение к Azure AD в процессе запуска при первом включении компьютера."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
+
 
 ---
-# <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Настройка нового устройства под управлением Windows 10 для работы с Azure AD
+# <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Настройка нового устройства под управлением Windows 10 для работы с Azure AD
 Пользователи Windows 10 могут присоединить свои устройства к Azure Active Directory при первом запуске (FRX). Это позволяет организациям предоставлять сотрудникам или студентам стандартные новые устройства или давать им возможность выбирать собственные (CYOD).
 Если на устройстве установлена операционная система Windows 10 Профессиональная или Windows 10 Корпоративная, автоматически запускается процесс установки устройств, принадлежащих компании.
 
@@ -46,13 +50,16 @@ ms.author: femila
 > 
 
 ## <a name="additional-information"></a>Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

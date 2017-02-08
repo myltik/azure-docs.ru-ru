@@ -35,7 +35,7 @@ ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-aha-tutorial/IC798944.png "Scenario")
+![Сценарий](./media/active-directory-saas-aha-tutorial/IC798944.png "Сценарий")
 
 ## <a name="enabling-the-application-integration-for-aha"></a>Включение интеграции приложений для Aha!
 В этом разделе показано, как включить интеграцию приложений для Aha!.
@@ -47,16 +47,16 @@ ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-aha-tutorial/IC700994.png "Applications")
+   ![Приложения](./media/active-directory-saas-aha-tutorial/IC700994.png "Приложения")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавить приложение](./media/active-directory-saas-aha-tutorial/IC749321.png "Add application")
+   ![Добавление приложения](./media/active-directory-saas-aha-tutorial/IC749321.png "Добавление приложения")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-aha-tutorial/IC749322.png "Add an application from gallerry")
+   ![Добавление приложения из коллекции](./media/active-directory-saas-aha-tutorial/IC749322.png "Добавление приложения из коллекции")
 6. В **поле поиска** введите **Aha!**.
    
-   ![Коллекция приложений](./media/active-directory-saas-aha-tutorial/IC798945.png "Application Gallery")
+   ![Коллекция приложений](./media/active-directory-saas-aha-tutorial/IC798945.png "Коллекция приложений")
 7. В области результатов выберите **Aha!** и щелкните **Завершить**, чтобы добавить приложение.
    
    ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
@@ -68,32 +68,32 @@ ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Aha!** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798946.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798946.png "Настройка единого входа")
 2. На странице **Как пользователи должны входить в Aha!** выберите **Единый вход Microsoft Azure AD**, а затем щелкните **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798947.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798947.png "Настройка единого входа")
 3. На странице **Настройка URL-адреса приложения** введите в текстовом поле **URL-адрес входа в Aha!** URL-адрес, используемый для входа в ваше приложение Aha! (например, *https://company.aha.io/session/new*) и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-aha-tutorial/IC798948.png "Configure App URL")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-aha-tutorial/IC798948.png "Настройка URL-адреса приложения")
 4. На странице **Настройка единого входа в Aha!** щелкните **Скачать метаданные** для скачивания метаданных, а затем сохраните файл данных локально на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798949.png "Configure Single Sign-On")
+   ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798949.png "Настройка единого входа")
 5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Aha! в качестве администратора.
-6. В верхнем меню щелкните пункт **Параметры**.
+6. В верхнем меню нажмите пункт **Параметры**.
    
-   ![Параметры](./media/active-directory-saas-aha-tutorial/IC798950.png "Settings")
+   ![Параметры](./media/active-directory-saas-aha-tutorial/IC798950.png "Параметры")
 7. Выберите раздел **Учетная запись**.
    
-   ![Профиль](./media/active-directory-saas-aha-tutorial/IC798951.png "Profile")
+   ![Профиль](./media/active-directory-saas-aha-tutorial/IC798951.png "Профиль")
 8. Нажмите **Безопасность и единый вход**.
    
-   ![Безопасность и единый вход](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
+   ![Безопасность и единый вход](./media/active-directory-saas-aha-tutorial/IC798952.png "Безопасность и единый вход")
 9. В разделе **Единый вход** в качестве **поставщика удостоверений** выберите **SAML 2.0**.
    
-   ![Безопасность и единый вход](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
+   ![Безопасность и единый вход](./media/active-directory-saas-aha-tutorial/IC798953.png "Безопасность и единый вход")
 10. На странице настроек **Единый вход** выполните следующие действия.
     
-    ![Единый вход](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-aha-tutorial/IC798954.png "Единый вход")
     
     1. В текстовом поле **Имя** введите имя конфигурации.
     2. Для параметра **Configure using** (Использовать при настройке) выберите значение **Файл метаданных**.
@@ -101,7 +101,7 @@ ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
     4. Нажмите кнопку **Обновить**.
 11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798955.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-aha-tutorial/IC798955.png "Настройка единого входа")
     
     ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -123,16 +123,16 @@ ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Aha!** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-aha-tutorial/IC798956.png "Assign Users")
+   ![Назначение пользователей](./media/active-directory-saas-aha-tutorial/IC798956.png "Назначение пользователей")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-aha-tutorial/IC767830.png "Yes")
+   ![Да](./media/active-directory-saas-aha-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

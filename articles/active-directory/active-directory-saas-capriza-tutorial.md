@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c16e1e10b721ac80c27f97223b4dbd975954fa01
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 1dd99c8fb989921a4d0b6f0b1545a1cf67fb6902
 
 
 ---
@@ -155,17 +155,17 @@ ms.openlocfilehash: c16e1e10b721ac80c27f97223b4dbd975954fa01
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
    
-   а. В текстовом поле **Имя** введите **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.  
    
-   b. В текстовом поле **Фамилия** введите **Simon**.
+    b. В текстовом поле **Фамилия** введите **Simon**.
    
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
+    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
-   d. В списке **Роль** выберите **Пользователь**.
+    d. В списке **Роль** выберите **Пользователь**.
    
-   д. Нажмите кнопку **Далее**.
+    д. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) 
@@ -236,6 +236,6 @@ ms.openlocfilehash: c16e1e10b721ac80c27f97223b4dbd975954fa01
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

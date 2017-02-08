@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/12/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2751b3bdc890fee15d1976de961c2032b9ced2e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: 2751b3bdc890fee15d1976de961c2032b9ced2e5
 В качестве основного домена для каталога можно указать любой проверенный личный домен, который не является федеративным. При изменении основного домена для каталога имена существующих пользователей не изменятся.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Добавление личных доменых имен в Azure AD
-В каждый каталог Azure AD можно добавить до 900 личных доменых имен. Процесс [добавления дополнительного имени личного домена](active-directory-domains-add-azure-portal.md) аналогичен добавлению первого имени личного домена.
+В каждый каталог Azure AD можно добавить до 900 личных доменых имен. Процесс [добавления дополнительного личного домена](active-directory-domains-add-azure-portal.md) аналогичен добавлению первого личного домена.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Добавление поддоменов для личного домена
 Если вы хотите добавить в ваш каталог доменное имя третьего уровня, например "europe.contoso.com", необходимо сначала добавить и проверить домен второго уровня, например "contoso.com". Поддомен будет проверен Azure AD автоматически. Чтобы узнать, проверен ли добавленный поддомен, обновите страницу со списком доменов в браузере.
@@ -70,6 +70,6 @@ ms.openlocfilehash: 2751b3bdc890fee15d1976de961c2032b9ced2e5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

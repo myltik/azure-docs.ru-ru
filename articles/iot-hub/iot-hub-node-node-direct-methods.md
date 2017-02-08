@@ -1,6 +1,6 @@
 ---
-title: "Использование прямых методов | Документация Майкрософт"
-description: "В этом руководстве описано использование прямых методов"
+title: "Прямые методы Центра Интернета вещей Azure (Node) | Документация Майкрософт"
+description: "Использование прямых методов Центра Интернета вещей Azure. Используйте пакеты SDK для Центра Интернета вещей Azure для Node.js, чтобы реализовать приложение имитации устройства, содержащее прямой метод и приложение службы, которое его вызывает."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
 
 
 ---
-# <a name="tutorial-use-direct-methods"></a>Руководство. Использование прямых методов
+# <a name="use-direct-methods-node"></a>Использование прямых методов (Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 По завершении работы с этим руководством у вас будет два консольных приложения Node.js:
@@ -50,7 +50,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
     ```
     npm init
     ```
-2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iot-device** и пакет **azure-iot-device-amqp**:
+2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы установить пакет SDK для устройства **azure-iot-device** и пакет **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -64,7 +64,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Добавьте переменную **connectionString** , чтобы создать с ее помощью клиент устройства. Замените **{строка подключения устройства}** на строку подключения, созданную в разделе *Создание удостоверения устройства*:
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью экземпляр **DeviceClient**. Замените **{device connection string}** строкой подключения устройства, созданной в разделе *Создание удостоверения устройства*.
    
     ```
     var connectionString = '{device connection string}';
@@ -112,7 +112,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
     ```
     npm init
     ```
-2. В командной строке в папке **callmethodondevice** выполните следующую команду, чтобы установить пакет **azure-iothub**:
+2. В командной строке в папке **callmethodondevice** выполните следующую команду, чтобы установить пакет **azure-iothub**.
    
     ```
     npm install azure-iothub --save
@@ -125,7 +125,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
    
     var Client = require('azure-iothub').Client;
     ```
-5. Добавьте следующее объявление переменной и замените заполнитель строкой подключения для центра IoT:
+5. Добавьте следующее объявление переменной и замените заполнитель строкой подключения к своему экземпляру Центра Интернета вещей:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -160,7 +160,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
 ## <a name="run-the-apps"></a>Запуск приложений
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы из Центра Интернета вещей:
+1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать прослушивать вызовы метода из Центра Интернета вещей:
    
     ```
     node SimulatedDevice.js
@@ -184,7 +184,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
 Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
 
 * [Начало работы с Центром Интернета вещей]
-* [Schedule jobs on multiple devices][lnk-devguide-jobs] (Планирование заданий на нескольких устройствах)
+* [Планирование заданий на нескольких устройствах (предварительная версия)][lnk-devguide-jobs]
 
 Дополнительные сведения о расширении решения Центра Интернета вещей и планировании вызовов методов на нескольких устройствах см. в учебнике [Планирование и трансляция заданий][lnk-tutorial-jobs].
 
@@ -196,7 +196,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -213,6 +213,6 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

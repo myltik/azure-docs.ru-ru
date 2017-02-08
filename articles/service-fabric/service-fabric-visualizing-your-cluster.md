@@ -15,13 +15,17 @@ ms.workload: na
 ms.date: 08/22/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b97cd5d2f9a29d3fa8f13363b937ace276e556ff
+ms.sourcegitcommit: 1825e1400b95eb2a810082b6a3f15324261084b0
+ms.openlocfilehash: b9e10181e123b91f5593ea135220f97b780186c9
 
 
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Визуализация кластера с помощью обозревателя Service Fabric
 Обозреватель Service Fabric — это веб-средство для изучения приложений и узлов в кластере Azure Service Fabric и управления ими. Обозреватель Service Fabric размещается непосредственно в кластере, поэтому он доступен всегда, независимо от того, где запущен кластер.
+
+Посмотрите следующий видеоролик от Академии Microsoft Virtual Academy, в котором показано, как использовать Service Fabric Explorer: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965">
+<img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## <a name="connect-to-service-fabric-explorer"></a>Подключение к обозревателю Service Fabric
 Если вы следовали указаниям по [подготовке среды разработки](service-fabric-get-started.md), вы можете запустить Service Fabric Explorer на локальном кластере, перейдя по адресу http://localhost:19080/Explorer.
@@ -128,6 +132,6 @@ http://&lt;конечная_точка_кластера&gt;:19080/Explorer.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

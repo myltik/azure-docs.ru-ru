@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a044412d138478cf8ebd8ed8768fd4764b8a551
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f70240f2bebca76872194e556cf9cae9130b56db
 
 
 ---
@@ -339,15 +339,15 @@ ms.openlocfilehash: 0a044412d138478cf8ebd8ed8768fd4764b8a551
 Также можно просмотреть видео [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Начиная с 45:25, на этой видеозаписи демонстрируется, как реализовать фасеты.
 
 <!--Anchors-->
-[Построение запроса]: #howtobuildit
-[Создание уровня представления данных]: #presentationlayer
-[Создание индекса]: #buildindex
-[Проверка качества данных]: #checkdata
-[Создание запроса]: #buildquery
-[Советы по управлению фасетной навигацией]: #tips
-[Фасетная навигация на основе диапазона значений]: #rangefacets
-[Фасетная навигация на основе геоточек]: #geofacets
-[Попробуйте сейчас]: #tryitout
+[How to build it]: #howtobuildit
+[Build the presentation layer]: #presentationlayer
+[Build the index]: #buildindex
+[Check for data quality]: #checkdata
+[Build the query]: #buildquery
+[Tips on how to control faceted navigation]: #tips
+[Faceted navigation based on range values]: #rangefacets
+[Faceted navigation based on GeoPoints]: #geofacets
+[Try it out]: #tryitout
 
 <!--Image references-->
 [1]: ./media/search-faceted-navigation/Facet-1-slide.PNG
@@ -362,18 +362,18 @@ ms.openlocfilehash: 0a044412d138478cf8ebd8ed8768fd4764b8a551
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->
-[Разработка решения для поиска с использованием фасетов]: http://www.uie.com/articles/faceted_search/
-[Шаблоны разработки: фасетная навигация]: http://alistapart.com/article/design-patterns-faceted-navigation
-[Создание своего первого приложения]: search-create-first-solution.md
-[Синтаксис выражений OData для поиска Azure]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Демо-версия Adventure Works для Поиска Azure]: https://azuresearchadventureworksdemo.codeplex.com/
+[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
+[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Create your first application]: search-create-first-solution.md
+[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Сообщение о фасетной навигации в Поиске Azure, опубликованное на форуме]: ../faceting-on-azure-search.md?forum=azuresearch
-[статье, посвященной поиску документов с помощью интерфейса API службы поиска Azure)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
+[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

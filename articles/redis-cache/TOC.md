@@ -45,21 +45,21 @@
 ###[Обновление до другого размера и уровня](cache-how-to-scale.md)
 ###[Использование кластера Redis для свертывания и развертывания](cache-how-to-premium-clustering.md)
 
-#Справочные материалы
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Справочные материалы
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Предварительная версия Azure CLI 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Клиенты Redis](http://redis.io/clients)
 ## [Команды Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Ресурсы
 ## [Примеры кэша Redis](cache-redis-samples.md)
-
-#Ресурсы
-##[Цены](https://azure.microsoft.com/pricing/details/cache/)
+## [Цены](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

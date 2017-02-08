@@ -1,12 +1,12 @@
 ---
-title: Использование PowerShell для резервного копирования и восстановления приложений службы приложений
-description: Узнайте, как использовать PowerShell для создания и восстановления резервных копий приложения в службе приложений Azure.
+title: "Использование PowerShell для резервного копирования и восстановления приложений службы приложений"
+description: "Узнайте, как использовать PowerShell для создания и восстановления резервных копий приложения в службе приложений Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: NKing92
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 7ea8661e-aefb-4823-9626-6bff980cdebf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,24 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
+translationtype: Human Translation
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
+
 
 ---
-# Использование PowerShell для резервного копирования и восстановления приложений службы приложений
+# <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Использование PowerShell для резервного копирования и восстановления приложений службы приложений
 > [!div class="op_single_selector"]
 > * [PowerShell](app-service-powershell-backup.md)
 > * [ИНТЕРФЕЙС REST API](../app-service-web/websites-csm-backup.md)
 > 
 > 
 
-Узнайте, как использовать Azure PowerShell для резервного копирования и восстановления [приложений службы приложений](https://azure.microsoft.com/services/app-service/web/). Дополнительные сведения о резервных копиях веб-приложений, включая требования и ограничения, см. в статье [Резервное копирование веб-приложений в службе приложений Azure](../app-service-web/web-sites-backup.md).
+Узнайте, как использовать Azure PowerShell для архивации и восстановления [приложений службы приложений](https://azure.microsoft.com/services/app-service/web/). Дополнительные сведения о резервных копиях веб-приложений, включая требования и ограничения, см. в статье [Резервное копирование веб-приложений в службе приложений Azure](../app-service-web/web-sites-backup.md).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Чтобы использовать PowerShell для управления резервными копиями приложения, требуется следующее.
 
-* **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Описание URL-адресов SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md). С примерами управления службой хранилища Azure с помощью PowerShell можно ознакомиться в разделе [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md).
-* **Строка подключения к базе данных**, если вместе с веб-приложением вы хотите создать резервную копию базы данных.
+* **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Описание URL-адресов SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md). С примерами управления службой хранилища Azure с помощью PowerShell можно ознакомиться в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md).
+* **Строка подключения к базе данных** , если вместе с веб-приложением вы хотите создать резервную копию базы данных.
 
-### Как создать подписанный URL-адрес SAS для использования с командлетами архивации веб-приложений
+### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Как создать подписанный URL-адрес SAS для использования с командлетами архивации веб-приложений
 Подписанный URL-адрес можно создать с помощью PowerShell. Ниже приведен пример того, как создать подписанный URL-адрес, который может использоваться с командлетами, рассмотренными в этой статье.
 
         $storageAccountName = "<your storage account's name>"
@@ -44,10 +48,10 @@ ms.author: nicking
         $blobContainerName = "<name of blob container for app backups>"
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
-## Установка Azure PowerShell 1.3.2 или более поздней версии
-Инструкции по установке и использованию Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+## <a name="install-azure-powershell-132-or-greater"></a>Установка Azure PowerShell 1.3.2 или более поздней версии
+Инструкции по установке и использованию Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## Создание резервной копии
+## <a name="create-a-backup"></a>Создание резервной копии
 Выполните командлет New-AzureRmWebAppBackup для создания резервной копии веб-приложения.
 
         $sasUrl = "<your SAS URL>"
@@ -66,7 +70,7 @@ ms.author: nicking
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         $dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
 
-## Получение резервных копий
+## <a name="get-backups"></a>Получение резервных копий
 Командлет Get-AzureRmWebAppBackupList возвращает массив всех резервных копий для веб-приложения. Этому командлету следует передать имя веб-приложения и его группу ресурсов.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -83,7 +87,7 @@ ms.author: nicking
         $backupList = $app | Get-AzureRmWebAppBackupList
         $backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
 
-## Планирование автоматического резервного копирования
+## <a name="schedule-automatic-backups"></a>Планирование автоматического резервного копирования
 Вы можете настроить автоматическое резервное копирование через указанные промежутки времени. Чтобы настроить график резервного копирования, используйте командлет Edit-AzureRmWebAppBackupConfiguration. Этот командлет принимает несколько параметров.
 
 * **Name** — имя веб-приложения.
@@ -92,7 +96,7 @@ ms.author: nicking
 * **StorageAccountUrl** — подписанный URL-адрес SAS контейнера службы хранилища Azure, в котором будет храниться резервная копия.
 * **FrequencyInterval** — числовое значение, которое определяет частоту создания резервных копий. Принимаются только положительные целые числа.
 * **FrequencyUnit** — задает единицы времени, в которых выражена частота архивации. Допустимые варианты: Hour (часы) и Day (дни).
-* **RetentionPeriodInDays** — количество дней хранения создаваемых автоматически резервных копий. По завершении этого периода резервные копии автоматически удаляются.
+* **RetentionPeriodInDays** — количество дней хранения автоматически создаваемых резервных копий. По завершении этого периода резервные копии автоматически удаляются.
 * **StartTime** — необязательный параметр. Время начала автоматической архивации. Если это поле имеет значение NULL, то архивация начинается немедленно. Принимаются значения в формате DateTime.
 * **Databases** — необязательный параметр. Массив настроек в формате DatabaseBackupSettings, которые описывают базы данных для резервного копирования.
 * **KeepAtLeastOneBackup** — необязательный параметр. Его следует указать, если вы хотите всегда хранить в учетной записи хранения одну резервную копию независимо от срока ее создания.
@@ -119,7 +123,7 @@ ms.author: nicking
         # Apply the new configuration by piping it into the Edit-AzureRmWebAppBackupConfiguration cmdlet
         $configuration | Edit-AzureRmWebAppBackupConfiguration
 
-## Восстановление веб-приложения из резервной копии
+## <a name="restore-a-web-app-from-a-backup"></a>Восстановление веб-приложения из резервной копии
 Чтобы восстановить веб-приложение из резервной копии, используйте командлет Restore-AzureRmWebAppBackup. Для упрощения процесса вы можете передать этому командлету объект резервной копии, полученный из командлета Get-AzureRmWebAppBackup или Get-AzureRmWebAppBackupList.
 
 Созданный объект резервной копии можно передать в командлет Restore-AzureRmWebAppBackup с использованием конвейера. Добавьте параметр Overwrite, который указывает, что вы хотите заменить содержимое веб-приложения содержимым резервной копии. Если резервная копия содержит базы данных, то эти они также будут восстановлены.
@@ -136,7 +140,7 @@ ms.author: nicking
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
 
-## удаление резервной копии;
+## <a name="delete-a-backup"></a>удаление резервной копии;
 Чтобы удалить резервную копию, используйте командлет Remove-AzureRmWebAppBackup. Резервная копия будет удалена из вашей учетной записи хранения. Укажите имя приложения, его группу ресурсов и идентификатор резервной копии, которую требуется удалить.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -148,4 +152,8 @@ ms.author: nicking
         $backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
         $backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

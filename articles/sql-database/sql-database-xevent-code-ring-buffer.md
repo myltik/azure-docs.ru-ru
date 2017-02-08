@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -23,6 +23,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
 
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Код целевого объекта "Кольцевой буфер" для расширенных событий в базе данных SQL
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Вам нужен полный образец кода для простой и быстрой регистрации и сообщения сведений о расширенных событиях в процессе тестирования. Самый простой целевой объект для данных расширенных событий — это [целевой объект "Кольцевой буфер"](http://msdn.microsoft.com/library/ff878182.aspx).
@@ -44,6 +45,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
 8. Удаляет сеанс событий и демонстрационную таблицу.
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 * Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 * Любая база данных, позволяющая создать таблицу.
   
@@ -55,6 +57,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
   * [Прямая ссылка на загрузку.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Пример кода
+
 С небольшими изменениями приведенный ниже пример кода кольцевого буфера можно выполнять как в базе данных SQL Azure, так и на Microsoft SQL Server. Разница заключается в наличии узла "_database" в имени некоторых динамических административных представлений, используемых в части FROM (шаг 5). Например:
 
 * sys.dm_xe**_database**_session_targets
@@ -62,7 +65,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
 
 &nbsp;
 
-```
+```tsql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -216,6 +219,7 @@ GO
 &nbsp;
 
 ## <a name="ring-buffer-contents"></a>Содержимое кольцевого буфера
+
 Для выполнения данного примера кода мы использовали файл ssms.exe.
 
 Чтобы просмотреть результаты, мы щелкнули ячейку под заголовком столбца **target_data_XML**.
@@ -315,9 +319,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 
 #### <a name="release-resources-held-by-your-ring-buffer"></a>Освобождение ресурсов, занятых кольцевым буфером
+
 По завершении работы с кольцевым буфером его можно удалить и освободить таким образом ресурсы. Для этого используется оператор **ALTER**.
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -327,7 +332,7 @@ GO
 
 Определение сеанса событий обновляется, но не удаляется. Впоследствии в сеанс событий можно добавить еще один экземпляр кольцевого буфера.
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -339,6 +344,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 
 ## <a name="more-information"></a>Дополнительные сведения
+
 Основная статья о расширенных событиях в Базе данных SQL Azure:
 
 * [Рекомендации по работе с расширенными событиями в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md), где сравниваются аспекты расширенных событий в Базе данных SQL Azure и в Microsoft SQL Server.
