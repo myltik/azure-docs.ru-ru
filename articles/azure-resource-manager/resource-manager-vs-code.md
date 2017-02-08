@@ -32,7 +32,7 @@ ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 2. Воспользуйтесь быстрым открытием (CTRL+P). 
 3. Выполните следующую команду: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Перезапустите VSCode, когда будет предложено включить расширение. 
    
    Задание выполнено!
