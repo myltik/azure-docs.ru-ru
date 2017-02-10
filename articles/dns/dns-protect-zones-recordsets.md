@@ -43,14 +43,14 @@ DNS Zone Contributor (Участник зоны DNS) — это встроен�
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName <resource group name>
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 Аналогичную команду также [можно выполнить через интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-azure role assignment create --signInName  <user email address> --roleName "DNS Zone Contributor" --resourceGroup <resource group name>
+azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --resourceGroup "<resource group name>"
 ```
 
 ### <a name="zone-level-rbac"></a>RBAC на уровне зоны
@@ -67,12 +67,12 @@ azure role assignment create --signInName  <user email address> --roleName "DNS 
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName <resource group name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 Аналогичную команду также [можно выполнить через интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 azure role assignment create --signInName <user email address> --roleName "DNS Zone Contributor" --resource-name <zone name> --resource-type Microsoft.Network/DNSZones --resource-group <resource group name>
 ```
@@ -89,14 +89,14 @@ azure role assignment create --signInName <user email address> --roleName "DNS Z
 
 ```powershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 Аналогичную команду также [можно выполнить через интерфейс командной строки Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant permissions to a specific record set
-azure role assignment create --signInName <user email address> --roleName "DNS Zone Contributor" --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 ### <a name="custom-roles"></a>Пользовательские роли
@@ -150,7 +150,7 @@ New-AzureRmRoleDefinition -InputFile <file path>
 
 Ее также можно создать с помощью интерфейса командной строки Azure:
 
-```powershell
+```azurecli
 # Create new role definition based on input file
 azure role create -inputfile <file path>
 ```
@@ -193,7 +193,7 @@ New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceN
 
 ```powershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name>/<record set name> -ResourceType Microsoft.Network/DNSZones/<record type> -ResourceGroupName <resource group name>
+New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Защита зоны от удаления
@@ -208,7 +208,7 @@ New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceN
 
 ```powershell
 # Protect against zone delete with DoNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel DoNotDelete -LockName <lock name> -ResourceName <zone name>/@ -ResourceType Microsoft.Network/DNSZones/SOA -ResourceGroupName <resource group name>
+New-AzureRmResourceLock -LockLevel DoNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Другой способ предотвратить случайное удаление зоны — настроить пользовательскую роль, благодаря чему в учетных записях оператора и службы, используемых для управления зонами, не будет разрешений на удаление зоны. Если вам понадобится удалить зону, можно применить двухэтапное удаление. Сначала нужно предоставить разрешения на удаление зоны (в области зоны, чтобы предотвратить удаление не той зоны), после чего ее можно будет удалить.

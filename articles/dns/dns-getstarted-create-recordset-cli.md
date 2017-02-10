@@ -73,16 +73,18 @@ azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2
 
 Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам нужно [направить запрос DNS непосредственно к одному из серверов доменных имен для вашей зоны](dns-getstarted-create-dnszone.md#test-name-servers). Обязательно вставьте правильные значения для зоны записей в следующую команду.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
