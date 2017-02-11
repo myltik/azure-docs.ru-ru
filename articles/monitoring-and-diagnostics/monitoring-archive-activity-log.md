@@ -1,84 +1,88 @@
 ---
-title: Archive the Azure Activity Log | Microsoft Docs
-description: Learn how to archive your Azure Activity Log for long-term retention in a storage account.
+title: "Архивация журнала действий Azure | Документация Майкрософт"
+description: "Узнайте, как настроить архивацию журнала действий Azure для долгосрочного хранения в учетной записи хранения."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 12/09/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
+ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
+
 
 ---
-# <a name="archive-the-azure-activity-log"></a>Archive the Azure Activity Log
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
+# <a name="archive-the-azure-activity-log"></a>Архивация журнала действий Azure
+В этой статье описано, как настроить архивацию [**журнала действий Azure**](monitoring-overview-activity-logs.md) в учетной записи хранения с помощью портала Azure, командлетов PowerShell или кроссплатформенного интерфейса командной строки. Архивацию целесообразно применять, если вам нужно хранить данные журнала действий дольше 90 дней (с полным контролем над политикой хранения) для аудита, статического анализа или резервного копирования. Если вам требуется хранить события в течение не более 90 дней, не нужно настраивать архивацию в учетную запись хранения, так как события журнала действий можно хранить в течение этого периода на платформе Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+## <a name="prerequisites"></a>Предварительные требования
+Прежде чем начать, необходимо [создать учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account) для архивации данных журнала действий. Настоятельно рекомендуется не использовать имеющуюся учетную запись хранения, в которой содержатся другие данные (не данные мониторинга), чтобы лучше контролировать доступ к данным мониторинга. Но если вы также архивируете в учетную запись хранения журналы диагностики и метрики, целесообразно использовать эту учетную запись и для хранения данных журнала действий. Так все данные мониторинга будут храниться в одном расположении. Используйте учетную запись хранения общего назначения, а не учетную запись хранения больших двоичных объектов. Учетная запись хранения не обязательно должна находиться в той самой подписке, в которой создаются журналы, если у пользователя, настраивающего параметр, имеется соответствующий доступ RBAC к обеим подпискам.
 
-## <a name="log-profile"></a>Log Profile
-To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+## <a name="log-profile"></a>Профиль журнала
+Чтобы настроить архивацию журнала действий с помощью одного из описанных здесь методов, необходимо настроить **профиль журнала** для подписки. Профиль журнала определяет тип событий, которые хранятся или передаются потоком, и выходных данных — учетная запись хранения и/или концентратор событий. Он также определяет политику хранения событий (число дней), содержащихся в учетной записи хранения. Если для политики хранения задано значение&0;, события хранятся неограниченное время. Или вы можете присвоить любое значение от 1 до 2 147 483 647. Политики хранения применяются по дням, поэтому в конце дня (по времени в формате UTC) журналы, срок которых теперь превышает период хранения, будут удалены. Например, если настроена политика хранения в течение одного дня, то в начале текущего дня журналы за вчерашний день будет удалены. Дополнительные сведения о профилях журнала см. [здесь](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles). 
 
-## <a name="archive-the-activity-log-using-the-portal"></a>Archive the Activity Log using the portal
-1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
+## <a name="archive-the-activity-log-using-the-portal"></a>Архивация журнала действий с помощью портала
+1. На портале щелкните ссылку **Журнал действий** на панели навигации слева. Если вы не видите эту ссылку, сначала щелкните ссылку **Другие службы** .
    
-    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. At the top of the blade, click **Export**.
+    ![Переход к колонке журнала действий](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. В верхней части колонки щелкните **Экспорт**.
    
-    ![Click the Export button](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
+    ![Нажатие кнопки "Экспорт"](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. В открывшейся колонке установите флажок **Export to a storage account** (Экспортировать в учетную запись хранения) и выберите учетную запись хранения.
    
-    ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Using the slider or text box, define a number of days for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero.
-5. Click **Save**.
+    ![Настройка учетной записи хранения](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+4. С помощью ползунка или текстового поля задайте число дней, в течение которых необходимо хранить события журнала действий в учетной записи хранения. Если требуется, чтобы данные хранились в учетной записи хранения бесконечно, задайте значение&0;.
+5. Щелкните **Сохранить**.
 
-## <a name="archive-the-activity-log-via-powershell"></a>Archive the Activity Log via PowerShell
+## <a name="archive-the-activity-log-via-powershell"></a>Архивация журнала действий с помощью PowerShell
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| StorageAccountId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| Categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| StorageAccountId |Нет |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
+| Расположения |Да |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. Список всех регионов можно получить, [посетив эту страницу](https://azure.microsoft.com/en-us/regions) или используя [REST API управления Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Да |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы хранятся неограниченно долго, то есть всегда. |
+| Категории |Да |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
 
-## <a name="archive-the-activity-log-via-cli"></a>Archive the Activity Log via CLI
+## <a name="archive-the-activity-log-via-cli"></a>Архивация журнала действий с помощью интерфейса командной строки
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Свойство | Обязательно | Description (Описание) |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |Да |Имя профиля журнала. |
+| storageId |Нет |Идентификатор ресурса для учетной записи хранения, в которую будут сохранены журналы действий. |
+| Расположения |Да |Разделенный запятыми список регионов, для которых будут собираться события журнала действий. Список всех регионов можно получить, [посетив эту страницу](https://azure.microsoft.com/en-us/regions) или используя [REST API управления Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Да |Количество дней, в течение которых будут храниться события: от 1 до 2 147 483 647. Нулевое значение означает, что журналы будут храниться неограниченно долго, то есть всегда. |
+| Категории |Да |Разделенный запятыми список категорий событий, которые будут собираться. Возможные значения: Write, Delete или Action. |
 
-## <a name="storage-schema-of-the-activity-log"></a>Storage schema of the Activity Log
-Once you have set up archival, a storage container will be created in the storage account as soon as an Activity Log event occurs. The blobs within the container follow the same format across the Activity Log and Diagnostic Logs. The structure of these blobs is:
+## <a name="storage-schema-of-the-activity-log"></a>Схема хранения журнала действий
+После настройки архивации в учетной записи хранения будет создан контейнер хранилища, как только возникнет событие журнала. Большие двоичные объекты, содержащиеся в контейнере, имеют одинаковый формат в журналах действий и диагностики. Вот как выглядит структура большого двоичного объекта:
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{ИД подписки}/y={год в четырехзначном формате}/m={месяц в двухзначном формате}/d={день в двухзначном формате}/h={время в двухзначном 24-часовом формате}/m=00/PT1H.json
 > 
 > 
 
-For example, a blob name might be:
+Например, большой двоичный объект может иметь такое имя:
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (e.g. h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since Activity Log events are broken into individual blobs per hour.
+Каждый большой двоичный объект PT1H.json содержит большой двоичный объект JSON с событиями, произошедшими в течение часа, указанного в URL-адресе этого объекта (например, h=12). В течение заданного часа события добавляются в файл PT1H.json по мере возникновения. Значение минуты (m=00) всегда равно 00, так как события журнала действий разбиваются на отдельные большие двоичные объекты каждый час.
 
-Within the PT1H.json file, each event is stored in the “records” array, following this format:
+В файле PT1H.json каждое событие сохраняется в массиве records в следующем формате:
 
 ```
 {
@@ -137,33 +141,36 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 ```
 
 
-| Element name | Description |
+| Имя элемента | Описание |
 | --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Category of the action, eg. Write, Read, Action. |
-| resultType |The type of the result, eg. Success, Failure, Start |
-| resultSignature |Depends on the resource type. |
-| durationMs |Duration of the operation in milliseconds |
-| callerIpAddress |IP address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| identity |JSON blob describing the authorization and claims. |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| location |Region in which the location occurred (or global). |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
+| Twitter в режиме реального |Метка времени, когда служба Azure создала событие при обработке соответствующего этому событию запроса. |
+| ResourceId |Идентификатор ресурса для затронутого ресурса. |
+| operationName |Имя операции. |
+| category |Категория действия, например "Запись", "Чтение", "Действие" |
+| resultType |Тип результата, например "Успешно", "Ошибка", "Запуск" |
+| resultSignature |Зависит от типа ресурса. |
+| durationMs |Время выполнения операции в миллисекундах |
+| callerIpAddress |IP-адрес пользователя, который выполнил операцию, утверждение имени субъекта-службы или имени участника-пользователя в зависимости от доступности. |
+| correlationId |Обычно GUID в строковом формате. События, которые совместно используют идентификатор correlationId, принадлежат к одному общему действию. |
+| identity |Большой двоичный объект JSON, описывающий авторизацию и утверждения. |
+| authorization |BLOB-объект со свойствами RBAC события. Обычно включает следующие свойства: action, role и scope. |
+| level |Уровень события. Одно из следующих значений: "Critical", "Error", "Warning", "Informational" или "Verbose" |
+| location |Регион, к которому принадлежит расположение (или глобальное местоположение). |
+| properties |Набор пар `<Key, Value>` (например, Dictionary) c подробным описанием события. |
 
 > [!NOTE]
-> The properties and usage of those properties can vary depending on the resource.
+> Свойства и их использование зависят от ресурса.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-* [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Stream the Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-* [Read more about the Activity Log](monitoring-overview-activity-logs.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Скачивание больших двоичных объектов для анализа](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Потоковая передача журнала действий в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
+* [Дополнительные сведения о журнале действий](monitoring-overview-activity-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

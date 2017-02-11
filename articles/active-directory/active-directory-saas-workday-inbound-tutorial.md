@@ -1,11 +1,11 @@
 ---
-title: Руководство. Настройка Workday для входящей синхронизации | Microsoft Docs
-description: Узнайте, как использовать Workday в качестве источника данных удостоверений для Azure Active Directory.
+title: "Руководство по настройке Workday для входящей синхронизации | Документация Майкрософт"
+description: "Узнайте, как использовать Workday в качестве источника данных удостоверений для Azure Active Directory."
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>Руководство. Настройка Workday для входящей синхронизации
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Руководство. Настройка Workday для входящей синхронизации
 Цель этого руководства — показать, какие действия необходимо выполнить в Workday и Azure AD для импорта пользователей из Workday в Azure AD. 
 
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
@@ -36,7 +40,7 @@ ms.author: markvi
 ## <a name="enabling-the-application-integration-for-workday"></a>Включение интеграции приложений для Workday
 В этом разделе показано, как включить интеграцию приложений для Workday.
 
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-workday-inbound-tutorial/IC700993.png "Active Directory")
@@ -55,7 +59,7 @@ ms.author: markvi
     ![Коллекция приложений](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Application gallery")
 
 ## <a name="creating-an-integration-system-user"></a>Создание пользователя системы интеграции
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. В области **Workday Workbench** введите в поле поиска "create user", а затем щелкните ссылку **Create Integration System User** (Создать пользователя системы интеграции). 
    
     ![Создать пользователя](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
@@ -66,7 +70,7 @@ ms.author: markvi
 ## <a name="creating-a-security-group"></a>Создание группы безопасности
 Для сценария, описанного в данном руководстве, необходимо создать ничем не ограниченную группу безопасности системы интеграции и назначить ей пользователя.
 
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. Введите в поле поиска текст "создать группу безопасности", а затем щелкните **Создать группу безопасности**. 
    
     ![Создать группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
@@ -75,7 +79,7 @@ ms.author: markvi
     ![Создать группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
 
 ## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Назначение пользователя системы интеграции группе безопасности
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. Введите в поле поиска текст "изменить группу безопасности", а затем щелкните **Изменить группу безопасности**. 
    
     ![Изменить группу безопасности](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
@@ -95,7 +99,7 @@ ms.author: markvi
 * Worker Data: Current Staffing Information
 * Worker Data: Business Title on Worker Profile
 
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. В поле поиска введите "политики безопасности домена", а затем нажмите ссылку "Политики безопасности домена для функциональной области".  
    
     ![Политики безопасности домена](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
@@ -127,7 +131,7 @@ ms.author: markvi
 
 
 ## <a name="activating-security-policy-changes"></a>Активация изменений политики безопасности
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. Введите "активировать" в поле поиска и затем нажмите ссылку "Активировать ожидающие изменения политики безопасности". 
    
     ![Активировать](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
@@ -141,11 +145,11 @@ ms.author: markvi
 ## <a name="configuring-user-import-in-azure-ad"></a>Настройка импорта пользователей в Azure AD
 Цель этого раздела — описать настройку Azure AD для импорта пользователей из Workday.
 
-### <a name="steps:"></a>Шаги:
+### <a name="steps"></a>Шаги:
 1. На странице интеграции с приложением **Workday** щелкните **Настроить импорт пользователей**, чтобы открыть диалоговое окно **Настройка подготовки к работе**.
-2. На странице **Параметры и учетные данные администратора** выполните приведенные ниже действия, после чего нажмите кнопку **Далее**. 
+2. На странице **Параметры и учетные данные администратора** выполните приведенные ниже действия, после чего нажмите кнопку **Далее**. 
    
-    ![Параметры и учетные данные администратора](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
+    ![Параметры и учетные данные администратора](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
    
     а. В текстовое поле "Workday admin user" (Имя пользователя администратора Workday) введите имя пользователя, созданного в разделе "Creating an integration system user" (Создание пользователя системы интеграции).
    
@@ -168,6 +172,9 @@ ms.author: markvi
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

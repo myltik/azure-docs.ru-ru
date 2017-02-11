@@ -1,12 +1,12 @@
 ---
-title: Интеграция пакета Android SDK для Azure Mobile Engagement
-description: Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement
+title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
+description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,21 +14,25 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
+
 
 ---
-# Процедуры обновления
+# <a name="upgrade-procedures"></a>Процедуры обновления
 Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
 
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
 
 Независимо от того, с какой версии выполняется обновление, необходимо заменить `mobile-engagement-VERSION.jar` на новую версию.
 
-## Версии с 4.2.0 до 4.2.1
+## <a name="from-420-to-421"></a>Версии с 4.2.0 до 4.2.1
 Фактически это действие можно выполнить в любой версии пакета SDK — это повышает безопасность при интеграции действий модуля Reach.
 
-Теперь ко всем действиям модуля Reach необходимо добавлять `exported="false"`.
+Теперь ко всем действиям модуля Reach необходимо добавлять `exported="false"` .
 
-Действия модуля Reach должны выглядеть в `AndroidManifest.xml` следующим образом.
+Действия модуля Reach должны выглядеть в `AndroidManifest.xml`следующим образом.
 
             <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
               <intent-filter>
@@ -57,12 +61,13 @@ ms.author: piyushjo
               </intent-filter>
             </activity>
 
-## С версии 4.0.0 до версии 4.1.0
+## <a name="from-400-to-410"></a>С версии 4.0.0 до версии 4.1.0
 Пакет SDK теперь обрабатывает новую модель разрешений из Android M.
 
 Если вы используете характеристики расположений или общие уведомления, ознакомьтесь с [этим разделом](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
-Помимо новой модели разрешений, теперь поддерживается настройка характеристик расположений во время выполнения. Кроме того, по-прежнему обеспечивается поддержка совместимости с параметрами манифеста для расположения, но сейчас эта возможность устарела. Чтобы использовать конфигурацию среды выполнения, удалите следующие разделы из ``AndroidManifest.xml``:
+Помимо новой модели разрешений, теперь поддерживается настройка характеристик расположений во время выполнения.
+Кроме того, по-прежнему обеспечивается поддержка совместимости с параметрами манифеста для расположения, но сейчас эта возможность устарела. Чтобы использовать конфигурацию среды выполнения, удалите следующие разделы из ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -77,15 +82,15 @@ ms.author: piyushjo
       android:name="engagement:locationReport:realTime:fine"
       android:value="true"/>
 
-и ознакомьтесь с [этой обновленной процедурой](mobile-engagement-android-integrate-engagement.md#location-reporting), чтобы вместо этого использовать конфигурацию среды выполнения.
+и ознакомьтесь с [этой обновленной процедурой](mobile-engagement-android-integrate-engagement.md#location-reporting) , чтобы вместо этого использовать конфигурацию среды выполнения.
 
-## С версии 3.0.0 до версии 4.0.0
-### Системные push-уведомления
+## <a name="from-300-to-400"></a>С версии 3.0.0 до версии 4.0.0
+### <a name="native-push"></a>Системные push-уведомления
 Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
 
 Если вы еще не сделали этого, следуйте [этой процедуре](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 Возможности интеграции с Reach были изменены в ``AndroidManifest.xml``.
 
 Замените это:
@@ -124,7 +129,8 @@ ms.author: piyushjo
       </intent-filter>
     </receiver>
 
-Теперь при выборе объявления (текстового или с веб-содержимым) или опроса может отображаться экран загрузки. Чтобы кампании работали в версии 4.0.0, необходимо добавить этот код:
+Теперь при выборе объявления (текстового или с веб-содержимым) или опроса может отображаться экран загрузки.
+Чтобы кампании работали в версии 4.0.0, необходимо добавить этот код:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -135,10 +141,10 @@ ms.author: piyushjo
       </intent-filter>
     </activity>
 
-### Ресурсы
+### <a name="resources"></a>Ресурсы
 Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
 
-## Из версии 2.4.0 в 3.0.0
+## <a name="from-240-to-300"></a>Из версии 2.4.0 в 3.0.0
 Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала ознакомьтесь с информацией о переносе на версию 2.4.0 на веб-сайте Capptain, а затем примените следующую процедуру.
 
 > [!IMPORTANT]
@@ -146,15 +152,15 @@ ms.author: piyushjo
 > 
 > 
 
-### JAR-файл
+### <a name="jar-file"></a>JAR-файл
 Замените `capptain.jar` на `mobile-engagement-VERSION.jar` в папке `libs`.
 
-### Файлы ресурсов
+### <a name="resource-files"></a>Файлы ресурсов
 Каждый предоставленный файл ресурсов (с префиксом `capptain_`) должен быть заменен на новый (с префиксом `engagement_`).
 
-Если вы настроили эти файлы, потребуется повторно применить настройку к новым файлам. **Все идентификаторы фалов ресурсов также были переименованы.**
+Если вы настроили эти файлы, потребуется повторно применить настройку к новым файлам. **Все идентификаторы файлов ресурсов также были переименованы.**
 
-### Идентификатор приложения
+### <a name="application-id"></a>Идентификатор приложения
 Теперь служба Engagement использует строку подключения для настройки идентификаторов пакета SDK, таких как идентификатор приложения.
 
 Необходимо использовать метод `EngagementAgent.init` в действии запуска следующим образом:
@@ -173,14 +179,14 @@ ms.author: piyushjo
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### API Java
+### <a name="java-api"></a>API Java
 Любой вызов любого класса Java пакета SDK должен быть переименован, например `CapptainAgent.getInstance(this)` нужно переименовать в `EngagementAgent.getInstance(this)`, `extends CapptainActivity` нужно переименовать в `extends EngagementActivity` и т. д.
 
 Если была выполнена интеграция с файлами параметров агента по умолчанию, то теперь имя файла по умолчанию — `engagement.agent`, а ключ — `engagement:agent`.
 
 При создании веб-объявлений теперь используется модуль привязки Javascript `engagementReachContent`.
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 Выполнено много изменений. Служба больше не используется совместно, а большое количество получателей больше нельзя экспортировать.
 
 Объявление службы теперь упрощено, удален фильтр намерений и все метаданные в нем, а также добавлен `exportable=false`.
@@ -381,7 +387,7 @@ ms.author: piyushjo
             </intent-filter>
           </receiver>
 
-Обратите внимание, что объявление реализации получателя рассылок **EngagementMessageReceiver** изменено в `AndroidManifest.xml`. Это вызвано тем, что API используется для отправки и удаления произвольных сообщений XMPP из произвольных сущностей XMPP, а API для отправки и получения сообщений между устройствами был удален. Таким образом, необходимо также удалить следующие обратные вызовы из реализации **EngagementMessageReceiver**:
+Обратите внимание, что объявление реализации получателя рассылок **EngagementMessageReceiver** изменено в `AndroidManifest.xml`. Это вызвано тем, что API используется для отправки и удаления произвольных сообщений XMPP из произвольных сущностей XMPP, а API для отправки и получения сообщений между устройствами был удален. Таким образом, необходимо также удалить следующие обратные вызовы из реализации **EngagementMessageReceiver** :
 
             protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -397,7 +403,7 @@ ms.author: piyushjo
 
             sendXMPPMessage(android.os.Bundle msg)
 
-### Proguard
+### <a name="proguard"></a>Proguard
 На настройку Proguard может оказать влияние ребрендинг, правила теперь выглядят следующим образом:
 
             -dontwarn android.**
@@ -409,4 +415,8 @@ ms.author: piyushjo
             }
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

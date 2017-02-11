@@ -2,6 +2,7 @@
 ## [Что такое DocumentDB?](documentdb-introduction.md)
 ## [Ключевые понятия](documentdb-resources.md)
 ## [Глобальное распределение](documentdb-distribute-data-globally.md)
+## [Анализ совокупной стоимости владения базой данных NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Сценарии
 ### [Распространенные варианты использования](documentdb-use-cases.md)
 ### [Использование социальных сетей с DocumentDB](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Создание первого приложения
 ### [Консольное приложение .NET](documentdb-get-started.md)
 ### [Консольное приложение .NET Core](documentdb-dotnetcore-get-started.md)
+### [Консольное приложение Java](documentdb-java-get-started.md)
 ### [Консольное приложение Node.js](documentdb-nodejs-get-started.md)
 ### [Консольное приложение C++](documentdb-cpp-get-started.md)
 ## Создание веб-приложения
@@ -24,7 +26,6 @@
 # Практическое руководство
 
 ## План
-### [Хранилище и производительность](documentdb-manage.md)
 ### [Секционирование и масштабирование](documentdb-partition-data.md)
 ### [Целостность](documentdb-consistency-levels.md)
 ### [Базы данных NoSQL и SQL](documentdb-nosql-vs-sql.md)
@@ -34,13 +35,12 @@
 ### [Моделирование данных](documentdb-modeling-data.md)
 ### [Использование геопространственных данных](documentdb-geospatial.md)
 ### [Разработка для нескольких регионов](documentdb-developing-with-multiple-regions.md)
+### [Отработка отказа между регионами](documentdb-regional-failovers.md)
 ### [Автоматическое истечение срока хранения данных](documentdb-time-to-live.md)
 ### [Настройка индексов](documentdb-indexing-policies.md)
 ### [Безопасный доступ к данным](documentdb-secure-access-to-data.md)
 ### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
 ### [Уровни производительности](documentdb-performance-levels.md)
-### [Квоты ресурсов](documentdb-limits.md)
-### [Увеличение квот](documentdb-increase-limits.md)
 ### [Единиц запросов](documentdb-request-units.md)
 ### Инфраструктура CLI Azure
 #### [Создание учетной записи](documentdb-automation-resource-manager-cli.md)
@@ -55,6 +55,9 @@
 ### [Отслеживание изменений с помощью веб-канала изменений](documentdb-change-feed.md)
 ### [Тестирование производительности](documentdb-performance-testing.md)
 ### [Советы по улучшению производительности](documentdb-performance-tips.md)
+### Рекомендации
+#### [Архитектура с несколькими источниками](documentdb-multi-region-writers.md)
+#### [Дата и время](documentdb-working-with-dates.md)
 
 ## Поддержка DocumentDB для MongoDB
 ### [Протокол поддержки для MongoDB](documentdb-protocol-mongodb.md)
@@ -79,10 +82,10 @@
 
 ## Интеграция
 ### [Развертывание веб-сайта в службе приложений Azure](documentdb-create-documentdb-website.md)
-### [Вход в приложения с помощью Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Вход в приложения с помощью Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Привязка к функциям Azure](../azure-functions/functions-bindings-documentdb.md)
 ### [Анализ данных с использованием Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Интеграция с Поиском Azure](documentdb-search-indexer.md)
+### [Интеграция с Поиском Azure](../search/search-howto-index-documentdb.md)
 ### [Перенос данных с помощью фабрики данных Azure](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Анализ данных в реальном времени с помощью Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Получение уведомлений с помощью Logic Apps](documentdb-change-notification.md)
@@ -120,6 +123,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

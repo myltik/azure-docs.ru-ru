@@ -1,6 +1,6 @@
 ---
-title: "Настройка правил брандмауэра уровня сервера Базы данных SQL Azure с помощью REST API | Документация Майкрософт"
-description: "Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к базам данных SQL Azure."
+title: "REST API: правила брандмауэра уровня сервера базы данных SQL Azure | Документация Майкрософт"
+description: "Узнайте, как настроить правила брандмауэра на уровне сервера для IP-адресов, по которым получается доступ к базам данных SQL Azure, с использованием REST API."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
 
 
 ---

@@ -1,12 +1,12 @@
 ---
-title: Managing partner solutions in Azure Security Center | Microsoft Docs
-description: This document walks you through how Azure Security Center lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
+title: "Управление решениями партнеров в центре безопасности Azure | Документация Майкрософт"
+description: "В этом документе описывается, как центр безопасности Azure позволяет бегло отслеживать состояние работоспособности партнерских решений, интегрированных в вашу подписку Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,51 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
+
 
 ---
-# <a name="monitoring-partner-solutions-with-azure-security-center"></a>Monitoring partner solutions with Azure Security Center
-This document walks you through how to monitor the health status of your partner solutions in Azure Security Center.
+# <a name="monitoring-partner-solutions-with-azure-security-center"></a>Мониторинг решений партнеров с помощью центра безопасности Azure
+В этом документе описывается мониторинг состояния работоспособности партнерских решений в центре безопасности Azure.
 
 > [!NOTE]
-> This document introduces the service by using an example deployment. This is not a step-by-step guide.
+> В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
 > 
 > 
 
-## <a name="monitoring-partner-solutions"></a>Monitoring partner solutions
-The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
-![Partner solutions tile][1]
+## <a name="monitoring-partner-solutions"></a>Мониторинг решений партнеров
+Плитка **Решения партнеров** в колонке **Центр безопасности** позволяет бегло отслеживать состояние работоспособности решений партнеров, интегрированных в вашу подписку Azure.
+![Плитка "Решения партнеров"][1]
 
-The **Partner solutions** tile displays the number of partner solutions and a status summary for those solutions.
+В элементе **Решения партнеров** отображается количество решений партнеров и сводка состояния этих решений.
 
-The **STATUS** of a partner solution can be:
+Поле **Состояние** партнерского решения может содержать следующее значение:
 
-* Protected (green) - there is no health issue.
-* Unhealthy (red) - there is a health issue that requires immediate attention.
-* Stopped reporting (orange) - the solution has stopped reporting its health.
-* Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
-* Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
+* "Защищено" (зеленый) — нет никаких проблем с работоспособностью.
+* "Неисправно" (красный) — проблема работоспособности, которая требует немедленного внимания.
+* "Создание отчетов остановлено" (оранжевый) — решение перестало сообщать о работоспособности.
+* "Состояние защиты неизвестно" (оранжевый) — работоспособность решения неизвестна в данный момент, так как произошел сбой процесса добавления нового ресурса в существующее решение.
+* "Не сообщается" (серый) — решение еще не сообщало о своем состоянии; такое состояние может отображаться для решения, если оно только что подключилось и продолжает развертывание.
 
-If there are no solutions integrated with your subscription the tile will state that there are no solutions. Selecting the **Partner solutions** tile will enable you to open the **Recommendations** blade to deploy partner security solutions.
-![No partner solutions][2]
+Если с вашей подпиской не интегрировано ни одного решения, на плитке будет указано, что решения отсутствуют. Выбрав плитку **Решения партнеров**, вы откроете колонку **Рекомендации** для развертывания партнерских решений безопасности.
+![Нет решений партнеров][2]
 
-To view the health of your partner solutions:
+Чтобы просмотреть состояние работоспособности партнерских решений, выполните следующие действия.
 
-1. Select the **Partner solutions** tile. A blade opens displaying a list of your partner solutions connected to Security Center.
-   ![Partner solutions][3]
-2. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
-   ![Partner solution detail][4]
-3. Go back to the **F5-WAF2** blade and select **Link app**. The **Link Applications** blade opens. Here you can connect resources to the partner solution.
-   ![Link resources to partner solution][5]
+1. Выберите элемент **Решения партнеров** . Откроется колонка со списком решений партнеров, подключенных к центру безопасности.
+   ![Решения партнеров][3]
+2. Выберите партнерское решение. В этом примере мы выберем решение **F5-WAF2** .  Откроется колонка, в которой отображается состояние партнерского решения и связанных с ним ресурсов. Нажмите кнопку **Консоль решений** , чтобы открыть партнерский интерфейс управления для этого решения.
+   ![Сведения о партнерском решении][4]
+3. Вернитесь к колонке **F5-WAF2** и выберите **Связать приложение**. Откроется колонка **Связь приложений** . В ней можно подключить ресурсы к решению партнера.
+   ![Связывание ресурсов с решением партнера][5]
 
-## <a name="see-also"></a>See also
-In this document, you were introduced to the **Partner Solutions** tile in Security Center. To learn more about Security Center, see the following:
+## <a name="see-also"></a>Дополнительные материалы
+В этом документе представлена плитка **Решения партнеров** в центре безопасности. Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
+* [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md) — сведения о настройке политик безопасности для подписок и групп ресурсов Azure.
+* [Управление рекомендациями по безопасности в центре безопасности Azure](security-center-recommendations.md) — сведения об использовании рекомендаций для защиты ресурсов Azure.
+* [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как отслеживать работоспособность ресурсов Azure.
+* [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — сведения об управлении оповещениями системы безопасности и реагировании на них.
+* [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
+* [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и сведения об обеспечении безопасности в Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
@@ -69,6 +73,6 @@ In this document, you were introduced to the **Partner Solutions** tile in Secur
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Обнаружение движения с помощью медиа-аналитики Azure | Microsoft Docs
-description: Обработчик мультимедиа, детектор движения мультимедиа Azure, позволяет эффективно определять представляющие интерес области в обычно продолжительном и бессобытийном видеоматериале.
+title: "Обнаружение движения с помощью медиа-аналитики Azure | Документация Майкрософт"
+description: "Обработчик мультимедиа, детектор движения мультимедиа Azure, позволяет эффективно определять представляющие интерес области в обычно продолжительном и бессобытийном видеоматериале."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Обнаружение движения с помощью медиа-аналитики Azure
@@ -29,7 +33,7 @@ ms.author: milanga;juliako;
 ## <a name="motion-detector-input-files"></a>Входные файлы детектора движения
 Видеофайлы. Сейчас поддерживаются следующие форматы: MP4, MOV и WMV.
 
-## <a name="task-configuration-(preset)"></a>Конфигурация задачи (предустановка)
+## <a name="task-configuration-preset"></a>Конфигурация задачи (предустановка)
 При создании задачи с использованием **Azure Media Motion Detector**необходимо задать предустановку конфигурации. 
 
 ### <a name="parameters"></a>Параметры
@@ -45,28 +49,28 @@ ms.author: milanga;juliako;
 
 ### <a name="json-example"></a>Пример JSON-файла
     {
-      'version': '1.0',
-      'options': {
-        'sensitivityLevel': 'medium',
-        'frameSamplingValue': 1,
-        'detectLightChange': 'False',
+      "version": "1.0",
+      "options": {
+        "sensitivityLevel": "medium",
+        "frameSamplingValue": 1,
+        "detectLightChange": "False",
         "mergeTimeThreshold":
-        '00:00:02',
-        'detectionZones': [
+        "00:00:02",
+        "detectionZones": [
           [
-            {'x': 0, 'y': 0},
-            {'x': 0.5, 'y': 0},
-            {'x': 0, 'y': 1}
+            {"x": 0, "y": 0},
+            {"x": 0.5, "y": 0},
+            {"x": 0, "y": 1}
            ],
           [
-            {'x': 0.3, 'y': 0.3},
-            {'x': 0.55, 'y': 0.3},
-            {'x': 0.8, 'y': 0.3},
-            {'x': 0.8, 'y': 0.55},
-            {'x': 0.8, 'y': 0.8},
-            {'x': 0.55, 'y': 0.8},
-            {'x': 0.3, 'y': 0.8},
-            {'x': 0.3, 'y': 0.55}
+            {"x": 0.3, "y": 0.3},
+            {"x": 0.55, "y": 0.3},
+            {"x": 0.8, "y": 0.3},
+            {"x": 0.8, "y": 0.55},
+            {"x": 0.8, "y": 0.8},
+            {"x": 0.55, "y": 0.8},
+            {"x": 0.3, "y": 0.8},
+            {"x": 0.3, "y": 0.55}
           ]
         ]
       }
@@ -78,7 +82,7 @@ ms.author: milanga;juliako;
 
 Обнаруженные движущиеся объекты на видео с неподвижным фоном (например, в режиме видеонаблюдения) API детектора движения отмечает визуальными индикаторами. Детектор движения способен исключать ложные срабатывания, возникающие, например, при изменении освещения и затенении. В число текущих ограничений для действия алгоритмов входит съемка в режиме ночного видения, полупрозрачные и небольшие объекты.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Элементы выходного JSON-файла
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Элементы выходного JSON-файла
 > [!NOTE]
 > В последнем выпуске формат выходного JSON-файла изменен. Для некоторых клиентов это может быть критическое изменение.
 > 
@@ -161,28 +165,28 @@ ms.author: milanga;juliako;
 2. Создание задания с задачей обнаружения движения на видео на основе файла конфигурации, содержащего следующую предустановку JSON. 
    
         {
-          'Version': '1.0',
-          'Options': {
-            'SensitivityLevel': 'medium',
-            'FrameSamplingValue': 1,
-            'DetectLightChange': 'False',
+          "Version": "1.0",
+          "Options": {
+            "SensitivityLevel": "medium",
+            "FrameSamplingValue": 1,
+            "DetectLightChange": "False",
             "MergeTimeThreshold":
-            '00:00:02',
-            'DetectionZones': [
+            "00:00:02",
+            "DetectionZones": [
               [
-                {'x': 0, 'y': 0},
-                {'x': 0.5, 'y': 0},
-                {'x': 0, 'y': 1}
+                {"x": 0, "y": 0},
+                {"x": 0.5, "y": 0},
+                {"x": 0, "y": 1}
                ],
               [
-                {'x': 0.3, 'y': 0.3},
-                {'x': 0.55, 'y': 0.3},
-                {'x': 0.8, 'y': 0.3},
-                {'x': 0.8, 'y': 0.55},
-                {'x': 0.8, 'y': 0.8},
-                {'x': 0.55, 'y': 0.8},
-                {'x': 0.3, 'y': 0.8},
-                {'x': 0.3, 'y': 0.55}
+                {"x": 0.3, "y": 0.3},
+                {"x": 0.55, "y": 0.3},
+                {"x": 0.8, "y": 0.3},
+                {"x": 0.8, "y": 0.55},
+                {"x": 0.8, "y": 0.8},
+                {"x": 0.55, "y": 0.8},
+                {"x": 0.3, "y": 0.8},
+                {"x": 0.3, "y": 0.55}
               ]
             ]
           }
@@ -365,6 +369,9 @@ ms.author: milanga;juliako;
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

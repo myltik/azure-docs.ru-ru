@@ -1,22 +1,27 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Kontiki | Microsoft Docs
-description: Узнайте, как использовать Kontiki вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Учебник. Интеграция Azure Active Directory с Kontiki | Документация Майкрософт"
+description: "Узнайте, как использовать Kontiki вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 8d5e5413-da4c-40d8-b1d0-f03ecfef030b
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/08/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 38b7f9772d5cf4e7b7861ef57804436de2a2f442
+
 
 ---
-# Руководство. Интеграция Azure Active Directory с Kontiki
-Цель данного руководства — показать интеграцию Azure и Kontiki. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Руководство. Интеграция Azure Active Directory с Kontiki
+Цель данного руководства — показать интеграцию Azure и Kontiki.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * Действующая подписка на Azure
 * Подписка с поддержкой единого входа Kontiki
@@ -30,49 +35,49 @@ ms.author: jeedes
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-kontiki-tutorial/IC790235.png "Сценарий")
+![Сценарий](./media/active-directory-saas-kontiki-tutorial/IC790235.png "Scenario")
 
-## Включение интеграции приложений для Kontiki
+## <a name="enabling-the-application-integration-for-kontiki"></a>Включение интеграции приложений для Kontiki
 В этом разделе показано, как включить интеграцию приложений для Kontiki.
 
-### Чтобы включить интеграцию приложений для Kontiki, выполните следующие действия.
+### <a name="to-enable-the-application-integration-for-kontiki-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Kontiki, выполните следующие действия.
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-kontiki-tutorial/IC700993.png "Active Directory")
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-kontiki-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить**.
+   ![Приложения](./media/active-directory-saas-kontiki-tutorial/IC700994.png "Applications")
+4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+   ![Добавить приложение](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Add application")
+5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавить приложение из коллекции](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Добавить приложение из коллекции")
+   ![Добавить приложение из коллекции](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Add an application from gallerry")
 6. В **поле поиска** введите **Kontiki**.
    
-   ![Коллекция приложений](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Коллекция приложений")
+   ![Коллекция приложений](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Application Gallery")
 7. В области результатов выберите **Kontiki** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![Kontiki](./media/active-directory-saas-kontiki-tutorial/IC790237.png "Kontiki")
    
-   ## Настройка единого входа
+   ## <a name="configuring-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Kontiki со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **Kontiki** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configure Single SignOn")
 2. На странице **Как пользователи должны входить в Kontiki?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Настройка единого входа")
-3. На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в Kontiki** введите URL-адрес, который будет использоваться для входа в Kontiki (например, "*https://company.mc.eval.kontiki.com/*"), и нажмите кнопку **Далее**.
+   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configure Single SignOn")
+3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Kontiki** введите URL-адрес, используемый для входа в приложение Kontiki (например, *https://компания.mc.eval.kontiki.com/*), и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в Kontiki** нажмите кнопку **Загрузить метаданные**, а затем сохраните файл метаданных на свой компьютер.
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configure App URL")
+4. На странице **Настройка единого входа в Kontiki** нажмите кнопку **Скачать метаданные**, а затем сохраните файл метаданных на своем компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configure Single SignOn")
 5. Отправьте файл метаданных в группу поддержки Kontiki.
    
    > [!NOTE]
@@ -81,24 +86,31 @@ ms.author: jeedes
    > 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configure Single SignOn")
    
-   ## Настройка подготовки учетных записей пользователей
+   ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
-Элемент действия для настройки подготовки пользователей в Kontiki отсутствует. Когда назначенный пользователь пытается войти в Kontiki с помощью панели доступа, Kontiki проверяет, существует ли данный пользователь. Если учетная запись пользователя отсутствует, Kontiki автоматически создает ее.
+Элемент действия для настройки подготовки пользователей в Kontiki отсутствует.  
+Когда назначенный пользователь пытается войти в Kontiki с помощью панели доступа, Kontiki проверяет, существует ли данный пользователь.  
+Если учетная запись пользователя отсутствует, Kontiki автоматически создает ее.
 
-## Назначение пользователей
+## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### Чтобы назначить пользователей Kontiki, выполните следующие действия.
+### <a name="to-assign-users-to-kontiki-perform-the-following-steps"></a>Чтобы назначить пользователей Kontiki, выполните следующие действия.
 1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Kontiki** щелкните **Назначить пользователей**.
+2. На странице интеграции с приложением **Kontiki** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначить пользователей](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Назначить пользователей")
+   ![Назначить пользователей](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Assign Users")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Да")
+   ![Да](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -4,7 +4,7 @@ description: "Создание шлюза приложений с помощью
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: 165289acd1d2a5bc098e9a83f43613d16a023045
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
 > * [Портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
-> * [Шаблон Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
 > * [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 > 
 > 
@@ -40,8 +40,6 @@ ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
 
 > [!NOTE]
 > Если у вас нет учетной записи Azure, то вам потребуется получить ее. Зарегистрируйтесь, чтобы получить [бесплатную пробную версию](../active-directory/sign-up-organization.md).
-> 
-> 
 
 ## <a name="scenario"></a>Сценарий
 
@@ -58,8 +56,6 @@ ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
 
 > [!NOTE]
 > Дополнительная настройка шлюза приложений, включая пользовательские пробы работоспособности, серверный пул адресов и дополнительные правила, осуществляется после настройки шлюза приложений, а не во время первоначального развертывания.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -125,11 +121,9 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 > [!NOTE]
 > Чтобы вывести список параметров, которые можно указать во время создания, выполните следующую команду: **azure network application-gateway create --help**.
-> 
-> 
 
 В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Он также настраивает разгрузку SSL. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
-Если на предыдущем этапе вы уже определили для веб-приложения пул серверной части, после создания шлюза запускается балансировка нагрузки.
+Если на предыдущем шаге вы уже определили для веб-приложения внутренний пул, то после создания шлюза запускается балансировка нагрузки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -146,6 +140,6 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

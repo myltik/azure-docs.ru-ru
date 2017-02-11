@@ -1,12 +1,12 @@
 ---
-title: Публикация содержимого служб мультимедиа Azure с помощью REST
-description: Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API.
+title: "Публикация содержимого служб мультимедиа Azure с помощью REST"
+description: "Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API."
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: ff332c30-30c6-4ed1-99d0-5fffd25d4f23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4234def6200b8beb6db7e4bd96ca1b8ebcc11c03
+
 
 ---
-# Публикация содержимого служб мультимедиа Azure с помощью REST
+# <a name="publish-azure-media-services-content-using-rest"></a>Публикация содержимого служб мультимедиа Azure с помощью REST
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -24,27 +28,27 @@ ms.author: juliako
 > 
 > 
 
-## Обзор
-Вы можете осуществлять потоковую передачу набора MP4-файлов с адаптивной скоростью, создавая указатель потоковой передачи OnDemand и формируя URL-адрес потоковой передачи. В разделе, посвященном [кодированию ресурса](media-services-rest-encode-asset.md), описано кодирование данных в набор MP4-файлов с переменной скоростью. Если содержимое шифруется, то перед созданием указателя настройте политику доставки ресурсов-контейнеров (как описано в [этой](media-services-rest-configure-asset-delivery-policy.md) статье).
+## <a name="overview"></a>Обзор
+Вы можете осуществлять потоковую передачу набора MP4-файлов с адаптивной скоростью, создавая указатель потоковой передачи OnDemand и формируя URL-адрес потоковой передачи. В разделе, посвященном [кодированию ресурса](media-services-rest-encode-asset.md) , описано кодирование данных в набор MP4-файлов с переменной скоростью. Если содержимое шифруется, то перед созданием указателя настройте политику доставки ресурсов-контейнеров (как описано в [этой](media-services-rest-configure-asset-delivery-policy.md) статье). 
 
-Можно также использовать указатель потоковой передачи OnDemand, чтобы формировать URL-адреса, указывающие на MP4-файлы для последовательного скачивания.
+Можно также использовать указатель потоковой передачи OnDemand, чтобы формировать URL-адреса, указывающие на MP4-файлы для последовательного скачивания.  
 
 В этом разделе показано, как создать указатель потоковой передачи OnDemand, чтобы опубликовать ресурс-контейнер и сформировать URL-адреса потоковой передачи Smooth, MPEG DASH и HLS. В нем также показывается, как создать URL-адреса последовательного скачивания.
 
-В [этих](#types) разделах показаны типы перечисления, значения которых используются в вызовах REST.
+В [этих](#types) разделах показаны типы перечисления, значения которых используются в вызовах REST.   
 
-## Создание указателя потоковой передачи OnDemand
+## <a name="create-an-ondemand-streaming-locator"></a>Создание указателя потоковой передачи OnDemand
 Чтобы создать указатель потоковой передачи OnDemand и получить URL-адреса, вам нужно выполнить следующее:
 
 1. Если содержимое шифруется, установите политику доступа.
 2. создать указатель потоковой передачи OnDemand.
-3. Если планируется потоковая передача, получите файл манифеста потоковой передачи (ISM-файл) в ресурсе.
+3. Если планируется потоковая передача, получите файл манифеста потоковой передачи (ISM-файл) в ресурсе. 
    
-   Если вы планируете последовательное скачивание, получите имена MP4-файлов в ресурсе.
-4. Создайте URL-адрес файла манифеста или URL-адреса MP4-файлов.
+   Если вы планируете последовательное скачивание, получите имена MP4-файлов в ресурсе. 
+4. Создайте URL-адрес файла манифеста или URL-адреса MP4-файлов. 
 5. Обратите внимание на то, что указатель потоковой передачи невозможно создать с использованием политики доступа, включающей разрешения на запись или удаление.
 
-### Создание политики доступа
+### <a name="create-an-access-policy"></a>Создание политики доступа
 Запрос:
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
@@ -80,7 +84,7 @@ ms.author: juliako
 
     {"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### Создание указателя потоковой передачи OnDemand
+### <a name="create-an-ondemand-streaming-locator"></a>Создание указателя потоковой передачи OnDemand
 Создание указателя для указанного ресурса и политики активов.
 
 Запрос:
@@ -118,8 +122,8 @@ ms.author: juliako
 
     {"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### Создание URL-адресов потоковой передачи
-Для построения URL-адресов Smooth, HLS и MPEG DASH используется значение **Путь**, возвращаемое после создания указателя.
+### <a name="build-streaming-urls"></a>Создание URL-адресов потоковой передачи
+Для построения URL-адресов Smooth, HLS и MPEG DASH используется значение **Путь** , возвращаемое после создания указателя. 
 
 Smooth Streaming: **Путь** + имя файла манифеста + "/manifest"
 
@@ -141,8 +145,8 @@ DASH: **Путь** + имя файла манифеста + "/manifest(format=mp
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### Создание URL-адресов последовательного скачивания
-Для построения URL-адреса поэтапного скачивания используется значение **Путь**, возвращаемое после создания указателя.
+### <a name="build-progressive-download-urls"></a>Создание URL-адресов последовательного скачивания
+Для построения URL-адреса поэтапного скачивания используется значение **Путь** , возвращаемое после создания указателя.   
 
 URL: **Путь** + имя MP4-файла ресурса
 
@@ -150,7 +154,7 @@ URL: **Путь** + имя MP4-файла ресурса
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Типы перечислений
+## <a name="a-idtypesaenum-types"></a><a id="types"></a>Типы перечислений
     [Flags]
     public enum AccessPermissions
     {
@@ -168,13 +172,18 @@ URL: **Путь** + имя MP4-файла ресурса
         OnDemandOrigin = 2,
     }
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 [Настройка политики доставки для ресурса-контейнера](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Реализация сценария потоковой передачи отработки отказа | Microsoft Docs
-description: В этом разделе описывается реализация сценария потоковой передачи отработки отказа.
+title: "Реализация сценария потоковой передачи отработки отказа | Документация Майкрософт"
+description: "В этом разделе описывается реализация сценария потоковой передачи отработки отказа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>Реализация сценария потоковой передачи отработки отказа
@@ -53,7 +57,7 @@ ms.author: juliako
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Две учетные записи служб мультимедиа в новой или существующей подписке Azure. См. статью [Создание учетной записи служб мультимедиа](media-services-portal-create-account.md).
-* Операционные системы: Windows 7, Windows 2008 R2 или Windows 8.
+* Операционные системы: Windows 7, Windows 2008 R2 или Windows 8.
 * .NET Framework 4.5 или .NET Framework 4.
 * Visual Studio 2010 с пакетом обновления 1 или более поздней версии (Professional, Premium, Ultimate или Express).
 
@@ -96,7 +100,7 @@ ms.author: juliako
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming."></a>Добавление кода, обрабатывающего избыточность потокового воспроизведения по запросу.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Добавление кода, обрабатывающего избыточность потокового воспроизведения по запросу.
 1. Добавьте в класс Premium следующие поля уровня класса:
    
         // Read values from the App.config file.
@@ -957,6 +961,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

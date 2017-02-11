@@ -1,13 +1,13 @@
 ---
-title: Доступ к журналам приложений Hadoop YARN в HDInsight под управлением Linux | Microsoft Docs
-description: Узнайте, как получить доступ к журналам приложений YARN в кластере HDInsight (Hadoop) под управлением Linux с помощью как командной строки, так и веб-браузера.
+title: "Доступ к журналам приложений Hadoop YARN в HDInsight под управлением Linux |Документация Майкрософт"
+description: "Узнайте, как получить доступ к журналам приложений YARN в кластере HDInsight (Hadoop) под управлением Linux с помощью как командной строки, так и веб-браузера."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f03c595977f098f19d396cc460c73e27163f070c
+
 
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Доступ к журналам приложений YARN в HDInsight под управлением Linux
@@ -29,7 +33,7 @@ ms.author: larryfr
 * Кластер HDInsight под управлением Linux.
 * Чтобы получить доступ к пользовательскому веб-интерфейсу журналов ResourceManager, необходимо [создать туннель SSH](hdinsight-linux-ambari-ssh-tunnel.md) .
 
-## <a name="<a-name="yarntimelineserver"></a>yarn-timeline-server"></a><a name="YARNTimelineServer"></a>YARN Timeline Server
+## <a name="a-nameyarntimelineserverayarn-timeline-server"></a><a name="YARNTimelineServer"></a>YARN Timeline Server
 [YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) предоставляет общие сведения о завершенных приложениях, а также зависящие от платформы сведения о приложениях через два разных интерфейса. В частности:
 
 * Возможность хранения и извлечения общей информации о приложениях в кластерах HDInsight появилась, начиная с версии 3.1.1.374.
@@ -42,7 +46,7 @@ ms.author: larryfr
 * информация о попытках завершить приложение;
 * информация о контейнерах, которые использовались во время каждой из попыток.
 
-## <a name="<a-name="yarnappsandlogs"></a>yarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Приложения и журналы YARN
+## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Приложения и журналы YARN
 YARN поддерживает несколько моделей программирования (в том числе MapReduce), отделяя управление ресурсами от планирования и мониторинга приложений. Это осуществляется с помощью глобального диспетчера *ResourceManager*, *диспетчеров узлов*, на каждый рабочий узел и *диспетчеров приложений* на каждое приложение. Диспетчер приложений согласовывает ресурсы (ЦП, память, диск, сеть), необходимые для работы приложения, с диспетчером ресурсов. Диспетчер ресурсов совместно с диспетчером узлов предоставляют эти ресурсы в виде *контейнеров*. Диспетчер приложений отвечает за отслеживание хода выполнения контейнеров, назначаемых ему диспетчером ресурсов. Приложению может потребоваться много контейнеров в зависимости от характера приложения.
 
 Кроме того, для выполнения приложения при наличии сбоев или из-за потери связи между диспетчером приложений и Resource Manager может потребоваться несколько *попыток*. Таким образом, контейнеры предоставляются определенной попытке. В некотором смысле контейнер обеспечивает контекст основной единице работы, выполняемой приложением YARN, и вся работа, выполняемая в контексте контейнера, выполняется на одном рабочем узле, где был выделен контейнер. Дополнительную информацию см. в статье об [основных понятиях YARN][YARN-concepts].
@@ -91,6 +95,6 @@ YARN поддерживает несколько моделей программ
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

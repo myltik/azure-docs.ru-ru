@@ -1,12 +1,12 @@
 ---
-title: Создание обработчика мультимедиа | Microsoft Docs
-description: Узнайте, как создать компонент обработчика мультимедиа для кодирования, преобразования формата, шифрования или расшифровки мультимедийного контента служб мультимедиа Azure.
+title: "Как создать обработчик мультимедиа | Документация Майкрософт"
+description: "Узнайте, как создать компонент обработчика мультимедиа для кодирования, преобразования формата, шифрования или расшифровки мультимедийного контента служб мультимедиа Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+
 
 ---
-# <a name="how-to:-get-a-media-processor-instance"></a>Получение экземпляра процессора мультимедиа
+# <a name="how-to-get-a-media-processor-instance"></a>Получение экземпляра процессора мультимедиа
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -91,6 +95,9 @@ ms.author: juliako
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива](media-services-rest-get-started.md) , в котором будет показано, как использовать Media Encoder Standard для кодирования ресурса-контейнера.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

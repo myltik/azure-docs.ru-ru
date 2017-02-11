@@ -1,19 +1,23 @@
 ---
-title: Подключение компьютеров Linux к Log Analytics | Microsoft Docs
-description: Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux.
+title: "Подключение компьютеров Linux к Log Analytics | Документация Майкрософт"
+description: "Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+
 
 ---
 # <a name="connect-linux-computers-to-log-analytics"></a>Подключение компьютеров Linux к Log Analytics
@@ -83,8 +87,8 @@ x86 и x64 являются официально поддерживаемыми 
 
 > [!NOTE]
 > Для сбора сообщений системного журнала требуется rsyslog или syslog-ng. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить управляющую программу rsyslog, которая заменит sysklog.
-> 
-> 
+>
+>
 
 ## <a name="quick-install"></a>Быстрая установка
 Выполните следующие команды, чтобы скачать omsagent, проверить контрольную сумму, а также установить и внедрить агент. Команды предназначены для 64-разрядных систем. Идентификатор рабочей области и первичный ключ можно найти на портале OMS в разделе **Параметры** на вкладке **Подключенные источники**.
@@ -211,8 +215,8 @@ sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py –enable
 
 > [!NOTE]
 > Файл учетных данных должен быть доступен для чтения для учетной записи omsagent. Рекомендуется выполнить команду mycimprovauth, используя учетную запись omsgent.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
@@ -276,8 +280,8 @@ syslog-ng — /etc/syslog-ng/syslog-ng.conf.
 
 > [!NOTE]
 > При изменении конфигурации системного журнала требуется перезапустить управляющую программу syslog, чтобы изменения вступили в силу.
-> 
-> 
+>
+>
 
 Ниже приведена конфигурация по умолчанию системного журнала для агента OMS для Linux для OMS.
 
@@ -327,12 +331,12 @@ log { source(src); filter(f_warning_oms); destination(warning_oms); };
 Для сбора оповещений сервера Nagios необходимо внести следующие изменения в конфигурацию:
 
 1. Предоставьте пользователю **omsagent** доступ для чтения к файлу журнала Nagios (например, /var/log/nagios/nagios.log/var/log/nagios/nagios.log). Если файл nagios.log принадлежит группе **nagios**, пользователя **omsagent** можно добавить в группу **nagios**.
-   
+
     ```
     sudo usermod –a -G nagios omsagent
     ```
 2. Измените файл конфигурации omsagent.conf (etc/opt/microsoft/omsagent/conf/omsagent.conf). Для этого введите следующие записи в незакомментированном виде:
-   
+
     ```
     <source>
     type tail
@@ -341,13 +345,13 @@ log { source(src); filter(f_warning_oms); destination(warning_oms); };
     format none
     tag oms.nagios
     </source>
-   
+
     <filter oms.nagios>
     type filter_nagios_log
     </filter>
     ```
 3. Перезапустите управляющую программу omsagent:
-   
+
     ```
     sudo service omsagent restart
     ```
@@ -379,7 +383,7 @@ Type=Alert
 #### <a name="to-view-all-nagios-alerts-with-log-analytics"></a>Просмотр всех событий Nagios с помощью Log Analytics
 1. На портале Operations Management Suite щелкните плитку **поиска по журналам** .
 2. На панели запросов введите следующий запрос на поиск:
-   
+
     ```
     Type=Alert SourceSystem=Nagios
     ```
@@ -390,7 +394,7 @@ Type=Alert
 ### <a name="to-view-all-zabbix-alerts-with-log-analytics"></a>Просмотр всех событий Zabbix с помощью Log Analytics
 1. На портале Operations Management Suite щелкните плитку **поиска по журналам** .
 2. На панели запросов введите следующий запрос на поиск:
-   
+
     ```
     Type=Alert SourceSystem=Zabbix
     ```
@@ -403,14 +407,14 @@ Type=Alert
 
 > [!NOTE]
 > Если агент OMS для Linux устанавливается на компьютер, которым в настоящее время не управляет Operations Manager, но такое управление требуется в будущем, нужно изменить конфигурацию OMI до обнаружения компьютера. **Не нужно выполнять этот шаг, если агент Operations Manager установлен до агента OMS для Linux.**
-> 
-> 
+>
+>
 
 ### <a name="to-enable-the-oms-agent-for-linux-to-communicate-with-operations-manager"></a>Обеспечение взаимодействия агента OMS для Linux с Operations Manager
 1. Измените файл /etc/opt/omi/conf/omiserver.conf.
 2. Укажите для **httpsport=** номер порта 1270. Таким образом — `httpsport=1270`
 3. Перезапустите сервер OMI, выполнив следующую команду:
-   
+
     ```
     service omiserver restart or systemctl restart omiserver
     ```
@@ -537,8 +541,8 @@ AutoUpdate=[true|false]
 
 > [!NOTE]
 > Если конфигурация портала OMS включена, при редактировании файлы конфигурации счетчиков производительности и системных журналов переопределяются. Конфигурацию можно отключить для всех узлов (полностью) на портале OMS или для одного узла с помощью следующей команды.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
@@ -674,7 +678,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 ```
 
 
-### <a name="linux-data-doesn't-appear-in-the-oms-portal"></a>Данные Linux не отображаются на портале OMS
+### <a name="linux-data-doesnt-appear-in-the-oms-portal"></a>Данные Linux не отображаются на портале OMS
 #### <a name="probable-causes"></a>Возможные причины
 * Сбой при подключении к службе OMS.
 * Подключение к службе OMS заблокировано.
@@ -697,11 +701,11 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 * В некоторых случаях агент OMS для Linux не может взаимодействовать со службой конфигурации портала, в результате чего последние изменения не применяются.
 * Для агента `omsconfig` должны быть установлены следующие параметры:
-  
+
   * `dpkg --list omsconfig` или `rpm -qi omsconfig`
   * Если они не установлены, переустановите последнюю версию агента OMS для Linux.
 * Убедитесь, что агент `omsconfig` может взаимодействовать со службой OMS.
-  
+
   * Выполните команду `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.
     * В результате выполнения этой команды возвращается конфигурация, полученная агентом с портала, в том числе параметры системного журнала, счетчики производительности Linux и пользовательские журналы.
     * Если при выполнении команды выше произойдет сбой, выполните команду `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Эта команда позволяет активировать принудительное взаимодействие агента omsconfig со службой OMS для получения сведений о последней конфигурации.
@@ -722,7 +726,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 * На портале OMS в разделе **Параметры** на вкладке **Данные** установите флажок **Apply the following configuration to my Linux Servers** (Применить следующую конфигурацию к моим серверам Linux).  
   ![Применить конфигурацию](./media/log-analytics-linux-agents/customloglinuxenabled.png)
 * Убедитесь, что агент `omsconfig` может взаимодействовать со службой OMS.
-  
+
   * Выполните команду `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.
   * В результате выполнения этой команды возвращается конфигурация, полученная агентом с портала, в том числе параметры системного журнала, счетчики производительности Linux и пользовательские журналы.
   * Если при выполнении команды выше произойдет сбой, выполните команду `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Эта команда позволяет активировать принудительное взаимодействие агента omsconfig со службой OMS для получения сведений о последней конфигурации.
@@ -779,6 +783,8 @@ azure vm extension set <resource-group> <vm-name> LinuxDiagnostic Microsoft.OSTC
 * Подробные сведения, которые собирают решения, описаны в статье [про поиск по журналам](log-analytics-log-searches.md) .
 * Используйте [панели мониторинга](log-analytics-dashboards.md) для сохранения и отображения настраиваемых систем поиска.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

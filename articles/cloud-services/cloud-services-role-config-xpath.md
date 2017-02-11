@@ -1,27 +1,31 @@
 ---
-title: Памятка по конфигурации XPath для роли облачных служб | Microsoft Docs
-description: Различные параметры XPath можно использовать в конфигурации роли облачной службы, чтобы предоставить их в качестве переменных среды.
+title: "Памятка по конфигурации XPath для роли облачных служб | Документация Майкрософт"
+description: "Различные параметры XPath можно использовать в конфигурации роли облачной службы, чтобы предоставить их в качестве переменных среды."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/16/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
+ms.openlocfilehash: 55d29c8c0599224c6b4772b8712667aeba2c9822
+
 
 ---
-# Предоставление параметров конфигурации ролей как переменной среды с помощью XPath
+# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Предоставление параметров конфигурации ролей как переменной среды с помощью XPath
 В файле определения службы рабочей роли или веб-роли облачной службы можно предоставить значения конфигурации среды выполнения как переменные среды. Поддерживаются следующие значения XPath (которые соответствуют значениям API).
 
-Эти значения XPath также можно использовать с помощью библиотеки [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx).
+Эти значения XPath также можно использовать с помощью библиотеки [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) . 
 
-## Приложение, запущенное в эмуляторе
+## <a name="app-running-in-emulator"></a>Приложение, запущенное в эмуляторе
 Указывает, что приложение выполняется в эмуляторе.
 
 | Тип | Пример |
@@ -29,7 +33,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Код |var x = RoleEnvironment.IsEmulated; |
 
-## Идентификатор развертывания
+## <a name="deployment-id"></a>Идентификатор развертывания
 Получает идентификатор развертывания для экземпляра.
 
 | Тип | Пример |
@@ -37,7 +41,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Код |var deploymentId = RoleEnvironment.DeploymentId; |
 
-## Идентификатор роли
+## <a name="role-id"></a>Идентификатор роли
 Получает идентификатор текущей роли для экземпляра.
 
 | Тип | Пример |
@@ -45,7 +49,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Код |var id = RoleEnvironment.CurrentRoleInstance.Id; |
 
-## Обновление домена
+## <a name="update-domain"></a>Обновление домена
 Получает домен обновления для экземпляра.
 
 | Тип | Пример |
@@ -53,7 +57,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Код |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
 
-## Домен сбоя
+## <a name="fault-domain"></a>Домен сбоя
 Получает домен сбоя для экземпляра.
 
 | Тип | Пример |
@@ -61,7 +65,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Код |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
-## Имя роли
+## <a name="role-name"></a>Имя роли
 Получает имя роли для экземпляров.
 
 | Тип | Пример |
@@ -69,7 +73,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Код |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
-## Параметр конфигурации
+## <a name="config-setting"></a>Параметр конфигурации
 Получает значение указанного параметра конфигурации.
 
 | Тип | Пример |
@@ -77,7 +81,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Код |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
-## Путь к локальному хранилищу
+## <a name="local-storage-path"></a>Путь к локальному хранилищу
 Получает путь к локальному хранилищу для экземпляра.
 
 | Тип | Пример |
@@ -85,7 +89,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Код |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
 
-## Размер локального хранилища
+## <a name="local-storage-size"></a>Размер локального хранилища
 Получает размер локального хранилища для экземпляра.
 
 | Тип | Пример |
@@ -93,7 +97,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Код |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
 
-## Протокол конечной точки
+## <a name="endpoint-protocol"></a>Протокол конечной точки
 Получает протокол конечной точки для экземпляра.
 
 | Тип | Пример |
@@ -101,7 +105,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Код |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
 
-## IP-адрес конечной точки
+## <a name="endpoint-ip"></a>IP-адрес конечной точки
 Получает IP-адрес указанной конечной точки.
 
 | Тип | Пример |
@@ -109,7 +113,7 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Код |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
 
-## Порт конечной точки
+## <a name="endpoint-port"></a>Порт конечной точки
 Получает порт конечной точки для экземпляра.
 
 | Тип | Пример |
@@ -117,8 +121,8 @@ ms.author: adegeo
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Код |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
-## Пример
-Ниже приведен пример рабочей роли, создающей задачу запуска с переменной среды `TestIsEmulated`, которой присваивается [значение XPath @emulated](#app-running-in-emulator).
+## <a name="example"></a>Пример
+Ниже приведен пример рабочей роли, создающей задачу запуска с переменной среды `TestIsEmulated`, которой присваивается [значение XPath @emulated](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -157,11 +161,16 @@ ms.author: adegeo
 </WorkerRole>
 ```
 
-## Дальнейшие действия
-Узнайте больше о файле [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg).
+## <a name="next-steps"></a>Дальнейшие действия
+Узнайте больше о файле [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) .
 
-Создайте пакет [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg).
+Создайте пакет [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
 Включите [удаленный рабочий стол](cloud-services-role-enable-remote-desktop.md) для роли.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

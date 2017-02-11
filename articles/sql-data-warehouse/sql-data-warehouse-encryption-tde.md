@@ -1,22 +1,26 @@
 ---
-title: Прозрачное шифрование данных в хранилище данных SQL на портале | Microsoft Docs
-description: Прозрачное шифрование данных в хранилище данных SQL на портале
+title: "Прозрачное шифрование данных в хранилище данных SQL (на портале) | Документация Майкрософт"
+description: "Прозрачное шифрование данных в хранилище данных SQL на портале"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: fabf75d3-9bbf-4e0d-9b31-8b5a8713f08d
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2016
-ms.author: rortloff;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 177062eab9f2825a510aa1b66117ce942c959352
+
 
 ---
-# Начало работы с прозрачным шифрованием данных (TDE) в хранилище данных SQL
+# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Начало работы с прозрачным шифрованием данных (TDE) в хранилище данных SQL
 > [!div class="op_single_selector"]
 > * [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
 > * [Аутентификация](sql-data-warehouse-authentication.md)
@@ -25,37 +29,39 @@ ms.author: rortloff;barbkess;sonyama
 > 
 > 
 
-## Необходимые права
+## <a name="required-permssions"></a>Необходимые права
 Чтобы включить прозрачное шифрование данных, необходимо иметь права администратора или участника роли dbmanager.
 
-## Включение шифрования
+## <a name="enabling-encryption"></a>Включение шифрования
 Чтобы включить прозрачное шифрование данных для хранилища данных SQL, выполните указанные ниже действия.
 
-1. Откройте базу данных на [портале Azure](https://portal.azure.com).
-2. В колонке базы данных нажмите кнопку **Параметры**.
-3. Выберите параметр **Прозрачное шифрование данных**. ![][1]
-4. Выберите параметр **Вкл**. ![][2]
-5. Щелкните **Сохранить**. ![][3]
+1. Откройте базу данных на [портале Azure](https://portal.azure.com)
+2. В колонке базы данных нажмите кнопку **Параметры** .
+3. Выберите параметр **Прозрачное шифрование данных** . ![][1]
+4. Выберите параметр **Вкл.** ![][2]
+5. Щелкните **Сохранить**
+   ![][3].  
 
-## Отключение шифрования
+## <a name="disabling-encryption"></a>Отключение шифрования
 Чтобы отключить прозрачное шифрование данных для хранилища данных SQL, выполните указанные ниже действия.
 
-1. Откройте базу данных на [портале Azure](https://portal.azure.com).
-2. В колонке базы данных нажмите кнопку **Параметры**.
-3. Выберите параметр **Прозрачное шифрование данных**. ![][1]
-4. Выберите параметр **Выкл.**. ![][4]
-5. Щелкните **Сохранить**. ![][5]
+1. Откройте базу данных на [портале Azure](https://portal.azure.com)
+2. В колонке базы данных нажмите кнопку **Параметры** .
+3. Выберите параметр **Прозрачное шифрование данных** . ![][1]
+4. Выберите параметр **Выкл.** ![][4]
+5. Щелкните **Сохранить**
+   ![][5].  
 
-## Динамические административные представления шифрования
+## <a name="encryption-dmvs"></a>Динамические административные представления шифрования
 Шифрование может быть подтверждено с помощью следующих динамических административных представлений.
 
 * [sys.databases]
-* [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
+* [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png
@@ -66,4 +72,8 @@ ms.author: rortloff;barbkess;sonyama
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

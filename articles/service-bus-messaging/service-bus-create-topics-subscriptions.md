@@ -1,19 +1,23 @@
 ---
-title: Создание приложений, использующих разделы и подписки служебной шины | Microsoft Docs
-description: Вводная информация о возможностях публикации и подписки, предлагаемых в разделах и подписках служебной шины.
-services: service-bus
+title: "Создание приложений, использующих разделы и подписки служебной шины | Документация Майкрософт"
+description: "Вводная информация о возможностях публикации и подписки, предлагаемых в разделах и подписках служебной шины."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+
 
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Создание приложений, использующих разделы и подписки служебной шины
@@ -48,7 +52,7 @@ ms.author: sethm
 В статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md) описаны регистрация учетной записи Azure и создание пространства имен службы. Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Самым простым способом сослаться на зависимости служебной шины является установка [пакета Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) служебной шины. Эта сборка также доступна в составе пакета SDK Azure. Ее можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Создание раздела и подписок
-Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Для создания экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписанного URL-адреса](../service-bus/service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
+Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Для создания экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписанного URL-адреса](service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
 
 Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Приведенный здесь код иллюстрирует создание и использование экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для создания раздела **DataCollectionTopic**.
 
@@ -139,6 +143,9 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 ## <a name="next-steps"></a>Дальнейшие действия
 Сведения об использовании очередей в сценарии розничных точек продаж см. в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

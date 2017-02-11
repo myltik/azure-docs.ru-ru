@@ -1,13 +1,13 @@
 ---
-title: Пример конфигурации для расширений виртуальной машины Windows | Microsoft Docs
-description: Пример конфигурации для разработки шаблонов с расширениями.
+title: "Пример конфигурации для расширений виртуальной машины Windows | Документация Майкрософт"
+description: "Пример конфигурации для разработки шаблонов с расширениями."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a1cee6c-51ea-4c03-b607-f158586d7175
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 380778b28a233e28c93f1ae8b16ac01a9f72ca20
+
 
 ---
-# Примеры конфигурации расширения виртуальной машины Microsoft Azure.
+# <a name="azure-windows-vm-extension-configuration-samples"></a>Примеры конфигурации расширения виртуальной машины Microsoft Azure.
 > [!div class="op_single_selector"]
-> * [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
 
-Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
+Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения](virtual-machines-windows-extensions-authoring-templates.md).
+Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
-## Пример фрагмента примера для расширений виртуальной машины с виртуальными машинами IaaS.
+## <a name="sample-template-snippet-for-vm-extensions-with-iaas-vms"></a>Пример фрагмента примера для расширений виртуальной машины с виртуальными машинами IaaS.
 Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
@@ -55,7 +59,7 @@ ms.author: kundanap
       }
       }
 
-## Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -82,7 +86,7 @@ ms.author: kundanap
 
 Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
-### Расширение CustomScript 1.4
+### <a name="customscript-extension-14"></a>Расширение CustomScript 1.4
       {
           "publisher": "Microsoft.Compute",
           "type": "CustomScriptExtension",
@@ -99,13 +103,13 @@ ms.author: kundanap
           }
       }
 
-#### Описание параметров
+#### <a name="parameter-description"></a>Описание параметров
 * fileUris — список разделенных запятой URL-адресов файлов, которые будут загружаться на виртуальную машину расширением. Загрузка файлов не выполняется, если никакие значения не указаны. Если файлы находятся в хранилище Azure, URL-адреса файлов можно пометить как частные, тогда и соответствующие параметры storageAccountName и storageAccountKey могут передаваться как частные параметры для доступа к этим файлам.
 * commandToExecute [обязательный параметр] — команда, которая будет выполняться расширением.
 * storageAccountName: [необязательный параметр] — имя учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
 * storageAccountKey: [необязательный параметр] — ключ учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
 
-### Расширение CustomScript 1.7
+### <a name="customscript-extension-17"></a>Расширение CustomScript 1.7
 Описание параметров см. в разделе, посвященном CustomScript 1.4. В версии 1.7 представлена поддержка отправки параметров сценария (commandToExecute) как protectedSettings (в этом случае они будут зашифрованы перед отправкой). Параметр commandToExecute можно указать в параметрах или protectedSettings, но не в обоих типах.
 
         {
@@ -125,7 +129,7 @@ ms.author: kundanap
             }
         }
 
-### Расширение VMAccess.
+### <a name="vmaccess-extension"></a>Расширение VMAccess.
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -138,7 +142,7 @@ ms.author: kundanap
           }
       }
 
-### Расширение DSC.
+### <a name="dsc-extension"></a>Расширение DSC.
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -170,7 +174,7 @@ ms.author: kundanap
       }
 
 
-### Symantec Endpoint Protection.
+### <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection.
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -178,13 +182,13 @@ ms.author: kundanap
         "settings": {}
       }
 
-### Агент Trend Micro Deep Security.
+### <a name="trend-micro-deep-security-agent"></a>Агент Trend Micro Deep Security.
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
-          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter "agents.deepsecurity.trendmicro.com" if using Deep Security as a Service",
+          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
 
           "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
 
@@ -196,7 +200,7 @@ ms.author: kundanap
         }
       }
 
-### Агент Vormertric Transparent Encryption.
+### <a name="vormertric-transparent-encryption-agent"></a>Агент Vormertric Transparent Encryption.
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -205,7 +209,7 @@ ms.author: kundanap
               }
             }
 
-### Агент Puppet Enterprise.
+### <a name="puppet-enterprise-agent"></a>Агент Puppet Enterprise.
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -215,7 +219,7 @@ ms.author: kundanap
               }
             }  
 
-### Агент Microsoft Monitoring для Azure Operational Insights
+### <a name="microsoft-monitoring-agent-for-azure-operational-insights"></a>Агент Microsoft Monitoring для Azure Operational Insights
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -229,7 +233,7 @@ ms.author: kundanap
               }
             }
 
-### McAfee EndpointSecurity
+### <a name="mcafee-endpointsecurity"></a>McAfee EndpointSecurity
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -243,7 +247,7 @@ ms.author: kundanap
               }
             }
 
-### Защита от вредоносных программ Azure IaaS
+### <a name="azure-iaas-antimalware"></a>Защита от вредоносных программ Azure IaaS
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -261,7 +265,7 @@ ms.author: kundanap
             }
           }
 
-### ESET File Security
+### <a name="eset-file-security"></a>ESET File Security
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -270,7 +274,7 @@ ms.author: kundanap
             }
           }
 
-### Агент Datadog
+### <a name="datadog-agent"></a>Агент Datadog
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -280,7 +284,7 @@ ms.author: kundanap
             }
           }
 
-### Confer Advanced Threat Prevention and Incident Response для Azure
+### <a name="confer-advanced-threat-prevention-and-incident-response-for-azure"></a>Confer Advanced Threat Prevention and Incident Response для Azure
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -291,7 +295,7 @@ ms.author: kundanap
             }
           }
 
-### Агент CloudLink SecureVM
+### <a name="cloudlink-securevm-agent"></a>Агент CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -301,7 +305,7 @@ ms.author: kundanap
             }
           }
 
-### Агент VPN-подключения Barracuda для Microsoft Azure
+### <a name="barracuda-vpn-connectivity-agent-for-microsoft-azure"></a>Агент VPN-подключения Barracuda для Microsoft Azure
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -314,7 +318,7 @@ ms.author: kundanap
             }
           }
 
-### Диспетчер журнала логики предупреждений
+### <a name="alert-logic-log-manager"></a>Диспетчер журнала логики предупреждений
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -324,7 +328,7 @@ ms.author: kundanap
             }
           }
 
-### Агент Chef
+### <a name="chef-agent"></a>Агент Chef
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",
@@ -336,8 +340,8 @@ ms.author: kundanap
             }
           }
 
-### Диагностика Azure
-Дополнительные сведения о том, как настроить диагностику, см. в разделе [Расширение диагностики Azure](virtual-machines-windows-extensions-diagnostics-template.md).
+### <a name="azure-diagnostics"></a>Диагностика Azure
+Дополнительные сведения о том, как настроить диагностику, см. в статье [Расширение диагностики Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -361,4 +365,9 @@ ms.author: kundanap
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

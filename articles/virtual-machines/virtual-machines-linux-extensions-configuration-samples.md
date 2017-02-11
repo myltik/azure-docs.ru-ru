@@ -1,13 +1,13 @@
 ---
-title: Пример конфигурации для расширений виртуальной машины Linux | Microsoft Docs
-description: Пример конфигурации для разработки шаблонов с расширениями для виртуальных машин Linux.
+title: "Пример конфигурации для расширений виртуальной машины Linux | Документация Майкрософт"
+description: "Пример конфигурации для разработки шаблонов с расширениями для виртуальных машин Linux."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7f08d711a7d45c48fab5aab272b0446cff61e163
+
 
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Примеры конфигурации расширений виртуальной машины Linux
 > [!div class="op_single_selector"]
-> * [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Linux.
 
-Чтобы узнать больше об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](virtual-machines-windows-extensions-features.md)
+Чтобы узнать больше об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Чтобы узнать больше о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-windows-extensions-authoring-templates.md)
+Чтобы узнать больше о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Linux.
 
-## <a name="sample-template-snippet-for-vm-extensions."></a>Фрагмент шаблона образца для расширений виртуальной машины
+## <a name="sample-template-snippet-for-vm-extensions"></a>Фрагмент шаблона образца для расширений виртуальной машины
 Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
@@ -55,7 +59,7 @@ ms.author: kundanap
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -90,7 +94,7 @@ ms.author: kundanap
             }
           }
 
-### <a name="customscript-extension-for-linux."></a>Расширение CustomScript для Linux.
+### <a name="customscript-extension-for-linux"></a>Расширение CustomScript для Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -127,7 +131,7 @@ ms.author: kundanap
           }
         }
 
-### <a name="vm-access-extension-(password-reset)"></a>Расширение для доступа к виртуальной машине (сброс пароля)
+### <a name="vm-access-extension-password-reset"></a>Расширение для доступа к виртуальной машине (сброс пароля)
 Для получения обновленной схемы см. [документацию по VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
         {
@@ -217,6 +221,9 @@ ms.author: kundanap
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Руководство по фоновым заданиям | Microsoft Docs
-description: Руководство по использованию фоновых задач, выполняемых независимо от пользовательского интерфейса.
-services: ''
+title: "Руководство по фоновым заданиям | Документация Майкрософт"
+description: "Руководство по использованию фоновых задач, выполняемых независимо от пользовательского интерфейса."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f6040f8c-4cbb-4c21-a886-8d54a5868421
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3bc7d30a8d702fd219c7fccfc241f32147c90009
+
 
 ---
 # <a name="background-jobs-guidance"></a>Руководство по фоновым заданиям
@@ -175,7 +179,7 @@ ms.author: masashin
 
 ### <a name="more-information"></a>Дополнительные сведения
 * [Виртуальные машины в Azure](https://azure.microsoft.com/services/virtual-machines/)
-* [Виртуальные машины Azure. Вопросы и ответы](virtual-machines/virtual-machines-linux-classic-faq.md)
+* [Виртуальные машины Azure. Вопросы и ответы](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="design-considerations"></a>Рекомендации по проектированию
 Существует несколько основных факторов, которые следует учитывать при проектировании фоновых задач. В следующих разделах рассматривается секционирование, конфликты и координация.
@@ -209,7 +213,7 @@ ms.author: masashin
 * **Управление выполнением шагов для задачи**. Приложение может выполнять задачи, которые образуют ряд шагов, некоторые из которых в состоянии вызывать удаленные службы или обращаться к удаленным ресурсам. Отдельные шаги могут быть независимы друг от друга, но они подчиняются логике приложения, которая реализует задачу. в разделе [Шаблон супервизора агента планировщика](http://msdn.microsoft.com/library/dn589780.aspx).
 * **Управление восстановлением для шагов задания, завершившихся сбоем**. Приложению может потребоваться отменить работу, выполненную рядом шагов, которые вместе образуют согласованную операцию, если один или несколько шагов завершаются сбоем. в разделе [Шаблон компенсации транзакций](http://msdn.microsoft.com/library/dn589804.aspx).
 
-## <a name="lifecycle-(cloud-services)"></a>Жизненный цикл (облачные службы)
+## <a name="lifecycle-cloud-services"></a>Жизненный цикл (облачные службы)
  Если вы решили реализовать фоновые задания для приложений облачных служб, использующих веб-роли и рабочие роли, с помощью класса **RoleEntryPoint** , важно понимать жизненный цикл этого класса, чтобы правильно его использовать.
 
 От запуска, выполнения и до остановки веб-роли и рабочие роли проходят ряд различных этапов. Класс **RoleEntryPoint** предоставляет ряд событий, указывающих, когда выполняются эти этапы. Они используются для инициализации, выполнения и остановки ваших настраиваемых фоновых задач. Ниже приведен полный цикл:
@@ -241,7 +245,7 @@ ms.author: masashin
     if (freeze != null)
     {
      if (Boolean.Parse(freeze))
-     {
+       {
          Thread.Sleep(System.Threading.Timeout.Infinite);
      }
     }
@@ -293,6 +297,9 @@ ms.author: masashin
 * [Очереди Azure и очереди служебной шины: сходства и различия](service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Включение диагностики в облачной службе](cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

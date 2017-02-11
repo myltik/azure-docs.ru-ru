@@ -61,10 +61,13 @@
 ### [Прогнозирование производительности системы отопления, вентиляции и кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Прогнозирование результата проверки продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Анализ журналов веб-сайтов](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Использование записных книжек Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Ядра для записных книжек Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Пакеты для записных книжек Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Использование внешних пакетов с записными книжками Jupyter с помощью волшебных команд](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Использование внешних пакетов с записными книжками Jupyter с помощью действий скрипта](hdinsight-apache-spark-python-package-installation.md)
 ### [Использование локальной записной книжки Jupyter](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Работа с удаленными заданиями с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Разработка приложений с помощью Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Разработка приложений с помощью IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Удаленная отладка с помощью IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Управление ресурсами](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Использование Azure CLI](hdinsight-administer-use-command-line.md)
 ### [Управление кластерами с помощью пользовательского веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md)
 #### [Использование Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Добавление учетных записей хранения](hdinsight-hadoop-add-storage.md)
 ### [Передача данных для заданий Hadoop](hdinsight-upload-data.md)
 ### [Импорт и экспорт данных с помощью Sqoop](hdinsight-use-sqoop.md)
 #### [Подключение по SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

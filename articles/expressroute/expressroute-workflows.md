@@ -1,12 +1,12 @@
 ---
-title: Процедуры настройки канала ExpressRoute | Microsoft Docs
-description: На этой странице описана процедура настройки канала ExpressRoute и пирингов
+title: "Процедуры настройки канала ExpressRoute | Документация Майкрософт"
+description: "На этой странице описана процедура настройки канала ExpressRoute и пирингов"
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Процедуры ExpressRoute для подготовки каналов и состояний каналов
@@ -53,21 +57,24 @@ ms.author: cherylmc
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Возможные состояния канала ExpressRoute
 В этом разделе перечислены возможные состояния канала ExpressRoute.
 
-#### <a name="at-creation-time"></a>В момент создания
+**В момент создания**
+
 После выполнения командлета PowerShell для создания канала ExpressRoute канал ExpressRoute будет находиться в следующем состоянии:
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>Пока поставщик услуг подключения выполняет подготовку канала
+**Пока поставщик услуг подключения выполняет подготовку канала**
+
 Когда вы передадите ключ службы поставщику услуг подключения, а тот начнет процесс подготовки, канал ExpressRoute перейдет в следующее состояние:
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>После завершения процесса подготовки поставщиком услуг подключения
+**После завершения процесса подготовки поставщиком услуг подключения**
+
 Когда поставщик услуг подключения закончит процесс подготовки, канал ExpressRoute перейдет в следующее состояние:
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ ms.author: cherylmc
 
 Использовать канал позволяют только два его состояния: Provisioned (Подготовлен) и Enabled (Включен). Если ваш поставщик предлагает услуги второго уровня, вы можете настроить маршрутизацию для канала, только если он находится в этом состоянии.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>Пока поставщик услуг подключения отзывает канал
+**Пока поставщик услуг подключения отзывает канал**
+
 Если вы обратились по поводу отзыва канала ExpressRoute к поставщику услуг, то после того, как он завершит процедуру отзыва, канал перейдет в следующее состояние:
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ ms.author: cherylmc
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

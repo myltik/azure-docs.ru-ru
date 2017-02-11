@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Evidence.com | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в приложении Evidence.com.
+title: "Учебник. Интеграция Azure Active Directory с Evidence.com | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Evidence.com."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f9a7cb7c-ff67-40dc-872c-1fa35f9dd03b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d5183b136a0ceca939f754f67130d1179f6f4f7
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-evidence.com"></a>Руководство. Интеграция Azure Active Directory с Evidence.com
+# <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Руководство. Интеграция Azure Active Directory с Evidence.com
 Это руководство продемонстрирует, как настроить единый вход между Azure Active Directory (AAD) и Evidence.com. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * действующая подписка Microsoft Azure;
@@ -24,7 +28,7 @@ ms.author: asmalser
 
 После выполнения этого руководства пользователи Azure Active Directory, которых вы назначите для Evidence.com, смогут выполнять единый вход в приложение с помощью панели доступа AAD.
 
-## <a name="add-evidence.com-to-your-directory"></a>Добавление Evidence.com в каталог
+## <a name="add-evidencecom-to-your-directory"></a>Добавление Evidence.com в каталог
 В этом разделе описано, как добавить Evidence.com в Azure Active Directory в качестве интегрированного приложения.
 
 **Чтобы включить интеграцию приложений для Evidence.com, выполните следующие действия.**
@@ -54,8 +58,8 @@ ms.author: asmalser
 11. На классическом портале Azure установите флажок **Подтвердите, что вы настроили единый вход, как описано выше**. Когда вы установите этот флажок, текущий сертификат начнет действовать для этого приложения.
 12. На странице подтверждения единого входа нажмите кнопку **Завершить**.  
 
-## <a name="creating-an-evidence.com-test-user"></a>Создание тестового пользователя Evidence.com
-Чтобы пользователи Azure AD могли выполнять вход, нужно подготовить их для доступа в приложении Evidence.com. В этом разделе описано, как создавать учетные записи пользователей Azure AD в Evidence.com.
+## <a name="creating-an-evidencecom-test-user"></a>Создание тестового пользователя Evidence.com
+Чтобы пользователи Azure AD могли выполнять вход, нужно подготовить их для доступа в приложении Evidence.com. В этом разделе описано, как создавать учетные записи пользователей Azure AD в Evidence.com.
 
 **Чтобы подготовить учетную запись пользователя в Evidence.com, выполните следующие действия.**
 
@@ -65,16 +69,19 @@ ms.author: asmalser
 4. Нажмите кнопку **Add** (Добавить).
 5. Параметр **Email Address** (Адрес электронной почты) для нового пользователя должен совпадать с именем пользователя в Azure AD, которому вы хотите предоставить доступ. Возможно, в вашей организации в качестве имени пользователя не используется адрес электронной почты. Тогда зайдите на классическом портале Azure в раздел **Evidence.com > Атрибуты > Единый вход** и измените параметр nameidentifier (идентификатор имени, отправляемый приложению Evidence.com) так, чтобы передавался именно адрес электронной почты.
 
-## <a name="assigning-users-to-evidence.com"></a>Назначение пользователей для Evidence.com
+## <a name="assigning-users-to-evidencecom"></a>Назначение пользователей для Evidence.com
 Чтобы подготовленные пользователи AAD увидели Evidence.com на своей панели доступа, им нужно назначить доступ на портале управления Azure.
 
 **Чтобы назначить пользователей для Evidence.com, выполните следующие действия.**
 
 1. На странице быстрого запуска для Evidence.com на классическом портале Azure щелкните **Назначить пользователей для Evidence.com**.
-2. В меню **Показать** выберите, как вы будете назначать доступ в Evidence.com — пользователю или группе, и нажмите кнопку с галочкой.
+2. В меню **Показать** выберите, как вы будете назначать доступ в Evidence.com — пользователю или группе, и нажмите кнопку с галочкой.
 3. В списке **Пользователи** выберите пользователей, которых нужно включить в группу имеющих доступ к Evidence.com.
 4. В нижнем колонтитуле страницы нажмите кнопку **Назначить** .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

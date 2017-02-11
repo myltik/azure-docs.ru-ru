@@ -1,72 +1,89 @@
 ---
-title: Добавление push-уведомлений в приложение Android с помощью мобильных приложений Azure
-description: Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение Android.
+title: "Добавление push-уведомлений в приложение Android с помощью мобильных приложений | Документация Майкрософт"
+description: "Узнайте, как использовать мобильные приложения для отправки push-уведомлений в приложение Android."
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
-editor: ''
-author: RickSaling
-
+editor: 
+author: ysxu
+ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: ricksal
+ms.date: 10/12/2016
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
+ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
+
 
 ---
-# Добавление push-уведомлений в приложение Android
+# <a name="add-push-notifications-to-your-android-app"></a>Добавление push-уведомлений в приложение Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Обзор
-В этом учебнике описывается добавление push-уведомлений в [ознакомительный проект для платформы Android], чтобы при вставке каждой новой записи отправлялось push-уведомление. Этот учебник использует материал [ознакомительного проекта для платформы Android], инструкции из которого необходимо выполнить в первую очередь. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Обзор
+В этом учебнике мы добавим push-уведомления в [ознакомительный проект для платформы Android], чтобы при каждом добавлении новой записи на устройство отправлялось push-уведомление.
 
-## Предварительные требования
-Для работы с этим учебником требуется:
+Если вы не используете скачанный проект сервера, необходимо добавить пакет расширений для push-уведомлений. Дополнительные сведения см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-* [Учетная запись Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) с подтвержденным адресом электронной почты.
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) не требуется для серверного проекта Node.js.
-* Изучение [краткого руководства](app-service-mobile-android-get-started.md).
+## <a name="prerequisites"></a>Предварительные требования
+Кроме этого, вам потребуются:
 
-## <a name="create-hub"></a>Создание центра уведомлений
-[!INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+* Интегрированная среда разработки, в зависимости от серверной части вашего проекта:
 
-## Включение Google Cloud Messaging
-[!INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+  * [Android Studio](https://developer.android.com/sdk/index.html) — если это приложение имеет серверную часть Node.js.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) или более поздняя версия — если это приложение имеет серверную часть Microsoft .NET.
+* Android 2.3 или более поздняя версия, репозиторий Google версии 27 или более поздняя версия и службы Google Play 9.0.2 или более поздняя версия для Firebase Cloud Messaging.
+* Изучение [ознакомительный проект для платформы Android].
 
-## Настройка серверной части мобильного приложения для отправки push-запросов
-[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Создание проекта с поддержкой Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a id="update-service"></a>Обновление серверного проекта для отправки push-уведомлений
+## <a name="configure-a-notification-hub"></a>Настройка центра уведомлений
+[!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
+
+## <a name="configure-azure-to-send-push-notifications"></a>Настройка Azure для отправки push-уведомлений
+[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
+
+## <a name="enable-push-notifications-for-the-server-project"></a>Включение push-уведомлений для серверного проекта
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## Добавление push-уведомлений в приложение
-Необходимо убедиться в том, что проект приложения Android готов для обработки push-уведомлений.
+## <a name="add-push-notifications-to-your-app"></a>Добавление push-уведомлений в приложение
+В этом разделе мы обновим клиентское приложение Android для обработки push-уведомлений.
 
-### Проверка версии Android SDK
+### <a name="verify-android-sdk-version"></a>Проверка версии пакета SDK для Android
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
 
-Если вы будете тестировать приложение на более старом устройстве, обратитесь к руководству [Настройка пакета SDK служб Google Play], чтобы определить, насколько малым можно задать это значение.
+Если вы тестируете приложение на более старом устройстве, обратитесь к руководству [Настройка пакета SDK служб Google Play], чтобы определить, насколько малым можно задать это значение.
 
-### Добавление служб Google Play в проект
-[!INCLUDE [Добавление служб Play](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-google-play-services-to-the-project"></a>Добавление служб Google Play в проект
+[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
-### Добавление кода
+### <a name="add-code"></a>Добавление кода
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## Тестирование приложения с помощью опубликованной мобильной службы
+## <a name="test-the-app-against-the-published-mobile-service"></a>Тестирование приложения с помощью опубликованной мобильной службы
 Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля или используя виртуальное устройство в эмуляторе.
 
-## <a id="more"></a>Дополнительные сведения
-* Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) показано, как добавлять теги для установки устройства.
+## <a name="next-steps"></a>Дальнейшие действия
+Вы изучили это руководство и теперь можете перейти к ознакомлению с одной из следующих тем.
+
+* [Добавление аутентификации в приложение Android](app-service-mobile-android-get-started-users.md).
+  Узнайте, как добавить аутентификацию в проект быстрого запуска ToDoList для Android с помощью поддерживаемого поставщика удостоверений.
+* [Включение автономной синхронизации для приложения Android](app-service-mobile-android-get-started-offline-data.md).
+  Узнайте, как добавить в приложение поддержку автономной работы с помощью серверной части мобильных приложений. Автономная синхронизация позволяет пользователям взаимодействовать с мобильным приложением (&mdash;просматривать, добавлять или изменять данные&mdash;) даже при отсутствии подключения к сети.
 
 <!-- URLs -->
-[ознакомительного проекта для платформы Android]: app-service-mobile-android-get-started.md
 [ознакомительный проект для платформы Android]: app-service-mobile-android-get-started.md
 
-[Настройка пакета SDK служб Google Play]: https://developers.google.com/android/guides/setup
+[Настройка пакета SDK служб Google Play]:https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -1,26 +1,30 @@
 ---
-title: Доступ и безопасность в шаблонах Azure Resource Manager | Microsoft Docs
-description: Руководство по .NET Core для виртуальных машин Azure
+title: "Параметры доступа и безопасности в шаблонах Azure Resource Manager | Документация Майкрософт"
+description: "Руководство по .NET Core для виртуальных машин Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 07e47189-680e-4102-a8d4-5a8eb9c00213
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 25af19c208fb69d06ca74dec41f42a075eb22304
+
 
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates"></a>Доступ и безопасность в шаблонах Azure Resource Manager
 Обычно к приложениям, размещенным в Azure, нужен доступ через Интернет или VPN/ExpressRoute-подключение. В нашем примере с приложением музыкального магазина мы открыли доступ к веб-сайту через Интернет по общедоступному IP-адресу. Теперь нужно защитить подключения к приложению и доступ к ресурсам виртуальной машины. Защиту доступа обеспечивает группа безопасности сети. 
 
-В этом документе объясняется, каким образом приложение музыкального магазина защищено на уровне шаблона Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+В этом документе объясняется, каким образом приложение музыкального магазина защищено на уровне шаблона Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="public-ip-address"></a>Общедоступный IP-адрес
 Чтобы предоставить общий доступ к ресурсу Azure, используйте ресурс общедоступного IP-адреса. Общедоступный IP-адрес может быть статическим или динамическим. Если используется динамический адрес, он удаляется при остановке или освобождении виртуальной машины. При повторном запуске виртуальной машины она может получить другой общедоступный IP-адрес. Чтобы IP-адрес не изменялся, используйте зарезервированный IP-адрес. 
@@ -29,7 +33,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager — [Общедоступный IP-адрес](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -51,7 +55,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager — [Связь балансировщика нагрузки с общедоступным IP-адресом](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -75,7 +79,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager — [Группа безопасности сети](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L68).
 
-```none
+```json
 {
   "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -110,7 +114,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager — [Связь группы безопасности сети в виртуальной сетью](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
-```none
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",
@@ -132,8 +136,11 @@ ms.author: nepeters
 ## <a name="next-step"></a>Дальнейшие действия
 <hr>
 
-[Шаг 3. Доступность и масштабирование в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+[Шаг 3. Доступность и масштабирование в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

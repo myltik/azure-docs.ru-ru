@@ -1,12 +1,12 @@
 ---
-title: Configure webhooks on Azure metric alerts | Microsoft Docs
-description: Reroute Azure alerts to other non-Azure systems.
+title: "Настройка webhook для оповещений на основе метрик Azure | Документация Майкрософт"
+description: "Перенаправление оповещений Azure в другие системы (не Azure)"
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,30 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+
 
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configure a webhook on an Azure metric alert
-Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](insights-auditlog-to-webhook-email.md).
+# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Настройка объектов webhook для оповещений на основе метрик Azure
+Объекты webhook позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или выполнения настраиваемых действий. Объект webhook можно использовать, чтобы направить оповещение к службам, которые отправляют SMS, ведут журналы об ошибках, уведомляют членов команды в чате или службах обмена сообщениями либо выполняют другие действия. В этой статье описывается, как настроить объект webhook для оповещений на основе метрик Azure и как выглядят полезные данные запроса HTTP POST к webhook. Дополнительные сведения о настройке и схема для оповещений журнала действий Azure приведены [здесь](insights-auditlog-to-webhook-email.md).
 
-Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
+Оповещения Azure (с помощью запроса HTTP POST) помещают содержимое оповещения в формате JSON (схема приведена ниже) в универсальный код ресурса (URI) объекта webhook, указанный при создании оповещения. Этот URI должен быть допустимой конечной точкой HTTP или HTTPS. При активации оповещений Azure размещает одну запись для каждого запроса.
 
-## <a name="configuring-webhooks-via-the-portal"></a>Configuring webhooks via the portal
-You can add or update the webhook URI in the Create/Update Alerts screen in the [portal](https://portal.azure.com/).
+## <a name="configuring-webhooks-via-the-portal"></a>Настройка веб-перехватчиков через портал
+В окне создания и обновления оповещений на [портале Azure](https://portal.azure.com/)можно добавить или обновить универсальный кода ресурса (URI) объекта webhook.
 
-![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
+![Добавить правило оповещения](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Вы также можете настроить оповещение так, чтобы при его активации в URI объекта webhook добавлялись соответствующие сведения. Для этого можно использовать [командлеты Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [кроссплатформенный интерфейс командной строки](insights-cli-samples.md#work-with-alerts) или [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="authenticating-the-webhook"></a>Authenticating the webhook
-The webhook can authenticate using either of these methods:
+## <a name="authenticating-the-webhook"></a>Проверка подлинности объекта webhook
+Объект webhook может проходить проверку подлинности с помощью любого из этих методов:
 
-1. **Token-based authorization** - The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basic authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **Авторизация на основе маркера.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с идентификатором маркера, например `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2. **Базовая авторизация.** Универсальный код ресурса (URI) объекта webhook сохраняется вместе с именем пользователя и паролем, например `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
-## <a name="payload-schema"></a>Payload schema
-The POST operation contains the following JSON payload and schema for all metric-based alerts.
+## <a name="payload-schema"></a>Схема полезных данных
+Операция POST содержит следующие полезные данные и схему JSON для всех оповещений, связанных с метриками.
 
-```
+```JSON
 {
 "status": "Activated",
 "context": {
@@ -71,44 +75,47 @@ The POST operation contains the following JSON payload and schema for all metric
 ```
 
 
-| Field | Mandatory | Fixed Set of Values | Notes |
+| Поле | Обязательно | Фиксированный набор значений | Примечания |
 |:--- |:--- |:--- |:--- |
-| status |Y |“Activated”, “Resolved” |Status for the alert based off of the conditions you have set. |
-| context |Y | |The alert context. |
-| timestamp |Y | |The time at which the alert was triggered. |
-| id |Y | |Every alert rule has a unique id. |
-| name |Y | |The alert name. |
-| description |Y | |Description of the alert. |
-| conditionType |Y |“Metric”, “Event” |Two types of alerts are supported. One based on a metric condition and the other based on an event in the Activity Log. Use this value to check if the alert is based on metric or event. |
-| condition |Y | |The specific fields to check for based on the conditionType. |
-| metricName |for Metric alerts | |The name of the metric that defines what the rule monitors. |
-| metricUnit |for Metric alerts |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |The unit allowed in the metric. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
-| metricValue |for Metric alerts | |The actual value of the metric that caused the alert. |
-| threshold |for Metric alerts | |The threshold value at which the alert is activated. |
-| windowSize |for Metric alerts | |The period of time that is used to monitor alert activity based on the threshold. Must be between 5 minutes and 1 day. ISO 8601 duration format. |
-| timeAggregation |for Metric alerts |"Average", "Last", "Maximum", "Minimum", "None", "Total" |How the data that is collected should be combined over time. The default value is Average. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operator |for Metric alerts | |The operator used to compare the current metric data to the set threshold. |
-| subscriptionId |Y | |Azure subscription ID. |
-| resourceGroupName |Y | |Name of the resource group for the impacted resource. |
-| resourceName |Y | |Resource name of the impacted resource. |
-| resourceType |Y | |Resource type of the impacted resource. |
-| resourceId |Y | |Resource ID of the impacted resource. |
-| resourceRegion |Y | |Region or location of the impacted resource. |
-| portalLink |Y | |Direct link to the portal resource summary page. |
-| properties |N |Optional |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters) |
+| status |Да |Activated, Resolved |Состояние оповещения на основе заданных условий. |
+| context |Да | |Контекст оповещения. |
+| Timestamp |Да | |Время активации оповещения |
+| id |Да | |Каждое правило оповещения имеет уникальный идентификатор. |
+| name |Да | |Имя оповещения. |
+| description |Да | |Описание оповещения. |
+| conditionType |Да |Metric, Event |Поддерживаются два типа оповещений: на основе метрик и на основе событий в журнале действий. Таким образом, это значение позволяет узнать тип оповещения. |
+| condition |Да | |Специальные поля для проверки с учетом параметра conditionType. |
+| metricName |Для оповещений на основе метрик | |Имя метрики, определяющей, что контролирует метрика. |
+| metricUnit |Для оповещений на основе метрик |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Допустимая метрикой единица Список допустимых значений см. [здесь](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricValue |Для оповещений на основе метрик | |Фактическое значение метрики, которая вызвала оповещение. |
+| threshold |Для оповещений на основе метрик | |Пороговое значение, при котором активируется оповещение. |
+| windowSize |Для оповещений на основе метрик | |Период времени, используемый для отслеживания активности оповещения по пороговому значению. Это должен быть период от 5 минут до 1 дня. Формат длительности — ISO 8601. |
+| timeAggregation |Для оповещений на основе метрик |Average, Last, Maximum, Minimum, None, Total |Порядок объединения данных, собранных за определенный период. Значение по умолчанию — Average (Среднее). [здесь](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| operator |Для оповещений на основе метрик | |Оператор, используемый для сравнения текущих данных метрик с заданным пороговым значением. |
+| subscriptionId |Да | |Идентификатор подписки Azure. |
+| имя_группы_ресурсов |Да | |Имя группы ресурсов для затронутого ресурса. |
+| resourceName |Да | |Имя затронутого ресурса. |
+| тип_ресурса |Да | |Тип затронутого ресурса. |
+| resourceId |Да | |Идентификатор ресурса для затронутого ресурса. |
+| resourceRegion |Да | |Регион или расположение затронутого ресурса. |
+| portalLink |Да | |Прямая ссылка на страницу сводки по ресурсу на портале. |
+| properties |Нет |Необязательно |Набор пар `<Key, Value>` (например, `Dictionary<String, String>`), содержащий сведения о событии. Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или в рабочем процессе на основе приложения логики пользователи могут вводить пары "ключ — значение" для передачи в виде полезных сведений. Еще один способ передачи пользовательских свойств в веб-перехватчик — через сам универсальный код ресурса (URI) веб-перехватчика (в виде параметров запросов). |
 
 > [!NOTE]
-> The properties field can only be set using the [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Поле свойств можно определить с помощью [REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-* Learn more about Azure alerts and webhooks in the video [Integrate Azure Alerts with PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
-* [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-* [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-* [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+## <a name="next-steps"></a>Дальнейшие действия
+* Дополнительные сведения об оповещениях Azure и объектах webhook см. в видео, посвященном [интеграции оповещений Azure с PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+* [Выполнение скриптов службы автоматизации Azure (Runbooks) на основе оповещений Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
+* [Использование приложения логики для отправки SMS с помощью Twilio из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+* [Использование приложения логики для отправки сообщений Slack из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+* [Использование приложения логики для отправки сообщений в очередь Azure из оповещения Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET | Microsoft Docs
-description: Сведения о создании кластеров HDInsight для Azure HDInsight с помощью пакета SDK для .NET
+title: "Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET | Документация Майкрософт"
+description: "Сведения о создании кластеров HDInsight для Azure HDInsight с помощью пакета SDK для .NET"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 134fbcdf-8f62-492f-84fd-8e2a3e0cd896
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+
 
 ---
-# Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>Создание кластеров Hadoop под управлением Windows в HDInsight с помощью пакета SDK для .NET
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Научитесь создавать кластеры HDInsight с помощью пакета SDK для .NET. Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-## Предварительные требования:
+## <a name="prerequisites"></a>Предварительные требования:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
-* Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Visual Studio 2013 или 2015
 
-## Создание кластеров
+### <a name="access-control-requirements"></a>Требования к контролю доступа
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Создание кластеров
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. Следуйте инструкциям ниже, чтобы создать консольное приложение Visual Studio и вставить код для создания кластера.
 
-Приложению требуется группа ресурсов Azure и учетная запись хранения по умолчанию. В [приложении A](#appx-a-create-dependent-components) приведен сценарий PowerShell для создания зависимых компонентов.
+Приложению требуется группа ресурсов Azure и учетная запись хранения по умолчанию.  В [приложении A](#appx-a-create-dependent-components) приведен сценарий PowerShell для создания зависимых компонентов.
 
 **Создание консольного приложения Visual Studio**
 
@@ -43,7 +50,7 @@ ms.author: jgao
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-3. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
+3. В обозревателе решений дважды щелкните файл **Program.cs** , чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
    
         using System;
         using System.Threading;
@@ -148,7 +155,7 @@ ms.author: jgao
 
 1. Нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Появится запрос на ввод учетных данных учетной записи Azure. На подготовку кластера HDInsight может уйти несколько минут.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 * [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
@@ -156,7 +163,7 @@ ms.author: jgao
 * [Выполнение заданий Pig в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
-* [Документация по пакету SDK для Azure для HDInsight][hdinsight-sdk-documentation] — узнайте больше о пакете SDK для HDInsight.
+* [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation] — сведения о пакете SDK для HDInsight.
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -166,7 +173,7 @@ ms.author: jgao
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
 
-## Приложение A. Создание зависимых компонентов
+## <a name="appx-a-create-dependent-components"></a>Приложение A. Создание зависимых компонентов
 С помощью следующего сценария Azure PowerShell можно создать зависимые компоненты, необходимые для приложения .NET в этом учебнике.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -236,4 +243,8 @@ ms.author: jgao
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

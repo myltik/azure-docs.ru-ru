@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с ScreenSteps | Microsoft Docs
-description: Узнайте, как использовать ScreenSteps с Azure Active Directory для настройки единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с ScreenSteps | Документация Майкрософт"
+description: "Узнайте, как использовать ScreenSteps с Azure Active Directory для настройки единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e097ed265381225deeda19642c281223907a4cc
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-screensteps"></a>Учебник. Интеграция Azure Active Directory с ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Учебник. Интеграция Azure Active Directory с ScreenSteps
 Цель данного учебника — показать интеграцию Azure и ScreenSteps.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-screensteps"></a>Включение интеграции приложений для ScreenSteps
 В этом разделе показано, как включить интеграцию приложений для ScreenSteps.
 
-### <a name="to-enable-the-application-integration-for-screensteps,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для ScreenSteps, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-screensteps-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для ScreenSteps, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ ms.author: jeedes
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в ScreenSteps со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **ScreenSteps** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configure single sign-on")
@@ -108,7 +112,7 @@ ms.author: jeedes
 Чтобы пользователи Azure AD могли выполнять вход в **ScreenSteps**, они должны быть подготовлены для **ScreenSteps**.  
 В случае со **ScreenSteps**подготовка выполняется вручную.
 
-### <a name="to-provision-a-user-account-to-screensteps,-perform-the-following-steps:"></a>Чтобы подготовить учетную запись пользователя для ScreenSteps, выполните следующие действия:
+### <a name="to-provision-a-user-account-to-screensteps-perform-the-following-steps"></a>Чтобы подготовить учетную запись пользователя для ScreenSteps, выполните следующие действия:
 1. Войдите в клиент **ScreenSteps** .
 2. Щелкните **Управление учетными записями**.
    
@@ -135,7 +139,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-screensteps,-perform-the-following-steps:"></a>Чтобы назначить пользователей ScreenSteps, выполните следующие действия:
+### <a name="to-assign-users-to-screensteps-perform-the-following-steps"></a>Чтобы назначить пользователей ScreenSteps, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **ScreenSteps** щелкните **Назначить пользователей**.
    
@@ -146,6 +150,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

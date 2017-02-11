@@ -1,13 +1,13 @@
 ---
-title: Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Microsoft Docs
-description: Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure.
+title: "Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Документация Майкрософт"
+description: "Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
+ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
+
 
 ---
 # <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure
@@ -23,14 +27,14 @@ ms.author: jgao
 [Фабрика данных Azure](../data-factory/data-factory-introduction.md) представляет собой облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. Из этой статьи вы узнаете, как создать [связанную службу Azure HDInsight по запросу](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) с помощью фабрики данных Azure и использовать кластер для выполнения задания Hive. В общих чертах процесс будет таким:
 
 1. Создание кластера HDInsight по запросу.
-2. Запуск задания Hive для чтения необработанных данных веб-журнала из исходной учетной записи хранения BLOB-объектов, преобразования данных и записи выходных данных в целевую учетную запись хранения BLOB-объектов. 
+2. Запуск задания Hive для чтения необработанных данных веб-журнала из исходной учетной записи хранения BLOB-объектов, преобразования данных и записи выходных данных в целевую учетную запись хранения BLOB-объектов.
 3. Удаление кластера на основе параметра срока жизни.
 
 Действие Hive, определенное в конвейере фабрики данных, вызывает предварительно определенный сценарий HiveQL. Сценарий создает внешнюю таблицу, которая ссылается на необработанные данные веб-журнала в хранилище BLOB-объектов Azure, а затем разбивает необработанные данные по годам и месяцам.
 
 Вот пример строк за каждый месяц во входном файле.
 
-    2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
+    2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871
     2014-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
     2014-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 
@@ -50,15 +54,15 @@ ms.author: jgao
 
 > [!NOTE]
 > Сейчас в фабрике данных Azure можно создать только кластер HDInsight версии 3.2 под управлением Linux.
-> 
-> 
+>
+>
 
-## <a name="prerequisites:"></a>Предварительные требования:
+## <a name="prerequisites"></a>Предварительные требования:
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
 * [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure CLI или Azure PowerShell. 
-  
+* Azure CLI или Azure PowerShell.
+
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## <a name="prepare-storage-account"></a>Подготовка учетной записи хранения
@@ -75,16 +79,16 @@ ms.author: jgao
 3. Создание учетной записи хранения Azure.
 4. Создание контейнера BLOB-объектов в учетной записи хранения
 5. Копирование следующих файлов в контейнер BLOB-объектов:
-   
+
    * Файл входных данных: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
    * Сценарий HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
-     
-     Оба файла хранятся в общедоступном контейнере больших двоичных объектов. 
+
+     Оба файла хранятся в общедоступном контейнере больших двоичных объектов.
 
 > [!IMPORTANT]
 > Запишите имя группы ресурсов, имя учетной записи хранения и ключ учетной записи хранения, используемые в сценарии.  Эти значения понадобятся в следующем разделе.
-> 
-> 
+>
+>
 
 **Подготовка хранилища и копирование файлов с помощью Azure CLI**
 
@@ -99,8 +103,8 @@ ms.author: jgao
     azure storage account keys list --resource-group "<Azure Resource Group Name>" "<Azure Storage Account Name>"
     azure storage container create "adfgetstarted" --account-name "<Azure Storage AccountName>" --account-key "<Azure Storage Account Key>"
 
-    azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
-    azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
+    azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
+    azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 
 Имя контейнера — *adfgetstarted*.  Не изменяйте его. В противном случае вам придется внести изменения в шаблон управления ресурсами.
 
@@ -134,12 +138,12 @@ ms.author: jgao
     #region - create Azure resources
     Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location 
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $destStorageAccountName `
         -type Standard_LRS `
-        -Location $location 
+        -Location $location
 
     $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
         -ResourceGroupName $resourceGroupName `
@@ -163,14 +167,14 @@ ms.author: jgao
 
     $blobs = Get-AzureStorageBlob `
         -Context $sourceContext `
-        -Container $sourceContainerName 
+        -Container $sourceContainerName
 
     $blobs|Start-AzureStorageBlobCopy `
         -DestContext $destContext `
         -DestContainer $destContainerName
 
     Write-Host "`nCopied files ..." -ForegroundColor Green
-    Get-AzureStorageBlob -Context $destContext -Container $destContainerName 
+    Get-AzureStorageBlob -Context $destContext -Container $destContainerName
     #endregion
 
     Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -186,14 +190,14 @@ ms.author: jgao
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. Щелкните **Группы ресурсов** на левой панели.
-3. Дважды щелкните имя группы ресурсов, созданной в сценарии CLI или PowerShell. Если отображается слишком много групп ресурсов, используйте фильтр. 
+3. Дважды щелкните имя группы ресурсов, созданной в сценарии CLI или PowerShell. Если отображается слишком много групп ресурсов, используйте фильтр.
 4. На плитке **Ресурсы** должен отображаться один ресурс, если только группа ресурсов не является общей для других проектов. Этим ресурсом будет учетная запись хранения с именем, которое вы указали ранее. Щелкните имя учетной записи хранения.
 5. Щелкните элемент **BLOB-объекты** .
 6. Щелкните контейнер **adfgetstarted** . Вы увидите две папки: **input data** и **script**.
 7. Откройте папку и проверьте файлы в папках.
 
 ## <a name="create-data-factory"></a>Создание фабрики данных
-При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. В этом руководстве мы будем использовать портал Azure для вызова пользовательского шаблона управления ресурсами. Кроме того, шаблон управления ресурсами можно вызвать с помощью [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) и [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Описание других способов создания фабрики данных вы найдете в [руководстве по созданию фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
+При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. В этом руководстве мы будем использовать портал Azure для вызова пользовательского шаблона управления ресурсами. Кроме того, шаблон управления ресурсами можно вызвать с помощью [Azure CLI](../resource-group-template-deploy-cli.md) и [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Описание других способов создания фабрики данных вы найдете в [руководстве по созданию фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
 
 Шаблон управления ресурсами верхнего уровня содержит следующие данные:
 
@@ -220,13 +224,13 @@ ms.author: jgao
         ]
     }
 
-Он содержит один ресурс фабрики данных с именем *hdinsight-hive-on-demand* (имя не показано на снимке экрана). В настоящее время фабрика данных поддерживается только в западной части США и Северной Европе. 
+Он содержит один ресурс фабрики данных с именем *hdinsight-hive-on-demand* (имя не показано на снимке экрана). В настоящее время фабрика данных поддерживается только в западной части США и Северной Европе.
 
 В ресурс *hdinsight-hive-on-demand* входят четыре ресурса:
 
 * Связанная служба для учетной записи хранения, которая будет использоваться в качестве учетной записи хранения HDInsight по умолчанию для хранения входных и выходных данных.
 * Создаваемая связанная служба для кластера HDInsight:
-  
+
         {
             "dependsOn": [ ... ],
             "type": "linkedservices",
@@ -245,30 +249,30 @@ ms.author: jgao
                 }
             }
         },
-  
+
     Даже если не указано, кластер создается в том же регионе, что и учетная запись хранения.
-  
+
     Обратите внимание на параметр *timeToLive* . Фабрика данных автоматически удалит кластер по истечении 30 минут времени простоя.
 * Набор данных для входных данных. Здесь определены имя файла и имя папки:
-  
+
         "fileName": "input.log",
         "folderPath": "adfgetstarted/inputdata",
 * Набор данных для выходных данных, а затем конвейер для обработки данных. Здесь определен выходной путь:
-  
+
         "folderPath": "adfgetstarted/partitioneddata",
-  
+
     Параметр [dataset availability](../data-factory/data-factory-create-datasets.md#Availability) имеет следующий вид:
-  
+
         "availability": {
             "frequency": "Month",
             "interval": 1,
             "style": "EndOfInterval"
         },
-  
+
     В фабрике данных Azure доступность выходного набора данных активирует конвейер. Это означает, что срез создается ежемесячно в последний день месяца. Дополнительные сведения см. в статье [Планирование и исполнение с использованием фабрики данных](../data-factory/data-factory-scheduling-and-execution.md).
-  
+
     Определение конвейера имеет следующий вид:
-  
+
         {
             "dependsOn": [ ... ],
             "type": "datapipelines",
@@ -284,11 +288,11 @@ ms.author: jgao
                 "isPaused": false
             }
         }
-  
+
     Он содержит одно действие. Для параметров *начала* (start) и *окончания* (end) действия указана прошлая дата. Это означает, что у нас будет только один срез. Если окончание приходится на дату в будущем, фабрика данных создаст другой срез, когда наступит заданное время. Дополнительные сведения см. в статье [Планирование и исполнение с использованием фабрики данных](../data-factory/data-factory-scheduling-and-execution.md).
-  
+
     Следующий скрипт JSON содержит определение действия:
-  
+
         "activities": [
             {
                 "type": "HDInsightHive",
@@ -318,13 +322,13 @@ ms.author: jgao
                 "linkedServiceName": "HDInsightOnDemandLinkedService"
             }
         ],
-  
+
     Здесь определены входные данные, выходные данные и путь к сценарию.
 
 **Создание фабрики данных**
 
-1. Щелкните кнопку ниже, чтобы войти в Azure и открыть шаблон управления ресурсами на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
-   
+1. Щелкните кнопку ниже, чтобы войти в Azure и открыть шаблон управления ресурсами на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Введите значения параметров **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** и **STORAGEACCOUNTKEY** для учетной записи, созданной в последнем разделе, и нажмите кнопку **ОК**. Имя фабрики данных должно быть глобально уникальным.
 3. В разделе **Группа ресурсов**выберите ту же группу ресурсов, которая использовалась в последнем разделе.
@@ -333,9 +337,9 @@ ms.author: jgao
 6. Щелкните элемент, чтобы открыть группу ресурсов. Теперь наряду с ресурсом учетной записи хранения должен отображаться еще один ресурс фабрики данных.
 7. Щелкните **hdinsight-hive-on-demand**.
 8. Щелкните элемент **Схема** . На схеме отображается одно действие с входным набором данных и выходным набором данных.
-   
+
     ![Фабрика данных Azure: схема конвейера действий Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
-   
+
     Эти имена определяются в шаблоне управления ресурсами.
 9. Дважды щелкните **AzureBlobOutput**.
 10. В разделе **Последние обновленные срезы**вы увидите один срез. Если отображается состояние **Выполняется**, подождите, пока оно не изменится на **Готово**.
@@ -343,24 +347,24 @@ ms.author: jgao
 **Проверка выходных данных фабрики данных**
 
 1. Для проверки содержимого контейнера adfgetstarted используйте процедуру из предыдущего сеанса. Кроме контейнера **adfgetsarted**, существует два новых контейнера.
-   
-   * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию имеет формат "adf<yourdatafactoryname>-имя_связанной_службы-метка_даты_и_времени". 
+
+   * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию имеет формат "adf<yourdatafactoryname>-имя_связанной_службы-метка_даты_и_времени".
    * adfjobs — это контейнер для журналов заданий ADF.
-     
-     Выходные данные фабрики данных хранятся в контейнере afgetstarted, как указано в шаблоне управления ресурсами. 
+
+     Выходные данные фабрики данных хранятся в контейнере afgetstarted, как указано в шаблоне управления ресурсами.
 2. Щелкните **adfgetstarted**.
-3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014** , так как все веб-журналы датированы 2014 годом. 
-   
+3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014** , так как все веб-журналы датированы 2014 годом.
+
     ![Фабрика данных Azure: выходные данные конвейера действия Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
-   
+
     Если перейти вниз по списку, вы увидите 3 папки за январь, февраль и март. Для каждого месяца существует журнал.
-   
+
     ![Фабрика данных Azure: выходные данные конвейера действия Hive в кластере HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
 ## <a name="clean-up-the-tutorial"></a>Очистка учебника
-В случае связанной службы HDInsight по запросу кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер (timeToLive)) и удаляется по завершении обработки. Для каждого кластера фабрика данных Azure создает хранилище BLOB-объектов Azure, используемое в качестве файловой системы по умолчанию для кластера.  При удалении кластера HDInsight контейнер хранилища BLOB-объектов по умолчанию и соответствующая учетная запись не удаляются. Это сделано специально. По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Имена контейнеров указаны в формате "adfимя_вашей_фабрики_данных-имя_связанной_службы-метка_даты_и_времени". 
+В случае связанной службы HDInsight по запросу кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер (timeToLive)) и удаляется по завершении обработки. Для каждого кластера фабрика данных Azure создает хранилище BLOB-объектов Azure, используемое в качестве файловой системы по умолчанию для кластера.  При удалении кластера HDInsight контейнер хранилища BLOB-объектов по умолчанию и соответствующая учетная запись не удаляются. Это сделано специально. По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Имена контейнеров указаны в формате "adfимя_вашей_фабрики_данных-имя_связанной_службы-метка_даты_и_времени".
 
-[Диспетчер ресурсов Azure](../resource-group-overview.md) используется для развертывания, контроля и мониторинга решения в виде группы.  При удалении группы ресурсов будут удалены все компоненты внутри нее.  
+[Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md) используется для развертывания, контроля и мониторинга решения в виде группы.  При удалении группы ресурсов будут удалены все компоненты внутри нее.  
 
 **Удаление группы ресурсов**
 
@@ -371,10 +375,10 @@ ms.author: jgao
 5. Нажмите кнопку **Удалить** в верхней части колонки. При этом также будет удалена учетная запись хранения и данные, хранящиеся в ней.
 6. Введите имя группы ресурсов и нажмите кнопку **Удалить**.
 
-Если вы не хотите удалять учетную запись хранения при удалении группы ресурсов, можно рассмотреть следующую архитектуру, отделив бизнес-данные от учетной записи хранения по умолчанию. В этом случае у вас будет одна группа ресурсов для учетной записи хранения с бизнес-данными, а другая — для учетной записи хранения по умолчанию и фабрики данных.  Удаление второй группы ресурсов не затронет учетную запись хранения для бизнес-данных.  Для этого выполните следующие действия: 
+Если вы не хотите удалять учетную запись хранения при удалении группы ресурсов, можно рассмотреть следующую архитектуру, отделив бизнес-данные от учетной записи хранения по умолчанию. В этом случае у вас будет одна группа ресурсов для учетной записи хранения с бизнес-данными, а другая — для учетной записи хранения по умолчанию и фабрики данных.  Удаление второй группы ресурсов не затронет учетную запись хранения для бизнес-данных.  Для этого выполните следующие действия:
 
 * Вместе с ресурсом Microsoft.DataFactory/datafactories в шаблоне управления ресурсами добавьте в группу ресурсов верхнего уровня следующий код. Он создаст новую учетную запись хранения.
-  
+
         {
             "name": "[parameters('defaultStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -382,14 +386,14 @@ ms.author: jgao
             "apiVersion": "[variables('defaultApiVersion')]",
             "dependsOn": [ ],
             "tags": {
-  
+
             },
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
 * Добавьте новую точку связанной службы в новую учетную запись хранения.
-  
+
         {
             "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
             "type": "linkedservices",
@@ -403,13 +407,13 @@ ms.author: jgao
             }
         },
 * Настройте связанную службу HDInsight по запросу с дополнительными параметрами dependsOn и additionalLinkedServiceNames:
-  
+
         {
             "dependsOn": [
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('defaultStorageLinkedServiceName'))]",
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
-  
+
             ],
             "type": "linkedservices",
             "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
@@ -437,6 +441,8 @@ ms.author: jgao
 * [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

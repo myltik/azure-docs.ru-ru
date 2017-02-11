@@ -1,12 +1,12 @@
 ---
-title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Microsoft Docs
-description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
+title: "Загрузка данных из SQL Server в хранилище данных SQL Azure (SSIS) | Документация Майкрософт"
+description: "Здесь показано, как создать пакет служб SQL Server Integration Services (SSIS) для перемещения данных из разнообразных источников данных в хранилище данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,158 +14,162 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a4230f1dc65e0b5bb5c4904a1c2780f0c3c907f1
+
 
 ---
-# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Загрузка данных из SQL Server в хранилище данных SQL Azure (SSIS)
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-> * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+> * [PolyBase;](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 > * [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 > 
 > 
 
-Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
+Для загрузки данных из SQL Server в хранилище данных SQL Azure можно создать пакет служб SQL Server Integration Services (SSIS). При желании вы можете изменить структуру данных, преобразовать и очистить их при прохождении через поток данных служб SSIS.
 
-In this tutorial, you will:
+Изучив данный учебник, вы научитесь:
 
-* Create a new Integration Services project in Visual Studio.
-* Connect to data sources, including SQL Server (as a source) and SQL Data Warehouse (as a destination).
-* Design an SSIS package that loads data from the source into the destination.
-* Run the SSIS package to load the data.
+* создание нового проекта служб Integration Services в Visual Studio;
+* подключение к источникам данных, в том числе SQL Server (в качестве источника) и хранилищу данных SQL (в качестве назначения);
+* создание пакета служб SSIS, который загружает данные из источника в место назначения;
+* запуск пакета служб SSIS для загрузки данных.
 
-This tutorial uses SQL Server as the data source. SQL Server could be running on premises or in an Azure virtual machine.
+В этом руководстве в качестве источника данных используется SQL Server. SQL Server может выполняться на локальном компьютере или на виртуальной машине Azure.
 
-## <a name="basic-concepts"></a>Basic concepts
-The package is the unit of work in SSIS. Related packages are grouped in projects. You create projects and design packages in Visual Studio with SQL Server Data Tools. The design process is a visual process in which you drag and drop components from the Toolbox to the design surface, connect them, and set their properties. After you finish your package, you can optionally deploy it to SQL Server for comprehensive management, monitoring, and security.
+## <a name="basic-concepts"></a>Основные понятия
+Пакет — это единица работы в службах SSIS. Связанные пакеты группируются в проекты. Вы можете создавать проекты и разрабатывать пакеты с помощью SQL Server Data Tools для Visual Studio. Разработка выполняется в графическом интерфейсе, где вы перетаскиваете компоненты из области элементов в область конструктора, затем соединяете их и задаете их свойства. Когда пакет будет готов, вы можете развернуть его на SQL Server, который предоставляет широкие возможности для управления, мониторинга и защиты.
 
-## <a name="options-for-loading-data-with-ssis"></a>Options for loading data with SSIS
-SQL Server Integration Services (SSIS) is a flexible set of tools that provides a variety of options for connecting to, and loading data into, SQL Data Warehouse.
+## <a name="options-for-loading-data-with-ssis"></a>Параметры для загрузки данных с помощью служб SSIS
+SQL Server Integration Services (SSIS) — это гибкий набор средств, предоставляющий различные возможности для подключения к хранилищу данных SQL и загрузки данных в это хранилище.
 
-1. Use an ADO NET Destination to connect to SQL Data Warehouse. This tutorial uses an ADO NET Destination because it has the fewest configuration options.
-2. Use an OLE DB Destination to connect to SQL Data Warehouse. This option may provide slightly better performance than the ADO NET Destination.
-3. Use the Azure Blob Upload Task to stage the data in Azure Blob Storage. Then use the SSIS Execute SQL task to launch a Polybase script that loads the data into SQL Data Warehouse. This option provides the best performance of the three options listed here. To get the Azure Blob Upload task, download the [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]. To learn more about Polybase, see [PolyBase Guide][PolyBase Guide].
+1. Подключение к хранилищу данных SQL с использованием назначения ADO NET. В этом руководстве используется именно назначение ADO NET, так как у него меньше всего параметров конфигурации.
+2. Подключение к хранилищу данных SQL с использованием назначения OLE DB. Этот вариант позволит немного повысить производительность по сравнению с назначением ADO NET.
+3. Временное размещение данных в хранилище BLOB-объектов Azure с использованием задачи загрузки в большой двоичный объект Azure. После этого следует запустить задание SSIS Execute SQL, которое запускает сценарий Polybase для загрузки данных в хранилище данных SQL. Этот вариант обеспечивает наивысшую производительность из трех перечисленных вариантов. Чтобы использовать задачу отправки большого двоичного объекта Azure, необходимо скачать [Пакет дополнительных компонентов для служб Microsoft SQL Server 2016 Integration Services для Azure][Пакет дополнительных компонентов для служб Microsoft SQL Server 2016 Integration Services для Azure]. Дополнительные сведения о Polybase см. в [руководстве по PolyBase][Руководство по PolyBase].
 
-## <a name="before-you-start"></a>Before you start
-To step through this tutorial, you need:
+## <a name="before-you-start"></a>Перед началом работы
+Для выполнения этих действий необходимо иметь следующее:
 
-1. **SQL Server Integration Services (SSIS)**. SSIS is a component of SQL Server and requires an evaluation version or a licensed version of SQL Server. To get an evaluation version of SQL Server 2016 Preview, see [SQL Server Evaluations][SQL Server Evaluations].
-2. **Visual Studio**. To get the free Visual Studio 2015 Community Edition, see [Visual Studio Community][Visual Studio Community].
-3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio 2015, see [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
-4. **Sample data**. This tutorial uses sample data stored in SQL Server in the AdventureWorks sample database as the source data to be loaded into SQL Data Warehouse. To get the AdventureWorks sample database, see [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases].
-5. **A SQL Data Warehouse database and permissions**. This tutorial connects to a SQL Data Warehouse instance and loads data into it. You have to have permissions to create a table and to load data.
-6. **A firewall rule**. You have to create a firewall rule on SQL Data Warehouse with the IP address of your local computer before you can upload data to the SQL Data Warehouse.
+1. **SQL Server Integration Services (SSIS).** Службы SSIS — это компонент SQL Server. Для его использования требуется ознакомительная или лицензированная версия SQL Server. Ознакомительную версию SQL Server 2016 можно получить [на этой странице][Ознакомительные версии SQL Server].
+2. **Visual Studio.** Бесплатный выпуск Visual Studio 2015 Community можно получить [на этой странице][Visual Studio Community].
+3. **SQL Server Data Tools для Visual Studio (SSDT)**. SQL Server Data Tools для Visual Studio 2015 можно получить на [этой странице][на странице загрузки SQL Server Data Tools (SSDT)].
+4. **Образец данных**. В этом руководстве источником данных для загрузки в хранилище данных SQL является образец базы данных AdventureWorks на SQL Server. Образец базы данных AdventureWorks 2014 можно получить на [этой странице][здесь].
+5. **База данных хранилища данных SQL и разрешения на ее использование**. В этом руководстве мы будем подключаться к экземпляру хранилища данных SQL и загружать в него данные. Вам потребуются разрешения на создание таблицы и загрузку данных.
+6. **Правило брандмауэра.** Вам следует создать правило брандмауэра в хранилище данных SQL, разрешающее обращения с IP-адреса локального компьютера. Без этого вы не сможете загрузить данные в хранилище данных SQL.
 
-## <a name="step-1-create-a-new-integration-services-project"></a>Step 1: Create a new Integration Services project
-1. Launch Visual Studio 2015.
-2. On the **File** menu, select **New | Project**.
-3. Navigate to the **Installed | Templates | Business Intelligence | Integration Services** project types.
-4. Select **Integration Services Project**. Provide values for **Name** and **Location**, and then select **OK**.
+## <a name="step-1-create-a-new-integration-services-project"></a>Шаг 1. Создание нового проекта служб Integration Services
+1. Запустите Visual Studio 2015.
+2. В меню **Файл** выберите **Создать| Проект**.
+3. Перейдите к типу проекта **Установленные | Шаблоны | Бизнес-аналитика | Службы Integration Services** .
+4. Выберите **Проект служб Integration Services**. Введите **имя** и **расположение**, а затем нажмите кнопку **ОК**.
 
-Visual Studio opens and creates a new Integration Services (SSIS) project. Then Visual Studio opens the designer for the single new SSIS package (Package.dtsx) in the project. You see the following screen areas:
+Visual Studio откроется и создаст новый проект служб Integration Services (SSIS). Затем Visual Studio откроет конструктор для одного нового пакета служб SSIS (Package.dtsx) в этом проекте. Вы увидите на экране следующие области.
 
-* On the left, the **Toolbox** of SSIS components.
-* In the middle, the design surface, with multiple tabs. You typically use at least the **Control Flow** and the **Data Flow** tabs.
-* On the right, the **Solution Explorer** and the **Properties** panes.
+* В левой части — область **Инструменты** , где представлены компоненты служб SSIS.
+* В центре — область конструктора с несколькими вкладками. Из них вам потребуются по меньшей мере вкладки **Поток управления** и **Поток данных**.
+* С правой стороны расположены области **Обозреватель решений** и **Свойства**.
   
     ![][01]
 
-## <a name="step-2-create-the-basic-data-flow"></a>Step 2: Create the basic data flow
-1. Drag a Data Flow Task from the Toolbox to the center of the design surface (on the **Control Flow** tab).
+## <a name="step-2-create-the-basic-data-flow"></a>Шаг 2: Создание простого потока данных
+1. Перетащите задачу потока данных с панели инструментов в середину области конструктора (на вкладку **Поток управления** ).
    
     ![][02]
-2. Double-click the Data Flow Task to switch to the Data Flow tab.
-3. From the Other Sources list in the Toolbox, drag an ADO.NET Source to the design surface. With the source adapter still selected, change its name to **SQL Server source** in the **Properties** pane.
-4. From the Other Destinations list in the Toolbox, drag an ADO.NET Destination to the design surface under the ADO.NET Source. With the destination adapter still selected, change its name to **SQL DW destination** in the **Properties** pane.
+2. Дважды щелкните задачу потока данных, чтобы перейти на вкладку "Поток данных".
+3. Из списка других источников на панели инструментов перетащите в область конструктора источник ADO.NET. Выбрав адаптер источника данных, измените его имя на **Источник SQL Server** в области **Свойства**.
+4. Из списка других источников на панели инструментов перетащите в область конструктора назначение ADO.NET и поместите его под источником ADO.NET. Выбрав адаптер загрузки данных, измените его имя на **Назначение SQL DW** в области **Свойства**.
    
     ![][09]
 
-## <a name="step-3-configure-the-source-adapter"></a>Step 3: Configure the source adapter
-1. Double-click the source adapter to open the **ADO.NET Source Editor**.
+## <a name="step-3-configure-the-source-adapter"></a>Шаг 3: Настройка адаптера источника
+1. Дважды щелкните адаптер источника, чтобы открыть **редактор источника ADO.NET**.
    
     ![][03]
-2. On the **Connection Manager** tab of the **ADO.NET Source Editor**, click the **New** button next to the **ADO.NET connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the SQL Server database from which this tutorial loads data.
+2. На вкладке **Диспетчер подключений** в **редакторе источника ADO.NET** нажмите кнопку **Создать** рядом со списком **Диспетчер соединений ADO.NET**. Откроется диалоговое окно **Настройка диспетчера соединений ADO.NET**, где нужно создать параметры подключения к базе данных SQL Server, из которой мы будем загружать данные в рамках этого руководства.
    
     ![][04]
-3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
+3. В диалоговом окне **Настройка диспетчера соединений ADO.NET** нажмите кнопку **Создать**, чтобы открыть диалоговое окно **Диспетчер подключений** и создать новое подключение к данным.
    
     ![][05]
-4. In the **Connection Manager** dialog box, do the following things.
+4. В диалоговом окне **Диспетчер подключений** выполните следующие действия.
    
-   1. For **Provider**, select the SqlClient Data Provider.
-   2. For **Server name**, enter the SQL Server name.
-   3. In the **Log on to the server** section, select or enter authentication information.
-   4. In the **Connect to a database** section, select the AdventureWorks sample database.
-   5. Click **Test Connection**.
+   1. Для параметра **Поставщик**выберите поставщик данных SqlClient.
+   2. В поле **Имя сервера**введите имя сервера SQL Server.
+   3. В разделе **Вход на сервер** выберите или введите сведения для проверки подлинности.
+   4. В разделе **Подключение к базе данных** выберите образец базы данных AdventureWorks.
+   5. Нажмите кнопку **Проверить подключение**.
       
        ![][06]
-   6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
-   7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
-5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Source Editor**.
-6. In the **ADO.NET Source Editor**, in the **Name of the table or the view** list, select the **Sales.SalesOrderDetail** table.
+   6. В диалоговом окне с результатами проверки подключения нажмите кнопку **ОК**, чтобы вернуться в диалоговое окно **Диспетчер подключений**.
+   7. В диалоговом окне **Диспетчер подключений** нажмите кнопку **ОК**, чтобы вернуться в диалоговое окно **Настройка диспетчера соединений ADO.NET**.
+5. В диалоговом окне **Настройка диспетчера соединений ADO.NET** нажмите кнопку **ОК**, чтобы вернуться в **редактор источника ADO.NET**.
+6. В **редакторе источника ADO.NET** выберите в списке **Имя таблицы или представления** таблицу **Sales.SalesOrderDetail**.
    
     ![][07]
-7. Click **Preview** to see the first 200 rows of data in the source table in the **Preview Query Results** dialog box.
+7. Щелкните **Предварительный просмотр**, чтобы открыть первые 200 строк данных из исходной таблицы в диалоговом окне **Предварительный просмотр результатов запроса**.
    
     ![][08]
-8. In the **Preview Query Results** dialog box, click **Close** to return to the **ADO.NET Source Editor**.
-9. In the **ADO.NET Source Editor**, click **OK** to finish configuring the data source.
+8. В диалоговом окне **Предварительный просмотр результатов запроса** нажмите кнопку **Закрыть**, чтобы вернуться в редактор источника **ADO.NET**.
+9. В **редакторе источника ADO.NET** нажмите кнопку **ОК**, чтобы завершить настройку источника данных.
 
-## <a name="step-4-connect-the-source-adapter-to-the-destination-adapter"></a>Step 4: Connect the source adapter to the destination adapter
-1. Select the source adapter on the design surface.
-2. Select the blue arrow that extends from the source adapter and drag it to the destination editor until it snaps into place.
+## <a name="step-4-connect-the-source-adapter-to-the-destination-adapter"></a>Шаг 4. Подключение адаптера источника к адаптеру назначения
+1. Выберите адаптер источника в области конструктора.
+2. Выделите синюю стрелку, которая выходит из адаптера источника, и перетащите ее к адаптеру назначения, чтобы она зафиксировалась на нем.
    
     ![][10]
    
-    In a typical SSIS package, you use a number of other components from the SSIS Toolbox in between the source and the destination to restructure, transform, and cleanse your data as it passes through the SSIS data flow. To keep this example as simple as possible, we’re connecting the source directly to the destination.
+    В типичном пакете служб SSIS вы будете использовать и другие компоненты из панели инструментов SSIS. Их вы разместите между источником и назначением, чтобы выполнять изменение структуры, преобразование и очистку данных при прохождении через поток данных служб SSIS. Но в этом примере для простоты мы подключаем источник напрямую к месту назначения.
 
-## <a name="step-5-configure-the-destination-adapter"></a>Step 5: Configure the destination adapter
-1. Double-click the destination adapter to open the **ADO.NET Destination Editor**.
+## <a name="step-5-configure-the-destination-adapter"></a>Шаг 5. Настройка адаптера назначения
+1. Дважды щелкните адаптер назначения, чтобы открыть **редактор назначения ADO.NET**.
    
     ![][11]
-2. On the **Connection Manager** tab of the **ADO.NET Destination Editor**, click the **New** button next to the **Connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the Azure SQL Data Warehouse database into which this tutorial loads data.
-3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
-4. In the **Connection Manager** dialog box, do the following things.
-   1. For **Provider**, select the SqlClient Data Provider.
-   2. For **Server name**, enter the SQL Data Warehouse name.
-   3. In the **Log on to the server** section, select **Use SQL Server authentication** and enter authentication information.
-   4. In the **Connect to a database** section, select an existing SQL Data Warehouse database.
-   5. Click **Test Connection**.
-   6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
-   7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
-5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Destination Editor**.
-6. In the **ADO.NET Destination Editor**, click **New** next to the **Use a table or view** list to open the **Create Table** dialog box to create a new destination table with a column list that matches the source table.
+2. На вкладке **Диспетчер подключений** в **редакторе назначения ADO.NET** нажмите кнопку **Создать** рядом со списком **Диспетчер подключений**. Откроется диалоговое окно **Настройка диспетчера соединений ADO.NET**, где нужно создать параметры подключения к базе данных хранилища данных SQL Azure, в которую мы будем загружать данные в рамках этого руководства.
+3. В диалоговом окне **Настройка диспетчера соединений ADO.NET** нажмите кнопку **Создать**, чтобы открыть диалоговое окно **Диспетчер подключений** и создать новое подключение к данным.
+4. В диалоговом окне **Диспетчер подключений** выполните следующие действия.
+   1. Для параметра **Поставщик**выберите поставщик данных SqlClient.
+   2. В поле **Имя сервера**введите имя хранилища данных SQL.
+   3. В разделе **Вход на сервер** выберите **Использовать проверку подлинности SQL Server** и введите сведения для проверки подлинности.
+   4. В разделе **Подключение к базе данных** выберите существующую базу данных хранилища данных SQL.
+   5. Нажмите кнопку **Проверить подключение**.
+   6. В диалоговом окне с результатами проверки подключения нажмите кнопку **ОК**, чтобы вернуться в диалоговое окно **Диспетчер подключений**.
+   7. В диалоговом окне **Диспетчер подключений** нажмите кнопку **ОК**, чтобы вернуться в диалоговое окно **Настройка диспетчера соединений ADO.NET**.
+5. В диалоговом окне **Настройка диспетчера соединений ADO.NET** нажмите кнопку **ОК**, чтобы вернуться в **редактор назначения ADO.NET**.
+6. В **редакторе назначения ADO.NET** нажмите кнопку **Создать** рядом со списком **Использовать таблицу или представление**, чтобы открыть диалоговое окно **Создание таблицы**. Здесь следует создать новую целевую таблицу, столбцы которой должны совпадать со столбцами исходной таблицы.
    
     ![][12a]
-7. In the **Create Table** dialog box, do the following things.
+7. В диалоговом окне **Создание таблицы** выполните указанные ниже действия.
    
-   1. Change the name of the destination table to **SalesOrderDetail**.
-   2. Remove the **rowguid** column. The **uniqueidentifier** data type is not supported in SQL Data Warehouse.
-   3. Change the data type of the **LineTotal** column to **money**. The **decimal** data type is not supported in SQL Data Warehouse. For info about supported data types, see [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)].
+   1. Измените имя целевой таблицы на **SalesOrderDetail**.
+   2. Удалите столбец **rowguid** . Тип данных **uniqueidentifier** не поддерживается в хранилище данных SQL.
+   3. Для столбца **LineTotal** измените тип данных на **money**. Тип данных **decimal** не поддерживается в хранилище данных SQL. Дополнительные сведения о поддерживаемых типах данных см. в статье [СОЗДАНИЕ ТАБЛИЦЫ (хранилище данных SQL Azure)][СОЗДАНИЕ ТАБЛИЦЫ (хранилище данных SQL Azure)].
       
        ![][12b]
-   4. Click **OK** to create the table and return to the **ADO.NET Destination Editor**.
-8. In the **ADO.NET Destination Editor**, select the **Mappings** tab to see how columns in the source are mapped to columns in the destination.
+   4. Нажмите кнопку **ОК**, чтобы завершить создание таблицы и вернуться в **редактор назначения ADO.NET**.
+8. В **редакторе назначения ADO.NET** выберите вкладку **Сопоставления**. Здесь вы увидите, как столбцы источника сопоставлены со столбцами назначения.
    
     ![][13]
-9. Click **OK** to finish configuring the data source.
+9. Щелкните **ОК** , чтобы завершить настройку источника данных.
 
-## <a name="step-6-run-the-package-to-load-the-data"></a>Step 6: Run the package to load the data
-Run the package by clicking the **Start** button on the toolbar or by selecting one of the **Run** options on the **Debug** menu.
+## <a name="step-6-run-the-package-to-load-the-data"></a>Шаг 6. Запуск пакета для загрузки данных
+Запустите пакет, нажав кнопку **Запустить** на панели инструментов или выбрав один из вариантов **запуска** в меню **Отладка**.
 
-As the package begins to run, you see yellow spinning wheels to indicate activity as well as the number of rows processed so far.
+Когда пакет начнет выполняться, вы увидите желтые вращающиеся колесики, которые обозначают выполнение действия, а также количество уже обработанных строк.
 
 ![][14]
 
-When the package has finished running, you see green check marks to indicate success as well as the total number of rows of data loaded from the source to the destination.
+Когда завершится выполнение пакета, вы увидите зеленые галочки, подтверждающие успешное выполнение, а также общее количество рядов данных, загруженных из источника в место назначения.
 
 ![][15]
 
-Congratulations! You’ve successfully used SQL Server Integration Services to load data into Azure SQL Data Warehouse.
+Поздравляем! Вы успешно загрузили данные в хранилище данных SQL Azure с помощью служб SQL Server Integration Services.
 
-## <a name="next-steps"></a>Next steps
-* Learn more about the SSIS data flow. Start here: [Data Flow][Data Flow].
-* Learn how to debug and troubleshoot your packages right in the design environment. Start here: [Troubleshooting Tools for Package Development][Troubleshooting Tools for Package Development].
-* Learn how to deploy your SSIS projects and packages to Integration Services Server or to another storage location. Start here: [Deployment of Projects and Packages][Deployment of Projects and Packages].
+## <a name="next-steps"></a>Дальнейшие действия
+* Узнайте больше о потоке данных служб SSIS. Начните со статьи [Поток данных][Поток данных].
+* Ознакомьтесь со способами отладки и устранения неполадок в работе пакетов, доступными в среде разработки. Начните со статьи [Инструменты устранения неполадок при разработке пакета][Инструменты устранения неполадок при разработке пакета].
+* Узнайте, как развернуть проекты и пакеты служб SSIS на сервер служб Integration Services или в другое хранилище. Начните со статьи [Развертывание проектов и пакетов][Развертывание проектов и пакетов].
 
 <!-- Image references -->
 [01]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
@@ -188,21 +192,21 @@ Congratulations! You’ve successfully used SQL Server Integration Services to l
 <!-- Article references -->
 
 <!-- MSDN references -->
-[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
-[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
-[CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
-[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
-[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
-[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
+[Руководство по PolyBase]: https://msdn.microsoft.com/library/mt143171.aspx
+[на странице загрузки SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
+[СОЗДАНИЕ ТАБЛИЦЫ (хранилище данных SQL Azure)]: https://msdn.microsoft.com/library/mt203953.aspx
+[Поток данных]: https://msdn.microsoft.com/library/ms140080.aspx
+[Инструменты устранения неполадок при разработке пакета]: https://msdn.microsoft.com/library/ms137625.aspx
+[Развертывание проектов и пакетов]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
-[Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
+[Пакет дополнительных компонентов для служб Microsoft SQL Server 2016 Integration Services для Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
+[Ознакомительные версии SQL Server]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
-[AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
+[здесь]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

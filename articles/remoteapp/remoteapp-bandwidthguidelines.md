@@ -1,21 +1,25 @@
 ---
-title: Пропускная способность сети Azure RemoteApp — общие рекомендации | Microsoft Docs
-description: Описание общих рекомендаций по пропускной способности сети для приложений и коллекций Azure RemoteApp.
+title: "Пропускная способность сети Azure RemoteApp — общие рекомендации | Документация Майкрософт"
+description: "Описание общих рекомендаций по пропускной способности сети для приложений и коллекций Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 529bf318-ae37-4c14-a11c-43fa703d68a3
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b44fcb6cca30acbd5771a0301f72faa7d9105849
+
 
 ---
-# Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)
+# <a name="azure-remoteapp-network-bandwidth---general-guidelines-if-you-cant-test-your-own"></a>Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -25,21 +29,26 @@ ms.author: elizapo
 
 Если имеется смесь таких сценариев, мы рекомендуем использовать для современных подключенных к Интернету приложений в удаленной среде пропускную способность НЕ МЕНЕЕ 10 МБ/с. (Хотя, как уже было сказано, это обеспечивает взаимодействие с пользователем лишь на приемлемом уровне.)
 
-## Сложный PowerPoint, простой PowerPoint
+## <a name="complex-powerpoint-simple-powerpoint"></a>Сложный PowerPoint, простой PowerPoint
 Лучше всего Azure RemoteApp работает в локальной сети 100 МБ/с. При сетевом профиле 10 МБ/с, когда дрожание свыше 120 мс составляет более 5 %, взаимодействие с пользователем осуществляется на среднем уровне. На скорости 1 МБ/с возникает бликование, например во время показа слайдов, и пользователь может вообще не замечать анимированные переходы из-за пропуска кадров.
 
-## Internet Explorer, смешанный PDF, PDF, текст
+## <a name="internet-explorer-mixed-pdf-pdf-text"></a>Internet Explorer, смешанный PDF, PDF, текст
 По большинству показателей сетевой профиль 10 МБ/с близок к локальной сети. Скорость 1 МБ/с обеспечивает нормальную работу, однако при прокрутке экрана с изображениями может возникать дрожание.
 
-## Видео в формате Flash (YouTube)
+## <a name="flash-video-youtube"></a>Видео в формате Flash (YouTube)
 Локальная сеть 100 МБ/с обеспечивает наилучшее, а 10 МБ/с — приемлемое качество работы (то есть частота кадров остается допустимой, но увеличивается дрожание). При скорости 1 МБ/с дрожание достигает очень высокого уровня и становится заметным.
 
-## Ввод в Word (удаленный ввод в Word)
+## <a name="word-typing-word-remote-input"></a>Ввод в Word (удаленный ввод в Word)
 Это сценарий отличается низким использованием пропускной способности. При 256 КБ/с обеспечивается качество работы, сопоставимое с локальной сетью.
 
-## Подробнее
+## <a name="learn-more"></a>Подробнее
 * [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md)
 * [Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом?](remoteapp-bandwidthexperience.md)
 * [Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

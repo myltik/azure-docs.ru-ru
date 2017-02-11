@@ -1,12 +1,12 @@
 ---
-title: Управление контроллерами устройства StorSimple | Microsoft Docs
-description: Узнайте, как остановить, перезапустить и выключить контроллеры устройства StorSimple или восстановить их заводские настройки.
+title: "Управление контроллерами устройства StorSimple | Документация Майкрософт"
+description: "Узнайте, как остановить, перезапустить и выключить контроллеры устройства StorSimple или восстановить их заводские настройки."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 4ee989d0-956f-4c14-951e-fd4e490ea09d
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
+
 
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Управление контроллерами устройства StorSimple
@@ -201,6 +205,9 @@ ms.author: alkohli
 * Если возникли затруднения с контроллерами устройства StorSimple, которые не удается разрешить с помощью процедур, описанных в этом учебнике, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 * Дополнительные сведения об управлении устройством с помощью службы StorSimple Manager см. в статье [Использование службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

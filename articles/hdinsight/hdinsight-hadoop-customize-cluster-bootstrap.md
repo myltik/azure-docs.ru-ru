@@ -1,13 +1,13 @@
 ---
-title: Настройка кластеров HDInsight с помощью начальной загрузки | Microsoft Docs
-description: Узнайте, как настраивать кластеры HDInsight с помощью начальной загрузки.
+title: "Настройка кластеров HDInsight с помощью службы начальной загрузки | Документация Майкрософт"
+description: "Узнайте, как настраивать кластеры HDInsight с помощью начальной загрузки."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+
 
 ---
-# Настройка кластеров HDInsight с помощью начальной загрузки
+# <a name="customize-hdinsight-clusters-using-bootstrap"></a>Настройка кластеров HDInsight с помощью начальной загрузки
 В некоторых случаях требуется изменить файлы конфигурации, которые включают:
 
 * clusterIdentity.xml
@@ -36,7 +40,7 @@ ms.author: jgao
 * webhcat-site.xml
 * yarn-site.xml
 
-При повторном развертывании образа изменения в кластере не сохраняются. Дополнительную информацию о повторном развертывании образа см. в статье [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (Перезапуск экземпляра роли из-за обновлений ОС). Чтобы они сохранялись в течение всего времени существования кластера, можно в процессе создания изменить файлы конфигурации кластера HDInsight. Это рекомендуемый способ изменения конфигураций кластера и сохранения состояния между событиями перезапуска, перезагрузки и пересоздания образа Azure. Эти изменения конфигурации применяются до запуска службы, поэтому перезапуск службы не требуется.
+При повторном развертывании образа изменения в кластере не сохраняются. Дополнительные сведения о повторном развертывании образа см. в статье [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (Перезапуск экземпляра роли из-за обновлений ОС). Чтобы они сохранялись в течение всего времени существования кластера, можно в процессе создания изменить файлы конфигурации кластера HDInsight. Это рекомендуемый способ изменения конфигураций кластера и сохранения состояния между событиями перезапуска, перезагрузки и пересоздания образа Azure. Эти изменения конфигурации применяются до запуска службы, поэтому перезапуск службы не требуется. 
 
 Существуют 3 способа использования начальной загрузки:
 
@@ -51,7 +55,7 @@ ms.author: jgao
 * [Настройка кластеров HDInsight с помощью действия скрипта (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 * [Настройка кластеров HDInsight с помощью действия скрипта (Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## Использование Azure PowerShell
+## <a name="use-azure-powershell"></a>Использование Azure PowerShell
 Следующий код PowerShell настраивает конфигурацию Hive:
 
     # hive-site.xml configuration
@@ -80,16 +84,16 @@ ms.author: jgao
 **Чтобы проверить изменения, выполните следующие действия:**
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
-2. В левой области щелкните **Обзор**, а затем — **Кластеры HDInsight**.
+2. В левой области щелкните **Обзор**, а затем — **Кластеры HDInsight**.
 3. Щелкните кластер, созданный с помощью сценария PowerShell.
 4. Щелкните **Панель мониторинга** в верхней части колонки, чтобы открыть пользовательский интерфейс Ambari.
 5. Щелкните **Hive** в меню слева.
-6. Щелкните **HiveServer2** в разделе **Summary** (Сводка).
+6. Щелкните **HiveServer2** в разделе **Сводка**.
 7. Выберите вкладку **Configs** (Конфигурации).
 8. Щелкните **Hive** в меню слева.
 9. Выберите вкладку **Advanced** (Дополнительно).
-10. Прокрутите вниз и разверните раздел **Advanced hive-site** (Расширенный сайт Hive).
-11. Найдите в этом разделе **hive.metastore.client.socket.timeout**.
+10. Прокрутите вниз и разверните раздел **Advanced hive-site**(Расширенный сайт Hive).
+11. Найдите в этом разделе **hive.metastore.client.socket.timeout** .
 
 Вот еще несколько примеров изменения других файлов конфигурации:
 
@@ -105,12 +109,12 @@ ms.author: jgao
     # oozie-site.xml configuration
     $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Дополнительные сведения см. в статье Азима Уддина (Azim Uddin) [Customizing HDInsight Cluster provisioning](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) (Дополнительная настройка при подготовке кластера HDInsight).
+Дополнительные сведения см. в статье Азима Уддина (Azim Uddin) [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) (Дополнительная настройка при подготовке кластера HDInsight).
 
-## Использование пакета SDK для .NET
+## <a name="use-net-sdk"></a>Использование пакета SDK для .NET
 Ознакомьтесь с разделом [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Использование шаблона Resource Manager
+## <a name="use-resource-manager-template"></a>Использование шаблона Resource Manager
 В шаблоне Resource Manager можно использовать начальную загрузку:
 
     "configurations": {
@@ -125,11 +129,11 @@ ms.author: jgao
 
 ![hdinsight hadoop настройка кластера начальная загрузка шаблон azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## Дополнительные материалы
-* В статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
+## <a name="see-also"></a>Дополнительные материалы
+* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] — инструкции по созданию кластера HDInsight с использованием других настраиваемых параметров.
 * [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
-* [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
-* [Установка и использование R в кластерах HDInsight][hdinsight-install-r]
+* [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark][hdinsight-install-spark]
+* [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-install-r]
 * [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 * [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
@@ -142,7 +146,7 @@ ms.author: jgao
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
 
-## Приложение A. Пример PowerShell
+## <a name="appx-a-powershell-sample"></a>Приложение A. Пример PowerShell
 Этот сценарий PowerShell создает кластер HDInsight и настраивает параметр Hive:
 
     ####################################
@@ -252,4 +256,8 @@ ms.author: jgao
 
     #endregion
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

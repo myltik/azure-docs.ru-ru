@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
-ms.author: aguilaaj
+ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
+ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
+ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
 
 
 ---
@@ -57,9 +57,9 @@ ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
 Наряду с изменением предварительно настроенных заданий Stream Analytics на портале Azure можно добавлять новые задания или новые запросы для существующих заданий.
 
 ## <a name="customizing-devices"></a>Настройка устройств
-Одно из наиболее распространенных действий расширения — работа с устройствами, относящимися к вашему сценарию. Существует несколько способов работы с устройствами. В число этих методов входят изменение имитированного устройства для соответствия вашему сценарию или подключение физического устройства к решению с помощью [пакета SDK устройства Интернета вещей][пакета SDK устройства IoT].
+Одно из наиболее распространенных действий расширения — работа с устройствами, относящимися к вашему сценарию. Существует несколько способов работы с устройствами. В число этих методов входят изменение виртуального устройства для соответствия вашему сценарию или подключение физического устройства к решению с помощью [пакета SDK устройства Интернета вещей][IoT Device SDK].
 
-Пошаговое руководство по добавлению устройств в предварительно настроенное решение удаленного мониторинга см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)](iot-suite-connecting-devices.md) и [примере удаленного мониторинга пакета SDK для языка C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring), который предназначен для работы с предварительно настроенным решением удаленного мониторинга.
+Пошаговое руководство по добавлению устройств в предварительно настроенное решение удаленного мониторинга см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)](iot-suite-connecting-devices.md) и [примере удаленного мониторинга пакета SDK для языка C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring), который предназначен для работы с предварительно настроенным решением удаленного мониторинга.
 
 ### <a name="creating-your-own-simulated-device"></a>Создание собственного виртуального устройства
 В исходный код решения удаленного мониторинга (ссылка на него приведена выше) включен эмулятор .NET. Этот эмулятор подготавливается как часть решения, и его можно настроить для отправки различных метаданных телеметрии и для ответа на различные команды.
@@ -77,10 +77,10 @@ ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
 Количество по умолчанию — 200. Это количество можно изменить в файле [DashboardController.cs][lnk-dashboard-controller].
 
 ### <a name="number-of-pins-to-display-in-bing-map-control"></a>Количество маркеров, отображаемых в элементе управления карты Bing
-Количество по умолчанию — 200. Это количество можно изменить в файле [Controller.cs][lnk-telemetry-api-controller-01].
+Количество по умолчанию — 200. Это количество можно изменить в файле [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
 ### <a name="time-period-of-telemetry-graph"></a>Период времени графика телеметрии
-Значение по умолчанию — 10 минут. Его можно изменить в файле [TelemetryApiController.cs][lnk-telemetry-api-controller-02].
+Значение по умолчанию — 10 минут. Это значение можно изменить в файле [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## <a name="manually-setting-up-application-roles"></a>Настройка ролей приложений вручную
 В следующей процедуре описывается, как добавлять роли приложения **Admin** и **ReadOnly** в предварительно настроенное решение. Обратите внимание, что такие решения, подготовленные на сайте azureiotsuite.com, уже включают роли **Admin** и **ReadOnly**.
@@ -127,7 +127,7 @@ ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
 9. Сохраните обновленный JSON-файл (можно перезаписать существующий файл).
 10. На портале управления Azure внизу страницы выберите **Управление манифестом**, а затем — **Отправить манифест**, чтобы отправить JSON-файл, сохраненный на предыдущем шаге.
 11. Теперь вы добавили роли **Admin** и **ReadOnly** в свое приложение.
-12. Чтобы назначить одну из этих ролей пользователю в каталоге, см. статью [Разрешения на сайте azureiotsuite.com][lnk-permissions].
+12. Чтобы назначить одну из этих ролей пользователю в каталоге, ознакомьтесь со статьей [Разрешения на сайте azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Отзыв
 У вас есть предложение по настройке, которое не описано в этом документе? Оставьте его на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot)или в комментариях к этой статье ниже. 
@@ -143,7 +143,7 @@ ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[пакета SDK устройства IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
@@ -153,6 +153,6 @@ ms.openlocfilehash: 6cca62c7245304bf49b47c1548aa3352b7c2a76e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

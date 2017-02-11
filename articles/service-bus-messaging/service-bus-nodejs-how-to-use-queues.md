@@ -1,19 +1,23 @@
 ---
-title: Как использовать очереди служебной шины в Node.js | Microsoft Docs
-description: Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js.
-services: service-bus
+title: "Как использовать очереди служебной шины в Node.js | Документация Майкрософт"
+description: "Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Как использовать очереди служебной шины
@@ -23,16 +27,16 @@ ms.author: sethm
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-node.js-application"></a>Создание приложения Node.js
-Создайте пустое приложение Node.js. Указания по созданию приложения Node.js можно найти в статьях [Начало работы с веб-приложениями Node.js в службе приложений Azure][] или [Построение и развертывание приложения Node.js в облачной службе Azure][](с помощью Windows PowerShell.md).
+## <a name="create-a-nodejs-application"></a>Создание приложения Node.js
+Создайте пустое приложение Node.js. Указания по созданию приложения Node.js можно найти в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure][Создание и развертывание приложения Node.js на веб-сайте Azure] или [Облачная служба Node.js][Облачная служба Node.js] (с помощью Windows PowerShell).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
 Чтобы использовать служебную шину Azure, необходимо скачать и запустить пакет Azure для Node.js. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Использование диспетчера пакета Node (NPM) для получения пакета
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Использование диспетчера пакета Node (NPM) для получения пакета
 1. Используя командное окно **Windows PowerShell для Node.js**, перейдите в папку **C:\\node\\sbqueues\\WebRole1**, в которой создан пример приложения.
 2. В командном окне введите **npm install azure**, что должно привести к результату, аналогичному следующему:
-   
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -79,7 +83,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
+**createServiceBusService** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
 
 ```
 var queueOptions = {
@@ -173,9 +177,9 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию об очередях см. в следующих ресурсах.
 
-* [Очереди, разделы и подписки][Очереди, разделы и подписки]
-* Репозиторий [пакетов SDK Azure для Node][] на сайте GitHub
-* [Центр разработчиков Node.js.](/develop/nodejs/)
+* [Очереди, разделы и подписки][Очереди, разделы и подписки].
+* Репозиторий [пакета Azure SDK для Node][Пакет SDK Azure для Node] на сайте GitHub.
+* [Центр разработчика Node.js](/develop/nodejs/)
 
 [Пакет SDK Azure для Node]: https://github.com/Azure/azure-sdk-for-node
 [классическом портале Azure]: http://manage.windowsazure.com
@@ -183,13 +187,12 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 [Облачная служба Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
 [Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Облачная служба Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Облачная служба Node.js с хранилищем]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Квоты на служебную шину]: service-bus-quotas.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

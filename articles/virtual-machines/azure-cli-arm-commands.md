@@ -1,13 +1,13 @@
 ---
-title: Команды Azure CLI в режиме Resource Manager | Microsoft Docs
-description: Команды интерфейса командной строки (CLI) Azure для управления ресурсами в модели развертывания Resource Manager.
+title: "Команды интерфейса командной строки Azure в режиме Resource Manager | Документация Майкрософт"
+description: "Команды интерфейса командной строки (CLI) Azure для управления ресурсами в модели развертывания Resource Manager."
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Команды Azure CLI в режиме Resource Manager
-В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md).  
+В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания с помощью Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).  
 
 Для начала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи либо учетной записи Майкрософт.
 
@@ -38,7 +42,7 @@ ms.author: danlep
 > 
 > 
 
-## <a name="azure-account:-manage-your-account-information"></a>Учетная запись Azure. Управление сведениями об учетной записи
+## <a name="azure-account-manage-your-account-information"></a>Учетная запись Azure. Управление сведениями об учетной записи
 Информация о подписке Azure используется инструментом для подключения к учетной записи.
 
 **Вывод списка импортированных подписок**
@@ -65,7 +69,7 @@ ms.author: danlep
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>Azure Active Directory. Команды для отображения объектов Active Directory
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure Active Directory. Команды для отображения объектов Active Directory
 **Команды для отображения приложений Active Directory**
 
     ad app create [options]
@@ -92,7 +96,7 @@ ms.author: danlep
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>Azure Availset. Команды для управления группами доступности
+## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>Azure Availset. Команды для управления группами доступности
 **Создает группу доступности в группе ресурсов**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -109,7 +113,7 @@ ms.author: danlep
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config:-commands-to-manage-your-local-settings"></a>Azure Config. Команды для управления локальными параметрами
+## <a name="azure-config-commands-to-manage-your-local-settings"></a>Azure Config. Команды для управления локальными параметрами
 **Выводит параметры конфигурации Azure CLI**
 
     config list [options]
@@ -127,7 +131,7 @@ ms.author: danlep
     config mode [options] <modename>
 
 
-## <a name="azure-feature:-commands-to-manage-account-features"></a>Azure Feature. Команды для управления компонентами учетной записи
+## <a name="azure-feature-commands-to-manage-account-features"></a>Azure Feature. Команды для управления компонентами учетной записи
 **Список всех функций, доступных для вашей подписки**
 
     feature list [options]
@@ -140,7 +144,7 @@ ms.author: danlep
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>Azure Group. Команды для управления группами ресурсов
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure Group. Команды для управления группами ресурсов
 **Создает группу ресурсов**.
 
     group create [options] <name> <location>
@@ -179,7 +183,7 @@ ms.author: danlep
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>Azure HDInsight: команды для управления кластерами HDInsight
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure HDInsight: команды для управления кластерами HDInsight
 **Команды для создания файла конфигурации кластера или добавления данных в него**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -297,17 +301,17 @@ ms.author: danlep
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>Azure Insights. Команды, связанные с мониторингом событий, правил оповещения, параметров автоматического масштабирования, показателей
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure Insights. Команды, связанные с мониторингом событий, правил оповещения, параметров автоматического масштабирования, показателей
 **Получение журналов операций для подписки, идентификатор correlationId, группы ресурсов, ресурса или поставщика ресурсов**
 
     insights logs list [options]
 
-## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure Location. Команды для получения доступных расположений для всех типов ресурсов
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure Location. Команды для получения доступных расположений для всех типов ресурсов
 **Выводит доступные расположения**
 
     location list [options]
 
-## <a name="azure-network:-commands-to-manage-network-resources"></a>Azure Network. Команды для управления сетевыми ресурсами
+## <a name="azure-network-commands-to-manage-network-resources"></a>Azure Network. Команды для управления сетевыми ресурсами
 **Команды для управления виртуальными сетями**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -334,18 +338,18 @@ ms.author: danlep
 
 Параметры:
 
-    -h, --help                                 output usage information
-    -v, --verbose                              use verbose output
+     -h, --help                                 output usage information
+     -v, --verbose                              use verbose output
     --json                                     use json output
-    -g, --resource-group <resource-group>      the name of the resource group
-    -n, --name <name>                          the name of the virtual network
-    -l, --location <location>                  the location
-    -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+     -g, --resource-group <resource-group>      the name of the resource group
+     -n, --name <name>                          the name of the virtual network
+     -l, --location <location>                  the location
+     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
       For example -a 10.0.0.0/24,10.0.1.0/24.
       Default value is 10.0.0.0/8
 
     -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
-    -t, --tags <tags>                          the tags set on this virtual network.
+     -t, --tags <tags>                          the tags set on this virtual network.
       Can be multiple. In the format of "name=value".
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
@@ -579,14 +583,14 @@ ms.author: danlep
 
 Параметры:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -e, --vnet-name <vnet-name>            the name of the virtual network
-    -n, --name <name>                      the subnet name
-    -s, --subscription <subscription>      the subscription identifier
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -e, --vnet-name <vnet-name>            the name of the virtual network
+     -n, --name <name>                      the subnet name
+     -s, --subscription <subscription>      the subscription identifier
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
 
 **Команды для управления подсистемой балансировки нагрузки**
 
@@ -681,13 +685,13 @@ ms.author: danlep
 
 Параметры:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -n, --name <name>                      the name of the load balancer
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -s, --subscription <subscription>      the subscription identifier
 
 **Команды для управления зондами подсистемы балансировки нагрузки**
 
@@ -704,9 +708,9 @@ ms.author: danlep
 
 Параметры:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -n, --name <name>                      the name of the probe
@@ -1031,12 +1035,12 @@ ms.author: danlep
 
 Параметры:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -l, --lb-name <lb-name>                the name of the load balancer
+     -s, --subscription <subscription>      the subscription identifier
 
 <BR>
  network lb address-pool delete [параметры] <группа_ресурсов> <имя_балансировщика_нагрузки> <name>
@@ -1574,7 +1578,7 @@ ms.author: danlep
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>Поставщик Azure. Команды для управления регистрациями поставщика ресурсов
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Поставщик Azure. Команды для управления регистрациями поставщика ресурсов
 **Список зарегистрированных поставщиков в Resource Manager**
 
     provider list [options]
@@ -1591,7 +1595,7 @@ ms.author: danlep
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource:-commands-to-manage-your-resources"></a>Ресурс Azure. Команды для управления ресурсами
+## <a name="azure-resource-commands-to-manage-your-resources"></a>Ресурс Azure. Команды для управления ресурсами
 **Создает ресурс в группе ресурсов**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1612,7 +1616,7 @@ ms.author: danlep
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>Роль Azure. Команды для управления ролями Azure
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Роль Azure. Команды для управления ролями Azure
 **Получение всех доступных определений ролей**
 
     role list [options]
@@ -1627,7 +1631,7 @@ ms.author: danlep
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>Хранилище Azure. Команды для управления объектами хранилища
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Хранилище Azure. Команды для управления объектами хранилища
 **Команды для управления учетными записями хранилища**
 
     storage account list [options]
@@ -1750,7 +1754,7 @@ ms.author: danlep
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>Тег Azure. Команды для управления тегом диспетчера ресурсов
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Тег Azure. Команды для управления тегом диспетчера ресурсов
 **Добавление тега**
 
     tag create [options] <name> <value>
@@ -1767,7 +1771,7 @@ ms.author: danlep
 
     tag show [options] [name]
 
-## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>ВМ Azure. Команды для управления виртуальными машинами Azure
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>ВМ Azure. Команды для управления виртуальными машинами Azure
 **Создание виртуальной машины**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1857,6 +1861,6 @@ ms.author: danlep
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

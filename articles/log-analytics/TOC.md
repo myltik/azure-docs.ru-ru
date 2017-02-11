@@ -10,7 +10,7 @@
 ## [Часто задаваемые вопросы по Log Analytics](log-analytics-faq.md)
 
 # Практическое руководство
-## Интеграция
+## Сбор данных
 ### Подключенные источники
 #### [Агенты Windows](log-analytics-windows-agents.md)
 #### [Агенты Linux](log-analytics-linux-agents.md)
@@ -27,11 +27,15 @@
 #### [Журналы IIS](log-analytics-data-sources-iis-logs.md)
 #### [Пользовательские журналы](log-analytics-data-sources-custom-logs.md)
 #### [Настраиваемые поля](log-analytics-custom-fields.md)
-## Разработка
+## Запрос данных
 ### [Обзор поиска по журналу](log-analytics-log-searches.md)
 ### [Справочник по поиску](log-analytics-search-reference.md)
 ### [Группы компьютеров](log-analytics-computer-groups.md)
 ### [Оповещения](log-analytics-alerts.md)
+## Анализ данных
+### [Панели мониторинга](log-analytics-dashboards.md)
+### [Конструктор представлений](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Решения
 #### [Обзор решений](log-analytics-add-solutions.md)
 #### [Оценка AD](log-analytics-ad-assessment.md)
@@ -52,11 +56,7 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Данные передачи](log-analytics-wire-data.md)
 #### [Оценка SCOM](log-analytics-scom-assessment.md)
-## Анализ
-### [Панели мониторинга](log-analytics-dashboards.md)
-### [Конструктор представлений](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Автоматизация
+## Разработка
 ### [API сборщика данных](log-analytics-data-collector-api.md)
 ### [Командлеты PowerShell](log-analytics-powershell-workspace-configuration.md)
 ### [API поиска по журналам](log-analytics-log-search-api.md)

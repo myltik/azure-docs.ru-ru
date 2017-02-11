@@ -187,7 +187,7 @@ ms.openlocfilehash: caab5d5d95200e909d0be26a0712f78e3960deb1
 * Если требуется запускать приложения MPI для Linux, получающие доступ к сети RDMA в Azure, см. раздел [Настройка кластера Linux RDMA для запуска приложений MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
-[Ускорение в Azure]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
+[burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
 [iaas]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/iaas.png
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png

@@ -1,55 +1,51 @@
 ---
-title: Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure
-description: Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS
+title: "Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure"
+description: "Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
 services: app-service\mobile
 documentationcenter: xamarin
-author: wesmc7777
+author: ysxu
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
-ms.author: wesmc
+ms.date: 10/12/2016
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 185a32376dd1c40fd480e16d3ac7607ac798afae
+
 
 ---
-# Добавление push-уведомлений в приложение Xamarin.iOS
+# <a name="add-push-notifications-to-your-xamarinios-app"></a>Добавление push-уведомлений в приложение Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Обзор
-Этот учебник использует материал [краткого руководства по Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), который необходимо предварительно изучить. В нем описывается добавление push-уведомлений в проект учебника по [быстрому запуску Xamarin.iOS], чтобы при вставке каждой новой записи отправлялось push-уведомление. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Обзор
+В этом руководстве мы добавим push-уведомления в [проект быстрого запуска Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), чтобы при каждом добавлении новой записи на устройство отправлялось push-уведомление.
 
-## Предварительные требования
-* Ознакомьтесь с [кратким руководством по Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
+Если вы не используете скачанный проект сервера, вам потребуется добавить пакет расширений для push-уведомлений. Дополнительные сведения о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+## <a name="prerequisites"></a>Предварительные требования
+* Ознакомьтесь с [кратким руководством по Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * Физическое устройство iOS. Push-уведомления не поддерживаются в симуляторе iOS.
 
-## Зарегистрируйте приложение для push-уведомлений на портале разработчика Apple.
-[!INCLUDE [Включение push-уведомлений Apple через концентраторы уведомлений Xamarin](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Зарегистрируйте приложение для push-уведомлений на портале разработчика Apple.
+[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## Настройка мобильного приложения для отправки push-уведомлений
-Чтобы настроить в приложении отправку уведомлений, создайте новый центр уведомлений и настройте его для работы со службами уведомлений платформы, которые будут использоваться.
+## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Настройка мобильного приложения для отправки push-уведомлений
+[!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-1. На [портале Azure](https://portal.azure.com/) выберите **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Мобильные службы** > **Push-уведомления** > **Концентратор уведомлений** > **+ Концентратор уведомлений**, а затем укажите имя и пространство имен для нового концентратора уведомлений и нажмите кнопку **ОК**.
-   
-    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
-2. В колонке «Создание концентратора уведомлений» нажмите кнопку **Создать**.
-3. Выберите **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**.
-   
-    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
-
-Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
-
-## Обновление серверного проекта для отправки push-уведомлений
+## <a name="update-the-server-project-to-send-push-notifications"></a>Обновление серверного проекта для отправки push-уведомлений
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## Настройка проекта Xamarin.iOS
+## <a name="configure-your-xamarinios-project"></a>Настройка проекта Xamarin.iOS
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## Добавление push-уведомлений в приложение
-1. В **QSTodoService** добавьте следующее свойство, чтобы **AppDelegate** мог получить мобильный клиент:
+## <a name="add-push-notifications-to-your-app"></a>Добавление push-уведомлений в приложение
+1. В **QSTodoService** добавьте приведенное ниже свойство, чтобы **AppDelegate** мог получить мобильный клиент.
    
             public MobileServiceClient GetClient {
             get
@@ -61,11 +57,11 @@ ms.author: wesmc
                 client = value;
             }
         }
-2. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**.
+2. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs** .
    
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. В **AppDelegate** переопределите событие **FinishedLaunching**:
+3. В **AppDelegate** переопределите событие **FinishedLaunching**.
    
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -81,7 +77,7 @@ ms.author: wesmc
    
             return true;
         }
-4. В том же файле переопределите событие **RegisteredForRemoteNotifications**. В этом коде регистрируется простое шаблонное уведомление, которое будет рассылаться сервером по всем поддерживаемым платформам.
+4. В том же файле переопределите событие **RegisteredForRemoteNotifications** . В этом коде регистрируется простое шаблонное уведомление, которое будет рассылаться сервером по всем поддерживаемым платформам.
    
     Дополнительные сведения о шаблонах центров уведомлений см. в статье [Шаблоны](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -89,7 +85,7 @@ ms.author: wesmc
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
-            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
+            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
@@ -103,7 +99,7 @@ ms.author: wesmc
         }
 
 
-1. Затем переопределите событие **DidReceivedRemoteNotification**:
+1. Затем переопределите событие **DidReceivedRemoteNotification** :
    
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -123,15 +119,15 @@ ms.author: wesmc
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-## <a name="test"></a>Тестирование push-уведомлений в приложении
-1. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Тестирование push-уведомлений в приложении
+1. Нажмите кнопку **Выполнить**, чтобы выполнить сборку проекта и запустить приложение на устройстве iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
    
    > [!NOTE]
    > Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
    > 
    > 
 2. В приложении введите задачу, а затем щелкните значок плюса (**+**).
-3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
+3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК** , чтобы закрыть его.
 4. Повторите шаг 2 и сразу закройте приложение, затем убедитесь, что уведомление отображается.
 
 Вы успешно завершили ознакомление с данным учебником.
@@ -140,4 +136,11 @@ ms.author: wesmc
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

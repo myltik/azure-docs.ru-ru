@@ -1,39 +1,44 @@
 ---
-title: Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Microsoft Docs
-description: Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell.
+title: "Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Документация Майкрософт"
+description: "Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: danielsollondon
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 430d9d64-1f35-48f0-a4fd-9b69910ffa59
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2016
+ms.date: 09/29/2016
 ms.author: danielsollondon
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14f83c6753ce37639b1b2f78a4c632f1d69f585d
+
 
 ---
-# Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell
+# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell
 Ниже приведен пример создания масштабируемого набора виртуальных машин (VMSS), который создает VMSS из 3 узлов со всей соответствующей сетевой инфраструктурой и ресурсами хранения.
 
-## Первые шаги
-Убедитесь, что установлен последний модуль Azure PowerShell с командлетами PowerShell, необходимыми для обслуживания и создания VMSS. Перейдите к расположенным [здесь](http://aka.ms/webpi-azps) программам командной строки, чтобы узнать о последних доступных модулях Azure.
+## <a name="first-steps"></a>Первые шаги
+Убедитесь, что установлен последний модуль Azure PowerShell с командлетами PowerShell, необходимыми для обслуживания и создания VMSS.
+Перейдите к расположенным [здесь](http://aka.ms/webpi-azps) программам командной строки, чтобы узнать о последних доступных модулях Azure.
 
-Чтобы найти связанные с VMSS командлеты, используйте строку поиска *VMSS*.
+Чтобы найти связанные с VMSS командлеты, используйте строку поиска \*VMSS\*.
 
-## Создание VMSS
-##### Создать группу ресурсов
+## <a name="creating-a-vmss"></a>Создание VMSS
+##### <a name="create-resource-group"></a>Создать группу ресурсов
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-##### Создать учетную запись хранения
+##### <a name="create-storage-account"></a>Создать учетную запись хранения
 Задайте тип и имя учетной записи хранения.
 
 ```
@@ -44,23 +49,23 @@ $stotype = 'Standard_LRS';
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```
 
-#### Создание сетевой инфраструктуры (виртуальной сети и подсети)
-##### Спецификация подсети
+#### <a name="create-networking-vnet--subnet"></a>Создание сетевой инфраструктуры (виртуальной сети и подсети)
+##### <a name="subnet-specification"></a>Спецификация подсети
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-##### Спецификация виртуальной сети
+##### <a name="vnet-specification"></a>Спецификация виртуальной сети
 ```
-$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
+$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
 #In this case below we assume the new subnet is the only one, note difference if you have one already or have adjusted this code to more than one subnet.
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-##### Создание ресурса общедоступного IP-адреса для внешнего доступа
+##### <a name="create-public-ip-resource-to-allow-external-access"></a>Создание ресурса общедоступного IP-адреса для внешнего доступа
 Выполняется привязка к балансировщику нагрузки.
 
 ```
@@ -68,7 +73,7 @@ $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGr
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-##### Создание и настройка балансировщика нагрузки
+##### <a name="create-and-configure-load-balancer"></a>Создание и настройка балансировщика нагрузки
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -81,7 +86,7 @@ $lbName = 'vmsslb' + $rgname
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-##### Настройка балансировщика нагрузки
+##### <a name="configure-load-balancer"></a>Настройка балансировщика нагрузки
 Создайте конфигурацию пула адресов серверной части, которая будет совместно использоваться сетевыми картами виртуальных машин в VMSS.
 
 ```
@@ -125,13 +130,13 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Проверьте параметры балансировки нагрузки конфигурации портов с балансировкой. Помните, что правила NAT для входящего трафика отображаются только после создания виртуальных машин в VMSS.
+Проверьте параметры балансировки нагрузки и конфигурации портов с балансировкой нагрузки. Помните, что правила NAT для входящего трафика отображаются только после создания виртуальных машин в VMSS.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### Настройка и создание VMSS
+##### <a name="configure-and-create-vmss"></a>Настройка и создание VMSS
 Обратите внимание, что в этом примере инфраструктуры показано, как настроить распространение и масштабирование веб-трафика в VMSS, однако в указанных здесь образах виртуальных машин нет установленных веб-служб.
 
 ```
@@ -164,9 +169,6 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -LoadBalancerInboundNatPoolsId $actualLb.InboundNatPools[0].Id `
 -LoadBalancerBackendAddressPoolsId $actualLb.BackendAddressPools[0].Id `
 -SubnetId $subnetId;
-
-$ipCfg.LoadBalancerBackendAddressPools.Add($actualLb.BackendAddressPools[0].Id);
-$ipCfg.LoadBalancerInboundNatPools.Add($actualLb.InboundNatPools[0].Id);
 ```
 
 Создание конфигурации VMSS
@@ -198,4 +200,8 @@ VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

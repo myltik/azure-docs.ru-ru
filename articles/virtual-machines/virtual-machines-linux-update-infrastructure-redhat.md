@@ -1,23 +1,27 @@
 ---
-title: Инфраструктура обновления Red Hat Update Infrastructure | Microsoft Docs
-description: Узнайте об инфраструктуре обновления Red Hat Update Infrastructure для предоставляемых по запросу экземпляров Red Hat Enterprise Linux по запросу в Microsoft Azure
+title: "Инфраструктура обновления Red Hat Update Infrastructure | Документация Майкрософт"
+description: "Узнайте об инфраструктуре обновления Red Hat Update Infrastructure для предоставляемых по запросу экземпляров Red Hat Enterprise Linux по запросу в Microsoft Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: BorisB2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 10/14/2016
 ms.author: borisb
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 8b00d3c4461494d35665c976e0e1098a246abb68
+
 
 ---
-# Red Hat Update Infrastructure для предоставляемых по запросу виртуальных машин Red Hat Enterprise Linux в Azure
-Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутому в Azure решению Red Hat Update Infrastructure (RHUI). Предоставляемые по запросу экземпляры RHEL имеют доступ к региональному репозиторию yum, благодаря чему они могут получать добавочные обновления.
+# <a name="red-hat-update-infrastructure-rhui-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure для предоставляемых по запросу виртуальных машин Red Hat Enterprise Linux в Azure
+Виртуальным машинам, которые созданы на основе доступных в Azure Marketplace предоставляемых по запросу образов Red Hat Enterprise Linux (RHEL), обеспечивается доступ к развернутому в Azure решению Red Hat Update Infrastructure (RHUI).  Предоставляемые по запросу экземпляры RHEL имеют доступ к региональному репозиторию yum, благодаря чему они могут получать добавочные обновления.
 
 Список репозитория yum, который находится под управлением RHUI, настраивается в вашем экземпляре RHEL во время подготовки. Поэтому выполнять дополнительную настройку не нужно. Запустите `yum update`, как только экземпляр RHEL будет готов к получению последних обновлений.
 
@@ -26,40 +30,44 @@ ms.author: borisb
 > 
 > 
 
-## Обновление инфраструктуры Azure RHUI
+## <a name="rhui-azure-infrastructure-update"></a>Обновление инфраструктуры Azure RHUI
 Начиная с сентября 2016 г. в Azure доступен новый набор серверов Red Hat Update Infrastructure (RHUI). Эти серверы развертываются с помощью [диспетчера трафика Azure](https://azure.microsoft.com/services/traffic-manager/), чтобы конечную точку (rhui-1.micrsoft.com) могла использовать любая виртуальная машина независимо от региона. На этих серверах используется сертификат SSL, связанный с хорошо известным центром сертификации (Baltimore root). Автоматизация этого обновления может быть опасной для клиентов, использующих списки управления доступом или настраиваемые таблицы маршрутизации для серверов обновления RHUI, поэтому данное обновление выполняется с согласия пользователя. Эта страница содержит инструкции по подключению новых серверов и полный сценарий использования автоматического режима (после проверки отдельных шагов). Новые образы RHEL PAYG в Azure Marketplace (начиная с сентября 2016 г.) автоматически задаются для новых серверов Azure RHUI, дополнительные действия не требуются.
 
-### Временная шкала подключения новой инфраструктуры Azure RHUI
+### <a name="the-new-azure-rhui-infrastructure-onboarding-timeline"></a>Временная шкала подключения новой инфраструктуры Azure RHUI
 | Дата | Примечание |
 | --- | --- |
 | 22 сентября 2016 г. |Серверы RHUI и направления установки, доступные для использования. Виртуальные машины, развернутые с помощью новых образов RHEL PAYG из Azure Marketplace (выпущенных в сентябре 2016 г.), будут автоматически использовать новые серверы RHUI, но существующие виртуальные машины используются с согласия пользователя |
 | 1 ноября 2016 г. |Образы предыдущих версий для виртуальных машин RHEL PAYG (использующие старые серверы Azure RHUI) будут удалены из коллекции Azure Marketplace |
 | 16 января 2017 г. |Старые серверы Azure RHUI будут списаны. К этому моменту следует обновить все соответствующие виртуальные машины RHEL PAYG, чтобы получить доступ к Azure RHUI |
 
-### IP-адреса для новых серверов RHUI
+### <a name="the-ips-for-the-new-rhui-content-delivery-servers-are"></a>IP-адреса для новых серверов RHUI доставки содержимого
 ```
-13.91.45.82
-52.187.72.244
-52.174.166.207
-40.112.59.164
+# Azure Global
+13.91.47.76
+40.85.190.91
+52.187.75.218
+52.174.163.213
+
+# Azure US Government
+13.72.186.193
 ```
 
-### Процедура обновления вручную для использования новых серверов Azure RHUI
+### <a name="manual-update-procedure-to-use-the-new-azure-rhui-servers"></a>Процедура обновления вручную для использования новых серверов Azure RHUI
 Загрузите подпись открытого ключа (с помощью curl)
 
-```
+```bash
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 ```
 
 Проверьте загруженный ключ
 
-```
+```bash
 gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
 ```
 
 Проверьте выходные данные, `keyid` и `user ID packet`:
 
-```
+```bash
 Version: GnuPG v1.4.7 (GNU/Linux)
 :public key packet:
         version 4, algo 1, created 1446074508, expires 0
@@ -83,7 +91,7 @@ Version: GnuPG v1.4.7 (GNU/Linux)
 
 Установите открытый ключ
 
-```
+```bash
 sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
 ```
@@ -92,25 +100,25 @@ sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
 
 Загрузка для RHEL 6
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.0-2.noarch.rpm 
 ```
 
 Для RHEL 7
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.0-2.noarch.rpm  
 ```
 
 Проверка.
 
-```
+```bash
 rpm -Kv azureclient.rpm
 ```
 
 Проверьте подпись пакета в выходных данных
 
-```
+```bash
 azureclient.rpm:
     Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
     Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
@@ -120,16 +128,16 @@ azureclient.rpm:
 
 Установите RPM
 
-```
+```bash
 sudo rpm -U azureclient.rpm
 ```
 
 По завершении убедитесь, что вы можете получить доступ к Azure RHUI с виртуальной машины
 
-### Сценарий "все в одном" для автоматизации описанной выше задачи
+### <a name="all-in-one-script-for-automating-the-above-task"></a>Сценарий "все в одном" для автоматизации описанной выше задачи
 Используйте приведенный далее сценарий для автоматизации задачи обновления необходимых виртуальных машин до новых серверов Azure RHUI.
 
-```
+```sh
 # Download key
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 
@@ -166,36 +174,44 @@ fi
 sudo rpm -U azureclient.rpm
 ```
 
-## Обзор RHUI
+## <a name="rhui-overview"></a>Обзор RHUI
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) является высокомасштабируемым решением для управления содержимым репозитория yum для облачных экземпляров Red Hat Enterprise Linux, размещенных сертифицированными компанией Red Hat поставщиками облачных служб. Являясь продуктом на основе вышестоящего проекта Pulp, RHUI позволяет поставщикам облачных решений локально зеркалировать размещенное Red Hat содержимое репозитория, создавать пользовательские репозитории с собственным содержимым и предоставлять большим группам пользователей доступ к таким репозиториям с помощью системы доставки содержимого с балансировкой нагрузки.
 
-## Регионы, в которых доступна инфраструктура RHUI
-Инфраструктура RHUI поддерживается во всех регионах, где доступны предоставляемые по запросу образы RHEL. В настоящее время в этот список входят общедоступные регионы, указанные на странице [мониторинга состояния Azure](https://azure.microsoft.com/status/). Доступ к RHUI для виртуальных машин, развернутых из предоставляемых по запросу образов RHEL, входит в стоимость образа. Так как в будущем планируется расширить регионы, в которых будут доступны предоставляемые по запросу экземпляры RHEL, сведения об их доступности по регионам и странам будут обновлены.
+## <a name="regions-where-rhui-is-available"></a>Регионы, в которых доступна инфраструктура RHUI
+Инфраструктура RHUI поддерживается во всех регионах, где доступны предоставляемые по запросу образы RHEL. В настоящее время в этот список входят общедоступные регионы, указанные на странице [мониторинга состояния Azure](https://azure.microsoft.com/status/), а также регионы, обслуживающие государственные организации США. Доступ к RHUI для виртуальных машин, развернутых из предоставляемых по запросу образов RHEL, входит в стоимость образа. Так как в будущем планируется расширить регионы, в которых будут доступны предоставляемые по запросу экземпляры RHEL, сведения об их доступности по регионам и странам будут обновлены.
 
 > [!NOTE]
 > Доступ к размещенной в Azure инфраструктуре RHUI могут получать виртуальные машины с IP-адресами в рамках [диапазонов IP-адресов центра обработки данных Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 > 
 > 
 
-## Получение обновлений из другого репозитория обновлений
+## <a name="get-updates-from-another-update-repository"></a>Получение обновлений из другого репозитория обновлений
 Чтобы получать обновления из другого репозитория обновлений (не RHUI, размещенного в Azure), необходимо отменить регистрацию экземпляров в RHUI и повторно зарегистрировать их в желаемой инфраструктуре обновления (например, Red Hat Network Satellite или на портале клиента CDN Red Hat). Кроме того, необходима подписка Red Hat для этих служб и регистрация [Red Hat Cloud Access в Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
 
 Чтобы отменить регистрацию RHUI и зарегистрироваться в другой инфраструктуре обновления, сделайте следующее:
 
 1. Измените все `enabled=1` на `enabled=0` в репозитории /etc/yum.repos.d/rh-cloud.repo. Например:
    
-   # sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```bash
+   sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```
+   
 2. Измените значение `enabled=0` на `enabled=1` в файле /etc/yum/pluginconf.d/rhnplugin.conf.
 3. Затем зарегистрируйтесь в нужной инфраструктуре, например на портале клиента Red Hat. Дополнительные сведения о регистрации системы на портале клиента Red Hat и оформлении подписки см. в [руководстве по решению Red Hat](https://access.redhat.com/solutions/253273).
 
 > [!NOTE]
-> В стоимость образа RHEL с оплатой по мере использования (PAYG) входит плата за доступ к инфраструктуре RHUI, размещенной в Azure. Если отменить регистрацию виртуальной машины RHEL с оплатой по мере использования в инфраструктуре RHUI, размещенной в Azure, она не станет виртуальной машиной с использованием собственной лицензии (BYOL). Таким образом, после регистрации той же виртуальной машины в другом репозитории обновлений с вас может взиматься двойная плата.
+> В стоимость образа RHEL с оплатой по мере использования (PAYG) входит плата за доступ к инфраструктуре RHUI, размещенной в Azure. Если отменить регистрацию виртуальной машины RHEL с оплатой по мере использования в инфраструктуре RHUI, размещенной в Azure, она не станет виртуальной машиной с использованием собственной лицензии (BYOL). Таким образом, после регистрации той же виртуальной машины в другом репозитории обновлений с вас может взиматься двойная плата. 
 > 
-> Если требуется использовать другую инфраструктуру обновлений (не RHUI, размещенную в Azure), рекомендуется создать и развернуть собственный образ (с использованием собственной лицензии), как описано в статье [Подготовка виртуальной машины на основе Red Hat для Azure](virtual-machines-linux-redhat-create-upload-vhd.md).
+> Если требуется использовать другую инфраструктуру обновлений (не RHUI, размещенную в Azure), рекомендуется создать и развернуть собственный образ (с использованием собственной лицензии), как описано в статье [Подготовка виртуальной машины на основе Red Hat для Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 > 
 > 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о создании виртуальной машины Red Hat Enterprise Linux из образа с оплатой по мере использования и о применении размещенной в Azure RHUI см. на странице [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). В существующем экземпляре RHEL можно использовать `yum update` без дополнительной настройки.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Настройка политик защиты содержимого с помощью портала Azure | Microsoft Docs
-description: В этой статье показано, как с помощью портала Azure настроить политики защиты содержимого. В статье также показано, как включить динамическое шифрование для ресурсов-контейнеров.
+title: "Настройка политик защиты содержимого с помощью портала Azure | Документация Майкрософт"
+description: "В этой статье показано, как с помощью портала Azure настроить политики защиты содержимого. В статье также показано, как включить динамическое шифрование для ресурсов-контейнеров."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Настройка политик защиты содержимого с помощью портала Azure
@@ -39,12 +43,12 @@ ms.author: juliako
 ## <a name="start-configuring-content-protection"></a>Начало настройки защиты содержимого
 Чтобы приступить к настройке защиты содержимого (действующей глобально для учетной записи AMS) с помощью портала, выполните следующие действия:
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Создание учетной записи служб мультимедиа Azure с помощью [портале Azure](https://portal.azure.com/).
 2. Выберите **Параметры** > **Защита контента**.
 
 ![Защита содержимого](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>политику авторизации ключей и лицензий
+## <a name="keylicense-authorization-policy"></a>политику авторизации ключей и лицензий
 Службы AMS поддерживают несколько способов аутентификации пользователей, запрашивающих ключи или лицензии. Чтобы получить ключ (лицензию) содержимого, клиент должен соответствовать заданной для этого ключа (лицензии) политике авторизации. Для политики авторизации ключа содержимого можно задать одно или несколько ограничений: **открытая** авторизация или авторизация с помощью **маркера**.
 
 Портал Azure позволяет создать единую **политику авторизации ключей и лицензий** для всех типов шифрования.
@@ -130,6 +134,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

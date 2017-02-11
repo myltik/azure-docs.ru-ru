@@ -1,5 +1,5 @@
 ---
-title: "Многоуровневое приложение .NET | Документация Майкрософт"
+title: "Многоуровневое приложение .NET, использующее очереди служебной шины Azure | Документация Майкрософт"
 description: "Руководство для .NET, посвященное разработке многоуровневого приложения в Azure, в котором для взаимодействия между уровнями используются очереди служебной шины."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Интерфейсная часть будет реализована с использованием веб-роли MVC ASP.NET, а серверная — с помощью рабочей роли, в которой используется очередь служебной шины. Вы также можете создать аналогичное многоуровневое приложение. Его внешний интерфейс будет реализован в виде веб-проекта, развернутого на веб-сайте Azure, а не в облачной службе. Дополнительные сведения о разных способах реализации внешнего интерфейса веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps). Кроме того, можно ознакомиться с руководством по [гибридным локальным и облачным приложениям .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Внешний интерфейс реализован с использованием веб-роли MVC ASP.NET, а серверная часть — с помощью рабочей роли, в которой используется очередь служебной шины. Вы также можете создать аналогичное многоуровневое приложение. Его внешний интерфейс будет реализован в виде веб-проекта, развернутого на веб-сайте Azure, а не в облачной службе. Дополнительные сведения о разных способах реализации внешнего интерфейса веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps). Кроме того, можно ознакомиться с руководством по [гибридным локальным и облачным приложениям .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 На следующем рисунке показано завершенное приложение.
 
@@ -57,15 +57,6 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
   ![][2]
 
 В следующих разделах описывается код, позволяющий реализовать подобную архитектуру.
-
-## <a name="set-up-the-development-environment"></a>Настройка среды разработки
-Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
-
-1. Установите пакет Azure SDK для .NET отсюда: [Получить инструменты и пакет SDK][Получить инструменты и пакет SDK].
-2. Щелкните **Install the SDK** (Установить пакет SDK) для используемой версии Visual Studio. На описанных в этом учебнике шагах используется Visual Studio 2015.
-3. При появлении запроса на выполнение или сохранение файла установки щелкните **Выполнить**.
-4. В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить.
-5. После завершения установки у вас будут все компоненты, необходимые для начала разработки приложения. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio. Если у вас не установлено приложение Visual Studio, будет автоматически установлена бесплатная версия Visual Studio Express.
 
 ## <a name="create-a-namespace"></a>Создание пространства имен
 Далее нужно создать пространство имен службы и получить ключ подписанного URL-адреса (SAS). Пространство имен определяет границы каждого приложения, предоставляемого через служебную шину. Ключ SAS создается системой при создании пространства имен. Сочетание пространства имен и ключа SAS дает учетные данные, на основе которых служебная шина осуществляет проверку подлинности и предоставляет доступ к приложению.
@@ -109,7 +100,7 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 1. В файле OnlineOrder.cs в Visual Studio замените существующее определение пространства имен следующим кодом:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
    ```
 2. В **обозревателе решений** дважды щелкните **Controllers\HomeController.cs**. Добавьте в начало файла оператор **using**, чтобы включить служебную шину и пространства имен для созданной модели.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. Кроме того, в файле HomeController.cs в Visual Studio замените существующее определение пространства имен следующим кодом. Этот код содержит методы, обрабатывающие операции отправки элементов в очередь.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
     ![][28]
 11. Наконец, добавьте на страницу отправки необходимые сведения об очереди. В **обозревателе решений** дважды щелкните файл **Views\Home\Submit.cshtml**, чтобы открыть его в редакторе Visual Studio. Добавьте следующую строку после `<h2>Submit</h2>`. Сейчас элемент `ViewBag.MessageCount` пустой. Вы заполните его позже.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Пользовательский интерфейс реализован. Нажмите клавишу **F5**, чтобы запустить приложение и подтвердить его работоспособность.
@@ -207,7 +198,7 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 2. Присвойте классу имя **QueueConnector.cs**. Нажмите кнопку **Добавить**, чтобы создать класс.
 3. Теперь добавьте код, который инкапсулирует сведения о подключении и инициализирует подключение к очереди служебной шины. Замените все содержимое файла QueueConnector.cs приведенным ниже кодом. Введите значения для параметров `your Service Bus namespace` (имя пространства имен) и `yourKey` (**первичный ключ**, ранее полученный на портале Azure).
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 4. Теперь нужно обеспечить вызов метода **Initialize**. В **обозревателе решений** дважды щелкните **Global.asax\Global.asax.cs**.
 5. В конце метода **Application_Start** добавьте следующую строку кода.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Наконец, обновите ранее созданный код веб-уровня, чтобы отправить элементы в очередь. В **обозревателе решений** дважды щелкните **Controllers\HomeController.cs**.
 7. Обновите метод `Submit()` (перегрузка, при которой не принимаются параметры), как показано ниже, чтобы получить число сообщений в очереди.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
    ```
 8. Обновите метод `Submit(OnlineOrder order)` (перегрузка, при которой не принимаются параметры), как показано ниже, чтобы отправить сведения о заказе в очередь.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 10. Перейдите во вложенную папку **FrontendWebRole\Models** и дважды щелкните файл **OnlineOrder.cs**, чтобы добавить его в проект.
 11. В файле **WorkerRole.cs** измените значение переменной **QueueName** с `"ProcessingQueue"` на `"OrdersQueue"`, как показано ниже в коде.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Добавьте следующую инструкцию using в начало файла WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. В функции `Run()` в вызове `OnMessage()` замените содержимое предложения `try` следующим кодом.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +353,16 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 Дополнительную информацию о Service Bus см. на следующих ресурсах.  
 
 * [Служебная шина Azure][sbmsdn]  
-* [Страница служебной шины][sbwacom]  
-* [Использование очередей служебной шины][sbwacomqhowto]  
+* [Страница службы служебной шины][sbacom]  
+* [Как использовать очереди служебной шины][sbacomqhowto]  
 
 Дополнительные сведения о многоуровневых сценариях см. здесь:  
 
-* [Многоуровневое приложение .NET, использующее таблицы, очереди и BLOB-объекты хранилища][mutitierstorage]  
+* [Многоуровневое приложение .NET, использующее таблицы, очереди и большие двоичные объекты хранилища][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Получить инструменты и пакет SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

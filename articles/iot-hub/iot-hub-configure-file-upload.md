@@ -1,12 +1,12 @@
 ---
-title: Use the Azure portal to configure file upload | Microsoft Docs
-description: An overview of how to configure file upload using the Azure portal
+title: "Настройка отправки файлов с помощью портала Azure | Документация Майкрософт"
+description: "Общие сведения о том, как настроить отправку файлов с помощью портала Azure"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,42 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
+
 
 ---
-# <a name="configure-file-uploads-using-the-azure-portal"></a>Configure file uploads using the Azure portal
-## <a name="file-upload"></a>File upload
-To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+# <a name="configure-file-uploads-using-the-azure-portal"></a>Настройка отправки файлов с помощью портала Azure
+## <a name="file-upload"></a>Передача файла
+Чтобы использовать [функции отправки файлов в центр Интернета вещей][lnk-upload], сначала необходимо связать учетную запись хранения Azure с центром. Выберите параметры **Отправка файла** , чтобы отобразить список свойств передачи файлов для центра IoT, который вы изменяете.
 
 ![][13]
 
-**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a storage account on the **Storage accounts** blade and blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+**Контейнер хранилища.** На портале Azure выберите контейнер больших двоичных объектов в учетной записи хранения своей текущей подписки Azure, чтобы связать его с центром Интернета вещей. При необходимости можно создать новую учетную запись хранения Azure в колонке **Учетные записи хранения** и новый контейнер больших двоичных объектов в колонке **Контейнеры**. Центр IoT автоматически генерирует универсальные коды ресурсов (URI) подписанных URL-адресов с разрешениями на запись в этом контейнере больших двоичных объектов, чтобы устройства могли их использовать во время передач файлов.
 
 ![][14]
 
-**Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
+**Receive notifications for uploaded files** (Получать уведомления об отправленных файлах). Включите или отключите уведомления об отправке файлов с помощью переключателя.
 
-**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default but can be customized to other values using the slider.
+**SAS TTL** (Срок жизни SAS). Этот параметр определяет срок жизни универсальных кодов ресурса (URI) SAS, возвращаемых центром Интернета вещей на устройство. По умолчанию устанавливается значение "один час", но его можно изменить с помощью ползунка.
 
-**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default but can be customized to other values using the slider.
+**File notification settings default TTL** (Стандартный срок жизни уведомления о файле). Срок жизни уведомления об отправке файла. По умолчанию устанавливается значение "один день", но его можно изменить с помощью ползунка.
 
-**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
+**File notification maximum delivery count**(Максимальное число доставок уведомления о файле): число попыток доставки уведомления о передаче файла, предпринимаемых центром IoT. По умолчанию устанавливается значение 10, но его можно изменить с помощью ползунка.
 
 ![][15]
 
-## <a name="next-steps"></a>Next steps
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the developer guide.
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения о возможностях центра Интернета вещей, касающихся отправки файлов, см. в разделе об [отправке файлов с устройства][lnk-upload] в руководстве разработчика.
 
-Follow these links to learn more about managing Azure IoT Hub:
+Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
 
-* [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Массовое управление удостоверениями устройств центра интернета вещей][lnk-bulk]
+* [Общие сведения о метриках диагностики][lnk-metrics]
+* [Вводные сведения о мониторинге операций][lnk-monitor]
 
-To further explore the capabilities of IoT Hub, see:
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Developer guide][lnk-devguide]
-* [Simulating a device with the Gateway SDK][lnk-gateway]
-* [Secure your IoT solution from the ground up][lnk-securing]
+* [Developer guide][lnk-devguide] (Руководство разработчика)
+* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Все аспекты безопасности решения IoT][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
@@ -66,6 +70,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-securing]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

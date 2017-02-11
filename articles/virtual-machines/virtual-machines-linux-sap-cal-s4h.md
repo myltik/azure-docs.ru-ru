@@ -1,14 +1,14 @@
 ---
-title: Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure | Microsoft Docs
-description: Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure
+title: "Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure | Документация Майкрософт"
+description: "Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
+
 
 ---
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure
+# <a name="deploying-s4-hana-or-bw4-hana-on-microsoft-azure"></a>Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure
 В этой статье мы расскажем, как развернуть платформу S/4 HANA в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0.
 На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений на базе SAP Hana (например, BW/4 HANA) выполняется аналогичным образом. Нужно только выбрать другое решение.
 
@@ -89,6 +93,9 @@ ms.author: hermannd
 
 Другой вариант — войти на клиентскую виртуальную машину Windows и запустить, например, предварительно настроенный интерфейс SAP GUI.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,49 +1,53 @@
 ---
-title: Azure Batch diagnostic logging | Microsoft Docs
-description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
+title: "Ведение журнала диагностики пакетной службы Azure | Документация Майкрософт"
+description: "Запись и анализ событий журнала диагностики для ресурсов учетной записи пакетной службы Azure, таких как пулы и задачи."
 services: batch
-documentationcenter: ''
-author: mmacy
+documentationcenter: 
+author: tamram
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
+
 
 ---
-# <a name="azure-batch-diagnostic-logging"></a>Azure Batch diagnostic logging
-As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch diagnostic logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Events like pool create, pool delete, task start, task complete, and others are included in Batch diagnostic logs.
+# <a name="azure-batch-diagnostic-logging"></a>Ведение журналов диагностики пакетной службы Azure
+Как и многие другие службы Azure, пакетная служба генерирует события журналов для некоторых ресурсов в течение их жизненного цикла. Вы можете включить журналы диагностики для пакетной службы Azure, чтобы собирать события таких ресурсов, как пулы и задачи, а затем использовать эти журналы для диагностики и мониторинга. Журналы диагностики пакетной службы содержат такие события, как создание пула, удаление пула, начало задачи, завершение задачи и т. п.
 
 > [!NOTE]
-> This article discusses logging events for Batch account resources themselves, not job and task output data. For details on storing the output data of your jobs and tasks, see [Persist Azure Batch job and task output](batch-task-output.md).
+> В этой статье описывается ведение журнала событий для ресурсов пакетной службы, а не журнала выходных данных задач и заданий. Сведения о сохранении выходных данных заданий и задач вы найдете в статье [Сохранение выходных данных заданий и задач пакетной службы Azure](batch-task-output.md).
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisites
-* [Azure Batch account](batch-account-create-portal.md)
-* [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+## <a name="prerequisites"></a>Предварительные требования
+* [Учетная запись пакетной службы Azure](batch-account-create-portal.md)
+* [Учетная запись хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
   
-  To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. You specify this Storage account when you [enable diagnostic logging](#enable-diagnostic-logging) for your Batch account. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
+  Чтобы сохранять журналы диагностики пакетной службы, следует создать учетную запись хранения. В этом хранилище Azure будет хранить журналы. Эту учетную запись хранения вы укажете в процессе [включения ведения журналов диагностики](#enable-diagnostic-logging) для учетной записи пакетной службы. Учетная запись хранения, которую вы указываете при включении сбора журналов, не совпадает со связанной учетной записью хранения, которая упоминается в статьях о [пакетах приложений](batch-application-packages.md) и о [сохраняемости результатов выполнения задач](batch-task-output.md).
   
   > [!WARNING]
-  > You are **charged** for the data stored in your Azure Storage account. This includes the diagnostic logs discussed in this article. Keep this in mind when designing your [log retention policy](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md).
+  > Вы будете **оплачивать** данные, размещенные в учетной записи хранения Azure. В том числе и журналы диагностики, о которых идет речь в этой статье. Не забывайте об этом, когда разрабатываете [политику хранения журналов](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md).
   > 
   > 
 
-## <a name="enable-diagnostic-logging"></a>Enable diagnostic logging
-Diagnostic logging is not enabled by default for your Batch account. You must explicitly enable diagnostic logging for each Batch account you want to monitor:
+## <a name="enable-diagnostic-logging"></a>Включение ведения журналов диагностики
+Ведение журналов диагностики для учетной записи пакетной службы по умолчанию отключено. Ведение журналов диагностики следует явно включить для каждой учетной записи пакетной службы, которые нужно отслеживать.
 
-[How to enable collection of Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Как включить сбор журналов диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
 
-We recommend that you read the full [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article to gain an understanding of not only how to enable logging, but the log categories supported by the various Azure services. For example, Azure Batch currently supports one log category: **Service Logs**.
+Мы рекомендуем полностью прочитать статью [Обзор журналов диагностики Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), чтобы не только научиться включать ведение журнала, но и узнать, какие категории журналов поддерживаются различными службами Azure. Например, пакетная служба Azure в настоящее время поддерживает только одну категорию журналов: **журналы служб**.
 
-## <a name="service-logs"></a>Service Logs
-Azure Batch Service Logs contain events emitted by the Azure Batch service during the lifetime of a Batch resource like a pool or task. Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is the body of a sample **pool create event**:
+## <a name="service-logs"></a>Журналы служб
+Журналы пакетной службы Azure содержат события, генерируемые пакетной службой Azure на всем протяжении существования ресурса пакетной службы, например пула или задачи. Каждое событие, генерируемой пакетной службой, хранится в формате JSON в указанной учетной записи хранилища. Например, так выглядит текст **события создания пула**:
 
 ```json
 {
@@ -67,12 +71,12 @@ Azure Batch Service Logs contain events emitted by the Azure Batch service durin
 }
 ```
 
-Each event body resides in a .json file in the specified Azure Storage account. If you want to access the logs directly, you may wish to review the [schema of Diagnostic Logs in the storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Содержание каждого события находится в JSON-файле, размещенном в указанной учетной записи хранения Azure. Если вам нужен прямой доступ к журналам, вы можете изучить [схему журналов диагностики в учетной записи хранилища](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
-## <a name="service-log-events"></a>Service Log events
-The Batch service currently emits the following Service Log events. This list may not be exhaustive, since additional events may have been added since this article was last updated.
+## <a name="service-log-events"></a>События журнала службы
+В настоящее время пакетная служба генерирует следующие события журнала службы. Этот список может оказаться неполным, если с момента последнего обновления этой статьи были добавлены новые события.
 
-| **Service Log events** |
+| **События журнала службы** |
 | --- |
 | [Pool create][pool_create] |
 | [Pool delete start][pool_delete_start] |
@@ -83,15 +87,15 @@ The Batch service currently emits the following Service Log events. This list ma
 | [Task complete][task_complete] |
 | [Task fail][task_fail] |
 
-## <a name="next-steps"></a>Next steps
-In addition to storing diagnostic log events in an Azure Storage account, you can also stream Batch Service Log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), and send them to [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Помимо хранения событий журнала диагностики в учетной записи хранения Azure вы можете настроить потоковую передачу событий журнала пакетной службы в [концентратор событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для передачи в [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* [Stream Azure Diagnostic Logs to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Потоковая передача журналов диагностики Azure в концентраторы событий](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
-  Stream Batch diagnostic events to the highly scalable data ingress service, Event Hubs. Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
-* [Analyze Azure diagnostic logs using Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+  Потоковая передача диагностических событий пакетной службы в концентраторы событий, которые представляют собой масштабируемую службу приема данных. Концентраторы событий способны принимать миллионы событий в секунду, позволяя преобразовать и сохранять их с помощью любого поставщика аналитики в реальном времени.
+* [Анализ журналов диагностики Azure с помощью Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
   
-  Send your diagnostic logs to Log Analytics where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
+  Отправьте журналы диагностики в Log Analytics, где вы сможете проанализировать их с помощью портала OMS (Operations Management Suite) или экспортировать для анализа в Power BI или Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx
@@ -104,6 +108,6 @@ In addition to storing diagnostic log events in an Azure Storage account, you ca
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

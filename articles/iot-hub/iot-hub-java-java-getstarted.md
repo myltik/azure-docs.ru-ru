@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 * **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к приложению виртуального устройства;
 * **read-d2c-messages** — отображает данные телеметрии, отправляемые приложением виртуального устройства;
-* **simulated-device** — подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду по протоколу AMQPS.
+* **simulated-device** — подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду по протоколу MQTT.
 
 > [!NOTE]
 > Статья о [пакетах SDK для Центра Интернета вещей Azure][lnk-hub-sdks] содержит сведения о средствах, которые можно использовать при создании приложений для мобильных устройств и разработке серверной части решения.
@@ -42,11 +42,11 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Наконец, запишите значение поля **Первичный ключ**, а затем щелкните **Сообщения**. В колонке **Сообщения** запишите значения полей **Имя, совместимое с концентратором событий** и **Конечная точка, совместимая с концентратором событий**. Эти три значения понадобятся при создании приложения **read-d2c-messages**.
+Наконец, запишите значение поля **Первичный ключ**. После этого щелкните **Конечные точки** и встроенную конечную точку **События**. В колонке **Свойства** запишите адрес значений полей **Event Hub-compatible name** (Имя, совместимое с концентратором событий) и **Event Hub-compatible endpoint** (Конечная точка, совместимая с концентратором событий). Эти три значения понадобятся при создании приложения **read-d2c-messages**.
 
 ![Колонка "Сообщения" Центра Интернета вещей на портале Azure][6]
 
-Вы создали Центр Интернета вещей, и у вас есть все необходимое для работы с этим руководством: соответствующие имя узла, строка подключения и первичный ключ, а также имя и конечная точка, совместимые с концентратором событий.
+Теперь центр IoT создан Вы создали все необходимое для работы с этим руководством: имя узла, строку подключения и первичный ключ Центра Интернета вещей, а также имя и конечную точку, совместимые с концентратором событий.
 
 ## <a name="create-a-device-identity"></a>Создание удостоверения устройства
 В этом разделе объясняется, как написать консольное приложение Java, которое создает удостоверение устройства в реестре удостоверений в Центре Интернета вещей. Устройство может подключиться к Центру Интернета вещей, только если в реестре удостоверений есть соответствующая запись. Дополнительные сведения см. в разделе, посвященном **реестру удостоверений**, в [руководстве разработчика по Центру Интернета вещей Azure][lnk-devguide-identity]. При запуске этого консольного приложения создается уникальный идентификатор устройства и ключ, с помощью которых выполняется идентификация во время отправки сообщений из устройства в облако для центра IoT.
@@ -205,7 +205,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    При создании экземпляра объекта **DeviceClient** в этом примере приложения используется переменная **protocol**. Для взаимодействия с Центром Интернета вещей можно использовать протокол HTTPS или AMQPS.
+    При создании экземпляра объекта **DeviceClient** в этом примере приложения используется переменная **protocol**. Для взаимодействия с Центром Интернета вещей можно использовать протокол MQTT, AMQP или HTTP.
 8. Чтобы указать данные телеметрии, которые устройство отправляет в Центр Интернета вещей, добавьте в класс **App** следующий вложенный класс **TelemetryDataPoint**.
    
     ```
@@ -440,9 +440,9 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению виртуального устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей. 
 
-Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы.
+Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
 
-* [Подключение устройства][lnk-connect-device]
+* [Подключение устройства к Azure IoT][lnk-connect-device]
 * [How to get started with device management (Node)][lnk-device-management] (Начало работы с управлением устройствами (Node))
 * [Пакет SDK для шлюза IoT (бета-версия): приступая к работе с Linux][lnk-gateway-SDK]
 
@@ -461,7 +461,7 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -474,6 +474,6 @@ ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Сброс настроек VPN-шлюза Azure | Microsoft Docs
-description: В этой статье описывается сброс настроек VPN-шлюза Azure. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager.
+title: "Сброс настроек VPN-шлюза Azure | Документация Майкрософт"
+description: "В этой статье описывается сброс настроек VPN-шлюза Azure. Инструкции в этой статье применимы к VPN-шлюзам, созданным как на базе классической модели развертывания, так и на базе модели развертывания с помощью Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Сброс настроек VPN-шлюза Azure с помощью PowerShell
@@ -63,6 +67,9 @@ ms.author: cherylmc
 ## <a name="next-steps"></a>Дальнейшие действия
 Подробные сведения см. в справочниках по [командлетам PowerShell для управления службами](https://msdn.microsoft.com/library/azure/mt617104.aspx) и [командлетам PowerShell Resource Manager](http://go.microsoft.com/fwlink/?LinkId=828732).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

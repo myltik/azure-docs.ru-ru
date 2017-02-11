@@ -1,153 +1,158 @@
 ---
-title: Service Bus pricing and billing | Microsoft Docs
-description: Overview of Service Bus pricing structure.
-services: service-bus
+title: "Сведения о расценках и выставлении счетов служебной шины | Документация Майкрософт"
+description: "Общие сведения о структуре ценообразования служебной шины."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+
 
 ---
-# <a name="service-bus-pricing-and-billing"></a>Service Bus pricing and billing
-Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+# <a name="service-bus-pricing-and-billing"></a>Сведения о расценках и выставлении счетов служебной шины
+Служебная шина доступна в следующих трех уровнях: "Базовый", "Стандартный" и [Премиум](service-bus-premium-messaging.md). Уровень обслуживания можно выбрать для каждого пространства имен службы служебной шины, которое вы создаете, и этот уровень применяется ко всем сущностям, создаваемым в этом пространстве имен.
 
 > [!NOTE]
-> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
-> 
-> 
+> Дополнительные сведения о текущих расценках на использование служебной шины см. на [странице цен на служебную шину](https://azure.microsoft.com/pricing/details/service-bus/) и в разделе [Сведения о ценах на служебную шину](service-bus-faq.md#service-bus-pricing).
+>
+>
 
-Service Bus uses the following two meters for queues and topics/subscriptions:
+В служебной шине используются две следующие единицы тарификации для очередей, разделов и подписок.
 
-1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
-2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+1. **Операции обмена сообщениями.** Определяется как количество вызовов API к конечным точкам службы очереди, раздела или подписки. Эта единица тарификации заменит количество отправляемых или получаемых сообщений в качестве основной единицы тарификации для очередей, разделов или подписок.
+2. **Подключения через брокер.** Определяется как пиковое количество открытых постоянных подключений к очередям, разделам или подпискам для заданного периода выборки в один час. Эта единица тарификации будет применяться только для уровня "Стандартный", на котором можно открывать дополнительные подключения, в виде номинального сбора за каждое подключение (ранее максимальное количество подключений для каждой очереди, раздела или подписки было ограничено 100).
 
-The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
+На уровне **Стандартный** вводится дифференцированная тарификация для операций, выполняемых с очередями, разделами или подписками. Это позволяет получить скидки до 80 % в зависимости от объема при максимальных уровнях использования. Для уровня Стандартный также предусмотрен базовый сбор в размере 10 долларов в месяц, который позволяет выполнять до 12,5 миллиона операций в месяц без дополнительных затрат.
 
-The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster. Azure Service Bus Premium messaging builds on the storage engine introduced in Azure Event Hubs. With Premium messaging, peak performance is much faster than the Standard tier.
+На уровне **Премиум** обеспечивается изоляция ресурсов на уровне процессора и памяти, так что рабочая нагрузка каждого клиента выполняется изолированно от других. Контейнер ресурса называется *единицей обмена сообщениями*. Для каждого премиального пространства имен выделяется хотя бы одна единица обмена сообщениями. Для каждого пространства имен служебной шины Premium можно приобрести одну, две или четыре единицы обмена сообщениями. Одна единица рабочей нагрузки или сущность может охватывать несколько единиц обмена сообщениями, количество которых можно менять; при этом стоимость услуг рассчитывается по 24-часовому или суточному тарифу. В результате вы получаете решение на базе служебной шины с прогнозируемой и повторяемой производительностью. Оно отличается не только более предсказуемой производительностью и высокой доступностью, но и более высокой скоростью работы. Служба обмена сообщениями через служебную шину Azure для уровня Премиум работает на основе хранилища, реализованного в концентраторах событий Azure. Уровень Premium обеспечивает более высокую скорость передачи данных при пиковой нагрузке, чем уровень Standard.
 
-Note that the standard base charge is charged only once per month per Azure subscription. This means that after you create a single Standard or Premium tier Service Bus namespace, you will be able to create as many additional Standard or Premium tier namespaces as you want under that same Azure subscription, without incurring additional base charges.
+Обратите внимание, что стандартный базовый сбор взимается только один раз в месяц для каждой подписки Azure. Это означает, что, создав одно пространство имен служебной шины уровня "Стандартный" или "Премиум", можно создать сколько угодно дополнительных пространств имен уровня "Стандартный" или "Премиум" в рамках одной и той же подписки Azure без дополнительных базовых сборов.
 
-All existing Service Bus namespaces created prior to November 1, 2014 were automatically placed into the Standard tier. This ensures that you continue to have access to all features currently available with Service Bus. Subsequently, you can use the [Azure classic portal][Azure classic portal] to downgrade to the Basic tier if desired.
+Все существующие пространства имен служебной шины, созданные до 1 ноября 2014 г., были автоматически помещены в уровень Стандартный. Это гарантирует, что у вас сохранится доступ ко всем возможностям служебной шины, которые доступны в настоящий момент. При необходимости уровень можно затем понизить до уровня "Базовый" с помощью [классического портала Azure][классического портала Azure].
 
-The following table summarizes the functional differences between the Basic and Standard/Premium tiers.
+В следующей таблице перечислены функциональные различия между уровнями Базовый и Стандартный/Премиум.
 
-| Capability | Basic | Standard/Premium |
+| Функция | Basic | Стандартный/Премиум |
 | --- | --- | --- |
-| Queues |Yes |Yes |
-| Scheduled messages |Yes |Yes |
-| Topics/Subscriptions |No |Yes |
-| Relays |No |Yes |
-| Transactions |No |Yes |
-| De-Duplication |No |Yes |
-| Sessions |No |Yes |
-| Large messages |No |Yes |
-| ForwardTo |No |Yes |
-| SendVia |No |Yes |
-| Brokered connections (included) |100 per Service Bus namespace |1,000 per Azure subscription |
-| Brokered connections (overage allowed) |No |Yes (billable) |
+| Очереди |Да |Да |
+| Запланированные сообщения |Да |Да |
+| Разделы и подписки |Нет |Да |
+| Ретрансляторы |Нет |Да |
+| Транзакции |Нет |Да |
+| Удаление дубликатов |Нет |Да |
+| Сеансы |Нет |Да |
+| Большие сообщения |Нет |Да |
+| Отправить |Нет |Да |
+| Отправить через |Нет |Да |
+| Подключения через посредника (включено) |100 для каждого пространства имен служебной шины |1000 для каждой подписки Azure |
+| Подключения через посредника (допускается превышение) |Нет |Да (подлежит оплате) |
 
-## <a name="messaging-operations"></a>Messaging operations
-As part of the new pricing model, billing for queues and topics/subscriptions is changing. These entities are transitioning from billing per message to billing per operation. An "operation" refers to any API call made against a queue or topic/subscription service endpoint. This includes management, send/receive, and session state operations.
+## <a name="messaging-operations"></a>Операции обмена сообщениями
+В рамках новой модели ценообразования изменен порядок выставления счетов для очередей, разделов и подписок. Для них тарификация была изменена с тарификации по сообщениям на тарификацию по операциям. Понятие "операция" в данном случае означает любой вызов API к конечной точке службы очереди, раздела или подписки. Оно включает операции управления, отправки и получения сообщений и операции состояния сеанса.
 
-| Operation Type | Description |
+| Тип операции | Описание |
 | --- | --- |
-| Management |Create, Read, Update, Delete (CRUD) against queues or topics/subscriptions. |
-| Messaging |Sending and receiving messages with queues or topics/subscriptions. |
-| Session state |Getting or setting session state on a queue or topic/subscription. |
+| управления |Создание, чтение, обновление и удаление (CRUD) очередей, разделов или подписок. |
+| Обмен сообщениями |Отправка и получение сообщений с помощью очередей, разделов или подписок. |
+| Состояние сеанса |Получение или установка состояния сеанса для очереди, раздела или подписки. |
 
-The following prices were effective starting November 1, 2014:
+Следующие расценки вступили в силу начиная с 1 ноября 2014 г.
 
-| Basic | Cost |
+| Basic | Стоимость |
 | --- | --- |
-| Operations |$0.05 per million operations |
+| Операции |0,05 доллара за миллион операций |
 
-| Standard | Cost |
+| Стандартная | Стоимость |
 | --- | --- |
-| Base charge |$10/month |
-| First 12.5 million operations/month |Included |
-| 12.5-100 million operations/month |$0.80 per million operations |
-| 100 million-2,500 million operations/month |$0.50 per million operations |
-| Over 2,500 million operations/month |$0.20 per million operations |
+| Базовый сбор |10 долларов в месяц |
+| Первые 12,5 миллионов операций в месяц |Включено |
+| 12,5-100 миллионов операций в месяц |0,80 доллара за миллион операций |
+| 100-2500 миллионов операций в месяц |0,50 доллара за миллион операций |
+| Более 2500 миллионов операций в месяц |0,20 доллара за миллион операций |
 
-| Premium | Cost |
+| Premium | Стоимость |
 | --- | --- |
-| Daily |$11.13 fixed rate per Message Unit |
+| Ежедневно |11,13 доллара (фиксированная ставка за единицу сообщения) |
 
-## <a name="brokered-connections"></a>Brokered connections
-*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
+## <a name="brokered-connections"></a>Подключения через брокера
+*Подключения через брокер* охватывают шаблоны использования клиента, включающие большое количество отправителей или получателей, "постоянно подключенных" к очередям, разделам или подпискам. Постоянно подключенные отправители/получатели — это те отправители/получатели, которые подключаются по протоколу AMQP или HTTP с ненулевым временем ожидания приема (например, длинный опрос HTTP). Отправители и получатели HTTP с нулевым временем ожидания не создают подключений через посредника.
 
-Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
+Ранее для очередей, разделов и подписок было установлено ограничение в 100 параллельных подключений на один URL-адрес. Текущая схема выставления счетов снимает ограничение по количеству очередей, разделов и подписок на URL-адрес и реализует квоты и единицы тарификации для подключений через брокер для уровней пространства имен служебной шины и подписки Azure.
 
-The Basic tier includes, and is strictly limited to, 100 brokered connections per Service Bus namespace. Connections above this number will be rejected in the Basic tier. The Standard tier removes the per-namespace limit and counts aggregate brokered connection usage across the Azure subscription. In the Standard tier, 1,000 brokered connections per Azure subscription will be allowed at no extra cost (beyond the base charge). Using more than a total of 1,000 brokered connections across Standard-tier Service Bus namespaces in an Azure subscription will be billed on a graduated schedule, as shown in the following table.
+Уровень Базовый включает и строго ограничен 100 подключениями через посредника на одно пространство имен служебной шины. При превышении этого количества подключения на уровне Базовый будут отклонены. На уровне "Стандартный" снимается ограничение для пространства имен, и статистика использования подключения через брокер определяется для подписки Azure. На уровне "Стандартный" количество подключений через брокер ограничено 1000 для одной подписки Azure (в рамках базового сбора). При суммарном использовании более 1000 подключений через брокер в пространствах имен служебной шины в подписке Azure уровня "Стандартный" используется дифференцированная схема выставления счетов, приведенная в следующей таблице.
 
-| Brokered connections (Standard tier) | Cost |
+| Подключения через посредника (уровень Стандартный) | Стоимость |
 | --- | --- |
-| First 1,000/month |Included with base charge |
-| 1,000-100,000/month |$0.03 per connection/month |
-| 100,000-500,000/month |$0.025 per connection/month |
-| Over 500,000/month |$0.015 per connection/month |
+| Первая 1000 в месяц |Включена в базовый сбор |
+| 1000-100000 в месяц |0,03 доллара за подключение в месяц |
+| 100000-500000 в месяц |0,025 доллара за подключение в месяц |
+| Более 500 000 в месяц |0,015 доллара за подключение в месяц |
 
 > [!NOTE]
-> 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
-> 
-> 
+> В уровень "Стандартный" (в рамках базового сбора) включены 1000 подключений через брокер. Они могут использоваться во всех очередях, разделах и подписках в рамках соответствующей подписки Azure.
+>
+>
 
 <br />
 
 > [!NOTE]
-> Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
-> 
-> 
+> Выставление счетов производится на основе пикового количества одновременных подключений. Тарификация выполняется на почасовой основе из расчета в 744 часа в месяц.
+>
+>
 
-| Premium Tier |
+| Уровень Премиум |
 | --- |
-| Brokered connections are not charged in the Premium tier. |
+| Подключения через посредника на уровне Премиум не тарифицируются. |
 
-For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
+Дополнительные сведения о подключениях через брокер см. в разделе [Часто задаваемые вопросы](#faq) далее в этой статье.
 
-## <a name="relay"></a>Relay
-Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours.
+## <a name="wcf-relay"></a>Ретранслятор WCF
+Ретрансляторы WCF доступны только в пространствах имен уровня "Стандартный". В остальном расценки и квоты подключения для ретрансляторов остались неизменными. Это означает, что тарификация для них будет по-прежнему выполняться на основе количества сообщений (а не операций) и часов ретрансляции.
 
-| Relay pricing | Cost |
+| Цены на ретранслятор WCF | Стоимость |
 | --- | --- |
-| Relay hours |$0.10 for every 100 relay hours |
-| Messages |$0.01 for every 10,000 messages |
+| Часы ретрансляции WCF |0,10 доллара за каждые 100 часов ретрансляции |
+| Сообщения |0,01 доллара за каждые 10000 сообщений |
 
-## <a name="faq"></a>FAQ
-### <a name="how-is-the-relay-hours-meter-calculated?"></a>How is the Relay Hours meter calculated?
-See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+## <a name="faq"></a>Часто задаваемые вопросы
+### <a name="how-is-the-wcf-relay-hours-meter-calculated"></a>Как вычисляется количество часов ретрансляции WCF?
+См. [этот раздел](service-bus-faq.md).
 
-### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them?"></a>What are brokered connections and how do I get charged for them?
-A brokered connection is defined as one of the following:
+### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Что такое подключения через посредника и как они тарифицируются?
+Подключение через посредника определяется как подключение одного из двух следующих типов:
 
-1. An AMQP connection from a client to a Service Bus queue or topic/subscription.
-2. An HTTP call to receive a message from a Service Bus topic or queue that has a receive timeout value greater than zero.
+1. Подключение AMQP клиента к очереди, разделу или подписке служебной шины.
+2. Вызов HTTP для получения сообщения с ненулевым временем ожидания приема из раздела или очереди служебной шины.
 
-Service Bus charges for the peak number of concurrent brokered connections that exceed the included quantity (1,000 in the Standard tier). Peaks are measured on an hourly basis, prorated by dividing by 744 hours in a month, and added up over the monthly billing period. The included quantity (1,000 brokered connections per month) is applied at the end of the billing period against the sum of the prorated hourly peaks.
+Тарификация выполняется для пикового количества одновременных подключений через посредника, которое превышает установленный предел (1000 для уровня Стандартный). Пиковые значения измеряются ежечасно, рассчитываются пропорционально из расчета 744 часа в месяц и суммируются для ежемесячного выставления счетов. В конце периода выставления счетов к сумме пропорционально рассчитанных почасовых пиков применяется установленный предел (1000 подключений через посредника в месяц).
 
-For example:
+Например:
 
-1. Each of 10,000 devices connects via a single AMQP connection, and receives commands from a Service Bus topic. The devices send telemetry events to an Event Hub. If all devices connect for 12 hours each day, the following connection charges apply (in addition to any other Service Bus topic charges): 10,000 connections * 12 hours * 31 days / 744 = 5,000 brokered connections. After the monthly allowance of 1,000 brokered connections, you would be charged for 4,000 brokered connections, at the rate of $0.03 per brokered connection, for a total of $120.
-2. 10,000 devices receive messages from a Service Bus queue via HTTP, specifying a non-zero timeout. If all devices connect for 12 hours every day, you will see the following connection charges (in addition to any other Service Bus charges): 10,000 HTTP Receive connections * 12 hours per day * 31 days / 744 hours = 5,000 brokered connections.
+1. Каждое из 10 000 устройств подключается через отдельное подключение AMQP и получает команды из раздела служебной шины. Устройства отправляют события телеметрии концентратору событий. Если все устройства подключаются в течение 12 часов каждый день, тарификация подключений будет выполнена следующим образом (в дополнение к любым другим сборам за разделы служебной шины): 10 000 подключений * 12 часов * 31 день / 744 = 5000 подключений через брокер. С учетом ежемесячного предела в 1000 подключений через посредника будут тарифицированы 4000 подключений. С расценкой в 0,03 доллара за каждое подключение через посредника общие сборы составят 120 долларов.
+2. 10000 устройств получают сообщения из очереди служебной шины по протоколу HTTP с ненулевым временем ожидания. Если все устройства подключены в течение 12 часов каждый день, тарификация подключений будет выполнена следующим образом (в дополнение к любым другим сборам за служебную шину): 10 000 подключений на получение по протоколу HTTP * 12 часов в день * 31 день / 744 часа = 5000 подключений через брокер.
 
-### <a name="do-brokered-connection-charges-apply-to-queues-and-topics/subscriptions?"></a>Do brokered connection charges apply to queues and topics/subscriptions?
-Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. Note that 100 brokered connections are allowed at no charge in a Basic namespace. This is also the maximum number of brokered connections allowed for the Azure subscription. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
+### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Применяются ли сборы за подключения через брокер к очередям, разделам и подпискам?
+Да. При отправке событий с помощью HTTP плата за подключение не взимается вне зависимости от количества отправляющих систем или устройств. Сборы за подключения через посредника применяются к событиям приема по протоколу HTTP с ненулевым значением времени ожидания, которое иногда называется "длинным опросом". Для подключений AMQP сборы за подключения через посредника применяются независимо от того, используются ли эти подключения для отправки или приема данных. Обратите внимание, что 100 подключений через посредника в пространстве имен уровня Базовый предоставляются бесплатно. Это также максимальное количество подключений через брокер для подписки Azure. Первые 1000 подключений через брокер для всех пространств имен в подписке Azure уровня "Стандартный" предоставляются без дополнительной оплаты (сверх базового сбора). Так как этих значений достаточно для охвата многих сценариев обмена сообщениями между службами, сборы за подключения через посредника обычно становятся заметными только при использовании долгого опроса AMQP или HTTP с большим числом клиентов, например, для достижения более эффективной потоковой передачи событий или включения двунаправленного обмена данными для многих устройств или экземпляров приложения.
 
-## <a name="next-steps"></a>Next steps
-* For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
-* See the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
+## <a name="next-steps"></a>Дальнейшие действия
+* См. дополнительные сведения о [ценах на использование служебной шины Azure](https://azure.microsoft.com/pricing/details/service-bus/).
+* Ответы на некоторые общие вопросы о ценах на служебную шину и выставлении счетов за ее использование приведены в разделе [Сведения о ценах на служебную шину](service-bus-faq.md#service-bus-pricing).
 
-[Azure classic portal]: http://manage.windowsazure.com
+[классического портала Azure]: http://manage.windowsazure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

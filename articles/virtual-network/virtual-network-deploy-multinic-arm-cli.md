@@ -1,13 +1,13 @@
 ---
-title: Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов | Microsoft Docs
-description: Дополнительные сведения о развертывании виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов
+title: "Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью интерфейса командной строки Azure | Документация Майкрософт"
+description: "Сведения о создании виртуальной машины с несколькими сетевыми интерфейсами посредством Azure Resource Manager с помощью интерфейса командной строки Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8e906a4b-8583-4a97-9416-ee34cfa09a98
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,175 +15,211 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
+ms.openlocfilehash: 903669b90e07cb1dddc5fd8b78828b2022394be0
+
 
 ---
-# Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure
+# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli"></a>Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью интерфейса командной строки Azure
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[classic deployment model](virtual-network-deploy-multinic-classic-cli.md).
+> [!NOTE]
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md).  В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо [классической](virtual-network-deploy-multinic-classic-cli.md).
+>
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-В настоящее время в одной группе ресурсов нельзя одновременно использовать виртуальные машины с одной сетевой картой и виртуальные машины с несколькими сетевыми картами. Поэтому необходимо реализовать внутренние серверы в группе ресурсов, отдельной от всех прочих компонентов в сценарии. В приведенных ниже действиях используются следующие группы ресурсов: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory серверная* для внутренних серверов.
+В приведенных ниже действиях используются следующие группы ресурсов: *IaaSStory* для веб-серверов и *IaaSStory-BackEnd* для серверов базы данных.
 
-## Предварительные требования
-Перед развертыванием внутренних серверов необходимо выполнить развертывание основной группы ресурсов со всеми ресурсами, необходимыми для этого сценария. Чтобы развернуть эти ресурсы, сделайте следующее:
+## <a name="prerequisites"></a>Предварительные требования
+Перед созданием серверов базы данных необходимо создать группу ресурсов *IaaSStory* со всеми ресурсами, необходимыми для этого сценария. Чтобы создать эти ресурсы, выполните следующие действия:
 
 1. Перейдите к [странице шаблона](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. На странице шаблона справа от **Родительская группа ресурсов** щелкните **Развернуть в Azure**.
+2. На странице шаблона справа от **Родительская группа ресурсов** щелкните **Deploy to Azure** (Развернуть в Azure).
 3. При необходимости измените значения параметров, а затем следуйте инструкциям на портале предварительной версии Azure для развертывания группы ресурсов.
 
 > [!IMPORTANT]
-> Имена учетных записей хранения должны быть уникальными. Имена учетных записей хранения в Azure не могут повторяться.
-> 
+> Имена учетных записей хранения должны быть уникальными. Они не могут повторяться в Azure.
 > 
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Развертывание внутренних виртуальных машин
-Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
+## <a name="create-the-back-end-vms"></a>Создание внутренних виртуальных машин
+Внутренние виртуальные машины зависят от создания следующих ресурсов:
 
 * **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
-* **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
+* **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
 * **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
-### Шаг 1. Запуск сценария
+### <a name="step-1---start-your-script"></a>Шаг 1. Запуск сценария
 Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
-1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites) выше.
-   
-        existingRGName="IaaSStory"
-        location="westus"
-        vnetName="WTestVNet"
-        backendSubnetName="BackEnd"
-        remoteAccessNSGName="NSG-RemoteAccess"
+1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites)выше.
+
+    ```azurecli
+    existingRGName="IaaSStory"
+    location="westus"
+    vnetName="WTestVNet"
+    backendSubnetName="BackEnd"
+    remoteAccessNSGName="NSG-RemoteAccess"
+    ```
 2. Измените значения следующих переменных на основе значений, которые вы хотите использовать для внутреннего развертывания.
-   
-        backendRGName="IaaSStory-Backend"
-        prmStorageAccountName="wtestvnetstorageprm"
-        avSetName="ASDB"
-        vmSize="Standard_DS3"
-        diskSize=127
-        publisher="Canonical"
-        offer="UbuntuServer"
-        sku="14.04.2-LTS"
-        version="latest"
-        vmNamePrefix="DB"
-        osDiskName="osdiskdb"
-        dataDiskName="datadisk"
-        nicNamePrefix="NICDB"
-        ipAddressPrefix="192.168.2."
-        username='adminuser'
-        password='adminP@ssw0rd'
-        numberOfVMs=2
-3. Получите идентификатор подсети `BackEnd`, в которой будут созданы виртуальные машины. Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой подсетью, находятся в различных группах ресурсов.
-   
-        subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
-                        --vnet-name $vnetName \
-                        --name $backendSubnetName|grep Id)"
-        subnetId=${subnetId#*/}
-   
+
+    ```azurecli
+    backendRGName="IaaSStory-Backend"
+    prmStorageAccountName="wtestvnetstorageprm"
+    avSetName="ASDB"
+    vmSize="Standard_DS3"
+    diskSize=127
+    publisher="Canonical"
+    offer="UbuntuServer"
+    sku="14.04.2-LTS"
+    version="latest"
+    vmNamePrefix="DB"
+    osDiskName="osdiskdb"
+    dataDiskName="datadisk"
+    nicNamePrefix="NICDB"
+    ipAddressPrefix="192.168.2."
+    username='adminuser'
+    password='adminP@ssw0rd'
+    numberOfVMs=2
+    ```
+
+3. Получите идентификатор подсети `BackEnd` , в которой будут созданы виртуальные машины. Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой подсетью, находятся в различных группах ресурсов.
+
+    ```azurecli
+    subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
+            --vnet-name $vnetName \
+            --name $backendSubnetName|grep Id)"
+    subnetId=${subnetId#*/}
+    ```
+
    > [!TIP]
    > Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) (в частности, удаление подстроки).
-   > 
-   > 
-4. Получить идентификатор для группы безопасности сети `NSG-RemoteAccess`. Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой группой безопасности сети, находятся в различных группах ресурсов.
-   
-        nsgId="$(azure network nsg show --resource-group $existingRGName \
-                        --name $remoteAccessNSGName|grep Id)"
+   >
+
+4. Получить идентификатор для группы безопасности сети `NSG-RemoteAccess` . Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой группой безопасности сети, находятся в различных группах ресурсов.
+
+    ```azurecli
+    nsgId="$(azure network nsg show --resource-group $existingRGName \
+        --name $remoteAccessNSGName|grep Id)"
         nsgId=${nsgId#*/}
+    ```
 
-### Шаг 2. Создание необходимых ресурсов для виртуальных машин
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Шаг 2. Создание необходимых ресурсов для виртуальных машин
+
 1. Создайте новую группу ресурсов для всех внутренних ресурсов. Обратите внимание на использование переменной `$backendRGName` для имени группы ресурсов и `$location` для региона Azure.
-   
-        azure group create $backendRGName $location
+
+    ```azurecli
+    azure group create $backendRGName $location
+    ```
+
 2. Создайте учетную запись хранилища premium для дисков операционной системы и данных для использования с вашими виртуальными машинами.
-   
-        azure storage account create $prmStorageAccountName \
-            --resource-group $backendRGName \
-            --location $location \
-            --type PLRS
+
+    ```azurecli
+    azure storage account create $prmStorageAccountName \
+        --resource-group $backendRGName \
+        --location $location \
+        --type PLRS
+    ```
+
 3. Создайте группу доступности для виртуальных машин.
-   
-        azure availset create --resource-group $backendRGName \
-            --location $location \
-            --name $avSetName
 
-### Шаг 3. Создание сетевых адаптеров и внутренних виртуальных машин
+    ```azurecli
+    azure availset create --resource-group $backendRGName \
+        --location $location \
+        --name $avSetName
+    ```
+
+### <a name="step-3---create-the-nics-and-back-end-vms"></a>Шаг 3. Создание сетевых интерфейсов и внутренних виртуальных машин
+
 1. Запустите цикл для создания нескольких виртуальных машин на основе переменных `numberOfVMs`.
-   
-        for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-        do
-2. Для каждой виртуальной машины создайте сетевой адаптер для доступа к базе данных.
-   
-            nic1Name=$nicNamePrefix$suffixNumber-DA
-            x=$((suffixNumber+3))
-            ipAddress1=$ipAddressPrefix$x
-            azure network nic create --name $nic1Name \
-                --resource-group $backendRGName \
-                --location $location \
-                --private-ip-address $ipAddress1 \
-                --subnet-id $subnetId
-3. Для каждой виртуальной машины создайте сетевой адаптер для удаленного доступа. Обратите внимание на параметр `--network-security-group`, который используется для связи сетевого адаптера с группой безопасности сети.
-   
-            nic2Name=$nicNamePrefix$suffixNumber-RA
-            x=$((suffixNumber+53))
-            ipAddress2=$ipAddressPrefix$x
-            azure network nic create --name $nic2Name \
-                --resource-group $backendRGName \
-                --location $location \
-                --private-ip-address $ipAddress2 \
-                --subnet-id $subnetId $vnetName \
-                --network-security-group-id $nsgId
-4. Создайте виртуальную машину.
-   
-            azure vm create --resource-group $backendRGName \
-                --name $vmNamePrefix$suffixNumber \
-                --location $location \
-                --vm-size $vmSize \
-                --subnet-id $subnetId \
-                --availset-name $avSetName \
-                --nic-names $nic1Name,$nic2Name \
-                --os-type linux \
-                --image-urn $publisher:$offer:$sku:$version \
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --os-disk-vhd $osDiskName$suffixNumber.vhd \
-                --admin-username $username \
-                --admin-password $password
-5. Для каждой виртуальной машины создайте два диска данных и завершите цикл командой `done`.
-   
-            azure vm disk attach-new --resource-group $backendRGName \
-                --vm-name $vmNamePrefix$suffixNumber \        
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --vhd-name $dataDiskName$suffixNumber-1.vhd \
-                --size-in-gb $diskSize \
-                --lun 0
-   
-            azure vm disk attach-new --resource-group $backendRGName \
-                --vm-name $vmNamePrefix$suffixNumber \        
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --vhd-name $dataDiskName$suffixNumber-2.vhd \
-                --size-in-gb $diskSize \
-                --lun 1
-        done
 
-### Шаг 4. Запуск сценария
+    ```azurecli
+    for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+    do
+    ```
+
+2. Для каждой виртуальной машины создайте сетевой адаптер для доступа к базе данных.
+
+    ```azurecli
+    nic1Name=$nicNamePrefix$suffixNumber-DA
+    x=$((suffixNumber+3))
+    ipAddress1=$ipAddressPrefix$x
+    azure network nic create --name $nic1Name \
+        --resource-group $backendRGName \
+        --location $location \
+        --private-ip-address $ipAddress1 \
+        --subnet-id $subnetId
+    ```
+
+3. Для каждой виртуальной машины создайте сетевой адаптер для удаленного доступа. Обратите внимание на параметр `--network-security-group` , который используется для связи сетевого адаптера с группой безопасности сети.
+
+    ```azurecli
+    nic2Name=$nicNamePrefix$suffixNumber-RA
+    x=$((suffixNumber+53))
+    ipAddress2=$ipAddressPrefix$x
+    azure network nic create --name $nic2Name \
+        --resource-group $backendRGName \
+        --location $location \
+        --private-ip-address $ipAddress2 \
+        --subnet-id $subnetId $vnetName \
+        --network-security-group-id $nsgId
+    ```
+
+4. Создайте виртуальную машину.
+
+    ```azurecli
+    azure vm create --resource-group $backendRGName \
+        --name $vmNamePrefix$suffixNumber \
+        --location $location \
+        --vm-size $vmSize \
+        --subnet-id $subnetId \
+        --availset-name $avSetName \
+        --nic-names $nic1Name,$nic2Name \
+        --os-type linux \
+        --image-urn $publisher:$offer:$sku:$version \
+        --storage-account-name $prmStorageAccountName \
+        --storage-account-container-name vhds \
+        --os-disk-vhd $osDiskName$suffixNumber.vhd \
+        --admin-username $username \
+        --admin-password $password
+    ```
+
+5. Для каждой виртуальной машины создайте два диска данных и завершите цикл командой `done`.
+
+    ```azurecli
+    azure vm disk attach-new --resource-group $backendRGName \
+        --vm-name $vmNamePrefix$suffixNumber \
+        --storage-account-name $prmStorageAccountName \
+        --storage-account-container-name vhds \
+        --vhd-name $dataDiskName$suffixNumber-1.vhd \
+        --size-in-gb $diskSize \
+        --lun 0
+
+    azure vm disk attach-new --resource-group $backendRGName \
+        --vm-name $vmNamePrefix$suffixNumber \        
+        --storage-account-name $prmStorageAccountName \
+        --storage-account-container-name vhds \
+        --vhd-name $dataDiskName$suffixNumber-2.vhd \
+        --size-in-gb $diskSize \
+        --lun 1
+        done
+    ```
+
+### <a name="step-4---run-the-script"></a>Шаг 4. Запуск сценария
 Теперь, когда вы скачали и изменили сценарий в соответствии со своими потребностями, запустите сценарий для создания виртуальных машин внутренней базы данных с несколькими сетевыми картами.
 
-1. Сохраните сценарий и запустите его в терминале **Bash**. Вы увидите начальный вывод сценария, как показано ниже.
+1. Сохраните сценарий и запустите его в терминале **Bash** . Вы увидите начальный вывод сценария, как показано ниже.
    
         info:    Executing command group create
         info:    Getting resource group IaaSStory-Backend
         info:    Creating resource group IaaSStory-Backend
         info:    Created resource group IaaSStory-Backend
-        data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
+        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
         data:    Name:                IaaSStory-Backend
         data:    Location:            westus
         data:    Provisioning State:  Succeeded
@@ -201,7 +237,7 @@ ms.author: jdial
         info:    Looking up the network interface "NICDB1-DA"
         info:    Creating network interface "NICDB1-DA"
         info:    Looking up the network interface "NICDB1-DA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
         data:    Name                            : NICDB1-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
         data:    Location                        : westus
@@ -212,26 +248,26 @@ ms.author: jdial
         data:      Provisioning state            : Succeeded
         data:      Private IP address            : 192.168.2.4
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
         info:    Looking up the network interface "NICDB1-RA"
         info:    Creating network interface "NICDB1-RA"
         info:    Looking up the network interface "NICDB1-RA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
         data:    Name                            : NICDB1-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
         data:    Location                        : westus
         data:    Provisioning state              : Succeeded
         data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
         data:    IP configurations:
         data:      Name                          : NIC-config
         data:      Provisioning state            : Succeeded
         data:      Private IP address            : 192.168.2.54
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
         data:
         info:    network nic create command OK
         info:    Executing command vm create
@@ -244,7 +280,7 @@ ms.author: jdial
         info:    Looking up the NIC "NICDB1-DA"
         info:    Looking up the NIC "NICDB1-RA"
         info:    Creating VM "DB1"
-2. Через несколько минут выполнение будет завершено, и вы увидите остальной вывод, как показано ниже.
+2. Через несколько минут выполнение завершится и отобразится остальной вывод, как показано ниже.
    
         info:    vm create command OK
         info:    Executing command vm disk attach-new
@@ -263,7 +299,7 @@ ms.author: jdial
         info:    Looking up the network interface "NICDB2-DA"
         info:    Creating network interface "NICDB2-DA"
         info:    Looking up the network interface "NICDB2-DA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
         data:    Name                            : NICDB2-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
         data:    Location                        : westus
@@ -274,26 +310,26 @@ ms.author: jdial
         data:      Provisioning state            : Succeeded
         data:      Private IP address            : 192.168.2.5
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
         info:    Looking up the network interface "NICDB2-RA"
         info:    Creating network interface "NICDB2-RA"
         info:    Looking up the network interface "NICDB2-RA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
         data:    Name                            : NICDB2-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
         data:    Location                        : westus
         data:    Provisioning state              : Succeeded
         data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
         data:    IP configurations:
         data:      Name                          : NIC-config
         data:      Provisioning state            : Succeeded
         data:      Private IP address            : 192.168.2.55
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
         data:
         info:    network nic create command OK
         info:    Executing command vm create
@@ -320,4 +356,9 @@ ms.author: jdial
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

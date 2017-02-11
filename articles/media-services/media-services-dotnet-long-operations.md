@@ -1,12 +1,12 @@
 ---
-title: Опрос долговременных операций | Microsoft Docs
-description: В этом разделе содержатся сведения об опросе долговременных операций.
+title: "Опрос долговременных операций | Документация Майкрософт"
+description: "В этом разделе содержатся сведения об опросе долговременных операций."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
+
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Доставка динамической потоковой передачи с помощью служб мультимедиа Azure
@@ -187,6 +191,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа | Microsoft Docs
-description: В этом разделе содержится обзор форматов и кодеков расширенного рабочего процесса кодировщика мультимедиа.
+title: "Форматы и кодеки рабочего процесса Media Encoder Premium | Документация Майкрософт"
+description: "В этом разделе содержится обзор форматов и кодеков расширенного рабочего процесса кодировщика мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erik43
-editor: ''
-
+editor: 
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Форматы и кодеки рабочего процесса Premium Media Encoder
@@ -32,10 +36,10 @@ ms.author: juliako;anilmur
 
 **Расширенный рабочий процесс кодировщика мультимедиа** поддерживает скрытые субтитры, описанные в [этом](#closed_captioning) разделе. 
 
-## <a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на входе.
 
-### <a name="input-container/file-formats"></a>Контейнер ввода/ форматы файлов
+### <a name="input-containerfile-formats"></a>Контейнер ввода/ форматы файлов
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -64,10 +68,10 @@ ms.author: juliako;anilmur
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на выходе.
 
-### <a name="output-container/file-formats"></a>Контейнер вывода/ форматы файлов
+### <a name="output-containerfile-formats"></a>Контейнер вывода/ форматы файлов
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM и AS02)
 * DPP (включая AS11)
@@ -96,7 +100,7 @@ ms.author: juliako;anilmur
 * MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
 
-## <a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Поддержка скрытых титров
+## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Поддержка скрытых титров
 При приеме **расширенный рабочий процесс кодировщика мультимедиа** поддерживает:
 
 1. файлы SCC
@@ -124,6 +128,9 @@ ms.author: juliako;anilmur
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

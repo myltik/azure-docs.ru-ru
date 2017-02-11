@@ -1,24 +1,28 @@
 ---
-title: Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio | Microsoft Docs
-description: Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio
+title: "Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio | Документация Майкрософт"
+description: "Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio"
 services: visual-studio-online
 documentationcenter: n/a
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 5e6662fc-b917-43ea-bf2b-4f2fc3d213dc
 ms.service: visual-studio-online
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8a7b2f3053be09e8cb6e768796b6969eba725885
+
 
 ---
-# Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio
-## Обзор
-С помощью IntelliTrace можно записывать в журнал расширенные отладочные сведения для экземпляра роли при его запуске в Azure. Если вам необходимо найти причину проблемы, можете использовать журналы IntelliTrace для пошагового выполнения кода из Visual Studio, как если бы он запускался в Azure. Фактически IntelliTrace записывает выполнение ключевого кода и данные среды при запуске приложения Azure в качестве облачной службы в Azure и позволяет воспроизводить записанные данные в Visual Studio. В качестве альтернативы можно использовать удаленную отладку для непосредственного подключения к облачной службе, запущенной в Azure. См. [Отладка облачных служб](http://go.microsoft.com/fwlink/p/?LinkId=623041).
+# <a name="debugging-a-published-cloud-service-with-intellitrace-and-visual-studio"></a>Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio
+## <a name="overview"></a>Обзор
+С помощью IntelliTrace можно записывать в журнал расширенные отладочные сведения для экземпляра роли при его запуске в Azure. Если вам необходимо найти причину проблемы, можете использовать журналы IntelliTrace для пошагового выполнения кода из Visual Studio, как если бы он запускался в Azure. Фактически IntelliTrace записывает выполнение ключевого кода и данные среды при запуске приложения Azure в качестве облачной службы в Azure и позволяет воспроизводить записанные данные в Visual Studio. В качестве альтернативы можно использовать удаленную отладку для непосредственного подключения к облачной службе, запущенной в Azure. Ознакомьтесь со статьей [Отладка облачных служб](http://go.microsoft.com/fwlink/p/?LinkId=623041).
 
 > [!IMPORTANT]
 > IntelliTrace предназначена только для отладки и не должна использоваться в рабочей среде.
@@ -28,37 +32,37 @@ ms.author: tarcher
 > 
 > 
 
-## Настройка приложения Azure для IntelliTrace
+## <a name="to-configure-an-azure-application-for-intellitrace"></a>Настройка приложения Azure для IntelliTrace
 Чтобы включить IntelliTrace для приложения Azure, необходимо создать и опубликовать приложение из проекта Visual Studio Azure. Перед публикацией в Azure необходимо настроить IntelliTrace для приложения Azure. Если вы опубликовали приложение без настройки IntelliTrace, но затем решили, что хотите настроить IntelliTrace, необходимо еще раз опубликовать приложение из Visual Studio. Дополнительные сведения см. в статье [Публикация облачной службы с помощью инструментов Azure](http://go.microsoft.com/fwlink/p/?LinkId=623012).
 
 1. Перед развертыванием приложения Azure убедитесь, что в качестве целей сборки проекта выбрана **Отладка**.
 2. Откройте контекстное меню для проекта Azure в обозревателе решений и выберите **Опубликовать**.
    
     Откроется мастер публикации приложения Azure.
-3. Чтобы собирать журналы IntelliTrace для приложения во время его публикации в облаке, установите флажок **Включить IntelliTrace**.
+3. Чтобы собирать журналы IntelliTrace для приложения во время его публикации в облаке, установите флажок **Включить IntelliTrace** .
    
    > [!NOTE]
    > При публикации приложения Azure можно включить IntelliTrace или профилирование. И то и другое одновременно включить нельзя.
    > 
    > 
-4. Чтобы настроить базовую конфигурацию IntelliTrace, выберите гиперссылку **Параметры**.
+4. Чтобы настроить базовую конфигурацию IntelliTrace, выберите гиперссылку **Параметры** .
    
     Откроется диалоговое окно "Параметры IntelliTrace", как показано на следующем рисунке. Можно указать, какие события будут записываться в журнал, требуется ли осуществлять сбор сведений о вызовах, для каких модулей и процессов необходимо записывать журналы и какой объем дискового пространства необходимо выделить для записи. Дополнительные сведения об IntelliTrace см. в разделе [Отладка с помощью IntelliTrace](http://go.microsoft.com/fwlink/?LinkId=214468).
    
-    ![VST\_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
+    ![VST_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
 
 Журнал IntelliTrace представляет собой кольцевой файл журнала максимального размера, указанного в настройках IntelliTrace (размер по умолчанию — 250 МБ). Журналы IntelliTrace записываются в файл в файловой системе виртуальной машины. При запросе журналов формируется моментальный снимок на данный момент времени и загружается на локальный компьютер.
 
 После публикации приложения в Azure с помощью вычислительного узла Azure в обозревателе сервера можно определить, был ли включен IntelliTrace, как показано на следующем рисунке.
 
-![VST\_DeployComputeNode](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
+![VST_DeployComputeNode](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
 
-## Скачивание журналов IntelliTrace для экземпляра роли
+## <a name="downloading-intellitrace-logs-for-a-role-instance"></a>Скачивание журналов IntelliTrace для экземпляра роли
 Вы можете скачать журналы IntelliTrace для экземпляра роли из узла **Облачные службы** в **обозревателе сервера**. Разверните узел **Облачные службы**, найдите экземпляр, который вас интересует, откройте контекстное меню для данного экземпляра и выберите **Просмотр журналов IntelliTrace**. Журналы IntelliTrace будут загружены в файл в каталоге на локальном компьютере. При каждом запросе журналов IntelliTrace создается новый моментальный снимок.
 
 Во время загрузки журналов Visual Studio отображает ход выполнения операции в окне журнала действий Azure. Как показано на следующем рисунке, элемент строки можно развернуть для более детального просмотра операции.
 
-![VST\_IntelliTraceDownloadProgress](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC745551.png)
+![VST_IntelliTraceDownloadProgress](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC745551.png)
 
 Во время загрузки журналов IntelliTrace можно продолжать работу в Visual Studio. После завершения загрузки журнала он автоматически открывается в Visual Studio.
 
@@ -67,7 +71,12 @@ ms.author: tarcher
 > 
 > 
 
-## См. также
+## <a name="see-also"></a>См. также
 [Отладка облачных служб](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте, как добавлять надежные средства поиска (включая мониторинг действий) в пользовательские веб-приложения и мобильные приложения. Справочники по API и другая документация."
 translationtype: Human Translation
-ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
-ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Документация по поиску Azure
@@ -132,8 +132,8 @@ ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
                     <div class="cardText">
                         <h3>Языки</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">Управление .NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (управление)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (управление)</a></p>
                    </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/searchservice">справочник по API REST</a></p>
-                        <p><a href="/rest/api/searchmanagement">Справочник по REST API для управления</a></p>
+                        <p><a href="/rest/api/searchmanagement">Справочник по REST API для управления</a></p>
                     </div>
                 </div>
             </div>
@@ -154,13 +154,7 @@ ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по поиску Azure </div>
-    </a>
-</div>
+
 
 
 

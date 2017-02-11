@@ -10,22 +10,25 @@ tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 2a1215b5065fc690e539000aa1e89049617f8902
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Создание и изменение маршрутизации для канала ExpressRoute
 > [!div class="op_single_selector"]
-> [Портал Azure — Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell — Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell — классический портал](expressroute-howto-routing-classic.md)
+> * [Resource Manager — портал Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager — PowerShell](expressroute-howto-routing-arm.md)
+> * [Классическая модель — PowerShell](expressroute-howto-routing-classic.md)
+> * [Видео — частный пиринг](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Видео — общедоступный пиринг](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Видео — пиринг Майкрософт](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -249,7 +252,9 @@ ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-    >[AZURE.IMPORTANT] Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+    > [!IMPORTANT]
+    > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+
 
 ### <a name="to-view-azure-public-peering-details"></a>Просмотр сведений об общедоступном пиринге Azure
 Для получения сведений о конфигурации можно использовать следующий командлет:
@@ -262,7 +267,7 @@ ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
 ### <a name="to-update-azure-public-peering-configuration"></a>Обновление конфигурации общедоступного пиринга Azure
 С помощью указанного ниже командлета можно обновить любую часть конфигурации.
 
-    Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600 
+    Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600 
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -387,6 +392,6 @@ ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

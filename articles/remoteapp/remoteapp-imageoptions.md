@@ -1,21 +1,25 @@
 ---
-title: Создание образа Azure RemoteApp | Microsoft Docs
-description: Узнайте о способах и вариантах создания образов для среды Azure RemoteApp
+title: "Создание образа Azure RemoteApp | Документация Майкрософт"
+description: "Узнайте о способах и вариантах создания образов для среды Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: cb0f9424-6185-45a1-abe9-c23f1edf34f2
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+
 
 ---
-# Создание образа Azure RemoteApp
+# <a name="create-an-azure-remoteapp-image"></a>Создание образа Azure RemoteApp
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -29,8 +33,13 @@ ms.author: elizapo
 
 * Можно импортировать и использовать [образ на базе виртуальной машины Azure](remoteapp-image-on-azurevm.md). Это хороший вариант для бизнес-приложений, для которых нужно настраивать собственные параметры. Можно настроить образ для определенного приложения.
 * Можно [создать и отправить собственный образ](remoteapp-create-custom-image.md). Этот вариант подходит для ситуации, когда у вас уже есть образ, который вы используете в локальном развертывании служб удаленных рабочих столов.
-* Можно использовать один из [шаблонов образов](remoteapp-images.md), которые предлагаются в составе подписки RemoteApp. Они создаются и обслуживаются специалистами RemoteApp и содержат стандартные приложения (например, из набора Office), которые можно предложить пользователям. Обратите внимание на то, что для рабочего развертывания можно использовать только образ Office 365 профессиональный плюс.
+* Можно использовать один из [шаблонов образов](remoteapp-images.md) , которые предлагаются в составе подписки RemoteApp. Они создаются и обслуживаются специалистами RemoteApp и содержат стандартные приложения (например, из набора Office), которые можно предложить пользователям. Обратите внимание на то, что для рабочего развертывания можно использовать только образ Office 365 профессиональный плюс.
 
 Независимо от источника и способа создания образа необходимо понимать [требования к приложениям](remoteapp-appreqs.md) для их эффективной работы в среде RemoteApp. Затем нужно создать [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) коллекцию.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

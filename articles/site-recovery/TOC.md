@@ -3,22 +3,23 @@
 ## [Как работает Site Recovery?](site-recovery-components.md)
 ## [Какие рабочие нагрузки можно защитить?](site-recovery-workload.md)
 ## [Таблица поддержки Site Recovery](site-recovery-support-matrix.md)
-## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](site-recovery-faq.md)
+## [Часто задаваемые вопросы](site-recovery-faq.md)
 ## [Просмотр введения](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Начало работы
 ## [Подготовка к развертыванию](site-recovery-best-practices.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## План
-### [Планирование загрузки](site-recovery-capacity-planner.md)
+### [Планирование ресурсов](site-recovery-capacity-planner.md)
 ### [Результаты проверки производительности и масштабирования](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
 ### [Рекомендации по сетевой инфраструктуре](site-recovery-network-design.md)
 ### [Сетевое сопоставление (VMM)](site-recovery-network-mapping.md)
 ### [Сопоставление хранилищ между локальными сайтами](site-recovery-storage-mapping.md)
 ## Репликация
-### [Виртуальные машины и серверы VMWare в Azure](site-recovery-vmware-to-azure.md)
-### [Виртуальные машины и серверы VMware на вторичный сайт](site-recovery-vmware-to-vmware.md)
+### [Виртуальные машины и физические серверы VMware в Azure](site-recovery-vmware-to-azure.md)
+### [Виртуальные машины и физические серверы VMware на дополнительный сайт](site-recovery-vmware-to-vmware.md)
+### [Виртуальные машины VMware с поддержкой нескольких клиентов в Azure с помощью программы CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Виртуальные машины Hyper-V в Azure (с VMM)](site-recovery-vmm-to-azure.md)
 ### [Виртуальные машины Hyper-V в Azure (без VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Виртуальные машины Hyper-V на вторичный сайт](site-recovery-vmm-to-vmm.md)
@@ -49,8 +50,9 @@
 ## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell — классическая модель](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell — классическая модель](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Сопутствующие материалы
 ## [Служба автоматизации Azure](/azure/automation/)
@@ -63,6 +65,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

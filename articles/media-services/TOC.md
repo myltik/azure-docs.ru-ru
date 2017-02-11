@@ -24,7 +24,9 @@
 ### Подключение программными средствами
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Управление конечными точками потоковой передачи на портале](media-services-portal-manage-streaming-endpoints.md)
+### [Управление конечными точками потоковой передачи](media-services-streaming-endpoints-overview.md)
+#### [Портал](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу](media-services-roll-storage-access-keys.md)
 ### [Квоты и ограничения](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Потоковая трансляция в реальном времени](media-services-manage-channels-overview.md)
 ### [Локальные кодировщики](media-services-live-streaming-with-onprem-encoders.md)
+#### [Портал](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Потоковая трансляция с использованием облачного кодировщика](media-services-manage-live-encoder-enabled-channels.md)
 ### Учебники по облачным кодировщикам
 #### [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

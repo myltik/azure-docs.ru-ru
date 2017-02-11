@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте, как настроить параметры безопасности в службах Azure так, чтобы выполнить требования развертываний служб и данных в облаке."
 translationtype: Human Translation
-ms.sourcegitcommit: 07febed306b53cc62c882f3f7865284e96875bf8
-ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Документация по системе безопасности
@@ -105,13 +105,7 @@ ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по системе безопасности </div>
-    </a>
-</div>
+
 
 
 

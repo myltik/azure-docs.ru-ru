@@ -10,12 +10,15 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Интерфейс командной строки Azure](data-lake-analytics-get-started-cli.md)
 ## [ИНТЕРФЕЙС REST API](data-lake-analytics-get-started-rest-api.md)
+## [Python](data-lake-analytics-get-started-python.md)
 
 # Практическое руководство
 ## Разработка
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [Функции окна U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Определяемые пользователем операторы U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [Расширения Python для U-SQL](data-lake-analytics-u-sql-python-extensions.md)
+### [Когнитивные возможности U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Создание решений
 ### [Анализ журналов веб-сайтов](data-lake-analytics-analyze-weblogs.md)
@@ -36,11 +39,11 @@
 ### [Использования представления выполнения вершин](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Справочные материалы
-
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 
 # Ресурсы
@@ -52,6 +55,6 @@
 ## [Блог Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

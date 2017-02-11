@@ -1,12 +1,12 @@
 ---
-title: События Reliable Actors | Microsoft Docs
-description: Общие сведения о событиях для Reliable Actors Service Fabric.
+title: "События Reliable Actors | Документация Майкрософт"
+description: "Общие сведения о событиях для Reliable Actors Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e57ea14e8d0664df624037759685f11baa312d26
+
 
 ---
-# События субъекта
-События субъекта — это способ отправки уведомлений от субъекта клиентам без гарантии доставки. Они предназначены для взаимодействия между субъектом и клиентами, и их не следует использовать для обмена данными между субъектами.
+# <a name="actor-events"></a>События субъекта
+События субъекта — это способ отправки уведомлений от субъекта клиентам без гарантии доставки. Они предназначены для взаимодействия между субъектом и клиентами, и их не следует использовать для обмена данными между субъектами.
 
 В следующих фрагментах кода показано, как использовать события субъекта в приложении.
 
-Определите интерфейс, который описывает события, публикуемые субъектом. Он должен быть производным от интерфейса `IActorEvents`. Аргументы методов должны относиться к типу [сериализуемых контрактов данных](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Методы не должны ничего возвращать, так как уведомления являются однонаправленными и их доставка не гарантируется.
+Определите интерфейс, который описывает события, публикуемые субъектом. Он должен быть производным от интерфейса `IActorEvents` . Аргументы методов должны относиться к типу [сериализуемых контрактов данных](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Методы не должны ничего возвращать, так как уведомления являются однонаправленными и их доставка не гарантируется.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -62,7 +66,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
-В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и автоматически повторно выполняет подписывание на них. Чтобы изменить интервал между повторными операциями подписывания, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и автоматически повторно выполняет подписывание на них. Чтобы изменить интервал между повторными операциями подписывания, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` .
 
 На стороне субъекта достаточно просто публиковать события, когда они происходят. При наличии подписчиков на событие субъекта среда выполнения будет отправлять им уведомление.
 
@@ -71,10 +75,15 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
 * [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Просмотр сведений о рабочей области на портале Azure
 
-1. Используя подписку Azure, войдите на [портал Azure](https://portal.azure.com) (если вы еще этого не сделали).
+1. Войдите на [портал Azure](https://portal.azure.com), используя подписку Azure, если вы еще этого не сделали.
 2. В меню **концентратора** щелкните **Больше служб**, а затем в списке ресурсов введите **Log Analytics**. Как только вы начнете вводить, список отфильтруется соответствующим образом. Щелкните **Log Analytics**.  
     ![Концентратор Azure](./media/log-analytics-manage-access/hub.png)  
 3. В колонке подписки Log Analytics выберите рабочую область.
@@ -242,6 +242,24 @@ ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
 6. При обновлении представления на портале Azure для выбранного плана появится новое значение параметра **Ценовая категория**.  
     ![обновленный план](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Изменение периода хранения данных в Log Analytics
+
+В ценовой категории "Бесплатный" в Log Analytics доступны данные за последние семь дней.
+В ценовой категории "Стандартный" в Log Analytics доступны данные за последние 30 дней.
+В ценовой категории "Премиум" в Log Analytics доступны данные за последние 365 дней.
+В ценовой категории "Автономный" и OMS в Log Analytics по умолчанию доступны данные за последние 31 день.
+
+При использовании ценовых категорий "Автономный" и OMS можно сохранить данные за 2 года (730 дней). За данные, хранящиеся дольше периода по умолчанию (31 день), взимается плата за период удержания. Дополнительные сведения о ценах см. на странице [цен за превышение](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Изменение продолжительности периода удержания данных
+
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. Найдите и выберите пункт **Log Analytics**.
+3. Появится список имеющихся рабочих областей. Выберите рабочую область.  
+4. В колонке рабочей области в разделе **Общие** щелкните **Хранение**.  
+5. Воспользуйтесь ползунком, чтобы увеличить или уменьшить количество дней в периоде удержания, а затем нажмите кнопку **Сохранить**
+![изменение периода удержания](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Изменение организации Azure Active Directory для рабочей области
 
 Организацию Azure Active Directory для рабочей области можно изменить. Изменив организацию Azure Active Directory, вы сможете добавлять пользователей и группы из этого каталога в рабочую область.
@@ -275,6 +293,6 @@ ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

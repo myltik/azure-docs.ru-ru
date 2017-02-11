@@ -1,13 +1,13 @@
 ---
-title: Microsoft Power BI Embedded — подключение к источнику данных
-description: Power BI Embedded, подключение к источникам данных
+title: "Microsoft Power BI Embedded — подключение к источнику данных"
+description: "Power BI Embedded, подключение к источникам данных"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+
 
 ---
 # <a name="connect-to-a-data-source"></a>Подключение к источнику данных
@@ -38,7 +42,7 @@ ms.author: asaxton
    Существуют некоторые ограничения на использование **DirectQuery**:
 
 * Все таблицы должны находиться в одной базе данных.
-* Если запрос слишком сложный, произойдет ошибка. Для исправления ошибки необходимо изменить запрос так, чтобы он был менее сложным. Если запрос должен быть сложным, необходимо импортировать данные вместо использования **DirectQuery**.
+* Если запрос слишком сложный, произойдет ошибка. Для исправления ошибки необходимо изменить запрос так, чтобы он был менее сложным. Если запрос должен быть сложным, необходимо импортировать данные, а не использовать **DirectQuery**.
 * Фильтрация по связи может выполняться только в одном направлении, а не в обоих направлениях.
 * Невозможно изменить тип данных столбца.
 * По умолчанию ограничения помещаются в выражения DAX, разрешенные в мерах. Дополнительные сведения см. в разделе [DirectQuery и меры](#measures).
@@ -52,6 +56,9 @@ ms.author: asaxton
 * [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

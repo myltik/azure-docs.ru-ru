@@ -77,6 +77,8 @@
 #### Несколько IP-адресов
 ##### [Портал Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-multiple-ip-addresses-cli.md)
+##### [Шаблон](virtual-network-multiple-ip-addresses-template.md)
 
 ### Сценарии подключения
 #### [Виртуальная сеть к виртуальной сети](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -108,15 +110,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-manage-nsg-arm-cli.md)
 #### [Журналы](virtual-network-nsg-manage-log.md)
-#### Устранение неполадок
-##### [Портал](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Устранение неполадок маршрутов
-#### [Портал](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Виртуальные машины
 #### [Просмотр и изменение имен узлов](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Перемещение виртуальной машины в другую подсеть](virtual-networks-move-vm-role-to-subnet.md)
+
+## Устранение неполадок
+### Группы безопасности сети
+#### [Портал](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Маршруты
+#### [Портал](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Справочные материалы
 ## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
@@ -143,6 +147,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

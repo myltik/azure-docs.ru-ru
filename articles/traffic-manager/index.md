@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте, как управлять входящим трафиком для оптимальной производительности приложений. В документации показано, как распределять трафик, направляемый в Azure или на внешние конечные точки службы."
 translationtype: Human Translation
-ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
-ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Документация по диспетчеру трафика
@@ -120,13 +120,7 @@ ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачивание документации по диспетчеру трафика </div>
-    </a>
-</div>
+
 
 
 

@@ -1,13 +1,13 @@
 ---
-title: Использование Pig в Hadoop в HDInsight с помощью PowerShell | Microsoft Docs
-description: Узнайте, как отправлять задания Pig в кластер Hadoop в HDInsight с помощью Azure PowerShell.
+title: "Использование Pig в Hadoop в HDInsight с помощью PowerShell | Документация Майкрософт"
+description: "Узнайте, как отправлять задания Pig в кластер Hadoop в HDInsight с помощью Azure PowerShell."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
+
 
 ---
 # <a name="run-pig-jobs-using-powershell"></a>Выполнение заданий Pig с помощью PowerShell
@@ -27,7 +31,7 @@ ms.author: larryfr
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Предварительные требования
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -35,8 +39,8 @@ ms.author: larryfr
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a name="<a-id="powershell"></a>run-pig-jobs-using-powershell"></a><a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
-Azure PowerShell предоставляет *командлеты* , позволяющие удаленно запускать задания Pig в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
+## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
+Azure PowerShell предоставляет *командлеты* , позволяющие удаленно запускать задания Pig в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
 При выполнении заданий Pig на удаленном кластере HDInsight используются следующие командлеты:
 
@@ -122,7 +126,7 @@ Azure PowerShell предоставляет *командлеты* , позво�
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="troubleshooting"></a>troubleshooting"></a><a id="troubleshooting"></a>Устранение неполадок
+## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>Устранение неполадок
 Если данные не возвращаются по завершении задания, возможно, во время обработки произошла ошибка. Чтобы просмотреть информацию об ошибке для данного задания, добавьте следующую команду в конец файла **pigjob.ps1** , сохраните его, а затем запустите снова.
 
     # Print the output of the Pig job.
@@ -138,10 +142,10 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
 Будет возвращена информация, которая записывается в STDERR на сервере при запуске задания и может помочь определить причину сбоя задания.
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Сводка
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
 Как можно видеть, Azure PowerShell позволяет с легкостью выполнять задания Pig в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
 Общая информация о Pig в HDInsight:
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
@@ -151,6 +155,9 @@ Azure PowerShell предоставляет *командлеты* , позво�
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

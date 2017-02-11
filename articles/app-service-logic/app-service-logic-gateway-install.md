@@ -1,12 +1,12 @@
 ---
-title: Установка локального шлюза данных для приложений логики | Microsoft Docs
-description: Сведения о том, как установить локальный шлюз данных для использования в приложении логики.
+title: "Установка локального шлюза данных для приложений логики | Документация Майкрософт"
+description: "Сведения о том, как установить локальный шлюз данных для использования в приложении логики."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddd62d3112a2c93ea3c935ce89ff387049899c09
+
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-logic-apps"></a>Установка локального шлюза данных для приложений логики
@@ -21,7 +25,7 @@ ms.author: jehollan
 ### <a name="prerequisites"></a>Предварительные требования
 Минимальные:
 
-* .NET Framework 4.5;
+* .NET Framework 4.5;
 * 64-разрядная версия Windows 7 или Windows Server 2008 R2 (или более поздняя версия).
 
 Рекомендация:
@@ -82,7 +86,7 @@ TcpTestSucceeded       : True
 ### <a name="configure-ports"></a>Настройка портов
 Шлюз создает исходящее подключение к служебной шине Azure. Он обменивается данными через исходящие порты: TCP-порт 443 (по умолчанию), а также 5671, 5672 и 9350–9354. Шлюзу не требуются входящие порты.
 
-Вы можете больше узнать о [гибридных решениях](../service-bus/service-bus-fundamentals-hybrid-solutions.md).
+Вы можете больше узнать о [гибридных решениях](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 | ДОМЕННЫЕ ИМЕНА | ИСХОДЯЩИЕ ПОРТЫ | ОПИСАНИЕ |
 | --- | --- | --- |
@@ -142,7 +146,7 @@ TcpTestSucceeded       : True
 **Вопрос**. Где хранятся мои учетные данные? <br/>
 **Ответ**. Учетные данные, введенные для источника данных, хранятся в облачной службе шлюза в зашифрованном виде. Учетные данные расшифровываются локально в шлюзе.
 
-### <a name="high-availability/disaster-recovery"></a>Высокий уровень доступности и аварийное восстановление
+### <a name="high-availabilitydisaster-recovery"></a>Высокий уровень доступности и аварийное восстановление
 **Вопрос**. Существуют ли какие-либо планы по реализации сценариев высокого уровня доступности с помощью шлюза? <br/>
 **Ответ**. Это входит в наши планы, но мы еще не определили временную шкалу для этого.
 
@@ -175,7 +179,7 @@ TcpTestSucceeded       : True
 ### <a name="update-to-the-latest-version"></a>Обновление до последней версии
 При использовании устаревшей версии шлюза может возникать масса проблем.  Общепринятая рекомендация — убедиться, что вы используете последнюю версию.  Если шлюз не обновлялся месяц или дольше, то можно установить последнюю версию шлюза и проверить, получится ли воспроизвести проблему.
 
-### <a name="error:-failed-to-add-user-to-group.-(-2147463168-pbiegwservice-performance-log-users-)"></a>Error: Failed to add user to group. (Ошибка: не удалось добавить пользователя в группу.) (-2147463168 PBIEgwService Performance Log Users ) (-2147463168 пользователей журналов производительности PBIEgwService)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users-"></a>Error: Failed to add user to group. (Ошибка: не удалось добавить пользователя в группу.) (-2147463168 PBIEgwService Performance Log Users ) (-2147463168 пользователей журналов производительности PBIEgwService)
 Эта ошибка появляется, если вы пытаетесь установить шлюз на контроллер домена, что не поддерживается. Вам потребуется развернуть шлюз на компьютере, который не является контроллером домена.
 
 ## <a name="tools"></a>Средства
@@ -202,6 +206,9 @@ TcpTestSucceeded       : True
 * [Возможности интеграции Enterprise](app-service-logic-enterprise-integration-overview.md)
 * [Соединители приложений логики](../connectors/apis-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

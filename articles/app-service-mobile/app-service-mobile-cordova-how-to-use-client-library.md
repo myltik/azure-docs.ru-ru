@@ -1,12 +1,12 @@
 ---
-title: Использование подключаемого модуля Apache Cordova для мобильных приложений Azure
-description: Использование подключаемого модуля Apache Cordova для мобильных приложений Azure
+title: "Использование подключаемого модуля Apache Cordova для мобильных приложений Azure"
+description: "Использование подключаемого модуля Apache Cordova для мобильных приложений Azure"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
@@ -14,6 +14,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 31632f9c88810d5cd26ad314dde2c28a4012dc75
+
 
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Использование клиентской библиотеки Apache Cordova для мобильных приложений Azure
@@ -30,7 +34,7 @@ ms.author: adrianha
 * Windows Phone 8.1
 * Универсальные приложения Windows
 
-## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
+## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Настройка и необходимые компоненты
 В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. В этом руководстве также предполагается, что подключаемый модуль Apache Cordova уже добавлен в код.  Если это не так, добавьте подключаемый модуль Apache Cordova в проект через командную строку:
 
 ```
@@ -41,7 +45,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
+## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Практическое руководство. Проверка подлинности пользователей
 Служба приложений Azure поддерживает аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетная запись Майкрософт и Twitter. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в учебнике [Приступая к работе с проверкой подлинности].
 
 Если в приложении Apache Cordova используется проверка подлинности, должны быть доступны следующие подключаемые модули Cordova:
@@ -53,7 +57,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления
 Для обработки потоков пользовательского интерфейса OAuth некоторые типы приложений Apache Cordova используют функцию замыкания на себя.  Потоки пользовательского интерфейса OAuth в localhost приводят к возникновению проблем, так как службе аутентификации известно только, как использовать вашу службу по умолчанию.  Ниже перечислены примеры проблемных потоков пользовательского интерфейса OAuth:
 
 * эмулятор Ripple;
@@ -93,7 +97,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 Новые параметры вступят в действие приблизительно через 10–15 секунд.
 
-## <a name="<a-name="register-for-push"></a>how-to:-register-for-push-notifications"></a><a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
+## <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
 Для обработки push-уведомлений установите [phonegap-plugin-push] .  Этот подключаемый модуль можно легко добавить, введя команду `cordova plugin add` в командной строке или воспользовавшись установщиком подключаемых модулей Git в Visual Studio.  Следующий код в приложении Apache Cordova регистрирует устройство для получения push-уведомлений.
 
 ```
@@ -142,7 +146,7 @@ pushHandler.on('error', function (error) {
 [Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
 
 [подключаемого модуля Apache Cordova для мобильных приложений Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[Ваше первое приложение Apache Cordova]: http://cordova.apache.org/#getstarted
+[первого приложения Apache Cordova]: http://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
@@ -151,6 +155,6 @@ pushHandler.on('error', function (error) {
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

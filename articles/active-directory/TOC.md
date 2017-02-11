@@ -139,12 +139,15 @@
 
 ### [Предоставление удаленного доступа к приложениям](active-directory-application-proxy-get-started.md)
 #### [Использование прокси приложения](active-directory-application-proxy-enable.md)
-#### [Публикация приложений](active-directory-application-proxy-publish.md)
+#### Публикация приложений
+##### [Портал Azure](application-proxy-publish-azure-portal.md)
+##### [Классический портал.](active-directory-application-proxy-publish.md)
 #### Публикация в отдельных сетях
 ##### [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Классический портал.](active-directory-application-proxy-connectors.md)
 #### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
 #### [Единый вход](active-directory-application-proxy-sso-using-kcd.md)
+##### [портале Azure](application-proxy-sso-azure-portal.md)
 #### [Приложения с поддержкой утверждений](active-directory-application-proxy-claims-aware-apps.md)
 #### [Приложения Native Client](active-directory-application-proxy-native-client.md)
 #### [Условный доступ](active-directory-application-proxy-conditional-access.md)
@@ -195,7 +198,7 @@
 #### [Классический портал.](active-directory-add-company-branding.md)
 ### [Администрирование каталога](active-directory-administer.md)
 ### [Несколько каталогов](active-directory-licensing-directory-independence.md)
-### [Каталоги Office 365](active-directory-manage-o365-subscription.md)
+### [Каталоги Office&365;](active-directory-manage-o365-subscription.md)
 ### [Самостоятельная регистрация](active-directory-self-service-signup.md)
 ### [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Включение](active-directory-windows-enterprise-state-roaming-enable.md)
@@ -212,7 +215,7 @@
 #### [Формат CSV-файла](active-directory-b2b-references-csv-file-format.md)
 #### [Пользовательские объекты](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [Токены пользователя](active-directory-b2b-references-external-user-token-format.md)
-### [Интеграция локальных удостоверений с помощью Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Интеграция локальных удостоверений с помощью Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Делегирование доступа к ресурсам
@@ -237,12 +240,12 @@
 ## Защита удостоверений
 ### [Защита идентификации Azure AD](active-directory-identityprotection.md)
 #### [Включение](active-directory-identityprotection-enable.md)
-#### [Процедура входа](active-directory-identityprotection-flows.md)
-#### [Разблокирование пользователей](active-directory-identityprotection-unblock-howto.md)
 #### [Обнаружение уязвимостей](active-directory-identityprotection-vulnerabilities.md)
-#### [Типы событий риска](active-directory-identityprotection-risk-events-types.md)
-#### [Моделирование событий риска](active-directory-identityprotection-playbook.md)
+#### [События риска](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Процедура входа](active-directory-identityprotection-flows.md)
+#### [Моделирование событий риска](active-directory-identityprotection-playbook.md)
+#### [Разблокирование пользователей](active-directory-identityprotection-unblock-howto.md)
 #### [Глоссарий](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Управление привилегированными пользователями](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -284,7 +287,8 @@
 
 # Сопутствующие материалы
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Информация для разработчиков об Azure AD](./develop/active-directory-how-to-integrate.md)
 ## [Управление привилегированными пользователями Azure AD](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

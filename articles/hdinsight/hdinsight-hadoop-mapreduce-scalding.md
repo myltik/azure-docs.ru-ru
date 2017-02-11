@@ -1,34 +1,38 @@
 ---
-title: Разработка заданий Scalding MapReduce с помощью Maven | Microsoft Docs
-description: Узнайте, как использовать Maven для создания задания Scalding MapReduce, а затем развернуть и запустить задание на Hadoop в кластере HDInsight.
+title: "Разработка заданий Scalding MapReduce с помощью Maven | Документация Майкрософт"
+description: "Узнайте, как использовать Maven для создания задания Scalding MapReduce, а затем развернуть и запустить задание на Hadoop в кластере HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 26a4d4e8-2623-4fae-a0ca-17792b7a5713
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 10/18/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d83a1f9755d22512834d23b8fd12f740c4198a85
+
 
 ---
-# Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
-Scalding — это библиотека Scala, которая позволяет легко создавать задания Hadoop MapReduce. Она предлагает сокращенный синтаксис, а также тесную интеграцию со Scala.
+# <a name="develop-scalding-mapreduce-jobs-with-apache-hadoop-on-hdinsight"></a>Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
+Scalding — это библиотека Scala, которая позволяет легко создавать задания Hadoop MapReduce. Она предлагает сокращенный синтаксис, а также тесную интеграцию со Scala.
 
 В этом документе рассматривается использование Maven для создания задания MapReduce по базовому подсчету слов, написанного на Scalding. Затем вы узнаете, как развернуть и выполнить это задание в кластере HDInsight.
 
-## Предварительные требования
-* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Hadoop на основе Windows или Linux в кластере HDInsight **. Дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
+## <a name="prerequisites"></a>Предварительные требования
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Кластер Hadoop под управлением Windows или Linux в HDInsight**. Дополнительные сведения см. в статьях о создании кластеров Hadoop под управлением [Linux](hdinsight-hadoop-provision-linux-clusters.md) или [Windows](hdinsight-provision-clusters.md) в HDInsight.
 * **[Maven](http://maven.apache.org/)**
-* **[Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней**
+* **[Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней**
 
-## Создание и сборка проекта
+## <a name="create-and-build-the-project"></a>Создание и сборка проекта
 1. Используйте следующую команду для создания нового проекта Maven:
    
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
@@ -132,14 +136,14 @@ Scalding — это библиотека Scala, которая позволяе�
    
    * **maven.compiler.source** и **maven.compiler.target**: задает версию Java для этого проекта
    * **repositories**: репозитории, которые содержат файлы зависимостей, используемые данным проектом
-   * **scalding-core\_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
+   * **scalding-core_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
    * **maven-scala-plugin**: подключаемый модуль для компиляции приложений Scala
    * **maven-shade-plugin**: подключаемый модуль для создания затененных JAR-файлов (fat). Этот подключаемый модуль применяет фильтры и преобразования; а именно:
      
      * **Фильтры**: примененные фильтры изменяют метаданные, включенные в состав jar-файла. Чтобы предотвратить исключения подписи во время выполнения, обеспечивает исключение различных файлов подписей, которые могли быть включены с зависимостями.
      * **Выполнения**: конфигурация выполнения этапа пакета задает класс **com.twitter.scalding.Tool** как основной класс для пакета. Без этого потребовалось бы указать com.twitter.scalding.Tool, а также класс, содержащий логику приложения, при запуске задания с помощью команды hadoop.
-3. Удалите каталог **src/test**, так как вы не будете создавать тесты в этом примере.
-4. Откройте файл **src/main/scala/com/microsoft/example/app.scala** и замените содержимое следующим:
+3. Удалите каталог **src/test** , так как вы не будете создавать тесты в этом примере.
+4. Откройте файл **src/main/scala/com/microsoft/example/App.scala** и замените содержимое следующим:
    
         package com.microsoft.example
    
@@ -169,9 +173,9 @@ Scalding — это библиотека Scala, которая позволяе�
    
     По завершении этого задания можно найти пакет, содержащий приложение WordCount, в файле **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
-## Запуск задания в кластере под управлением Linux
+## <a name="run-the-job-on-a-linux-based-cluster"></a>Запуск задания в кластере под управлением Linux
 > [!NOTE]
-> В следующих действиях используются SSH и команда Hadoop. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
+> В следующих действиях используются SSH и команда Hadoop. Другие способы выполнения заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 > 
 > 
 
@@ -197,7 +201,7 @@ Scalding — это библиотека Scala, которая позволяе�
    
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
    
-    Эта команда запускает класс WordCount, реализованный вами ранее. `--hdfs` указывает заданию использовать HDFS. `--input` задает входной текстовый файл, а `--output` указывает местоположение выходных файлов.
+    Эта команда запускает класс WordCount, реализованный вами ранее. `--hdfs` указывает заданию использовать HDFS. `--input` указывает входной текстовый файл при `--output` указании местоположения выходных файлов.
 4. После завершения задания просмотрите выходные данные с помощью следующей команды.
    
         hdfs dfs -text wasbs:///example/wordcountout/*
@@ -218,8 +222,8 @@ Scalding — это библиотека Scala, которая позволяе�
         wrotefootnote   1
         wrought 7
 
-## Запуск задания в кластере под управлением Windows
-В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
+## <a name="run-the-job-on-a-windows-based-cluster"></a>Запуск задания в кластере под управлением Windows
+В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -241,14 +245,14 @@ Scalding — это библиотека Scala, которая позволяе�
 3. Используйте следующий сценарий, чтобы отправить и запустить задание WordCount. Замените `CLUSTERNAME` на имя вашего кластера HDInsight и убедитесь, что `$fileToUpload` содержит правильный путь к файлу **scaldingwordcount-1.0-SNAPSHOT.jar**.
    
         #Cluster name, file to be uploaded, and where to upload it
-        $clustername = "CLUSTERNAME"
-        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
    
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential
+        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -275,10 +279,10 @@ Scalding — это библиотека Scala, которая позволяе�
             -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
-                       "--input", `
-                       "wasbs:///example/data/gutenberg/davinci.txt", `
-                       "--output", `
-                       "wasbs:///example/wordcountout"
+                        "--input", `
+                        "wasbs:///example/data/gutenberg/davinci.txt", `
+                        "--output", `
+                        "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `
@@ -325,11 +329,16 @@ Scalding — это библиотека Scala, которая позволяе�
         wrotefootnote   1
         wrought 7
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы узнали, как использовать Scalding для создания заданий MapReduce для HDInsight, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
 
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

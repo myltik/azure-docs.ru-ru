@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b2d7ba14c7cbc5c082a5f962559936e1a60827f2
-ms.openlocfilehash: fd018ed25e5c309a85bb2078d00f2bb0b504e5d2
+ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
+ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
 
 
 ---
@@ -150,8 +150,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Поставщик услуг подключения** | **Exchange** | **Расположения** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Сингапур |
-| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Токио |
+| **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Токио |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Сиэтл; |
+| **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Амстердам |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Лондон |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Лондон, Слау |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |Нью-Йорк, Вашингтон (округ Колумбия) |
@@ -173,6 +174,8 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Avanade Inc.](http://www.avanade.com/)** |Азия, Европа, США |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Европа |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |США |
+| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Австралия |
+| **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Европа (Германия) |
 | **[Nelite](http://nelite.com/)** |Европа |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Азия |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |США |
@@ -188,6 +191,6 @@ ExpressRoute поддерживается во всех регионах и ра
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

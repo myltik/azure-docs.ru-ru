@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b5306d864593898246d0e7ba81ed3f93253fab74
-ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 4f4d5a4f3c401974157182afa9575f6f28a0673b
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ### <a name="elastic-pools"></a>Пулы эластичных БД
-[Пулы эластичных БД](sql-database-elastic-pool.md) совместно используют ресурсы между базами данных в пуле. В следующей таблице описываются характеристики пулов эластичных баз данных Basic, Standard и Premium.
+[Пулы эластичных БД](sql-database-elastic-pool.md) совместно используют ресурсы между базами данных в пуле. В следующей таблице описываются характеристики эластичных пулов уровня Basic, Standard и Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -62,7 +62,7 @@ ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
 | --- | --- | --- |
 | Базы данных, использующие автоматический экспорт для каждой подписки |10 |Автоматический экспорт позволяет создать настраиваемое расписание резервного копирования баз данных SQL. Срок действия предварительной версии этой функции закончится 1 марта 2017 г.  |
 | Количество баз данных для каждого сервера |До 5000 |На каждом сервере версии 12 может размещаться не более 5000 баз данных. |
-| Количество DTU для каждого сервера |45000 |Для подготовки баз данных, эластичных пулов и хранилищ данных для каждого сервера версии 12 доступно 45 000 DTU. |
+| Количество DTU для каждого сервера |45000 |Для подготовки баз данных, эластичных пулов и хранилищ данных для каждого сервера версии&12; доступно&45;&000; DTU. |
 
 ## <a name="resources"></a>Ресурсы
 [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md)
@@ -74,6 +74,6 @@ ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

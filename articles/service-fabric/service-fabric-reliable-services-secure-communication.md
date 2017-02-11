@@ -1,28 +1,32 @@
 ---
-title: Защита взаимодействия служб в Service Fabric | Microsoft Docs
-description: Общие сведения о способах защиты взаимодействия служб Reliable Services, выполняющихся в кластере Azure Service Fabric.
+title: "Защита взаимодействия служб в Service Fabric | Документация Майкрософт"
+description: "Общие сведения о способах защиты взаимодействия служб Reliable Services, выполняющихся в кластере Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
 manager: timlt
 editor: vturecek
-
+ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/06/2016
-ms.author: suchiagicha
+ms.date: 01/05/2017
+ms.author: suchia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f13ccbb5ac1eff7ea8924c9d7b5ea9d9ef09a7ad
+
 
 ---
-# Защита взаимодействия служб в Azure Service Fabric
+# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Защита взаимодействия служб в Azure Service Fabric
 Безопасность — один из самых важных аспектов взаимодействия. Платформа приложений Reliable Services предоставляет несколько готовых стеков взаимодействия и средств, которыми можно воспользоваться для повышения безопасности. В этой статье мы обсудим способы повышения безопасности при использовании удаленного взаимодействия служб и стека взаимодействия Windows Communication Foundation (WCF).
 
-## Защита службы при использовании удаленного взаимодействия служб
-Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-remoting.md), в котором описывается настройка удаленного взаимодействия для Reliable Services. Для защиты службы при использовании удаленного взаимодействия служб выполните следующие действия:
+## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Защита службы при использовании удаленного взаимодействия служб
+Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-remoting.md) , в котором описывается настройка удаленного взаимодействия для Reliable Services. Для защиты службы при использовании удаленного взаимодействия служб выполните следующие действия:
 
-1. Создайте интерфейс `IHelloWorldStateful`, определяющий методы, которые будут доступны для удаленного вызова процедур в службе. Служба также будет использовать прослушиватель `FabricTransportServiceRemotingListener`, который объявляется в пространстве имен `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Это реализация `ICommunicationListener`, которая предоставляет возможности удаленного взаимодействия.
+1. Создайте интерфейс `IHelloWorldStateful`, определяющий методы, которые будут доступны для удаленного вызова процедур в службе. Служба также будет использовать прослушиватель `FabricTransportServiceRemotingListener`, который объявляется в пространстве имен `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Это реализация `ICommunicationListener` , которая предоставляет возможности удаленного взаимодействия.
    
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -178,11 +182,11 @@ ms.author: suchiagicha
    
     ```
    
-    Если клиент не выполняется как часть службы, можно создать файл client\_name.settings.xml в том же каталоге, в котором находится файл client\_name.exe. Затем создайте раздел TransportSettings в этом файле.
+    Если клиент не выполняется как часть службы, можно создать файл client_name.settings.xml в том же каталоге, в котором находится файл client_name.exe. Затем создайте раздел TransportSettings в этом файле.
    
-    Как и для службы, если в файле клиента settings.xml/client\_name.settings.xml указать раздел `TransportSettings` без какого-либо префикса, то `FabricTransportSettings` по умолчанию загрузит все параметры из этого раздела.
+    Как и для службы, если в файле клиента settings.xml/client_name.settings.xml указать раздел `TransportSettings` без какого-либо префикса, то `FabricTransportSettings` по умолчанию загрузит все параметры из этого раздела.
    
-    В этом случае приведенный выше код еще более упрощается.
+    В этом случае приведенный выше код еще более упрощается.  
    
     ```csharp
    
@@ -193,10 +197,10 @@ ms.author: suchiagicha
    
     ```
 
-## Защита службы при использовании стека взаимодействия на основе WCF
-Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-wcf.md), в котором описывается настройка стека взаимодействия на основе WCF для Reliable Services. Для защиты службы при использовании стека взаимодействия на основе WCF выполните следующие действия:
+## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Защита службы при использовании стека взаимодействия на основе WCF
+Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-wcf.md) , в котором описывается настройка стека взаимодействия на основе WCF для Reliable Services. Для защиты службы при использовании стека взаимодействия на основе WCF выполните следующие действия:
 
-1. Для службы необходимо обеспечить защиту создаваемого прослушивателя взаимодействия WCF (`WcfCommunicationListener`). Чтобы сделать это, измените метод `CreateServiceReplicaListeners`.
+1. Для службы необходимо обеспечить защиту создаваемого прослушивателя взаимодействия WCF (`WcfCommunicationListener`). Чтобы сделать это, измените метод `CreateServiceReplicaListeners` .
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -233,7 +237,7 @@ ms.author: suchiagicha
         return b;
     }
     ```
-2. В клиенте класс `WcfCommunicationClient`, созданный в предыдущем [примере](service-fabric-reliable-services-communication-wcf.md), остается неизменным. Однако необходимо переопределить метод `CreateClientAsync` фабрики `WcfCommunicationClientFactory`.
+2. В клиенте класс `WcfCommunicationClient` , созданный в предыдущем [примере](service-fabric-reliable-services-communication-wcf.md) , остается неизменным. Однако необходимо переопределить метод `CreateClientAsync` фабрики `WcfCommunicationClientFactory`.
    
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -299,7 +303,12 @@ ms.author: suchiagicha
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Веб-API с OWIN в модели Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

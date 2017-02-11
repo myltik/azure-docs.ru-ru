@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba0f864dc28beebb80567d3fac7f12cc42df677
-ms.openlocfilehash: 09557bd9c83318b2bdff8ecdefedc141eb7f80db
+ms.sourcegitcommit: 65775053918e12ef8881f417dacc0a63f080d093
+ms.openlocfilehash: 6de98012e768abc7f8450e97648444a74474b5e9
 
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>Безопасное подключение к кластеру
-Когда клиент подключается к узлу кластера Service Fabric, он может пройти проверку подлинности и установить безопасную связь на основе сертификатов или с помощью Azure Active Directory (AAD). Такая проверка подлинности гарантирует, что только авторизованные пользователи могут получить доступ к кластеру и развернутым приложениям для выполнения задач управления.  Конфигурацию обеспечения безопасности на основе сертификатов или AAD необходимо предварительно включить в кластере при его создании.  Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md). Если безопасность в кластере обеспечивается сертификатами, на компьютере, который подключается к нему, необходимо [настроить сертификат клиента](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert).
+Когда клиент подключается к узлу кластера Service Fabric, он может пройти проверку подлинности и установить безопасную связь на основе сертификатов или с помощью Azure Active Directory (AAD). Такая проверка подлинности гарантирует, что только авторизованные пользователи могут получить доступ к кластеру и развернутым приложениям для выполнения задач управления.  Конфигурацию обеспечения безопасности на основе сертификатов или AAD необходимо предварительно включить в кластере при его создании.  Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md). Если безопасность в кластере обеспечивается сертификатами, то на компьютере, который подключается к нему, необходимо [настроить сертификат клиента](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert). 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -56,7 +56,7 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-После подключения вы сможете взаимодействовать с кластером с помощью дополнительных команд интерфейса командной строки. 
+После подключения вы сможете взаимодействовать с кластером с помощью [дополнительных команд интерфейса командной строки](service-fabric-azure-cli.md). 
 
 <a id="connectsecurecluster"></a>
 
@@ -175,7 +175,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 Следующая процедура позволяет использовать Azure Active Directory в качестве удостоверения клиента, а сертификат сервера — в качестве удостоверения сервера.
 
-Чтобы перейти в интерактивный режим, в котором всплывает интерактивное диалоговое окно входа в AAD, выполните следующую команду:
+Чтобы перейти в интерактивный режим, в котором всплывает интерактивное диалоговое окно входа в AAD, выполните следующую команду.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -291,7 +291,7 @@ static string GetAccessToken(
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-После этого автоматически появится диалоговое окно с запросом на ввод учетных данных AAD.
+После этого автоматически запрос на ввод учетных данных AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Подключение к защищенному кластеру с использованием сертификата клиента
 
@@ -330,6 +330,6 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

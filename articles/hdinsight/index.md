@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте о Hadoop в HDInsight. Документация, в которой показано, как использовать Hadoop, Spark, HBase, R-Server и другие службы для обработки и анализа больших данных."
 translationtype: Human Translation
-ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
-ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Документация по Azure HDInsight
@@ -158,7 +158,7 @@ ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="/rest/api/hdinsight/">ИНТЕРФЕЙС REST API</a></p>
                         <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
@@ -167,13 +167,7 @@ ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по HDInsight </div>
-    </a>
-</div>
+
 
 
 

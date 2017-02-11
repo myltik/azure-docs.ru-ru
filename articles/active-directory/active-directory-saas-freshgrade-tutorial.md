@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с FreshGrade | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в FreshGrade.
+title: "Учебник. Интеграция Azure Active Directory с FreshGrade | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в FreshGrade."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 04c401cbb0b073a791d074f795085e3bd0b8cd8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-freshgrade"></a>Учебник. Интеграция Azure Active Directory с FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Учебник. Интеграция Azure Active Directory с FreshGrade
 В этом учебнике описано, как интегрировать FreshGrade с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением FreshGrade обеспечивает следующие преимущества:
 
 * С помощью Azure AD можно контролировать доступ пользователей во FreshGrade: вы можете включить автоматический вход пользователей во FreshGrade (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с приложением FreshGrade, вам потребуется:
@@ -118,10 +122,10 @@ ms.author: jeedes
     • **URL-адрес единого входа SAML**
 6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-a-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -224,6 +228,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

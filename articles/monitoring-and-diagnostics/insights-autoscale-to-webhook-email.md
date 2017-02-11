@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Microsoft Docs'
-description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. '
+title: "Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика. | Документация Майкрософт"
+description: "Узнайте, как использовать действия автомасштабирования для вызова URL-адресов веб-сайтов или отправки уведомлений по электронной почте в Azure Monitor. "
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+
 
 ---
-# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-insights"></a>Use autoscale actions to send email and webhook alert notifications in Azure Insights
-This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Monitor
+В этой статье показано, как настраиваются триггеры, позволяющие вам обращаться к определенным URL-адресам или отправлять сообщения электронной почты на основе действий автоматического масштабирования в Azure.  
 
-## <a name="webhooks"></a>Webhooks
-Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications. For example, routing the alert to services that can handle an incoming web request to send SMS, log bugs, notify a team using chat or messaging services, etc. The webhook URI must be a valid HTTP or HTTPS endpoint.
+## <a name="webhooks"></a>Объекты Webhook
+Объекты Webhook (веб-перехватчики) позволяют направлять уведомления об оповещениях Azure в другие системы для постобработки или отображения настраиваемых уведомлений. Например, оповещения Azure могут направляться в службы, которые способны обрабатывать входящие веб-запросы для отправки SMS, ведения журналов, уведомления членов команды в чате или через службы обмена мгновенными сообщениями и т. д. Универсальный код ресурса (URI) веб-перехватчика должен быть допустимой конечной точкой HTTP или HTTPS.
 
 ## <a name="email"></a>Email
-Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
+Электронная почта может отправляться на любой допустимый адрес электронной почты. Также будут уведомляться администраторы и соадминистраторы подписки, где работает это правило.
 
-## <a name="cloud-services-and-web-apps"></a>Cloud Services and Web Apps
-You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
+## <a name="cloud-services-and-web-apps"></a>Облачные службы и веб-приложения
+Вы можете явно согласиться на облачные службы и фермы серверов (веб-приложения) на портале Azure.
 
-* Choose the **scale by** metric.
+* Выберите метрику **scale by (масштабировать по)** .
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by (масштабировать по)](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
-## <a name="virtual-machine-scale-sets"></a>Virtual Machine scale sets
-For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+## <a name="virtual-machine-scale-sets"></a>Наборы для масштабирования виртуальных машин
+Для новых виртуальных машин, созданных с помощью Resource Manager, наборы для масштабирования можно настроить с помощью REST API, шаблонов Resource Manager, PowerShell и интерфейса командной строки. Интерфейс портала еще недоступен.
+Если вы используете REST API или шаблон Resource Manager, включите элемент уведомлений с использованием следующих параметров:
 
 ```
 "notifications": [
@@ -60,24 +64,24 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
-| Field | Mandatory? | Description |
+| Поле | Обязательное? | Описание |
 | --- | --- | --- |
-| operation |yes |value must be "Scale" |
-| sendToSubscriptionAdministrator |yes |value must be "true" or "false" |
-| sendToSubscriptionCoAdministrators |yes |value must be "true" or "false" |
-| customEmails |yes |value can be null [] or string array of emails |
-| webhooks |yes |value can be null or valid Uri |
-| serviceUri |yes |a valid https Uri |
-| properties |yes |value must be empty {} or can contain key-value pairs |
+| операция |Да |Значение должно быть Scale. |
+| sendToSubscriptionAdministrator |Да |Значение должно быть true или false. |
+| sendToSubscriptionCoAdministrators |Да |Значение должно быть true или false. |
+| customEmails |Да |Значение может быть null или массивом строк с адресами электронной почты. |
+| Объекты Webhook |Да |Значение может быть null или допустимым универсальным кодом ресурса (URI). |
+| serviceUri |Да |Допустимый универсальный код ресурса (URI) HTTPS. |
+| properties |Да |Значение должно быть пустым {} или может содержать пары "ключ — значение". |
 
-## <a name="authentication-in-webhooks"></a>Authentication in webhooks
-There are two authentication URI forms:
+## <a name="authentication-in-webhooks"></a>Проверка подлинности в веб-перехватчиках
+Существует две формы универсального кода ресурса (URI) для проверки подлинности:
 
-1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Проверка подлинности на основе токенов, заключающаяся в сохранении URI веб-перехватчика с идентификатором токена в качестве параметра запроса. Например, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Обычная проверка подлинности с использованием имени пользователя и пароля. Например, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
-## <a name="autoscale-notification-webhook-payload-schema"></a>Autoscale notification webhook payload schema
-When the autoscale notification is generated, the following metadata is included in the webhook payload:
+## <a name="autoscale-notification-webhook-payload-schema"></a>Схема полезных данных веб-перехватчика уведомлений автомасштабирования
+При создании уведомлений автомасштабирования в полезные данные веб-перехватчика включаются следующие метаданные:
 
 ```
 {
@@ -106,25 +110,28 @@ When the autoscale notification is generated, the following metadata is included
 ```
 
 
-| Field | Mandatory? | Description |
+| Поле | Обязательное? | Описание |
 | --- | --- | --- |
-| status |yes |The status that indicates that an autoscale action was generated |
-| operation |yes |For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In" |
-| context |yes |The autoscale action context |
-| timestamp |yes |Time stamp when the autoscale action was triggered |
-| id |Yes |Resource Manager ID of the autoscale setting |
-| name |Yes |The name of the autoscale setting |
-| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count |
-| subscriptionId |Yes |Subscription ID of the target resource that is being scaled |
-| resourceGroupName |Yes |Resource Group name of the target resource that is being scaled |
-| resourceName |Yes |Name of the target resource that is being scaled |
-| resourceType |Yes |The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App |
-| resourceId |Yes |Resource Manager ID of the target resource that is being scaled |
-| portalLink |Yes |Azure portal link to the summary page of the target resource |
-| oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
-| newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| status |Да |Состояние, которое указывает, что создано действие автоматического масштабирования |
+| операция |Да |Для увеличения экземпляров это будет "Развернуть", а для уменьшения экземпляров — "Свернуть" |
+| context |Да |Контекст действия автоматического масштабирования |
+| Timestamp |Да |Отметка времени, когда было запущено действие автоматического масштабирования |
+| id |Да |Идентификатор Resource Manager для параметра автоматического масштабирования |
+| name |Да |Имя параметра автоматического масштабирования |
+| сведения |Да |Описание действия, предпринятого службой автоматического масштабирования, и изменение числа экземпляров |
+| subscriptionId |Да |Идентификатор подписки для масштабируемого целевого ресурса |
+| имя_группы_ресурсов |Да |Имя группы ресурсов для масштабируемого целевого ресурса |
+| resourceName |Да |Имя масштабируемого целевого ресурса |
+| тип_ресурса |Да |Поддерживается три значения: "microsoft.classiccompute/domainnames/slots/roles" — роли облачной службы, "microsoft.compute/virtualmachinescalesets" — наборы для масштабирования виртуальных машин и "Microsoft.Web/serverfarms" — веб-приложение |
+| resourceId |Да |Идентификатор Resource Manager для масштабируемого целевого ресурса |
+| portalLink |Да |Ссылка на страницу сводки целевого ресурса на портале Azure |
+| oldCapacity |Да |Текущее (старое) число экземпляров, когда автомасштабирование предпринимает действие масштабирования |
+| newCapacity |Да |Новое число экземпляров, до которого автомасштабирование масштабирует ресурс |
+| properties |Нет |необязательный параметр. Набор пар <ключ, значение> (например, Dictionary <String, String>). Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или рабочем процессе на основе приложения логики вы можете вводить ключи и значения для передачи в виде полезных данных. Еще один способ передачи пользовательских свойств обратно в исходящий вызов веб-перехватчика — использование самого универсального кода ресурса (URI) веб-перехватчика (в виде параметров запроса). |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
