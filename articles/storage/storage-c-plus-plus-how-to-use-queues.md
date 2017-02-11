@@ -273,6 +273,6 @@ queue.delete_queue_if_exists();
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

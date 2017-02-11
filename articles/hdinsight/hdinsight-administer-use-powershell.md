@@ -231,6 +231,6 @@ Azure PowerShell — это полнофункциональная среда с
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
