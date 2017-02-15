@@ -1,22 +1,25 @@
-
 ---
-title: Требования Azure AD + Active Directory для Azure RemoteApp | Microsoft Docs
-description: Узнайте, как настроить Active Directory для работы с Azure RemoteApp.
+title: "Требования Azure AD и Active Directory для Azure RemoteApp | Документация Майкрософт"
+description: "Узнайте, как настроить Active Directory для работы с Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 66366b25-6012-45fa-a4f6-da0ddfe0b486
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 816305fb3ace5bfc7cf50bac5e42fde83e9697d3
+
 
 ---
-# Требования Azure AD + Active Directory для Azure RemoteApp
+# <a name="azure-ad--active-directory-requirements-for-azure-remoteapp"></a>Требования Azure AD + Active Directory для Azure RemoteApp
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
@@ -24,19 +27,19 @@ ms.author: elizapo
 
 Для гибридной коллекции Azure RemoteApp или для облачной коллекции, которую необходимо включить в федерацию, используя AD Connect, вам потребуется выполнить следующие действия.
 
-### Подключите Azure AD и Active Directory
-Для подключения к клиенту Azure AD и вашей локальной среде Active Directory используйте AD Connect. Подключение двух каталогов можно выполнить всего за [4 щелчка](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/).
+### <a name="connect-azure-ad-and-active-directory"></a>Подключите Azure AD и Active Directory
+Для подключения к клиенту Azure AD и вашей локальной среде Active Directory используйте AD Connect. Подключение двух каталогов можно выполнить всего за [4 щелчка](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) .
 
 Примечание. Для гибридных коллекций требуется синхронизация службы каталогов.
 
-### Проверьте соответствие "@domain.com"
-Перед началом работы убедитесь, что имя участника-пользователя для локального леса соответствует суффиксу домена Azure AD.
+### <a name="make-sure-your-domaincom-match"></a>Проверка соответствия "@domain.com"
+Перед началом работы убедитесь, что имя участника-пользователя для локального леса соответствует суффиксу домена Azure AD. 
 
-После настройки доменного суффикса имени участника-пользователя в Azure AD все пользователи, выполняющие вход в Azure RemoteApp, будут входить в систему как user@<настроенный\_вами\_суффикс>. Убедитесь, что пользователи также могут входить с помощью аналогичного имени user@suffix в локальный домен. В некоторых случаях можно настроить одно доменное имя в Azure AD несмотря на то, что локально для пользователя указан другой суффикс домена. В этом случае пользователи не будет возможность подключения к компьютерам, подключенным к домену, или ресурсам через Azure RemoteApp.
+После настройки доменного суффикса имени участника-пользователя в Azure AD все пользователи, выполняющие вход в Azure RemoteApp, будут входить в систему как "user@<the suffix you set up>. Убедитесь, что пользователи также могут входить с помощью аналогичного имени user@suffix в локальный домен. В некоторых случаях можно настроить одно доменное имя в Azure AD несмотря на то, что локально для пользователя указан другой суффикс домена. В этом случае пользователи не будет возможность подключения к компьютерам, подключенным к домену, или ресурсам через Azure RemoteApp.
 
-Например, если вы настроили суффикс домена вашего имени участника-пользователя в AAD в виде contoso.com, однако некоторые пользователи из локальной сети или домена настроены для входа в систему с помощью @contoso.uk, то они не смогут корректно войти в коллекцию ARA. Для выполнения входа в систему имена участников-пользователей в AAD и AD должны совпадать.
+Например, если вы настроили доменный суффикс своего имени участника-пользователя в AAD в виде contoso.com, однако некоторые пользователи из локальной сети или домена приложения настроены для входа в систему с помощью @contoso.uk,, то они не смогут корректно войти в коллекцию ARA. Для выполнения входа в систему имена участников-пользователей в AAD и AD должны совпадать.
 
-### Создайте объекты для Azure RemoteApp
+### <a name="create-objects-for-azure-remoteapp"></a>Создайте объекты для Azure RemoteApp
 Кроме того, необходимо создать следующие локальные объекты Active Directory:
 
 * Учетная запись службы для предоставления доступа к доменным ресурсам программ RemoteApp путем соединения конечных точек RDSH с локальным доменом.
@@ -44,4 +47,9 @@ ms.author: elizapo
 
 При создании коллекции RemoteApp требуются оба этих объекта, поэтому сначала выполните указанные действия.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Distributed data and distributed table options for the Massively Parallel Processing (MPP) systems of SQL Data Warehouse and Parallel Data Warehouse | Microsoft Docs
-description: Learn how data is distributed for Massively Parallel Processing (MPP) and the options for distributing tables in Azure SQL Data Warehouse and Parallel Data Warehouse.
+title: "Параметры распределенных данных и распределенных таблиц для систем вычисления с массовым параллелизмом (MPP) хранилища данных SQL и хранилища Parallel Data Warehouse | Документация Майкрософт"
+description: "Сведения о распределении данных для вычислений с массовым параллелизмом (MPP), а также о параметрах для распределения таблиц в хранилище данных SQL Azure и хранилище Parallel Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bae494a6-7ac5-4c38-8ca3-ab2696c63a9f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,62 +14,69 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+
 
 ---
-# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Distributed data and distributed tables for Massively Parallel Processing (MPP)
-Learn how user data is distributed in Azure SQL Data Warehouse and Parallel Data Warehouse, which are Microsoft's Massively Parallel Processing (MPP) systems. Designing your data warehouse to use distributed data effectively helps you to achieve the query processing benefits of the MPP architecture. A few database design choices can have a significant impact on improving query performance.  
+# <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Распределенные данные и распределенные таблицы для вычислений с массовым параллелизмом (MPP)
+Сведения о распределении пользовательских данных в хранилище данных SQL Azure и хранилище Parallel Data Warehouse, системах Майкрософт для вычислений с массовым параллелизмом (MPP). Проектирование хранилища данных с учетом эффективного использования распределенных данных помогает использовать преимущества архитектуры MPP при обработке запросов. Выбор правильных вариантов при проектировании базы данных может иметь значительное влияние на повышение производительности запросов.  
 
 > [!NOTE]
-> Azure SQL Data Warehouse and Parallel Data Warehouse use the same Massively Parallel Processing (MPP) design, but they have a few differences because of the underlying platform. SQL Data Warehouse is a Platform as a Service (PaaS) that runs on Azure. Parallel Data Warehouse runs on Analytics Platform System (APS) which is an on-premises appliance that runs on Windows Server.
+> Хранилище данных SQL Azure и хранилище Parallel Data Warehouse используют одинаковую схему вычислений с массовым параллелизмом (MPP), но есть и ряд различий, обусловленных базовой платформой. Хранилище данных SQL — это платформа как услуга (PaaS), работающая на базе Azure. Хранилище Parallel Data Warehouse работает на базе Analytics Platform System (APS), локального модуля на базе Windows Server.
 > 
 > 
 
-## <a name="what-is-distributed-data"></a>What is distributed data?
-In SQL Data Warehouse and Parallel Data Warehouse, distributed data refers to user data that is stored in multiple locations across the MPP system. Each of those locations functions as an independent storage and processing unit that runs queries on its portion of the data. Distributed data is fundamental to running queries in parallel to achieve high query performance.
+## <a name="what-is-distributed-data"></a>Что такое распределенные данные?
+В хранилище данных SQL и хранилище Parallel Data Warehouse понятие "распределенные данные" означает пользовательские данные, которые хранятся в нескольких расположениях в системе MPP. Каждое из этих расположений работает как независимое хранилище и процессор, выполняющий запросы для своей части данных. Распределенные данные являются основой для параллельного выполнения запросов и достижения их высокой производительности.
 
-To distribute data, the data warehouse assigns each row of a user table to one distributed location.  You can distribute tables with a hash-distribution method or a round-robin method. The distribution method is specified in the CREATE TABLE statement. 
+Для распределения данных хранилище присваивает каждую строку пользовательской таблицы одному распределенному расположению.  Таблицы можно распределять с помощью метода хэш-распределения или метода циклического перебора. Метод распространения указывается в инструкции CREATE TABLE. 
 
-## <a name="hashdistributed-tables"></a>Hash-distributed tables
-The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. A deterministic function assigns each row to belong to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the value in the distribution column to assign each row to a distribution.
+## <a name="hash-distributed-tables"></a>Таблицы с хэш-распределением
+На следующей схеме показано, как полная (нераспределенная) таблица хранится в качестве хэш-распределенной. Детерминированная функция присваивает каждую строку одному распределению. В определении таблицы один из столбцов определяется как столбец распределения. Хэш-функция использует значение в столбце распределения для присвоения каждой строки распределению.
 
-There are performance considerations for the selection of a distribution column, such as distinctness, data skew, and the types of queries run on the system.
+Существуют влияющие на производительность факторы, которые учитываются при выборе столбца распределения. Например, определенность, неравномерное смещение данных и типы запросов, выполняемых в системе.
 
-![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Распределенная таблица](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
 
-* Each row belongs to one distribution.  
-* A deterministic hash algorithm assigns each row to one distribution.  
-* The number of table rows per distribution varies as shown by the different sizes of tables.
+* Каждая строка относится к одному распределению.  
+* Детерминированный хэш-алгоритм присваивает каждую строку одному распределению.  
+* Количество строк таблицы в распределении зависит от размеров таблиц (как показано на схеме).
 
-## <a name="roundrobin-distributed-tables"></a>Round-robin distributed tables
-A round-robin distributed table distributes the rows by assigning each row to a distribution in a sequential manner. It is quick to load data into a round-robin table, but query performance might be slower.  Joining a round-robin table usually requires reshuffling the rows to enable the query to produce an accurate result, which takes time.
+## <a name="round-robin-distributed-tables"></a>Таблицы с распределением методом циклического перебора
+Распределенная таблица, использующая метод циклического перебора, распределяет строки путем назначения каждой строки распределению в последовательном порядке. Данные в такую таблицу загружаются быстро, но выполнение запросов может быть медленным.  Для объединения таблицы с циклическим перебором обычно требуется перегруппировка строк, чтобы запрос вернул точный результат. А для этого требуется время.
 
-## <a name="distributed-storage-locations-are-called-distributions"></a>Distributed storage locations are called distributions
-Each distributed location is called a distribution. When a query runs in parallel, each distribution performs a SQL query on its portion of the data. SQL Data Warehouse uses SQL Database to run the query. Parallel Data Warehouse uses SQL Server to run the query. This shared-nothing architecture design is fundamental to achieving scale-out parallel computing.
+## <a name="distributed-storage-locations-are-called-distributions"></a>Распределенные расположения хранения называются распределениями
+Каждое распределенное расположение называется распределением. При параллельном выполнении запроса каждое распределение выполняет запрос SQL к своей части данных. Хранилище данных SQL использует базу данных SQL для выполнения запроса. Хранилище Parallel Data Warehouse использует для выполнения запроса SQL Server. Такая неразделяемая архитектура является принципиальной для обеспечения масштабируемых параллельных вычислений.
 
-### <a name="can-i-view-the-distributions"></a>Can I view the distributions?
-Each distribution has a distribution ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse. You can use the distribution ID to troubleshoot query performance and other problems. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-distributions"></a>Можно ли просматривать распределения?
+У каждого распределения есть идентификатор, отображаемый в системных представлениях, которые относятся к хранилищу данных SQL и Parallel Data Warehouse. Идентификатор распределения можно использовать для устранения неполадок производительности запросов и других проблем. Список системных представлений см. в [системном представление MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="difference-between-a-distribution-and-a-compute-node"></a>Difference between a distribution and a Compute node
-A distribution is the basic unit for storing distributed data and processing parallel queries. Distributions are grouped into Compute nodes. Each Compute node tracks one or more distributions.  
+## <a name="difference-between-a-distribution-and-a-compute-node"></a>Различия между распределением и вычислительным узлом
+Распределение — это базовая единица хранения распределенных данных и обработки параллельных запросов. Распределения объединяются в вычислительные узлы. Каждый вычислительный узел отслеживает одно или несколько распределений.  
 
-* Analytics Platform System uses Compute nodes as a central component of the hardware architecture and scale-out capabilities. It always uses eight distributions per Compute node, as shown in the diagram for hash-distributed tables. The number of Compute nodes, and therefore the number of distributions, is determined by the number of Compute nodes you purchase for the appliance. For example, if you purchase eight Compute nodes, you get 64 distributions (8 Compute nodes x 8 distributions/node). 
-* SQL Data Warehouse has a fixed number of 60 distributions and a flexible number of Compute nodes. The Compute nodes are implemented with Azure computing and storage resources. The number of Compute nodes can change according to the backend service workload and the computing capacity (DWUs) you specify for the data warehouse. When the number of Compute nodes changes, the number of distributions per Compute node also changes. 
+* Система Analytics Platform System использует вычислительные узлы в качестве центрального компонента аппаратной архитектуры и возможностей масштабирования. В ней всегда используется восемь распределений на один вычислительный узел, как показано на диаграмме для таблиц с хэш-распределением. Количество вычислительных узлов и, следовательно, число распределений, зависит от количества вычислительных узлов, приобретенных пользователем для устройства. Например, при покупке восьми вычислительных узлов пользователь получает 64 распределения (8 вычислительных узлов x 8 распределений на узел). 
+* Хранилище данных SQL использует фиксированное количество распределений, равное 60, и переменное количество вычислительных узлов. Вычислительные узлы реализованы с использованием ресурсов вычисления и хранения Azure. Количество вычислительных узлов может изменяться в зависимости от рабочей нагрузки серверной службы и вычислительной мощности (DWU), указанной для хранилища данных. При изменении количества вычислительных узлов изменяется и количество распределений на один вычислительный узел. 
 
-### <a name="can-i-view-the-compute-nodes"></a>Can I view the Compute nodes?
-Each Compute node has a node ID and is visible in system views that pertain to SQL Data Warehouse and Parallel Data Warehouse.  You can see the Compute node by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of the system views, see the [MPP system view](sql-data-warehouse-reference-tsql-statements.md).
+### <a name="can-i-view-the-compute-nodes"></a>Можно ли просматривать вычислительные узлы?
+У каждого вычислительного узла есть идентификатор, отображаемый в системных представлениях, которые относятся к хранилищу данных SQL и Parallel Data Warehouse.  Вычислительные узлы можно увидеть в столбце node_id в системных представлениях, имена которых начинаются с sys.pdw_nodes. Список системных представлений см. в [системном представление MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Replicated Tables for Parallel Data Warehouse
-Applies to: Parallel Data Warehouse
+## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>Реплицированные таблицы для хранилища Parallel Data Warehouse
+Область применения: хранилище Parallel Data Warehouse
 
-In addition to using distributed tables, Parallel Data Warehouse offers an option to replicate tables. A *replicated table* is a table that is stored in its entirety on each Compute node. Replicating a table removes the need to transfer its table rows among Compute nodes before using the table in a join or aggregation. Replicated tables are only feasible with small tables because of the extra storage required to store the full table on each compute node.  
+Помимо использования распределенных таблиц, хранилище Parallel Data Warehouse предлагает вариант репликации таблиц. *Реплицированная таблица* — это таблица, которая полностью хранится на каждом вычислительном узле. Репликация таблицы устраняет необходимость переноса ее строк между вычислительными узлами перед использованием таблицы для соединения или агрегирования. Реплицированные таблицы подходят только для работы с небольшими таблицами из-за дополнительного пространства для хранения всей таблицы на каждом вычислительном узле.  
 
-The following diagram shows a replicated table that is stored on each Compute node. The replicated table is stored across all disks assigned to the Compute node. This disk strategy is implemented by using SQL Server filegroups.  
+На схеме ниже показана реплицированная таблица, которая хранится на каждом вычислительном узле. Реплицированная таблица хранится на всех дисках, назначенных вычислительному узлу. Такая стратегия работы с дисками реализуется с помощью файловых групп SQL Server.  
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Реплицированная таблица](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
-## <a name="next-steps"></a>Next steps
-To use distributed tables effectively, see [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)  
+## <a name="next-steps"></a>Дальнейшие действия
+Чтобы эффективно использовать распределенные таблицы, см. инструкции в статье [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Распределение таблиц в хранилище данных SQL).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

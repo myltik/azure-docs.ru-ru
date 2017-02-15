@@ -1,12 +1,12 @@
 ---
-title: Развитие модели машинного обучения от эксперимента до рабочей веб-службы | Microsoft Docs
-description: Обзор процесса развития модели машинного обучения Azure от эксперимента по разработке до рабочей веб-службы.
+title: "Развитие модели машинного обучения от эксперимента до рабочей веб-службы | Документация Майкрософт"
+description: "Обзор процесса развития модели машинного обучения Azure от эксперимента по разработке до рабочей веб-службы."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Развитие модели машинного обучения от эксперимента до рабочей веб-службы
@@ -40,7 +44,7 @@ ms.author: garye
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Разработка и развертывание прогнозной веб-службы
 Ниже приведены этапы, выполняемые стандартным решением по мере разработки и развертывания с помощью студии машинного обучения.
 
-![Рабочий поток развертывания](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Рабочий поток развертывания](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Рис. 1. Этапы типичной модели прогнозной аналитики*
 
@@ -68,7 +72,7 @@ ms.author: garye
 ### <a name="the-web-service"></a>Веб-служба
 Убедившись в готовности прогнозного эксперимента, можно развернуть классическую или новую веб-службу на основе Azure Resource Manager. Чтобы развернуть модель как *классическую веб-службу машинного обучения*, щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]). Чтобы развернуть модель как *новую веб-службу машинного обучения*, щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [New]** (Развернуть веб-службу [новую]). Пользователи теперь могут отправлять данные в вашу модель с помощью REST API веб-службы и получать результаты. Дополнительные сведения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>Нетипичный случай. Создание непрогнозной веб-службы
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Нетипичный случай. Создание непрогнозной веб-службы
 Если в вашем эксперименте не выполняется обучение модели прогнозного анализа, то вам не нужно разделять обучающий и оценивающий эксперименты. Достаточно создать один эксперимент и развернуть его в качестве веб-службы. Анализируя использованные модули, Студия машинного обучения определяет, содержит ли ваш эксперимент прогнозную модель.
 
 Выполнив итерацию с экспериментом и проверив его готовность, выполните такие действия.
@@ -115,6 +119,9 @@ ms.author: garye
 * [Инструкции по созданию первого эксперимента в Студии машинного обучения Azure](machine-learning-create-experiment.md)
 * [Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 3098845eb6cf39eff7cb7b0c26c9e715c1688142
-ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
+ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
+ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 
 ---
@@ -47,18 +47,22 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
 В этом разделе описаны следующие коды ошибок:
 
-* [InvalidTemplate](#invalidtemplate);
-* [NotFound и ResourceNotFound](#notfound-and-resourcenotfound);
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists и StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken);
 * [AccountNameInvalid](#accountnameinvalid);
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound);
-* [QuotaExceeded и OperationNotAllowed](#quotaexceeded-and-operationnotallowed);
-* [InvalidContentLink](#invalidcontentlink);
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy);
 * [ошибка авторизации](#authorization-failed).
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink);
+* [InvalidTemplate](#invalidtemplate);
+* [MissingSubscriptionRegistration](#noregisteredproviderfound);
+* [NotFound](#notfound);
+* [NoRegisteredProviderFound](#noregisteredproviderfound);
+* [OperationNotAllowed](#quotaexceeded);
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded);
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy);
+* [ResourceNotFound](#notfound);
 * [SkuNotAvailable](#skunotavailable).
+* [StorageAccountAlreadyExists](#storagenamenotunique);
+* [StorageAccountAlreadyTaken](#storagenamenotunique).
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Эта ошибка может появится в результате ошибок нескольких различных типов.
@@ -142,6 +146,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
    Внимательно проверьте допустимые значения в шаблоне и укажите одно из них во время развертывания.
 
+<a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound и ResourceNotFound
 Если шаблон содержит имя ресурса, которое не удается разрешить, появится сообщение об ошибке, аналогичное следующему:
 
@@ -195,6 +200,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists и StorageAccountAlreadyTaken
 Для учетных записей хранения необходимо указывать имя ресурса, уникальное в среде Azure. Если не указать уникальное имя, возникнет такая ошибка:
 
@@ -215,20 +221,38 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
 При указании недопустимого значения для свойства может возникнуть состояние BadRequest. Например, если указано неправильное значение SKU для учетной записи хранения, развертывание завершится сбоем. 
 
-### <a name="noregisteredproviderfound"></a>NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound и MissingSubscriptionRegistration
 При развертывании ресурсов вы можете получить следующий код ошибки и сообщение об ошибке:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-Эта ошибка возникает по одной из следующих причин.
+Или может появиться похожее сообщение.
 
-1. Расположение не поддерживается для выбранного типа ресурса.
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+Эти ошибки возникают по одной из следующих причин:
+
+1. Для подписки не зарегистрирован поставщик ресурсов.
 2. Версия API не поддерживается для выбранного типа ресурса.
-3. Для подписки не зарегистрирован поставщик ресурсов.
+3. Расположение не поддерживается для выбранного типа ресурса.
 
 В сообщении об ошибке должны быть указаны поддерживаемые расположения и версии API. Вы можете изменить шаблон, используя одно из предложенных значений. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете. Если ранее вы не использовали конкретный поставщик ресурсов, возможно, потребуется зарегистрировать такой поставщик. Дополнительные сведения о поставщиках ресурсов можно получить с помощью PowerShell или интерфейса командной строки Azure.
+
+**Портал**
+
+Просмотреть состояние регистрации и зарегистрировать пространство имен поставщика ресурсов можно на портале.
+
+1. Для своей подписки выберите **Поставщики ресурсов**.
+
+   ![Выбор поставщиков ресурсов](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. Просмотрите список поставщиков ресурсов и, при необходимости, щелкните ссылку **Зарегистрировать**, чтобы зарегистрировать поставщик ресурсов типа, который вы пытаетесь развернуть.
+
+   ![список поставщиков ресурсов](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -262,6 +286,7 @@ ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded и OperationNotAllowed
 Если развертывание превышает квоту, могут возникнуть проблемы, связанные с группой ресурсов, подписками, учетными записями и другими компонентами. Например, для подписки может быть настроено ограничение числа ядер для региона. При попытке развертывания виртуальной машины с большим количеством ядер, чем разрешено, вы получите сообщение о том, что квота превышена.
 Дополнительные сведения о квотах Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
@@ -433,6 +458,28 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 Или предположим, что возникают ошибки развертывания, которые, как вы считаете, связаны с неправильно заданными зависимостями. Проверьте шаблон, разбив его на более простые шаблоны. Сначала создайте шаблон, который развертывает только один ресурс (например, SQL Server). Когда вы убедитесь, что этот ресурс определен правильно, добавьте зависящий от него ресурс (например, базу данных SQL). Проверив правильность определения этих двух ресурсов, добавьте другие зависимые ресурсы (например, политики аудита). В перерывах между тестовыми развертываниями удаляйте группу ресурсов, чтобы гарантировать адекватную проверку зависимостей. 
 
+### <a name="check-deployment-sequence"></a>Проверка последовательности развертывания
+
+Многие ошибки развертывания происходят, когда ресурсы развертываются в непредвиденном порядке. Такие ошибки возникают, когда зависимости заданы неправильно. Один ресурс может пытаться использовать значение другого ресурса, который еще не существует. Вот как можно просмотреть порядок операций развертывания.
+
+1. Выберите журнал развертывания для группы ресурсов.
+
+   ![Выбор журнала развертывания](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. Выберите развертывание в журнале, затем выберите **События**.
+
+   ![Выбор событий развертывания](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. Изучите последовательность событий для каждого ресурса. Обратите внимание на состояние каждой операции. Например, на следующем рисунке показаны три учетные записи хранения, которые были развернуты параллельно. Обратите внимание, что эти три учетные записи хранения были запущены одновременно.
+
+   ![Параллельное развертывание](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   На следующем рисунке показаны три учетные записи хранения, которые не были развернуты параллельно. Вторая учетная запись хранения помечена как зависимая от первой учетной записи хранения, а третья учетная запись хранения — как зависимая от второй. Поэтому первая учетная запись хранения должна быть запущена, принята и завершена, прежде чем будет запущена следующая.
+
+   ![Последовательное развертывание](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+Просмотрите события развертывания, чтобы узнать, не был ли какой-либо ресурс запущен раньше, чем ожидалось. Если такой ресурс обнаружен, проверьте его зависимости.
+
 ## <a name="troubleshooting-other-services"></a>Устранение неполадок в других службах
 Если предыдущие коды ошибок развертывания не помогли устранить проблему, то можно найти более подробные рекомендации по устранению ошибок для конкретной службы Azure.
 
@@ -455,7 +502,6 @@ Message: The requested tier for resource '<resource>' is currently not available
 | --- | --- |
 | Автоматизация |[Советы по устранению неполадок при возникновении типичных ошибок в службе автоматизации Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting (Устранение неполадок, связанных с Microsoft Azure Stack)](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[Web Apps and Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) (Веб-приложения и Azure Stack) |
 | Фабрика данных |[Устранение неполадок фабрики данных](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Устранение распространенных проблем при развертывании служб в Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery |[Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
@@ -470,6 +516,6 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

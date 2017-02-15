@@ -1,12 +1,12 @@
 ---
-title: Создание эскизов с помощью Media Encoder Standard c использованием .NET
-description: В данной статье рассказывается, как использовать .NET для кодирования ресурсов и одновременно с этим создавать эскизы с помощью Media Encoder Standard.
+title: "Создание эскизов с помощью Media Encoder Standard c использованием .NET"
+description: "В данной статье рассказывается, как использовать .NET для кодирования ресурсов и одновременно с этим создавать эскизы с помощью Media Encoder Standard."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Создание эскизов с помощью Media Encoder Standard c использованием .NET
 В данной статье рассказывается, как использовать пакет Media Services .NET SDK для кодирования ресурсов и создавать эскизы с помощью Media Encoder Standard. В статье определены предустановки XML и JSON, которые можно использовать для создания задачи, выполняющей кодирование и одновременно с этим создающей эскизы. [этом](https://msdn.microsoft.com/library/mt269962.aspx) документе содержатся описания элементов, использующихся в данных предустановках.
 
 Обязательно изучите раздел [Рекомендации](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
@@ -168,7 +172,7 @@ ms.author: juliako
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Предопределенный эскиз JSON
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>Предопределенный эскиз JSON
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
 
     {
@@ -270,7 +274,7 @@ ms.author: juliako
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Предопределенный эскиз XML
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>Предопределенный эскиз XML
 Сведения о схеме см. [здесь](https://msdn.microsoft.com/library/mt269962.aspx).
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -357,9 +361,9 @@ ms.author: juliako
     
     При желании условные обозначения можно комбинировать.
     
-    Кроме того, атрибут Start поддерживает также специальный макрос {Best}, который пытается определить первый "интересный" кадр содержимого. ПРИМЕЧАНИЕ. Если атрибут Start имеет значение {Best}, атрибуты Step и Range игнорируются.
+    Кроме того, атрибут Start поддерживает также специальный макрос {Best}, который пытается определить первый "интересный" кадр содержимого NOTE: (если атрибут Start имеет значение {Best}, атрибуты Step и Range игнорируются)
   * По умолчанию Start:{Best}
-* Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
+* Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -370,6 +374,9 @@ ms.author: juliako
 ## <a name="see-also"></a>См. также
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

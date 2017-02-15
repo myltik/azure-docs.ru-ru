@@ -1,19 +1,23 @@
 ---
-title: Log Analytics — часто задаваемые вопросы | Microsoft Docs
-description: Ответы на часто задаваемые вопросы о службе Log Analytics.
+title: "Log Analytics — часто задаваемые вопросы | Документация Майкрософт"
+description: "Ответы на часто задаваемые вопросы о службе Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+
 
 ---
 # <a name="log-analytics-faq"></a>Часто задаваемые вопросы по Log Analytics
@@ -45,7 +49,7 @@ ms.author: banders
 ## <a name="configuration"></a>Конфигурация
 **В. Можно ли изменить имя таблицы или контейнера BLOB-объекта, используемое для чтения из Azure Diagnostics (WAD)?**  
 
-О.  Нет, в настоящее время это невозможно, но планируется в будущих выпусках.
+О.    Нет, в настоящее время это невозможно, но планируется в будущих выпусках.
 
 **В. Какие IP-адреса используют службы OMS? Как сделать так, чтобы мой брандмауэр разрешал только трафик к службам OMS?**  
 
@@ -118,6 +122,8 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Приступая к работе с Log Analytics](log-analytics-get-started.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

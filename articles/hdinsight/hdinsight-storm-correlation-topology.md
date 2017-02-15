@@ -1,20 +1,24 @@
 ---
-title: Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
-description: Узнайте, как сопоставлять события, поступающие в разное время, с помощью Storm и HBase в HDInsight.
+title: "Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight"
+description: "Узнайте, как сопоставлять события, поступающие в разное время, с помощью Storm и HBase в HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 17d11479-2d02-4790-8d29-05fb38351479
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 10/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 477568c4e1da51928f3618ba13b670cd62791fb9
+
 
 ---
 # <a name="correlate-events-over-time-with-storm-and-hbase-on-hdinsight"></a>Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
@@ -22,12 +26,15 @@ ms.author: larryfr
 
 В этом документе рассматривается создание базовой топологии Storm C#, которая отслеживает события входа и выхода в пользовательских сеансах и рассчитывает продолжительность сеанса. Топология использует HBase как хранилище постоянных данных. HBase также позволяет выполнять пакетные запросы к историческим данным для получения дополнительных сведений, таких как количество пользовательских сеансов, начатых или завершенных за определенный период времени.
 
-[!INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
-
 ## <a name="prerequisites"></a>Предварительные требования
 * Visual Studio и средства HDInsight для Visual Studio: сведения об установке см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 * Apache Storm в кластере HDInsight (под управлением Windows). Он выполняет топологию Storm, которая обрабатывает входящие данные и сохраняет их в HBase.
-* Apache HBase в кластере HDInsight (под управлением Windows или Linux). Это хранилище данных для нашего примера.
+  
+  > [!IMPORTANT]
+  > Топологии SCP.NET поддерживаются в кластерах Storm под управлением Linux с 28 октября 2016 года, однако пакет SDK .NET для HBase, доступный с этой же даты, некорректно работает в среде Linux.
+  > 
+  > 
+* Apache HBase в кластере HDInsight (под управлением Linux или Windows). Это хранилище данных для нашего примера.
 
 ## <a name="architecture"></a>Архитектура
 ![Диаграмма потока данных через топологию](./media/hdinsight-storm-correlation-topology/correlationtopology.png)
@@ -176,6 +183,9 @@ ms.author: larryfr
 ## <a name="next-steps"></a>Дальнейшие действия
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

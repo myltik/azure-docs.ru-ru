@@ -73,7 +73,7 @@ ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 Чтобы упростить управление, мы также будем использовать ту же группу ресурсов, которая содержит наше хранилище ключей. Согласно инструкциям из руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) эта группа ресурсов называется **ContosoResourceGroup**. Кроме того, мы будем продолжать использовать регион "Восточная Азия". Замените эти значения собственными.
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
+    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]

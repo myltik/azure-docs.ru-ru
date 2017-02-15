@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Nomadesk | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в Nomadesk.
+title: "Руководство по интеграции Azure Active Directory с Nomadesk | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Nomadesk."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3be980b1428c19c7f1f6eb2c165758281d6e46b2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-nomadesk"></a>Руководство. Интеграция Azure Active Directory с Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Руководство. Интеграция Azure Active Directory с Nomadesk
 Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Nomadesk.
 
 Интеграция Azure AD с приложением Nomadesk обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к Nomadesk.
-* Вы можете включить автоматический вход пользователей в Nomadesk (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* С помощью Azure AD вы можете контролировать доступ к Nomadesk.
+* Вы можете включить автоматический вход пользователей в Nomadesk (единый вход) с использованием учетной записи Azure AD.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с Nomadesk, вам потребуется:
+Чтобы настроить интеграцию Azure AD с Nomadesk, вам потребуется:
 
 * подписка Azure AD;
 * подписка Nomadesk с поддержкой единого входа.
@@ -44,7 +48,7 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
@@ -52,11 +56,11 @@ ms.author: jeedes
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-nomadesk-from-the-gallery"></a>Добавление Nomadesk из коллекции
-Чтобы настроить интеграцию Nomadesk с Azure AD, необходимо добавить Nomadesk из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию Nomadesk с Azure AD, необходимо добавить Nomadesk из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Nomadesk из коллекции, сделайте следующее:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory][1]
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
@@ -77,9 +81,9 @@ ms.author: jeedes
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-В этом разделе описано, как настроить и проверить единый вход Azure AD в Nomadesk с использованием тестового пользователя Britta Simon.
+В этом разделе описано, как настроить и проверить единый вход Azure AD в Nomadesk с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Nomadesk соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Nomadesk.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Nomadesk соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Nomadesk.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве **имени пользователя** в Nomadesk.
 
@@ -94,36 +98,36 @@ ms.author: jeedes
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Nomadesk.
 
-**Чтобы настроить единый вход Azure AD в Nomadesk, сделайте следующее:**
+**Чтобы настроить единый вход Azure AD в Nomadesk, сделайте следующее:**
 
 1. На классическом портале Azure на странице интеграции с приложением **Nomadesk** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-    ![Настройка единого входа][6] 
+    ![Настройка единого входа][6]
 2. На странице **Как пользователи должны входить в Nomadesk?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
-    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png) 
+    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png)
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
-    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png) 
+    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png)
    
     а. В текстовое поле "URL-адрес входа" введите URL-адрес, используемый для входа в приложение Nomadesk, в формате **https://mynomadesk.com/logon/saml/TENANTID**. Значение **TENANTID** необходимо заменить фактическим идентификатором клиента.
 4. На странице **Настройка единого входа в Nomadesk** сделайте следующее.
    
-    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png) 
+    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png)
    
     а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
    
     b. Нажмите кнопку **Далее**.
-5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Nomadesk по адресу [mailto:support@nomadesk.com](support@nomadesk.com). Вложите в сообщение скачанный файл сертификата и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты Nomadesk смогли настроить единый вход со своей стороны.
+5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Nomadesk по адресу support@nomadesk.com.. Прикрепите к сообщению скачанный сертификат и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты Nomadesk смогли настроить единый вход со своей стороны.
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
 
@@ -131,17 +135,17 @@ ms.author: jeedes
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png)
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png)
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png)
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png)
    
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
    
@@ -150,7 +154,7 @@ ms.author: jeedes
     c. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png) 
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png)
    
    а. В текстовом поле **Имя** введите **Britta**.  
    
@@ -163,10 +167,10 @@ ms.author: jeedes
    д. Нажмите кнопку **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png)
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png) 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png)
    
     а. Запишите значение поля **Новый пароль**.
    
@@ -185,26 +189,26 @@ ms.author: jeedes
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 Цель этого раздела — предоставить пользователю Britta Simon доступ к Nomadesk, чтобы пользователь мог использовать единый вход Azure.
 
-![Назначение пользователя][200] 
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в Nomadesk, сделайте следующее:**
 
 1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
    
-    ![Назначение пользователя][201] 
+    ![Назначение пользователя][201]
 2. В списке приложений выберите **Nomadesk**.
    
-    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png) 
+    ![Настройка единого входа](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png)
 3. В меню в верхней части страницы щелкните **Пользователи**.
    
-    ![Назначение пользователя][203] 
+    ![Назначение пользователя][203]
 4. В списке пользователей выберите **Britta Simon**.
 5. На панели инструментов внизу щелкните **Назначить**.
    
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Nomadesk на панели доступа, вы автоматически войдете в приложение Nomadesk.
 
@@ -232,6 +236,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

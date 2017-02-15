@@ -1,12 +1,12 @@
 ---
-title: Настройка личного доменного имени в службе приложений Azure (GoDaddy)
-description: Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure
+title: "Настройка личного доменного имени в службе приложений Azure (GoDaddy)"
+description: "Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: erikre
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc3ee1f4d3205b40397d5f82959a78316def5f45
+
 
 ---
-# <a name="configure-a-custom-domain-name-in-azure-app-service-(purchased-directly-from-godaddy)"></a>Настройка личного доменного имени в службе приложений Azure (приобретенного непосредственно у GoDaddy)
+# <a name="configure-a-custom-domain-name-in-azure-app-service-purchased-directly-from-godaddy"></a>Настройка личного доменного имени в службе приложений Azure (приобретенного непосредственно у GoDaddy)
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
@@ -81,9 +85,12 @@ ms.author: cephalin
 > 
 > 
 
-## <a name="what's-changed"></a>Изменения
+## <a name="whats-changed"></a>Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

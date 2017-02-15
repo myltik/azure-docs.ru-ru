@@ -1,27 +1,31 @@
 ---
-title: Подключение к защищенному частному кластеру | Microsoft Docs
-description: В этой статье описывается, как защитить связь в автономном или частном кластере, а также между клиентами и кластером.
+title: "Защита кластера под управлением Windows с помощью сертификатов | Документация Майкрософт"
+description: "В этой статье описывается, как защитить связь в автономном или частном кластере, а также между клиентами и кластером."
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2016
-ms.author: dkshir
+ms.date: 12/12/2016
+ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
+ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
+
 
 ---
-# <a name="secure-a-standalone-cluster-on-windows-using-x.509-certificates"></a>Защита автономного кластера под управлением Windows с помощью сертификатов X.509
+# <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Защита автономного кластера под управлением Windows с помощью сертификатов X.509
 В этой статье описывается, как защитить обмен данными между различными узлами автономного кластера под управлением Windows, а также как аутентифицировать клиентов, подключающихся к этому кластеру, с помощью сертификатов X.509. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления.  Безопасность на основе сертификатов необходимо включить в кластере при его создании.  
 
 Дополнительные сведения о безопасности кластера, в том числе безопасности обмена данными между узлами, между клиентом и узлом, и об управлении доступом на основе ролей см. в статье [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md).
 
-## <a name="which-certificates-will-you-need?"></a>Необходимые сертификаты
+## <a name="which-certificates-will-you-need"></a>Необходимые сертификаты
 Сначала нужно [скачать пакет автономного кластера](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) на один из узлов в кластере. В скачанном пакете вы найдете файл **ClusterConfig.X509.MultiMachine.json** . Откройте его и ознакомьтесь с разделом **security** в разделе **properties**.
 
     "security": {
@@ -39,26 +43,33 @@ ms.author: dkshir
                 "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             },
-            "ClientCertificateThumbprints": [{
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": false
-            }, {
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": true
-            }],
-            "ClientCertificateCommonNames": [{
-                "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
-                "IsAdmin": true
-            }]
-            "HttpApplicationGatewayCertificate":{
+            "ClientCertificateThumbprints": [
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": false
+                }, 
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ],
+            "ClientCertificateCommonNames": [
+                {
+                    "CertificateCommonName": "[CertificateCommonName]",
+                    "CertificateIssuerThumbprint" : "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ]
+            "ReverseProxyCertificate":{
                 "Thumbprint": "[Thumbprint]",
+                "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             }
         }
     }
 
-В этом разделе описываются сертификаты, необходимые для обеспечения безопасности автономного кластера Windows. Чтобы включить безопасность на основе сертификатов, присвойте параметрам **ClusterCredentialType** и **ServerCredentialType** значение *X509*.
+В этом разделе описываются сертификаты, необходимые для обеспечения безопасности автономного кластера Windows. При указании сертификата кластера задайте для параметра **ClusterCredentialType** значение _**X509**_. При указании сертификата сервера для внешних соединений задайте для параметра **ServerCredentialType** значение _**X509**_. Хотя это не обязательно, рекомендуется иметь оба этих сертификата, чтобы должным образом защитить кластер. Если для этих параметров задано значение *X509*, то вам также нужно указать соответствующие сертификаты, иначе Service Fabric породит исключение. В некоторых сценариях может потребоваться указать только один из параметров, _ClientCertificateThumbprints_ или _ReverseProxyCertificate_. В этих случаях не нужно задавать для _ClusterCredentialType_ или _ServerCredentialType_ значение _X509_.
+
 
 > [!NOTE]
 > [Отпечаток](https://en.wikipedia.org/wiki/Public_key_fingerprint) — это основной идентификатор сертификата. Узнайте о том, как [извлечь отпечатки создаваемых сертификатов](https://msdn.microsoft.com/library/ms734695.aspx) .
@@ -73,7 +84,7 @@ ms.author: dkshir
 | ServerCertificate |Этот сертификат предоставляется клиенту при попытке подключиться к этому кластеру. Для удобства можно использовать один сертификат для параметров *ClusterCertificate* и *ServerCertificate*. Для обновления можно использовать два разных сертификата сервера — основной и дополнительный. Укажите отпечаток основного сертификата в разделе **Thumbprint**, а отпечаток дополнительного сертификата — в переменных **ThumbprintSecondary**. |
 | ClientCertificateThumbprints |Это набор сертификатов, которые требуется установить на клиентских компьютерах, прошедших аутентификацию. На компьютерах, которым нужно предоставить доступ к кластеру, можно установить несколько различных клиентских сертификатов. Укажите отпечаток каждого сертификата в переменной **CertificateThumbprint**. Если для параметра **IsAdmin** задано значение *true*, то с клиентского компьютера с установленным сертификатом можно выполнять различные действия управления кластером от имени администратора. Если для параметра **IsAdmin** задано значение *false*, то с клиентского компьютера с установленным сертификатом можно выполнять действия, зависящие от прав доступа пользователей, обычно только операции чтения. Дополнительные сведения о ролях см. в статье [Контроль доступа на основе ролей](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |Укажите общее имя первого сертификата клиента для параметра **CertificateCommonName**. **CertificateIssuerThumbprint** — это отпечаток издателя сертификата. Дополнительные сведения об общих именах и издателе см. в статье [Работа с сертификатами](https://msdn.microsoft.com/library/ms731899.aspx). |
-| HttpApplicationGatewayCertificate |Это необязательный сертификат, который можно указать, если вы хотите защитить шлюз приложений Http. Если вы используете этот сертификат, обязательно укажите для параметра nodeTypes значение reverseProxyEndpointPort. |
+| ReverseProxyCertificate |Это необязательный сертификат, который можно указать, если вы хотите защитить [обратный прокси-сервер](service-fabric-reverseproxy.md). Если вы используете этот сертификат, обязательно укажите для параметра nodeTypes значение reverseProxyEndpointPort. |
 
 Ниже приведен пример конфигурации кластера, в котором указаны сертификаты клиента, сервера и кластера.
 
@@ -90,16 +101,16 @@ ms.author: dkshir
         "faultDomain": "fd:/dc1/r0",
         "upgradeDomain": "UD0"
     }, {
-      "nodeName": "vm1",
-            "metadata": "Replace the localhost with valid IP address or FQDN",
+        "nodeName": "vm1",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "iPAddress": "10.7.0.4",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r1",
         "upgradeDomain": "UD1"
     }, {
         "nodeName": "vm2",
-      "iPAddress": "10.7.0.6",
-            "metadata": "Replace the localhost with valid IP address or FQDN",
+        "iPAddress": "10.7.0.6",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
@@ -138,7 +149,9 @@ ms.author: dkshir
         "nodeTypes": [{
             "name": "NodeType0",
             "clientConnectionEndpointPort": "19000",
-            "clusterConnectionEndpoint": "19001",
+            "clusterConnectionEndpointPort": "19001",
+            "leaseDriverEndpointPort": "19002",
+            "serviceConnectionEndpointPort": "19003",
             "httpGatewayEndpointPort": "19080",
             "applicationPorts": {
                 "startPort": "20001",
@@ -165,17 +178,17 @@ ms.author: dkshir
 }
  ```
 
-## <a name="aquire-the-x.509-certificates"></a>Получение сертификатов X.509
+## <a name="acquire-the-x509-certificates"></a>Получение сертификатов X.509
 Чтобы защитить связь в кластере, сначала необходимо получить сертификаты X.509 для узлов кластера. Кроме того, чтобы разрешить подключение к этому кластеру только для авторизованных компьютеров и пользователей, необходимо получить и установить сертификаты для клиентских компьютеров.
 
 Для защиты кластеров, на которых выполняются рабочие нагрузки в рабочей среде, необходимо использовать сертификат X.509, подписанный [центром сертификации](https://en.wikipedia.org/wiki/Certificate_authority). Сведения о получении этих сертификатов приведены в статье [How to: Obtain a Certificate (WCF)](http://msdn.microsoft.com/library/aa702761.aspx)(Получение сертификата).
 
 Для кластеров, которые применяются для тестирования, можно использовать самозаверяющие сертификаты.
 
-## <a name="optional:-create-a-self-signed-certificate"></a>Создание самозаверяющего сертификата (необязательно)
-Защищенный самозаверяющий сертификат создается при помощи сценария *CertSetup.ps1*, который находится в папке пакета SDK для Service Fabric в каталоге *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Измените этот файл и используйте его для создания сертификата с подходящим именем.
+## <a name="optional-create-a-self-signed-certificate"></a>Создание самозаверяющего сертификата (необязательно)
+Защищенный самозаверяющий сертификат создается при помощи сценария *CertSetup.ps1*, который находится в папке пакета SDK для Service Fabric в каталоге *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Измените этот файл, чтобы изменить имя по умолчанию сертификата (найдите значение *CN = ServiceFabricDevClusterCert*). Выполните этот сценарий следующим образом: `.\CertSetup.ps1 -Install`.
 
-Теперь экспортируйте сертификат в PFX-файл, защищенный паролем. Сначала необходимо получить отпечаток сертификата. Запустите приложение certmgr.exe. Перейдите в папку **Local Computer\Personal** и найдите созданный сертификат. Дважды щелкните файл сертификата, чтобы открыть его, выберите вкладку *Сведения* и прокрутите вниз до поля *Отпечаток*. Вставьте значение отпечатка в команду PowerShell ниже, удалив в нем пробелы.  Укажите для параметра *$pswd* безопасный пароль и запустите команду PowerShell.
+Теперь экспортируйте сертификат в PFX-файл, защищенный паролем. Сначала получите отпечаток сертификата. В меню *Запуск* выберите *Управление сертификатами компьютеров*. Перейдите в папку **Local Computer\Personal** и найдите созданный сертификат. Дважды щелкните файл сертификата, чтобы открыть его, выберите вкладку *Сведения* и прокрутите вниз до поля *Отпечаток*. Вставьте значение отпечатка в команду PowerShell ниже, предварительно удалив в нем пробелы.  Укажите для параметра `String` безопасный пароль и выполните приведенную ниже команду PowerShell.
 
 ```   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -199,74 +212,79 @@ Write-Host $cert.ToString($true)
    
     ```
     $pswd = "1234"
-    $PfcFilePath ="C:\mypfx.pfx"
+    $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Затем задайте контроль доступа для этого сертификата, чтобы служба Service Fabric, которая выполняется под учетной записью сетевой службы, могла использовать его, выполняя следующий сценарий. Укажите отпечаток сертификата и имя сетевой службы для учетной записи службы. Чтобы убедиться, что в сертификате используются соответствующие списки ACL, можно воспользоваться средством certmgr.exe и выбрать раздел "Управление закрытыми ключами" в сертификате.
+3. Затем настройте контроль доступа для этого сертификата, чтобы служба Service Fabric, которая выполняется под учетной записью сетевой службы, могла использовать его, выполняя следующий сценарий. Укажите отпечаток сертификата и имя сетевой службы для учетной записи службы. Можно проверить правильность списков контроля доступа (ACL) для сертификата, открыв сертификат. Для этого щелкните *Запуск* > *Управление сертификатами компьютеров* и просмотрите *Все задачи* > *Управление закрытыми ключами*.
    
     ```
     param
     (
-        [Parameter(Position=1, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$pfxThumbPrint,
+    [Parameter(Position=1, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$pfxThumbPrint,
    
-        [Parameter(Position=2, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$serviceAccount
-        )
+    [Parameter(Position=2, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$serviceAccount
+    )
    
-        $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
+    $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
-        # Specify the user, the permissions and the permission type
-        $permission = "$($serviceAccount)","FullControl","Allow"
-        $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
+    # Specify the user, the permissions and the permission type
+    $permission = "$($serviceAccount)","FullControl","Allow"
+    $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
-        # Location of the machine related keys
-        $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
-        $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
-        $keyFullPath = $keyPath + $keyName;
+    # Location of the machine related keys
+    $keyPath = Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
+    $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
+    $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
    
-        # Get the current acl of the private key
-        $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
+    # Get the current acl of the private key
+    $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
    
-        # Add the new ace to the acl of the private key
-        $acl.SetAccessRule($accessRule);
+    # Add the new ace to the acl of the private key
+    $acl.SetAccessRule($accessRule)
    
-        # Write back the new acl
-        Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
+    # Write back the new acl
+    Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
    
-        #Observe the access rights currently assigned to this certificate.
-        get-acl $keyFullPath| fl
-        ```
-4. Repeat the steps above for each server certificate. You can also use these steps to install the client certificates on the machines that you want to allow access to the cluster.
+    # Observe the access rights currently assigned to this certificate.
+    get-acl $keyFullPath| fl
+    ```
+4. Эти действия необходимо выполнить для каждого сертификата сервера. Воспользуйтесь этими шагами, чтобы установить сертификаты клиента на компьютерах, которым нужно предоставить доступ к кластеру.
 
-## Create the secure cluster
-After configuring the **security** section of the **ClusterConfig.X509.MultiMachine.json** file, you can proceed to [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) section to configure the nodes and create the standalone cluster. Remember to use the **ClusterConfig.X509.MultiMachine.json** file while creating the cluster. For example, your command might look like the following:
+## <a name="create-the-secure-cluster"></a>Создание защищенного кластера
+После настройки в файле **ClusterConfig.X509.MultiMachine.json** раздела **security** можно приступать к [созданию кластера](service-fabric-cluster-creation-for-windows-server.md#createcluster), чтобы настроить узлы и создать автономный кластер. Используйте файл **ClusterConfig.X509.MultiMachine.json** при создании кластера. Например, команда может выглядеть следующим образом:
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example:
+После защиты автономного кластера под управлением Windows и настройки прошедших проверку подлинности клиентов, которые могут к нему подключаться, [подключитесь к защищенному кластеру с помощью PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster). Например:
 
 ```
-Connect-ServiceFabricCluster -ConnectionEndpoint 10.7.0.4:19000 -KeepAliveIntervalInSec 10 -X509Credential -ServerCertThumbprint 057b9544a6f2733e0c8d3a60013a58948213f551 -FindType FindByThumbprint -FindValue 057b9544a6f2733e0c8d3a60013a58948213f551 -StoreLocation CurrentUser -StoreName My
+$ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
+Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-If you are logged on to one of the machines in the cluster, since this already has the certificate installed locally you can simply run the Powershell command to connect to the cluster and show a list of nodes:
+Затем можно выполнить другие команды PowerShell для работы с этим кластером. Например, `Get-ServiceFabricNode` для отображения списка узлов в этом защищенном кластере.
+
+
+Чтобы удалить кластер, подключитесь к узлу в кластере, на который вы скачали пакет Service Fabric, откройте командную строку и перейдите в папку с пакетом. Теперь выполните следующую команду.
 
 ```
-Connect-ServiceFabricCluster Get-ServiceFabricNode
-```
-To remove the cluster call the following command:
-
-```
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
+> [!NOTE]
+> Из-за неправильной конфигурации сертификата кластер может не восстановиться во время развертывания. Чтобы самостоятельно определить проблемы безопасности, откройте средство просмотра событий и выберите группу *Журналы приложений и служб* > *Microsoft-Service Fabric*.
+> 
+> 
 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

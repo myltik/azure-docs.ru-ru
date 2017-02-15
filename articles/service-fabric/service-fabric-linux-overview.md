@@ -1,12 +1,12 @@
 ---
-title: Azure Service Fabric в Linux | Microsoft Docs
-description: Кластеры Service Fabric поддерживают Linux и Java. Это значит, что вы сможете развернуть и разместить в Linux приложения Service Fabric, написанные на языках Java и C#.
+title: "Azure Service Fabric в Linux | Документация Майкрософт"
+description: "Кластеры Service Fabric поддерживают Linux и Java. Это значит, что вы сможете развернуть и разместить в Linux приложения Service Fabric, написанные на языках Java и C#."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 459afade-145d-4ee6-b72b-ddf380ccd1bf
 ms.service: service-fabric
 ms.devlang: Java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: SubramaR
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f52903801c53a50d149fe8732bf514194aae0478
+
 
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric в Azure
@@ -33,6 +37,7 @@ ms.author: SubramaR
 > 
 > 
 
+
 ## <a name="supported-tooling"></a>Поддерживаемые средства
 Предварительная версия поддерживает взаимодействие с кластером через интерфейс командной строки Azure. Для разработчиков Java интеграция с Eclipse и Yeoman доступна при помощи среды Eclipse, поддерживаемой в Linux и OS X. В интеграции с OS X используется виртуальная машина под управлением Linux (через Vagrant). Разработчики C# могут использовать интеграцию с Yeoman для создания шаблонов приложений.
 
@@ -42,6 +47,9 @@ ms.author: SubramaR
 3. [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
 4. [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

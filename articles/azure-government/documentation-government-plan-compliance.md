@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: Provides and overview of the available services in Azure Government
+title: "Соответствие требованиям в Azure для государственных организаций | Документация Майкрософт"
+description: "Содержит общие сведения о доступных службах в Azure для государственных организаций"
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,32 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: 5be95e2deda3bcc36494ba51eeb050d5c4e2894b
+ms.openlocfilehash: 3c1e610412ec043a62f3c389bd239a4225111e61
+
 
 ---
-# <a name="azure-government-compliance"></a>Azure Government Compliance
-## <a name="blueprint-customer-responsibilities-matrix:-streamlining-ato-processes"></a>Blueprint Customer Responsibilities Matrix:  Streamlining ATO processes
-The Azure Blueprint program, allows customers to access documentation to assist their agency or system-specific authorization to operate (ATO) processes. This article provides a deeper look at the Azure Blueprint Customer Responsibilities Matrix (CRM) and how security personnel can leverage this document.
+# <a name="azure-government-compliance"></a>Соответствие требованиям в Azure для государственных организаций
+## <a name="blueprint-customer-responsibilities-matrix--streamlining-ato-processes"></a>Матрица обязанностей клиента программы Blueprint. Оптимизация процессов, связанных с разрешением на ведение деятельности
+Программа Azure Blueprint позволяет пользователям получить доступ к документации, которая может помочь выполнять процессы, связанные с разрешением на ведение деятельности, в организации или системе. Эта статья содержит подробные сведения о матрице обязанностей клиента программы Blueprint Azure, а также о том, как сотрудники службы безопасности могут использовать этот документ.
 
-The Azure Blueprint CRM is designed for utility. It is a spreadsheet format that defines ONLY the control requirements where the customer building in Azure must implement the security control.
+Azure Blueprint CRM предназначена для служебных программ. Этот документ в формате электронной таблицы определяет требования ТОЛЬКО к системе управления, в которой клиент, создающий решения в Azure, должен реализовать средства безопасности.
 
 > [!NOTE]
-> Within the context of Azure Blueprint, "customer" references the organization building directly within the Azure IaaS/PaaS environment. Azure customers could include third-party ISVs building on behalf of government or government agencies building directly on Azure.
+> В контексте Azure Blueprint "клиент" означает организацию, которая создает решения в среде Azure IaaS и PaaS. Клиенты Azure могут включать в себя сторонних поставщиков программного обеспечения, работающих по поручению государственных органов, или правительственные учреждения, сами создающие решения в Azure.
 > 
 > 
 
-The CRM provides the explicit <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf"> NIST SP 800-53 Revision 4 </a> controls that include a customer responsibility. This includes controls that are fully the responsibility of the customer, as well as controls that have a shared responsibility between the customer and Azure. Controls are broken down to the granularity of control sub requirements to be as explicit as possible.
+Матрице обязанностей клиента предоставляет действенные элементы управления, соответствующие требованиям документа <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf"> NIST Специальная Публикация 800-53, версия 4</a>, которые предполагают ответственность клиента. Сюда входят элементы управления, ответственность за которые полностью лежит на клиенте, а также элементы управления, за которые отвечает клиент и Azure. Элементы управления четко разграничены по требованиям, сформулированным детально. Таким образом обеспечивается их максимальная ясность.
 
-For example, AC-1 requires access control  policies and procedures be documented for the system seeking ATO. For this control, Azure has internal policies and procedures regarding access control mechanisms used to manage the Azure Infrastructure and Platform. Customers must also create their own Access Control policies and procedures used within their specific system built on Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on at least an annual basis. 
+Например, для AC-1 требуется документирование политик и процедур контроля доступа для системы, которой нужно разрешение на ведение деятельности. Для этого элемента управления в Azure есть внутренние политики и процедуры в отношении механизмов контроля доступа, используемых для управления инфраструктурой и платформой Azure. Клиентам необходимо также создавать собственные политики и процедуры контроля доступа, чтобы использовать их в системах, созданных на базе Azure. Документы матрицы обязанностей клиента управляют частями AC-1a, которая требует, чтобы политики и процедуры включали конкретное содержимое, а также AC-1b, которая требует, чтобы пользователи проверяли и обновляли эти документы по крайней мере раз в год. 
 
-For access to the CRM as well as the Azure Blueprint System Security Plan Template, please e-mail AzureBlueprint@microsoft.com.
+Чтобы получить доступ к матрице обязанностей клиента и шаблону плана безопасности системы Azure Blueprint, отправьте сообщение по адресу AzureBlueprint@microsoft.com.
 
-We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
+Мы ценим любые отзывы о матрице обязанностей клиента, так как именно они помогают нам совершенствовать документ, максимально упрощая процедуру получения разрешения на ведение деятельности для клиента.
 
-## <a name="next-steps"></a>Next Steps
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
+## <a name="next-steps"></a>Дальнейшие действия
+<a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx">Центр управления безопасностью Майкрософт</a>
 
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+<a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

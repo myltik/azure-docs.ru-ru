@@ -1,12 +1,12 @@
 ---
-title: Аудит в хранилище данных SQL Azure | Microsoft Docs
-description: Приступая к работе с аудитом в хранилище данных SQL Azure
+title: "Аудит в хранилище данных SQL Azure | Документация Майкрософт"
+description: "Приступая к работе с аудитом в хранилище данных SQL Azure"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd892d5f15a8d95664ef0666cd35e434e773bbce
+
 
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Аудит в хранилище данных SQL Azure
@@ -31,7 +35,7 @@ ms.author: rortloff;barbkess
 * [Настройка аудита базы данных]
 * [Анализ журналов и отчетов аудита]
 
-## <a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Основы аудита баз данных хранилища данных SQL Azure
+## <a name="a-idsubheading-1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Основы аудита баз данных хранилища данных SQL Azure
 Аудит базы данных хранилища данных SQL позволяет:
 
 * **Сохранить** журнал аудита выбранных событий. Вы можете указать, какие категории действий базы данных должны проходить аудит.
@@ -58,7 +62,7 @@ ms.author: rortloff;barbkess
 
 Если вы пользуетесь [клиентом прежних версий](sql-data-warehouse-auditing-downlevel-clients.md), перед настройкой аудита проверьте контроль аудирования.
 
-## <a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
+## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
 1. Запустите <a href="https://portal.azure.com" target="_blank">портал Azure</a>.
 2. Перейдите в колонку конфигурации базы данных хранилища данных SQL или SQL Server, для которой нужно выполнить аудит. Нажмите в верхней части кнопку **Параметры**, а затем в колонке "Параметры" выберите **Аудит**.
    
@@ -77,7 +81,7 @@ ms.author: rortloff;barbkess
 8. При настройке аудита для базы данных может потребоваться изменить строку подключения вашего клиента, чтобы убедиться в правильном сборе данных аудита. Ознакомьтесь с разделом [Изменение FDQN сервера в строке подключения](sql-data-warehouse-auditing-downlevel-clients.md) , чтобы узнать больше о подключениях клиентов нижнего уровня.
 9. Нажмите кнопку **ОК**.
 
-## <a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Анализ журналов и отчетов аудита</a>
+## <a name="a-idsubheading-3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Анализ журналов и отчетов аудита</a>
 Журналы аудита объединяются в коллекцию таблиц хранилища с префиксом **SQLDBAuditLogs** в учетной записи хранилища Azure, выбранной во время установки. Просматривать файлы журнала можно с помощью таких инструментов, как <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">обозреватель хранилищ Azure</a>.
 
 Для скачивания доступен предварительно настроенный шаблон отчета панели мониторинга в виде <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">таблицы Excel</a>, что позволит быстро проанализировать данные журнала. Чтобы использовать шаблон с вашими журналами аудита, вам потребуется Excel 2013 или более поздней версии и Power Query, который можно скачать по этой <a href="http://www.microsoft.com/download/details.aspx?id=39379">ссылке</a>.
@@ -88,10 +92,10 @@ ms.author: rortloff;barbkess
 
 ![][5]
 
-## <a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Рекомендации по использованию в рабочей среде</a>
+## <a name="a-idsubheading-4practices-for-usage-in-productiona"></a><a id="subheading-4">Рекомендации по использованию в рабочей среде</a>
 Описания в этом разделе относятся к снимкам экрана выше. Можно использовать <a href="https://portal.azure.com" target="_blank">портал Azure</a> или <a href= "https://manage.windowsazure.com/" target="_bank">классический портал Azure</a>.
 
-## <a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Повторное создание ключа хранилища
+## <a name="a-idsubheading-5astorage-key-regeneration"></a><a id="subheading-5"></a>Повторное создание ключа хранилища
 Обычно, в рабочей среде приходится периодически обновлять ключи хранилища. При обновлении ключей необходимо сохранять политику повторно. Вот как это можно сделать:
 
 1. В колонке конфигурации аудита (описанной выше в разделе о настройке аудита) измените значение параметра **Ключ доступа к хранилищу** с *Первичный* на *Вторичный* и нажмите кнопку **СОХРАНИТЬ**.
@@ -100,7 +104,7 @@ ms.author: rortloff;barbkess
 3. В колонке конфигурации аудита измените значение параметра **Ключ доступа к хранилищу** с *Вторичный* на *Первичный* и нажмите кнопку **СОХРАНИТЬ**.
 4. В интерфейсе хранилища **повторно создайте***вторичный ключ доступа* (для подготовки к следующему циклу обновления ключей).
 
-## <a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Автоматизация
+## <a name="a-idsubheading-6aautomation"></a><a id="subheading-6"></a>Автоматизация
 Существует несколько командлетов PowerShell, которые можно использовать для настройки аудита в базе данных SQL Azure. Для доступа к аудиту командлетов необходимо наличие PowerShell в режиме диспетчера ресурсов Azure.
 
 > [!NOTE]
@@ -128,6 +132,6 @@ ms.author: rortloff;barbkess
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

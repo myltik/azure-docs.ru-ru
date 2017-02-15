@@ -1,19 +1,23 @@
 ---
-title: Создание приложений, использующих очереди служебной шины | Microsoft Docs
-description: Как написать простое приложение на основе очереди, которое использует служебную шину.
-services: service-bus
+title: "Создание приложений, использующих очереди служебной шины | Документация Майкрософт"
+description: "Как написать простое приложение на основе очереди, которое использует служебную шину."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 754d91b3-1426-405e-84b4-fd36d65b114a
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+
 
 ---
 # <a name="create-applications-that-use-service-bus-queues"></a>Создание приложений, использующих очереди служебной шины
@@ -25,7 +29,7 @@ ms.author: sethm
 
 Каждый терминал POS передает данные о продажах путем отправки сообщений в очередь **DataCollectionQueue**. Эти сообщения остаются в этой очереди до тех пор, пока не извлекаются системой управления запасами. Эта схема часто называется *асинхронным обменом сообщениями*, так терминал POS не должен ждать ответа от системы управления запасами для продолжения обработки.
 
-## <a name="why-queuing?"></a>Зачем использовать очередь?
+## <a name="why-queuing"></a>Зачем использовать очередь?
 Прежде чем обратиться к коду данного приложения рассмотрим преимущества использования очереди по сравнению с прямым (синхронным) взаимодействием терминалов POS с системой управления запасами.
 
 ### <a name="temporal-decoupling"></a>Временное разделение
@@ -51,13 +55,13 @@ ms.author: sethm
 Чтобы начать работу со служебной шиной, вам потребуется учетная запись Azure. Если у вас ее нет, вы можете зарегистрироваться для получения бесплатной учетной записи [здесь](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="create-a-namespace"></a>Создание пространства имен
-После получения подписки можно [создать новое пространство имен](../service-bus/service-bus-create-namespace-portal.md). Каждое пространство имен выступает в качестве определяющего область действия контейнера для набора сущностей служебной шины. Присвойте пространству имен имя, которое будет уникальным среди всех учетных записей служебной шины. 
+После получения подписки можно [создать новое пространство имен](service-bus-create-namespace-portal.md). Каждое пространство имен выступает в качестве определяющего область действия контейнера для набора сущностей служебной шины. Присвойте пространству имен имя, которое будет уникальным среди всех учетных записей служебной шины. 
 
 ### <a name="install-the-nuget-package"></a>Установка пакета NuGet
 Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Эта сборка является частью пакета SDK Microsoft Azure, который можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/). Однако проще всего получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины с помощью [пакета NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 ### <a name="create-the-queue"></a>Создание очереди
-Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Служебная шина использует модель безопасности на основе [подписанного URL-адреса](../service-bus/service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
+Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Служебная шина использует модель безопасности на основе [подписанного URL-адреса](service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
 
 Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Приведенный здесь код иллюстрирует создание и использование экземпляра класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для создания очереди **DataCollectionQueue**.
 
@@ -145,6 +149,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы ознакомились с основами использования очередей, обратитесь к статье [Создание приложений, использующих разделы и подписки служебной шины](service-bus-create-topics-subscriptions.md). В этой статье объясняется, как использовать возможности публикации и подписки разделов и подписок служебной шины.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

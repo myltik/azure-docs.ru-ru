@@ -1,36 +1,40 @@
 ---
-title: Выбор имен пользователей для Linux | Microsoft Docs
-description: Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure.
+title: "Выбор имен пользователей для Linux | Документация Майкрософт"
+description: "Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 33b50c97-92f1-46c9-a623-e37f67459c5c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 02/02/2017
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaea0ce42537789278d3a0476b261e6a750dde2b
+
 
 ---
-# Выбор имен пользователей для Linux в Azure
+# <a name="selecting-user-names-for-linux-on-azure"></a>Выбор имен пользователей для Linux в Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 При подготовке виртуальной машины Linux в Azure необходимо указать имя непривилегированного пользователя, которое позже можно будет использовать для входа в виртуальную машину. Можно выбрать имя нового пользователя или (при подготовке с помощью классического портала Azure) принять имя по умолчанию azureuser.
 
 В большинстве случаев этот новый пользователь не существует в базовом образе и создается в процессе подготовки. Если пользователь существует в базовом образе виртуальной машины, агент Azure для Linux просто настраивает для него пароль (или ключ SSH) на основе данных, указанных при создании виртуальной машины.
 
-**Тем не менее** Linux определяет набор имен пользователей, которые нельзя использовать. Процесс подготовки завершится **ошибкой**, если при подготовке виртуальной машины Linux вы попробуете использовать данные существующего системного пользователя, который определен как пользователь с идентификатором в диапазоне 0—99. Типичный пример — пользователь `root` с идентификатором 0.
+**Тем не менее**Linux определяет набор имен пользователей, которые нельзя использовать. Процесс подготовки завершится **ошибкой** , если при подготовке виртуальной машины Linux вы попробуете использовать данные существующего системного пользователя, который определен как пользователь с идентификатором в диапазоне 0—99. Типичный пример — пользователь `root` с идентификатором 0.
 
-* См. также: [База стандартов Linux: диапазоны идентификаторов пользователей](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+* См. также: [База стандартов Linux. Диапазоны идентификаторов пользователей](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html).
 
 Ниже приведен список наиболее распространенных встроенных системных пользователей для CentOS и Ubuntu, которые не следует использовать при подготовке виртуальной машины Linux в Azure. Этот список является примером; чтобы убедиться, что выбранное имя пользователя не конфликтует с существующим системным пользователем, см. документацию по вашему дистрибутиву.
 
-## CentOS
+## <a name="centos"></a>CentOS
 * abrt
 * adm
 * audio
@@ -86,7 +90,7 @@ ms.author: szark
 * video
 * wheel
 
-## Ubuntu
+## <a name="ubuntu"></a>Ubuntu
 * adm
 * admin
 * audio
@@ -141,4 +145,9 @@ ms.author: szark
 * whoopsie
 * www-data
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

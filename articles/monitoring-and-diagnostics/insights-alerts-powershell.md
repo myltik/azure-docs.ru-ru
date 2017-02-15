@@ -1,26 +1,30 @@
 ---
-title: Создание оповещений для служб Azure с помощью портала Azure | Microsoft Docs
-description: Используйте PowerShell для создания оповещений Azure, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий.
+title: "Создание оповещений для служб Azure с помощью PowerShell | Документация Майкрософт"
+description: "Используйте PowerShell для создания оповещений Azure, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 10/20/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+
 
 ---
 # <a name="use-powershell-to-create-alerts-for-azure-services"></a>Создание оповещений для служб Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
-> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](../azure-portal/insights-alerts-command-line-interface.md) 
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](insights-alerts-command-line-interface.md)
 > 
 > 
 
@@ -37,16 +41,16 @@ ms.author: robb
 * отправка уведомлений по электронной почте администратору службы и соадминистраторам;
 * отправка уведомления на указанные дополнительные электронные адреса;
 * вызов webhook;
-* запуск выполнения Runbook Azure (только на портале Azure). 
+* запуск выполнения Runbook Azure (только на портале Azure).
 
-Для настройки правил генерации оповещений и получении сведений о них можно использовать: 
+Для настройки правил генерации оповещений и получении сведений о них можно использовать:
 
 * [Портал Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md) 
-* [интерфейс командной строки (CLI)](../azure-portal/insights-alerts-command-line-interface.md) 
-* [REST API Azure Insights](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](insights-alerts-powershell.md)
+* [интерфейс командной строки (CLI)](insights-alerts-command-line-interface.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Чтобы получить дополнительную информацию, всегда можно ввести ```get-help``` и команду PowerShell, справку по которой требуется получить. 
+Чтобы получить дополнительную информацию, всегда можно ввести ```get-help``` и команду PowerShell, справку по которой требуется получить.
 
 ## <a name="create-alert-rules-in-powershell"></a>Создание правил генерации оповещений в PowerShell
 1. Войдите в Azure.   
@@ -55,7 +59,7 @@ ms.author: robb
     Login-AzureRmAccount
    
     ```
-2. Получите список доступных вам подписок. Убедитесь, что вы работаете с нужной подпиской. В противном случае задайте нужную вам подписку, воспользовавшись выходными данными `Get-AzureRmSubscription`. 
+2. Получите список доступных вам подписок. Убедитесь, что вы работаете с нужной подпиской. В противном случае задайте нужную вам подписку, воспользовавшись выходными данными `Get-AzureRmSubscription`.
    
     ```PowerShell
     Get-AzureRmSubscription
@@ -74,7 +78,7 @@ ms.author: robb
      
      Получить идентификатор ресурса можно на портале Azure. Если ресурс уже создан, выберите его на портале. В следующей колонке в разделе *Параметры* выберите *Свойства*. В следующей колонке отображается поле "Идентификатор ресурса". Кроме того, для получения идентификатора ресурса можно использовать [Azure Resource Explorer](https://resources.azure.com/).
      
-     Ниже приведен пример идентификатора ресурса для веб-приложения. 
+     Ниже приведен пример идентификатора ресурса для веб-приложения.
      
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -86,7 +90,7 @@ ms.author: robb
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
      
-     В следующем примере создается таблица, содержащая имена метрик и их единицы измерения. 
+     В следующем примере создается таблица, содержащая имена метрик и их единицы измерения.
      
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -99,7 +103,7 @@ ms.author: robb
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
     ```
-6. Чтобы при активации оповещения создавался webhook или отправлялось электронное сообщение, необходимо сначала создать электронный адрес и (или) веб-перехватчики webhook. Сразу после этого создайте правило с тегом -Actions, как показано в следующем примере. С помощью PowerShell невозможно связать webhook или электронные адреса с уже созданными правилами. 
+6. Чтобы при активации оповещения создавался webhook или отправлялось электронное сообщение, необходимо сначала создать электронный адрес и (или) веб-перехватчики webhook. Сразу после этого создайте правило с тегом -Actions, как показано в следующем примере. С помощью PowerShell невозможно связать webhook или электронные адреса с уже созданными правилами.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -141,8 +145,11 @@ ms.author: robb
 * Узнайте больше о [настройке веб-перехватчиков webhook в оповещениях](insights-webhooks-alerts.md).
 * Узнайте больше о [модулях Runbook службы автоматизации Azure](../automation/automation-starting-a-runbook.md).
 * Ознакомьтесь с [обзором сбора журналов диагностики](monitoring-overview-of-diagnostic-logs.md) , чтобы собирать подробные метрики о службе с высокой частотой.
-* Прочитайте [обзор сбора метрики](../azure-portal/insights-how-to-customize-monitoring.md) и узнайте, как можно обеспечить, чтобы служба была доступна и отвечала на запросы.
+* Прочитайте [обзор сбора метрики](insights-how-to-customize-monitoring.md) и узнайте, как можно обеспечить, чтобы служба была доступна и отвечала на запросы.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

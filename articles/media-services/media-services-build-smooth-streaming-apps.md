@@ -1,12 +1,12 @@
 ---
-title: Учебник по приложениям магазина Windows с потоковой передачей Smooth Streaming | Microsoft Docs
-description: Сведения об использовании служб мультимедиа Azure для создания приложения для магазина Windows на C# с управляющим элементом XML MediaElement для воспроизведения контента Smooth Stream
+title: "Руководство по приложениям Магазина Windows с потоковой передачей Smooth Streaming | Документация Майкрософт"
+description: "Сведения об использовании служб мультимедиа Azure для создания приложения для магазина Windows на C# с управляющим элементом XML MediaElement для воспроизведения контента Smooth Stream"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
+
 
 ---
-# Создание приложения для магазина Windows с бесперебойной потоковой передачей
-Клиентский пакет SDK для бесперебойной потоковой передачи для Windows 8 позволяет разработчикам создавать приложения для магазина Windows, способные воспроизводить контент по требованию и в режиме реального времени с бесперебойной потоковой передачей. Помимо основных функций воспроизведения контента с бесперебойной потоковой передачей этот пакет SDK также предоставляет богатые возможности, такие как защита Microsoft PlayReady, ограничение уровня качества, Live DVR, переключение потока аудио, прослушивание событий ошибок и обновления состояния (например, изменения уровня качества) и т. д. Дополнительные сведения о поддерживаемых возможностях см. в [заметках к выпуску](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Дополнительные сведения см. на сайте [Player Framework for Windows 8](http://playerframework.codeplex.com/).
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Создание приложения для магазина Windows с бесперебойной потоковой передачей
+Клиентский пакет SDK для бесперебойной потоковой передачи для Windows 8 позволяет разработчикам создавать приложения для магазина Windows, способные воспроизводить контент по требованию и в режиме реального времени с бесперебойной потоковой передачей. Помимо основных функций воспроизведения контента с бесперебойной потоковой передачей этот пакет SDK также предоставляет богатые возможности, такие как защита Microsoft PlayReady, ограничение уровня качества, Live DVR, переключение потока аудио, прослушивание событий ошибок и обновления состояния (например, изменения уровня качества) и т. д. Дополнительные сведения о поддерживаемых возможностях см. в [заметках к выпуску](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Дополнительные сведения см. на странице, посвященной [Player Framework для Windows 8](http://playerframework.codeplex.com/). 
 
 Этот учебный курс состоит из четырех занятий:
 
@@ -26,24 +30,24 @@ ms.author: juliako
 3. Выбор потоков для бесперебойной потоковой передачи
 4. Выбор дорожек для бесперебойной потоковой передачи
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Windows 8 (32-разрядная или 64-разрядная). Можно получить [оценку Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) из MSDN.
 * Visual Studio 2012 или Visual Studio Express 2012 (либо более поздней версии). Пробную версию можно получить [здесь](http://www.microsoft.com/visualstudio/11/downloads).
 * [Клиентский пакет SDK для бесперебойной потоковой передачи Microsoft для Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-Готовое решение для каждого урока можно загрузить из раздела образцов кода для разработчиков MSDN (коллекция кодов):
+Готовое решение для каждого урока можно загрузить из раздела образцов кода для разработчиков MSDN (коллекция кодов): 
 
-* [Урок 1.](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming.
-* [Урок 2.](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок».
-* [Урок 3.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока.
-* [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
+* [Урок 1.](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming. 
+* [Урок 2.](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок». 
+* [Урок 3.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока.  
+* [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
 
-## Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
-На этом занятии предстоит создать приложение для магазина Windows с элементом управления MediaElement для воспроизведения контента с бесперебойной потоковой передачей. Работающее приложение имеет следующий вид:
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
+На этом занятии предстоит создать приложение для магазина Windows с элементом управления MediaElement для воспроизведения контента с бесперебойной потоковой передачей.  Работающее приложение имеет следующий вид:
 
 ![Пример приложения для магазина Windows с бесперебойной потоковой передачей][PlayerApplication]
 
-Дополнительную информацию о разработке приложений магазина Windows см. в разделе [Разработка замечательных приложений для Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Это занятие содержит следующие процедуры:
+Дополнительные сведения о разработке приложений Магазина Windows см. в разделе, посвященном [разработке потрясающих приложений для Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Это занятие содержит следующие процедуры:
 
 1. Создание проекта для магазина Windows
 2. Проектирование пользовательского интерфейса (XAML)
@@ -53,15 +57,15 @@ ms.author: juliako
 **Создание проекта приложения Магазина Windows**
 
 1. Запустите Visual Studio 2012 или более поздней версии.
-2. В меню **ФАЙЛ** выберите команду **Создать**, а затем — **Проект**.
-3. В окне "Новый проект" введите или выберите следующие значения:
+2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
+3. В диалоговом окне "Новый проект" введите или выберите следующие значения:
 
 | Имя | Значение |
 | --- | --- |
 | Группа шаблонов |Installed/Templates/Visual C#/Windows Store |
 | Шаблон |Пустое приложение (XAML) |
 | Имя |SSPlayer |
-| Расположение |C:\\SSTutorials |
+| Расположение |C:\SSTutorials |
 | Имя решения |SSPlayer |
 | Создать каталог для решения |(выбрано) |
 
@@ -69,7 +73,7 @@ ms.author: juliako
 
 **Добавление ссылки на пакет SDK клиента Smooth Streaming**
 
-1. В "Обозревателе решений" щелкните правой кнопкой мыши папку **SSPlayer** и выберите **Добавить ссылку**.
+1. В обозревателе решений щелкните правой кнопкой мыши **SSPlayer**, а затем выберите команду **Добавить ссылку**.
 2. Введите или выберите следующие значения:
 
 | Имя | Значение |
@@ -77,14 +81,14 @@ ms.author: juliako
 | Ссылочная группа |Windows/Расширения |
 | Справочные материалы |Выберите клиентский пакет SDK бесперебойной потоковой передачи Microsoft для Windows 8 и пакет среды выполнения Microsoft Visual C++ |
 
-1. Нажмите кнопку **ОК**.
+1. Нажмите кнопку **ОК**. 
 
-После добавления ссылок необходимо выбрать целевую платформу (x64 x86), добавление ссылок будет действовать не для всех конфигураций платформы ЦП. Для таких добавленных ссылок в обозревателе решений будет выведен желтый значок предупреждения.
+После добавления ссылок необходимо выбрать целевую платформу (x64 x86), добавление ссылок будет действовать не для всех конфигураций платформы ЦП.  Для таких добавленных ссылок в обозревателе решений будет выведен желтый значок предупреждения.
 
 **Создание пользовательского интерфейса проигрывателя**
 
-1. В обозревателе решений дважды щелкните **MainPage.xaml**, чтобы открыть его в режиме конструктора.
-2. Найдите теги **&lt;Grid&gt;** и **&lt;/Grid&gt;** в XAML-файле и вставьте между ними следующий код:
+1. В обозревателе решений дважды щелкните **MainPage.xaml** , чтобы открыть его в режиме конструктора.
+2. Найдите теги **&lt;Grid&gt;** и **&lt;/Grid&gt;** в XAML-файле и вставьте между ними код ниже:
    
      <Grid.RowDefinitions>
    
@@ -130,15 +134,15 @@ ms.author: juliako
      </StackPanel>
    
    Элемент управления MediaElement используется для воспроизведения мультимедиа. Для управления мультимедиа в следующем уроке будет использоваться ползунок с именем sliderProgress.
-3. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+3. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
-Элемент управления MediaElement поддерживает бесперебойную потоковую передачу контента без дополнительной настройки. Чтобы включить поддержку бесперебойной потоковой передачи, необходимо зарегистрировать обработчик потока байтов для бесперебойной потоковой передачи по расширению файла и MIME-типу. Для регистрации используется метод MediaExtensionManager.RegisterByteStremHandler в пространстве имен Windows.Media.
+Элемент управления MediaElement поддерживает бесперебойную потоковую передачу контента без дополнительной настройки. Чтобы включить поддержку бесперебойной потоковой передачи, необходимо зарегистрировать обработчик потока байтов для бесперебойной потоковой передачи по расширению файла и MIME-типу.  Для регистрации используется метод MediaExtensionManager.RegisterByteStremHandler в пространстве имен Windows.Media.
 
-В этом XAML-файле некоторые обработчики событий связаны с элементами управления. Такие обработчики событий необходимо определить.
+В этом XAML-файле некоторые обработчики событий связаны с элементами управления.  Такие обработчики событий необходимо определить.
 
 **Изменение файла кода программной части**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
    
      using Windows.Media;
@@ -147,27 +151,23 @@ ms.author: juliako
      private MediaExtensionManager extensions = new MediaExtensionManager();
 4. В конце конструктора **MainPage** добавьте следующие две строки:
    
-     extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
-     extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+     extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");   extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. Добавьте в конце класса **MainPage** следующий код:
    
-   # region UI Button Click Events
-     private void btnPlay_Click(object sender, RoutedEventArgs e)
-     {
+   # <a name="region-ui-button-click-events"></a>События нажатия кнопки в пользовательском интерфейсе для region
+     private void btnPlay_Click(object sender, RoutedEventArgs e)   {
    
          mediaElement.Play();
          txtStatus.Text = "MediaElement is playing ...";
      }
    
-     private void btnPause_Click(object sender, RoutedEventArgs e)
-     {
+     private void btnPause_Click(object sender, RoutedEventArgs e)   {
    
          mediaElement.Pause();
          txtStatus.Text = "MediaElement is paused";
      }
    
-     private void btnSetSource_Click(object sender, RoutedEventArgs e)
-     {
+     private void btnSetSource_Click(object sender, RoutedEventArgs e)   {
    
          sliderProgress.Value = 0;
          mediaElement.Source = new Uri(txtMediaSource.Text);
@@ -182,23 +182,21 @@ ms.author: juliako
          }
      }
    
-     private void btnStop_Click(object sender, RoutedEventArgs e)
-     {
+     private void btnStop_Click(object sender, RoutedEventArgs e)   {
    
          mediaElement.Stop();
          txtStatus.Text = "MediaElement is stopped";
      }
    
-     private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
-     {
+     private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)   {
    
          txtStatus.Text = "Seek to position " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
      }
    
-   # endregion
-   Здесь определяется обработчик события sliderProgress\_PointerPressed. Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
-6. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+   # <a name="endregion"></a>endregion
+   Здесь определяется обработчик события sliderProgress_PointerPressed.  Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
+6. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 Готовый код файла должен выглядеть следующим образом:
 
@@ -206,25 +204,25 @@ ms.author: juliako
 
 **Компиляция и тестирование приложения**
 
-1. В меню **СБОРКА** выберите **Диспетчер конфигурации**.
+1. В меню **СБОРКА** выберите **Диспетчер конфигураций**.
 2. Измените параметр **Платформа активного решения** в соответствии с вашей платформой разработки.
-3. Нажмите клавишу **F6** для компиляции проекта.
+3. Нажмите клавишу **F6** для компиляции проекта. 
 4. Нажмите клавишу **F5** для запуска приложения.
-5. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой.
-6. Щелкните **Задать источник**. Так как по умолчанию включен параметр **Автовоспроизведение**, мультимедиа должно воспроизводиться автоматически. Управление мультимедиа ведется с помощью кнопок **Играть**, **Пауза** и **Остановить**. Громкость звука выбирается вертикальным ползунком. Однако горизонтальный ползунок для управления воспроизведением мультимедиа пока не реализован полностью.
+5. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой. 
+6. Щелкните **Задать источник**. Так как по умолчанию включен параметр **Автовоспроизведение** , мультимедиа должно воспроизводиться автоматически.  Управление мультимедиа ведется с помощью кнопок **Воспроизвести**, **Пауза** и **Остановить**.  Громкость звука выбирается вертикальным ползунком.  Однако горизонтальный ползунок для управления воспроизведением мультимедиа пока не реализован полностью. 
 
-Вы завершили урок 1. В этом уроке с помощью элемента управления MediaElement воспроизводится контент с бесперебойной потоковой передачей. На следующем занятии будет добавлен ползунок, который позволит управлять воспроизведением такого контента.
+Вы завершили урок 1.  В этом уроке с помощью элемента управления MediaElement воспроизводится контент с бесперебойной потоковой передачей.  На следующем занятии будет добавлен ползунок, который позволит управлять воспроизведением такого контента.
 
-## Урок 2. Добавление ползунка для управления ходом воспроизведения мультимедиа
-На занятии 1 было создано приложение для магазина Windows с элементом управления XAML MediaElement для воспроизведения контента мультимедиа с бесперебойной потоковой передачей. Этот элемент изначально имеет такие функции, как начало, останов и приостановка воспроизведения. На этом занятии в приложение будет добавлен еще один элемент управления — ползунок.
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Урок 2. Добавление ползунка для управления ходом воспроизведения мультимедиа
+На занятии 1 было создано приложение для магазина Windows с элементом управления XAML MediaElement для воспроизведения контента мультимедиа с бесперебойной потоковой передачей.  Этот элемент изначально имеет такие функции, как начало, останов и приостановка воспроизведения.  На этом занятии в приложение будет добавлен еще один элемент управления — ползунок.
 
-В этом учебном курсе для обновления положения ползунка на основе текущего положения элемента управления MediaElement будет использоваться таймер. При воспроизведении контента в режиме реального времени также требуется обновлять время начала и окончания ползунка. Для обработки лучше использовать событие обновления адаптивного источника.
+В этом учебном курсе для обновления положения ползунка на основе текущего положения элемента управления MediaElement будет использоваться таймер.  При воспроизведении контента в режиме реального времени также требуется обновлять время начала и окончания ползунка.  Для обработки лучше использовать событие обновления адаптивного источника.
 
-Источники мультимедиа — это объекты, которые создают данные мультимедиа. Средство выбора источника принимает URL-адрес или поток байтов и создает соответствующий источник мультимедиа для этого контента. Средство выбора источника является стандартным способом для создания источников мультимедиа в приложениях.
+Источники мультимедиа — это объекты, которые создают данные мультимедиа.  Средство выбора источника принимает URL-адрес или поток байтов и создает соответствующий источник мультимедиа для этого контента.  Средство выбора источника является стандартным способом для создания источников мультимедиа в приложениях. 
 
 Это занятие содержит следующие процедуры:
 
-1. Регистрация обработчика бесперебойной потоковой передачи
+1. Регистрация обработчика бесперебойной потоковой передачи 
 2. Добавление обработчиков событий уровня диспетчера адаптивных источников.
 3. Добавление обработчиков событий уровня адаптивного источника.
 4. Добавление обработчиков событий MediaElement
@@ -233,7 +231,7 @@ ms.author: juliako
 
 **Регистрация обработчика байтового потока Smooth Streaming и передача набора свойств propertyset**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
    
      using Microsoft.Media.AdaptiveStreaming;
@@ -243,16 +241,13 @@ ms.author: juliako
      private IAdaptiveSourceManager adaptiveSourceManager;
 4. В конструкторе **MainPage** добавьте следующий код после строки **this.Initialize Components();** и строк кода регистрации, добавленных на предыдущем занятии:
    
-     // Gets the default instance of AdaptiveSourceManager which manages Smooth 
-     //Streaming media sources.
-     adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
-     // Sets property key value to AdaptiveSourceManager default instance.
+     // Gets the default instance of AdaptiveSourceManager which manages Smooth //Streaming media sources.
+     adaptiveSourceManager = AdaptiveSourceManager.GetDefault(); // Sets property key value to AdaptiveSourceManager default instance.
      // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
      propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 5. В конструкторе **MainPage** измените два метода RegisterByteStreamHandler для добавления следующих параметров:
    
-     // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
-     // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+     // Registers Smooth Streaming byte-stream handler for ".ism" extension and, // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
      // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
      extensions.RegisterByteStreamHandler(
    
@@ -266,59 +261,54 @@ ms.author: juliako
          ".ism", 
          "application/vnd.ms-sstr+xml", 
      propertySet);
-6. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+6. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление обработчиков событий уровня диспетчера адаптивных источников**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. В классе **MainPage** добавьте следующий член данных:
    
      private AdaptiveSource adaptiveSource = null;
 3. В конце класса **MainPage** добавьте следующий обработчик событий:
    
-   # region Adaptive Source Manager Level Events
-     private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
-     {
+   # <a name="region-adaptive-source-manager-level-events"></a>События уровня диспетчера адаптивных источников для region
+     private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)   {
    
          adaptiveSource = args.AdaptiveSource;
      }
    
-   # endregion Adaptive Source Manager Level Events
+   # <a name="endregion-adaptive-source-manager-level-events"></a>События уровня диспетчера адаптивных источников для endregion
 4. В конце конструктора **MainPage** добавьте следующую строку для подписки на событие открытия адаптивного источника:
    
-   adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
-5. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+   adaptiveSourceManager.AdaptiveSourceOpenedEvent +=   new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+5. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление обработчиков событий уровня адаптивного источника**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. В классе **MainPage** добавьте следующий член данных:
    
-     private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
-     private Manifest manifestObject;
+     private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   private Manifest manifestObject;
 3. В конце класса **MainPage** добавьте следующие обработчики событий:
    
-   # region Adaptive Source Level Events
-     private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
-     {
+   # <a name="region-adaptive-source-level-events"></a>События уровня адаптивных источников для region
+     private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)   {
    
          adaptiveSource = args.AdaptiveSource;
          manifestObject = args.AdaptiveSource.Manifest;
      }
    
-     private void mediaElement_AdaptiveSourceStatusUpdated(AdaptiveSource sender, AdaptiveSourceStatusUpdatedEventArgs args)
-     {
+     private void mediaElement_AdaptiveSourceStatusUpdated(AdaptiveSource sender, AdaptiveSourceStatusUpdatedEventArgs args)   {
    
          adaptiveSourceStatusUpdate = args;
      }
    
-     private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)
-     {
+     private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)   {
    
          txtStatus.Text = "Error: " + args.HttpResponse;
      }
    
-   # endregion Adaptive Source Level Events
+   # <a name="endregion-adaptive-source-level-events"></a>События уровня адаптивных источников для endregion
 4. В конце метода **mediaElement AdaptiveSourceOpened** добавьте следующий код, чтобы подписаться на события:
    
      adaptiveSource.ManifestReadyEvent +=
@@ -330,62 +320,53 @@ ms.author: juliako
      adaptiveSource.AdaptiveSourceFailedEvent += 
    
          mediaElement_AdaptiveSourceFailed;
-5. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+5. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 Эти же события доступны на уровне диспетчера адаптивных источников, который может использоваться для обработки функций, общих для всех элементов мультимедиа в приложении. Каждый адаптивный источник имеет свои собственные события, и все события AdaptiveSource будут передаваться каскадом в диспетчер AdaptiveSourceManager.
 
 **Добавление обработчиков событий MediaElement**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. В конце класса **MainPage** добавьте следующие обработчики событий:
    
-   # region Media Element Event Handlers
-     private void MediaOpened(object sender, RoutedEventArgs e)
-     {
+   # <a name="region-media-element-event-handlers"></a>Обработчики событий элементов списка воспроизведения для region
+     private void MediaOpened(object sender, RoutedEventArgs e)   {
    
          txtStatus.Text = "MediaElement opened";
      }
    
-     private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
-     {
+     private void MediaFailed(object sender, ExceptionRoutedEventArgs e)   {
    
          txtStatus.Text= "MediaElement failed: " + e.ErrorMessage;
      }
    
-     private void MediaEnded(object sender, RoutedEventArgs e)
-     {
+     private void MediaEnded(object sender, RoutedEventArgs e)   {
    
          txtStatus.Text ="MediaElement ended.";
      }
    
-   # endregion Media Element Event Handlers
+   # <a name="endregion-media-element-event-handlers"></a>Обработчики событий элементов списка воспроизведения для endregion
 3. В конце конструктора **MainPage** добавьте следующий код для подписки на события:
    
-     mediaElement.MediaOpened += MediaOpened;
-     mediaElement.MediaEnded += MediaEnded;
-     mediaElement.MediaFailed += MediaFailed;
-4. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+     mediaElement.MediaOpened += MediaOpened;   mediaElement.MediaEnded += MediaEnded;   mediaElement.MediaFailed += MediaFailed;
+4. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление кода, связанного с ползунком**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
    
      using Windows.UI.Core;
 3. В классе **MainPage** добавьте следующий член данных:
    
-     public static CoreDispatcher _dispatcher;
-     private DispatcherTimer sliderPositionUpdateDispatcher;
+     public static CoreDispatcher _dispatcher;   private DispatcherTimer sliderPositionUpdateDispatcher;
 4. В конце конструктора **MainPage** добавьте следующий код:
    
-     _dispatcher = Window.Current.Dispatcher;
-     PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
-     sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
+     _dispatcher = Window.Current.Dispatcher;   PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);   sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
 5. Добавьте в конце класса **MainPage** следующий код:
    
-   # region sliderMediaPlayer
-     private double SliderFrequency(TimeSpan timevalue)
-     {
+   # <a name="region-slidermediaplayer"></a>region sliderMediaPlayer
+     private double SliderFrequency(TimeSpan timevalue)   {
    
          long absvalue = 0;
          double stepfrequency = -1;
@@ -418,30 +399,25 @@ ms.author: juliako
          return stepfrequency;
      }
    
-     void updateSliderPositionoNTicks(object sender, object e)
-     {
+     void updateSliderPositionoNTicks(object sender, object e)   {
    
          sliderProgress.Value = mediaElement.Position.TotalSeconds;
      }
    
-     public void setupTimer()
-     {
+     public void setupTimer()   {
    
          sliderPositionUpdateDispatcher = new DispatcherTimer();
          sliderPositionUpdateDispatcher.Interval = new TimeSpan(0, 0, 0, 0, 300);
          startTimer();
      }
    
-     public void startTimer()
-     {
+     public void startTimer()   {
    
          sliderPositionUpdateDispatcher.Tick += updateSliderPositionoNTicks;
          sliderPositionUpdateDispatcher.Start();
      }
    
-     // Slider start and end time must be updated in case of live content
-     public async void setSliderStartTime(long startTime)
-     {
+     // Slider start and end time must be updated in case of live content   public async void setSliderStartTime(long startTime)   {
    
          await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
          {
@@ -451,9 +427,7 @@ ms.author: juliako
          });
      }
    
-     // Slider start and end time must be updated in case of live content
-     public async void setSliderEndTime(long startTime)
-     {
+     // Slider start and end time must be updated in case of live content   public async void setSliderEndTime(long startTime)   {
    
          await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
          {
@@ -463,8 +437,8 @@ ms.author: juliako
          });
      }
    
-   # endregion sliderMediaPlayer
-   **Примечание.** CoreDispatcher используется для внесения изменений в поток пользовательского интерфейса из других потоков. В случае возникновения узких мест в потоке-отправителе разработчик может использовать отправитель, предоставленный элементом пользовательского интерфейса, который планируется обновить. Например:
+   # <a name="endregion-slidermediaplayer"></a>endregion sliderMediaPlayer
+   **Примечание.** CoreDispatcher используется для внесения изменений в поток пользовательского интерфейса из других потоков. В случае возникновения узких мест в потоке-отправителе разработчик может использовать отправитель, предоставленный элементом пользовательского интерфейса, который планируется обновить.  Например:
    
      await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
    
@@ -472,27 +446,26 @@ ms.author: juliako
      double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
    
        sliderProgress.Maximum = absvalue; }); 
-6. В конце метода **mediaElement\_AdaptiveSourceStatusUpdated** добавьте следующий код:
+6. В конце метода **mediaElement_AdaptiveSourceStatusUpdated** добавьте следующий код:
    
-     setSliderStartTime(args.StartTime);
-     setSliderEndTime(args.EndTime);
+     setSliderStartTime(args.StartTime);   setSliderEndTime(args.EndTime);
 7. В конце метода **MediaOpened** добавьте следующий код:
    
    sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); sliderProgress.Width = mediaElement.Width; setupTimer();
-8. Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
+8. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Компиляция и тестирование приложения**
 
-1. Нажмите клавишу **F6** для компиляции проекта.
+1. Нажмите клавишу **F6** для компиляции проекта. 
 2. Нажмите клавишу **F5** для запуска приложения.
-3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой.
-4. Щелкните **Задать источник**.
+3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой. 
+4. Щелкните **Задать источник**. 
 5. Протестируйте работу ползунка.
 
-Вы завершили урок 2. В этом уроке в приложение был добавлен ползунок.
+Вы завершили урок 2.  В этом уроке в приложение был добавлен ползунок. 
 
-## Урок 3. Выбор потоков для бесперебойной потоковой передачи
-Бесперебойная потоковая передача способна передавать контент с аудиодорожками на нескольких языках, которые могут быть выбраны просматривающими. На этом занятии предстоит включить средства просмотра для выбора потоков. Это занятие содержит следующие процедуры:
+## <a name="lesson-3-select-smooth-streaming-streams"></a>Урок 3. Выбор потоков для бесперебойной потоковой передачи
+Бесперебойная потоковая передача способна передавать контент с аудиодорожками на нескольких языках, которые могут быть выбраны просматривающими.  На этом занятии предстоит включить средства просмотра для выбора потоков. Это занятие содержит следующие процедуры:
 
 1. Изменение XAML-файла
 2. Изменение кода файла behand
@@ -500,7 +473,7 @@ ms.author: juliako
 
 **Изменение XAML-файла**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть конструктор**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Конструктор представлений**.
 2. Найдите &lt;Grid.RowDefinitions&gt; и измените RowDefinitions следующим образом:
    
         <Grid.RowDefinitions>            
@@ -510,7 +483,7 @@ ms.author: juliako
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-3. Внутри тегов &lt;Grid&gt;&lt;/Grid&gt; добавьте следующий код, чтобы определить элемент управления "поле со списком", который позволит пользователям просмотреть список доступных потоков и выбрать нужные:
+3. Внутри тегов &lt;Grid&gt;&lt;/Grid&gt; добавьте следующий код, чтобы определить элемент управления типа "поле со списком", который позволит пользователям просматривать список доступных потоков и выбирать нужные:
    
         <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -535,12 +508,14 @@ ms.author: juliako
                 </ListBox>
             </StackPanel>
         </Grid>
-4. Нажмите клавишу **CTRL+S**, чтобы сохранить изменения.
+4. Нажмите клавишу **CTRL+S** , чтобы сохранить изменения.
 
 **Изменение файла кода программной части**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
-2. В пространстве имен SSPlayer добавьте следующий новый класс: #region class Stream
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
+2. В пространстве имен SSPlayer добавьте следующий новый класс:
+   
+        #region class Stream
    
         public class Stream
         {
@@ -727,7 +702,7 @@ ms.author: juliako
             }
         }
         #endregion stream selection
-5. Найдите метод mediaElement\_ManifestReady, измените следующий код в конце функции:
+5. Найдите метод mediaElement_ManifestReady, измените следующий код в конце функции:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -748,15 +723,15 @@ ms.author: juliako
 
 **Компиляция и тестирование приложения**
 
-1. Нажмите клавишу **F6** для компиляции проекта.
+1. Нажмите клавишу **F6** для компиляции проекта. 
 2. Нажмите клавишу **F5** для запуска приложения.
-3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой.
-4. Щелкните **Задать источник**.
-5. Язык по умолчанию — audio\_eng. Попробуйте переключиться между audio\_eng и audio\_es. Каждый раз при выборе нового потока необходимо нажать кнопку "Отправить".
+3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой. 
+4. Щелкните **Задать источник**. 
+5. Язык по умолчанию — audio_eng. Попробуйте переключиться между audio_eng и audio_es. Каждый раз при выборе нового потока необходимо нажать кнопку "Отправить".
 
-Вы завершили урок 3. В этом уроке были добавлены функциональные возможности для выбора потоков.
+Вы завершили урок 3.  В этом уроке были добавлены функциональные возможности для выбора потоков.
 
-## Урок 4. Выбор дорожек для бесперебойной потоковой передачи
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Урок 4. Выбор дорожек для бесперебойной потоковой передачи
 Представление бесперебойной потоковой передачи может содержать несколько видеофайлов, зашифрованных с разными уровнями качества (скоростью) и разрешениями. На этом занятии предстоит включить возможность выбора потоков для пользователей. Это занятие содержит следующие процедуры:
 
 1. Изменение XAML-файла
@@ -765,7 +740,7 @@ ms.author: juliako
 
 **Изменение XAML-файла**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть конструктор**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Конструктор представлений**.
 2. Найдите тег &lt;Grid&gt; с именем **gridStreamAndBitrateSelection** и добавьте следующий код в конце этого тега:
    
         <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
@@ -782,11 +757,11 @@ ms.author: juliako
              </ListBox.ItemTemplate>
          </ListBox>
         </StackPanel>
-3. Нажмите клавиши **CTRL+S**, чтобы сохранить изменения
+3. Нажмите клавиши **CTRL+S** , чтобы сохранить изменения
 
 **Изменение файла кода программной части**
 
-1. В обозревателе решений щелкните правой кнопкой мыши **MainPage.xaml** и выберите команду **Просмотреть код**.
+1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. В пространстве имен SSPlayer добавьте следующий новый класс:
    
         #region class Track
@@ -926,7 +901,7 @@ ms.author: juliako
             }
         }
         #endregion track selection
-5. Найдите метод mediaElement\_ManifestReady, измените следующий код в конце функции:
+5. Найдите метод mediaElement_ManifestReady, измените следующий код в конце функции:
    
         getTracks(manifestObject);
         refreshAvailableTracksListBoxItemSource();
@@ -945,26 +920,30 @@ ms.author: juliako
 
 **Компиляция и тестирование приложения**
 
-1. Нажмите клавишу **F6** для компиляции проекта.
+1. Нажмите клавишу **F6** для компиляции проекта. 
 2. Нажмите клавишу **F5** для запуска приложения.
-3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой.
-4. Щелкните **Задать источник**.
-5. По умолчанию выбраны все дорожки потока видеоданных. Чтобы поэкспериментировать со скоростью, выберите минимально возможную скорость, а затем — максимально возможную. После каждого изменения необходимо нажать кнопку "Отправить". Вы увидите, как изменилось качество видеоизображения.
+3. В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой. 
+4. Щелкните **Задать источник**. 
+5. По умолчанию выбраны все дорожки потока видеоданных. Чтобы поэкспериментировать со скоростью, выберите минимально возможную скорость, а затем — максимально возможную. После каждого изменения необходимо нажать кнопку "Отправить".  Вы увидите, как изменилось качество видеоизображения.
 
-Вы завершили урок 4. В этом уроке были добавлены функциональные возможности для выбора дорожек.
+Вы завершили урок 4.  В этом уроке были добавлены функциональные возможности для выбора дорожек.
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Другие ресурсы:
-* [Создание приложения для Windows 8 с потоковой передачей Smooth Streaming на JavaScript с расширенными возможностями](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+## <a name="other-resources"></a>Другие ресурсы:
+* [Создание приложения для Windows 8 с потоковой передачей Smooth Streaming на JavaScript с расширенными возможностями](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 * [Технический обзор Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

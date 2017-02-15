@@ -1,26 +1,30 @@
 ---
-title: Список стран, в которых доступ к Azure предоставляется на коммерческой основе, с указанием поддерживаемых валют | Microsoft Docs
-description: Страны и регионы, в которых доступ к Microsoft Azure предоставляется на коммерческой основе, и соответствующие валюты, которые можно использовать для приобретения Azure.
-services: ''
-documentationcenter: ''
+title: "Список стран и регионов, в которых доступ к Azure предоставляется на коммерческой основе с указанием поддерживаемых валют | Документация Майкрософт"
+description: "Страны и регионы, в которых доступ к Microsoft Azure предоставляется на коммерческой основе, и соответствующие валюты, которые можно использовать для приобретения Azure."
+services: 
+documentationcenter: 
 author: genlin
-manager: msmbaldwin
-editor: ''
+manager: mbaldwin
+editor: 
 tags: billing
-
+ms.assetid: 31a5c698-2041-45b5-9299-884f305cebbc
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 11/10/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 72d750dfd8c0044ee845a9feb9b8f4d2a4761cf0
+ms.openlocfilehash: a7d83d9d098de41a65581a5924453d311b6203f5
+
 
 ---
-# В каких странах и регионах предоставляется коммерческий доступ к Microsoft Azure? Какие валюты можно использовать для приобретения Azure?
-Платную подписку на Microsoft Azure можно оформить в более чем 140 странах мира. При этом поддерживаются различные валюты. Ниже приведен список стран, где вы можете приобрести подписку на Azure, а также валюты, в которых можно оплачивать счета за использование Azure.
+# <a name="in-which-countriesregions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>В каких странах и регионах доступ к Microsoft Azure предоставляется на коммерческой основе? Какие валюты можно использовать для приобретения Azure?
+Платную подписку на Microsoft Azure можно оформить в более чем 140 странах и регионах мира. При этом поддерживаются различные валюты. Ниже приведен список стран и регионов, где вы можете приобрести подписку на Azure, а также валюты, в которых можно оплачивать счета за использование Azure.
 
-| Страна | Код валюты |
+| Страна/регион | Код валюты |
 | --- | --- |
 | Афганистан |USD |
 | Албания |USD |
@@ -170,4 +174,8 @@ ms.author: genli
 | Замбия |USD |
 | Зимбабве |USD |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -35,11 +35,11 @@ ms.openlocfilehash: 63695f358bda5852e300c5c352ca767d89961a3b
 
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-   
+
    ![Открытие страницы "Управление пользователями"](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. В колонке **Пользователи и группы** выберите **Корпоративная фирменная символика**.
 4. В колонке **Пользователи и группы — корпоративная фирменная символика** щелкните **Добавить язык**.
-   
+
     ![Добавление элементов фирменной символики для определенного языка](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Измените элементы, которые нужно настроить. Все элементы необязательные.
 6. Щелкните **Сохранить**.
@@ -48,7 +48,6 @@ ms.openlocfilehash: 63695f358bda5852e300c5c352ca767d89961a3b
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Добавление фирменной символики организации на страницу входа](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 

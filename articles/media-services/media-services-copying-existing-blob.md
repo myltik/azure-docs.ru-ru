@@ -1,12 +1,12 @@
 ---
-title: Копирование существующего большого двоичного объекта в ресурс служб мультимедиа | Microsoft Docs
-description: В этом разделе показано, как копировать существующий большой двоичный объект в ресурс служб мультимедиа.
+title: "Копирование существующего большого двоичного объекта в ресурс-контейнер служб мультимедиа | Документация Майкрософт"
+description: "В этом разделе показано, как копировать существующий большой двоичный объект в ресурс служб мультимедиа."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+
 
 ---
 # <a name="copying-an-existing-blob-into-a-media-services-asset"></a>Копирование существующего BLOB-объекта в файл служб мультимедиа
@@ -31,8 +35,8 @@ ms.author: juliako
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Две учетные записи служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в статье [Создание учетной записи служб мультимедиа Azure с помощью портала Azure](media-services-portal-create-account.md).
-* Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
-* .NET Framework 4.5
+* Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
+* .NET Framework 4.5
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate или Express) или более поздняя версия.
 
 ## <a name="set-up-your-project"></a>Настройка проекта
@@ -156,7 +160,8 @@ ms.author: juliako
    
             externalMediaBlobContainer.CreateIfNotExists();
    
-            // Upload files to the blob container.  
+            // Upload files to the block blob container. 
+            // Page blobs are not supported by Azure Media Services. 
             DirectoryInfo uploadDirectory = new DirectoryInfo(localPath);
             foreach (var file in uploadDirectory.EnumerateFiles())
             {
@@ -317,6 +322,9 @@ ms.author: juliako
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с @Task| Microsoft Docs
-description: Узнайте, как настроить единый вход между Azure Active Directory и @Task.
+title: "Руководство по интеграции Azure Active Directory с @Task| Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и @Task."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d729d0859a3cdd0e676507c4fa772b7b8d3ed181
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-@task"></a>Учебник. Интеграция Azure Active Directory с @Task
+# <a name="tutorial-azure-active-directory-integration-with-task"></a>Учебник. Интеграция Azure Active Directory с @Task
 Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением @Task.  
 Интеграция Azure AD с приложением @Task обеспечивает следующие преимущества: 
 
 * С помощью Azure AD вы можете контролировать доступ к @Task.
 * Вы можете включить автоматический вход пользователей в @Task (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — на классическом портале Azure.
+* Вы можете управлять учетными записями централизованно — на классическом портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с @Task,, вам потребуется:
@@ -43,13 +47,13 @@ ms.author: jeedes
 * Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
 Сценарий, описанный в этом учебнике, состоит из следующих основных блоков.
 
 1. Добавление @Task из коллекции 
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-@task-from-the-gallery"></a>Добавление @Task из коллекции
+## <a name="adding-task-from-the-gallery"></a>Добавление @Task из коллекции
 Чтобы настроить интеграцию @Task с Azure AD, необходимо добавить @Task из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить @Task из коллекции, выполните следующие действия.**
@@ -98,7 +102,7 @@ ms.author: jeedes
     ![Настройка единого входа][6] 
 2. На странице **Как пользователи должны входить в @Task?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][7] 
+    ![единого входа Azure AD][7] 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
    
     ![Настройка параметров приложения][8] 
@@ -134,7 +138,7 @@ ms.author: jeedes
     ![Что такое Azure AD Connect?][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
 
 ![Создание пользователя Azure AD][20]
 
@@ -182,8 +186,8 @@ ms.author: jeedes
    
     b. Нажмите **Завершено**.   
 
-### <a name="creating-an-@task-test-user"></a>Создание тестового пользователя @Task
-Цель этого раздела — создать пользователя с именем Britta Simon в @Task.
+### <a name="creating-an-task-test-user"></a>Создание тестового пользователя @Task
+Цель этого раздела — создать пользователя с именем Britta Simon в @Task.
 
 **Чтобы создать пользователя с именем Britta Simon в @Task,, выполните следующие действия.**
 
@@ -224,7 +228,7 @@ ms.author: jeedes
     ![Назначение пользователя][205]
 
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
 Щелкнув элемент @Task на панели доступа, вы автоматически войдете в приложение @Task.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
@@ -268,6 +272,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

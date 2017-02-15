@@ -1,12 +1,12 @@
 ---
-title: Использование клиентской библиотеки Android для мобильных приложений
-description: Использование клиентского пакета Android SDK для мобильных приложений Azure
+title: "Использование клиентской библиотеки Android для мобильных приложений"
+description: "Использование клиентского пакета Android SDK для мобильных приложений Azure"
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
+ms.openlocfilehash: b22c7904be77ba06764f0922c77ba5f7c7b3fe4d
+
 
 ---
 # <a name="how-to-use-the-android-client-library-for-mobile-apps"></a>Использование клиентской библиотеки Android для мобильных приложений
@@ -24,7 +28,7 @@ ms.author: yuaxu
 * запрос данных (вставка, обновление и удаления);
 * аутентификация;
 * обработка ошибок;
-* настройка клиента. 
+* настройка клиента.
 
 Кроме того, приводятся подробные сведения об общем клиентском коде, используемом в большинстве мобильных приложений.
 
@@ -47,23 +51,23 @@ ms.author: yuaxu
 * В Android Studio [обновите файлы сборки Gradle](#gradle-build).
 * [Включение разрешение INTERNET](#enable-internet).
 
-### <a name="<a-name="gradle-build"></a>update-the-gradle-build-file"></a><a name="gradle-build"></a>Обновление файла сборки Gradle
+### <a name="a-namegradle-buildaupdate-the-gradle-build-file"></a><a name="gradle-build"></a>Обновление файла сборки Gradle
 Измените оба файла **build.gradle** :
 
 1. Добавьте следующий код в файл *build.gradle* уровня **Project** внутри тега *buildscript*.
-   
+
         buildscript {
             repositories {
                 jcenter()
             }
         }
 2. Добавьте следующий код в файл *build.gradle* уровня **Module app** внутри тега *dependencies*.
-   
+
         compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
-   
+
     Сейчас последней версией является версия 3.1.0. Поддерживаемые версии перечислены [здесь][14].
 
-### <a name="<a-name="enable-internet"></a>enable-internet-permission"></a><a name="enable-internet"></a>Включение разрешения INTERNET
+### <a name="a-nameenable-internetaenable-internet-permission"></a><a name="enable-internet"></a>Включение разрешения INTERNET
 Для доступа к Azure вам нужно включить для приложения разрешение INTERNET. Если оно не включено, добавьте следующую строку кода в файл **AndroidManifest.xml** :
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -71,7 +75,7 @@ ms.author: yuaxu
 ## <a name="the-basics-deep-dive"></a>Подробный обзор
 В этом разделе рассматриваются некоторые фрагменты кода из приложения быстрого запуска, которые относятся к использованию мобильных приложений Azure.  
 
-### <a name="<a-name="data-object"></a>define-client-data-classes"></a><a name="data-object"></a>Определение клиентских классов данных
+### <a name="a-namedata-objectadefine-client-data-classes"></a><a name="data-object"></a>Определение клиентских классов данных
 Для доступа к данным из таблиц SQL Azure вам нужно определить клиентские классы данных, которые соответствуют таблицам в серверной части мобильного приложения. В примерах этого раздела используется таблица с именем **ToDoItem**, которая содержит следующие столбцы:
 
 * id
@@ -111,7 +115,7 @@ ms.author: yuaxu
 
 Сведения о создании дополнительных таблиц в серверной части мобильных приложений см. в разделах [Практическое руководство. Определение контроллера таблиц][15] (серверная часть .NET) или [Определение таблицы с помощью динамической схемы][16] (серверная часть Node.js). Для серверной части Node.js можно использовать параметр **Простые таблицы** на [портале Azure].
 
-### <a name="<a-name="create-client"></a>how-to:-create-the-client-context"></a><a name="create-client"></a>Практическое руководство. Создание контекста клиента
+### <a name="a-namecreate-clientahow-to-create-the-client-context"></a><a name="create-client"></a>Практическое руководство. Создание контекста клиента
 Следующий код создает объект **MobileServiceClient** , используемый для доступа к серверной части мобильного приложения. Этот код размещается в методе `onCreate` класса **Activity**, указанного в файле *AndroidManifest.xml* в качестве действия **MAIN** и категории **LAUNCHER**. В коде быстрого запуска он используется в файле **ToDoActivity.java** .
 
         MobileServiceClient mClient = new MobileServiceClient(
@@ -122,8 +126,8 @@ ms.author: yuaxu
 
     import com.microsoft.windowsazure.mobileservices.*;
 
-### <a name="<a-name="instantiating"></a>how-to:-create-a-table-reference"></a><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
-Самый простой способ запросить или изменить данные в серверной части — воспользоваться *типизированной моделью программирования*, так как Java является строго типизированным языком. Эта модель обеспечивает прозрачную сериализацию и десериализацию в формате JSON с помощью библиотеки [gson][3] при передаче данных между объектами клиента и таблицами Azure SQL серверной части.
+### <a name="a-nameinstantiatingahow-to-create-a-table-reference"></a><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
+Самый простой способ запросить или изменить данные в серверной части — воспользоваться *типизированной моделью программирования*, так как Java является строго типизированным языком. Эта модель обеспечивает прозрачную сериализацию и десериализацию в формате JSON с помощью библиотеки [gson][3] при передаче данных между объектами клиента и таблицами Azure SQL серверной части.
 
 Для доступа к таблице сначала создайте объект [MobileServiceTable][8], вызвав метод **getTable** объекта [MobileServiceClient][9].  У этого метода две перегрузки.
 
@@ -140,7 +144,7 @@ ms.author: yuaxu
 
     MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-### <a name="<a-name="binding"></a>how-to:-bind-data-to-the-user-interface"></a><a name="binding"></a>Привязка данных к пользовательскому интерфейсу
+### <a name="a-namebindingahow-to-bind-data-to-the-user-interface"></a><a name="binding"></a>Привязка данных к пользовательскому интерфейсу
 Привязка данных состоит из трех компонентов:
 
 * источник данных;
@@ -151,7 +155,7 @@ ms.author: yuaxu
 
 Код указывает макет экрана, который определяет представление данных, отображаемых на устройстве.  Два компонента соединяются адаптером, который в этом коде является расширением класса **ArrayAdapter&lt;ToDoItem&gt;**.
 
-#### <a name="<a-name="layout"></a>how-to:-define-the-layout"></a><a name="layout"></a>Практическое руководство. Определение макета
+#### <a name="a-namelayoutahow-to-define-the-layout"></a><a name="layout"></a>Практическое руководство. Определение макета
 Макет определяется несколькими фрагментами XML-кода. С учетом существующего макета приведенный ниже код представляет объект **ListView** , который требуется заполнить данными с сервера.
 
     <ListView
@@ -176,7 +180,7 @@ ms.author: yuaxu
     </LinearLayout>
 
 
-#### <a name="<a-name="adapter"></a>how-to:-define-the-adapter"></a><a name="adapter"></a>Практическое руководство. Определение адаптера
+#### <a name="a-nameadapterahow-to-define-the-adapter"></a><a name="adapter"></a>Практическое руководство. Определение адаптера
 Источник данных нашего представления — это массив объектов **ToDoItem**, поэтому мы создадим адаптер как подкласс **ArrayAdapter&lt;ToDoItem&gt;**. Этот подкласс создаст представление для каждого объекта **ToDoItem** с помощью макета **row_list_to_do**.
 
 В коде определяется следующий класс, который представляет собой расширение класса **ArrayAdapter&lt;E&gt;**.
@@ -231,12 +235,12 @@ ms.author: yuaxu
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
     listViewToDo.setAdapter(mAdapter);
 
-### <a name="<a-name="api"></a>the-api-structure"></a><a name="api"></a>Структура API
-Табличные операции с мобильными приложениями и вызовы пользовательских API выполняются асинхронно. Используйте объекты [Future] и [AsyncTask] для асинхронных методов, включающих в себя запросы, а также операции вставки, обновления и удаления. Использование объектов Future облегчает выполнение нескольких операций в фоновом потоке — обрабатывать несколько вложенных обратных вызовов не нужно.
+### <a name="a-nameapiathe-api-structure"></a><a name="api"></a>Структура API
+Табличные операции с мобильными приложениями и вызовы пользовательских API выполняются асинхронно. Используйте объекты [Future] и [AsyncTask] для асинхронных методов, включающих в себя запросы, а также операции вставки, обновления и удаления. Использование объектов Future облегчает выполнение нескольких операций в фоновом потоке — обрабатывать несколько вложенных обратных вызовов не нужно.
 
 С примером можно ознакомиться в файле **ToDoActivity.java** проекта быстрого запуска для Android, доступного на [портале Azure] .
 
-#### <a name="<a-name="use-adapter"></a>how-to:-use-the-adapter"></a><a name="use-adapter"></a>Практическое руководство. Использование адаптера
+#### <a name="a-nameuse-adapterahow-to-use-the-adapter"></a><a name="use-adapter"></a>Практическое руководство. Использование адаптера
 Теперь вы можете использовать привязку данных. Ниже приведен код, в котором показано, как получить элементы из таблицы и заполнить локальный адаптер возвращенными элементами.
 
     public void showAll(View view) {
@@ -266,7 +270,7 @@ ms.author: yuaxu
 
 Адаптер вызывается при каждом изменении таблицы **ToDoItem** . Так как изменения выполняются на уровне отдельных записей, обрабатываться будут отдельные строки, а не коллекция. При вставке элемента вызывается метод **add** адаптера, а при удалении — метод **remove**.
 
-## <a name="<a-name="querying"></a>how-to:-query-data-from-your-mobile-app-backend"></a><a name="querying"></a>Практическое руководство. Запрос данных из серверной части мобильного приложения
+## <a name="a-namequeryingahow-to-query-data-from-your-mobile-app-backend"></a><a name="querying"></a>Практическое руководство. Запрос данных из серверной части мобильного приложения
 В этом разделе показано, как отправлять запросы к серверной части мобильных приложений. Этот процесс включает следующие задачи.
 
 * [Возврат всех элементов]
@@ -276,14 +280,14 @@ ms.author: yuaxu
 * [Выбор определенных столбцов]
 * [Сцепка методов запросов](#chaining)
 
-### <a name="<a-name="showall"></a>how-to:-return-all-items-from-a-table"></a><a name="showAll"></a>Практическое руководство. Возврат всех элементов из таблицы
+### <a name="a-nameshowallahow-to-return-all-items-from-a-table"></a><a name="showAll"></a>Практическое руководство. Возврат всех элементов из таблицы
 Следующий запрос возвращает все элементы в таблице **ToDoItem** .
 
     List<ToDoItem> results = mToDoTable.execute().get();
 
 Переменная *results* возвращает итоговый набор запроса в виде списка.
 
-### <a name="<a-name="filtering"></a>how-to:-filter-returned-data"></a><a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
+### <a name="a-namefilteringahow-to-filter-returned-data"></a><a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
 Следующий запрос при выполнении возвращает все элементы из таблицы **ToDoItem**, где для переменной **complete** задано значение **false**.
 
     List<ToDoItem> result = mToDoTable.where()
@@ -292,7 +296,7 @@ ms.author: yuaxu
 
 **mToDoTable** — это ссылка на таблицу мобильной службы, созданную ранее.
 
-Для определения фильтра вызовите метод **where** для ссылки на таблицу. После метода **where** вызывается метод **field**, а затем — метод, который определяет логический предикат. Возможные методы предиката: **eq** (равно), **ne** (не равно), **gt** (больше), **ge** (больше или равно), **lt** (меньше), **le** (меньше или равно). Эти методы позволяют сравнивать числовые и строковые поля с указанными значениями.
+Для определения фильтра вызовите метод **where** для ссылки на таблицу. После метода **where** вызывается метод **field**, а затем — метод, который определяет логический предикат. Возможные методы предиката: **eq** (равно), **ne** (не равно), **gt** (больше), **ge** (больше или равно), **lt** (меньше), **le** (меньше или равно). Эти методы позволяют сравнивать числовые и строковые поля с указанными значениями.
 
 Фильтровать данные можно по датам. Следующие методы позволяют сравнить поле даты целиком или частично: **year**, **month**, **day**, **hour**, **minute** и **second**. В следующем примере добавляется фильтр для элементов, *дата выполнения* которых равна 2013.
 
@@ -321,24 +325,24 @@ ms.author: yuaxu
 
 Более подробное описание и примеры фильтрации см. в статье [Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying) (Исследование возможностей модели запросов клиента мобильных служб Android).
 
-### <a name="<a-name="sorting"></a>how-to:-sort-returned-data"></a><a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
+### <a name="a-namesortingahow-to-sort-returned-data"></a><a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 Следующий код возвращает все элементы из таблицы **ToDoItem** , упорядоченные по полю *text* . *mToDoTable* — это ссылка на таблицу серверной части, созданную ранее:
 
     mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
 Первый параметр метода **orderBy** — это строка, совпадающая с именем поля, по которому выполняется сортировка. Второй параметр использует перечисление **QueryOrder** , чтобы определить порядок сортировки (по возрастанию или убыванию).  Если используется фильтрация с помощью метода ***where***, то метод ***where*** необходимо вызывать до метода ***orderBy***.
 
-### <a name="<a-name="paging"></a>how-to:-return-data-in-pages"></a><a name="paging"></a>Практическое руководство. Возврат данных на страницах
+### <a name="a-namepagingahow-to-return-data-in-pages"></a><a name="paging"></a>Практическое руководство. Возврат данных на страницах
 Первый пример показывает, как выбрать пять верхних элементов из таблицы. Следующий запрос возвращает элементы из таблицы **ToDoItem**. **mToDoTable** — это ссылка на таблицу серверной части, созданную ранее:
 
     List<ToDoItem> result = mToDoTable.top(5).execute().get();
 
 
-Приведенный ниже запрос пропускает первые пять элементов, возвращая следующие пять элементов.
+Приведенный ниже запрос пропускает первые пять элементов, возвращая следующие пять элементов.
 
     mToDoTable.skip(5).top(5).execute().get();
 
-### <a name="<a-name="selecting"></a>how-to:-select-specific-columns"></a><a name="selecting"></a>Практическое руководство. Выбор определенных столбцов
+### <a name="a-nameselectingahow-to-select-specific-columns"></a><a name="selecting"></a>Практическое руководство. Выбор определенных столбцов
 В следующем фрагменте кода показано, как получить все элементы из таблицы **ToDoItems**, в которой отображаются только поля **complete** и **text**. **mToDoTable** — это ссылка на таблицу серверной части, созданную ранее:
 
     List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
@@ -347,7 +351,7 @@ ms.author: yuaxu
 
 Метод **select** должен следовать за такими методами, как **where** и **orderBy**. Затем можно вызывать такие методы разбивки на страницы, как **top**.
 
-### <a name="<a-name="chaining"></a>how-to:-concatenate-query-methods"></a><a name="chaining"></a>Практическое руководство. Объединение методов запросов
+### <a name="a-namechainingahow-to-concatenate-query-methods"></a><a name="chaining"></a>Практическое руководство. Объединение методов запросов
 Методы, используемые в запросах таблиц серверной части, можно сцепить. Цепочка методов запроса позволяет, например, выбирать определенные столбцы отфильтрованных строк, которые сортируются и разбиваются на страницы. Можно создавать сложные логические фильтры.
 Каждый метод запроса возвращает объект Query. Чтобы завершить серию методов и фактически выполнить запрос, вызовите метод **execute** . Например:
 
@@ -367,7 +371,7 @@ ms.author: yuaxu
 3. методы выборки (**выберите**);
 4. методы разбиения по страницам (**skip** и **top**).
 
-## <a name="<a-name="inserting"></a>how-to:-insert-data-into-the-backend"></a><a name="inserting"></a>Практическое руководство. Вставка данных в серверную часть
+## <a name="a-nameinsertingahow-to-insert-data-into-the-backend"></a><a name="inserting"></a>Практическое руководство. Вставка данных в серверную часть
 Создайте экземпляр класса *ToDoItem* и задайте его свойства.
 
     ToDoItem item = new ToDoItem();
@@ -390,7 +394,7 @@ ms.author: yuaxu
 
 Строковые значения идентификатора **НЕОБХОДИМЫ** для поддержки автономной синхронизации.
 
-## <a name="<a-name="updating"></a>how-to:-update-data-in-a-mobile-app"></a><a name="updating"></a>Практическое руководство. Обновление данных в мобильном приложении
+## <a name="a-nameupdatingahow-to-update-data-in-a-mobile-app"></a><a name="updating"></a>Практическое руководство. Обновление данных в мобильном приложении
 Чтобы обновить данные в таблице, передайте новый объект в метод **update()** .
 
     mToDoTable.update(item).get();
@@ -398,7 +402,7 @@ ms.author: yuaxu
 В этом примере *item* — это ссылка на строку в таблице *ToDoItem*, в которую были внесены изменения.
 Строка с таким же значением **id** обновится.
 
-## <a name="<a-name="deleting"></a>how-to:-delete-data-in-a-mobile-app"></a><a name="deleting"></a>Практическое руководство. Удаление данных в мобильном приложении
+## <a name="a-namedeletingahow-to-delete-data-in-a-mobile-app"></a><a name="deleting"></a>Практическое руководство. Удаление данных в мобильном приложении
 В следующем коде показано, как удалить данные из таблицы, указав объект данных.
 
     mToDoTable.delete(item);
@@ -406,21 +410,21 @@ ms.author: yuaxu
 Удалить элемент также можно, указав поле **id** удаляемой строки.
 
     String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
-    mToDoTable.delete(myRowId);
+       mToDoTable.delete(myRowId);
 
-## <a name="<a-name="lookup"></a>how-to:-look-up-a-specific-item"></a><a name="lookup"></a>Поиск определенного элемента
+## <a name="a-namelookupahow-to-look-up-a-specific-item"></a><a name="lookup"></a>Поиск определенного элемента
 Найдите элемент с определенным значением в поле **id** с помощью метода **lookUp()**.
 
     ToDoItem result = mToDoTable
                         .lookUp("0380BAFB-BCFF-443C-B7D5-30199F730335")
                         .get();
 
-## <a name="<a-name="untyped"></a>how-to:-work-with-untyped-data"></a><a name="untyped"></a>Практическое руководство. Работа с нетипизированными данными
+## <a name="a-nameuntypedahow-to-work-with-untyped-data"></a><a name="untyped"></a>Практическое руководство. Работа с нетипизированными данными
 Нетипизированная модель программирования предоставляет точный контроль над сериализацией JSON.  Существует несколько распространенных сценариев, в которых может потребоваться использовать нетипизированную модель программирования. Например, если таблица серверной части содержит много столбцов, и вам нужно указать ссылку только на их подмножество.  Для использования типизированной модели необходимо определить все столбцы таблицы мобильного приложения в классе данных.  
 
 Большая часть вызовов интерфейса API для доступа к данным аналогична вызовам в типизированной модели. Основное различие заключается в том, что в нетипизированной модели методы вызываются для объекта **MobileServiceJsonTable**, а не **MobileServiceTable**.
 
-### <a name="<a-name="json_instance"></a>how-to:-create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>Практическое руководство. Создание экземпляра нетипизированной таблицы
+### <a name="a-namejsoninstanceahow-to-create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>Практическое руководство. Создание экземпляра нетипизированной таблицы
 Аналогично типизированной модели сначала вы получаете ссылку на таблицу, но в данном случае это объект **MobileServicesJsonTable** . Чтобы получить ссылку, вызовите метод **getTable** для экземпляра клиента.
 
     private MobileServiceJsonTable mJsonToDoTable;
@@ -429,7 +433,7 @@ ms.author: yuaxu
 
 После создания экземпляр **MobileServiceJsonTable**обладает практически таким же API, что и в типизированной модели программирования. В некоторых случаях методы принимают нетипизированный параметр вместо типизированного.
 
-### <a name="<a-name="json_insert"></a>how-to:-insert-into-an-untyped-table"></a><a name="json_insert"></a>Практическое руководство. Вставка в нетипизированную таблицу
+### <a name="a-namejsoninsertahow-to-insert-into-an-untyped-table"></a><a name="json_insert"></a>Практическое руководство. Вставка в нетипизированную таблицу
 В следующем коде показано, как вставить данные. Первый шаг — создание объекта [JsonObject][1], который является частью библиотеки [gson][3].
 
     JsonObject jsonItem = new JsonObject();
@@ -444,7 +448,7 @@ ms.author: yuaxu
 
     jsonItem.getAsJsonPrimitive("id").getAsInt());
 
-### <a name="<a-name="json_delete"></a>how-to:-delete-from-an-untyped-table"></a><a name="json_delete"></a>Практическое руководство. Удаление из нетипизированной таблицы
+### <a name="a-namejsondeleteahow-to-delete-from-an-untyped-table"></a><a name="json_delete"></a>Практическое руководство. Удаление из нетипизированной таблицы
 В следующем коде показано, как удалить экземпляр, в этом случае тот же экземпляр объекта **JsonObject** , который был создан в предыдущем примере *вставки* . Код будет таким же, как и в случае типизированной таблицы, но метод будет иметь другую сигнатуру, так как он ссылается на **JsonObject**.
 
          mToDoTable.delete(jsonItem);
@@ -453,7 +457,7 @@ ms.author: yuaxu
 
          mToDoTable.delete(ID);
 
-### <a name="<a-name="json_get"></a>how-to:-return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>Практическое руководство. Получение всех строк из нетипизированной таблицы
+### <a name="a-namejsongetahow-to-return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>Практическое руководство. Получение всех строк из нетипизированной таблицы
 В следующем коде показано, как получить всю таблицу. Поскольку вы используете таблицы Json, можно выборочно вывести лишь некоторые столбцы таблицы.
 
     public void showAllUntyped(View view) {
@@ -490,7 +494,7 @@ ms.author: yuaxu
 
 Для нетипизированной модели доступен тот же набор средств фильтрации, то есть методы фильтрации и разбиения по страницам, что и для типизированной модели.
 
-## <a name="<a-name="custom-api"></a>how-to:-call-a-custom-api"></a><a name="custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
+## <a name="a-namecustom-apiahow-to-call-a-custom-api"></a><a name="custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
 Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
 Вызовите из клиента Android метод **invokeApi** для вызова конечной точки настраиваемого API. В следующем примере показано, как вызвать конечную точку API с именем **completeAll**, которая возвращает класс коллекции с именем **MarkAllResult**.
@@ -515,7 +519,7 @@ ms.author: yuaxu
 
 Метод **invokeApi** вызывается на стороне клиента, что приводит к отправке запроса POST новому настраиваемому API. Результат, возвращаемый настраиваемым интерфейсом API, отображается в диалоговом окне сообщения, как и любые ошибки. Другие версии метода **invokeApi** позволяют при необходимости отправить объект в тексте запроса, указать метод HTTP и отправить параметры запроса вместе с запросом. Кроме того, доступны нетипизированные версии **invokeApi** .
 
-## <a name="<a-name="authentication"></a>how-to:-add-authentication-to-your-app"></a><a name="authentication"></a>Практическое руководство. Добавление проверки подлинности в приложение
+## <a name="a-nameauthenticationahow-to-add-authentication-to-your-app"></a><a name="authentication"></a>Практическое руководство. Добавление проверки подлинности в приложение
 Процесс добавления этих компонентов подробно описан в руководствах.
 
 Служба приложений поддерживает [проверку подлинности пользователей приложения](app-service-mobile-android-get-started-users.md) с помощью разных внешних поставщиков удостоверений: Facebook, Google, учетной записи Майкрософт, Twitter и Azure Active Directory. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверной части.
@@ -533,21 +537,21 @@ ms.author: yuaxu
 
 Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Также можно использовать идентификатор безопасности пользователя, прошедшего проверку, чтобы изменять запросы.  Дополнительную информацию см. в разделе [Приступая к работе с проверкой подлинности] и справочной документации по пакету SDK для сервера.
 
-### <a name="<a-name="caching"></a>how-to:-add-authentication-code-to-your-app"></a><a name="caching"></a>Практическое руководство. Добавление кода проверки подлинности в приложение
+### <a name="a-namecachingahow-to-add-authentication-code-to-your-app"></a><a name="caching"></a>Практическое руководство. Добавление кода проверки подлинности в приложение
 Следующий код запускает процесс входа серверного потока с помощью поставщика Google.
 
     MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-Получите идентификатор вошедшего в систему пользователя из **MobileServiceUser** с помощью метода **getUserId**. Пример использования Futures для вызова API асинхронного входа см. в статье [Добавление проверки подлинности в приложение Android].
+Получите идентификатор вошедшего в систему пользователя из **MobileServiceUser** с помощью метода **getUserId**. Пример использования Futures для вызова API асинхронного входа см. в статье [Приступая к работе с проверкой подлинности].
 
-### <a name="<a-name="caching"></a>how-to:-cache-authentication-tokens"></a><a name="caching"></a>Практическое руководство. Кэширование маркеров проверки подлинности
+### <a name="a-namecachingahow-to-cache-authentication-tokens"></a><a name="caching"></a>Практическое руководство. Кэширование маркеров проверки подлинности
 Для этого необходимо сохранить идентификатор пользователя и маркер аутентификации локально на устройстве. При следующем запуске приложения проверьте кэш — если эти значения существуют, то можно пропустить процедуру входа и повторно заполнить клиент этими данными. Однако это конфиденциальные данные и они должны храниться в зашифрованном виде, чтобы обеспечить безопасность в случае кражи телефона.
 
 Полный пример кэширования маркеров аутентификации см. в разделе [Кэширование маркеров проверки подлинности на клиенте][7].
 
-При попытке использовать маркер с истекшим сроком действия вы получите ответ *401 не санкционировано* . Ошибки аутентификации можно обрабатывать с помощью фильтров.  Фильтры перехватывают запросы к серверной части службы приложений. Код фильтра проверяет наличие ответа 401, инициирует вход в систему и возобновляет запрос, породивший ответ 401. 
+При попытке использовать маркер с истекшим сроком действия вы получите ответ *401 не санкционировано* . Ошибки аутентификации можно обрабатывать с помощью фильтров.  Фильтры перехватывают запросы к серверной части службы приложений. Код фильтра проверяет наличие ответа 401, инициирует вход в систему и возобновляет запрос, породивший ответ 401.
 
-## <a name="<a-name="adal"></a>how-to:-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Практическое руководство. Проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
+## <a name="a-nameadalahow-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Практическое руководство. Проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
 Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Использование входа посредством клиентского потока является более предпочтительным, чем использование методов `loginAsync()` , так как он обеспечивает более естественный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
 
 1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в учебнике [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) . Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
@@ -582,9 +586,9 @@ dependencies {
 * Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
 * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта */.auth/login/done* , используя схему HTTPS. Это значение должно быть похоже на *https://contoso.azurewebsites.net/.auth/login/done*.
-  
+
         private AuthenticationContext mContext;
-  
+
         private void authenticate() {
             String authority = "INSERT-AUTHORITY-HERE";
             String resourceId = "INSERT-RESOURCE-ID-HERE";
@@ -597,7 +601,7 @@ dependencies {
                 exc.printStackTrace();
             }
         }
-  
+
         private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
             @Override
             public void onError(Exception exc) {
@@ -607,7 +611,7 @@ dependencies {
                     Log.d(TAG, "Authentication error:" + exc.getMessage());
                 }
             }
-  
+
             @Override
             public void onSuccess(AuthenticationResult result) {
                 if (result == null || result.getAccessToken() == null
@@ -635,7 +639,7 @@ dependencies {
                 }
             }
         };
-  
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
@@ -644,20 +648,20 @@ dependencies {
             }
         }
 
-## <a name="how-to:-add-push-notification-to-your-app"></a>Практическое руководство. Добавление push-уведомлений в приложение
+## <a name="how-to-add-push-notification-to-your-app"></a>Практическое руководство. Добавление push-уведомлений в приложение
 Подробные сведения см. в [этом обзоре][6], в котором объясняется, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.  В [этом руководстве][5] показано, как настроить отправку push-уведомлений при каждой вставке записи.
 
-## <a name="how-to:-add-offline-sync-to-your-app"></a>Практическое руководство. Добавление автономной синхронизации в приложение
+## <a name="how-to-add-offline-sync-to-your-app"></a>Практическое руководство. Добавление автономной синхронизации в приложение
 Это руководство по быстрому запуску содержит код, который реализует автономную синхронизацию. Найдите код, начинающийся с приведенного ниже комментария.
 
     // Offline Sync
 
 Раскомментировав строки кода, вы реализуете автономную синхронизацию. Подобный код можно добавлять в код других мобильных приложений.
 
-## <a name="<a-name="customizing"></a>how-to:-customize-the-client"></a><a name="customizing"></a>Практическое руководство. Настройка клиента
+## <a name="a-namecustomizingahow-to-customize-the-client"></a><a name="customizing"></a>Практическое руководство. Настройка клиента
 Есть несколько способов настройки стандартного поведения клиента.
 
-### <a name="<a-name="headers"></a>how-to:-customize-request-headers"></a><a name="headers"></a>Практическое руководство. Настройка заголовков запроса
+### <a name="a-nameheadersahow-to-customize-request-headers"></a><a name="headers"></a>Практическое руководство. Настройка заголовков запроса
 Настройте **ServiceFilter** для добавления настраиваемого заголовка HTTP для каждого запроса.
 
     private class CustomHeaderFilter implements ServiceFilter {
@@ -683,7 +687,7 @@ dependencies {
             }
         }
 
-### <a name="<a-name="serialization"></a>how-to:-customize-serialization"></a><a name="serialization"></a>Практическое руководство. Настройка сериализации
+### <a name="a-nameserializationahow-to-customize-serialization"></a><a name="serialization"></a>Практическое руководство. Настройка сериализации
 Клиент предполагает, что все имена таблиц, имена столбцов и типы данных в серверной части точно соответствуют объектам данных, определенным в клиенте. Имена на сервере и клиенте могут не совпадать по множеству причин. Вам может потребоваться выполнить следующие виды настройки.
 
 * Имена столбцов, используемые в таблице службы приложений, не совпадают с именами, которые используются в клиенте.
@@ -691,7 +695,7 @@ dependencies {
 * Включение автоматического использования прописных букв для свойств.
 * Добавление сложных свойств в объект.
 
-### <a name="<a-name="columns"></a>how-to:-map-different-client-and-server-names"></a><a name="columns"></a>Практическое руководство. Сопоставление различных имен клиента и сервера
+### <a name="a-namecolumnsahow-to-map-different-client-and-server-names"></a><a name="columns"></a>Практическое руководство. Сопоставление различных имен клиента и сервера
 Предположим, что клиентский код Java использует стандартные имена в стиле Java для свойств объекта **ToDoItem** , как показано ниже.
 
 * mId
@@ -713,12 +717,12 @@ dependencies {
     @com.google.gson.annotations.SerializedName("duration")
     private String mDuration;
 
-### <a name="<a-name="table"></a>how-to:-map-different-table-names-between-the-client-and-the-backend"></a><a name="table"></a>Практическое руководство. Сопоставление разных имен таблиц между клиентом и серверной частью
+### <a name="a-nametableahow-to-map-different-table-names-between-the-client-and-the-backend"></a><a name="table"></a>Практическое руководство. Сопоставление разных имен таблиц между клиентом и серверной частью
 Сопоставьте имя клиентской таблицы с именем таблицы различных мобильных служб, используя переопределение метода [getTable()][4].
 
     mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-### <a name="<a-name="conversions"></a>how-to:-automate-column-name-mappings"></a><a name="conversions"></a>Практическое руководство. Автоматизация сопоставления имен столбцов
+### <a name="a-nameconversionsahow-to-automate-column-name-mappings"></a><a name="conversions"></a>Практическое руководство. Автоматизация сопоставления имен столбцов
 Можно указать стратегию преобразования, которая применяется к каждому столбцу, с помощью API из библиотеки [gson][3]. Клиентская библиотека Android использует [gson][3] для сериализации объектов Java в данные JSON перед передачей данных в службу приложений Azure.  В следующем коде используется метод **setFieldNamingStrategy()** для задания стратегии. Этот пример удалит начальный знак ("m"), а затем преобразует следующий знак в нижний регистр для каждого имени поля. Например, он преобразует "mId" в "id".
 
     client.setGsonBuilder(
@@ -734,7 +738,7 @@ dependencies {
 
 Этот код должен быть выполнен перед использованием **MobileServiceClient**.
 
-### <a name="<a-name="complex"></a>how-to:-store-an-object-or-array-property-into-a-table"></a><a name="complex"></a>Практическое руководство. Сохранение свойства объекта или массива в таблице
+### <a name="a-namecomplexahow-to-store-an-object-or-array-property-into-a-table"></a><a name="complex"></a>Практическое руководство. Сохранение свойства объекта или массива в таблице
 Пока что наши примеры сериализации использовали простые типы, такие как целочисленный и строковый.  Простые типы легко сериализовать в JSON.  Если необходимо добавить сложный объект, который не сериализуется автоматически в формат JSON, то необходимо предоставить метод сериализации в JSON.  Пример предоставления пользовательской сериализации в JSON см. в записи блога [Customizing serialization using the gson library in the Mobile Services Android client][2] (Настройка сериализации с помощью библиотеки gson в клиенте мобильных служб для Android).
 
 <!-- Anchors. -->
@@ -776,7 +780,7 @@ dependencies {
 [Приступая к работе с мобильными приложениями Azure]: app-service-mobile-android-get-started.md
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Пакет SDK для мобильных служб для Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
-[портал Azure]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com
 [Приступая к работе с проверкой подлинности]: app-service-mobile-android-get-started-users.md
 [1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
@@ -792,12 +796,13 @@ dependencies {
 [12]: http://azure.github.io/azure-mobile-apps-android-client/
 [13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
 [14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
-[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

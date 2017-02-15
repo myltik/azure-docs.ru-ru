@@ -35,7 +35,7 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Сценарий")
+![Сценарий](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-bluejeans"></a>Включение интеграции приложений для BlueJeans
 В этом разделе показано, как включить интеграцию приложений для BlueJeans.
@@ -47,16 +47,16 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
    
-   ![Приложения](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Приложения")
+   ![Приложения](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Applications")
 4. В нижней части страницы нажмите кнопку **Добавить** .
    
-   ![Добавление приложения](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Добавление приложения")
+   ![Добавить приложение](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Add application")
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
    
-   ![Добавление приложения из коллекции](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "Добавление приложения из коллекции")
+   ![Добавить приложение из коллекции](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "Add an application from gallerry")
 6. В **поле поиска** введите **BlueJeans**.
    
-   ![Коллекция приложений](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Коллекция приложений")
+   ![Коллекция приложений](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Application Gallery")
 7. В области результатов выберите **BlueJeans** и нажмите кнопку **Завершить**, чтобы добавить приложение.
    
    ![BlueJeans](./media/active-directory-saas-bluejeans-tutorial/IC785862.png "BlueJeans")
@@ -68,29 +68,29 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На странице интеграции с приложением **BlueJeans** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Configure single sign-on")
 2. На странице **Как пользователи должны входить в BlueJeans?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
    
-   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configure Single Sign-On")
 3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в BlueJeans** введите свой URL-адрес в формате *https://company.BlueJeans.com* и нажмите кнопку **Далее**.
    
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Настройка URL-адреса приложения")
+   ![Настройка URL-адреса приложения](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configure App URL")
 4. На странице **Настройка единого входа в BlueJeans** щелкните **Скачать сертификат** и сохраните файл сертификата на компьютере.
    
-   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Настройка единого входа")
+   ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Configure Single Sign-On")
 5. В другом окне веб-браузера войдите на корпоративный веб-сайт **BlueJeans** в качестве администратора.
 6. Последовательно щелкните **Admin \> Group Settings \> Security** (Администратор > Параметры группы > Безопасность).
    
-   ![Администратор](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Администратор")
+   ![Администратор](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 7. В разделе **Security** (Безопасность) выполните следующие действия.
    
-   ![Единый вход SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Единый вход SAML")
+   ![SAML Single Sign On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign On")
    
    1. Выберите параметр **SAML Single Sign On**(Единый вход SAML).
    2. Установите флажок **Enable automatic provisioning**(Включить автоматическую подготовку).
 8. После этого выполните следующие действия.
    
-   ![Путь к сертификату](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Путь к сертификату")
+   ![Путь к сертификату](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Certificate Path")
    
    1. Нажмите кнопку **Choose File**(Выбрать файл) и отправьте скачанный сертификат.
    2. На классическом портале Azure на диалоговой странице **Настройка единого входа в BlueJeans** скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес для входа**.
@@ -98,14 +98,14 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
    4. На классическом портале Azure на диалоговой странице **Настройка единого входа в BlueJeans** скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес выхода**.
 9. После этого выполните следующие действия.
    
-   ![Сохранение изменений](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Сохранение изменений")
+   ![Сохранить изменения](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
    
    1. В поле **Идентификатор пользователя** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
    2. В поле **Электронная почта** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
    3. Нажмите кнопку **Сохранить изменения**.
 10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
     
-    ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configure Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
@@ -116,7 +116,7 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 1. Выполните вход на веб-сайт компании **BlueJeans** в качестве администратора.
 2. Последовательно выберите пункты **Admin \> Manage Users \> Add User** (Администратор > Управление пользователями > Добавить пользователя).
    
-   ![Администратор](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Администратор")
+   ![Администратор](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
    
    > [!IMPORTANT]
    > Вкладка **Add User** (Добавить пользователя) доступна, только если на вкладке **Security** (Безопасность) снят флажок **Enable automatic provisioning** (Включить автоматическую подготовку).
@@ -124,7 +124,7 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
    > 
 3. В разделе **Add User** (Добавление пользователя) выполните следующие действия.
    
-   ![Добавление пользователя](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Добавление пользователя")
+   ![Добавить пользователя](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
    
    1. Введите в текстовых полях **BlueJeans Username** (Имя пользователя BlueJeans), **Email address** (Адрес электронной почты), **BlueJeans Meeting ID** (Идентификатор собрания BlueJeans), **Moderator Passcode** (Секретный код модератора), **Full Name** (Полное имя) и **Company** (Компания) соответствующие данные действующей учетной записи AAD, которую вы хотите подготовить.
    2. Нажмите кнопку **Add User**(Добавить пользователя).
@@ -141,10 +141,10 @@ ms.openlocfilehash: 00f00d91e54d35fb9009a3e927dfc8833cd7571e
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **BlueJeans** нажмите кнопку **Назначить пользователей**.
    
-   ![Назначение пользователей](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Назначение пользователей")
+   ![Назначить пользователей](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Assign Users")
 3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
    
-   ![Да](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Да")
+   ![Да](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Yes")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 

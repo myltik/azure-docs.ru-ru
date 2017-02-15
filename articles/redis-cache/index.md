@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать кэш Redis для Azure, защищенный кэш данных, и брокер обмена сообщениями, который обеспечивает быстрый доступ приложений к данным. Руководства, справочники по API и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Документация по кэшу Redis
 
-Кэш Redis для Azure основан на популярном кэше с открытым исходным кодом Redis. Он предоставляет вам доступ к безопасному выделенному кэшу Redis, управляемому корпорацией Майкрософт и доступному из любых приложений в Azure. Кэш Redis для Azure обеспечивает высокую способность обработки данных с постоянно малым временем задержки при обращении к ним, что позволяет разрабатывать быстрые и масштабируемые приложения Azure.
+Узнайте, как использовать кэш Redis для Azure, защищенный кэш данных, и брокер обмена сообщениями, который обеспечивает высокую пропускную способность и низкую задержку при обращении приложений к данным. Руководства, справочники по API и другая документация, в которой показано, как использовать кэш Redis из любого приложения в Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -183,16 +184,10 @@ ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по кэшу Redis </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,44 +1,44 @@
 ---
-title: Использование Hadoop Pig с .NET в HDInsight | Microsoft Docs
-description: Информация об использовании пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в HDInsight.
+title: "Использование Hadoop Pig с .NET в HDInsight | Документация Майкрософт"
+description: "Информация об использовании пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в HDInsight."
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 10/17/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 46acf298a489aae34866c90126f3df00fd10c6e3
+
 
 ---
-# Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 В этом документе приведен пример использования пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в кластере HDInsight.
 
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Pig позволяет создавать операции MapReduce путем моделирования ряда преобразований данных. Вы узнаете, как использовать базовое приложение C# для отправки задания Pig в кластер HDInsight.
 
-[!INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 * Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015.
 
-## Создание приложения
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
+## <a name="create-the-application"></a>Создание приложения
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. 
 
 1. Откройте Visual Studio 2012 или 2013
-2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
+2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
 3. Для нового проекта введите или выберите следующие значения.
    
     <table>
@@ -59,12 +59,12 @@ ms.author: larryfr
     <th>SubmitPigJob</th>
     </tr>
     </table>
-4. Нажмите кнопку **ОК**, чтобы создать проект.
+4. Нажмите кнопку **ОК** , чтобы создать проект.
 5. В меню **Сервис** выберите пункт **Диспетчер пакетов библиотеки** или **Диспетчер пакетов Nuget**, а затем — **Консоль диспетчера пакетов**.
 6. Выполните следующую команду в консоли, чтобы установить пакеты SDK для .NET.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-7. В обозревателе решений дважды щелкните **Program.cs**, чтобы открыть файл. Замените имеющийся код следующим.
+7. В обозревателе решений дважды щелкните **Program.cs** , чтобы открыть файл. Замените имеющийся код следующим.
    
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -119,10 +119,10 @@ ms.author: larryfr
 8. Нажмите **F5** для запуска приложения.
 9. Нажмите клавишу **ВВОД** для завершения работы приложения.
 
-## Сводка
+## <a name="summary"></a>Сводка
 Как вы видите, пакет SDK для .NET для Hadoop позволяет создавать приложения .NET, которые будут отправлять задания Pig в кластер HDInsight и отслеживать состояние задания.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Общая информация о Pig в HDInsight.
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
@@ -134,4 +134,8 @@ ms.author: larryfr
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

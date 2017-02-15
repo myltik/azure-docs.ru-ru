@@ -1,19 +1,23 @@
 ---
-title: 'Службы Мобильного Взаимодействия Azure: интеграция пакета SDK Reach для iOS | Microsoft Docs'
-description: Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement
+title: "Службы мобильного взаимодействия Azure: интеграция пакета SDK Reach для iOS | Документация Майкрософт"
+description: "Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
+ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
+
 
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Как интегрировать рекламные кампании Engagement в iOS
@@ -129,7 +133,7 @@ ms.author: piyushjo
     }
 
 > [!NOTE]
-> Описанный выше метод впервые появился в iOS 7. Если вы ориентируетесь на более старую платформу по сравнению с iOS 7, обязательно реализуйте метод `application:didReceiveRemoteNotification:` в делегате приложения и вызовите метод `applicationDidReceiveRemoteNotification` для EngagementAgent, передав nil вместо аргумента `handler`:
+> Описанный выше метод впервые появился в iOS 7. Если вы ориентируетесь на более старую платформу по сравнению с iOS&7;, обязательно реализуйте метод `application:didReceiveRemoteNotification:` в делегате приложения и вызовите метод `applicationDidReceiveRemoteNotification` для EngagementAgent, передав nil вместо аргумента `handler`:
 > 
 > 
 
@@ -178,12 +182,15 @@ ms.author: piyushjo
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-### <a name="if-you-have-your-own-unusernotificationcenterdelegate-implementation"></a>Если у вас есть собственная реализация UNUserNotificationCenterDelegate
-Пакет SDK также имеет собственную реализацию протокола UNUserNotificationCenterDelegate. Он используется пакетом SDK для отслеживания жизненного цикла уведомлений Служб Взаимодействия на устройствах, работающих под управлением iOS 10 или более поздней версии. Если пакет SDK обнаружит ваш делегат, он не будет применять собственную реализацию, так как в приложении может быть только один делегат UNUserNotificationCenter. Это означает, что вам потребуется добавить логику Служб Взаимодействия в собственный делегат.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Разрешение конфликтов делегата UNUserNotificationCenter
+
+*Если приложения или библиотеки сторонних производителей не реализуют `UNUserNotificationCenterDelegate`, то эту часть можно пропустить.*
+
+Делегат `UNUserNotificationCenter` используется пакетом SDK для отслеживания жизненного цикла уведомлений служб Engagement на устройствах, работающих под управлением iOS 10 или более поздней версии. Пакет SDK содержит собственную реализацию протокола `UNUserNotificationCenterDelegate`, однако в приложении может быть только один делегат `UNUserNotificationCenter`. Любой другой делегат, добавляемый в объект `UNUserNotificationCenter`, будет конфликтовать со службой Engagement. Если пакет SDK обнаружит ваш или другой делегат, он не будет применять собственную реализацию, чтобы дать вам возможность самому разрешить конфликт. Для разрешения конфликтов вам потребуется добавить приложение логики Engagement в собственный делегат.
 
 Это достигается двумя способами.
 
-Просто переадресуйте вызовы делегата в пакет SDK:
+Первый способ. Просто переадресуйте вызовы делегата в пакет SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -210,7 +217,7 @@ ms.author: piyushjo
     }
     @end
 
-Или воспользуйтесь наследованием из класса `AEUserNotificationHandler`:
+Второй способ. Воспользуйтесь наследованием из класса `AEUserNotificationHandler`:
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -238,8 +245,16 @@ ms.author: piyushjo
 
 > [!NOTE]
 > Можно определить, поступают ли уведомления из Служб взаимодействия, передав словарь `userInfo` в метод класса `isEngagementPushPayload:` агента.
-> 
-> 
+
+Убедитесь, что в делегате приложения делегат объекта `UNUserNotificationCenter` имеет значение вашего делегата в методе `application:willFinishLaunchingWithOptions:` или `application:didFinishLaunchingWithOptions:`.
+Например, если вы воспользовались первым способом:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## <a name="how-to-customize-campaigns"></a>Как настраивать кампании
 ### <a name="notifications"></a>Уведомления
@@ -332,7 +347,7 @@ ms.author: piyushjo
 1. Добавьте представление уведомлений с помощью конструктора интерфейса:
    
    * Откройте *конструктор интерфейса*
-   * Разместите `UIView` размером 320 x 60 (или 768 x6 0 для iPad) там, где следует отображать уведомление.
+   * Разместите `UIView` размером 320 x 60 (или 768 x6 0 для iPad) там, где следует отображать уведомление.
    * Задайте для параметра «Тег» значение **36822491**
 2. Добавьте представление уведомлений программно. Просто добавьте следующий код после инициализации представления:
    
@@ -397,7 +412,7 @@ ms.author: piyushjo
 В этом случае предоставленный `MyCustomPollViewController` должен расширять `AEPollViewController`. Или же можно расширить его с помощью контроллера по умолчанию: `AEDefaultPollViewController`.
 
 > [!IMPORTANT]
-> Прежде чем закрыть контролер представлений, обязательно вызовите метод `action` (`submitAnswers:` для пользовательских контроллеров представлений опросов) или `exit`. В противном случае статистика не будет отправлена (т. е. не будет получена аналитика по кампании) и, что важнее, следующие кампании не будут получать уведомления до перезапуска процесса приложения.
+> Прежде чем закрыть контролер представлений, обязательно вызовите метод `action` (`submitAnswers:` для пользовательских контроллеров представлений опросов) или `exit`. В противном случае статистика не будет отправлена (т. е. не будет получена аналитика по кампании) и, что важнее, следующие кампании не будут получать уведомления до перезапуска процесса приложения.
 > 
 > 
 
@@ -500,6 +515,6 @@ ms.author: piyushjo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

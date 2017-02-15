@@ -1,23 +1,27 @@
 ---
-title: Подписка Microsoft Azure, границы, квоты и ограничения служб
-description: В этой статье приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и границ. Сюда входит информация о том, как увеличить лимиты и максимальные значения.
-services: ''
-documentationcenter: ''
+title: "Подписка Microsoft Azure, границы, квоты и ограничения служб"
+description: "В этой статье приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и границ. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
+services: 
+documentationcenter: 
 author: rothja
 manager: jeffreyg
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: btardif
+ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+
 
 ---
-# <a name="azure-subscription-and-service-limits,-quotas,-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
 ## <a name="overview"></a>Обзор
 Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. На текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
@@ -29,7 +33,7 @@ ms.author: btardif
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Ограничения и диспетчер ресурсов Azure
-Теперь несколько ресурсов можно объединить в одной группе ресурсов Azure. При использовании групп ресурсов ограничения, которые были глобальными, становятся управляемыми на региональном уровне благодаря диспетчеру ресурсов Azure. Дополнительные сведения о группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
+Теперь несколько ресурсов можно объединить в одной группе ресурсов Azure. При использовании групп ресурсов ограничения, которые были глобальными, становятся управляемыми на региональном уровне благодаря диспетчеру ресурсов Azure. Дополнительные сведения о группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](azure-resource-manager/resource-group-overview.md).
 
 В следующие ограничения добавлена новая таблица, в которой отражены все различия ограничений при использовании диспетчера ресурсов Azure. Например, имеется таблица **Ограничения подписки** и таблица **Ограничения подписки — Azure Resource Manager**. Если ограничение применяется в обоих случаях, оно показано только в первой таблице. Если не указано иное, ограничения глобальны во всех областях.
 
@@ -44,6 +48,7 @@ ms.author: btardif
 * [Active Directory](#active-directory-limits)
 * [Управление API](#api-management-limits)
 * [Служба приложений](#app-service-limits)
+* [Шлюз приложений](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Автоматизация](#automation-limits)
 * [кэш Azure Redis](#azure-redis-cache-limits)
@@ -114,6 +119,9 @@ ms.author: btardif
 #### <a name="networking-limits"></a>Ограничения сети
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+#### <a name="application-gateway-limits"></a>Ограничения шлюза приложений
+[!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
 #### <a name="traffic-manager-limits"></a>Ограничения диспетчера трафика
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
@@ -129,7 +137,7 @@ ms.author: btardif
 #### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Дополнительные сведения см. в статье [Размеры виртуальных машин](virtual-machines/virtual-machines-linux-sizes.md).
+Дополнительные сведения см. в статье [Размеры виртуальных машин](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 **Учетные записи хранения Standard**
 
@@ -174,7 +182,7 @@ ms.author: btardif
 
 * *Бесплатный* : мультитенантная служба, используемая совместно с другими подписчиками Azure и предназначенная для оценки и разработки небольших проектов.
 * *Базовый* предоставляет выделенные вычислительные ресурсы для небольших рабочих нагрузок в рабочей среде, поддерживая до трех реплик для обработки запросов с высоким уровнем доступности.
-* *Стандартный (S1, S2, S3, S3 с высокой плотностью)* предназначена для больших рабочих нагрузок в рабочей среде. Существует несколько уровней в рамках уровня "Стандартный", поэтому для конкретных сценариев можно выбирать конфигурацию ресурсов.
+* *Стандартный (S1, S2, S3, S3 с высокой плотностью)* предназначена для больших рабочих нагрузок в рабочей среде. В рамках уровня "Стандартный" есть несколько уровней, поэтому можно выбрать конфигурацию ресурсов, которая лучше всего подходит для вашего профиля рабочей нагрузки.
 
 **Ограничения на одну подписку**
 
@@ -184,7 +192,7 @@ ms.author: btardif
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Подробные сведения о других ограничениях, включая размер документов, количество запросов в секунду, ключи, запросы и ответы, см. в статье [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
+Дополнительные сведения об ограничениях, включая размер документов, количество запросов в секунду, ключи, запросы и ответы, см. в статье [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Ограничения служб мультимедиа
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -261,10 +269,13 @@ ms.author: btardif
 ## <a name="see-also"></a>Дополнительные материалы
 [Основные сведения о лимитах Azure и их увеличении](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-linux-sizes.md)
+[Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

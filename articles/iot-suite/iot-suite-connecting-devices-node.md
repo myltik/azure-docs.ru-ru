@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 58c0d6590e2fd1684ebeee473029ca4544e223f6
+ms.sourcegitcommit: 02247d679c9bffa01b8d2827ea57eba38894107e
+ms.openlocfilehash: 698384bb5079feb937f423f9b6365dff20cfa3be
 
 
 ---
@@ -25,10 +25,10 @@ ms.openlocfilehash: 58c0d6590e2fd1684ebeee473029ca4544e223f6
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="build-and-run-the-nodejs-sample-solution"></a>Выполнение сборки и запуск примера решения node.js
-1. Чтобы клонировать репозиторий GitHub *пакетов SDK для Интернета вещей Microsoft Azure* и установить *пакет SDK для устройств Microsoft Azure IoT для Node.js* в вашей среде рабочего стола, следуйте инструкциям в статье [Подготовка среды разработки][lnk-github-prepare].
-2. Из папки node/device/samples в локальной копии репозитория [azure-iot-sdks][lnk-github-repo] скопируйте в папку на устройстве следующие два файла:
+1. Чтобы клонировать репозиторий GitHub *пакетов SDK для Интернета вещей Microsoft Azure для Node.js* и установить его в вашей среде рабочего стола, следуйте инструкциям в статье [Подготовка среды разработки][lnk-github-prepare].
+2. Из папки device/samples в локальной копии репозитория [azure-iot-sdk-node][lnk-github-repo] скопируйте в папку на устройстве следующие два файла:
    
-   * packages.json
+   * package.json
    * remote_monitoring.js
 3. Откройте файл remote-monitoring.js и найдите следующие переменные:
    
@@ -55,11 +55,11 @@ ms.openlocfilehash: 58c0d6590e2fd1684ebeee473029ca4544e223f6
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-github-repo]: https://github.com/azure/azure-iot-sdks
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

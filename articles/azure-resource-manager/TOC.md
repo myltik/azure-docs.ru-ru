@@ -26,13 +26,14 @@
 ### [PowerShell](resource-group-template-deploy.md)
 ### [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 ### [Портал](resource-group-template-deploy-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Среды для разработки и тестирования](solution-dev-test-environments.md)
+### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Управление
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 ### [Портал](resource-group-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Организация ресурсов с помощью тегов](resource-group-using-tags.md)
 ### [Перемещение ресурсов в новую группу или подписку](resource-group-move-resources.md)
 ### [Использование ссылки на связанные ресурсы](resource-group-link-resources.md)
@@ -41,7 +42,7 @@
 ### [Создание субъекта-службы с помощью PowerShell](resource-group-authenticate-service-principal.md)
 ### [Создание субъекта-службы с помощью интерфейса командной строки Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Создание субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md)
-### [Доступ приложений к подпискам](resource-manager-api-authentication.md)
+### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Настройка политик управления](resource-manager-policy.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
 ### [Вопросы безопасности](best-practices-resource-manager-security.md)
@@ -55,19 +56,20 @@
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Интерфейс командной строки Azure](/cli/azure)
-## [Java](/java/api)
+## [Azure CLI 2.0 (предварительная версия)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Схемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
-## [Запросы на регулирование](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
 # Ресурсы
+## [Запросы на регулирование](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

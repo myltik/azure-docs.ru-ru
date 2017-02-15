@@ -1,13 +1,13 @@
 ---
-title: Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure | Microsoft Docs
-description: Узнайте, как правильно масштабировать задания Stream Analytics (секционирование, количество SU и т. д.) при использовании функций машинного обучения Azure.
-keywords: ''
-documentationcenter: ''
+title: "Масштабирование заданий Stream Analytics с помощью функций Машинного обучения Azure | Документация Майкрософт"
+description: "Узнайте, как правильно масштабировать задания Stream Analytics (секционирование, количество SU и т. д.) при использовании функций машинного обучения Azure."
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+
 
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Масштабирование заданий Stream Analytics с помощью функций машинного обучения Azure
 В большинстве случаев настроить задание Stream Analytics и запустить демонстрационные данные можно без особых усилий. А что делать, если необходимо выполнить то же задание с большим объемом данных? Мы должны разобраться, как настроить задание Stream Analytics таким образом, чтобы его можно было масштабировать. В этом документе основное внимание уделено специфическим аспектам масштабирования заданий Stream Analytics с помощью функций машинного обучения. Общие сведения о масштабировании заданий Stream Analytics см. в статье [Масштабирование заданий](stream-analytics-scale-jobs.md).
 
-## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics?"></a>Что такое функция машинного обучения Azure в Stream Analytics?
+## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Что такое функция машинного обучения Azure в Stream Analytics?
 Функция машинного обучения в Stream Analytics может использоваться как обычный вызов функции в языке запросов Stream Analytics. На самом же деле вызовы функций являются запросами веб-службы машинного обучения Azure. Веб-службы машинного обучения поддерживают пакетную обработку нескольких строк (которые называются мини-пакетом) в одном вызове API веб-службы, что способствует повышению общей пропускной способности. Дополнительные сведения можно найти в следующих статьях: [Функции машинного обучения Azure в Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) и [Веб-службы машинного обучения Azure](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Настройка задания Stream Analytics с помощью функций машинного обучения
@@ -42,7 +46,7 @@ ms.author: jeffstok
 
 Дополнительные сведения об этом параметре см. в статье [Масштабирование веб-службы машинного обучения](../machine-learning/machine-learning-scaling-webservice.md).
 
-## <a name="example-–-sentiment-analysis"></a>Пример: анализ мнений
+## <a name="example--sentiment-analysis"></a>Пример: анализ мнений
 В следующем примере показано задание Stream Analytics с функцией машинного обучения для анализа мнений, как описано в руководстве [Общие сведения о Stream Analytics и интеграции машинного обучения](stream-analytics-machine-learning-integration-tutorial.md).
 
 Запрос представляет собой простой полностью секционированный запрос, за которым следует функция **sentiment** , как показано ниже.
@@ -73,18 +77,16 @@ ms.author: jeffstok
 
 Ниже приведена таблица пропускной способности (количества событий в секунду) задания Stream Analytics для разного количества SU и размеров пакета.
 
-| Количество SU |  |  |  | Размер пакета (задержка службы машинного обучения) |  |
+| Размер пакета (задержка службы машинного обучения) | 500 (200 мс) | 1000 (200 мс) | 5000 (250 мс) | 10 000 (300 мс) | 25 000 (500 мс) |
 | --- | --- | --- | --- | --- | --- |
-|  | | | | | |
-| 500 (200 мс) |1000 (200 мс) |5000 (250 мс) |10 000 (300 мс) |25 000 (500 мс) | |
-| 1 ЕП |2500 |5 000 |20 000 |30 000 |50 000 |
-| 3 SU |2500 |5 000 |20 000 |30 000 |50 000 |
-| 6 SU |2500 |5 000 |20 000 |30 000 |50 000 |
-| 12 SU |5 000 |10 000 |40 000 |60 000 |100 000 |
-| 18 SU |7500 |15 000 |60 000 |90 000 |150 000 |
-| 24 SU |10 000 |20 000 |80 000 |120 000 |200 000 |
-| … |… |… |… |… |… |
-| 60 SU |25 000 |50 000 |200 000 |300 000 |500 000 |
+| **1 единица хранения** |2500 |5 000 |20 000 |30 000 |50 000 |
+| **3 единицы хранения** |2500 |5 000 |20 000 |30 000 |50 000 |
+| **6 единиц хранения** |2500 |5 000 |20 000 |30 000 |50 000 |
+| **12 единиц хранения** |5 000 |10 000 |40 000 |60 000 |100 000 |
+| **18 единиц хранения** |7500 |15 000 |60 000 |90 000 |150 000 |
+| **24 единицы хранения** |10 000 |20 000 |80 000 |120 000 |200 000 |
+| **…** |… |… |… |… |… |
+| **60 единиц хранения** |25 000 |50 000 |200 000 |300 000 |500 000 |
 
 Теперь у вас есть четкое представление о том, как работают функции машинного обучения в Stream Analytics. Скорее всего, вы также знаете, что задания Stream Analytics извлекают данные из источников данных и каждая операция извлечения возвращает пакет событий, которые должно обработать задание Stream Analytics. Каким образом эта модель извлечения данных влияет на запросы к веб-службе машинного обучения?
 
@@ -120,6 +122,9 @@ ms.author: jeffstok
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

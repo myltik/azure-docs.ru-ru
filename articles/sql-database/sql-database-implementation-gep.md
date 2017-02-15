@@ -1,19 +1,24 @@
 ---
-title: 'База данных SQL Azure: пример использования Azure — GEP | Microsoft Docs'
-description: Узнайте, как компания GEP использует Базу данных SQL, чтобы привлечь больше клиентов по всему миру и повысить эффективность работы.
+title: "Пример использования базы данных SQL Azure: GEP | Документация Майкрософт"
+description: "Узнайте, как компания GEP использует Базу данных SQL, чтобы привлечь больше клиентов по всему миру и повысить эффективность работы."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
+
 
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure обеспечивает GEP привлечение международных клиентов и повышение эффективности работы
@@ -99,6 +104,9 @@ GEP использует ряд других служб Azure, чтобы при
 * Сатьян Нарасингх (Sathyan Narasingh), технический руководитель, GEP.
 * Дипа Вилукутти (Deepa Velukutty), архитектор баз данных, GEP.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

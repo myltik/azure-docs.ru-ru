@@ -178,6 +178,6 @@ Windows PowerShell для StorSimple — это интерфейс команд�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

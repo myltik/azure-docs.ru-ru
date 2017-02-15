@@ -44,12 +44,17 @@
 ### [Сжатие файлов](cdn-troubleshoot-compression.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Ресурсы
+##  [Справочник по обработчику правил](cdn-rules-engine-reference.md)
+### [Условные выражения обработчика правил](cdn-rules-engine-reference-conditional-expressions.md)
+### [Условия соответствия обработчика правил](cdn-rules-engine-reference-match-conditions.md)
+### [Функции обработчика правил](cdn-rules-engine-reference-features.md)
+## [Расположение узлов POP сети Azure CDN](cdn-pop-locations.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cdn)
 ## [Цены](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +62,6 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

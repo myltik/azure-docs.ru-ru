@@ -1,19 +1,23 @@
 ---
-title: Использование разделов служебной шины с Node.js | Microsoft Docs
-description: Узнайте, как использовать разделы и подписки служебной шины в Azure в приложении Node.js.
-services: service-bus
+title: "Использование разделов служебной шины с Node.js | Документация Майкрософт"
+description: "Узнайте, как использовать разделы и подписки служебной шины в Azure в приложении Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Использование разделов и подписок служебной шины
@@ -23,16 +27,16 @@ ms.author: sethm
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-node.js-application"></a>Создание приложения Node.js
-Создайте пустое приложение Node.js. Указания по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure], [Облачная служба Node.js][Облачная служба Node.js] (с помощью Windows PowerShell) или веб-сайт с WebMatrix.
+## <a name="create-a-nodejs-application"></a>Создание приложения Node.js
+Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание веб-приложения Node.js в службе приложений Azure], [Облачная служба Node.js][Облачная служба Node.js] (с использованием Windows PowerShell) или на веб-сайте с WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
 Для использования служебной шины скачайте пакет Node.js для Azure. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Использование диспетчера пакета Node (NPM) для получения пакета
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Использование диспетчера пакета Node (NPM) для получения пакета
 1. Используя интерфейс командной строки, такой как **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix), перейдите в папку, в которой создан пример приложения.
 2. В командной строке введите команду **npm install azure**. Должен получиться вот такой результат:
-   
+
    ```
        azure@0.7.5 node_modules\azure
    ├── dateformat@1.0.2-1.2.3
@@ -60,7 +64,7 @@ var azure = require('azure');
 
 Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Облачная служба Node.js с хранилищем][Облачная служба Node.js с хранилищем].
 
-Пример настройки переменных среды для веб-сайта Azure на [классическом портале Azure][] см. в статье [Веб-приложение Node.js с хранилищем][Веб-приложение Node.js с хранилищем].
+Пример настройки переменных среды для веб-сайта Azure на [классическом портале Azure][классический портал Azure] см. в статье [Веб-приложение Node.js с хранилищем][Веб-приложение Node.js с хранилищем].
 
 ## <a name="create-a-topic"></a>Создание раздела
 Объект **ServiceBusService** позволяет работать с разделами. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.
@@ -120,10 +124,10 @@ function (returnObject, finalCallback, next)
 
 > [!NOTE]
 > Подписки являются постоянными и продолжают существовать либо до их удаления, либо до удаления раздела, с которым они связаны. Если приложение содержит логику для создания подписки, оно сначала должно проверить, существует ли подписка, используя метод **getSubscription**.
-> 
-> 
+>
+>
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Создание подписки с фильтром по умолчанию (MatchAll)
 Фильтр **MatchAll** является фильтром по умолчанию, используемым, если при создании новой подписки не указан фильтр. Если используется фильтр **MatchAll**, то все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
 
 ```
@@ -143,8 +147,8 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 > [!NOTE]
 > Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе фильтр **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **deleteRule** объекта **ServiceBusService**.
-> 
-> 
+>
+>
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект **SqlFilter**, который выбирает только те сообщения, значение настраиваемого свойства **messagenumber** которых больше 3.
 
@@ -158,8 +162,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -167,10 +171,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -193,8 +197,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -202,10 +206,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -285,7 +289,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **deleteMessage**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
-Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [классическом портале Azure][] или с помощью программных средств.
+Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [классическом портале Azure][классический портал Azure] или с помощью программных средств.
 В следующем примере показано, как удалить раздел с именем `MyTopic`.
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
@@ -307,7 +311,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 
 * См. статью [Очереди, разделы и подписки][Очереди, разделы и подписки].
 * Справочник API для [SqlFilter][SqlFilter].
-* Посетите репозиторий [Azure SDK for Node][] на веб-сайте GitHub.
+* Посетите репозиторий [пакета Azure SDK для Node][Пакет SDK Azure для Node] на сайте GitHub.
 
 [Пакет SDK Azure для Node]: https://github.com/Azure/azure-sdk-for-node
 [классический портал Azure]: https://manage.windowsazure.com
@@ -315,13 +319,12 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Облачная служба Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Создание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Облачная служба Node.js с хранилищем]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Веб-приложение Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

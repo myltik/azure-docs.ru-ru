@@ -1,13 +1,13 @@
 ---
-title: Create VM from a generalized VHD | Microsoft Docs
-description: Learn how to create a Windows virtual machine from a generalized VHD image using Azure PowerShell, in the Resource Manager deployment model.
+title: "Создание виртуальной машины с помощью универсального виртуального жесткого диска | Документация Майкрософт"
+description: "Сведения о создании виртуальной машины Windows с помощью универсального образа VHD с использованием Azure PowerShell и модели развертывания Resource Manager."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: b4808871-9ef1-49ea-a617-9154d417abb0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,66 +15,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Create a VM from a generalized VHD image
-A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md) or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
+# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Создание виртуальной машины с помощью универсального образа VHD
+С универсального образа VHD удалены все сведения вашей личной учетной записи с помощью [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Чтобы создать универсальный диск VHD, запустите программу Sysprep на локальной виртуальной машине, а затем [загрузите VHD в Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Также можно запустить программу Sysprep на существующей виртуальной машине Azure, а затем [скопировать VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-If you want to create a VM from a generalized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
+Если необходимо создать виртуальную машину из специализированного VHD, см. статью [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Создание виртуальной машины с помощью специализированного диска VHD).
 
-The quickest way to create a VM from a generalized VHD is to use a [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
+Самый быстрый способ создания виртуальной машины из универсального VHD заключается в использовании [шаблона быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
-## <a name="prerequisites"></a>Prerequisites
-If you are going to use a VHD uploaded from on on-premises VM, like one create using Hyper-V, you should make sure you followed the direction in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+## <a name="prerequisites"></a>Предварительные требования
+Если вы собираетесь использовать диск VHD, переданный с локальной виртуальной машины, как созданный с помощью Hyper-V, обязательно выполните инструкции из статьи [Подготовка виртуального жесткого диска Windows к передаче в Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
+Перед созданием виртуальной машины с помощью этого метода как переданные диски VHD, так и существующие диски VHD виртуальной машины Azure необходимо обобщить. Дополнительные сведения см. в разделе [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Обобщение виртуальной машины Windows с помощью Sysprep). 
 
-## <a name="set-the-uri-of-the-vhd"></a>Set the URI of the VHD
-The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+## <a name="set-the-uri-of-the-vhd"></a>Указание универсального кода ресурса (URI) диска VHD
+Код URI, который должен использовать диск VHD, имеет такой формат: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. В этом примере диск VHD с именем **myVHD** находится в учетной записи хранения **mystorageaccount** в контейнере **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
 ```
 
 
-## <a name="create-a-virtual-network"></a>Create a virtual network
-Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
+## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
+Создайте виртуальную сеть и подсеть [виртуальной сети](../virtual-network/virtual-networks-overview.md).
 
-1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
+1. Создание подсети. В следующем примере создается подсеть с именем **mySubnet** в группе ресурсов **myResourceGroup** с префикс адреса **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
-    $subnetName = "mySubNet"
+    $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
+2. Создание виртуальной сети. В следующем примере создается виртуальная сеть с именем **myVnet** в расположении **Запад США** с префиксом адреса **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-## <a name="create-a-public-ip-address-and-network-interface"></a>Create a public IP address and network interface
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+## <a name="create-a-public-ip-address-and-network-interface"></a>Создание общедоступного IP-адреса и сетевого интерфейса
+Чтобы обеспечить обмен данными с виртуальной машиной в виртуальной сети, требуются [общедоступный IP-адрес](../virtual-network/virtual-network-ip-addresses-overview-arm.md) и сетевой интерфейс.
 
-1. Create a public IP address. This example creates a public IP address named **myPip**. 
+1. Создание общедоступного IP-адреса. В этом примере создается общедоступный IP-адрес с именем **myPip**. 
    
     ```powershell
     $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+        -AllocationMethod Dynamic
     ```       
-2. Create the NIC. This example creates a NIC named **myNic**. 
+2. Создание сетевой карты. В этом примере создается сетевая карта с именем **myNic**. 
    
     ```powershell
     $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
+        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have a security rule that allows RDP access on port 3389. 
+## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
+Чтобы войти на виртуальную машину с помощью RDP, необходимо настроить правило безопасности, которое разрешает доступ RDP через порт 3389. 
 
-This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+В этом примере создается группа безопасности сети с именем **myNsg**, которая содержит правило с именем **myRdpRule**, разрешающее трафик RDP через порт 3389. Дополнительные сведения о группах безопасности сети см. в статье [Открытие портов для виртуальной машины в Azure с помощью PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -89,15 +96,15 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-## <a name="create-a-variable-for-the-virtual-network"></a>Create a variable for the virtual network
-Create a variable for the completed virtual network. 
+## <a name="create-a-variable-for-the-virtual-network"></a>Создание переменной для виртуальной сети
+Создайте переменную для готовой виртуальной сети. 
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
-## <a name="create-the-vm"></a>Create the VM
-The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
+## <a name="create-the-vm"></a>Создание виртуальной машины
+Следующий сценарий PowerShell предназначен для настройки конфигураций виртуальных машин и использования переданного образа виртуальной машины в качестве источника новой установки.
 
 </br>
 
@@ -126,7 +133,9 @@ The following PowerShell script shows how to set up the virtual machine configur
     $osDiskName = "myOsDisk"
 
     # Assign a SKU name. This example sets the SKU name as "Standard_LRS"
-    # Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage, Premium_LRS - premium locally redundant storage. 
+    # Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant
+    # storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage,
+    # Premium_LRS - premium locally redundant storage. 
     $skuName = "Standard_LRS"
 
     # Get the storage account where the uploaded image is stored
@@ -136,31 +145,36 @@ The following PowerShell script shows how to set up the virtual machine configur
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
     #Set the Windows operating system configuration and add the NIC
-    $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
+    $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+        -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
     # Create the OS disk URI
-    $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+    $osDiskUri = '{0}vhds/{1}-{2}.vhd' `
+        -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
     # Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+        -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
     # Create the new VM
     New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
-## <a name="verify-that-the-vm-was-created"></a>Verify that the VM was created
-When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+
+## <a name="verify-that-the-vm-was-created"></a>Проверка создания виртуальной машины
+После завершения процесса новая виртуальная машина должна отображаться на [портале Azure](https://portal.azure.com) (выберите элементы **Обзор** > **Виртуальные машины**). Ее можно также увидеть, выполнив следующие команды PowerShell.
 
 ```powershell
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Сведения об управлении созданной виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

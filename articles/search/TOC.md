@@ -44,7 +44,7 @@
 ### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Индексатор хранилища таблиц Azure](search-howto-indexing-azure-tables.md)
 ### [Индексатор SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Индексатор Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Индексатор Azure DocumentDB](search-howto-index-documentdb.md)
 ### [Индексация больших двоичных объектов с разделителями-запятыми](search-howto-index-csv-blobs.md)
 ### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -61,14 +61,13 @@
 
 # Справочные материалы
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [Управление .NET](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (управление)](/dotnet/api/microsoft.azure.management.search)
+## [Python (управление)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (управление)](/rest/api/searchmanagement)
 
 # Ресурсы
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=search)
-## Использование API-интерфейсов службы поиска
 ## [Версии API](search-api-versions.md)
 ## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

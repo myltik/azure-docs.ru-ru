@@ -1,12 +1,12 @@
 ---
-title: Мониторинг выполнения задания кодирования с помощью портала Azure
-description: В этом учебнике описано, как отслеживать выполнение задания с помощью портала Azure.
+title: "Мониторинг выполнения задания кодирования с помощью портала Azure"
+description: "В этом учебнике описано, как отслеживать выполнение задания с помощью портала Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3540a1d74de52e5e8cff5648dd02a92e0cfb4eb5
+
 
 ---
-# Мониторинг выполнения задания кодирования с помощью портала Azure
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Мониторинг выполнения задания кодирования с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -24,13 +28,13 @@ ms.author: juliako
 > 
 > 
 
-## Обзор
+## <a name="overview"></a>Обзор
 > [!NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+> Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи.
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. 
 
 Чтобы отслеживать выполнение задания кодирования, в верхней части страницы щелкните элемент **Параметры**, а затем выберите пункт **Задания**.
 
@@ -40,13 +44,18 @@ ms.author: juliako
 
 ![Задания](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 После выполнения задания кодирования можно опубликовать и воспроизвести свои ресурсы-контейнеры, как описано [здесь](media-services-portal-publish.md).
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

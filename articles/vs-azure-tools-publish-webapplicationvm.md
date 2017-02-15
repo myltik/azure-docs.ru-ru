@@ -1,22 +1,26 @@
 ---
-title: Publish-WebApplicationVM | Microsoft Docs
-description: Узнайте, как развернуть веб-приложение на виртуальной машине. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы.
+title: "Publish-WebApplicationVM | Документация Майкрософт"
+description: "Узнайте, как развернуть веб-приложение на виртуальной машине. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
+
 
 ---
-# Publish-WebApplicationVM (сценарий Windows PowerShell)
+# <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (сценарий Windows PowerShell)
 Развертывание веб-приложения на виртуальной машине. и создает необходимые ресурсы в подписке Azure, если они еще не созданы.
 
 ```
@@ -30,7 +34,7 @@ Publish-WebApplicationVM
 -Verbose
 ```
 
-### Параметр Configuration
+### <a name="configuration"></a>Параметр Configuration
 Путь к файлу конфигурации JSON, содержащему подробные сведения о развертывании.
 
 | Псевдонимы | Нет |
@@ -41,7 +45,7 @@ Publish-WebApplicationVM
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### Параметр SubscriptionName
+### <a name="subscriptionname"></a>Параметр SubscriptionName
 Имя подписки Azure, в которой необходимо создать виртуальную машину.
 
 | Псевдонимы | Нет |
@@ -52,8 +56,8 @@ Publish-WebApplicationVM
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### Параметр WebDeployPackage
-Путь к пакету веб-развертывания для публикации на виртуальной машине. Этот пакет можно создать с помощью мастера «Публикация веб-сайта» в Visual Studio. См. [инструкции по созданию пакета веб-развертывания в Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+### <a name="webdeploypackage"></a>Параметр WebDeployPackage
+Путь к пакету веб-развертывания для публикации на виртуальной машине. Этот пакет можно создать с помощью мастера «Публикация веб-сайта» в Visual Studio. Ознакомьтесь со статьей [Как создать пакет веб-развертывания в Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Псевдонимы | Нет |
 | --- | --- |
@@ -63,18 +67,18 @@ Publish-WebApplicationVM
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### AllowUntrusted
+### <a name="allowuntrusted"></a>AllowUntrusted
 Значение true позволяет использовать сертификаты, не подписанные надежным корневым центром сертификации.
 
 | Псевдонимы | Нет |
 | --- | --- |
 | Обязательный? |нет |
 | Позиция |именованная |
-| Значение по умолчанию |false |
+| Значение по умолчанию |нет |
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### VMPassword
+### <a name="vmpassword"></a>VMPassword
 Данные учетной записи виртуальной машины. Пример: -VMPassword @{Name = "admin"; Password = "password"}
 
 | Псевдонимы | Нет |
@@ -85,7 +89,7 @@ Publish-WebApplicationVM
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### Параметр DatabaseServerPassword
+### <a name="databaseserverpassword"></a>Параметр DatabaseServerPassword
 Учетные данные для базы данных SQL в Azure. Пример: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
 | Псевдонимы | Нет |
@@ -96,18 +100,18 @@ Publish-WebApplicationVM
 | Принимает входные данные конвейера? |нет |
 | Принимает подстановочные знаки? |нет |
 
-### Параметр SendHostMessagesToOutput
+### <a name="sendhostmessagestooutput"></a>Параметр SendHostMessagesToOutput
 Если установлено значение true, оправляет сообщения из сценария в поток вывода.
 
 | Псевдонимы | Нет |
 | --- | --- |
 | Обязательный? |нет |
 | Позиция |именованная |
-| Значение по умолчанию |false |
+| Значение по умолчанию |нет |
 | Принимает входные данные конвейера? |нет |
-| Принимает подстановочные знаки? |Нет |
+| Принимает подстановочные знаки? |нет |
 
-## Примечания
+## <a name="remarks"></a>Примечания
 Подробное описание того, как использовать сценарий для создания сред разработки и тестирования, см. в статье [Использование скриптов Windows PowerShell для публикации в среды разработки и тестирования](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 В файле конфигурации JSON указаны данные объектов, которые необходимо развернуть. Он содержит сведения, указанные при создании проекта, например имя, группу сходства, образ виртуального жесткого диска и размер виртуальной машины. Он также включает конечные точки виртуальной машины, подготавливаемые базы данных (если они есть) и параметры веб-развертывания. В следующем коде показан пример файла конфигурации JSON.
@@ -181,4 +185,9 @@ Publish-WebApplicationVM
 
 В файле конфигурации JSON можно изменить объекты, которые подлежат подготовке. Виртуальная машина и облачная служба необходимы, но раздел баз данных является необязательным.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

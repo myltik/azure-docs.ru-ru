@@ -1,161 +1,191 @@
 ---
-title: Использование SSH в Windows для подключения к виртуальным машинам Linux | Microsoft Docs
-description: Узнайте, как создавать и использовать ключи SSH на компьютере Windows для подключения к виртуальной машине Linux в Azure.
+title: "Использование ключей SSH для Windows для подключения к виртуальным машинам Linux | Документация Майкрософт"
+description: "Узнайте, как создавать и использовать ключи SSH на компьютере Windows для подключения к виртуальной машине Linux в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 10/18/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: d991801d6e22a4bc541c1a6c4766ff36a381585b
+
 
 ---
-# Использование SSH с Windows в Azure
+# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Использование ключей SSH с Windows в Azure
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-linux-ssh-from-windows.md)
-> * [Linux или Mac](virtual-machines-linux-mac-create-ssh-keys.md)
+> * [Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux или Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
-В этом разделе описывается создание и использование в Windows файлов открытых и закрытых ключей в формате **ssh-rsa** и **PEM**, которые можно использовать для подключения к виртуальным машинам Linux в Azure с помощью команды **ssh**. Если файлы **.pem** уже созданы, можно воспользоваться ими для создания виртуальных машин Linux, к которым можно подключиться с помощью **ssh**. В некоторых других командах протокол **SSH** и файлы ключей используются для безопасного выполнения работы, в частности **scp** или [безопасное копирование](https://en.wikipedia.org/wiki/Secure_copy), позволяющее надежно копировать файлы на компьютеры с поддержкой подключений **SSH** и с них.
+При подключении к виртуальным машинам Linux в Azure необходимо использовать [шифрование с открытым ключом](https://wikipedia.org/wiki/Public-key_cryptography), которое обеспечивает белее высокий уровень безопасности при входе на виртуальные машины Linux. Этот процесс предполагает обмен открытыми и закрытыми ключами с использованием команды Secure Shell (SSH), что позволяет аутентифицировать себя, не вводя имя пользователя и пароль. Пароли подвержены атакам методом подбора, особенно на виртуальных машинах с подключением к Интернету, таких как веб-серверы. В этой статье приведены общие сведения о ключах SSH, а также о том, как создать соответствующие ключи на компьютере Windows.
 
-> [!NOTE]
-> Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey). Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы.
-> 
-> 
+## <a name="overview-of-ssh-and-keys"></a>Общие сведения о SSH и ключах
+На виртуальную машину Linux можно безопасно войти с использованием открытых и закрытых ключей.
 
-## Необходимые SSH и программы создания ключей
-**SSH** &#8212; или [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; — это протокол зашифрованного подключения, позволяющий безопасно выполнять вход при наличии незащищенных подключений. Это протокол подключения по умолчанию для виртуальных машин Linux, размещенных в Azure, если виртуальные машины Linux не настроены для включения какого-либо другого механизма подключения. Пользователи Windows также могут подключаться к виртуальным машинам Linux в Azure и управлять ими с помощью реализации клиента **ssh**, однако компьютеры Windows, как правило, поставляются без клиента **ssh**-клиента, поэтому его необходимо выбрать.
+* **Открытый ключ** хранится на виртуальной машине Linux или в любой другой службе, для которой требуется шифрование с открытым ключом.
+* **Закрытый ключ** предоставляется виртуальной машине Linux при входе в систему для проверки подлинности. Его нужно защищать и нельзя никому предоставлять.
 
-К числу стандартных клиентов, доступных для установки, относятся следующие.
+Открытые и закрытые ключи можно использовать на нескольких виртуальных машинах или в нескольких службах. Не нужно выделять пару ключей для каждой виртуальной машины или службы, к которой необходим доступ. Дополнительные сведения о шифровании с открытым ключом см. [здесь](https://wikipedia.org/wiki/Public-key_cryptography).
 
-* [puTTY и puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+SSH — это протокол зашифрованного подключения, позволяющий безопасно входить в систему через незащищенные соединения. Это протокол подключения по умолчанию для виртуальных машин Linux, размещенных в Azure. Хотя протокол SSH и обеспечивает зашифрованное подключение, при использовании соединений SSH пароль виртуальной машины все равно не защищен от атак методом подбора. Более безопасный и предпочтительный метод подключения к виртуальной машине по протоколу SSH заключается в использовании открытых и закрытых ключей, также известных как ключи SSH.
+
+Если вам не нужно использовать эти ключи для входа на виртуальную машину Linux, можно по-прежнему использовать пароль. Этого достаточно для виртуальных машин без интернет-доступа. Но пользователь по-прежнему должен управлять паролями каждой своей виртуальной машины, а также вводить соответствующие политики паролей и предоставлять рекомендации, к примеру, в отношении минимальной длины паролей и частоты их обновления. Использование ключей SSH упрощает управление отдельными учетными данными на нескольких виртуальных машинах.
+
+## <a name="windows-packages-and-ssh-clients"></a>Пакеты Windows и SSH-клиенты
+Пользователи могут подключаться к виртуальным машинам Linux в Azure и управлять ими с помощью **SSH**-клиента. Но на компьютерах Windows, как правило, не установлен **SSH**-клиент. Общераспространенные SSH-клиенты для Windows, доступные для установки, входят в состав следующих пакетов:
+
+* [Git для Windows](https://git-for-windows.github.io/);
+* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/);
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
-* [Git для Windows](https://git-for-windows.github.io/), поставляемый вместе со средой и необходимыми инструментами
 
-Если вы в настроении для экспериментов, опробуйте [новый порт набора инструментов **OpenSSH** для Windows](http://blogs.msdn.com/b/powershell/archive/2015/10/19/openssh-for-windows-update.aspx). Помните, однако, что этот код в настоящее время находится на этапе разработки и базу кода необходимо тщательно изучить, прежде чем использовать код в продуктивных системах.
-
-> [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+> [!NOTE]
+> В последнее юбилейное обновление Windows 10 добавлен Bash для Windows. Этот компонент позволяет запускать подсистему Windows для Linux, а также предоставляет доступ к таким служебным программам, как SSH-клиент. Bash для Windows находится на стадии разработки, и сейчас доступен бета-выпуск. Дополнительные сведения о Bash для Windows см. в записи блога [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash для Ubuntu в Windows).
 > 
 > 
 
-## Какие файлы ключей необходимо создать?
-Базовая конфигурация SSH для Azure включает открытый и закрытый 2048-разрядный ключ **ssh-rsa** (по умолчанию **ssh-keygen** использует файлы **~/.ssh/id\_rsa** и **~/.ssh/id-rsa.pub**), а также файл `.pem`, созданный на основе файла закрытого ключа **id\_rsa** для использования в классической модели развертывания классического портала.
+## <a name="which-key-files-do-you-need-to-create"></a>Какие файлы ключей необходимо создать?
+В Azure необходимо использовать по крайней мере 2048-разрядные открытые и закрытые ключи в формате **ssh-rsa**. Если для управления ресурсами Azure используется классическая модель развертывания, также необходимо создать ключ формата PEM (`.pem`-файла).
 
 Ниже приведены сценарии развертывания и типы используемых в них файлов.
 
-1. Ключи **ssh-rsa** нужны для всех развертываний, которые выполняются с использованием [портала Azure](https://portal.azure.com), независимо от модели развертывания.
-2. PEM-файл нужен для создания виртуальных машин с использованием [классического портала](https://manage.windowsazure.com). PEM-файлы также поддерживаются в классических развертываниях с использованием [интерфейса командной строки Azure](../xplat-cli-install.md).
+1. Ключи **ssh-rsa** нужны для любого развертывания с использованием [портала Azure](https://portal.azure.com), а также для развертываний Resource Manager с помощью [интерфейса командной строки Azure](../xplat-cli-install.md).
+   * Обычно эти ключи нужны большинству пользователей.
+2. `.pem`-файл нужен для создания виртуальных машин на [классическом портале](https://manage.windowsazure.com). Эти ключи также поддерживаются в классических развертываниях с использованием [интерфейса командной строки Azure](../xplat-cli-install.md).
+   * Дополнительные ключи и сертификаты нужно создавать только для управления ресурсами, созданными с использованием классической модели развертывания.
 
-> [!NOTE]
-> Если вы планируете управлять службой, развернутой с помощью классической модели развертывания, может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы создать эти файлы в Windows, выполните команду <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer.
-> 
-> 
+## <a name="install-git-for-windows"></a>Установка Git для Windows
+В предыдущем разделе указаны несколько пакетов, содержащих средство `openssl` для Windows. Это средство используется для создания открытых и закрытых ключей. В следующих примерах приведены инструкции по установке и использованию средства **Git для Windows**, но вы можете использовать любой из указанных пакетов. **Git для Windows** предоставляет доступ к дополнительным средствам и служебным программам с открытым кодом ([OSS](https://en.wikipedia.org/wiki/Open-source_software)), полезным при работе с виртуальными машинами Linux.
 
-## Получение ssh-keygen и openssl в Windows
-[В этом разделе](#What-SSH-and-key-creation-programs-do-you-need) перечислено несколько служебных программ, которые включают `ssh-keygen` и `openssl` для Windows. Ниже приведены несколько примеров.
-
-### Использование Git для Windows
-1. Скачайте и установите Git для Windows из следующего расположения: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
-2. Запустите Git Bash из меню "Пуск > Все приложения > Git Shell".
-
-> [!NOTE]
-> При выполнении указанных команд `openssl` может возникнуть следующая ошибка.
-> 
-> 
-
-        Unable to load config info from /usr/local/ssl/openssl.cnf
-
-Наиболее простым решением этой проблемы будет задать переменную среды `OPENSSL_CONF`. Процесс задания этой переменной будет зависеть от настроенной вами в Github оболочки:
-
-**Powershell:**
-
-        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-
-**CMD:**
-
-        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-
-**Git Bash:**
-
-        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-
-
-### Использование Cygwin
-1. Загрузите и установите Cygwin из следующего расположения: [http://cygwin.com/](http://cygwin.com/)
-2. Проверьте установку пакета OpenSSL и всех его зависимостей.
-3. Запустите `cygwin`
-
-## Создание закрытого ключа
-1. Выполните один из представленных выше наборов инструкций, чтобы иметь возможность запустить `openssl.exe`.
-2. Введите следующую команду:
+1. Скачайте **Git для Windows** по адресу [https://git-for-windows.github.io/](https://git-for-windows.github.io/) и установите его.
+2. Во время установки примите параметры по умолчанию (при необходимости их можно изменить).
+3. Запустите**Git Bash** (**меню "Пуск"** > **Git** > **Git Bash**). Консоль будет выглядеть примерно следующим образом:
    
-   ```
-   openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-   ```
-3. Экран должен выглядеть следующим образом:
-   
-   ```
-   $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-   Generating a 2048 bit RSA private key
-   .......................................+++
-   .......................+++
-   writing new private key to 'myPrivateKey.key'
-   -----
-   You are about to be asked to enter information that will be incorporated
-   into your certificate request.
-   What you are about to enter is what is called a Distinguished Name or a DN.
-   There are quite a few fields but you can leave some blank
-   For some fields there will be a default value,
-   If you enter '.', the field will be left blank.
-   -----
-   Country Name (2 letter code) [AU]:
-   ```
-4. Ответьте на задаваемые вопросы.
-5. Должны быть созданы два файла: `myPrivateKey.key` и `myCert.pem`.
-6. Если вы собираетесь обойтись без портала управления и использовать API напрямую, преобразуйте `myCert.pem` в `myCert.cer` (сертификат X509 с кодировкой DER) с помощью следующей команды:
-   
-   ```
-   openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
-   ```
+    ![Оболочка Bash Git для Windows](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
 
-## Создание PPK для Putty
-1. Загрузите и установите Puttygen из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Puttygen, возможно, не удастся прочитать закрытый ключ, созданный ранее (`myPrivateKey.key`). Выполните следующую команду для его преобразования в закрытый ключ RSA, который распознается Puttygen:
+## <a name="create-a-private-key"></a>Создание закрытого ключа
+1. В окне **Git Bash** используйте `openssl.exe`, чтобы создать закрытый ключ. В следующем примере создается ключ с именем `myPrivateKey` и сертификат `myCert.pem`.
    
-        # openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-        # chmod 600 ./myPrivateKey_rsa
+    ```bash
+    openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout myPrivateKey.key -out myCert.pem
+    ```
    
-    Вышеуказанная команда должна создать новый закрытый ключ с именем myPrivateKey\_rsa.
-3. Запустите `puttygen.exe`
-4. Выберите меню: Файл > Загрузить закрытый ключ
-5. Найдите закрытый ключ с именем `myPrivateKey_rsa`. Требуется изменить фильтр файлов для отображения на **Все файлы (*.*)**
-6. Щелкните **Открыть**. Появится запрос, который должен выглядеть следующим образом:
+    Результат должен быть аналогичным приведенному ниже:
    
-    ![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
-7. Нажмите кнопку **ОК**.
-8. Щелкните **Сохранить закрытый ключ**, который выделен на следующем снимке экрана:
+    ```bash
+    Generating a 2048 bit RSA private key
+    .......................................+++
+    .......................+++
+    writing new private key to 'myPrivateKey.key'
+    -----
+    You are about to be asked to enter information that will be incorporated
+    into your certificate request.
+    What you are about to enter is what is called a Distinguished Name or a DN.
+    There are quite a few fields but you can leave some blank
+    For some fields there will be a default value,
+    If you enter '.', the field will be left blank.
+    -----
+    Country Name (2 letter code) [AU]:
+    ```
+2. В ответ на запросы укажите название страны, расположение, название организации и т. д.
+3. Новый закрытый ключ и сертификат будут созданы в текущей рабочей папке. С точки зрения безопасности, чтобы у посторонних пользователей не было доступа к закрытому ключу, для него необходимо задать разрешения.
    
-    ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
-9. Сохраните файл как PPK.
+    ```bash
+    chmod 0600 myPrivateKey.key
+    ```
 
-## Использование Putty для подключения к компьютеру Linux
-1. Загрузите и установите putty из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Запустите putty.exe
-3. Заполните имя узла, используя IP с портала управления.
-   
-   ![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
-4. Прежде чем выбрать **Открыть**, щелкните "Подключение" > SSH > вкладка "Проверка подлинности" и укажите закрытый ключ. Ниже см. снимок экрана поля для заполнения.
-   
-   ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
-5. Щелкните **Открыть**, чтобы подключится к виртуальной машине.
+4. В [следующем разделе](#create-a-private-key-for-putty) представлены сведения о просмотре и использовании открытого ключа с помощью PuTTYgen, а также о создании закрытого ключа для подключения к виртуальной машине Linux по протоколу SSH с помощью PuTTY. Следующая команда создает файл открытого ключа с именем `myPublicKey.key`, который можно сразу использовать:
 
-<!---HONumber=AcomDC_0914_2016-->
+    ```bash
+    openssl.exe rsa -pubout -in myPrivateKey.key -out myPublicKey.key
+    ```
+
+5. Чтобы управлять классическими ресурсами, преобразуйте `myCert.pem` в `myCert.cer` (сертификат X509 в кодировке DER). Это действие необязательное и требуется, только если нужно управлять устаревшими классическими ресурсами. 
+   
+    Преобразуйте сертификат с помощью следующей команды:
+   
+    ```bash
+    openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+    ```
+
+## <a name="create-a-private-key-for-putty"></a>Создание закрытого ключа для PuTTY
+PuTTY — это общераспространенный SSH-клиент для Windows. Вы можете использовать любой необходимый SSH-клиент. Для поддержки клиента PuTTY необходимо создать ключ еще одного типа, закрытый ключ PuTTY (PPK). Если вы не хотите использовать PuTTY, пропустите этот раздел.
+
+В следующем примере создается этот дополнительный закрытый ключ специально для PuTTY.
+
+1. Используйте **Git Bash**, чтобы преобразовать свой закрытый ключ в закрытый ключ RSA, который распознается PuTTYgen. В следующем примере создается ключ с именем `myPrivateKey_rsa` на основе имеющегося ключа `myPrivateKey`.
+   
+    ```bash
+    openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+    ```
+   
+    С точки зрения безопасности, чтобы у посторонних пользователей не было доступа к закрытому ключу, для него необходимо задать разрешения.
+   
+    ```bash
+    chmod 0600 myPrivateKey_rsa
+    ```
+2. Скачайте и запустите PuTTYgen из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+3. Выберите меню **File** (Файл) > **Load a Private Key** (Загрузить закрытый ключ).
+4. Найдите свой закрытый ключ (в предыдущем примере — `myPrivateKey_rsa`). При запуске **Git Bash** по умолчанию используется каталог `C:\Users\%username%`. Измените фильтр файлов, чтобы отобразить **все файлы (\*.\*)**.
+   
+    ![Загрузка имеющегося закрытого ключа в PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
+5. Щелкните **Открыть**. Появится запрос, который указывает, что ключ успешно импортирован.
+   
+    ![Ключ успешно импортирован в PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
+6. Нажмите кнопку **OK** (ОК), чтобы закрыть запрос.
+7. Открытый ключ отображается в верхней части окна **PuTTYgen**. Скопируйте этот открытый ключ и вставьте его на портале Azure или в шаблон Azure Resource Manager при создании виртуальной машины Linux. Кроме того, нажав кнопку **Save public key** (Сохранить открытый ключ), вы сохраните копию ключа на компьютере.
+   
+    ![Сохранение файла PuTTY с открытым ключом](./media/virtual-machines-linux-ssh-from-windows/save-public-key.png)
+   
+    В следующем примере показано, как скопировать и вставить открытый ключ на портале Azure при создании виртуальной машины Linux. Открытый ключ, как правило, хранится в каталоге `~/.ssh/authorized_keys` на новой виртуальной машине.
+   
+    ![Использование открытого ключа при создании виртуальной машины на портале Azure](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
+8. Вернитесь к **PuTTYgen** и нажмите кнопку **Save private Key** (Сохранить закрытый ключ):
+   
+    ![Сохранение файла PuTTY с закрытым ключом](./media/virtual-machines-linux-ssh-from-windows/save-ppk-file.png)
+   
+   > [!WARNING]
+   > Появится запрос на продолжение работы без ввода парольной фразы для ключа. Парольная фраза представляет собой пароль, прикрепленный к закрытому ключу. Даже если другой пользователь получит доступ к вашему закрытому ключу, он не сможет пройти проверку подлинности с помощью одного только ключа. Ему потребуется также парольная фраза. Если не создать парольную фразу, пользователь, получивший ваш закрытый ключ, сможет войти на любую виртуальную машину или в службу, использующую этот ключ. Мы рекомендуем создать ее. Однако если вы забудете парольную фразу, восстановить ее будет невозможно.
+   > 
+   > 
+   
+    Чтобы ввести парольную фразу, щелкните **No** (Нет), введите ее в главном окне PuTTYgen, а затем снова нажмите кнопку **Save private key** (Сохранить закрытый ключ). Или же щелкните **Yes** (Да), чтобы продолжить без парольной фразы.
+9. Введите имя PPK-файла и расположение, в котором его нужно сохранить.
+
+## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Использование PuTTY для подключения к компьютеру Linux по протоколу SSH
+Отметим еще раз, PuTTY — это общераспространенный SSH-клиент для Windows. Вы можете использовать любой необходимый SSH-клиент. Шаги ниже описывают, как использовать закрытый ключ для аутентификации на виртуальной машине Azure по протоколу SSH. В других SSH-клиентах выполняются аналогичные шаги относительно загрузки закрытого ключа для проверки подлинности подключения SSH.
+
+1. Скачайте и запустите PuTTY из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+2. Введите имя узла или IP-адрес виртуальной машины на портале Azure.
+   
+    ![Открытие нового подключения PuTTY](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
+3. Прежде чем нажать **Open** (Открыть) щелкните узел **Connection** (Подключение)  > **SSH** > вкладка **Auth** (Проверка подлинности). Укажите закрытый ключ.
+   
+    ![Выбор закрытого ключа PuTTY для проверки подлинности](./media/virtual-machines-linux-ssh-from-windows/putty-auth-dialog.png)
+4. Щелкните **Открыть** , чтобы подключится к виртуальной машине.
+
+## <a name="next-steps"></a>Дальнейшие действия
+Открытые и закрытые ключи можно также создавать в [OS X и Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Дополнительные сведения о Bash для Windows и преимуществах средств OSS на компьютере Windows см. в записи блога [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash для Ubuntu в Windows).
+
+Если при подключении к виртуальным машинам Linux по протоколу SSH возникают проблемы, см. статью [Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

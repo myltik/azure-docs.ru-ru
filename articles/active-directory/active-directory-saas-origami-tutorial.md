@@ -1,12 +1,12 @@
 ---
-title: Руководство. Интеграция Azure Active Directory с Origami | Microsoft Docs
-description: Узнайте, как настроить единый вход Azure Active Directory в Origami.
+title: "Руководство по интеграции Azure Active Directory с Origami | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Origami."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5499636ff1c560dd5a50924f0fd67d8dac50203
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-origami"></a>Руководство. Интеграция Azure Active Directory с Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Руководство. Интеграция Azure Active Directory с Origami
 В этом учебнике описано, как интегрировать Origami с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением Origami обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к Origami.
 * Вы можете включить автоматический вход пользователей в Origami (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+* Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы настроить интеграцию Azure AD с Origami, вам потребуется:
@@ -135,10 +139,10 @@ ms.author: jeedes
     д. Нажмите кнопку **Сохранить изменения**.
 8. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
    
-    ![единого входа Azure AD][10]
+    ![единого входа Azure AD][10]
 9. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
    
-    ![единого входа Azure AD][11]
+    ![единого входа Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
@@ -270,6 +274,6 @@ ms.author: jeedes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

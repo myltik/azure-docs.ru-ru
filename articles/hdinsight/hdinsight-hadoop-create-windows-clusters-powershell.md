@@ -1,13 +1,13 @@
 ---
-title: Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell | Microsoft Docs
-description: Научитесь создавать кластеры для Azure HDInsight с помощью Azure PowerShell.
+title: "Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell | Документация Майкрософт"
+description: "Научитесь создавать кластеры для Azure HDInsight с помощью Azure PowerShell."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a365e67d-55bc-476e-a126-68f0962ec5aa
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
+ms.openlocfilehash: 823ba08cfc805000871e0c2a6375306f435b7910
+
 
 ---
-# Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell
+# <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-powershell"></a>Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Научитесь создавать кластеры HDInsight с использованием Azure PowerShell. Azure PowerShell — это модуль, предоставляющий командлеты для управления Azure с помощью Windows PowerShell. Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-## Предварительные требования:
+## <a name="prerequisites"></a>Предварительные требования:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
-* Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell.
-  
+
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Создание кластеров
-Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этом разделе содержатся указания по созданию кластера HDInsight с помощью Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов HDInsight Windows PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Дополнительную информацию об использовании Azure PowerShell с HDInsight см. в статье [Администрирование HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md). Список командлетов HDInsight PowerShell см. в разделе [Справочная документация по командлетам PowerShell для HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+### <a name="access-control-requirements"></a>Требования к контролю доступа
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Создание кластеров
+Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этом разделе содержатся указания по созданию кластера HDInsight с помощью Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Windows PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Дополнительные сведения об использовании Azure PowerShell с HDInsight см. в статье [Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell](hdinsight-administer-use-powershell.md). Список командлетов HDInsight PowerShell см. в [справочной документации по командлетам PowerShell для HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 Для создания кластера HDInsight с помощью Azure PowerShell необходимы следующие процедуры:
 
@@ -41,7 +48,7 @@ Azure PowerShell — это полнофункциональная среда с
     # Set these variables
     ####################################
     #region - used for creating Azure service names
-    $nameToken = "<Enter an Alias>" 
+    $nameToken = "<Enter an Alias>"
     #endregion
 
     #region - cluster user accounts
@@ -97,7 +104,7 @@ Azure PowerShell — это полнофункциональная среда с
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer `
-        -Name $hdinsightClusterName -Context $defaultStorageContext 
+        -Name $hdinsightClusterName -Context $defaultStorageContext
 
     ###########################################
     # Create the cluster
@@ -117,27 +124,27 @@ Azure PowerShell — это полнофункциональная среда с
         -HttpCredential $httpCredential `
         -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $hdinsightClusterName 
+        -DefaultStorageContainer $hdinsightClusterName
 
     ####################################
     # Verify the cluster
     ####################################
-    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName 
+    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
-## Создание кластеров с помощью шаблона ARM
-Azure PowerShell можно использовать для развертывания шаблона ARM, который создает кластер HDInsight. Ознакомьтесь с разделом о [вызове шаблонов с помощью Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
+## <a name="create-clusters-using-arm-template"></a>Создание кластеров с помощью шаблона ARM
+Azure PowerShell можно использовать для развертывания шаблона ARM, который создает кластер HDInsight.  См. раздел [Развертывание с помощью PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
 
-## Настройка кластеров
+## <a name="customize-clusters"></a>Настройка кластеров
 * Ознакомьтесь с разделом [Настройка кластеров HDInsight с помощью службы начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Ознакомьтесь с разделом [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 * [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
 * [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
 * [Управление кластерами Hadoop в HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md) — узнайте, как работать с HDInsight, используя Azure PowerShell.
-* [Документация по пакету SDK для Azure для HDInsight][hdinsight-sdk-documentation] — узнайте больше о пакете SDK для HDInsight.
+* [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation] — сведения о пакете SDK для HDInsight.
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -146,4 +153,8 @@ Azure PowerShell можно использовать для развертыва
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

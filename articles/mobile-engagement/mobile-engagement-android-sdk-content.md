@@ -1,12 +1,12 @@
 ---
-title: Интеграция пакета Android SDK для Azure Mobile Engagement
-description: Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement
+title: "Интеграция пакета Android SDK для Azure Mobile Engagement"
+description: "Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6e71afc6-b3ed-4b39-8cf1-c8024454d579
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
+
 
 ---
-# Содержимое пакета SDK
+# <a name="sdk-content"></a>Содержимое пакета SDK
 В этом документе указано и описано содержимое архива SDK.
 
 `mobile-engagement-VERSION.jar`
@@ -25,13 +29,13 @@ ms.author: piyushjo
 > 
 > 
 
-Папка `res`
+`res` 
 
 > Ресурсы Engagement Reach SDK (графические файлы и файлы разметки для включения в ваши приложения).
 > 
 > 
 
-Папка `src`
+`src` 
 
 > Исходный код пакета SDK.
 > 
@@ -47,4 +51,9 @@ ms.author: piyushjo
 
 Другие файлы являются копиями лицензий на программное обеспечение.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

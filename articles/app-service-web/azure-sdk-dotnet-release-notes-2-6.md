@@ -1,12 +1,12 @@
 ---
-title: Заметки о выпуске пакета SDK для Azure для .NET 2.6
-description: Заметки о выпуске пакета SDK для Azure для .NET 2.6
+title: "Заметки о выпуске пакета SDK для Azure для .NET 2.6"
+description: "Заметки о выпуске пакета SDK для Azure для .NET 2.6"
 services: app-service/web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b45853d5-a2b8-4962-a22d-579cb36ae14c
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01db792077bbb464400de1c00117d97443b4c2dc
+
 
 ---
-# <a name="azure-sdk-for-.net-2.6-release-notes"></a>Заметки о выпуске пакета SDK для Azure для .NET 2.6
+# <a name="azure-sdk-for-net-26-release-notes"></a>Заметки о выпуске пакета SDK для Azure для .NET 2.6
 Этот документ содержит заметки о выпуске для пакета SDK для Azure для .NET версии 2.6. 
 
 С помощью пакета SDK 2.6 для Azure можно разрабатывать приложения облачной службы (PaaS), предназначенные для .NET 4.5.2 или .NET 4.6 при условии ручной установки целевой платформы .NET Framework на роли облачной службы. Ознакомьтесь с разделом [Установка .NET в роли облачной службы](http://go.microsoft.com/fwlink/?LinkID=309796).
@@ -88,13 +92,16 @@ ms.author: juliako
   * В пакете SDK для Azure версии 2.6, установленном на компьютере, не удается загрузить универсальное приложение в Visual Studio 2015.
   * Отладка проекта облачной службы приводит к сбою в работе Visual Studio 2013 и Visual Studio 2015. Visual Studio не отвечает и выдает ошибку, при этом появляется диалоговое окно с сообщением "Настройка диагностики для эмулятора".
     
-    Обновление пакета SDK для Azure версии 2.6 было выпущено 18.05.2015 г. Обновленная версия 2.6.30508.1601 содержит исправления двух описанных ранее проблем. Описание сборки пакета SDK можно найти, выбрав Панель управления -> Программы и компоненты -> Средства Microsoft Azure для Microsoft Visual Studio 2013 — версия 2.6. В столбце "Версия" будет отображаться номер сборки.
+    Обновление пакета SDK для Azure версии 2.6 было выпущено 18.05.2015 г. Обновленная версия 2.6.30508.1601 содержит исправления двух описанных ранее проблем. Описание сборки пакета SDK можно найти, выбрав Панель управления -> Программы и компоненты -> Средства Microsoft Azure для Microsoft Visual Studio 2013 — версия 2.6. В столбце "Версия" будет отображаться номер сборки.
     
     Если указанные проблемы не были устранены, установите последнюю версию пакета SDK Azure версии 2.6 для [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или [Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
 ## <a name="see-also"></a>См. также
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

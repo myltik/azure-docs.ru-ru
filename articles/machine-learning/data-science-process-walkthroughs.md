@@ -1,12 +1,12 @@
 ---
-title: Пошаговые руководства по процессу обработки и анализа данных | Microsoft Docs
-description: В пошаговых руководствах показано, как объединить облачные и локальные инструменты и службы в единый рабочий процесс или конвейер, чтобы создать интеллектуальное приложение.
+title: "Пошаговые руководства по процессу обработки и анализа данных | Документация Майкрософт"
+description: "В пошаговых руководствах показано, как объединить облачные и локальные инструменты и службы в единый рабочий процесс или конвейер, чтобы создать интеллектуальное приложение."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>Пошаговые руководства по процессу обработки и анализа данных
@@ -46,9 +50,12 @@ ms.author: bradsev
 ## <a name="use-t-sql-with-sql-server-r-services"></a>Использование T-SQL с службами R SQL сервера
 В пошаговом руководстве [Дополнительные аналитические функции в базе данных для разработчиков SQL](https://msdn.microsoft.com/library/mt683480.aspx), предназначенном для программистов SQL, описан практический опыт создания решений расширенной аналитики с помощью Transact-SQL и служб R сервера SQL Server для ввода в эксплуатацию решения R.
 
-## <a name="what's-next?"></a>Что дальше?
+## <a name="whats-next"></a>Что дальше?
 Обзор разделов с пошаговыми руководствами по задачам, которые входят в процесс обработки и анализа данных в Azure, см. на странице [Процесс обработки и анализа данных группы](http://aka.ms/datascienceprocess). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

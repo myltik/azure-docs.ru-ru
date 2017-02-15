@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: f59615ce37aa83a99a058775d4e1705e016baf07
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
 
 ---
 # <a name="iot-suite-documentation"></a>Документация по IoT Suite
@@ -78,7 +78,7 @@ ms.openlocfilehash: f59615ce37aa83a99a058775d4e1705e016baf07
                         <h3>Ресурсы</h3>
                         <p><a href="/azure/iot-suite/iot-security-architecture">Архитектура безопасности</a></p>
                         <p><a href="/azure/iot-suite/iot-security-best-practices">Рекомендации по обеспечению безопасности</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Защита развертывания IoT</a></p>
+                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Защита развернутой службы Интернета вещей</a></p>
                         <p><a href="/azure/iot-suite/securing-iot-ground-up">Все аспекты безопасности</a></p>
                    </div>
                 </div>
@@ -87,18 +87,10 @@ ms.openlocfilehash: f59615ce37aa83a99a058775d4e1705e016baf07
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
-        <div class="img"></div>
-        <div class="text">
-Загрузить документацию по IoT Suite </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

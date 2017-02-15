@@ -1,89 +1,96 @@
 ---
-title: Service Bus relay samples overview | Microsoft Docs
-description: Categorizes and describes Service Bus relay samples with links to each.
-services: service-bus
+title: "Обзор примеров ретранслятора служебной шины | Документация Майкрософт"
+description: "Классификация и описание примеров ретранслятора служебной шины со ссылками."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 9237a9a2-f126-4d3f-9f9b-604ee6b32153
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+
 
 ---
-# <a name="service-bus-relay-samples"></a>Service Bus relay samples
-The Service Bus relay samples demonstrate key features in [Service Bus relay](https://azure.microsoft.com/services/service-bus/). This article categorizes and describes the samples available, with links to each.
+# <a name="service-bus-relay-samples"></a>Примеры ретранслятора служебной шины
+В этих примерах демонстрируются ключевые возможности [ретранслятора служебной шины](https://azure.microsoft.com/services/service-bus/). В этой статье приведены категории примеров с описаниями и ссылками.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Примеры служебной шины не устанавливаются вместе с пакетом SDK. Примеры доступны на [странице примеров пакета SDK для Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus relay samples [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (as of this writing, they are not described in this article).  
+> Обновленный набор примеров ретранслятора служебной шины см. [здесь](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (на момент написания этой статьи они в ней не описаны).  
 > 
 > 
 
-For messaging samples, see [Service Bus messaging samples](../service-bus/service-bus-samples.md).
+Примеры обмена сообщениями см. в статье [Служебная шина: примеры](../service-bus-messaging/service-bus-samples.md).
 
-## <a name="service-bus-relay"></a>Service Bus relay
-The following samples illustrate how to write applications that use the Service Bus relay service.
+## <a name="service-bus-relay"></a>Ретранслятор служебной шины
+В следующем примере показывается, как писать приложения, использующие службу ретранслятора служебной шины.
 
-Note that the relay samples require a connection string to access your Service Bus namespace.
+Обратите внимание, что для примеров ретранслятора необходима строка подключения для доступа к пространству имен служебной шины.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
+### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Получение строки подключения для служебной шины Azure
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. В столбце слева щелкните **Служебная шина**.
+3. В списке щелкните имя пространства имен.
+4. В колонке пространства имен щелкните **Политики общего доступа**.
+5. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
+6. Скопируйте строку подключения в буфер обмена.
 
-### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
+### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Получение строки подключения для служебной шины Windows Server
+1. Выполните такой командлет PowerShell:
    
     ```
     get-sbClientConfiguration
     ```
-2. Paste the connection string into the App.config file for the sample.
+2. Вставьте строку подключения в файл App.config примера.
 
-## <a name="service-bus-relay"></a>Service Bus relay
-Samples that demonstrate the Service Bus relay.
+## <a name="service-bus-relay"></a>Ретранслятор служебной шины
+Примеры, демонстрирующие ретранслятор служебной шины.
 
-### <a name="getting-started"></a>Getting started
-| Sample Name | Description | Minimum SDK Version | Availability |
+### <a name="getting-started"></a>Приступая к работе
+| Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
 | --- | --- | --- | --- |
-| [Relayed Messaging: Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3) |Demonstrates how to run a Service Bus client and service on Azure. This sample configures Service Bus programmatically. Only environment and security information is stored in the configuration files. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Authentication: Shared Secret](http://code.msdn.microsoft.com/Relayed-Messaging-92b04c02) |Demonstrates how to use an issuer name and issuer secret to authenticate with Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Authentication: WebNoAuth](http://code.msdn.microsoft.com/Relayed-Messaging-a4f0b831) |Demonstrates how to expose an HTTP service that does not require client user authentication. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WebHttp](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-a6477ba0) |Demonstrates how to use the **WebHttpRelayBinding** binding to return binary data using the Web programming model. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp Relayed](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-2dec7692) |Demonstrates how to use the **NetTcpRelayBinding** binding. |1.8 |Microsoft Azure Service Bus |
+| [Обмен сообщениями с ретрансляцией WCF: Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3) |Демонстрирует запуск клиента и службы служебной шины в Azure. В этом примере осуществляется программная настройка служебной шины. В файлах конфигурации хранятся только сведения о среде и безопасности. |1.8 |Служебная шина Microsoft Azure |
+| [Проверка подлинности при обмене сообщениями с ретрансляцией WCF: общий секрет](http://code.msdn.microsoft.com/Relayed-Messaging-92b04c02) |Демонстрирует использование имени поставщика и секрет от поставщика для проверки подлинности в служебной шине. |1.8 |Служебная шина Microsoft Azure |
+| [Проверка подлинности при обмене сообщениями с ретрансляцией WCF: WebNoAuth](http://code.msdn.microsoft.com/Relayed-Messaging-a4f0b831) |Демонстрирует способ предоставления HTTP-службы, которая не требует проверки подлинности клиентов. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: WebHttp](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-a6477ba0) |Демонстрирует использование привязки **WebHttpRelayBinding** для возвращения двоичных данных при использовании модели веб-программирования. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: NetTcp с ретрансляцией](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-2dec7692) |Демонстрирует использование привязки **NetTcpRelayBinding** . |1.8 |Служебная шина Microsoft Azure |
 
-### <a name="exploring-features"></a>Exploring features
-Samples that demonstrate various Service Bus relay features.
+### <a name="exploring-features"></a>Обзор функций
+Примеры, демонстрирующие различные функции ретранслятора служебной шины.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Имя примера | Описание | Минимальная версия пакета SDK | Доступность |
 | --- | --- | --- | --- |
-| [Relayed Messaging Authentication: Simple WebToken](http://code.msdn.microsoft.com/Relayed-Messaging-32c74392) |Demonstrates how to use a simple web token credential to authenticate with Service Bus. The sample is similar to the Echo sample, with a few changes. Specifically, this sample adds a behavior in the ServiceHost (service) and ChannelFactory (client) applications. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging: Load Balance](http://code.msdn.microsoft.com/Relayed-Messaging-Load-bd76a9f8) |Demonstrates how to use Microsoft Azure Service Bus to route messages to multiple receivers. It shows multiple instances of a simple service communicating with a client via the **NetTcpRelayBinding** binding |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: Net Event](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-c0176977) |Demonstrates using the **NetEventRelayBinding** binding on Microsoft Azure Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http Session](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ef1f1fcb) |Demonstrates using the **WS2007HttpRelayBinding** binding with reliable sessions enabled. It also shows how to specify Service Bus credentials in the configuration file instead of programmatically. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http MsgSecCertificate](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-f29c9da5) |Demonstrates how to use the **WS2007HttpRelayBinding** binding with message security to secure end-to-end messages while still requiring clients to authenticate with Service Bus. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging: Metadata Exchange](http://code.msdn.microsoft.com/Relayed-Messaging-Metadata-f122312e) |Demonstrates how to expose a metadata endpoint that uses the relay binding. **MetadataExchange** is supported in the following relay bindings: **NetTcpRelayBinding**, **NetOnewayRelayBinding**, **BasicHttpRelayBinding**, and **WS2007HttpRelayBinding**. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp Direct](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ca039161) |Demonstrates how to configure the **NetTcpRelayBinding** binding to support the **Hybrid** connection mode which first establishes a relayed connection, and if possible, switches automatically to a direct connection between a client and a service. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: NetTcp MsgSec UserName](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-30542392) |Demonstrates how to use the **NetTcpRelayBinding** binding with message security. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: Net Oneway](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-bb5b813a) |Demonstrates how to expose and consume a service endpoint using the **NetOnewayRelayBinding** binding. |1.8 |Microsoft Azure Service Bus |
-| [Relayed Messaging Bindings: WS2007Http Simple](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-aa4b793a) |Demonstrates using the **WS2007HttpRelayBinding** binding. It demonstrates a simple service that uses no security options and does not require clients to authenticate. |1.8 |Microsoft Azure Service Bus |
+| [Проверка подлинности при обмене сообщениями с ретрансляцией WCF: простой веб-маркер (SWT)](http://code.msdn.microsoft.com/Relayed-Messaging-32c74392) |Демонстрируется использование учетных данных простого веб-маркера для проверки подлинности с помощью служебной шины. Этот пример аналогичен примеру Echo, но содержит ряд изменений. В частности, этот пример добавляет поведение в приложения ServiceHost (служба) и ChannelFactory (клиент). |1.8 |Служебная шина Microsoft Azure |
+| [Обмен сообщениями с ретрансляцией WCF: балансировка нагрузки](http://code.msdn.microsoft.com/Relayed-Messaging-Load-bd76a9f8) |Демонстрирует использование служебной шины Microsoft Azure для перенаправления сообщений нескольким получателям. В нем показывается простой обмен данными между несколькими экземплярами службы и клиентом через привязку **NetTcpRelayBinding** . |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: сетевое событие](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-c0176977) |Демонстрирует использование привязки **NetEventRelayBinding** в служебной шине Microsoft Azure. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: сеанс WS2007Http](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ef1f1fcb) |Демонстрирует использование привязки **WS2007HttpRelayBinding** с включением надежных сеансов. Также в примере описывается, как указывать учетные данные служебной шины в файле конфигурации, не используя программный подход. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: WS2007Http MsgSecCertificate](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-f29c9da5) |Демонстрирует использование привязки **WS2007HttpRelayBinding** с использованием защищенного режима для сквозного шифрования сообщений и требованием проверки подлинности клиентов с помощью служебной шины. |1.8 |Служебная шина Microsoft Azure |
+| [Обмен сообщениями с ретрансляцией WCF: обмен метаданными](http://code.msdn.microsoft.com/Relayed-Messaging-Metadata-f122312e) |Демонстрирует способ предоставления конечной точки метаданных, которая использует привязку ретрансляции. **MetadataExchange** поддерживается в следующих привязках ретрансляции: **NetTcpRelayBinding**, **NetOnewayRelayBinding**, **BasicHttpRelayBinding** и **WS2007HttpRelayBinding**. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: прямое соединение NetTcp](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-ca039161) |Демонстрирует настройку привязки **NetTcpRelayBinding** для поддержки **гибридного** подключения. В этом сценарии сначала устанавливается подключение с ретрансляцией, а затем, если это возможно, происходит автоматическое переключение на непосредственный обмен данными между клиентом и службой. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: NetTcp MsgSec UserName](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-30542392) |Демонстрирует использование привязки **NetTcpRelayBinding** с функцией защиты сообщений. |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: Net Oneway](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-bb5b813a) |Демонстрирует способы предоставления и использования конечной точки службы с помощью привязки **NetOnewayRelayBinding** . |1.8 |Служебная шина Microsoft Azure |
+| [Привязки при обмене сообщениями с ретрансляцией WCF: WS2007Http](http://code.msdn.microsoft.com/Relayed-Messaging-Bindings-aa4b793a) |Демонстрирует использование привязки **WS2007HttpRelayBinding** . В примере показана простая служба, не использующая параметры безопасности и не требующая проверки подлинности клиентов. |1.8 |Служебная шина Microsoft Azure |
 
-## <a name="next-steps"></a>Next steps
-See the following topics for conceptual overviews of Service Bus.
+## <a name="next-steps"></a>Дальнейшие действия
+Принципиальные сведения о служебной шине см. в следующих статьях:
 
-* [Service Bus relay overview](service-bus-relay-overview.md)
-* [Service Bus architecture](../service-bus/service-bus-architecture.md)
-* [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Что такое ретранслятор Azure?](service-bus-relay-overview.md)
+* [Архитектура служебной шины](../service-bus-messaging/service-bus-architecture.md)
+* [Базовая информация о служебной шине](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

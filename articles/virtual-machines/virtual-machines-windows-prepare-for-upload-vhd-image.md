@@ -1,13 +1,13 @@
 ---
-title: Подготовка виртуального жесткого диска Windows к передаче в Azure | Microsoft Docs
-description: Рекомендации по подготовке виртуального жесткого диска Windows к передаче в Azure.
+title: "Подготовка виртуального жесткого диска Windows к передаче в Azure | Документация Майкрософт"
+description: "Рекомендации по подготовке виртуального жесткого диска Windows к передаче в Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: genlin
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2016
 ms.author: glimoli;genli
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98aa7935322c873a9de6414090daab2e04ea19fe
+
 
 ---
 # <a name="prepare-a-windows-vhd-to-upload-to-azure"></a>Подготовка виртуального жесткого диска Windows к передаче в Azure
@@ -265,8 +269,8 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
    * [KB2904100](https://support.microsoft.com/kb/2904100): система перестает отвечать на запросы при дисковых операциях ввода-вывода в Windows <a id="step23"></a>
 2. Если вы хотите создать образ для развертывания нескольких машин на его основе, то необходимо подготовить этот образ к использованию, выполнив команду `sysprep`, прежде чем передать VHD в Azure. Не нужно выполнять `sysprep` для использования специализированного виртуального жесткого диска. Дополнительные сведения о создании подготовленного к использованию образа см. в следующих статьях:
    
-   * [Запись образа виртуальной машины Windows в модели развертывания диспетчера ресурсов](virtual-machines-windows-capture-image.md)
-   * [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-capture-image.md)
+   * [Запись образа виртуальной машины Windows в модели развертывания диспетчера ресурсов](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Sysprep Support for Server Roles (Поддержка ролей сервера в Sysprep)](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## <a name="suggested-extra-configurations"></a>Рекомендуемые дополнительные конфигурации
@@ -293,8 +297,11 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](virtual-machines-windows-upload-image.md)
+* [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

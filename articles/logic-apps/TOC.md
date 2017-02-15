@@ -1,88 +1,88 @@
 # Обзор
-## [Обзор приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Список соединителей](../connectors/apis-list.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Пакет интеграции Enterprise](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Обзор приложения логики](logic-apps-what-are-logic-apps.md)
+## [Список соединителей](../connectors/apis-list.md)
+## [Пакет интеграции Enterprise](logic-apps-enterprise-integration-overview.md)
 
 # Начало работы
-## [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Использование функций приложений логики](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Обзор шаблонов](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Создание настраиваемого шаблона](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Примеры и сценарии](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Сценарий для служебной шины](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Обработка B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Обработка XML](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Создайте приложение логики](logic-apps-create-a-logic-app.md)
+## [Использование функций приложений логики](logic-apps-use-logic-app-features.md)
+## [Обзор шаблонов](logic-apps-use-logic-app-templates.md)
+## [Создание приложения с помощью шаблона](logic-apps-arm-provision.md)
+## [Примеры и сценарии](logic-apps-examples-and-scenarios.md)
+## [Сценарий для служебной шины](logic-apps-scenario-function-sb-trigger.md)
+## [Обработка B2B](logic-apps-enterprise-integration-b2b.md)
+## [Обработка XML](logic-apps-enterprise-integration-xml.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Создание
-### [Создание соединителя](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Использование соединителя файловой системы](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Инструменты Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Использование функций Azure](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Приложения логики как вызываемые конечные точки](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Использование своего настраиваемого API](../app-service-logic/app-service-logic-custom-hosted-api.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Обработка исключений](../app-service-logic/app-service-logic-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Сценарий обработки исключений](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Обработка типов содержимого](../app-service-logic/app-service-logic-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Определение рабочего процесса](../app-service-logic/app-service-logic-author-definitions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Советы по устранению неполадок](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Ограничения и конфигурация](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Создание соединителя](logic-apps-create-api-app.md)
+### [Использование соединителя файловой системы](logic-apps-using-file-connector.md)
+### [Использование соединителя SAP](logic-apps-using-sap-connector.md)
+### [Инструменты Visual Studio](logic-apps-deploy-from-vs.md)
+### [Использование функций Azure](logic-apps-azure-functions.md)
+### [Приложения логики как вызываемые конечные точки](logic-apps-http-endpoint.md)
+### [Циклы, области действия и индивидуальная обработка](logic-apps-loops-and-scopes.md)
+### [Использование своего настраиваемого API](logic-apps-custom-hosted-api.md)
+### [Обработка исключений](logic-apps-exception-handling.md)
+### [Сценарий обработки исключений](logic-apps-scenario-error-and-exception-handling.md)
+### [Обработка типов содержимого](logic-apps-content-type.md)
+### [Определение рабочего процесса](logic-apps-author-definitions.md)
+### [Советы по устранению неполадок](logic-apps-diagnosing-failures.md)
+### [Ограничения и конфигурация](logic-apps-limits-and-config.md)
 
 
 ## Использование пакета интеграции Enterprise (EIP)
-### [Обзор учетных записей интеграции](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Соглашения](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Обработка B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Обработка XML](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Обработка неструктурированных файлов](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Добавление карт XSLT](../app-service-logic/app-service-logic-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Преобразование XML](../app-service-logic/app-service-logic-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Проверка XML](../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Использование сертификатов](../app-service-logic/app-service-logic-enterprise-integration-certificates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Добавление партнеров](../app-service-logic/app-service-logic-enterprise-integration-partners.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Добавление схем](../app-service-logic/app-service-logic-enterprise-integration-schemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Интеграция AS2](../app-service-logic/app-service-logic-enterprise-integration-as2.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Кодирование AS2](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Декодирование AS2](../app-service-logic/app-service-logic-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Интеграция EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Кодирование EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Декодирование EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Интеграция X12](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Кодирование X12](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Декодирование X12](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Обзор учетных записей интеграции](logic-apps-enterprise-integration-create-integration-account.md)
+### [Соглашения](logic-apps-enterprise-integration-agreements.md)
+### [Обработка B2B](logic-apps-enterprise-integration-b2b.md)
+### [Обработка XML](logic-apps-enterprise-integration-xml.md)
+### [Обработка неструктурированных файлов](logic-apps-enterprise-integration-flatfile.md)
+### [Добавление карт XSLT](logic-apps-enterprise-integration-maps.md)
+### [Преобразование XML](logic-apps-enterprise-integration-transform.md)
+### [Проверка XML](logic-apps-enterprise-integration-xml-validation.md)
+### [Использование сертификатов](logic-apps-enterprise-integration-certificates.md)
+### [Добавление партнеров](logic-apps-enterprise-integration-partners.md)
+### [Добавление схем](logic-apps-enterprise-integration-schemas.md)
+### [Хранение метаданных](logic-apps-enterprise-integration-metadata.md)
+### [Интеграция AS2](logic-apps-enterprise-integration-as2.md)
+### [Кодирование AS2](logic-apps-enterprise-integration-as2-encode.md)
+### [Декодирование AS2](logic-apps-enterprise-integration-as2-decode.md)
+### [Интеграция EDIFACT](logic-apps-enterprise-integration-edifact.md)
+### [Кодирование EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
+### [Декодирование EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Интеграция X12](logic-apps-enterprise-integration-x12.md)
+### [Кодирование X12](logic-apps-enterprise-integration-x12-encode.md)
+### [Декодирование X12](logic-apps-enterprise-integration-x12-decode.md)
 
 
 ## Использование шлюза
-### [Подключение к локальной среде](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Установка](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Подключение к локальной среде](logic-apps-gateway-connection.md)
+### [Установка](logic-apps-gateway-install.md)
 
 ## Автоматизация
-### [Шаблон службы автоматизации](../app-service-logic/app-service-logic-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Публикация из Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Шаблон службы автоматизации](logic-apps-create-deploy-template.md)
+### [Публикация из Visual Studio](logic-apps-deploy-from-vs.md)
 
 ## Управление
-### [Мониторинг приложений логики](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Мониторинг сообщений B2B](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Схема отслеживания AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Схема отслеживания X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Настраиваемая схема отслеживания](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Отслеживание сообщений B2B](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Использование Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+### [Защита приложения логики](logic-apps-securing-a-logic-app.md)
+### [Мониторинг приложений логики](logic-apps-monitor-your-logic-apps.md)
+### [Мониторинг сообщений B2B](logic-apps-monitor-b2b-message.md)
+#### [Схема отслеживания AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
+#### [Схема отслеживания X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+#### [Настраиваемая схема отслеживания](logic-apps-track-integration-account-custom-tracking-schema.md)
+#### [Отслеживание сообщений B2B](logic-apps-track-b2b-messages-omsportal.md)
+#### [Запрос к порталу OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
-### [Учетные записи интеграции](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Цены](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Учетные записи интеграции](logic-apps-enterprise-integration-accounts.md)
+### [Цены](logic-apps-pricing.md)
 
 # Справочные материалы
+## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Журнал схем
-### [Общедоступная версия](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Предварительная версия](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-
-## [Командлеты PowerShell](/powershell/resourcemanager/)
-## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
-## [ИНТЕРФЕЙС REST API](/rest/api/logic/)
-
-## Схема 2014 года (до выпуска общедоступной версии)
-### [Соединитель ресурсов Azure](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Соединитель File](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Общедоступная версия](logic-apps-schema-2016-04-01.md)
+### [Предварительная версия](logic-apps-schema-2015-08-01.md)
+## [REST](/rest/api/logic/)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/logic-apps/)  
@@ -91,6 +91,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

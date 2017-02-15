@@ -10,12 +10,13 @@
 ## [Подключение к среде подтверждения концепции Azure Stack](azure-stack-connect-azure-stack.md)
 ## [Повторное развертывание Azure Stack](azure-stack-redeploy.md)
 
-# Приступая к работе
+# Начало работы
 ## [Первые задачи](azure-stack-first-scenarios.md)
 ## [Подготовка виртуальной машины](azure-stack-provision-vm.md)
 ## [Создание учетной записи хранения](azure-stack-provision-storage-account.md)
 ## [Подключение с помощью интерфейса командной строки](azure-stack-connect-cli.md)
 ## [Подключение с помощью PowerShell](azure-stack-connect-powershell.md)
+## [Установка Visual Studio](azure-stack-install-visual-studio.md)
 ## [Часто задаваемые вопросы](azure-stack-faq.md)
 
 # Предложение служб клиентам
@@ -28,6 +29,7 @@
 # Использование шаблонов
 ## [Обзор шаблонов](azure-stack-arm-templates.md)
 ## [Шаблоны разработки](azure-stack-develop-templates.md)
+## [Проверка шаблонов](azure-stack-validate-templates.md)
 ## [Развертывание шаблонов с помощью портала](azure-stack-deploy-template-portal.md)
 ## [Развертывание шаблонов с помощью PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Развертывание шаблонов с помощью Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -40,7 +42,7 @@
 
 # Планирование сетей и управление ими
 ## [iDNS для Azure Stack](azure-stack-understanding-dns-in-tp2.md)
-## [Основные сведения о VPN-подключениях типа "сеть — сеть"](azure-stack-create-vpn-connection-one-node-tp2.md)
+## [Основные сведения о VPN-подключениях типа "сеть — сеть"](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## [Просмотр данных об использовании общедоступных IP-адресов](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 
 # Добавление содержимого в Azure Stack
@@ -50,7 +52,7 @@
 
 # Управление безопасными значениями с помощью хранилища ключей
 ## [Введение](azure-stack-kv-intro.md)
-## [Приступая к работе](azure-stack-kv-getting-started.md)
+## [Начало работы](azure-stack-kv-getting-started.md)
 ## [Развертывание виртуальной машины с помощью пароля из хранилища ключей](azure-stack-kv-deploy-vm-with-secret.md)
 ## [Создание виртуальной машины с сертификатом хранилища ключей](azure-stack-kv-push-secret-into-vm.md)
 ## [Пример приложения для хранилища ключей](azure-stack-kv-sample-app.md)
@@ -72,10 +74,10 @@
 ### [Развертывание адаптера поставщика ресурсов SQL Server в Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Планирование и развертывание службы приложений
-### [Обзор веб-приложений Azure Stack](azure-stack-app-service-overview.md)
-### [Прежде чем приступить к работе с веб-приложениями Azure Stack](azure-stack-app-service-before-you-get-started.md)
-### [Веб-приложения: добавление веб-ролей или рабочих ролей](azure-stack-webapps-add-worker-roles.md)
-### [Добавление поставщика ресурсов веб-приложений в Azure Stack](azure-stack-app-service-deploy.md)
+### [Обзор службы приложений в Azure Stack](azure-stack-app-service-overview.md)
+### [Необходимые условия](azure-stack-app-service-before-you-get-started.md)
+### [Добавление дополнительных рабочих веб-ролей](azure-stack-app-service-add-worker-roles.md)
+### [Добавление поставщика ресурсов службы приложений в Azure Stack](azure-stack-app-service-deploy.md)
 
 # Устранение неполадок
 ## [Устранение неполадок Azure Stack](azure-stack-troubleshooting.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -4,15 +4,16 @@
 ## [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Служба приложений под управлением Linux](app-service-linux-intro.md)
 
-# Приступая к работе
+# Начало работы
 
 ## Веб-приложения
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Приложение Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## Приложения API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -55,16 +56,17 @@
 ## Разработка
 ### [Добавление функциональных возможностей в первое веб-приложение](app-service-web-get-started-2.md)
 ### [Создание веб-приложения на платформе Linux](app-service-linux-how-to-create-a-web-app.md)
-### [Справочник службы приложений](app-service-changes-existing-services.md)
+### [Справочник по службе приложений](app-service-changes-existing-services.md)
 ### [Портал Azure](app-service-web-app-azure-portal.md)
 ### [Пакет SDK для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Приложения ASP.NET
-#### [Развертывание первого веб-приложения .NET в Azure за пять минут](app-service-web-get-started-dotnet.md)
+#### [Создание приложения ASP.NET в Azure с помощью Visual Studio](web-sites-dotnet-get-started.md)
 #### [Создание службы REST с использованием веб-API ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Создание веб-приложения ASP.NET 5 в Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Приложения Node.js
+#### [Разработка приложений Node.js для службы приложений](app-service-web-nodejs-get-started.md)
 #### [Создание веб-приложения Node.js](web-sites-nodejs-develop-deploy-mac.md)
 #### [Создание приложения чата Node.js с помощью Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Использование платформы io.js с веб-приложениями](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Сборка и развертывание с помощью WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Приложения PHP
-#### [Развертывание первого веб-приложения PHP в Azure за пять минут](app-service-web-get-started-php.md)
+#### [Разработка приложений PHP для службы приложений](app-service-web-php-get-started.md) 
 #### [Создание веб-приложения PHP-SQL и его развертывание с помощью Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Создание веб-приложения WordPress в службе приложений Azure](web-sites-php-web-site-gallery.md)
 #### [Создание базы данных MySQL и подключение к ней в Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Сайт WordPress корпоративного класса в службе приложений Azure](web-sites-php-enterprise-wordpress.md)
 
 ### Приложения Java
-#### [Развертывание первого веб-приложения Java в Azure за пять минут](web-sites-java-get-started.md)
 #### Создание приложения Hello World
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -112,8 +113,8 @@
 ### Среда службы приложений
 #### [Создание среды службы приложения](app-service-web-how-to-create-an-app-service-environment.md)
 #### [Создание веб-приложения в среде служб приложений](app-service-web-how-to-create-a-web-app-in-an-ase.md)
-#### [Создание среды службы приложений с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-#### [Создание внутреннего балансировщика нагрузки](app-service-environment-with-internal-load-balancer.md)
+#### [Создание среды службы приложений с внутренней подсистемой балансировки нагрузки с помощью шаблонов Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+#### [Создание внутренней подсистемы балансировки нагрузки](app-service-environment-with-internal-load-balancer.md)
 
 ## [Развертывание](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Развертывание в службу приложений](web-sites-deploy.md)
@@ -143,7 +144,7 @@
 #### [Настройка Python](web-sites-python-configure.md)
 #### [Настройка запуска Node.js в Linux](app-service-linux-using-nodejs-pm2.md)
 
-### Пользовательские домены
+### Личные домены
 #### [Приобретение и настройка личных доменов](custom-dns-web-site-buydomains-web-app.md)
 #### [Сопоставление личных доменов](web-sites-custom-domain-name.md)
 #### [Настройка доменов GoDaddy](web-sites-godaddy-custom-domain-name.md)
@@ -167,7 +168,7 @@
 #### [Общие сведения о сетевой архитектуре](app-service-app-service-environment-network-architecture-overview.md)
 #### [Сведения о настройке сети для работы с ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
 
-## Архивация
+## Резервное копирование
 ### [Архивация приложения в Azure](web-sites-backup.md)
 ### [Восстановление приложения в Azure](web-sites-restore.md)
 ### [Использование REST для резервного копирования и восстановления приложений службы приложений](websites-csm-backup.md)
@@ -178,7 +179,7 @@
 
 ## [Безопасность](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Защита приложения в службе приложений Azure](web-sites-security.md)
-### [Проверка подлинности и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Аутентификация и авторизация](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Аутентификация с помощью поставщиков удостоверений
 #### [Проверка подлинности Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Проверка подлинности Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -247,18 +248,18 @@
 ### [Устранение проблем с производительностью веб-приложений](app-service-web-troubleshoot-performance-degradation.md)
 
 # Справочные материалы
-## [Интерфейс командной строки Azure](/cli/azure/)
-## [Java](/java/api/)
+## [Предварительная версия Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Сопутствующие материалы
 ## [Заметки о выпуске пакета Azure SDK для .NET](azure-sdk-dotnet-release-notes.md)
-### [Выпуск 2.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Выпуски 2.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Выпуски 2.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Выпуск 2.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Выпуск 2.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Выпуск&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
+### [Выпуски&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
+### [Выпуски&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
+### [Выпуск&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
+### [Выпуск&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 # Ресурсы
 ## [Рекомендации по использованию хранилища данных SQL Azure](app-service-best-practices.md)
@@ -266,6 +267,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

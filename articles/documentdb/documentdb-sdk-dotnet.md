@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
+ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
+ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 
 
 ---
@@ -50,10 +50,14 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
-> [!IMPORTANT]
-> Начиная с выпуска версии 1.9.2 при выполнении запросов к секционированным коллекциям может порождаться исключение System.NotSupportedException. Чтобы избежать этой ошибки, убедитесь, что хост-процесс является 64-разрядным. Для проектов исполняемых файлов это можно сделать, сняв флажок "Предпочтительно 32-разр." в окне свойств проекта на вкладке "Построение".
-> 
-> 
+
+### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* Поддержка новых классов и методов для обработки [веб-канала изменений](documentdb-change-feed.md) документов в коллекции.
+* Поддержка продолжения запросов между секциями и некоторые улучшения производительности запросов между секциями.
+* Добавление методов CreateDatabaseIfNotExistsAsync и CreateDocumentCollectionIfNotExistsAsync.
+* Поддержка LINQ для системных функций: IsDefined, IsNull и IsPrimitive.
+* Исправление автоматического переноса сборок Microsoft.Azure.Documents.ServiceInterop.dll и DocumentDB.Spatial.Sql.dll в папку bin приложения посредством BinPlace, если используется пакет NuGet с проектами, которые содержат инструменты project.json.
+* Поддержка выдачи трассировок ETW на стороне клиента, что может быть полезно в сценариях отладки.
 
 ### <a name="a-name11001100httpswwwnugetorgpackagesmicrosoftazuredocumentdb1100"></a><a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * Добавлена поддержка прямое подключения для секционированных коллекций.
@@ -179,7 +183,7 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 ### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 * [Устарело] Пакеты SDK для предварительной версии.
 
-## <a name="release-retirement-dates"></a>Даты выпуска и выбытия
+## <a name="release--retirement-dates"></a>Даты выпуска и выбытия
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии. 
@@ -195,6 +199,7 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 
 | Версия | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |8 декабря 2016 г. |--- |
 | [1.10.0](#1.10.0) |27 сентября 2016 г. |--- |
 | [1.9.5](#1.9.5) |1 сентября 2016 г. |--- |
 | [1.9.4](#1.9.4) |24 августа 2016 г. |--- |
@@ -231,6 +236,6 @@ ms.openlocfilehash: 1a4a2ed7cd2b8cfe3ed328c696cd6ba4d2cc03bc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

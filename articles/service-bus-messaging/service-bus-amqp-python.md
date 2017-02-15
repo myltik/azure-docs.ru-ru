@@ -1,32 +1,36 @@
 ---
-title: Служебная шина и Python с протоколом AMQP 1.0 | Microsoft Docs
-description: Использование служебной шины в Python с протоколом AMQP
-services: service-bus
+title: "Служебная шина и Python с протоколом AMQP 1.0 | Документация Майкрософт"
+description: "Использование служебной шины в Python с протоколом AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 375396e7-cbec-4d25-9b98-63ef8de75fef
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97e90f5429fe4f2535a246db8dfbe81c772b3c88
+
 
 ---
-# <a name="using-service-bus-from-python-with-amqp-1.0"></a>Использование служебной шины в Python с протоколом AMQP 1.0
+# <a name="using-service-bus-from-python-with-amqp-10"></a>Использование служебной шины в Python с протоколом AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Proton-Python — это привязка языка Python к Proton-C; т. е. Proton-Python реализован как оболочка для ядра, реализованного на языке C.
+Proton-Python — это привязка языка Python к Proton-C; т. е. Proton-Python реализован как оболочка для ядра, реализованного на языке C.
 
 ## <a name="download-the-proton-client-library"></a>Скачивание клиентской библиотеки Proton
 Proton-C и связанные с ним привязки (включая Python) можно скачать на сайте [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Файл загружается в форме исходного кода. Чтобы создать код, следуйте инструкциям, содержащимся в загруженном пакете.
 
 Обратите внимание, что на момент написания этой статьи поддержка SSL-протокола в Proton-C доступна только для операционных систем Linux. Поскольку для служебной шины Azure требуется использование SSL-протокола, в настоящее время Proton-C (и языковые привязки) можно применять только для доступа к служебной шине в среде Linux. Работа по реализации Proton-C с SSL-протоколом в среде Windows уже ведется, поэтому регулярно проверяйте наличие обновлений.
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-python"></a>Работа с очередями, разделами и подписками служебной шины из Python
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-python"></a>Работа с очередями, разделами и подписками служебной шины из Python
 В следующем примере кода показано, как отправлять и получать сообщения из сущности обмена сообщениями служебной шины.
 
 ### <a name="send-messages-using-proton-python"></a>Отправка сообщений с помощью Proton-Python
@@ -58,9 +62,9 @@ if messenger.incoming:
 messenger.stop()
 ```
 
-## <a name="messaging-between-.net-and-proton-python"></a>Обмен сообщениями между .NET и Proton-Python
+## <a name="messaging-between-net-and-proton-python"></a>Обмен сообщениями между .NET и Proton-Python
 ### <a name="application-properties"></a>Свойства приложения
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Взаимодействие между Proton-Python и API .NET служебной шины
+#### <a name="proton-python-to-service-bus-net-apis"></a>Взаимодействие между Proton-Python и API .NET служебной шины
 Сообщения Proton-Python поддерживают свойства приложений следующих типов: **int**, **long**, **float**, **uuid**, **bool**, **string**. В следующем примере кода Python показано, как настроить свойства в сообщении с помощью каждого из этих типов свойств.
 
 ```
@@ -96,7 +100,7 @@ if (message.Properties.Keys.Count > 0)
 | bool |bool |
 | string |string |
 
-#### <a name="service-bus-.net-apis-to-proton-python"></a>Взаимодействие между API .NET служебной шины и Proton-Python
+#### <a name="service-bus-net-apis-to-proton-python"></a>Взаимодействие между API .NET служебной шины и Proton-Python
 Тип [BrokeredMessage][BrokeredMessage] поддерживает свойства приложений следующих типов: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** и **TimeSpan**. В следующем примере кода .NET показано, как настроить свойства в объекте [BrokeredMessage][BrokeredMessage] с помощью каждого из этих типов свойств.
 
 ```
@@ -148,7 +152,7 @@ if message.properties != None:
 | Decimal |Строка |Decimal в настоящее время не поддерживается в Proton. |
 | bool |bool |- |
 | Guid |uuid |класс Proton-Python |
-| string |string |- |
+| string |строка |- |
 | DateTime |Timestamp |класс Proton-Python |
 | Datetimeoffset |DescribedType |DateTimeOffset.UtcTicks сопоставляется с типом AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
 | TimeSpan |DescribedType |Timespan.Ticks сопоставляется с типом AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
@@ -157,7 +161,7 @@ if message.properties != None:
 ### <a name="standard-properties"></a>Стандартные свойства
 В следующих таблицах приведены свойства стандартных сообщений Proton-Python и соответствующие им свойства стандартных сообщений [BrokeredMessage][BrokeredMessage].
 
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Взаимодействие между Proton-Python и API .NET служебной шины
+#### <a name="proton-python-to-service-bus-net-apis"></a>Взаимодействие между Proton-Python и API .NET служебной шины
 | Proton-Python | .NET служебной шины | Примечания |
 | --- | --- | --- |
 | durable |Недоступно |Служебная шина поддерживает только устойчивые сообщения. |
@@ -207,6 +211,6 @@ if message.properties != None:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

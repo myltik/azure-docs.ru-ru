@@ -1,13 +1,13 @@
 ---
-title: Настройка PostgreSQL на виртуальной машине Linux | Microsoft Docs
-description: Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure.
+title: "Настройка PostgreSQL на виртуальной машине Linux | Документация Майкрософт"
+description: "Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: SuperScottz
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: mingzhan
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: fb4df7d6ba72ac1123b6a55129aa3ab92a873cfd
+
 
 ---
-# Установка и настройка PostgreSQL в Azure
-PostgreSQL — это расширенная открытая СУБД, аналогичная СУБД Oracle и DB2. Она предлагает возможности корпоративного уровня, обеспечивая полное соответствие принципам ACID, надежную обработку транзакций и управление параллелизмом в разных версиях. Она также поддерживает такие стандарты, как ANSI SQL и SQL/MED (включая оболочки для внешних данных Oracle, MySQL, MongoDB и др.). Высокая расширяемость обеспечивается поддержкой более 12 процедурных языков, индексов GIN и GIST, пространственных данных, различных функций NoSQL для JSON и приложений на основе пары "ключ — значение".
+# <a name="install-and-configure-postgresql-on-azure"></a>Установка и настройка PostgreSQL в Azure
+PostgreSQL — это расширенная открытая СУБД, аналогичная СУБД Oracle и DB2. Она предлагает возможности корпоративного уровня, обеспечивая полное соответствие принципам ACID, надежную обработку транзакций и управление параллелизмом в разных версиях. Она также поддерживает такие стандарты, как ANSI SQL и SQL/MED (включая оболочки для внешних данных Oracle, MySQL, MongoDB и др.). Высокая расширяемость обеспечивается поддержкой более 12 процедурных языков, индексов GIN и GIST, пространственных данных, различных функций NoSQL для JSON и приложений на основе пары "ключ — значение".
 
 Из этой статьи вы узнаете, как установить и настроить СУБД PostgreSQL на виртуальной машине Azure под управлением Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Установка PostgreSQL
+## <a name="install-postgresql"></a>Установка PostgreSQL
 > [!NOTE]
-> Для выполнения инструкций учебника у вас уже должна быть виртуальная машина Microsoft Azure под управлением Linux. Прежде чем продолжить, создайте и настройте виртуальную машину под управлением Linux, используя сведения, приведенные в [учебнике по виртуальным машинам Azure под управлением Linux](virtual-machines-linux-quick-create-cli.md).
+> Для выполнения инструкций учебника у вас уже должна быть виртуальная машина Microsoft Azure под управлением Linux. Прежде чем продолжить, создайте и настройте виртуальную машину под управлением Linux, используя сведения, приведенные в [руководстве по виртуальным машинам Azure под управлением Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-В качестве порта PostgreSQL используйте порт 1999.
+В качестве порта PostgreSQL используйте порт 1999.  
 
-Подключитесь к виртуальной машине под управлением Linux, используя утилиту PuTTY. Если виртуальная машина Linux Azure используется впервые, изучите статью [Использование SSH с Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md), чтобы узнать, как использовать PuTTY для подключения к виртуальной машине Linux.
+Подключитесь к виртуальной машине под управлением Linux, используя утилиту PuTTY. Если виртуальная машина Linux Azure используется впервые, изучите статью [Использование SSH с Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), чтобы узнать, как использовать PuTTY для подключения к виртуальной машине Linux.
 
 1. Выполните следующую команду, чтобы переключиться на привилегированного пользователя (администратора):
    
@@ -68,14 +72,14 @@ PostgreSQL — это расширенная открытая СУБД, анал
    
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
-## Настройка PostgreSQL
+## <a name="configure-postgresql"></a>Настройка PostgreSQL
 1. (Необязательно) Создайте символьную ссылку на PostgreSQL, исключив номер версии:
    
         # ln -s /opt/pgsql9.3.5 /opt/pgsql
 2. Создайте каталог для базы данных:
    
         # mkdir -p /opt/pgsql_data
-3. Создайте непривилегированного пользователя и измените его профиль. Затем переключитесь на этого пользователя (в нашем примере — *postgres*):
+3. Создайте непривилегированного пользователя и измените его профиль. Затем переключитесь на этого пользователя (в нашем примере — *postgres* ):
    
         # useradd postgres
    
@@ -87,7 +91,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
    > В целях безопасности для инициализации, запуска или завершения работы базы данных в PostgreSQL используется непривилегированный пользователь.
    > 
    > 
-4. Измените файл *bash\_profile*, используя следующие команды. Эти строки будут добавлены в конец файла *bash\_profile*:
+4. Измените файл *bash_profile*, используя следующие команды. Эти строки будут добавлены в конец файла *bash_profile*:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -101,7 +105,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. Запустите файл *bash\_profile*:
+5. Запустите файл *bash_profile*:
    
         $ source .bash_profile
 6. Проверьте установку, используя следующую команду:
@@ -122,7 +126,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
 ![изображение](./media/virtual-machines-linux-postgresql-install/no1.png)
 
-## Настройка PostgreSQL
+## <a name="set-up-postgresql"></a>Настройка PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
 Выполните следующие команды:
@@ -131,7 +135,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
     # cp linux /etc/init.d/postgresql
 
-Измените две переменные в файле /etc/init.d/postgresql. В качестве префикса задайте путь установки PostgreSQL: **/opt/pgsql**. В качестве значения PGDATA задайте путь к хранилищу данных из PostgreSQL: **/opt/pgsql\_data**.
+Измените две переменные в файле /etc/init.d/postgresql. В качестве префикса задайте путь установки PostgreSQL: **/opt/pgsql**. В качестве значения PGDATA задайте путь к хранилищу данных из PostgreSQL: **/opt/pgsql_data**.
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -155,7 +159,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
 ![изображение](./media/virtual-machines-linux-postgresql-install/no3.png)
 
-## Подключение к базе данных Postgres
+## <a name="connect-to-the-postgres-database"></a>Подключение к базе данных Postgres
 Снова переключитесь на пользователя postgres:
 
     # su - postgres
@@ -168,7 +172,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
     $ psql -d events
 
-## Создание и удаление таблицы Postgres
+## <a name="create-and-delete-a-postgres-table"></a>Создание и удаление таблицы Postgres
 После подключения к базе данных можно приступить к созданию таблиц в ней.
 
 Например, можно создать новую таблицу Postgres с помощью следующей команды:
@@ -190,7 +194,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
 ![изображение](./media/virtual-machines-linux-postgresql-install/no5.png)
 
-### Добавление данных в таблицу
+### <a name="add-data-to-a-table"></a>Добавление данных в таблицу
 Прежде всего, вставьте в строку следующие сведения:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
@@ -207,7 +211,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
-### Просмотр таблиц
+### <a name="show-tables"></a>Просмотр таблиц
 Чтобы отобразить таблицу, используйте следующую команду:
 
     select * from potluck;
@@ -216,7 +220,7 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
 ![изображение](./media/virtual-machines-linux-postgresql-install/no7.png)
 
-### Удаление данных из таблицы
+### <a name="delete-data-in-a-table"></a>Удаление данных из таблицы
 Для удаления данных из таблицы используйте следующую команду:
 
     delete from potluck where name=’John’;
@@ -225,13 +229,18 @@ PostgreSQL — это расширенная открытая СУБД, анал
 
 ![изображение](./media/virtual-machines-linux-postgresql-install/no8.png)
 
-### Обновление данных в таблице
+### <a name="update-data-in-a-table"></a>Обновление данных в таблице
 Для обновления данных в таблице используйте следующую команду: В нашем примере Sandy подтверждает свое участие, поэтому мы изменим статус подтверждения с N (нет) на Y (да):
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-## Получение дополнительных сведений о PostgreSQL
+## <a name="get-more-information-about-postgresql"></a>Получение дополнительных сведений о PostgreSQL
 Завершив установку PostgreSQL на виртуальную машину Azure под управлением Linux, вы сможете использовать ее в Azure. Дополнительные сведения о PostgreSQL см. на [веб-сайте PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

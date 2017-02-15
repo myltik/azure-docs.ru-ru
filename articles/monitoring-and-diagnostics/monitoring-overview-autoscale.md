@@ -1,12 +1,12 @@
 ---
-title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
-description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
+title: "Обзор автомасштабирования в виртуальных машинах, облачных службах и веб-приложениях Microsoft Azure | Документация Майкрософт"
+description: "Обзор автомасштабирования в Microsoft Azure. Применяется к виртуальным машинам, облачным службам и веб-приложениям."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,101 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+
 
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines,-cloud-services,-and-web-apps"></a>Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
-This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Обзор автомасштабирования в виртуальных машинах, облачных службах и веб-приложениях Microsoft Azure
+В этой статье объясняется, что такое автомасштабирование Microsoft Azure, каковы преимущества этой функции и как начать ее использовать.  
 
-Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
+Автомасштабирование Azure Monitor используется только с [масштабируемыми наборами виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [облачными службами](https://azure.microsoft.com/services/cloud-services/) и [веб-приложениями службы приложений](https://azure.microsoft.com/services/app-service/web/).
 
 > [!NOTE]
-> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
+> В Azure доступно два способа автомасштабирования. Более старый способ работает с виртуальными машинами (группами доступности). Для него предлагается ограниченная поддержка, поэтому мы рекомендуем перейти к наборам масштабирования виртуальных машин, чтобы обеспечить более быстрое и надежное автомасштабирование. В этой статье есть ссылка на сведения об использовании более старой технологии.  
 > 
 > 
 
-## <a name="what-is-autoscale?"></a>What is autoscale?
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
+## <a name="what-is-autoscale"></a>Основные сведения об автомасштабировании
+Благодаря автомасштабированию вы получаете именно тот объем ресурсов, который нужен для обработки нагрузки в вашем приложении. Эта функция позволяет добавлять ресурсы для обработки дополнительной нагрузки и удалять неиспользуемые ресурсы для экономии средств. Вы указываете минимальное и максимальное количество экземпляров, которые должны работать, и система на основании набора правил автоматически добавляет или удаляет виртуальные машины. Если указано минимальное количество, приложение работает всегда, даже при отсутствии нагрузки. Максимальное количество, в свою очередь, ограничивает общую возможную почасовую стоимость. Используя созданные вами правила, система автоматически масштабирует ресурсы в диапазоне двух предельных значений.
 
- ![Autoscale explained. Add and remove VMs](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
+ ![Объяснение автомасштабирования. Добавление и удаление виртуальных машин](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
+Когда условия правил выполняются, активируется одно или несколько действий автомасштабирования. К ним относятся добавление и удаление виртуальных машин, а также другие настраиваемые действия. Этот процесс показан на концептуальной схеме ниже.  
 
- ![Conceptual Autoscale Flow Diagram](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
+ ![Концептуальная схема потока автомасштабирования](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
-## <a name="autoscale-process-explained"></a>Autoscale Process Explained
-The following explanation apply to the pieces of the previous diagram.   
+## <a name="autoscale-process-explained"></a>Процесс автомасштабирования в подробностях
+Приведенные ниже сведения относятся к показанной выше схеме.   
 
-### <a name="resource-metrics"></a>Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). 
+### <a name="resource-metrics"></a>Метрики ресурсов
+Ресурсы выдают метрики, которые позже обрабатываются с помощью правил. Метрики можно получить различными способами.
+Наборы масштабирования виртуальных машин используют данные телеметрии из агентов диагностики Azure, а телеметрия для веб-приложений и облачных служб поступает непосредственно из инфраструктуры Azure. К некоторым часто используемым статистическим сведениям относятся загрузка ЦП, использование памяти, число потоков, длина очереди и использование диска. Список данных телеметрии, которые можно использовать, см. в статье об [общих метриках автомасштабирования в Azure Monitor](insights-autoscale-common-metrics.md).
 
-### <a name="time"></a>Time
-Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
+### <a name="time"></a>Время
+В правилах на основе расписания используется формат UTC. При настройке правил необходимо правильно задать свой часовой пояс.  
 
-### <a name="rules"></a>Rules
-The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
+### <a name="rules"></a>Правила
+На схеме показано только одно правило автомасштабирования. Однако можно использовать и сразу несколько. При необходимости для конкретной ситуации можно создать сложные перекрывающиеся правила.  Правила бывают следующих типов:  
 
-* **Metric-based** - For example, do this action when CPU usage is above 50%. 
-* **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
+* **на основе метрики** , например выполнение определенного действия при загрузке ЦП более чем на 50 %;
+* **на основе времени** , например активация webhook каждую субботу в 8:00 в заданном часовом поясе.
 
-Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
+Правила на основе метрик измеряют нагрузку приложений и в зависимости от нагрузки добавляют или удаляют виртуальные машины. Правила, в которых используется расписание, позволяют масштабировать ресурсы, когда в изменении нагрузки просматриваются закономерности. Например, вы хотите добавить или удалить ресурсы до того, как нагрузка увеличится или уменьшится.  
 
-### <a name="actions-and-automation"></a>Actions and automation
-Rules can trigger one or more types of actions.
+### <a name="actions-and-automation"></a>Действия и автоматизация
+Правила могут вызвать одно или несколько типов действий:
 
-* **Scale** - Scale VMs in or out
-* **Email** - Send email to subscription admins, co-admins, and/or additional email address you specify
-* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
+* **Масштабирование** — свертывание или развертывание виртуальных машин.
+* **Электронная почта** — отправка письма по электронной почте администраторам и соадминистраторам подписки, а также на указанные дополнительные адреса электронной почты.
+* **Автоматизация с помощью объектов webhook** — вызов объектов webhook, с помощью которых можно активировать несколько сложных действий в среде Azure и за ее пределами. В Azure можно запустить Runbook службы автоматизации Azure, функции Azure или приложения Azure Logic. К примерам сторонних служб можно отнести Slack и Twilio.
 
-## <a name="autoscale-settings"></a>Autoscale Settings
-Autoscale use the following terminology and structure. 
+## <a name="autoscale-settings"></a>Параметры автомасштабирования
+Автомасштабирование имеет определенную структуру, для описания которой используется соответствующая терминология.
 
-* An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
-  * An **autoscale profile** is a combination of a capacity setting, a set of rules governing the triggers, and scale actions for the profile, and a recurrence. You can have multiple profiles, which allow you to take care of different overlapping requirements. 
-    * A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
-    * A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied. 
-    * A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-* A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+* Подсистема автомасштабирования считывает **параметр автомасштабирования** и определяет, что нужно делать с масштабом: увеличивать или уменьшать. Этот параметр содержит один или несколько профилей, информацию о целевом ресурсе и настройки уведомлений.
+  * **Профиль автомасштабирования** сочетает в себе параметр емкости, набор правил, управляющих триггерами, действия масштабирования для профиля и сведения о повторении. На случай, если одни требования частично дублируются другими требованиями, можно создать несколько профилей.
+    * **Параметр емкости** определяет минимальное, максимальное и стандартное количество экземпляров (см. рисунок 1).
+    * **Правило** включает в себя метрический или временной триггер и действие масштабирования (увеличение или уменьшение масштаба), которое нужно выполнять, когда ситуация отвечает условиям правила.
+    * Сведения о **повторении** определяют, когда именно функция автомасштабирования должна активировать тот или иной профиль. У вас может быть несколько профилей автомасштабирования, предназначенных, например, для разных дней недели или разного времени суток.
+* **Параметр уведомлений** определяет, какие уведомления должны появляться, когда происходит событие автомасштабирования, отвечающее условиям одного из профилей автомасштабирования. Функция автомасштабирования может отправлять уведомления на электронную почту или вызывать перехватчики webhook.
 
-![Azure autoscale setting, profile, and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Структура правил, профилей и параметров автомасштабирования Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-The full list of configurable fields and descriptions is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
+Полный список настраиваемых полей и описаний см. в статье [о REST API для функции автомасштабирования](https://msdn.microsoft.com/library/dn931928.aspx).
 
-For code examples, see
+Примеры кода см. в следующих статьях:
 
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx) 
+* [Расширенная настройка автомасштабирования с помощью шаблонов Resource Manager для набора масштабирования виртуальных машин](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Create or update an autoscale setting in Azure Insights REST API (Создание и изменение параметров автомасштабирования в REST API Azure Insights)](https://msdn.microsoft.com/library/dn931953.aspx)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Horizontal vs vertical scaling
-Autoscale increases resources in only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling, which is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. Vertical scaling is different. It keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md). 
+## <a name="horizontal-vs-vertical-scaling"></a>Горизонтальное и вертикальное масштабирование
+При автомасштабировании ресурсы масштабируются только горизонтально, то есть происходит увеличение (развертывание) или уменьшение (свертывание) количества экземпляров виртуальной машины.  Горизонтальное масштабирование больше подходит для облачной среды, так как позволяет запускать потенциально тысячи виртуальных машин для обработки нагрузки. С вертикальным масштабированием дело обстоит иначе. Имеющееся количество виртуальных машин всегда остается неизменным, а увеличивается или уменьшается их мощность. Мощность измеряется по объему памяти, скорости ЦП, дисковому пространству и т. д.  Вертикальное масштабирование связано с дополнительными ограничениями. Оно зависит от доступности оборудования большего размера, что, в свою очередь, зависит от региона. К тому же при таком масштабировании быстро достигается верхнее ограничение. Обычно при вертикальном масштабировании требуется запускать и останавливать виртуальную машину. Дополнительные сведения см. в статье [Вертикальное масштабирование виртуальной машины Azure c помощью службы автоматизации Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="methods-of-access"></a>Methods of access
-You can set up autoscale via 
+## <a name="methods-of-access"></a>Варианты доступа
+Автомасштабирование можно настроить с помощью следующих инструментов:
 
-* [Azure portal](../azure-portal/insights-how-to-scale.md)
-* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale)
-* [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Портал Azure](insights-how-to-scale.md)
+* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [Кроссплатформенный интерфейс командной строки](insights-cli-samples.md#autoscale)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Supported services for autoscale
-| Service | Schema & Docs |
+## <a name="supported-services-for-autoscale"></a>Службы, поддерживающие автомасштабирование
+| служба | Схемы и документы |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](../azure-portal/insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
-| Virtual Machines : Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines : Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines : Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Веб-приложения |[Scaling Web Apps (Масштабирование веб-приложения)](insights-how-to-scale.md) |
+| Облачные службы |[Автомасштабирование облачной службы](../cloud-services/cloud-services-how-to-scale.md) |
+| Виртуальные машины: классическое развертывание |[Scaling Classic Virtual Machine Availability Sets (Масштабирование групп доступности классических виртуальных машин)](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Виртуальные машины: наборы масштабирования Windows |[Scaling VM Scale Sets in Windows (Масштабирование наборов масштабирования виртуальных машин в Windows)](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Виртуальные машины: наборы масштабирования Linux |[Scaling VM Scale Sets in Windows (Масштабирование наборов масштабирования виртуальных машин в Linux)](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Виртуальные машины: пример с Windows |[Расширенная настройка автомасштабирования с помощью шаблонов Resource Manager для набора масштабирования виртуальных машин](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Next steps
-To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources: 
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об автомасштабировании см. в пошаговых руководствах по автомасштабированию выше, а также в следующих статьях:
 
-* [Azure Insights autoscale common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Insights autoscale](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Troubleshooting Virtual Machine Scale Sets Autoscale](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md) 
+* [Общие метрики автомасштабирования Azure Monitor](insights-autoscale-common-metrics.md)
+* [Рекомендации по автомасштабированию в Azure Monitor](insights-autoscale-best-practices.md)
+* [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](insights-autoscale-to-webhook-email.md)
+* [Create or update an autoscale setting in Azure Insights REST API (Создание и изменение параметров автомасштабирования в REST API Azure Insights)](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Устранение неполадок при автомасштабировании масштабируемых наборов виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

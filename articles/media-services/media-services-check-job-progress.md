@@ -1,12 +1,12 @@
 ---
-title: Мониторинг хода выполнения задания с помощью .NET
-description: Узнайте, как использовать код обработчика событий для проверки хода выполнения задания и отправки сведений об обновлении состояния. Пример кода написан на языке C# и использует пакет SDK служб мультимедиа для .NET.
+title: "Мониторинг хода выполнения задания с помощью .NET"
+description: "Узнайте, как использовать код обработчика событий для проверки хода выполнения задания и отправки сведений об обновлении состояния. Пример кода написан на языке C# и использует пакет SDK служб мультимедиа для .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
+
 
 ---
-# Мониторинг хода выполнения задания с помощью .NET
+# <a name="monitor-job-progress-using-net"></a>Мониторинг хода выполнения задания с помощью .NET
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -24,9 +28,9 @@ ms.author: juliako
 > 
 > 
 
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, определив обработчик событий StateChanged (как описано в этой статье) или используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа (как описано [здесь](media-services-dotnet-check-job-progress-with-queues.md)).
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, определив обработчик событий StateChanged (как описано в этой статье) или используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа (как описано [здесь](media-services-dotnet-check-job-progress-with-queues.md) ).
 
-## Определение обработчика событий StateChanged для отслеживания хода выполнения задания
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Определение обработчика событий StateChanged для отслеживания хода выполнения задания
 Следующий пример кода определяет обработчик событий StateChanged. Этот обработчик отслеживает ход выполнения задачи и предоставляет обновленное состояние. Кроме того, код определяет метод LogJobStop. Этот вспомогательный метод заносит в журнал сведения об ошибках.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
@@ -106,12 +110,17 @@ ms.author: juliako
 
 
 
-## Дальнейшие действия
+## <a name="next-step"></a>Дальнейшие действия
 Просмотрите схемы обучения работе со службами мультимедиа.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Отзывы
+## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

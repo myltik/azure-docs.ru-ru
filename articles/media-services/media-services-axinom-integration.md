@@ -1,12 +1,12 @@
 ---
-title: Использование Axinom для доставки лицензий Widevine в службы мультимедиа Azure | Microsoft Docs
-description: В этой статье описывается использование служб мультимедиа Azure (AMS) для доставки потока, который зашифрован динамически службой AMS, с помощью лицензий DRM PlayReady и Widevine. Лицензию PlayReady выдает сервер лицензирования служб мультимедиа PlayReady, а лицензию Widevine — сервер лицензирования Axinom.
+title: "Использование Axinom для предоставления лицензий Widevine для служб мультимедиа Azure | Документация Майкрософт"
+description: "В этой статье описывается использование служб мультимедиа Azure (AMS) для доставки потока, который зашифрован динамически службой AMS, с помощью лицензий DRM PlayReady и Widevine. Лицензию PlayReady выдает сервер лицензирования служб мультимедиа PlayReady, а лицензию Widevine — сервер лицензирования Axinom."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: willzhan
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
+
 
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Использование Axinom для доставки лицензий Widevine в службы мультимедиа Azure
@@ -26,7 +30,7 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 ## <a name="overview"></a>Обзор
 В службы мультимедиа Azure (AMS) добавлена динамическая защита Google Widevine (подробные сведения см. в [блоге Мингфей Ян (Mingfei Yan)](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)). Кроме того, в Проигрыватель мультимедиа Azure (AMP) добавлена поддержка Widevine (подробные сведения см. в [документации по AMP](http://amp.azure.net/libs/amp/latest/docs/)). Это большое достижение в потоковой передаче содержимого DASH, защищенного с помощью CENC с несколькими собственными технологиями DRM (PlayReady и Widevine) в современных браузерах, оснащенных MSE и EME.
 
-Начиная с версии 3.5.2 пакета SDK служб мультимедиа для .NET, службы мультимедиа позволяют настраивать шаблоны лицензии Widevine и получать лицензии Widevine. Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Начиная с версии 3.5.2 пакета SDK служб мультимедиа для .NET, службы мультимедиа позволяют настраивать шаблоны лицензии Widevine и получать лицензии Widevine. Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 В этой статье описывается интеграция и тестирование сервера лицензирования Widevine под управлением Axinom. В частности, рассматриваются следующие операции:  
 
@@ -43,7 +47,7 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 
 Вы можете настроить динамическую защиту CENC c помощью нескольких технологий DRM для потоковой передачи DASH при наличии двух следующих типов защиты.
 
-1. Защита PlayReady для MS Edge и IE11, в которой могут быть установлены ограничения авторизации маркеров. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS), например Azure Active Directory.
+1. Защита PlayReady для MS Edge и IE11, в которой могут быть установлены ограничения авторизации маркеров. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS), например Azure Active Directory.
 2. Защита Widevine для Chrome (может потребоваться проверка подлинности маркера с помощью маркера, выданного другой службой STS). 
 
 В разделе [Создание маркеров JWT](media-services-axinom-integration.md#jwt-token-generation) объясняется, почему Azure Active Directory нельзя использовать в качестве службы маркеров безопасности для сервера лицензирования Widevine Axinom.
@@ -53,20 +57,20 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 2. URL-адрес для получения лицензии Widevine для тестирования: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Допускается использование HTTP и HTTPS.
 
 ## <a name="azure-media-player-preparation"></a>Подготовка мультимедиапроигрывателя Azure
-Проигрыватель AMP 1.4.0 поддерживает воспроизведение содержимого AMS, которое динамически упаковывается с помощью DRM PlayReady и Widevine.
+Проигрыватель AMP 1.4.0 поддерживает воспроизведение содержимого AMS, которое динамически упаковывается с помощью DRM PlayReady и Widevine.
 Если сервер лицензирования Widevine не требует проверки подлинности маркера, для тестирования содержимого DASH, защищенного с помощью Widevine, не требуются никакие дополнительные действия. Например, группа разработчиков для AMP предоставляет простой [пример](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), где можно просмотреть его работу в Edge и IE11 с PlayReady и в Chrome с Widevine.
 Сервер лицензирования Widevine, предоставляемый Axinom, требует проверки подлинности маркера JWT. Маркер JWT должен передаваться с запросом лицензии через заголовок HTTP X-AxDRM-Message. Для этого перед тем, как задавать источник, на веб-страницу, где размещается AMP, необходимо добавить следующий код JavaScript:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-Остальная часть кода AMP — стандартный API-интерфейс AMP, как в приведенном [здесь](http://amp.azure.net/libs/amp/latest/docs/)документе по AMP.
+Остальная часть кода AMP — стандартный API-интерфейс AMP, как в приведенном [здесь](http://amp.azure.net/libs/amp/latest/docs/)документе по AMP.
 
-Обратите внимание, что указанный выше код JavaScript для настройки пользовательского заголовка авторизации все же является временным решением, которое будет действовать до выпуска официального постоянного решения для AMP.
+Обратите внимание, что указанный выше код JavaScript для настройки пользовательского заголовка авторизации все же является временным решением, которое будет действовать до выпуска официального постоянного решения для AMP.
 
 ## <a name="jwt-token-generation"></a>Создание маркеров JWT
 Сервер лицензирования Widevine для тестирования, предоставляемый Axinom, требует проверки подлинности маркера JWT. Кроме того, одно из утверждений в маркере JWT является объектом сложного типа, а не данными примитивного типа.
 
-К сожалению, Azure AD может выдавать маркеры JWT только примитивного типа. Аналогично API .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler и JwtPayload) позволяет использовать в качестве входных данных только утверждения сложного типа. При этом утверждения по-прежнему сериализуются как строка. Поэтому мы не можем использовать ни один из этих типов, чтобы создать маркер JWT по запросу лицензии Widevine.
+К сожалению, Azure AD может выдавать маркеры JWT только примитивного типа. Аналогично API .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler и JwtPayload) позволяет использовать в качестве входных данных только утверждения сложного типа. При этом утверждения по-прежнему сериализуются как строка. Поэтому мы не можем использовать ни один из этих типов, чтобы создать маркер JWT по запросу лицензии Widevine.
 
 Мы будем использовать [пакет NuGet JWT](https://www.nuget.org/packages/JWT) Джона Шиэна (John Sheehan), так как он соответствует требованиям.
 
@@ -174,9 +178,9 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 В системе защиты содержимого служб мультимедиа Azure и мультимедиапроигрывателе Azure недавно добавлена поддержка Widevine. Благодаря этому мы смогли реализовать потоковую передачу DASH и нескольких собственных технологий DRM (PlayReady + Widevine) со службой лицензий PlayReady в AMS и сервером лицензирования Widevine от Axinom для следующих современных браузеров:
 
 * Chrome
-* Microsoft Edge под управлением Windows 10.
-* IE 11 под управлением Windows 8.1 и Windows 10.
-* Мультимедиапроигрыватель Azure также поддерживает браузеры Firefox (классический) и Safari под управлением Mac OS (не iOS) посредством Silverlight и того же URL-адреса.
+* Microsoft Edge под управлением Windows 10.
+* IE 11 под управлением Windows 8.1 и Windows 10.
+* Мультимедиапроигрыватель Azure также поддерживает браузеры Firefox (классический) и Safari под управлением Mac OS (не iOS) посредством Silverlight и того же URL-адреса.
 
 Для мини-решения, в котором используется сервер лицензирования Axinom Widevine, требуются следующие параметры. Все параметры, кроме ключа идентификатора, предоставляются Axinom в соответствии с настройками сервера Widevine.
 
@@ -197,6 +201,9 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 ### <a name="acknowledgments"></a>Благодарности
 Мы выражаем признательность тем, кто помог нам в составлении этого документа — это Кристьян Йоджи (Kristjan Jõgi) из Axinom, Мингфей Ян (Mingfei Yan) и Амит Раджпут (Amit Rajput).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

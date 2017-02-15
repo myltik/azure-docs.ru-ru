@@ -1,13 +1,13 @@
 ---
-title: Включение дампов кучи для служб Hadoop в HDInsight | Microsoft Docs
-description: Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа.
+title: "Включение дампов кучи для служб Hadoop в HDInsight | Документация Майкрософт"
+description: "Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+
 
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-preview"></a>Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они очень полезны для диагностики проблем, возникающих во время выполнения.
@@ -27,7 +31,7 @@ ms.author: larryfr
 > 
 > 
 
-## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Службы
+## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Службы
 Вы можете включить дампы кучи для следующих служб:
 
 * **Hcatalog** — tempelton;
@@ -38,7 +42,7 @@ ms.author: larryfr
 
 Вы можете также включить дампы кучи для процессов сопоставления и уменьшения, запущенных HDInsight.
 
-## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Основные сведения о настройке дампа кучи
+## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Основные сведения о настройке дампа кучи
 Дампы кучи включаются путем передачи параметров в виртуальную машину Java при запуске службы. Для большинства служб Hadoop это можно сделать, изменив сценарий оболочки, используемый для запуска службы.
 
 В каждом сценарии есть экспорт для **\*\_OPTS**, который содержит параметры, передаваемые в виртуальную машину Java. Например, в сценарии **hadoop-env.sh** строка, начинающаяся с `export HADOOP_NAMENODE_OPTS=`, содержит параметры для службы NameNode.
@@ -127,6 +131,9 @@ ms.author: larryfr
    > 
 8. После перезапуска служб используйте кнопку **Действия службы** для **отключения режима обслуживания**. Эта Ambari для возобновления наблюдения за оповещениями для службы.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

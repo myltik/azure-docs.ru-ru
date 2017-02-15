@@ -1,19 +1,23 @@
 ---
-title: Использование аналитики хранилища для сбора данных журналов и метрик | Microsoft Docs
-description: Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц.
+title: "Использование аналитики хранилища для сбора данных журналов и метрик | Документация Майкрософт"
+description: "Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+
 
 ---
 # <a name="storage-analytics"></a>Аналитика службы хранилища
@@ -24,7 +28,7 @@ ms.author: robinsh
 
 Объединенные данные хранятся в известном большом двоичном объекте (для ведения журнала) и в известных таблицах (для метрик), доступ к которым можно получить с помощью API службы BLOB-объектов и службы таблиц.
 
-В аналитике хранилища установлено ограничение в 20 ТБ для объема хранимых данных, не зависящее от общего ограничения на вашу учетную запись хранения. Дополнительную информацию о выставлении счетов и политиках хранения данных см. в разделе [Аналитика хранилища и выставление счетов](https://msdn.microsoft.com/library/hh360997.aspx). Дополнительные сведения об ограничениях учетных записей хранения см. в разделе [Целевые показатели масштабируемости и производительности хранилища Azure](storage-scalability-targets.md).
+В аналитике хранилища установлено ограничение в 20 ТБ для объема хранимых данных, не зависящее от общего ограничения на вашу учетную запись хранения. Дополнительную информацию о выставлении счетов и политиках хранения данных см. в разделе [Аналитика хранилища и выставление счетов](https://msdn.microsoft.com/library/hh360997.aspx). Дополнительные сведения об ограничениях учетных записей хранения см. в разделе [Целевые показатели масштабируемости и производительности хранилища Azure](storage-scalability-targets.md).
 
 Дополнительные указания о функциях аналитики хранилища и других инструментах идентификации, диагностики и устранения неполадок, связанных со службой хранилища Azure, см. в статье [Мониторинг, диагностика и устранение неполадок службы хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -146,12 +150,12 @@ ms.author: robinsh
 
 | Уровень метрик | Имена таблиц | Поддерживаемые версии |
 | --- | --- | --- |
-| Часовые метрики, основное расположение |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Только версии до 15.08.2013 г. Таблицы с такими именами по-прежнему поддерживаются, но рекомендуется перейти на использование таблиц, приведенных ниже. |
-| Часовые метрики, основное расположение |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
-| Минутные метрики, основное расположение |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
-| Часовые метрики, вторичное расположение |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Все версии, включая 15.08.2013 г. Должна быть включена геоизбыточная репликация с доступом для чтения. |
-| Минутные метрики, вторичное расположение |$MetricsMinuteSecondaryTransactionsBlob  <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |Все версии, включая 15.08.2013 г. Должна быть включена геоизбыточная репликация с доступом для чтения. |
-| Емкость (только для службы BLOB-объектов) |$MetricsCapacityBlob |Все версии, включая 15.08.2013 г. |
+| Часовые метрики, основное расположение |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Только версии до 15.08.2013 г. Таблицы с такими именами по-прежнему поддерживаются, но рекомендуется перейти на использование таблиц, приведенных ниже. |
+| Часовые метрики, основное расположение |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
+| Минутные метрики, основное расположение |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Все версии, включая 15.08.2013 г. |
+| Часовые метрики, вторичное расположение |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Все версии, включая 15.08.2013 г. Должна быть включена геоизбыточная репликация с доступом для чтения. |
+| Минутные метрики, вторичное расположение |$MetricsMinuteSecondaryTransactionsBlob  <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |Все версии, включая 15.08.2013 г. Должна быть включена геоизбыточная репликация с доступом для чтения. |
+| Емкость (только для службы BLOB-объектов) |$MetricsCapacityBlob |Все версии, включая 15.08.2013 г. |
 
 Эти таблицы автоматически создаются при включении аналитики хранилища для учетной записи хранения. Доступ к ним осуществляется через пространство имен учетной записи хранения, например: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
@@ -188,6 +192,9 @@ ms.author: robinsh
 * [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Операции с протоколированием и сообщения о состоянии аналитик хранилища](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

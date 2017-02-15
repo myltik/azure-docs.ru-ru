@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 66360bc0a8618d250cc07e3e806af6c9a157afaf
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
 
 
 ---
@@ -103,7 +103,7 @@ SnelStart также разрабатывает API, который действ
 Ближайшая цель для SnelStart — дальнейшее увеличение базы довольных клиентов. Г-н Беен утверждает: "Если отбросить технические и ресурсные ограничения, которые у нас были как у независимого поставщика программного обеспечения, то нет той вершины, которую мы не можем покорить".
 
 ## <a name="more-information"></a>Дополнительные сведения
-* Дополнительные сведения о пулах эластичных баз данных см. в статье [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md).
+* Дополнительные сведения о пулах эластичных баз данных см. в статье [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md)
 * Чтобы узнать больше о веб-ролях и рабочих ролях, ознакомьтесь с [рабочими ролями](../fundamentals-introduction-to-azure.md#compute).    
 * Дополнительные сведения о хранилище данных SQL Azure см. в статье [Хранилище данных SQL](https://azure.microsoft.com/documentation/services/sql-data-warehouse/).
 * Дополнительные сведения о SnelStart см. в статье [SnelStart](http://www.snelstart.nl).
@@ -111,6 +111,6 @@ SnelStart также разрабатывает API, который действ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

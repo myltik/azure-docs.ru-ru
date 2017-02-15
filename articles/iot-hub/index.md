@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Узнайте, как с помощью Центра Интернета вещей подключать миллиарды ресурсов IoT, отслеживать их состояние и управлять ими. Руководства, справочники по API, видео и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
-ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Документация по Центру Интернета вещей
@@ -142,9 +142,10 @@ ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (поставщик ресурсов)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST API (удостоверения устройств)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API (передача сообщений на устройства)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (поставщик ресурсов)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (удостоверения устройств)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (передача сообщений на устройства)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (задания)</a></p>
                     </div>
                 </div>
             </div>
@@ -152,13 +153,7 @@ ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по Центру Интернета вещей </div>
-    </a>
-</div>
+
 
 
 

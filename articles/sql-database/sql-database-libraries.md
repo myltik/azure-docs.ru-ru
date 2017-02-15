@@ -1,31 +1,48 @@
 ---
-title: Библиотеки подключений для Базы данных SQL и SQL Server
-description: Приведен минимальный номер версии каждого драйвера, которым могут воспользоваться клиентские программы для подключения к базе данных SQL Azure или Microsoft SQL Server. Ссылка на сведения о версиях драйверов, выпущенных сообществом разработчиков, а не корпорацией Майкрософт.
+title: "Библиотеки подключений для Базы данных SQL и SQL Server"
+description: "Приведен минимальный номер версии каждого драйвера, которым могут воспользоваться клиентские программы для подключения к базе данных SQL Azure или Microsoft SQL Server. Ссылка на сведения о версиях драйверов, выпущенных сообществом разработчиков, а не корпорацией Майкрософт."
 services: sql-database
-documentationcenter: ''
-author: pehteh
+documentationcenter: 
+author: MightyPen
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
-ms.author: pehteh
+ms.date: 10/01/2016
+ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7725c2d0e35ad5bc1d1872acc55ccfcac2d7a931
+
 
 ---
-# Библиотеки подключений для Базы данных SQL и SQL Server
-В этом разделе приведены все библиотеки и драйверы, с помощью которых клиентские программы могут подключиться к базе данных SQL Azure или Microsoft SQL Server.
+# <a name="connection-libraries-for-sql-database-and-sql-server"></a>Библиотеки подключений для Базы данных SQL и SQL Server
+В этой статье приведены все библиотеки и *драйверы*, с помощью которых клиентские программы могут подключиться к базе данных SQL Azure или Microsoft SQL Server.
 
 | Язык | Платформа | Дополнительные ресурсы | Загрузить |
 |:--- |:--- |:--- |:--- |
-| ADO.NET |Windows, Linux, Mac |[Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md) |[Загрузить](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
-| Java |Windows, Linux, Mac |[Подключение к Базе данных SQL с помощью Java и драйвера JDBC в операционной системе Windows](sql-database-develop-java-simple-windows.md) |[Загрузить](http://go.microsoft.com/fwlink/?LinkId=245496) |
-| PHP |Windows |[Подключение к базе данных SQL с помощью приложения PHP в операционной системе Windows](sql-database-develop-php-simple-windows.md) |[Скачивание](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js |Windows, Linux, Mac |[Подключение к базе данных SQL с помощью Node.js](sql-database-develop-nodejs-simple.md) |[Установить](https://msdn.microsoft.com/library/mt652094.aspx) |
-| Python |Windows, Linux, Mac |[Подключение к базе данных SQL с помощью Python](sql-database-develop-python-simple.md) |[Установить](https://msdn.microsoft.com/library/mt694094.aspx) |
-| Ruby |Windows, Linux, Mac |[Подключение к базе данных SQL с помощью Ruby](sql-database-develop-ruby-simple.md) |[Установить](https://msdn.microsoft.com/library/mt711041.aspx) |
+| ADO.NET |Windows, Linux, Mac |[Microsoft ADO.NET для SQL Server](http://msdn.microsoft.com/library/mt657768.aspx) |[Загрузить](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
+| Java |Windows, Linux, Mac |[Microsoft JDBC Driver для SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) |[Загрузить](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| PHP |Windows |[Microsoft PHP Driver для SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) |[Загрузить](https://www.microsoft.com/download/details.aspx?id=20098) |
+| Node.js |Windows, Linux, Mac |[Node.js Driver для SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) |[Установка](https://msdn.microsoft.com/library/mt652094.aspx) |
+| Python |Windows, Linux, Mac |[Python SQL Driver](http://msdn.microsoft.com/library/mt652092.aspx) |Варианты установки: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |
+| Ruby |Windows, Linux, Mac |[Ruby Driver для SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) |[Установка](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="related-links"></a>Связанные ссылки
+* [Драйвера SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) (для подключения с клиента)
+* [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
+* [Подключение к базе данных SQL с помощью Node.js](sql-database-develop-nodejs-simple.md)
+* [Подключение к базе данных SQL с помощью Python](sql-database-develop-python-simple.md), pymssql
+* [Подключение к базе данных SQL с помощью Ruby](sql-database-develop-ruby-simple.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

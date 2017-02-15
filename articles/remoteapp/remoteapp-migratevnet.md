@@ -1,33 +1,37 @@
 ---
-title: Переход с платформы RemoteApp VNET на платформу Azure VNET | Microsoft Docs
-description: Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET
+title: "Переход с платформы RemoteApp VNET на платформу Azure VNET | Документация Майкрософт"
+description: "Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: baea5d29-353b-48f8-b47f-806f2163e067
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dbc8a612d05f8456e55eb26c58cd4461ced4a521
+
 
 ---
-# Перенос гибридной коллекции с платформы RemoteApp VNET в среду Azure VNET
+# <a name="how-to-migrate-a-hybrid-collection-from-a-remoteapp-vnet-to-an-azure-vnet"></a>Перенос гибридной коллекции с платформы RemoteApp VNET в среду Azure VNET
 > [!IMPORTANT]
 > Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
-Отличная новость! Теперь вы можете развертывать гибридные коллекции RemoteApp непосредственно в существующих виртуальных сетях Azure (VNET-сетях) вместо создания специальных VNET-сетей для службы RemoteApp. Благодаря этому вам становятся доступны новейшие функции и преимущества VNET (такие как ExpressRoute), а также возможность предоставить своим гибридным коллекциям непосредственный сетевой доступ к другим службам и виртуальным машинам Azure, развернутым для этой VNET-сети. (Это повышает эффективность и производительность, а также упрощает настройку в сравнении с конфигурациями VNET/VNET.)
+Отличная новость! Теперь вы можете развертывать гибридные коллекции RemoteApp непосредственно в существующих виртуальных сетях Azure (VNET-сетях) вместо создания специальных VNET-сетей для службы RemoteApp. Благодаря этому вам становятся доступны новейшие функции и преимущества VNET (такие как ExpressRoute), а также возможность предоставить своим гибридным коллекциям непосредственный сетевой доступ к другим службам и виртуальным машинам Azure, развернутым для этой VNET-сети.  (Это повышает эффективность и производительность, а также упрощает настройку в сравнении с конфигурациями VNET/VNET.)
 
 Предположим, у вас уже есть гибридная коллекция RemoteApp под названием *OriginalCollection* с VNET-сетью RemoteApp, которая называется *RemoteAppVNET*. Рассмотрим действия, которые необходимо выполнить для ее переноса в новую VNET-сеть Azure под названием *AzureVNET*.
 
-1. На вкладке **Сети** [портала управления](http://manage.windowsazure.com/) создайте VNET-сеть под названием *AzureVNET* с тем же расположением, конфигурацией DNS и адресным пространством (как минимум для одной из подсетей *AzureVNET*), чтобы и у виртуальной сети *RemoteAppVNET*.
+1. На вкладке **Сети** [портала управления](http://manage.windowsazure.com/) создайте VNET-сеть под названием *AzureVNET* с тем же расположением, конфигурацией DNS и адресным пространством (как минимум для одной из подсетей *AzureVNET*), что и у виртуальной сети *RemoteAppVNET*.
 2. Настройте сеть *AzureVNET* таким образом, чтобы в ней размещалось развертывание Active Directory, в которое входит домен *OriginalCollection*, или между ними был организован сетевой доступ.
-3. На вкладке **RemoteApps** создайте новую коллекцию RemoteApp под названием *NewCollection*. (Используйте вариант **Создать с VNET**, а не **быстрое создание**.)
+3. На вкладке **RemoteApps** создайте новую коллекцию RemoteApp под названием *NewCollection*. (Используйте вариант **Создать с помощью VNet**, а не **Быстрое создание**.)
 4. Разверните коллекцию *NewCollection* в подсети виртуальной сети *AzureVNET*.
 5. Задайте для *NewCollection* те же параметры образа и присоединения к домену, что и для коллекции *OriginalCollection*.
 6. Через несколько часов коллекция *NewCollection* появится в списке коллекции в активном состоянии.
@@ -50,4 +54,9 @@ ms.author: elizapo
 
 Если у вас есть какие-либо вопросы или вам необходима дополнительная помощь, напишите по адресу [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

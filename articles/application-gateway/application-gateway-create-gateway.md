@@ -4,7 +4,7 @@ description: "На этой странице приводятся инструк
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: b78d8167ec5aacee34ed235637bc396f9b869a39
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Создание, запуск или удаление шлюза приложений
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](application-gateway-create-gateway-portal.md)
+> * [портал Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
-> * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
+> * [Шаблон Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными). Шлюз приложений выполняет многие функции контроллера доставки приложений (ADC), включая балансировку нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузку SSL, выполнение пользовательской проверки работоспособности, поддержку нескольких сайтов и т. д. Полный список поддерживаемых функций представлен в [обзоре шлюза приложений](application-gateway-introduction.md).
 
@@ -43,6 +41,7 @@ ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 4. Для использования шлюза приложений настраиваются существующие серверы или серверы, для которых в виртуальной сети созданы конечные точки либо же назначен общедоступный или виртуальный IP-адрес.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Что необходимо для создания шлюза приложений?
+
 Если вы создаете шлюз приложений с помощью командлета `New-AzureApplicationGateway`, на этом этапе конфигурация не определяется. Созданный ресурс необходимо настроить с помощью XML-файла или объекта конфигурации.
 
 Доступны следующие значения.
@@ -63,8 +62,6 @@ ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 > [!NOTE]
 > Если вам нужно настроить пользовательскую пробу для шлюза приложений, ознакомьтесь со статьей [Создание пользовательской проверки для шлюза приложений с помощью PowerShell для диспетчера ресурсов Azure](application-gateway-create-probe-classic-ps.md). Дополнительные сведения см. в статье [Обзор мониторинга работоспособности шлюза приложений](application-gateway-probe-overview.md).
-> 
-> 
 
 ![Пример сценария][scenario]
 
@@ -100,8 +97,6 @@ DnsName       :
 
 > [!NOTE]
 > Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
-> 
-> 
 
 Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
@@ -166,8 +161,6 @@ DnsName       :
 
 > [!IMPORTANT]
 > В элементе протокола HTTP или HTTPS учитывается регистр.
-> 
-> 
 
 В следующем примере показано, как настроить шлюз приложений с помощью файла конфигурации. Пример нагрузки распределяет трафик HTTP на открытый порт 80 и отправляет сетевой трафик на серверный порт 80 между двумя IP-адресами.
 
@@ -229,9 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 В следующем примере показано, как настроить шлюз приложений с помощью объектов конфигурации. Все элементы конфигурации нужно настроить отдельно, а затем добавить в объект конфигурации шлюза приложений. После создания объекта конфигурации используйте командлет `Set-AzureApplicationGateway`, чтобы зафиксировать конфигурацию в ранее созданном ресурсе шлюза приложений.
 
 > [!NOTE]
-> Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(имя объекта)** будет использоваться.
-> 
-> 
+> Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта (`Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`) будет использоваться.
 
 ### <a name="step-1"></a>Шаг 1
 
@@ -363,8 +354,6 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
 > [!NOTE]
 > Выполнение командлета `Start-AzureApplicationGateway`может длиться 15–20 минут.
-> 
-> 
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
@@ -458,6 +447,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

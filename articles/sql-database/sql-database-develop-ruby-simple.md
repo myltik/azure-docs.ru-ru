@@ -1,44 +1,54 @@
 ---
-title: Подключение к базе данных SQL с помощью Ruby | Microsoft Docs
-description: Позвольте примеру кода Ruby, который вы можете выполнить, подключиться к базе данных SQL Azure.
+title: "Подключение к базе данных SQL с помощью Ruby | Документация Майкрософт"
+description: "Позвольте примеру кода Ruby, который вы можете выполнить, подключиться к базе данных SQL Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ajlam
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 10/03/2016
 ms.author: andrela
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c66726e199e897b08825798031caf20de181d5a1
+
 
 ---
-# Подключение к базе данных SQL с помощью Ruby
+# <a name="connect-to-sql-database-by-using-ruby"></a>Подключение к базе данных SQL с помощью Ruby
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 В этом разделе описывается подключение и запрос к базе данных SQL Azure с использованием Ruby. Приведенный пример можно выполнить в операционной системе Windows, Ubuntu Linux или Mac.
 
-## Шаг 1. Настройка среды разработки
+## <a name="step-1-configure-development-environment"></a>Шаг 1. Настройка среды разработки
 [Предварительные требования для использования драйвера Ruby TinyTDS для SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
 
-## Шаг 2. Создание базы данных SQL
-Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
+## <a name="step-2-create-a-sql-database"></a>Шаг 2. Создание базы данных SQL
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md) .  Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-## Шаг 3. Получение сведений о подключении
+## <a name="step-3-get-connection-details"></a>Шаг 3. Получение сведений о подключении
 [!INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Шаг 4. Выполнение примера кода
+## <a name="step-4-run-sample-code"></a>Шаг 4. Выполнение примера кода
 [Эксперимент по подключению к SQL с помощью Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-## Дальнейшие действия
-* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
-* Получите дополнительные сведения о [драйвере Microsoft Ruby для SQL Server](https://msdn.microsoft.com/library/mt691981.aspx).
+## <a name="next-steps"></a>Дальнейшие действия
+* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
+* Получите дополнительные сведения о [драйвере Microsoft Ruby для SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

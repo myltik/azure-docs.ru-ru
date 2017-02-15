@@ -1,13 +1,13 @@
 ---
-title: Создание и передача виртуального жесткого диска с операционной системой Linux в Azure
-description: Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Linux.
+title: "Создание и передача виртуального жесткого диска с операционной системой Linux в Azure"
+description: "Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Linux."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,32 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 76d82d5bfc9c57583ea722e76f13bdd4b17ec444
+
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Информация о нерекомендованных дистрибутивах
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Внимание!**Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](virtual-machines-linux-endorsed-distros.md) . Все дистрибутивы Linux, представленные в коллекции образов Azure, — это рекомендованные дистрибутивы, уже имеющие необходимую конфигурацию.
+**Внимание!**Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . Все дистрибутивы Linux, представленные в коллекции образов Azure, — это рекомендованные дистрибутивы, уже имеющие необходимую конфигурацию.
 
-* [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md)
+* [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Поддержка образов Linux в Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Все дистрибутивы, работающие в Azure, должны соответствовать ряду предварительных требований для правильной работы на платформе.  Эта статья далеко не исчерпывающая, так как каждый дистрибутив имеет свои отличия; вполне возможно, что даже при соблюдении всех изложенных ниже критериев, необходимо будет в значительной мере настраивать используемую систему Linux для ее надлежащей работы на платформе.
 
-Именно по этой причине мы рекомендуем по возможности начать работу с одним из [рекомендованных дистрибутивов Linux в Azure](virtual-machines-linux-endorsed-distros.md) . В следующих статьях описывается подготовка различных рекомендованных дистрибутивов Linux, которые поддерживаются в Azure:
+Именно по этой причине мы рекомендуем по возможности начать работу с одним из [рекомендованных дистрибутивов Linux в Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . В следующих статьях описывается подготовка различных рекомендованных дистрибутивов Linux, которые поддерживаются в Azure:
 
-* **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-centos.md)**
-* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-* **[SLES и OpenSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+* **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES и OpenSUSE](virtual-machines-linux-suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Далее в этой статье приводятся общие рекомендации по работе с дистрибутивом Linux в Azure.
 
 ## <a name="general-linux-installation-notes"></a>Общие замечания по установке Linux
 * Формат VHDX не поддерживается в Azure, поддерживается только **постоянный VHD**.  Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd. Если вы используете VirtualBox, при создании диска по умолчанию нужно выбрать **фиксированный размер** вместо динамически выделяемого.
-* При установке системы Linux *рекомендуется* использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM c клонированными виртуальными машинами, особенно если диск с OC может быть подключен к другой идентичной виртуальной машине в целях устранения неполадок. Для дисков данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md) или [RAID](virtual-machines-linux-configure-raid.md).
+* При установке системы Linux *рекомендуется* использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM c клонированными виртуальными машинами, особенно если диск с OC может быть подключен к другой идентичной виртуальной машине в целях устранения неполадок. Для дисков данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Требуется поддержка ядра для монтирования файловых систем UDF. При первой загрузке в Azure конфигурация подготовки передается в виртуальную машину Linux через UDF-носитель, подключенный к гостевой машине. Агент Azure Linux должен иметь возможность подключать файловую систему UDF для считывания конфигурации и подготовки виртуальной машины.
 * Версии ядра Linux ниже 2.6.37 не поддерживают NUMA в Hyper-V с виртуальными машинами большего размера. Эта проблема влияет в основном на дистрибутивы более ранних версий, в которых используется исходное ядро Red Hat 2.6.32, и была исправлена в RHEL 6.6 (kernel-2.6.32-504). В системах под управлением модифицированных ядер старше версии 2.6.37 или ядер RHEL старше 2.6.32-504 в командной строке ядра необходимо задать параметр загрузки `numa=off` в файле grub.conf. Дополнительные сведения см. в статье базы знаний Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
@@ -62,7 +66,7 @@ ms.author: szark
 
 
 ### <a name="resizing-vhds"></a>Изменение размера VHD
-Размер виртуальной памяти образов VHD в Azure должен быть округлен до 1 МБ.  Как правило, размер VHD, созданных с помощью Hyper-V, настроен правильно.  Если виртуальный жесткий диск (VHD) настроен неправильно, при попытке создать *образ* из VHD-файла может появиться следующее сообщение об ошибке:
+Размер виртуальной памяти образов VHD в Azure должен быть округлен до 1 МБ.  Как правило, размер VHD, созданных с помощью Hyper-V, настроен правильно.  Если виртуальный жесткий диск (VHD) настроен неправильно, при попытке создать *образ* из VHD-файла может появиться следующее сообщение об ошибке:
 
     "The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
@@ -76,7 +80,7 @@ ms.author: szark
 1. Изменение размера VHD с непосредственным использованием таких инструментов, как `qemu-img` или `vbox-manage`, может привести к сбою загрузки VHD.  Поэтому мы советуем сначала преобразовать VHD в образ необработанного диска.  Если образ виртуальной машины уже был создан в качестве образа необработанного диска (по умолчанию для некоторых гипервизоров, например, KVM), вы можете пропустить этот шаг:
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
-2. Рассчитайте необходимый размер образа диска, чтобы округлить размер виртуальной памяти до 1 МБ.  Это можно сделать с помощью следующего сценария оболочки Bash.  Сценарий использует `qemu-img info` для определения виртуального размера образа диска и вычисляет размер с округлением до 1 МБ в большую сторону:
+2. Рассчитайте необходимый размер образа диска, чтобы округлить размер виртуальной памяти до 1 МБ.  Это можно сделать с помощью следующего сценария оболочки Bash.  Сценарий использует `qemu-img info` для определения виртуального размера образа диска и вычисляет размер с округлением до 1 МБ в большую сторону:
    
        rawdisk="MyLinuxVM.raw"
        vhddisk="MyLinuxVM.vhd"
@@ -95,23 +99,23 @@ ms.author: szark
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Рекомендации по ядру Linux
-Драйверы Linux Integration Services (LIS) для Hyper-V и Azure встраиваются непосредственно в основное ядро Linux. Во многих дистрибутивах, которые включают последнюю версию ядра Linux (то есть 3.x), эти драйверы уже будут доступны, или же в ядре предоставляются их более ранние версии.  Эти ядра в основном ядре постоянно обновляются с помощью новых исправлений и функций, поэтому по возможности рекомендуется использовать [рекомендованный дистрибутив](virtual-machines-linux-endorsed-distros.md) , включающий все исправления и обновления.
+Драйверы Linux Integration Services (LIS) для Hyper-V и Azure встраиваются непосредственно в основное ядро Linux. Во многих дистрибутивах, которые включают последнюю версию ядра Linux (то есть 3.x), эти драйверы уже будут доступны, или же в ядре предоставляются их более ранние версии.  Эти ядра в основном ядре постоянно обновляются с помощью новых исправлений и функций, поэтому по возможности рекомендуется использовать [рекомендованный дистрибутив](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , включающий все исправления и обновления.
 
 Если вы работаете с одним из вариантов Red Hat Enterprise Linux версий **6.0–6.3**, вам потребуется установить последние драйверы LIS для Hyper-V. Они доступны [по этой ссылке](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Начиная с RHEL **6.4+** (и его производных вариантов), драйверы LIS уже включены в ядро. Поэтому дополнительные пакеты установки для работы этих системы в Azure не требуются.
 
 Если необходимо собственное ядро, рекомендуется использовать одну из последних версий (то есть **3.8 или более позднюю**). Для дистрибутивов или поставщиков, предоставляющих собственное ядро, рекомендуется регулярно переносить драйверы LIS из основного ядра в собственное.  Даже если вы работаете с относительно свежей версией ядра, рекомендуется отслеживать исправления драйверов LIS в основном ядре и по мере необходимости обновлять драйверы. Расположение файлов исходного кода драйверов LIS указано в файле [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) в дереве исходного кода ядра Linux:
 
-    F:  arch/x86/include/asm/mshyperv.h
-    F:  arch/x86/include/uapi/asm/hyperv.h
-    F:  arch/x86/kernel/cpu/mshyperv.c
-    F:  drivers/hid/hid-hyperv.c
-    F:  drivers/hv/
-    F:  drivers/input/serio/hyperv-keyboard.c
-    F:  drivers/net/hyperv/
-    F:  drivers/scsi/storvsc_drv.c
-    F:  drivers/video/fbdev/hyperv_fb.c
-    F:  include/linux/hyperv.h
-    F:  tools/hv/
+    F:    arch/x86/include/asm/mshyperv.h
+    F:    arch/x86/include/uapi/asm/hyperv.h
+    F:    arch/x86/kernel/cpu/mshyperv.c
+    F:    drivers/hid/hid-hyperv.c
+    F:    drivers/hv/
+    F:    drivers/input/serio/hyperv-keyboard.c
+    F:    drivers/net/hyperv/
+    F:    drivers/scsi/storvsc_drv.c
+    F:    drivers/video/fbdev/hyperv_fb.c
+    F:    include/linux/hyperv.h
+    F:    tools/hv/
 
 Известно, что отсутствие следующих исправлений приводит к возникновению проблем на Azure, поэтому их необходимо включить в ядро. Этот список ни в коем случае не является исчерпывающим и полным для всех дистрибутивов:
 
@@ -124,7 +128,7 @@ ms.author: szark
 * [scsi_sysfs: защита от двойного выполнения __scsi_remove_device.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Агент Linux для Azure
-Для правильной подготовки виртуальной машины Linux в Azure необходим [агент Linux для Azure](virtual-machines-linux-agent-user-guide.md) (waagent). Можно получить его последнюю версию, узнать о проблемах с файлами или отправить запрос можно в [репозитории GitHub для агента Linux](https://github.com/Azure/WALinuxAgent).
+Для правильной подготовки виртуальной машины Linux в Azure необходим [агент Linux для Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent). Можно получить его последнюю версию, узнать о проблемах с файлами или отправить запрос можно в [репозитории GitHub для агента Linux](https://github.com/Azure/WALinuxAgent).
 
 * Агент Linux выпускается по лицензии Apache 2.0. Многие дистрибутивы уже предоставляют пакеты RPM или deb для этого агента, поэтому в некоторых случаях его можно установить и обновить с минимальными усилиями.
 * Для работы агента Linux для Azure требуется Python v2.6+.
@@ -144,10 +148,10 @@ ms.author: szark
   
     Графическая и "тихая" загрузка бесполезны в облачной среде, в которой нам нужно, чтобы все журналы отправлялись на последовательный порт.
   
-    При желании можно настроить параметр `crashkernel` , однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
+    При желании можно настроить параметр `crashkernel` , однако учитывайте, что он сокращает объем доступной памяти в виртуальной машине на 128 МБ или более, что может оказаться проблемой в виртуальных машинах небольшого размера.
 * Установка агента Linux для Azure
   
-    Агент Linux для Azure необходим для подготовки образа Linux в Azure.  Во многих дистрибутивах агент предоставляется в виде пакета RPM или Deb (пакет обычно называется "WALinuxAgent" или "walinuxagent").  Агент также можно установить вручную, как описано в [руководстве по агенту Linux](virtual-machines-linux-agent-user-guide.md).
+    Агент Linux для Azure необходим для подготовки образа Linux в Azure.  Во многих дистрибутивах агент предоставляется в виде пакета RPM или Deb (пакет обычно называется "WALinuxAgent" или "walinuxagent").  Агент также можно установить вручную, как описано в [руководстве по агенту Linux](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки.  Обычно это сделано по умолчанию.
 * Не создавайте пространство подкачки на диске с ОС
   
@@ -170,6 +174,9 @@ ms.author: szark
   > 
 * Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

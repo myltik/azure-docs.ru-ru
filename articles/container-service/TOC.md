@@ -14,14 +14,18 @@
 ### [Открытие общего доступа в DC/OS](container-service-enable-public-access.md)
 ### [Балансировка нагрузки контейнеров в DC/OS](container-service-load-balancing.md)
 ### [Оркестратор для пользователей или приложений в DC/OS](container-service-application-specific-marathon.md)
-### [Мониторинг с помощью OMS (DC/OS)](container-service-monitoring-oms.md)
-### [Мониторинг с помощью Datadog (DC/OS)](container-service-monitoring.md)
-### [Мониторинг с помощью Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-### [Мониторинг с помощью Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+### [Отслеживание с помощью OMS](container-service-monitoring-oms.md)
+### [Отслеживание с помощью Datadog](container-service-monitoring.md)
+### [Отслеживание с помощью Sysdig](container-service-monitoring-sysdig.md)
+### [Отслеживание с помощью Dynatrace](container-service-monitoring-dynatrace.md)
 ## Управление с помощью Kubernetes
 ### [Начало работы с Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Настройка субъекта-службы](container-service-kubernetes-service-principal.md)
 ### [Взаимодействие с веб-интерфейсом Kubernetes](container-service-kubernetes-ui.md)
-## [Управление с помощью Docker Swarm](container-service-docker-swarm.md)
+### [Отслеживание с помощью OMS](container-service-kubernetes-oms.md)
+### [Отслеживание с помощью Datadog](container-service-kubernetes-datadog.md)
+### [Отслеживание с помощью Sysdig](container-service-kubernetes-sysdig.md)
+## Управление с помощью Docker Swarm
 ### [Docker и Docker Compose](container-service-docker-swarm.md)
 ### [Непрерывная интеграция с Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Справочные материалы
@@ -34,6 +38,6 @@
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

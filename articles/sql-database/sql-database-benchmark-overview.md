@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 36265f8475050a97dddee98dea77f32caffa46e2
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: cbe53ce7f259432085a828ef8c1fe3ae2da42074
 
 
 ---
@@ -131,10 +131,10 @@ ms.openlocfilehash: 36265f8475050a97dddee98dea77f32caffa46e2
 
 [Уровни служб и уровни производительности](sql-database-service-tiers.md)
 
-[Руководство по производительности для отдельных баз данных](sql-database-performance-guidance.md)
+[Руководство по производительности для изолированных баз данных](sql-database-performance-guidance.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

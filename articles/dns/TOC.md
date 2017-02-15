@@ -34,15 +34,24 @@
 ## [Защита зон и записей DNS](dns-protect-zones-recordsets.md)
 ## [Автоматизация работы DNS с помощью пакета SDK для .NET](dns-sdk.md)
 
+## Устранение неполадок
+### [Руководство по устранению неполадок](dns-troubleshoot.md)
+
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Интерфейсы REST API](/rest/api/dns/)
+## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Azure CLI 2.0 (предварительная версия)](/cli/azure/network/dns)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Java](/java/api/com.microsoft.azure.management.dns)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
+## [REST](/rest/api/dns/)
 
 # Сопутствующие материалы
 ## [Шлюз приложений](/azure/application-gateway/)
 ## [Виртуальная сеть](/azure/virtual-network/)
 ## [Виртуальная машина](/azure/virtual-machines/)
-## [Балансировщик нагрузки](/azure/load-balancer/)
+## [Подсистема балансировки нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
 ## [Веб-приложения](/azure/app-service-web/)
 
@@ -53,6 +62,6 @@
 ## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

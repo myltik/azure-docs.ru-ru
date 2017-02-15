@@ -167,6 +167,6 @@ Azure Site Recovery (ASR) позволяет использовать Microsoft 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

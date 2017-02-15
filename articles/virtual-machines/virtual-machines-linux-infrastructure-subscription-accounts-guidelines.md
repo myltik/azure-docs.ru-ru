@@ -1,13 +1,13 @@
 ---
-title: Рекомендации по подпискам и учетным записям | Microsoft Docs
-description: Изучите основные рекомендации по проектированию и реализации, касающиеся подписок и учетных записей в Azure.
-documentationcenter: ''
+title: "Рекомендации по подпискам и учетным записям | Документация Майкрософт"
+description: "Изучите основные рекомендации по проектированию и реализации, касающиеся подписок и учетных записей в Azure."
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 19343826-7eef-42a1-98be-4ec65b0f377a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b22f5fe87e1bf741e59ed71a3f57e756e2fad88
+
 
 ---
-# Рекомендации по подпискам и учетным записям
+# <a name="subscription-and-accounts-guidelines"></a>Рекомендации по подпискам и учетным записям
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Эта статья посвящена различным подходам к управлению подписками и учетными записями по мере расширения среды и базы пользователей.
 
-## Рекомендации по реализации подписок и учетных записей
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Рекомендации по реализации подписок и учетных записей
 Решения
 
 * Какие подписки и учетные записи необходимы для размещения рабочей нагрузки ИТ-среды или ИТ-инфраструктуры?
@@ -34,7 +38,7 @@ ms.author: iainfou
 * В соответствии с этой логической иерархией определите необходимые учетные записи и подписки в каждой из них.
 * Создайте набор подписок и учетных записей с использованием соглашения об именовании.
 
-## Подписки и учетные записи
+## <a name="subscriptions-and-accounts"></a>Подписки и учетные записи
 Для работы с Azure требуется одна или несколько подписок Azure. В них размещаются такие ресурсы, как виртуальные машины или виртуальные сети.
 
 * Как правило, у корпоративных клиентов есть Соглашение о регистрации Enterprise, которое считается ресурсом самого верхнего уровня в иерархии и сопоставлено с одной или несколькими учетными записями.
@@ -59,7 +63,12 @@ ms.author: iainfou
 
 Мы выставляем детализированные счета в виде скачиваемого файла для одной учетной записи или для всех учетных записей, включенных в Соглашение Enterprise.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

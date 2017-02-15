@@ -1,12 +1,12 @@
 ---
-title: Замена корпуса устройства StorSimple | Microsoft Docs
-description: Эта статья описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple.
+title: "Замена корпуса устройства StorSimple | Документация Майкрософт"
+description: "Эта статья описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 537659ed-4c46-49c1-b1e4-186262f2542d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f2568dac43a0fa870c7b3db7bde3458e7cfafd8
+
 
 ---
-# Замена корпуса устройства StorSimple
-## Обзор
-В этом учебнике объясняется, как снять и заменить корпус устройства StorSimple серии 8000. Модель StorSimple 8100 — устройство в отдельном корпусе (один корпус), тогда как модель 8600 состоит из двух корпусов (два корпуса). В модели 8600 неисправность может возникнуть в двух корпусах: в основном корпусе и в корпусе EBOD.
+# <a name="replace-the-chassis-on-your-storsimple-device"></a>Замена корпуса устройства StorSimple
+## <a name="overview"></a>Обзор
+В этом учебнике объясняется, как снять и заменить корпус устройства StorSimple серии 8000. Модель StorSimple 8100 — устройство в отдельном корпусе (один корпус), тогда как модель 8600 состоит из двух корпусов (два корпуса). В модели 8600 неисправность может возникнуть в двух корпусах: в основном корпусе и в корпусе EBOD.
 
 В каждом из этих случаев Майкрософт предоставляет на замену пустой корпус. В комплект поставки не входят блоки питания и охлаждения (БПО), модули контроллера, твердотельные дисковые накопители (SSD), жесткие диски (HDD) и модули EBOD.
 
@@ -27,23 +31,23 @@ ms.author: alkohli
 > 
 > 
 
-## Снятие корпуса
+## <a name="remove-the-chassis"></a>Снятие корпуса
 Выполните следующие действия для снятия корпуса устройства StorSimple.
 
-#### Снятие корпуса
+#### <a name="to-remove-a-chassis"></a>Снятие корпуса
 1. Убедитесь, что устройство StorSimple выключено и отключено от всех источников питания.
 2. Отключите все сетевые кабели и кабели SAS, если они используются.
 3. Извлеките устройство из стойки.
-4. Извлеките каждый из дисков и запишите номера слотов, из которых они извлекаются. Дополнительные сведения см. в разделе [Снятие диска](storsimple-disk-drive-replacement.md#remove-the-disk-drive).
-5. Для корпуса EBOD (при неисправности корпуса) снимите модули контроллеров EBOD. Дополнительные сведения см. в разделе [Снятие контроллера EBOD](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller).
+4. Извлеките каждый из дисков и запишите номера слотов, из которых они извлекаются. Дополнительные сведения см. в разделе [Снять жесткий диск](storsimple-disk-drive-replacement.md#remove-the-disk-drive).
+5. Для корпуса EBOD (при неисправности корпуса) снимите модули контроллеров EBOD. Дополнительные сведения см. в разделе [Снятие контроллера EBOD](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller). 
    
     Для основного корпуса (при неисправности корпуса) снимите модули контроллеров и запишите номера слотов, в которых они находились. Дополнительные сведения см. в разделе [Снятие контроллера](storsimple-controller-replacement.md#remove-a-controller).
 
-## Установка корпуса
+## <a name="install-the-chassis"></a>Установка корпуса
 Чтобы установить корпус устройства StorSimple, выполните следующие действия.
 
-#### Установка корпуса
-1. Установите корпус в стойку. Дополнительные сведения см. в разделах [Устройства в стойку устройства StorSimple 8100](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) или [Устройства в стойку устройства StorSimple 8600](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
+#### <a name="to-install-a-chassis"></a>Установка корпуса
+1. Установите корпус в стойку. Дополнительные сведения см. в разделах [Установка устройства StorSimple 8100 в стойку](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) или [Установка устройства StorSimple 8600 в стойку](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
 2. После установки корпуса в стойку установите модули контроллера так же, как они были установлены ранее.
 3. Установите диски в те же слоты, в которые они были установлены ранее.
    
@@ -51,9 +55,14 @@ ms.author: alkohli
    > Рекомендуется сначала устанавливать твердотельные жесткие диски, а затем жесткие диски.
    > 
    > 
-4. После установки корпуса в стойку и установки компонентов подключите устройство к соответствующим источникам питания и включите устройство. Дополнительные сведения см. в разделах [Подключение кабелей к устройству StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) или [Подключение кабелей к устройству StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+4. После установки корпуса в стойку и установки компонентов подключите устройство к соответствующим источникам питания и включите устройство. Дополнительные сведения см. в разделах [Подключение кабельного хозяйства к устройству StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) или [Подключение кабельного хозяйства к устройству StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
-## Дальнейшие действия
-Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
+## <a name="next-steps"></a>Дальнейшие действия
+Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,9 +1,12 @@
 ---
 layout: LandingPage
 description: "Документация, видеоролики и примеры моделей для машинного обучения, представляющего собой облачную службу для специалистов по обработке и анализу данных и разработчиков, использующих прогнозную аналитику в приложениях."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 12f9d75f252d8b05fdcded9d3fb6c12e4c2a304e
-ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Документация по машинному обучению Azure
@@ -95,8 +98,8 @@ ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
                 <div class="card">
                     <div class="cardText">
                         <h3>Командная строка</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Модуль PowerShell для машинного обучения</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (новая модель)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (классическая модель)</a></p>
                     </div>
                 </div>
             </div>
@@ -128,13 +131,7 @@ ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по машинному обучению </div>
-    </a>
-</div>
+
 
 
 

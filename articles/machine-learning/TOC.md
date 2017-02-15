@@ -128,7 +128,6 @@
 #### [Развертывание веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Использование внешних данных](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Развертывание в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Публикация на сайте Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Использование параметров веб-службы](machine-learning-web-service-parameters.md)
 #### [Включение ведения журналов](machine-learning-web-services-logging.md)
 ### Управление веб-службами
@@ -157,23 +156,10 @@
 #### [Использование Hadoop с 1 ТБ данных](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [Использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Примеры веб-служб
-#### [Примеры с R](machine-learning-r-csharp-web-service-examples.md)
-#### [Бинарный классификатор](machine-learning-r-csharp-binary-classifier.md)
-#### [Кластерная модель](machine-learning-r-csharp-cluster-model.md)
-#### [Многомерная линейная регрессия](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Прогнозирование на основе метода экспоненциального сглаживания](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Прогнозирование ETS+STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Прогнозирование ARIMA](machine-learning-r-csharp-arima.md)
-#### [Анализ выживаемости](machine-learning-r-csharp-survival-analysis.md)
-#### [Анализ мнений на основе словаря](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Тест на разницу в пропорциях](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Набор нормального распределения](machine-learning-r-csharp-normal-distribution.md)
-#### [Набор биномиального распределения](machine-learning-r-csharp-binomial-distribution.md)
-#### [Часто задаваемые вопросы о Marketplace](machine-learning-marketplace-faq.md)
 
 # Справочные материалы
-## [PowerShell](machine-learning-powershell-module.md)
+## [Модуль PowerShell (новый)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Модуль PowerShell (классический)](machine-learning-powershell-module.md)
 ## [Справочник по алгоритмам и модулям](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [Пользовательские модули](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### Интерфейсы API
-#### [Обнаружение аномалий](machine-learning-apps-anomaly-detection.md)
+#### [Обнаружение аномалий](machine-learning-apps-anomaly-detection-api.md)
 #### [Текстовая аналитика](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Рекомендации
@@ -222,6 +208,6 @@
 ## [Получение справки с помощью чата в реальном времени](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

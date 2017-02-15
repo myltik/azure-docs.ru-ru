@@ -1,13 +1,13 @@
 ---
-title: Использование рабочих процессов Hadoop Oozie в HDInsight на основе Linux | Microsoft Docs
-description: Использование Hadoop Oozie в HDInsight на основе Linux. Вы узнаете, как определить рабочий процесс и отправить задание для Oozie.
+title: "Использование рабочих процессов Hadoop Oozie в HDInsight на основе Linux | Документация Майкрософт"
+description: "Использование Hadoop Oozie в HDInsight на основе Linux. Вы узнаете, как определить рабочий процесс и отправить задание для Oozie."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 79c3ad47ca40c2b64b5304ae377d2e84224a823e
+
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux
@@ -553,7 +557,7 @@ Oozie REST API позволяет создавать собственные ут
 
 Ниже приведены конкретные ошибки, которые могут возникнуть, и способы их устранения.
 
-### <a name="ja009:-cannot-initialize-cluster"></a>JA009: Не удается инициализировать кластер
+### <a name="ja009-cannot-initialize-cluster"></a>JA009: Не удается инициализировать кластер
 **Симптомы**. Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
@@ -562,7 +566,7 @@ Oozie REST API позволяет создавать собственные ут
 
 **Решение**: Измените адреса WASB, используемые заданием.
 
-### <a name="ja002:-oozie-is-not-allowed-to-impersonate-&lt;user>"></a>JA002: Oozie не разрешено работать от имени &lt;ПОЛЬЗОВАТЕЛЬ>
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie не разрешено работать от имени &lt;ПОЛЬЗОВАТЕЛЬ>
 **Симптомы**. Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
 
     JA002: User: oozie is not allowed to impersonate <USER>
@@ -578,7 +582,7 @@ Oozie REST API позволяет создавать собственные ут
 > 
 > 
 
-### <a name="launcher-error-(sqoop)"></a>ОШИБКА запуска (Sqoop)
+### <a name="launcher-error-sqoop"></a>ОШИБКА запуска (Sqoop)
 **Симптомы**. Состояние задания изменяется на **KILLED**. В подробной информации о задании состояние RunSqoopExport отображается как **ERROR**. При выборе действия отображается следующее сообщение об ошибке:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
@@ -655,6 +659,6 @@ Oozie REST API позволяет создавать собственные ут
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

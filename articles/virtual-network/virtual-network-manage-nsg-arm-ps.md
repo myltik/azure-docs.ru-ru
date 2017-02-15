@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 93e806457de136d773de2c8121b91491c0cf3de1
-ms.openlocfilehash: f25daf68920c6fe54e739104233173b14bc27f84
+ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
+ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
 
 
 ---
@@ -379,25 +379,19 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 ### <a name="dissociate-an-nsg-from-a-nic"></a>Отмена связи с сетевым адаптером для группы безопасности сети
 Чтобы отменить связь группы безопасности сети **NSG-FrontEnd** с сетевым интерфейсом **TestNICWeb1**, выполните следующие действия:
 
-1. Чтобы получить существующую группу безопасности сети и сохранить ее в переменной, выполните следующую команду:
-
-    ```powershell
-    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-    ```
-
-2. Чтобы получить сетевой интерфейс и сохранить его в переменной, выполните следующую команду:
+1. Чтобы получить сетевой интерфейс и сохранить его в переменной, выполните следующую команду:
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-3. Задайте для свойства **NetworkSecurityGroup** переменной **NIC** значение **$null** с помощью следующей команды:
+2. Задайте для свойства **NetworkSecurityGroup** переменной **NIC** значение **$null** с помощью следующей команды:
 
     ```powershell
     $nic.NetworkSecurityGroup = $null
     ```
 
-4. Чтобы сохранить изменения в сетевом интерфейсе, выполните следующую команду:
+3. Чтобы сохранить изменения в сетевом интерфейсе, выполните следующую команду:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
@@ -523,6 +517,6 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

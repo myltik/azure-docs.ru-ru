@@ -90,7 +90,7 @@ ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
     ![Ввод учетных данных для присоединения к домену](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Учетные данные можно указать любым из следующих способов.
    
-   * Формат имени участника-пользователя: укажите суффикс имени участника-пользователя, настроенный в Azure AD для учетной записи пользователя. В этом примере для пользователя bob используется такой суффикс UPN: 'bob@domainservicespreview.onmicrosoft.com'.
+   * Формат имени участника-пользователя: укажите суффикс имени участника-пользователя, настроенный в Azure AD для учетной записи пользователя. В нашем примере у пользователя bob таким суффиксом будет bob@domainservicespreview.onmicrosoft.com.
    * Формат SAMAccountName: вы можете указать имя учетной записи в формате SAMAccountName. В нашем примере для пользователя bob следует ввести значение CONTOSO100\bob.
      
      > [!NOTE]

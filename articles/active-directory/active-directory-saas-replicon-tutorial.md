@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с Replicon | Microsoft Docs
-description: Узнайте, как использовать Replicon с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с Replicon | Документация Майкрософт"
+description: "Узнайте, как использовать Replicon с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1dfd8edcae7d54d4ba8456a424a3fbc40d45c777
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-replicon"></a>Учебник. Интеграция Azure Active Directory с Replicon
+# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Учебник. Интеграция Azure Active Directory с Replicon
 Цель данного учебника — показать интеграцию Azure и Replicon. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 * действующая подписка Azure;
@@ -35,7 +39,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-replicon"></a>Включение интеграции приложений для Replicon
 В этом разделе показано, как включить интеграцию приложений для Replicon.
 
-### <a name="to-enable-the-application-integration-for-replicon,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Replicon, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-replicon-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Replicon, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "Active Directory")
@@ -60,7 +64,7 @@ ms.author: jeedes
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Replicon со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **Replicon** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
@@ -75,7 +79,7 @@ ms.author: jeedes
    2. В текстовом поле **URL-адрес ответа Replicon** введите URL-адрес службы Replicon **AssertionConsumerService** (например, *https://global.replicon.com/!/saml2/company/sso/post*).  
       
       > [!NOTE]
-      > URL-адрес можно получить из метаданных Replicon по адресу:         **https://global.replicon.com/!/saml2/\<ключ_вашей_компании\>**.
+      > URL-адрес можно получить из метаданных Replicon по адресу: **https://global.replicon.com/!/saml2/\<ключ_вашей_компании\>**.
       > 
       > 
    3. Щелкните **Далее**
@@ -103,7 +107,7 @@ ms.author: jeedes
 Чтобы пользователи Azure AD могли выполнять вход в Replicon, они должны быть подготовлены для Replicon.  
 В случае с Replicon подготовка выполняется вручную.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 1. В окне веб-браузера войдите на сайт Replicon своей компании в качестве администратора.
 2. Выберите **Administration \> Users** ("Администрирование" > "Пользователи").
    
@@ -129,7 +133,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте доступ пользователям Azure AD, которые должны использовать приложение, назначив их.
 
-### <a name="to-assign-users-to-replicon,-perform-the-following-steps:"></a>Чтобы назначить пользователей Replicon, выполните следующие действия:
+### <a name="to-assign-users-to-replicon-perform-the-following-steps"></a>Чтобы назначить пользователей Replicon, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **Replicon** щелкните **Назначить пользователей**.
    
@@ -140,6 +144,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

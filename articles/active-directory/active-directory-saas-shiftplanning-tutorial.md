@@ -1,11 +1,11 @@
 ---
-title: Учебник. Интеграция Azure Active Directory с ShiftPlanning | Microsoft Docs
-description: Узнайте, как использовать ShiftPlanning с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач.
+title: "Руководство по интеграции Azure Active Directory с ShiftPlanning | Документация Майкрософт"
+description: "Узнайте, как использовать ShiftPlanning с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 403f297e7f0bfdde8ade3f35c401bcefb79ea2f5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-shiftplanning"></a>Учебник. Интеграция Azure Active Directory с ShiftPlanning
+# <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Учебник. Интеграция Azure Active Directory с ShiftPlanning
 Цель данного учебника — показать интеграцию Azure и ShiftPlanning.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +40,7 @@ ms.author: jeedes
 ## <a name="enabling-the-application-integration-for-shiftplanning"></a>Включение интеграции приложений для ShiftPlanning
 В этом разделе показано, как включить интеграцию приложений для ShiftPlanning.
 
-### <a name="to-enable-the-application-integration-for-shiftplanning,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для ShiftPlanning, выполните следующие действия:
+### <a name="to-enable-the-application-integration-for-shiftplanning-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для ShiftPlanning, выполните следующие действия:
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
@@ -63,7 +67,7 @@ ms.author: jeedes
 В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64.  
 Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
 1. На классическом портале Azure на странице интеграции с приложением **ShiftPlanning** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
@@ -108,7 +112,7 @@ ms.author: jeedes
 Чтобы пользователи Azure AD могли выполнить вход в ShiftPlanning, они должны быть подготовлены в ShiftPlanning.  
 В случае ShiftPlanning подготовка выполняется вручную.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 1. Войдите на веб-сайт **ShiftPlanning** компании в качестве администратора.
 2. Щелкните **Администратор**.
    
@@ -134,7 +138,7 @@ ms.author: jeedes
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-shiftplanning,-perform-the-following-steps:"></a>Чтобы назначить пользователей ShiftPlanning, выполните следующие действия:
+### <a name="to-assign-users-to-shiftplanning-perform-the-following-steps"></a>Чтобы назначить пользователей ShiftPlanning, выполните следующие действия:
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **ShiftPlanning** щелкните **Назначить пользователей**.
    
@@ -145,6 +149,9 @@ ms.author: jeedes
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

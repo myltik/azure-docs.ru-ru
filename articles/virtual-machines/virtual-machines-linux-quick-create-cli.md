@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия) | Microsoft Azure"
-description: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)."
+title: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия) | Microsoft Azure"
+description: "Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Создание виртуальной машины Linux с помощью интерфейса командной строки Azure 2.0 (предварительная версия)
-В этой статье мы расскажем, как быстро развернуть в Azure виртуальную машину Linux с помощью команды [az vm create](/cli/azure/vm#create) в интерфейсе командной строки Azure 2.0 (предварительная версия). 
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Создание виртуальной машины Linux с помощью предварительной версии Azure CLI 2.0 (az.py)
+В этой статье мы расскажем, как быстро развернуть в Azure виртуальную машину Linux с помощью команды [az vm create](/cli/azure/vm#create) в интерфейсе командной строки Azure 2.0 (предварительная версия). 
 
 > [!NOTE] 
-> Интерфейс командной строки Azure 2.0 (предварительная версия) — это интерфейс командной строки нового поколения, поддерживающий различные платформы. Попробуйте поработать с ним и сообщите нам свое мнение на [странице проекта в GitHub](https://github.com/Azure/azure-cli).
+> Интерфейс командной строки Azure 2.0 (предварительная версия) — это интерфейс командной строки нового поколения, поддерживающий различные платформы. [Просто попробуйте!](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> В остальных наших документах используется текущая версия интерфейса командной строки Azure. Чтобы создать виртуальную машину с использованием существующего интерфейса командной строки Azure, а не интерфейса командной строки 2.0 (предварительная версия), см. [эту статью](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В остальных наших документах используется текущая версия интерфейса командной строки Azure. Чтобы создать виртуальную машину с использованием существующего интерфейса командной строки Azure 1.0, а не предварительной версии CLI 2.0, см. [эту статью](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Чтобы создать виртуальную машину, вам потребуется: 
 
 * Учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)).
-* [интерфейс командной строки Azure 2.0 (предварительная версия)](https://github.com/Azure/azure-cli#installation), установленный на компьютере;
+* [интерфейс командной строки Azure 2.0 (предварительная версия)](/cli/azure/install-az-cli2), установленный на компьютере;
 * выполненный вход в учетную запись Azure (введите [az login](/cli/azure/#login)).
 
 (Вы также можете быстро развернуть виртуальную машину Linux с помощью [портала Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -41,10 +41,10 @@ ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Сначала введите [az resource group create](/cli/azure/resource/group#create), чтобы создать группу ресурсов, которая содержит все развертываемые ресурсы:
+Сначала введите [az group create](/cli/azure/group#create), чтобы создать группу ресурсов, которая содержит все развертываемые ресурсы:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 Выходные данные выглядят следующим образом (при желании можно выбрать другой вариант `--output`):
@@ -127,6 +127,6 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

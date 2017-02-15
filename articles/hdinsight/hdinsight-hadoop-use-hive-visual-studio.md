@@ -1,13 +1,13 @@
 ---
-title: Выполнение запроса Hive с помощью инструментов Hadoop для Visual Studio | Microsoft Docs
-description: Узнайте, как использовать Hive с Hadoop в HDInsight с помощью инструментов Visual Studio Hadoop.
+title: "Выполнение запроса Hive с помощью инструментов Hadoop для Visual Studio | Документация Майкрософт"
+description: "Узнайте, как использовать Hive с Hadoop в HDInsight с помощью инструментов Visual Studio Hadoop."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c14547e54d7f09267b12f3bbe22e45e51ff08744
+
 
 ---
-# Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
+# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 В этой статье вы узнаете, как отправлять запросы Hive в кластер HDInsight с помощью инструментов HDInsight для Visual Studio.
@@ -27,20 +31,20 @@ ms.author: larryfr
 > 
 > 
 
-## <a id="prereq"></a>Предварительные требования
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 * Одна из следующих версий Visual Studio:
   
-    Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921);
+    Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
   
     Visual Studio 2015 (Community/Enterprise)
-* Средства HDInsight для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Средства HDInsight для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a id="run"></a> Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
-1. Откройте **Visual Studio** и выберите **Создать** > **Проект** > **HDInsight** > **Приложение Hive**. Введите имя этого проекта.
-2. Откройте файл **Script.hql**, созданный в этом проекте, и вставьте следующие операторы HiveQL:
+## <a name="a-idruna-run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a><a id="run"></a> Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
+1. Откройте **Visual Studio** и выберите **Создать** > **Проект** > **HDInsight** > **Hive Application** (Приложение Hive). Введите имя этого проекта.
+2. Откройте файл **Script.hql** , созданный в этом проекте, и вставьте следующие операторы HiveQL:
    
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -62,12 +66,12 @@ ms.author: larryfr
      > 
    * **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
    * **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и о их формате (текстовый).
-   * **SELECT**: подсчет количества строк, у которых столбец **t4** содержит значение **ERROR**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
-   * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** — указывает Hive, что возвратить нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
-3. На панели инструментов выберите **кластер HDInsight**, который нужно использовать для этого запроса, а затем выберите **Submit to WebHCat** (Отправить в WebHCat), чтобы выполнить инструкции как задание Hive с помощью WebHCat. Задание также можно отправить с помощью кнопки **Execute via HiveServer2** (Выполнить через HiveServer2), если сервер HiveServer2 доступен в вашей версии кластера. Отобразится **сводка по заданию Hive** и информация о его выполнении. Воспользуйтесь ссылкой **Обновить**, чтобы обновить информацию о задании. Обновляйте ее до тех пор, пока **Состояние задания** не изменится на **Завершено**.
-4. Воспользуйтесь ссылкой **Выходные данные задания**, чтобы просмотреть выходные данные этого задания. В них должен быть текст `[ERROR] 3`, который является значением, возвращенным оператором SELECT.
+   * **SELECT**: подсчет количества строк, в которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3** , так как данное значение содержат три строки.
+   * **INPUT__FILE__NAME LIKE '%.log'** — указывает Hive, что вернуть нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
+3. На панели инструментов выберите **кластер HDInsight**, который нужно использовать для этого запроса, а затем выберите **Submit to WebHCat** (Отправить в WebHCat), чтобы выполнить инструкции как задание Hive с помощью WebHCat. Задание также можно отправить с помощью кнопки **Execute via HiveServer2** (Выполнить через HiveServer2), если сервер HiveServer2 доступен в вашей версии кластера. Отобразится **сводка по заданию Hive** и информация о его выполнении. Воспользуйтесь ссылкой **Обновить**, чтобы обновить информацию о задании. Обновляйте ее до тех пор, пока **состояние задания** не изменится на **Завершено**.
+4. Воспользуйтесь ссылкой **Выходные данные задания** , чтобы просмотреть выходные данные этого задания. В них должен быть текст `[ERROR] 3`, который является значением, возвращенным оператором SELECT.
 5. Запросы Hive можно также отправлять без создания проекта. С помощью **обозревателя сервера** разверните узлы **Azure** > **HDInsight**, щелкните правой кнопкой мыши сервер HDInsight, а затем выберите **Написать запрос Hive**.
-6. Отобразится документ **temp.hql**, в который нужно добавить следующие операторы HiveQL:
+6. Отобразится документ **temp.hql** , в который нужно добавить следующие операторы HiveQL:
    
         set hive.execution.engine=tez;
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -82,14 +86,14 @@ ms.author: larryfr
      > 
      > 
    * **STORED AS ORC**: хранение данных в формате ORC (Optimized Row Columnar). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-   * **INSERT OVERWRITE ... SELECT**: из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу errorLogs.ляет данные в таблицу **errorLogs**.
-7. На панели инструментов щелкните **Отправить**, чтобы выполнить задание. Определить, было ли задание выполнено успешно, можно по значению в поле **Состояние задания**.
-8. Убедитесь, что задание выполнено и создана новая таблица. Для этого выберите **обозревателем сервера** и разверните **Azure** > **HDInsight** > ваш кластер HDInsight > **Базы данных Hive** и **по умолчанию**. Вы должны увидеть таблицы **errorLogs** и **log4jLogs**.
+   * **INSERT OVERWRITE ... SELECT**: выбирает строки из таблицы **log4jLogs**, которые содержат значение **[ERROR]**, а затем вставляет данные в таблицу **errorLogs**.
+7. На панели инструментов щелкните **Отправить** , чтобы выполнить задание. Определить, было ли задание выполнено успешно, можно по значению в поле **Состояние задания** .
+8. Убедитесь, что задание выполнено и таблица создана. Для этого выберите **обозреватель сервера** и разверните **Azure** > **HDInsight** > ваш кластер HDInsight > **Базы данных Hive** и **по умолчанию**. Вы должны увидеть таблицы **errorLogs** и **log4jLogs**.
 
-## <a id="summary"></a>Сводка
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
 Как можно видеть, инструменты HDInsight для Visual Studio позволяют с легкостью выполнять запросы Hive в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
 
-## <a id="nextsteps"></a>Дальнейшие действия
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
 Общая информация о Hive в HDInsight:
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
@@ -101,7 +105,7 @@ ms.author: larryfr
 
 Дополнительная информация об инструментах HDInsight для Visual Studio:
 
-* [Приступая к работе со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
+* [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -134,4 +138,8 @@ ms.author: larryfr
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

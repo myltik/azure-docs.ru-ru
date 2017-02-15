@@ -1,66 +1,56 @@
 ---
-title: 'Пример кода: анализ данных, экспортированных из Application Insights'
-description: Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта. Сохраните данные в SQL.
+title: "Пример кода: анализ данных, экспортированных из Application Insights| Документация Майкрософт"
+description: "Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта. Сохраните данные в SQL."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: mazharmicrosoft
 manager: douge
-
+ms.assetid: 3ffb62b6-3fe9-455d-a260-b2a0201b5ecd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 11/16/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+
 
 ---
-# Пример кода: анализ данных, экспортированных из Application Insights
-В данной статье рассказывается, как обрабатывать данные JSON, экспортированные из Application Insights. В качестве примера мы напишем код для перемещения ваших данных телеметрии из [Visual Studio Application Insights][start] в базу данных SQL Azure с помощью функции [непрерывного экспорта][export]. (Это можно сделать и [с помощью Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), но сейчас наша цель — показать вам пример кода.)
+# <a name="code-sample-parse-data-exported-from-application-insights"></a>Пример кода: анализ данных, экспортированных из Application Insights
+В этой статье показано, как создать код для обработки данных, экспортированных из [Azure Application Insights][start] с помощью [непрерывного экспорта][export]. Непрерывный экспорт перемещает данные телеметрии в формате JSON в службу хранилища Azure, поэтому мы напишем код для анализа объектов JSON и создадим строки в таблице базы данных.
 
-Непрерывный экспорт перемещает данные телеметрии в формате JSON в службу хранилища Azure, поэтому мы напишем код для анализа объектов JSON и создадим строки в таблице базы данных.
+В качестве примера мы напишем код для перемещения данных телеметрии из Application Insights в базу данных SQL Azure.
 
-В общих чертах, функция непрерывного экспорта — это способ, с помощью которого вы можете выполнить анализ данных телеметрии, отправляемых вашими приложениями в Application Insights. Этот пример кода можно адаптировать для выполнения других задач с экспортированными данными телеметрии.
+Прежде чем начать, обратите внимание на следующее.
 
-Для начала предположим, что у вас уже есть приложение, мониторинг которого нужно выполнить.
+* Более эффективный способ передачи экспортированных данных в базу данных — [с помощью Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), но сейчас нашей целью является показать вам пример кода для обработки экспортированных данных. Этот пример кода можно адаптировать для выполнения других задач с экспортированными данными телеметрии.
+* В этом примере мы перемещаем данные в базу данных Azure, выполняя код в рабочей роли Azure. Но вы можете адаптировать этот код для запуска на локальном сервере, чтобы передавать данные на локальный сервер SQL Server.
+* Вы можете [написать код для прямого доступа к данным телеметрии](http://dev.applicationinsights.io/) в Application Insights без их экспорта.
 
-## Добавление пакета SDK для Application Insights
-Чтобы выполнить мониторинг приложения, [добавьте пакет SDK для Application Insights][start] в приложение. Для различных платформ, IDE и языков разработано множество различных пакетов SDK и вспомогательных инструментов. Вы можете выполнять мониторинг веб-страниц, веб-серверов Java или ASP.NET и мобильных устройств нескольких типов. Все пакеты SDK отправляют данные телеметрии на [портал Application Insights][portal], где вы можете использовать эффективные инструменты анализа и диагностики, а также экспортировать данные в хранилище.
+Если вы еще не начали отслеживать веб-приложение с помощью Application Insights, [сделать это сейчас][start].
 
-Чтобы начать работу:
 
-1. Получите [учетную запись в Microsoft Azure](https://azure.microsoft.com/pricing/).
-2. На [портале Azure][portal] добавьте новый ресурс Application Insights для своего приложения:
+
+## <a name="create-storage-in-azure"></a>Создание хранилища в Azure
+Данные из Application Insights всегда экспортируются в учетную запись хранения Azure в формате JSON. Это именно то хранилище, из которого ваш код будет считывать данные.
+
+1. Создайте "классическую" учетную запись хранения в подписке на [портале Azure][portal].
    
-    ![Выберите "Создать", "Службы для разработчиков", Application Insights и тип приложения.](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
-
-    (Тип вашего приложения и подписка могут отличаться.)
-1. Откройте "Быстрый запуск", чтобы узнать, как установить пакет SDK для приложения необходимого типа.
-   
-    ![Выберите «Быстрый запуск» и следуйте указаниям.](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
-   
-    Если в списке отсутствует необходимый тип приложения, просмотрите страницу [Начало работы][start].
-2. В этом примере мы выполним мониторинг веб-приложения, поэтому будем использовать инструменты Azure в Visual Studio для установки пакета SDK. Зададим имя ресурса Application Insights:
-   
-    ![В Visual Studio в диалоговом окне «Создать проект» установите флажок «Добавить Application Insights» и в поле «Отправка телеметрии» выберите создание приложения или использование существующего.](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
-
-## Создание хранилища в Azure
-Данные из Application Insights всегда экспортируются в учетную запись хранения Azure в формате JSON. Это именно то хранилище, из которого ваш код будет считывать данные.
-
-1. Создайте "классическую" учетную запись хранения в вашей подписке на [портале Azure][portal].
-   
-    ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
+    ![На портале Azure выберите "Создать", "Данные", "Хранилище".](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 2. Создание контейнера
    
     ![В новом хранилище выберите «Контейнеры», щелкните элемент «Контейнеры», а затем — «Добавить».](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
-## Запуск непрерывного экспорта в службе хранилища Azure
+## <a name="start-continuous-export-to-azure-storage"></a>Запуск непрерывного экспорта в службе хранилища Azure
 1. На портале Azure перейдите к ресурсу Application Insights, созданному для приложения.
    
-    ![Выберите «Обзор», «Application Insights», а затем выберите свое приложение.](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
+    ![Выберите "Обзор", Application Insights, а затем выберите свое приложение.](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
 2. Создайте непрерывный экспорт.
    
-    ![Выберите «Параметры», «Непрерывный экспорт», «Добавить».](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
+    ![Выберите "Параметры", "Непрерывный экспорт", "Добавить".](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
 
     Выберите учетную запись хранения, созданную ранее:
 
@@ -70,21 +60,21 @@ ms.author: awills
 
     ![Выберите типы событий.](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-1. Пусть данные накопятся. Предоставьте пользователям возможность поработать с приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик](app-insights-metrics-explorer.md) отобразятся статистические диаграммы, а в разделе [Поиск по журналу диагностики](app-insights-diagnostic-search.md) – отдельные события.
+1. Пусть данные накопятся. Предоставьте пользователям возможность поработать с приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик](app-insights-metrics-explorer.md) отобразятся статистические диаграммы, а в разделе [поиска по журналу диагностики](app-insights-diagnostic-search.md) — отдельные события. 
    
-    Данные также будут экспортированы в хранилище.
-2. Проверьте экспортированные данные. В Visual Studio откройте меню **"Вид" или "Обозреватель облака"** и выберите элемент "Azure" или "Хранилище". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
+    Данные также будут экспортированы в хранилище. 
+2. Проверьте экспортированные данные. В Visual Studio откройте меню **"Вид" или "Обозреватель облака"**и выберите элемент "Azure" или "Хранилище". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
    
     ![В Visual Studio откройте "Обозреватель сервера", "Azure", "Хранилище".](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
    
-    Запишите общую часть имени пути, которое образовано от имени приложения и ключа инструментирования.
+    Запишите общую часть имени пути, которое образовано от имени приложения и ключа инструментирования. 
 
 События записываются в JSON-файлы больших двоичных объектов. Каждый файл может содержать одно или несколько событий. Поэтому нам нужна возможность считывать данные событий и отфильтровывать необходимые поля. Вообще с данными можно выполнять любые действия, но сейчас мы напишем код для перемещения данных в базу данных SQL. Это облегчит выполнение многих любопытных запросов.
 
-## Создание базы данных SQL Azure
+## <a name="create-an-azure-sql-database"></a>Создание базы данных SQL Azure
 В этом примере мы напишем код для передачи данных в базу данных.
 
-И снова начнем с использованием вашей подписки на [портале Azure][portal]. Создайте базу данных (и новый сервер, если его еще нет), куда будут записываться данные.
+В своей подписке на [портале Azure][portal] создайте базу данных (и сервер, если у вас его еще нет), куда будут записываться данные.
 
 !["Создать", "Данные", SQL.](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
@@ -92,19 +82,19 @@ ms.author: awills
 
 ![«Обзор», «Серверы», ваш сервер, «Параметры», «Брандмауэр», «Разрешить доступ к Azure».](./media/app-insights-code-sample-export-telemetry-sql-database/100-sqlaccess.png)
 
-## Создание рабочей роли
+## <a name="create-a-worker-role"></a>Создание рабочей роли
 Теперь можно написать [код](https://sesitai.codeplex.com/) для анализа данных JSON в экспортированных больших двоичных объектах и создания записей в базе данных. Так как хранилище для экспорта и база данных находятся в Azure, мы выполним код, используя рабочую роль Azure.
 
 Этот код автоматически извлекает любые свойства, имеющиеся в JSON. Описание этих свойств см. в статье [Экспорт модели данных Application Insights](app-insights-export-data-model.md).
 
-#### Создание проекта рабочей роли
+#### <a name="create-worker-role-project"></a>Создание проекта рабочей роли
 В Visual Studio создайте новый проект для рабочей роли:
 
 ![«Создать проект», «Visual C#», «Облако», «Облачная служба Azure».](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
 ![В диалогом окне новой облачной службы выберите «Visual C#» и «Рабочая роль».](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
-#### Подключение к учетной записи хранения
+#### <a name="connect-to-the-storage-account"></a>Подключение к учетной записи хранения
 В Azure найдите строку подключения в своей учетной записи хранения:
 
 ![В учетной записи хранения выберите «Ключи» и скопируйте основную строку подключения.](./media/app-insights-code-sample-export-telemetry-sql-database/055-get-connection.png)
@@ -113,32 +103,33 @@ ms.author: awills
 
 ![В обозревателе решений в проекте облачной службы разверните «Роли» и откройте рабочую роль. Откройте вкладку параметров, выберите «Добавить параметр» и задайте имя StorageConnectionString и строку подключения в качестве типа, а затем щелкните, чтобы задать значение. Задайте его вручную и вставьте строку подключения.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)
 
-#### Пакеты
-В обозревателе решений щелкните правой кнопкой мыши свой проект рабочей роли и выберите «Управление пакетами NuGet». Найдите и установите такие пакеты:
+#### <a name="packages"></a>Пакеты
+В обозревателе решений щелкните правой кнопкой мыши свой проект рабочей роли и выберите «Управление пакетами NuGet».
+Найдите и установите такие пакеты: 
 
 * EntityFramework 6.1.2 или более поздней версии – мы используем его, чтобы создать схему таблицы базы данных в режиме реального времени на основе содержимого JSON-документа в большом двоичном объекте;
-* JsonFx – мы используем его, чтобы преобразовать JSON-данные в свойства класса C#.
+* JsonFx — мы используем его, чтобы преобразовать данные JSON в свойства класса C#.
 
-Используйте этот инструмент, чтобы создать класс C# из одного JSON-документа. Для этого необходимо внести некоторые незначительные изменения, например преобразовать JSON-массивы в единое свойство C# и один столбец в таблице базы данных (например, urlData\_port).
+Используйте этот инструмент, чтобы создать класс C# из одного JSON-документа. Для этого необходимо внести некоторые незначительные изменения, например преобразовать массивы JSON в единое свойство C# и один столбец в таблице базы данных (например, urlData_port). 
 
 * [Генератор классов C# из JSON-документов.](http://jsonclassgenerator.codeplex.com/)
 
-## Код
+## <a name="code"></a>Код
 Этот код можно вставить в файл `WorkerRole.cs`.
 
-#### Импорт
+#### <a name="imports"></a>Импорт
     using Microsoft.WindowsAzure.Storage;
 
     using Microsoft.WindowsAzure.Storage.Blob;
 
-#### Получение строки подключения к хранилищу
+#### <a name="retrieve-the-storage-connection-string"></a>Получение строки подключения к хранилищу
     private static string GetConnectionString()
     {
       return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
     }
 
-#### Выполнение рабочей роли с регулярными интервалами
-Замените существующий метод выполнения и выберите нужный интервал. Интервал должен иметь длительность не меньше одного часа, так как функция экспорта экспортирует один объект JSON за час.
+#### <a name="run-the-worker-at-regular-intervals"></a>Выполнение рабочей роли с регулярными интервалами
+Замените существующий метод выполнения и выберите нужный интервал. Интервал должен иметь  длительность не меньше одного часа, так как функция экспорта экспортирует один объект JSON за час.
 
     public override void Run()
     {
@@ -156,7 +147,7 @@ ms.author: awills
       }
     }
 
-#### Вставка каждого объекта JSON в качестве строки таблицы
+#### <a name="insert-each-json-object-as-a-table-row"></a>Вставка каждого объекта JSON в качестве строки таблицы
     public void ImportBlobtoDB()
     {
       try
@@ -191,7 +182,7 @@ ms.author: awills
       }
     }
 
-#### Анализ каждого большого двоичного объекта
+#### <a name="parse-each-blob"></a>Анализ каждого большого двоичного объекта
     private void ParseEachBlob(CloudBlobContainer container, IListBlobItem item)
     {
       try
@@ -264,7 +255,7 @@ ms.author: awills
     }
     }
 
-#### Подготовка словаря для каждого JSON-документа
+#### <a name="prepare-a-dictionary-for-each-json-document"></a>Подготовка словаря для каждого JSON-документа
     private void GenerateDictionary(System.Dynamic.ExpandoObject output, Dictionary<string, object> dict, string parent)
         {
             try
@@ -293,7 +284,7 @@ ms.author: awills
             }
         }
 
-#### Преобразование JSON-документа в свойства объекта телеметрии класса C
+#### <a name="cast-the-json-document-into-c-class-telemetry-object-properties"></a>Преобразование JSON-документа в свойства объекта телеметрии класса C#
      public object GetObject(IDictionary<string, object> d)
         {
             PropertyInfo[] props = null;
@@ -329,7 +320,7 @@ ms.author: awills
             return res;
         }
 
-#### Файл класса PageViewPerformance, созданный из JSON-документа
+#### <a name="pageviewperformance-class-file-generated-out-of-json-document"></a>Файл класса PageViewPerformance, созданный из JSON-документа
     public class PageViewPerformance
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -413,7 +404,7 @@ ms.author: awills
     }
 
 
-#### DBcontext для взаимодействия с SQL с помощью Entity Framework
+#### <a name="dbcontext-for-sql-interaction-by-entity-framework"></a>DBcontext для взаимодействия с SQL с помощью Entity Framework
     public class TelemetryContext : DbContext
     {
         public DbSet<PageViewPerformance> PageViewPerformanceContext { get; set; }
@@ -425,7 +416,7 @@ ms.author: awills
 
 Добавьте строку подключения базы данных с именем `TelemetryContext` в `app.config`.
 
-## Схема (только для информирования)
+## <a name="schema-information-only"></a>Схема (только для информирования)
 Это схема для таблицы, которая будет создана для PageView.
 
 > [!NOTE]
@@ -488,12 +479,15 @@ ms.author: awills
 
 Чтобы увидеть этот пример в действии, [скачайте](https://sesitai.codeplex.com/) полный рабочий код, измените параметры `app.config` и опубликуйте рабочую роль в Azure.
 
-## Связанные статьи
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Создание кода для прямого доступа к данным телеметрии](http://dev.applicationinsights.io/)
 * [Экспорт в SQL с использованием рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Непрерывный экспорт в Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 * [Экспорт модели данных](app-insights-export-data-model.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
+
 
 <!--Link references-->
 
@@ -505,4 +499,8 @@ ms.author: awills
 
 
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

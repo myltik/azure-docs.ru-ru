@@ -1,26 +1,30 @@
 ---
-title: Развертывание вычислительных ресурсов с помощью шаблонов диспетчера ресурсов Azure | Microsoft Docs
-description: Руководство по .NET Core для виртуальных машин Azure
+title: "Развертывание вычислительных ресурсов с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
+description: "Руководство по .NET Core для виртуальных машин Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 1c4d419e-ba0e-45e4-a9dd-7ee9975a86f9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+
 
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates"></a>Архитектура приложений с использованием шаблонов Azure Resource Manager
 При разработке развертывания Azure Resource Manager необходимую вычислительную мощность нужно сопоставлять с ресурсами и службами Azure. Если приложение содержит несколько конечных точек http, базы данных и службы кэша, следует рационально распределить ресурсы Azure между всеми этими компонентами. Например, приложение "Магазин музыки" содержит веб-приложение, размещенное на виртуальной машине, и базу данных SQL на основе базы данных Azure SQL. 
 
-В этом документе описана конфигурация вычислительных ресурсов для такого приложения, представленная в шаблоне Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+В этом документе описана конфигурация вычислительных ресурсов для такого приложения, представленная в шаблоне Azure Resource Manager. Здесь будут описаны все зависимости и уникальные настройки. Чтобы оптимизировать процесс, заранее разверните экземпляр решения в подписке Azure, а затем установите шаблон Azure Resource Manager. Полный шаблон можно найти [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="virtual-machine"></a>Виртуальная машина
 Приложение "Магазин музыки" — это веб-приложение, где пользователи могут искать и приобретать доступные композиции. Для размещения веб-приложений можно использовать несколько служб Azure. В нашем примере используется виртуальная машина. Используя предложенный шаблон магазина музыки, мы развернем виртуальную машину, установим веб-сервер, а затем установим и настроим веб-сайт самого магазина. В этой статье подробно описывается только развертывание виртуальной машины. Настройка веб-сервера и приложения подробно описана в следующей статье.
@@ -29,7 +33,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager — [JSON для виртуальной машины](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -64,7 +68,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager для настройки [учетной записи хранения](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -76,14 +80,14 @@ ms.author: nepeters
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 Учетная запись хранения сопоставляется с виртуальной машиной в объявлении шаблона Resource Manager для виртуальной машины. 
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager для настройки [сопоставления виртуальной машины и учетной записи хранения](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
-```none
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -109,7 +113,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [виртуальной сети и подсети](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -151,7 +155,7 @@ ms.author: nepeters
 
  Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [сетевого интерфейса](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/networkInterfaces",
@@ -200,7 +204,7 @@ ms.author: nepeters
 
 Щелкните эту ссылку, чтобы увидеть пример JSON в шаблоне Resource Manager с настройками [профиля виртуальной машины](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
-```none
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -221,9 +225,9 @@ ms.author: nepeters
 
 Чтобы добавить в шаблон базу данных SQL Azure, можно использовать мастер добавления нового ресурса в Visual Studio или вставить в шаблон развертывания допустимый объект JSON. Ресурс SQL Server включает имя пользователя и пароль, которые предоставляют права администратора на экземпляре SQL Server. Также добавляется ресурс брандмауэра SQL. По умолчанию к экземпляру SQL Server могут подключаться только приложения, размещенные в Azure. Чтобы разрешить подключение к экземпляру SQL Server для внешних приложений, например SQL Server Management Studio, следует настроить брандмауэр. В нашем примере с магазином можно использовать конфигурацию по умолчанию. 
 
-Перейдите по этой ссылке, чтобы просмотреть пример JSON в шаблоне Resource Manager — [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Просмотреть пример JSON в шаблоне Resource Manager для базы данных Azure SQL можно [здесь](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
-```none
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",
@@ -265,8 +269,11 @@ ms.author: nepeters
 ## <a name="next-step"></a>Дальнейшие действия
 <hr>
 
-[Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md)
+[Шаг 2. Доступ и безопасность в шаблонах Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Устранение неполадок развертывания RM виртуальных машин под управлением Windows | Microsoft Docs
-description: Устранение неполадок развертывания Resource Manager при создании виртуальной машины Windows в Azure
+title: "Устранение неполадок развертывания виртуальных машин Windows (Resource Manager) | Документация Майкрософт"
+description: "Устранение неполадок развертывания Resource Manager при создании виртуальной машины Windows в Azure"
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure
@@ -53,9 +57,9 @@ ms.author: cjiang
 
 **Способы устранения:**
 
-Чтобы устранить обе ошибки, удалите на портале текущий образ и [заново запишите его с текущих виртуальных жестких дисков](virtual-machines-windows-vhd-copy.md) с тем же параметром (универсальный или специализированный), который установлен для операционной системы.
+Чтобы устранить обе ошибки, удалите на портале текущий образ и [заново запишите его с текущих виртуальных жестких дисков](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) с тем же параметром (универсальный или специализированный), который установлен для операционной системы.
 
-## <a name="issue:-custom/gallery/marketplace-image;-allocation-failure"></a>Проблема: ошибка выделения (пользовательский образ, образ из коллекции или Marketplace)
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Проблема: ошибка выделения (пользовательский образ, образ из коллекции или Marketplace)
 Данная ошибка возникает в ситуациях, когда запрос на новую виртуальную машину прикреплен к кластеру, который либо не поддерживает запрашиваемый размер виртуальной машины, либо не располагает свободным пространством для размещения запроса.
 
 **Причина 1**. Этот кластер не поддерживает запрошенный размер виртуальной машины.
@@ -79,8 +83,11 @@ ms.author: cjiang
   * добавьте новую виртуальную машину в ту же виртуальную сеть.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+При возникновении проблем во время запуска остановленной виртуальной машины Windows или в случае изменения размера существующей виртуальной машины Windows в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

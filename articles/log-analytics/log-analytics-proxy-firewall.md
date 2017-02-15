@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 | \*.ods.opinsights.azure.com |443 |Да |
 | \*.oms.opinsights.azure.com |443 |Да |
 | \*.blob.core.windows.net |443 |Да |
+| \*.azure-automation.net |443 |Да |
 | ods.systemcenteradvisor.com |443 | |
 
 Далее описано, как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью панели управления. Эту процедуру необходимо использовать для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. Далее описано, [как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
@@ -105,6 +106,7 @@ ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Да |
+| \*.azure-automation.net |443 |Да |
 
 <br>
 Список ресурсов OMS и консоли Operations Manager:<br>
@@ -131,45 +133,46 @@ ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Настройка прокси-сервера в консоли Operations Manager
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование** .
 2. Разверните **Operational Insights** и выберите **Operational Insights Connection** (Подключение к Operational Insights).<br>  
-    ![Подключение к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Подключение к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. В представлении "Подключение к OMS" щелкните **Настройка прокси-сервера**.<br>  
-    ![Настройка прокси-сервера для подключения к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Настройка прокси-сервера для подключения к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. В мастере настройки прокси-сервера Operational Insights выберите **Use a proxy server to access the Operational Insights Web Service** (Использовать прокси-сервер для доступа к веб-службе Operational Insights), а затем введите URL-адрес с номером порта, например **http://myproxy:80**.<br>  
-    ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Указание учетных данных, если для прокси-сервера требуется аутентификация
  Учетные данные и параметры прокси-сервера необходимо распространить на управляемые компьютеры, которые будут отправлять отчеты в OMS. Эти серверы должны находиться в *группе серверов мониторинга Microsoft System Center Advisor*. Учетные данные зашифрованы в реестре каждого сервера в группе.
 
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование** .
 2. В разделе **Конфигурация запуска от имени** выберите **Профили**.
-3. Откройте профиль **Запуск от имени прокси-сервера профиля System Center Advisor** .  
-    ![Изображение запуска от имени прокси-сервера профиля System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. В мастере профиля запуска от имени нажмите кнопку **Добавить** , чтобы использовать учетную запись запуска от имени. Можно создать новую учетную запись запуска от имени или использовать существующую учетную запись. Эта учетная запись должна иметь достаточные разрешения для передачи данных через прокси-сервер.  
-    ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Чтобы настроить учетную запись для управления, выберите **Выбранный класс, группа или объект** для открытия окна поиска объектов.  
-    ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Найдите и выберите **группу серверов мониторинга Microsoft System Center Advisor**.  
-    ![Изображение поля поиска объектов](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Нажмите кнопку **ОК** , чтобы закрыть окно "Добавление учетной записи запуска от имени".  
-    ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Закройте мастер и сохраните изменения.  
-    ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Откройте профиль **Запуск от имени прокси-сервера профиля System Center Advisor** .<br>  
+   ![Изображение запуска от имени прокси-сервера профиля System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. В мастере профиля запуска от имени нажмите кнопку **Добавить** , чтобы использовать учетную запись запуска от имени. Можно создать новую учетную запись запуска от имени или использовать существующую учетную запись. Эта учетная запись должна иметь достаточные разрешения для передачи данных через прокси-сервер.<br>   
+   ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Чтобы настроить учетную запись для управления, выберите **Выбранный класс, группа или объект** для открытия окна поиска объектов.<br>  
+   ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Найдите и выберите **группу серверов мониторинга Microsoft System Center Advisor**.<br>  
+   ![Изображение поля поиска объектов](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Нажмите кнопку **ОК** , чтобы закрыть окно "Добавление учетной записи запуска от имени".<br>  
+   ![Изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Закройте мастер и сохраните изменения.<br>  
+   ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Вот как можно проверить, скачаны ли пакеты управления OMS
-Если вы добавили решения в OMS, их можно просмотреть в консоли Operations Manager как пакеты управления, в разделе **Администрирование**. Выполните поиск *System Center Advisor* , чтобы быстро их найти.  
-    ![Скачанные пакеты управления](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Пакеты управления OMS можно также проверить с помощью следующей команды Windows PowerShell на сервере управления Operations Manager:
+Если вы добавили решения в OMS, их можно просмотреть в консоли Operations Manager как пакеты управления, в разделе **Администрирование**. Выполните поиск *System Center Advisor* , чтобы быстро их найти.<br>  
+   ![пакеты управления скачаны](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+Пакеты управления OMS можно также проверить с помощью следующих команд Windows PowerShell на сервере управления Operations Manager:
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Вот как можно проверить, отправляет ли Operations Manager данные в службу OMS
 1. На сервере управления Operations Manager откройте системный монитор (perfmon.exe) и выберите **Системный монитор**.
 2. Щелкните **Добавить** и выберите **Группы управления службы работоспособности**.
-3. Добавьте все счетчики, которые начинаются с **HTTP**.  
-    ![Добавление счетчиков](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в OMS и для которых настроили политику сбора данных журналов.  
-    ![Отображение активности на мониторе производительности](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Добавьте все счетчики, которые начинаются с **HTTP**.<br>  
+   ![Добавление счетчиков](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в OMS и для которых настроили политику сбора данных журналов.<br>  
+   ![Отображение активности на мониторе производительности](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
@@ -177,6 +180,6 @@ ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

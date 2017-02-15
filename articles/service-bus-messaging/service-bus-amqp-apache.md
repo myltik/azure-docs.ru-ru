@@ -1,19 +1,23 @@
 ---
-title: Установка Apache Qpid Proton-C на виртуальной машине Linux | Microsoft Docs
-description: Создание виртуальной машины CentOS Linux с использованием виртуальных машин Azure и процедура построения и установки библиотеки Apache Qpid Proton-C.
-services: service-bus
+title: "Установка Apache Qpid Proton-C на виртуальной машине Linux | Документация Майкрософт"
+description: "Создание виртуальной машины CentOS Linux с использованием виртуальных машин Azure и процедура построения и установки библиотеки Apache Qpid Proton-C."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux
@@ -84,15 +88,15 @@ ms.author: sethm
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
@@ -101,9 +105,9 @@ ms.author: sethm
 ## <a name="next-steps"></a>Дальнейшие действия
 Хотите узнать больше? Перейдите по следующей ссылке:
 
-* [Поддержка AMQP 1.0 в служебной шине][Поддержка AMQP 1.0 в служебной шине]
+* [Протокол AMQP служебной шины — обзор][Протокол AMQP служебной шины — обзор]
 
-[Поддержка AMQP 1.0 в служебной шине]: service-bus-amqp-overview.md
+[Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
 [1]: ./media/service-bus-amqp-apache/amqp-apache-2.png
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
@@ -115,6 +119,6 @@ ms.author: sethm
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

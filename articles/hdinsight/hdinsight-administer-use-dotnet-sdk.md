@@ -1,13 +1,13 @@
 ---
-title: Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET | Microsoft Docs
-description: Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с помощью пакета SDK для HDInsight .NET.
+title: "Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET | Документация Майкрософт"
+description: "Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с помощью пакета SDK для HDInsight .NET."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+
 
 ---
-# Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Научитесь управлять кластерами HDInsight с помощью [пакета SDK для HDInsight.NET](https://msdn.microsoft.com/library/mt271028.aspx).
@@ -26,9 +30,9 @@ ms.author: jgao
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Подключение к Azure HDInsight
+## <a name="connect-to-azure-hdinsight"></a>Подключение к Azure HDInsight
 Необходимо установить следующие пакеты Nuget:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -106,12 +110,12 @@ ms.author: jgao
         }
     }
 
-При запуске этой программы появится запрос. Если запрос не появится, обратитесь к статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+При запуске этой программы появится запрос.  Если запрос не появится, обратитесь к статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## Создание кластеров
-См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+## <a name="create-clusters"></a>Создание кластеров
+Ознакомьтесь со статьей [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
 
-## Получение списка кластеров
+## <a name="list-clusters"></a>Получение списка кластеров
 В следующем фрагменте кода перечислены кластеры и некоторые свойства:
 
     var results = _hdiManagementClient.Clusters.List();
@@ -122,17 +126,17 @@ ms.author: jgao
         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
     }
 
-## Удаление кластеров
-Для синхронного или асинхронного удаления кластера используйте следующий фрагмент кода:
+## <a name="delete-clusters"></a>Удаление кластеров
+Для синхронного или асинхронного удаления кластера используйте следующий фрагмент кода: 
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 
-## Масштабирование кластеров
+## <a name="scale-clusters"></a>Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
 
 > [!NOTE]
-> Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства». См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства».  См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
@@ -159,7 +163,7 @@ ms.author: jgao
   * с помощью веб-интерфейса Storm;
   * с помощью программы командной строки.
     
-    Дополнительную информацию см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Дополнительные сведения см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
     
     В кластере HDInsight доступен веб-интерфейс Storm.
     
@@ -167,9 +171,9 @@ ms.author: jgao
     
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
     
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
+    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Перенастройте топологию mytopology с учетом 5 рабочих процессов,
+    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>3 исполнителей для воронки blue-spout и
+    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>10 исполнителей для сита yellow-bolt.
       $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 В следующем фрагменте кода показано синхронное или асинхронное изменение размера кластера:
@@ -178,7 +182,7 @@ ms.author: jgao
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 
 
-## Предоставление и отмена доступа
+## <a name="grantrevoke-access"></a>Предоставление и отмена доступа
 В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
 
 * ODBC
@@ -213,12 +217,12 @@ ms.author: jgao
 > 
 > 
 
-Это также можно сделать через портал. См. статью [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Это также можно сделать через портал. Дополнительные сведения см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
-## Обновление учетных данных пользователя HTTP
-Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его. После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
+## <a name="update-http-user-credentials"></a>Обновление учетных данных пользователя HTTP
+Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его.  После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
 
-## Поиск учетной записи хранения по умолчанию
+## <a name="find-the-default-storage-account"></a>Поиск учетной записи хранения по умолчанию
 В следующем фрагменте кода показано получение имени учетной записи хранения по умолчанию и ключа учетной записи хранения по умолчанию для кластера.
 
     var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -228,37 +232,37 @@ ms.author: jgao
     }
 
 
-## Отправка заданий
+## <a name="submit-jobs"></a>Отправка заданий
 **Отправка заданий MapReduce**
 
-См. статью [Запуск примеров выполнения Hadoop MapReduce в HDInsight](hdinsight-hadoop-run-samples-linux.md).
+См. статью [Выполнение примеров Hadoop в HDInsight](hdinsight-hadoop-run-samples-linux.md).
 
-**Отправка заданий Hive**
+**Отправка заданий Hive** 
 
-См. статью [Выполнение запросов Hive с помощью пакета SDK для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+См. статью [Выполнение запросов Hive с помощью пакета SDK HDInsight для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 
 **Отправка заданий Pig**
 
-См. статью [Выполнение заданий Pig с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md).
+См. статью [Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md).
 
 **Отправка заданий Sqoop**
 
-См. раздел [Использование Sqoop с HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
+См. статью [Использование Sqoop с Hadoop в HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Отправка заданий Oozie**
 
 См. статью [Использование Oozie с Hadoop для определения и выполнения рабочего процесса в HDInsight](hdinsight-use-oozie-linux-mac.md).
 
-## Отправка данных в хранилище BLOB-объектов Azure
-См. раздел [Отправка данных в HDInsight][hdinsight-upload-data].
+## <a name="upload-data-to-azure-blob-storage"></a>Отправка данных в хранилище BLOB-объектов Azure
+См. статью [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
 
-## См. также
+## <a name="see-also"></a>См. также
 * [Справочная документация к пакету SDK для HDInsight .NET](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
-* [Администрирование HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
-* [Создание кластеров HDInsight][hdinsight-provision]
-* [Отправка данных в HDInsight][hdinsight-upload-data]
-* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
+* [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure][hdinsight-admin-cli]
+* [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]
+* [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data]
+* [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -277,4 +281,10 @@ ms.author: jgao
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

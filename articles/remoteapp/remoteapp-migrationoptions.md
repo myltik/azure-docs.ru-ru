@@ -1,158 +1,217 @@
-
 ---
-title: Options for migrating out of Azure RemoteApp | Microsoft Docs
-description: Learn about the options for migrating out of Azure RemoteApp.
+title: "Варианты миграции из Azure RemoteApp | Документация Майкрософт"
+description: "Узнайте о вариантах миграции из Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-
+ms.assetid: c4e0e5bc-5c13-4487-b1b6-ebf2a5edc1f0
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
-ms.author: elizapo
+ms.date: 01/07/2017
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+
 
 ---
-# <a name="options-for-migrating-out-of-azure-remoteapp"></a>Options for migrating out of Azure RemoteApp
+# <a name="options-for-migrating-out-of-azure-remoteapp"></a>Варианты переноса из Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
-If you have stopped using Azure RemoteApp because of the [retirement announcement](https://go.microsoft.com/fwlink/?linkid=821148) or because you've finished your evaluation, you need to migrate off of Azure RemoteApp to another app service. There are two different approaches for migrating: a self-managed (often called Infrastructure as a Service [IaaS]) deployment or a fully managed (often called Platform as a Service or Software as a Service [PaaS/SaaS]) offering. 
+Если вы перестали использовать Azure RemoteApp из-за [уведомления о прекращении использования](https://go.microsoft.com/fwlink/?linkid=821148) или завершения работы с ознакомительной версией, необходимо перейти от Azure RemoteApp к другой службе приложений. Есть два подхода к миграции: с самостоятельным управлением развертыванием (это предложение называется инфраструктура как услуга [IaaS]) и полностью управляемым развертыванием (это предложение называется платформа как услуга или программное обеспечение как услуга [PaaS или SaaS]). 
 
-Self-service IaaS is a do-it-yourself deployment that is managed, operated, and owned by you, directly deployed on virtual machines (VMs) or physical systems. At the other end, a fully managed PaaS/SaaS offering is more like Azure RemoteApp - a partner provides a service layer on top of a remoting solution that handles operational and servicing, while you, as the customer, do some image and app management.
+Предложение IaaS с самостоятельным обслуживанием — это управляемое, эксплуатируемое и принадлежащее вам решение, развернутое непосредственно на виртуальных машинах (ВМ) или физических системах. Альтернативное предложение PaaS или SaaS с полным управлением — это в некоторой степени аналог Azure RemoteApp. Партнер предоставляет уровень службы на основе удаленного решения, которое обрабатывает рабочие данные и обеспечивает обслуживание, в то время как клиент (вы) управляет образами и приложениями.
 
-Read on for more information, including examples of the different hosting options.    
+Дополнительные сведения, включая примеры разных вариантов размещения, представлены ниже.    
 
-## <a name="self-managed-(iaas)-solutions"></a>Self-managed (IaaS) solutions
-### <a name="**rds-on-iaas**"></a>**RDS on IaaS**
-You can deploy a native session-based Remote Desktop Services (in Windows Server) deployment using either RemoteApp or desktops on-premises or in a hosted environment (like on Azure VMs). RDS on IaaS deployments are best for customers already familiar with and that have existing technical expertise with RDS deployments. 
+## <a name="self-managed-iaas-solutions"></a>Самостоятельно управляемые решения (IaaS)
+### <a name="rds-on-iaas"></a>**RDS в IaaS**
+Вы можете выполнять собственные развертывания на основе сеансов служб удаленных рабочих столов (в Windows Server) с помощью RemoteApp или классических приложений в локальной или размещенной среде (включая виртуальные машины Azure). RDS в развертываниях IaaS лучше всего подходит для более опытных клиентов, которые уже знакомы с технической стороной этого процесса. 
 
 > [!NOTE]
-> You need Volume Licensing with Software Assurance (SA) for RDS client access licenses to use this deployment option.
+> Использование этого варианта развертывания предусматривает корпоративное лицензирование в рамках программы Software Assurance (SA) для получения лицензий на клиентский доступ с помощью RDS.
 > 
 > 
 
-Deploying RDS on Azure VMs is easier than ever when you use deployment and patching templates (read an [overview](https://blogs.technet.microsoft.com/enterprisemobility/2015/07/13/azure-resource-manager-template-for-rds-deployment/) and then [go get them](https://aka.ms/rdautomation)). You can get the same elastic scaling capabilities with Azure classic deployment model resources (not Azure Resource Model resources) within Azure RemoteApp by using the [auto scaling script](https://gallery.technet.microsoft.com/scriptcenter/Automatic-Scaling-of-9b4f5e76), although there are more customizations and configurations. When you deploy RDS on Azure VMs, support is provided through [Azure Support](https://azure.microsoft.com/support/plans/), the same support professionals that supported you with Azure RemoteApp. You can get cost estimates based on your existing usage by contacting [Azure Support](https://azure.microsoft.com/support/plans/), or you can perform calculations yourself using a soon to be released Cost Calculator.  Also, with N-series VMs (currently in private preview) you can add vGPU - hear more about adding vGPU and about how to [harness RDS improvements in Windows Server 2016](https://myignite.microsoft.com/videos/2794) in our Ignite session.   
+Развертывать RDS на виртуальных машинах Azure проще, чем использовать шаблоны развертывания и исправления (см. [обзор](https://blogs.technet.microsoft.com/enterprisemobility/2015/07/13/azure-resource-manager-template-for-rds-deployment/), а затем переходите к [скачиванию](https://aka.ms/rdautomation)). Такие же возможности эластичного масштабирования доступны при использовании ресурсов классической модели развертывания Azure (не ресурсов модели ресурсов Azure) в Azure RemoteApp с помощью [скрипта автомасштабирования](https://gallery.technet.microsoft.com/scriptcenter/Automatic-Scaling-of-9b4f5e76). Но этот вариант предусматривает дополнительные шаги по настройке. Развертывание RDS на виртуальных машинах Azure сопровождается [поддержкой Azure](https://azure.microsoft.com/support/plans/), предоставляемой теми же специалистами, которые оказывают помощь при работе с Azure RemoteApp. Вы можете оценить затраты на основе текущих показателей использования, обратившись в [службу поддержки Azure](https://azure.microsoft.com/support/plans/). А после выхода калькулятора стоимости (ожидается в ближайшем времени) вы сможете самостоятельно выполнять такие вычисления.  Кроме того, используя виртуальные машины серии N (сейчас доступны в режиме личной предварительной версии), вы можете добавить vGPU. Узнать больше о добавлении vGPU, а также о том, как [использовать оптимизированные возможности RDS в Windows Server 2016](https://myignite.microsoft.com/videos/2794) можно из нашей презентации Ignite.   
 
-We have step by step deployment guides for [Windows Server 2012 R2](http://aka.ms/rdsonazure) and [Windows Server 2016](http://aka.ms/rdsonazure2016) to assist with your deployment. Check out the [Remote Desktop blog](https://blogs.technet.microsoft.com/enterprisemobility/?product=windows-server-remote-desktop-services) for the latest news.
+Чтобы помочь вам, мы также создали пошаговые руководства по развертыванию [Windows Server 2012 R2](http://aka.ms/rdsonazure) и [Windows Server 2016](http://aka.ms/rdsonazure2016). Последние новости можно узнать в [блоге, посвященном операциям с удаленным рабочим столом](https://blogs.technet.microsoft.com/enterprisemobility/?product=windows-server-remote-desktop-services).
 
-### <a name="**citrix-on-iaas**"></a>**Citrix on IaaS**
-A native Citrix deployment of session-based XenApp or XenDesktop can be deployed on-premises or within a hosted environment (such as on Azure VMs). 
+### <a name="citrix-on-iaas"></a>**Citrix в IaaS**
+Собственное развертывание Citrix на основе сеансов XenApp или XenDesktop можно реализовать в локальной или размещенной среде (включая виртуальные машины Azure). 
 
-Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx), for more information. Read more about [Citrix on Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), including a price calculator. You can also find a [Citrix contact](http://citrix.com/English/contact/index.asp) to discuss your options with.
+Дополнительные сведения см. в пошаговом руководстве по развертыванию [Citrix ХА 7.6 в Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx). Также см. дополнительные сведения о [Citrix в Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), включая сведения о калькуляторе стоимости. Вы также можете воспользоваться [контактными данными Citrix](http://citrix.com/English/contact/index.asp), чтобы непосредственно обсудить все интересующие вас варианты.
 
-## <a name="fully-managed-(paas/saas)-offerings"></a>Fully managed (PaaS/SaaS) offerings
-### <a name="**citrix-cloud**"></a>**Citrix Cloud**
-[Citrix existing cloud solution](https://www.citrix.com/products/citrix-cloud/), identical architecturally to Citrix XenApp Express. Citrix is offering a [50% discount promotion](https://www.citrix.com/blogs/2016/10/03/special-promotion-for-microsoft-azure-remoteapp-customers/) for existing Azure RemoteApp customers. 
+## <a name="fully-managed-paassaas-offerings"></a>Полностью управляемые предложения (PaaS или SaaS)
+### <a name="citrix-cloud"></a>**Citrix Cloud**
+Архитектура [существующего облачного решения Citrix](https://www.citrix.com/products/citrix-cloud/) и Citrix XenApp Express идентична. Citrix предлагает [50 % скидку](https://www.citrix.com/blogs/2016/10/03/special-promotion-for-microsoft-azure-remoteapp-customers/) существующим пользователям Azure RemoteApp. 
 
-### <a name="**citrix-xenapp-express-(in-tech-preview)**"></a>**Citrix XenApp Express (in tech preview)**
-[Register for their tech preview](http://now.citrix.com/remoteapp), and watch their [Ignite session](https://myignite.microsoft.com/videos/2792) (starting at minute 20:30). XenApp Express is architecturally identical to Citrix Cloud except it includes simplified management UI and other features and capabilities that are similar to Azure RemoteApp. 
+### <a name="citrix-xenapp-express-in-tech-preview"></a>**Citrix XenApp Express (техническая предварительная версия)**
+[Зарегистрируйтесь для использования технической предварительной версии](http://now.citrix.com/remoteapp) и ознакомьтесь с [презентацией Ignite](https://myignite.microsoft.com/videos/2792) (начиная с 20:30). Архитектура XenApp Express и Citrix Cloud идентична. Единственное отличие заключается в том, что в Citrix Cloud реализован упрощенный пользовательский интерфейс управления и доступны другие функции и возможности, аналоги которых есть в Azure RemoteApp. 
 
-Learn more about [Citrix XenApp Express](http://now.citrix.com/remoteapp).   
+См. дополнительные сведения о [Citrix XenApp Express](http://now.citrix.com/remoteapp).   
 
-### <a name="**citrix-service-provider-program**"></a>**Citrix Service Provider Program**
-The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
+### <a name="citrix-service-provider-program"></a>**Программа поставщиков услуг Citrix**
+Эта программа Citrix упрощает поставщикам услуг процесс предоставления вычислительных ресурсов виртуального облака для малого и среднего бизнеса, предлагая соответствующие службы с оплатой по мере использования. Поставщики услуг Citrix развивают свой бизнес в рамках соглашения Microsoft SPLA и увеличивают инвестиции в платформу RDS, реализуя поддержку разных устройств и приложений, удобный интерфейс, а также обеспечивая повсеместный доступ, защиту и масштабируемость. Все это позволяет поставщикам услуг Citrix привлекать большее число подписчиков, повышать уровень удовлетворенности клиентов и снижать расходы. [См. дополнительные сведения](http://www.citrix.com/products/service-providers.html) или [найдите партнера](https://www.citrix.com/buy/partnerlocator.html).
 
-### <a name="**microsoft-hosted-service-provider**"></a>**Microsoft Hosted Service Provider**
-Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner’s licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
+### <a name="microsoft-hosted-service-provider"></a>**Поставщик размещенных служб Майкрософт**
+Партнеры, предоставляющие услуги размещения, обычно предлагают не только полностью управляемые размещенные классические приложения Windows, но и службу приложений. Эта служба позволяет управлять ресурсами Azure, операционными системами, приложениями и службами технической поддержки в рамках партнерских лицензионных соглашений с корпорацией Майкрософт и другими поставщиками программного обеспечения. Кроме того, в рамках лицензионного соглашения поставщика услуг такие партнеры могут заниматься перепродажей лицензий подписчика (SAL). Ниже приведены подробные сведения о некоторых поставщиках услуг размещения (включая контактные данные). Все они помогают пользователям выполнять миграцию Azure RemoteApp. Ознакомьтесь с [текущим списком сертифицированных поставщиков размещенных служб](http://aka.ms/rdsonazurecertified), которые оказывают услуги, связанные с RDS в IaaS.  
 
-#### <a name="**aspex**"></a>**ASPEX**
-[ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
+#### <a name="aspex"></a>**ASPEX**
+[ASPEX](http://www.aspex.be/en) специализируется на миграции продуктов от независимых поставщиков программного обеспечения в облако, помогая таким поставщикам оптимизировать текущие настройки облака. ASPEX предлагает множество управляемых служб и решений DevOps, а также предоставляет консультационные услуги.  
 
-Primary location: Antwerp, Belgium
+Основное расположение: Антверпен, Бельгия.
 
-Operation region: Western Europe
+Целевой регион: Западная Европа.
 
-Partner status: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff)
+Статус партнера: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff).
 
-Microsoft Cloud Service Provider: Yes
+Поставщик служб Microsoft Cloud: да.
 
-Offer session-based RemoteApp and Desktop solutions: Yes, both
+Предлагаемые решения классических приложений и приложений RemoteApp на основе сеансов: да, оба варианта.
 
-Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/azure-remote-apps)
+Решения для миграции Azure RemoteApp: да, [см. дополнительные сведения](https://www.aspex.be/en/azure-remote-apps).
 
-**Contact:**
+**Контактные данные**
 
-* Phone: +3232202198
-* Mail: [info@aspex.be](mailto:info@aspex.be)
-* Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
+* Тел.: +3232202198
+* Эл. адрес: [info@aspex.be](mailto:info@aspex.be)
+* Сайт: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
-#### <a name="**conexlink-(platform-name:-mycloudit)**"></a>**Conexlink (Platform name: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
+#### <a name="conexlink-platform-name-mycloudit"></a>**Conexlink (имя платформы: MyCloudIT)**
+[MyCloudIT](http://www.mycloudit.com) — это платформа автоматизации для ИТ-компаний, которая помогает упростить, оптимизировать и масштабировать миграцию и доставку удаленных рабочих столов и приложений, а также инфраструктуры в облако Microsoft Azure. 
 
-The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client’s entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
+Платформа MyCloudIT на 95 % сокращает время развертывания, на 30 % снижает расходы на использование решений Azure, а также выполняет быструю миграцию всей клиентской ИТ-инфраструктуры в облако. Теперь партнеры могут управлять клиентами из единой глобальной панели мониторинга в рамках эффективной стратегии обслуживая пользователей во всем мире, увеличивая свои доходы без дополнительных вложений, необходимых для прохождения обучающих программ Azure.  
 
-Primary location: Dallas, TX, USA
+Основное расположение: Даллас, Техас, США.
 
-Operation region: Worldwide
+Целевой регион: весь мир.
 
-Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink)
+Статус партнера: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink).
 
-Microsoft Cloud Service Provider: Yes
+Поставщик служб Microsoft Cloud: да.
 
-Offer session-based RemoteApp and Desktop solutions: Yes, both
+Предлагаемые решения классических приложений и приложений RemoteApp на основе сеансов: да, оба варианта.
 
-Azure RemoteApp migration solutions: Yes, [learn more](https://mycloudit.com/remote-app-microsoft/)
+Решения для миграции Azure RemoteApp: да, [см. дополнительные сведения](https://mycloudit.com/remote-app-microsoft/).
 
-**Contact:**
+**Контактные данные**
 
-* Brian Garoutte, VP of Business Development
+* Брайан Гарутт (Brian Garoutte), вице-президент отдела по развитию бизнеса
   
-   Phone: 972-218-0741
+   Тел.: 972-218-0741
   
-   Email: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
+   Эл. адрес: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
 
-#### <a name="**acuutech**"></a>**Acuutech**
-[Acuutech](http://www.acuutech.com) specializes in providing hosted desktop solutions, delivering full desktop and ISV applications experiences built on Microsoft technology to a global client base from Azure and their own datacenters.
+#### <a name="acuutech"></a>**Acuutech**
+[Acuutech](http://www.acuutech.com) специализируется на предоставлении размещенных классических решений, предоставляя участникам глобальной клиентской базы не только все связанные функции и возможности приложений от независимых поставщиков программного обеспечения на основе технологии Майкрософт из Azure, но также собственные центры обработки данных.
 
-Primary location: London, UK; Singapore; Houston, TX
+Основное расположение: Лондон, Соединенное Королевство; Сингапур; Хьюстон, Техас.
 
-Operation region: Worldwide
+Целевой регион: весь мир.
 
-Partner status: Gold
+Статус партнера: Gold.
 
-Microsoft Cloud Service Provider: Yes
+Поставщик служб Microsoft Cloud: да.
 
-Offer session-based RemoteApp and Desktop solutions: Yes, both
+Предлагаемые решения классических приложений и приложений RemoteApp на основе сеансов: да, оба варианта.
 
-Azure RemoteApp migration solutions: Yes, [learn more](http://www.acuutech.com/ara-migration/)
+Решения для миграции Azure RemoteApp: да, [см. дополнительные сведения](http://www.acuutech.com/ara-migration/).
 
-**Contact:**
+**Контактные данные**
 
-* United Kingdom:
+* Соединенное Королевство:
   
   5/6 York House, Langston Road,
   
   Loughton, Essex IG10 3TQ
   
-  Phone: +44 (0) 20 8502 2155
-* Singapore:
+  Тел.: +44 (0) 20 8502 2155
+* Сингапур:
   
   100 Cecil Street, #09-02, 
   
   The Globe, Singapore 069532
   
-  Phone: +65 6709 4933
-* North America: 
+  Тел.: +65 6709 4933
+* Северная Америка 
   
   3601 S. Sandman St.
   
   Suite 200, Houston, TX 77098
   
-  Phone: +1 713 691 0800
+  Тел.: +1 713 691 0800
 
-## <a name="need-more-help?"></a>Need more help?
-Still need help choosing or have further questions? Use one of the following methods to get help. 
+#### <a name="saasplaza"></a>**SaaSplaza**
+[SaaSplaza](http://www.saasplaza.com/) предлагает полный портфель Microsoft Dynamics (NAV, AX, GP, SL, CRM) для частного и общедоступного облака (Azure).
 
-1. Email us at [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
-2. Contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Start by opening an [Azure support case](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-3. Call us. [Find a local sales number](https://azure.microsoft.com/overview/sales-number/).
+Основное местоположение: Нидерланды.
 
-<!--HONumber=Oct16_HO2-->
+Целевой регион: весь мир.
+
+Статус партнера: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/saasplaza_4295495801/791011_2?k=saasplaza).
+
+Поставщик служб Microsoft Cloud: да.
+
+Предлагаемые решения классических приложений и приложений RemoteApp на основе сеансов: да, оба варианта.
+
+**Контактные данные**
+
+- EMEA:
+
+   Prins Mauritslaan 29-35
+
+   71 LP Badhoevedorp
+
+   The Netherlands
+
+   Телефон: +31 20 547 8060 
+
+- Северная и Южная Америки:
+
+   171 Saxony Road, Suite 105
+
+   Encinitas, CA 92024
+
+   San Diego
+
+   США
+
+   Телефон: +1 858 385 8900 
+
+- APAC:
+
+   105 Cecil Street
+   
+   \#11-08, The Octagon
+
+   Singapore 069534
+
+   Сингапур
+   
+   Телефон в Сингапуре: +65 6222 6591
+
+   Телефон в Австралии: +61 2 8310 5568 
+   
+   Телефон в Новой Зеландии: +64 4 488 0321
+
+## <a name="need-more-help"></a>Требуется дополнительная помощь?
+Все еще не можете определиться с выбором или возникли дополнительные вопросы? Получить справку можно с помощью одного из указанных ниже методов. 
+
+1. Напишите нам по адресу [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
+2. Обратитесь в [службу поддержки Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Создайте [запрос в службу поддержке Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+3. Позвоните нам по [номеру телефона местного отдела продаж](https://azure.microsoft.com/overview/sales-number/).
+
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

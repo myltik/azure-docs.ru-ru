@@ -1,12 +1,12 @@
 ---
-title: Заметки о выпуске Azure SDK для .NET 2.5.1
-description: Заметки о выпуске Azure SDK для .NET 2.5.1
+title: "Заметки о выпуске Azure SDK для .NET 2.5.1"
+description: "Заметки о выпуске Azure SDK для .NET 2.5.1"
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
+
 
 ---
-# <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
+# <a name="azure-sdk-for-net-251-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
 Этот документ содержит заметки о выпуске для пакета Azure SDK для .NET версии 2.5.1. 
 
-## <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
+## <a name="azure-sdk-for-net-251-release-notes"></a>Заметки о выпуске Azure SDK для .NET 2.5.1
 Ниже приведены новые функции и обновления в Azure SDK для .NET 2.5.1.
 
 * Новые функции и сценарии, относящиеся к **расширениям веб-инструментов**. 
@@ -42,7 +46,7 @@ ms.author: juliako
     
     Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="<a-id="known_issues_2_5_1"></a>azure-sdk-for-.net-2.5.1-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Известные проблемы и ограничения пакета SDK для Azure для .NET 2.5.1
+## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Известные проблемы и ограничения пакета SDK для Azure для .NET 2.5.1
 * Приложения API Azure отображаются как назначение развертывания для мобильных приложений. Веб-приложения должны быть единственным назначением для мобильных приложений до последующего выпуска. 
 * Подготовка приложения API Azure может быть выполнена, но периодически будет приводить к сбою обновления в окне «Действия службы приложений Azure». Обойти это можно, проверив состояние нового приложения API Azure на портале Azure. 
 * Последовательный выбор пунктов «Файл» > «Создать проект» > «Приложение API» > «F5» приведет к ошибке HTTP из-за отсутствия файла default/index.html. Обойти это можно, вручную указав URL-адрес /api/values. 
@@ -59,6 +63,9 @@ ms.author: juliako
 * Шаблоны проектов приложений API доступны только в C#.
 * Использование приложений API в контекстном меню «Добавление клиента приложений API Azure» поддерживается только в C#.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Узнайте, как использовать базу данных SQL Server Stretch для безопасного переноса &quot;холодных&quot; данных в Azure без изменения запросов и приложений. Руководства и другие документы."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Документация по базе данных SQL Server Stretch
 
-База данных SQL Server Stretch позволяет прозрачно и безопасно переносить "холодные" данные в облако Microsoft Azure. Благодаря базе данных SQL Server Stretch вы сможете без лишних затрат получать доступ к редко используемым данным, не внося изменения в запросы или приложения, и защищать данные даже во время их переноса. База данных Stretch предназначена для транзакционных баз данных с большими объемами нечасто используемых данных, которые обычно хранятся в нескольких таблицах.
+Узнайте, как использовать базу данных SQL Server Stretch для прозрачного и безопасного переноса "холодных" данных в облако Azure. В руководствах и других документах объясняется, как без лишних затрат получать доступ к базам данных с редко используемыми данными, не изменяя существующие запросы и приложения.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Скачать документацию по базе данных SQL Server Stretch </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

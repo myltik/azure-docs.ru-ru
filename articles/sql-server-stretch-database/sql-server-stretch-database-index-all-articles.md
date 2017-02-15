@@ -1,12 +1,12 @@
 ---
-title: Все статьи о службе баз данных SQL Server Stretch | Microsoft Docs
-description: Таблица всех статей о службе Azure, которая называется базой данных SQL Server Stretch. Статьи находятся по адресу http://azure.microsoft.com/documentation/articles/. Заголовок и описание.
+title: "Все статьи о службе баз данных SQL Server Stretch | Документация Майкрософт"
+description: "Таблица всех статей о службе Azure, которая называется базой данных SQL Server Stretch. Статьи находятся по адресу http://azure.microsoft.com/documentation/articles/. Заголовок и описание."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
-
+ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
+
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Все статьи о службе баз данных SQL Server Stretch в Azure
@@ -54,6 +58,9 @@ ms.author: DouglasL
 | 14 |[Резервное копирование баз данных с поддержкой растяжения](sql-server-stretch-database-backup.md) |Узнайте, как создавать резервные копии баз данных, поддерживающих перенос. |
 | 15 |[Восстановление баз данных с поддержкой Stretch](sql-server-stretch-database-restore.md) |Узнайте, как восстанавливать базы данных с поддержкой переноса. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
